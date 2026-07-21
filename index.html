@@ -3,11 +3,109 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="refresh" content="0; url=./madeira-plan.html">
-  <title>Madera 2026 - plan</title>
-  <link rel="canonical" href="./madeira-plan.html">
+  <meta name="theme-color" content="#0b5558">
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=">
+  <title>Madera 2026 — rodzinny plan podróży</title>
+  <meta name="description" content="Interaktywny, rodzinny plan podróży na Maderę od 19 do 30 sierpnia 2026: osobne dni, mapy, rezerwacje i kalkulator kosztów.">
+  <link rel="stylesheet" href="assets/premium.css">
+  <script defer src="assets/app.js"></script>
 </head>
-<body>
-  <p><a href="./madeira-plan.html">Otworz plan Madera 2026</a></p>
+<body data-page="home">
+  <a class="skip-link" href="#main-content">Przejdź do planu</a>
+  <nav class="topbar" aria-label="Główna nawigacja">
+    <a class="brand" href="index.html">Madera · 2026</a>
+    <div class="top-actions">
+      <span class="progress">19–30 sierpnia · 2 rodziny</span>
+      <button class="soft-toggle" type="button" data-gentle-toggle aria-pressed="true">Tryb łagodny: włączony</button>
+    </div>
+  </nav>
+
+  <header class="hero home-hero">
+    <img class="hero-media" src="https://images.unsplash.com/photo-1674333362725-84e9996aa6fb?auto=format&amp;fit=crop&amp;w=2200&amp;q=82" alt="Panorama Funchal i wybrzeża Madery" fetchpriority="high" decoding="async" onerror="this.parentElement.classList.add('image-fallback');this.remove()">
+    <div class="hero-inner">
+      <p class="eyebrow">Łódź → Berlin → Madera · 19–30 sierpnia 2026</p>
+      <h1>Dwanaście dni bliżej oceanu</h1>
+      <p class="lead">Spokojny, rodzinny przewodnik dla dwóch rodzin — z miejscem na zachwyt, odpoczynek i zmianę planu bez poczucia straty.</p>
+      <div class="chips"><span class="chip">12 dni</span><span class="chip">3 wycieczki busem</span><span class="chip">tempo przyjazne dzieciom</span><span class="chip">warianty bez wysokości</span></div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="intro" aria-labelledby="intro-title">
+      <h2 id="intro-title">Plan, który oddycha</h2>
+      <p>Każdy dzień ma własną agendę, mapę i wariant awaryjny. Tryb łagodny przypomina o ograniczeniu ekspozycji i zostawieniu przestrzeni na odpoczynek; niczego nie rezerwuje ani nie zmienia automatycznie.</p>
+    </section>
+
+    <section class="section" aria-labelledby="days-title">
+      <div class="section-head">
+        <div><h2 id="days-title">Dzień po dniu</h2><p class="section-copy">Filtruj plan lub zaznacz dni, które chcecie zachować jako wspólny wybór. Preferencje zapisują się tylko na tym urządzeniu.</p></div>
+        <div class="filters" aria-label="Filtr dni">
+          <button class="filter active" type="button" data-filter="all">Wszystkie</button>
+          <button class="filter" type="button" data-filter="podróż">Podróż</button>
+          <button class="filter" type="button" data-filter="aktywny">Aktywny</button>
+          <button class="filter" type="button" data-filter="spokojny">Spokojny</button>
+          <button class="filter" type="button" data-filter="wycieczka busem">Wycieczka busem</button>
+          <button class="filter" type="button" data-filter="odpoczynek">Odpoczynek</button>
+        </div>
+      </div>
+      <div class="day-grid" id="day-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="section summary-grid" id="rezerwacje" aria-label="Koszty i rezerwacje">
+      <article class="card"><div class="card-body">
+        <h2>Kalkulator kosztów</h2>
+        <p class="section-copy">Stała baza obejmuje dwa transfery madeira-in po 45 EUR. Kurs PLN ustawiasz ręcznie.</p>
+        <form id="cost-form" class="form-grid">
+          <div class="field"><label for="tours">Dni wycieczek</label><select id="tours" name="tours"><option value="2">2 dni × 220 EUR</option><option value="3">3 dni × 220 EUR</option></select></div>
+          <div class="field"><label for="cruise">Opcjonalny rejs (EUR)</label><input id="cruise" name="cruise" type="number" inputmode="decimal" min="0" step="1" value="0"></div>
+          <div class="field"><label for="parking">Parking P8 (EUR)</label><input id="parking" name="parking" type="number" inputmode="decimal" min="0" step="1" value="0"></div>
+          <div class="field"><label for="other">Inne wydatki (EUR)</label><input id="other" name="other" type="number" inputmode="decimal" min="0" step="1" value="0"></div>
+          <div class="field"><label for="rate">Kurs EUR/PLN</label><input id="rate" name="rate" type="number" inputmode="decimal" min="0" step="0.01" value="4.30"></div>
+        </form>
+        <div class="cost-total" aria-live="polite"><strong id="total-eur">750 EUR</strong><span id="total-pln">3 225 PLN przy kursie 4,30</span></div>
+      </div></article>
+
+      <article class="card"><div class="card-body">
+        <h2>madeira-in</h2>
+        <ul class="booking-list">
+          <li><strong>Transfer:</strong> 45 EUR w jedną stronę; baza obejmuje 2 transfery.</li>
+          <li><strong>Wycieczka:</strong> 220 EUR za dzień, zwykle 09:30–17:00 lub 17:30.</li>
+          <li><strong>Samochód:</strong> Mercedes Sprinter, 9 miejsc łącznie z kierowcą.</li>
+          <li><strong>Rodzina:</strong> dostępne foteliki lub podkładki — potwierdzić przed przyjazdem.</li>
+          <li><strong>Kierowca:</strong> może obsługiwać transfery i wycieczki; możliwy język niemiecki.</li>
+          <li><strong>Płatność:</strong> po transferach, po poszczególnych dniach albo za całość — ustalić z operatorem.</li>
+        </ul>
+        <p class="notice"><strong>Baza: 750 EUR</strong> = 2 × 45 EUR + 3 × 220 EUR. Rejs, parking i inne wydatki nie są wliczone.</p>
+      </div></article>
+    </section>
+
+    <section class="section summary-grid" aria-label="Checklista i ważne ustalenia">
+      <article class="card"><div class="card-body">
+        <h2>Checklista przed wyjazdem</h2>
+        <div class="checklist">
+          <label class="check-row"><input type="checkbox" data-check="flights"> Potwierdzone numery i godziny obu lotów</label>
+          <label class="check-row"><input type="checkbox" data-check="p8"> Rezerwacja, kod wjazdu i sektor P8</label>
+          <label class="check-row"><input type="checkbox" data-check="transfer"> Godziny oraz miejsce spotkania z madeira-in</label>
+          <label class="check-row"><input type="checkbox" data-check="seats"> Foteliki lub podkładki dla dzieci</label>
+          <label class="check-row"><input type="checkbox" data-check="insurance"> Ubezpieczenie i EKUZ</label>
+          <label class="check-row"><input type="checkbox" data-check="documents"> Dokumenty, leki i ładowarki</label>
+          <label class="check-row"><input type="checkbox" data-check="offline"> Mapy offline i kontakty alarmowe</label>
+        </div>
+        <div class="reset-row"><button class="button coral" id="reset-plan" type="button">Resetuj plan</button></div>
+      </div></article>
+      <article class="card"><div class="card-body">
+        <h2>Do potwierdzenia</h2>
+        <ul class="tips">
+          <li>Lot EJU5333 oraz lądowanie 20 sierpnia o 10:55 wynikają z wcześniejszych dokumentów, ale wymagają ponownego potwierdzenia.</li>
+          <li>Godzina lotu powrotnego i transferu 30 sierpnia nie są traktowane jako potwierdzone.</li>
+          <li>Dostępność madeira-in, ten sam kierowca i język niemiecki należy potwierdzić pisemnie.</li>
+          <li>Aktualne godziny atrakcji, pogoda górska, fale i warunki rejsu sprawdzamy krótko przed danym dniem.</li>
+        </ul>
+        <p class="notice">Rabaçal i Risco nie są domyślną rekomendacją. Według korespondencji madeira-in nie są dobrym wyborem dla dzieci, a Risco także przy problemie z klifami.</p>
+      </div></article>
+    </section>
+
+    <footer class="footer">Rodzinny plan Madery · 19–30 sierpnia 2026 · Dane pozostają w pamięci przeglądarki na tym urządzeniu.</footer>
+  </main>
 </body>
 </html>
