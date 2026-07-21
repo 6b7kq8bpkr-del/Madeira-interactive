@@ -16,6 +16,10 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+body, h1, h2, h3, p, li, label, small, a, button { overflow-wrap: break-word; }
+h1, h2 { text-wrap: balance; }
+img, svg, video { max-width: 100%; }
+.leaflet-pane img, .leaflet-proxy { max-width: none; }
 body {
   margin: 0;
   min-width: 320px;
