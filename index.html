@@ -25,15 +25,16 @@
     <div class="hero-inner">
       <p class="eyebrow">Łódź → Berlin → Madera · 19–30 sierpnia 2026</p>
       <h1>Dwanaście dni bliżej oceanu</h1>
-      <p class="lead">Spokojny, rodzinny przewodnik dla dwóch rodzin — z miejscem na zachwyt, odpoczynek i zmianę planu bez poczucia straty.</p>
-      <div class="chips"><span class="chip">12 dni</span><span class="chip">3 wycieczki busem</span><span class="chip">tempo przyjazne dzieciom</span><span class="chip">warianty bez wysokości</span></div>
+      <p class="lead">Spokojny, rodzinny przewodnik dla dwóch rodzin — z uwzględnieniem dzieci, lęku wysokości i osoby oszczędzającej kolano przed operacją.</p>
+      <div class="chips"><span class="chip">12 dni</span><span class="chip">3 wycieczki busem</span><span class="chip">rejs na delfiny i wieloryby</span><span class="chip">warianty bez wysokości</span></div>
     </div>
   </header>
 
   <main id="main-content">
     <section class="intro" aria-labelledby="intro-title">
       <h2 id="intro-title">Plan, który oddycha</h2>
-      <p>Każdy dzień ma własną agendę, mapę i wariant awaryjny. Tryb łagodny przypomina o ograniczeniu ekspozycji i zostawieniu przestrzeni na odpoczynek; niczego nie rezerwuje ani nie zmienia automatycznie.</p>
+      <p>Każdy dzień ma własną agendę, trasę na mapie i wariant awaryjny. Tryb łagodny ogranicza chodzenie, schody, nierówne podłoże i ekspozycję, zostawiając przestrzeń na odpoczynek; niczego nie rezerwuje ani nie zmienia automatycznie.</p>
+      <div class="mobility-notice" role="note" aria-label="Ważna informacja dotycząca kolana"><strong>Priorytet: oszczędzamy kolano.</strong> Wersje łagodne zakładają taxi lub podjazd busem, krótkie odcinki, częste przerwy na siedząco oraz rezygnację ze stromych i nierównych tras. Ostateczny zakres aktywności powinien być zgodny z zaleceniami lekarza prowadzącego.</div>
     </section>
 
     <section class="section" aria-labelledby="days-title">
@@ -54,10 +55,11 @@
     <section class="section summary-grid" id="rezerwacje" aria-label="Koszty i rezerwacje">
       <article class="card"><div class="card-body">
         <h2>Kalkulator kosztów</h2>
-        <p class="section-copy">Stała baza obejmuje dwa transfery madeira-in po 45 EUR. Kurs PLN ustawiasz ręcznie.</p>
+        <p class="section-copy">Domyślna baza transferów to oferta madeira-in: 2 × 45 EUR. Jeśli wybierzecie Ziptransfer, wpisz tutaj łączną cenę z wyceny. Kurs PLN ustawiasz ręcznie.</p>
         <form id="cost-form" class="form-grid">
           <div class="field"><label for="tours">Dni wycieczek</label><select id="tours" name="tours"><option value="2">2 dni × 220 EUR</option><option value="3">3 dni × 220 EUR</option></select></div>
-          <div class="field"><label for="cruise">Opcjonalny rejs (EUR)</label><input id="cruise" name="cruise" type="number" inputmode="decimal" min="0" step="1" value="0"></div>
+          <div class="field"><label for="transfer">Dwa transfery lotniskowe (EUR)</label><input id="transfer" name="transfer" type="number" inputmode="decimal" min="0" step="1" value="90" aria-describedby="transfer-help"><small id="transfer-help">90 EUR dla madeira-in lub łączna cena Ziptransfer.</small></div>
+          <div class="field"><label for="cruise">Rejs na delfiny i wieloryby (EUR)</label><input id="cruise" name="cruise" type="number" inputmode="decimal" min="0" step="1" value="0" aria-describedby="cruise-help"><small id="cruise-help">Wpisz cenę po wyborze operatora.</small></div>
           <div class="field"><label for="parking">Parking P8 (EUR)</label><input id="parking" name="parking" type="number" inputmode="decimal" min="0" step="1" value="0"></div>
           <div class="field"><label for="other">Inne wydatki (EUR)</label><input id="other" name="other" type="number" inputmode="decimal" min="0" step="1" value="0"></div>
           <div class="field"><label for="rate">Kurs EUR/PLN</label><input id="rate" name="rate" type="number" inputmode="decimal" min="0" step="0.01" value="4.30"></div>
@@ -66,16 +68,17 @@
       </div></article>
 
       <article class="card"><div class="card-body">
-        <h2>madeira-in</h2>
+        <h2>Transport na Maderze</h2>
         <ul class="booking-list">
-          <li><strong>Transfer:</strong> 45 EUR w jedną stronę; baza obejmuje 2 transfery.</li>
-          <li><strong>Wycieczka:</strong> 220 EUR za dzień, zwykle 09:30–17:00 lub 17:30.</li>
-          <li><strong>Samochód:</strong> Mercedes Sprinter, 9 miejsc łącznie z kierowcą.</li>
-          <li><strong>Rodzina:</strong> dostępne foteliki lub podkładki — potwierdzić przed przyjazdem.</li>
-          <li><strong>Kierowca:</strong> może obsługiwać transfery i wycieczki; możliwy język niemiecki.</li>
-          <li><strong>Płatność:</strong> po transferach, po poszczególnych dniach albo za całość — ustalić z operatorem.</li>
+          <li><strong>Transfer lotniskowy:</strong> rozważamy Ziptransfer na trasie FNC ↔ Hotel Baía Azul; cena, typ pojazdu, warunki anulowania i godziny są do potwierdzenia.</li>
+          <li><strong>Bez fotelików:</strong> przy rezerwacji nie zamawiamy fotelików ani podkładek.</li>
+          <li><strong>Oferta porównawcza madeira-in:</strong> 45 EUR w jedną stronę, czyli 90 EUR za dwa transfery.</li>
+          <li><strong>Wycieczka madeira-in:</strong> 220 EUR za dzień, zwykle 09:30–17:00 lub 17:30.</li>
+          <li><strong>Bus wycieczkowy:</strong> Mercedes Sprinter, 9 miejsc łącznie z kierowcą.</li>
+          <li><strong>Kierowca madeira-in:</strong> może obsługiwać wycieczki; możliwy język niemiecki.</li>
+          <li><strong>Płatność madeira-in:</strong> po poszczególnych dniach albo za całość — ustalić z operatorem.</li>
         </ul>
-        <p class="notice"><strong>Baza: 750 EUR</strong> = 2 × 45 EUR + 3 × 220 EUR. Rejs, parking i inne wydatki nie są wliczone.</p>
+        <p class="notice"><strong>Baza: 750 EUR</strong> = 2 × 45 EUR + 3 × 220 EUR. Zaplanowany rejs, parking i inne wydatki nie są wliczone do bazy.</p>
       </div></article>
     </section>
 
@@ -85,8 +88,10 @@
         <div class="checklist">
           <label class="check-row"><input type="checkbox" data-check="flights"> Potwierdzone numery i godziny obu lotów</label>
           <label class="check-row"><input type="checkbox" data-check="p8"> Rezerwacja, kod wjazdu i sektor P8</label>
-          <label class="check-row"><input type="checkbox" data-check="transfer"> Godziny oraz miejsce spotkania z madeira-in</label>
-          <label class="check-row"><input type="checkbox" data-check="seats"> Foteliki lub podkładki dla dzieci</label>
+          <label class="check-row"><input type="checkbox" data-check="transfer"> Wybrany operator transferu: Ziptransfer lub madeira-in; potwierdzone godziny i miejsce spotkania</label>
+          <label class="check-row"><input type="checkbox" data-check="no-seats"> Rezerwacja transferu bez fotelików i podkładek</label>
+          <label class="check-row"><input type="checkbox" data-check="cruise"> Rejs z terminem zapasowym 29 sierpnia, łatwym wejściem i miejscem siedzącym</label>
+          <label class="check-row"><input type="checkbox" data-check="knee"> Zalecenia lekarza, leki i ewentualna asysta lotniskowa dla osoby przed operacją kolana</label>
           <label class="check-row"><input type="checkbox" data-check="insurance"> Ubezpieczenie i EKUZ</label>
           <label class="check-row"><input type="checkbox" data-check="documents"> Dokumenty, leki i ładowarki</label>
           <label class="check-row"><input type="checkbox" data-check="offline"> Mapy offline i kontakty alarmowe</label>
@@ -98,8 +103,10 @@
         <ul class="tips">
           <li>Lot EJU5333 oraz lądowanie 20 sierpnia o 10:55 wynikają z wcześniejszych dokumentów, ale wymagają ponownego potwierdzenia.</li>
           <li>Godzina lotu powrotnego i transferu 30 sierpnia nie są traktowane jako potwierdzone.</li>
-          <li>Dostępność madeira-in, ten sam kierowca i język niemiecki należy potwierdzić pisemnie.</li>
-          <li>Aktualne godziny atrakcji, pogoda górska, fale i warunki rejsu sprawdzamy krótko przed danym dniem.</li>
+          <li>Przed rezerwacją Ziptransfer trzeba potwierdzić cenę za oba kierunki, pojemność auta, bagaże, zasady oczekiwania na opóźniony lot i możliwość zmiany.</li>
+          <li>Dostępność madeira-in na wycieczki i język niemiecki należy potwierdzić pisemnie.</li>
+          <li>Rejs na delfiny i wieloryby planujemy na 28 sierpnia, z 29 sierpnia jako terminem zapasowym; operator musi potwierdzić warunki dla osoby z problemem kolana.</li>
+          <li>Aktualne godziny atrakcji, pogoda górska, fale i decyzja operatora o wypłynięciu wymagają sprawdzenia krótko przed danym dniem.</li>
         </ul>
         <p class="notice">Rabaçal i Risco nie są domyślną rekomendacją. Według korespondencji madeira-in nie są dobrym wyborem dla dzieci, a Risco także przy problemie z klifami.</p>
       </div></article>
