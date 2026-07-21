@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Madera 2026 - plan rodzinny</title>
-  <meta name="description" content="Plan pobytu na Maderze 20-30 sierpnia 2026 dla dwóch rodzin, z prywatnymi busami madeira-in i spokojną logistyką.">
+  <meta name="description" content="Plan pobytu Berlin-Madera-Berlin, 20-30 sierpnia 2026, dla dwóch rodzin, z prywatnymi busami madeira-in i spokojną logistyką.">
   <style>
     :root {
       --paper: #f7f4ee;
@@ -292,6 +292,7 @@
     .tag.bus { color: var(--sea); background: #dbecee; }
     .tag.rest { color: #6e5a24; background: #eee4cc; }
     .tag.warn { color: var(--alert); background: #f0dfd4; }
+    .tag.flight { color: #4d4968; background: #e3e1f0; }
 
     .two-col {
       display: grid;
@@ -391,11 +392,12 @@
 <body>
   <header>
     <div class="hero">
-      <p class="eyebrow">20-30 sierpnia 2026 · Funchal · 2 rodziny · 7 osob</p>
+      <p class="eyebrow">20-30 sierpnia 2026 · Berlin BER ⇄ Funchal · 2 rodziny · 7 osob</p>
       <h1>Madera spokojnym rytmem</h1>
-      <p class="lead">Plan po aktualizacji: transfery i trzy glowne dni wycieczek prywatnym busem madeira-in, bez forsowania ekspozycji i z Muzeum CR7 w lekkim dniu miejskim.</p>
+      <p class="lead">Plan po aktualizacji: agenda zaczyna i konczy sie w Berlinie, obejmuje loty BER-FNC-BER, transfery madeira-in i trzy glowne dni wycieczek bez forsowania ekspozycji.</p>
       <div class="hero-actions">
         <a class="button" href="#plan">Zobacz plan</a>
+        <a class="button" href="#berlin">Berlin i loty</a>
         <a class="button" href="#transport">Transport i uwagi</a>
       </div>
     </div>
@@ -403,6 +405,7 @@
 
   <nav aria-label="Nawigacja planu">
     <a href="#plan">Plan dni</a>
+    <a href="#berlin">Berlin i loty</a>
     <a href="#transport">Busy madeira-in</a>
     <a href="#cr7">CR7</a>
     <a href="#bezpieczenstwo">Bezpieczenstwo</a>
@@ -413,13 +416,13 @@
       <div class="section-head">
         <div>
           <h2 id="podsumowanie">Założenia</h2>
-          <p class="note">Baza to Hotel Baía Azul w Funchal. Wedlug rezerwacji lot BER-FNC EJU5333 laduje 20.08 o 10:55, a powrot FNC-BER EJU5334 startuje 30.08 o 11:45. W dokumentach jest brak transferu lotnisko-hotel-lotnisko, wiec zakladamy madeira-in.</p>
+          <p class="note">Baza to Hotel Baía Azul w Funchal. Wedlug rezerwacji lot BER-FNC EJU5333 laduje 20.08 o 10:55, a powrot FNC-BER EJU5334 startuje 30.08 o 11:45 i laduje w Berlinie o 17:10. W dokumentach jest brak transferu lotnisko-hotel-lotnisko na Maderze, wiec zakladamy madeira-in.</p>
         </div>
       </div>
       <div class="summary">
+        <div><strong>BER</strong><span>agenda obejmuje start z Berlina, odprawe i powrot do Berlina 30.08.</span></div>
         <div><strong>3</strong><span>pełne dni busem: wschod, zachod i lagodny dzien Calheta zamiast Rabaçal/Risco.</span></div>
         <div><strong>4</strong><span>dni lekkie lub odpoczynkowe, z basenem, Lido, Funchal i buforem pogodowym.</span></div>
-        <div><strong>1</strong><span>Muzeum CR7 w centrum Funchal, najlepiej w piatek po przylocie.</span></div>
         <div><strong>0</strong><span>obowiazkowych tras z ekspozycja typu Pico do Arieiro-Pico Ruivo.</span></div>
       </div>
     </section>
@@ -428,10 +431,11 @@
       <div class="section-head">
         <div>
           <h2 id="plan-title">Plan pobytu</h2>
-          <p class="note">Filtry pomagaja szybko zobaczyc, ktore dni sa aktywne, a ktore daja oddech dzieciom i doroslym.</p>
+          <p class="note">Filtry pomagaja szybko zobaczyc, ktore dni sa aktywne, ktore sa lotnicze, a ktore daja oddech dzieciom i doroslym.</p>
         </div>
         <div class="filters" aria-label="Filtry dni">
           <button class="filter active" data-filter="all">Wszystkie</button>
+          <button class="filter" data-filter="flight">Loty</button>
           <button class="filter" data-filter="bus">Busy</button>
           <button class="filter" data-filter="light">Lekko</button>
           <button class="filter" data-filter="rest">Odpoczynek</button>
@@ -439,13 +443,13 @@
       </div>
 
       <div class="timeline">
-        <article class="day" data-kind="light">
-          <div class="date">20.08 czw.<span>Przylot</span></div>
+        <article class="day" data-kind="flight">
+          <div class="date">20.08 czw.<span>Berlin i przylot</span></div>
           <div>
-            <h3>FNC → Hotel Baía Azul</h3>
-            <p>Przylot o 10:55, prywatny transfer madeira-in, check-in, obiad blisko hotelu, basen i krotki spacer promenada przy Lido.</p>
+            <h3>Berlin BER → FNC → Hotel Baía Azul</h3>
+            <p>Start dnia na lotnisku Berlin Brandenburg. Lot BER-FNC EJU5333 wedlug dokumentow laduje w Funchal o 10:55. Po odbiorze bagazu prywatny transfer madeira-in do hotelu, check-in, obiad blisko hotelu, basen i krotki spacer promenada przy Lido.</p>
           </div>
-          <div class="tags"><span class="tag bus">transfer</span><span class="tag rest">lekko</span></div>
+          <div class="tags"><span class="tag flight">Berlin BER</span><span class="tag bus">transfer</span><span class="tag rest">lekko</span></div>
         </article>
 
         <article class="day" data-kind="light">
@@ -529,14 +533,37 @@
           <div class="tags"><span class="tag rest">odpoczynek</span></div>
         </article>
 
-        <article class="day" data-kind="light">
-          <div class="date">30.08 niedz.<span>Powrot</span></div>
+        <article class="day" data-kind="flight">
+          <div class="date">30.08 niedz.<span>Powrot do Berlina</span></div>
           <div>
-            <h3>Hotel → FNC → BER</h3>
-            <p>Transfer madeira-in ok. 08:45. Lot FNC-BER EJU5334 ma w dokumentach godziny 11:45-17:10. Godziny lotow trzeba sprawdzic przed wyjazdem.</p>
+            <h3>Hotel → FNC → Berlin BER</h3>
+            <p>Transfer madeira-in ok. 08:45. Lot FNC-BER EJU5334 ma w dokumentach godziny 11:45-17:10. Po ladowaniu w Berlinie zostawiamy bufor na bagaze, dzieci i dojazd z BER do domu.</p>
           </div>
-          <div class="tags"><span class="tag bus">transfer</span></div>
+          <div class="tags"><span class="tag bus">transfer</span><span class="tag flight">Berlin BER</span></div>
         </article>
+      </div>
+    </section>
+
+    <section id="berlin" aria-labelledby="berlin-title">
+      <div class="two-col">
+        <div>
+          <h2 id="berlin-title">Berlin i loty</h2>
+          <p class="note">Berlin jest teraz osobnym elementem agendy: nie tylko kodem lotniska w rezerwacji, ale realnym etapem dnia z odprawa, bagazami, buforem dla dzieci i powrotem po przylocie.</p>
+          <div class="operator">
+            <div><strong>20.08</strong><span>Berlin BER → Funchal, EJU5333. W dokumentach potwierdzony przylot do FNC o 10:55.</span></div>
+            <div><strong>30.08</strong><span>Funchal → Berlin BER, EJU5334. W dokumentach 11:45-17:10.</span></div>
+            <div><strong>Bufor</strong><span>Przy dzieciach planowac spokojna odprawe, toalety, przekaski i margines na kolejki.</span></div>
+            <div><strong>Do sprawdzenia</strong><span>Godziny lotow, limity bagazu i terminal/stanowiska przed wyjazdem.</span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Praktycznie dla grupy</h3>
+          <ul>
+            <li>Na 20.08 nie dokladamy zadnej atrakcji po przylocie poza hotelem, jedzeniem i Lido.</li>
+            <li>Na 30.08 nie planujemy zwiedzania: poranek jest pod transfer, lotnisko i spokojny powrot do Berlina.</li>
+            <li>Dokumenty nie potwierdzaja transferu lotnisko-hotel-lotnisko na Maderze, wiec madeira-in zostaje najbezpieczniejszym zalozeniem.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -544,7 +571,7 @@
       <div class="two-col">
         <div>
           <h2 id="transport-title">Busy madeira-in</h2>
-          <p class="note">Zakladamy oferte madeira-in jako najbardziej sensowna dla calego pakietu: prywatne transfery i trzy dni wycieczek, ten sam kierowca jesli potwierdza dostepnosc, foteliki/podkladki i Mercedes Sprinter.</p>
+          <p class="note">Zakladamy oferte madeira-in jako najbardziej sensowna dla calego pakietu: prywatne transfery FNC-hotel-FNC i trzy dni wycieczek, ten sam kierowca jesli potwierdza dostepnosc, foteliki/podkladki i Mercedes Sprinter.</p>
           <div class="operator">
             <div><strong>Transfery</strong><span>FNC-hotel-FNC: w mailu 45 EUR w jedna strone dla grupy.</span></div>
             <div><strong>Wycieczki</strong><span>Ok. 09:30-17:00/17:30, 220 EUR za dzien.</span></div>
@@ -597,7 +624,7 @@
       </div>
     </section>
 
-    <p class="foot">Aktualizacja: plan uwzglednia dokumenty rezerwacji, opis hotelu, przewodniki w workspace, informacje od uzytkownika oraz oferte madeira-in z Gmaila. Godziny lotow i godziny atrakcji nalezy sprawdzic ponownie przed wyjazdem.</p>
+    <p class="foot">Aktualizacja: plan uwzglednia dokumenty rezerwacji, opis hotelu, przewodniki w workspace, informacje od uzytkownika oraz oferte madeira-in z Gmaila. Godziny lotow, limity bagazu, transfery i godziny atrakcji nalezy sprawdzic ponownie przed wyjazdem.</p>
   </main>
 
   <script>
