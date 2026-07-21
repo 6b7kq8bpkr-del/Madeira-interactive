@@ -25,7 +25,6 @@
     <div class="hero-inner">
       <p class="eyebrow">Łódź → Berlin → Madera · 19–30 sierpnia 2026</p>
       <h1>Dwanaście dni bliżej oceanu</h1>
-      <p class="lead">Aktywny, rodzinny przewodnik dla dwóch rodzin — dzieci dobrze chodzą po górach, a osoba przed operacją korzysta z ortezy i kijków.</p>
       <div class="chips"><span class="chip">12 dni</span><span class="chip">3 wycieczki busem</span><span class="chip">rodzinne spacery górskie</span><span class="chip">rejs na delfiny i wieloryby</span></div>
     </div>
   </header>
@@ -50,6 +49,23 @@
         </div>
       </div>
       <div class="day-grid" id="day-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="section" aria-labelledby="overview-map-title">
+      <div class="section-head">
+        <div><h2 id="overview-map-title">Mapa wszystkich wycieczek</h2><p class="section-copy">Trzy dni z prywatnym busem madeira-in na jednej mapie — Wschód, Zachód i Calheta, każdy w innym kolorze.</p></div>
+      </div>
+      <div class="card">
+        <div class="map-shell" id="overview-map-shell">
+          <button class="map-activate" type="button" id="overview-map-activate">Aktywuj mapę</button>
+          <div class="route-map" id="overview-map" role="application" aria-label="Mapa OpenStreetMap ze wszystkimi trasami wycieczek busem"></div>
+        </div>
+        <div class="route-summary">
+          <p><strong>Orientacyjne trasy trzech wycieczek</strong> — każda ma swój kolor; dokładny przebieg dróg i pełną listę punktów danego dnia sprawdź w Google Maps na stronie tego dnia.</p>
+          <ul class="route-legend" id="overview-legend"></ul>
+        </div>
+        <div class="map-actions"><button class="button secondary" type="button" id="overview-map-deactivate">Wyłącz mapę</button></div>
+      </div>
     </section>
 
     <section class="section summary-grid" id="rezerwacje" aria-label="Koszty i rezerwacje">

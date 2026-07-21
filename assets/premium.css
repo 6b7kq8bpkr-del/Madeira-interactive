@@ -140,6 +140,16 @@ h3 { color: var(--ink); }
 .route-stop-list span { width: 22px; height: 22px; display: grid; place-items: center; border-radius: 50%; color: white; background: var(--coral); font-size: 11px; }
 .map-error { max-width: 440px; margin: 0; padding: 120px 24px 24px; color: var(--sea-dark); line-height: 1.6; }
 .map-actions { display: flex; gap: 10px; flex-wrap: wrap; padding: 16px; }
+.route-legend { display: flex; flex-wrap: wrap; gap: 8px; margin: 13px 0 0; padding: 0; list-style: none; }
+.route-legend li { display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 999px; background: #edf7f4; font-size: 13px; font-weight: 800; }
+.route-legend a { color: var(--sea-dark); text-decoration: none; }
+.route-legend a:hover { text-decoration: underline; }
+.legend-dot { width: 12px; height: 12px; flex: 0 0 auto; border-radius: 50%; }
+
+.deep-dive .card-body { padding: clamp(22px, 4vw, 34px); }
+.deep-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-top: 6px; }
+.deep-grid h3 { margin: 0 0 8px; font-size: 16px; }
+.deep-grid p { margin: 0; color: var(--muted); line-height: 1.6; }
 .button { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 16px; border: 0; border-radius: 999px; color: white; background: var(--sea); text-decoration: none; cursor: pointer; font-weight: 900; }
 .button.secondary { color: var(--sea-dark); background: #e1f0ed; }
 .button.coral { background: var(--coral); }
@@ -188,7 +198,7 @@ h3 { color: var(--ink); }
 .footer { padding: 34px 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
 
 @media (max-width: 900px) {
-  .grid, .day-grid, .summary-grid { grid-template-columns: 1fr; }
+  .grid, .day-grid, .summary-grid, .deep-grid { grid-template-columns: 1fr; }
   .hero { min-height: 68svh; }
   .section-head { align-items: start; flex-direction: column; }
   .route-map { height: 330px; }
