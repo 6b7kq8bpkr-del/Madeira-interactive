@@ -17,10 +17,10 @@
     {
       id: "2026-08-19", date: "19 sierpnia · środa", title: "Łódź → Berlin", short: "Spokojny start podróży, P8 i lekki wieczór w Berlinie.",
       image: images.berlin, alt: "Brama Brandenburska w Berlinie o wieczornej porze", cats: ["podróż", "spokojny"],
-      intensity: "Łagodna", duration: "6–7 h przejazdu + 2 h", transport: "Samochód", walking: "Niewiele", kids: "Tak, z przerwami", exposure: "Niska", knee: "Postój co 90 min; spacer opcjonalny",
+      intensity: "Łagodna", duration: "6–7 h przejazdu + 2 h", transport: "Samochód", walking: "Spacer 1–3 km", kids: "Tak, sprawnie chodzą", exposure: "Niska", knee: "Orteza; postój co 90 min",
       center: [52.5163, 13.3777], route: [[51.7592, 19.4560, "Łódź"], [52.3664, 13.5071, "Parking P8 BER"], [52.5163, 13.3777, "Brama Brandenburska"]], google: "https://www.google.com/maps/dir/%C5%81%C3%B3d%C5%BA/Berlin+Brandenburg+Airport+P8/Brandenburg+Gate",
       agenda: [["11:00", "Wyjazd z Łodzi", "Start bez pośpiechu; zaplanować regularne postoje dla dzieci."], ["17:00", "Parking P8 przy BER", "Wjazd zgodnie z rezerwacją, zdjęcie miejsca postoju i szybka kontrola dojazdu do terminala."], ["18:15", "Jeden lekki spacer", "Brama Brandenburska i Reichstag z zewnątrz albo kameralne Nikolaiviertel — bez łączenia wszystkiego."], ["19:30", "Wczesna kolacja", "Proste menu, nawodnienie i szybki powrót na nocleg."]],
-      tips: ["Przed wyjazdem pobrać mapę offline Berlina i okolic BER.", "Sprawdzić kod wjazdu, numer rezerwacji P8 i sposób transferu do terminala.", "Dla osoby przed operacją kolana: postój najpóźniej co 90 minut, bez długiego stania i bez obowiązkowego spaceru po Berlinie.", "Zostawić bagaże lotnicze łatwo dostępne — nie przepakowywać auta wieczorem."],
+      tips: ["Przed wyjazdem pobrać mapę offline Berlina i okolic BER.", "Sprawdzić kod wjazdu, numer rezerwacji P8 i sposób transferu do terminala.", "Po drodze robić postoje najpóźniej co 90 minut; po przyjeździe zaplanować jeden spacer 1–3 km w ortezie, bez długiego stania.", "Zostawić bagaże lotnicze łatwo dostępne — nie przepakowywać auta wieczorem."],
       planB: "Jeśli trasa się wydłuży, pomijamy centrum Berlina. Kolacja i spokojny nocleg w okolicy BER są pełnoprawnym planem.", gentle: "Tryb łagodny: spacer traktujemy jako bonus, nie punkt obowiązkowy."
     },
     {
@@ -35,19 +35,19 @@
     {
       id: "2026-08-21", date: "21 sierpnia · piątek", title: "Funchal i CR7", short: "Marina, muzeum, stare miasto i dużo miejsca na odpoczynek.",
       image: images.funchal, alt: "Funchal widziane od strony oceanu", cats: ["aktywny", "spokojny"],
-      intensity: "Umiarkowana", duration: "4–5 h", transport: "Autobus / taxi", walking: "1–2 km w wersji łagodnej", kids: "Tak", exposure: "Niska", knee: "Taxi między punktami; częste siedzenie",
+      intensity: "Umiarkowana", duration: "4–5 h", transport: "Autobus / taxi", walking: "2–4 km", kids: "Tak, sprawnie chodzą", exposure: "Niska", knee: "Orteza; przerwy co 45–60 min",
       center: [32.648, -16.913], route: [[32.6384, -16.9353, "Hotel Baía Azul"], [32.6443, -16.9148, "Muzeum CR7"], [32.6454, -16.9096, "Marina"], [32.6484, -16.9033, "Stare miasto"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/CR7+Museum/Funchal+Marina/Mercado+dos+Lavradores",
       agenda: [["09:30", "Centrum i marina", "Spokojny start przy nabrzeżu i widok na port."], ["10:30", "Muzeum CR7", "Krótka, konkretna atrakcja; bilety sprawdzić przed wyjściem."], ["12:00", "Stare miasto", "Rua de Santa Maria i lunch w wygodnym miejscu."], ["15:00", "Hotel, basen lub Lido", "Reszta dnia bez sztywnego harmonogramu."]],
-      tips: ["Wybrać jedną część starego miasta, nie próbować obejść całego Funchal.", "Dla kolana: taxi między CR7 a starym miastem, krótkie odcinki po możliwie równym nabrzeżu i przerwa na siedząco co 30–45 minut.", "Kapelusze, woda i przerwa w cieniu w południe.", "Sprawdzić aktualne godziny otwarcia muzeum CR7."],
+      tips: ["Trasa 2–4 km przez marinę, CR7 i wybrany fragment starego miasta jest planem podstawowym.", "Orteza na cały spacer; przerwa na siedząco co 45–60 minut, a taxi dopiero jeśli kolano wyraźnie daje znać.", "Kapelusze, woda i przerwa w cieniu w południe.", "Sprawdzić aktualne godziny otwarcia muzeum CR7."],
       planB: "Przy upale lub zmęczeniu: tylko marina i CR7, a lunch oraz popołudnie w hotelu.", gentle: "Tryb łagodny: poruszamy się taxi między hotelem, CR7 i starym miastem."
     },
     {
       id: "2026-08-22", date: "22 sierpnia · sobota", title: "Wschód Madery", short: "Balcões, Ribeiro Frio, Arieiro jako punkt widokowy i Santana.",
       image: images.arieiro, alt: "Górski krajobraz Pico do Arieiro ponad chmurami", cats: ["aktywny", "wycieczka busem"],
-      intensity: "Umiarkowana", duration: "09:30–17:30", transport: "Prywatny bus", walking: "Do 3 km; Balcões do pominięcia", kids: "Tak, po skróceniu", exposure: "Niska / kontrolowana", knee: "Balcões tylko po zgodzie lekarza",
+      intensity: "Aktywna", duration: "09:30–17:30", transport: "Prywatny bus", walking: "Balcões ok. 3 km", kids: "Tak, dobrze chodzą po górach", exposure: "Niska / kontrolowana", knee: "Orteza i kijki na Balcões",
       center: [32.735, -16.886], route: [[32.6384, -16.9353, "Hotel"], [32.7353, -16.8865, "Ribeiro Frio"], [32.7419, -16.8905, "Balcões"], [32.7356, -16.9280, "Pico do Arieiro"], [32.8036, -16.8819, "Santana"], [32.7163, -16.7653, "Machico / Porto da Cruz"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Ribeiro+Frio/Balc%C3%B5es/Pico+do+Arieiro/Santana,+Madeira",
-      agenda: [["09:30", "Start z hotelu", "Mercedes Sprinter madeira-in; nie zamawiamy fotelików ani podkładek."], ["10:20", "Ribeiro Frio i Balcões", "Spacer do Balcões tylko dla chętnych. Osoba z obciążonym kolanem może zostać przy Ribeiro Frio albo przejść wyłącznie krótki, wygodny fragment."], ["12:30", "Pico do Arieiro", "Wyłącznie dostępny, komfortowy punkt widokowy. Bez trasy na Pico Ruivo."], ["14:00", "Santana i lunch", "Domki, odpoczynek i spokojny posiłek."], ["16:00", "Porto da Cruz lub Machico", "Jeden opcjonalny przystanek zależnie od czasu i pogody."], ["17:30", "Powrót", "Wieczór bez dodatkowego programu."]],
-      tips: ["W górach temperatura może być znacznie niższa niż w Funchal.", "Przed operacją kolana nie zakładamy przejścia całej trasy Balcões: podłoże bywa nierówne, a decyzja zależy od zaleceń lekarza i samopoczucia tego dnia.", "Na Arieiro wybierać miejsca oddalone od krawędzi i nie wywierać presji na nikogo.", "Pełna trasa Arieiro–Ruivo nie jest częścią planu."],
+      agenda: [["09:30", "Start z hotelu", "Mercedes Sprinter madeira-in; nie zamawiamy fotelików ani podkładek."], ["10:20", "Ribeiro Frio i Balcões", "Cała rodzina planuje łatwy spacer około 3 km. Osoba z kolanem idzie w ortezie i z kijkami, w spokojnym tempie, z możliwością zawrócenia przy bólu."], ["12:30", "Pico do Arieiro", "Punkt widokowy i krótki spacer w komfortowym obszarze. Bez trasy na Pico Ruivo."], ["14:00", "Santana i lunch", "Domki, odpoczynek i spokojny posiłek."], ["16:00", "Porto da Cruz lub Machico", "Jeden dodatkowy przystanek zależnie od czasu i pogody."], ["17:30", "Powrót", "Wieczór bez dodatkowego programu."]],
+      tips: ["W górach temperatura może być znacznie niższa niż w Funchal.", "Balcões jest domyślnym spacerem dnia: kijki pomagają na nierównych fragmentach, a dzieci mogą iść pełną trasę.", "Na Arieiro wybierać miejsca oddalone od krawędzi ze względu na lęk wysokości, nie ze względu na kondycję grupy.", "Pełna trasa Arieiro–Ruivo nie jest częścią planu."],
       planB: "Przy chmurach na Arieiro jedziemy dłużej przez Ribeiro Frio, Santanę i Machico. Punkt górski można całkowicie pominąć.", gentle: "Tryb łagodny: Arieiro tylko wtedy, gdy widoczność i komfort całej grupy są dobre."
     },
     {
@@ -62,37 +62,37 @@
     {
       id: "2026-08-24", date: "24 sierpnia · poniedziałek", title: "Zachód Madery", short: "Wioski, czarne wybrzeże, Porto Moniz i opcjonalny Fanal.",
       image: images.porto, alt: "Naturalne baseny lawowe Porto Moniz na Maderze", cats: ["aktywny", "wycieczka busem"],
-      intensity: "Pełna", duration: "09:30–17:30", transport: "Prywatny bus", walking: "Krótkie odcinki przy busie", kids: "Tak, z przerwami", exposure: "Niska; Cabo opcjonalne", knee: "Bez Fanal i stromych zejść w wersji łagodnej",
+      intensity: "Pełna", duration: "09:30–17:30", transport: "Prywatny bus", walking: "Łącznie 3–5 km", kids: "Tak, sprawnie chodzą", exposure: "Niska; Cabo opcjonalne", knee: "Orteza i kijki; Fanal przy suchej trasie",
       center: [32.8663, -17.1667], route: [[32.6384, -16.9353, "Hotel"], [32.6496, -16.9769, "Câmara de Lobos"], [32.6747, -17.0633, "Ribeira Brava"], [32.8126, -17.1038, "Seixal"], [32.8663, -17.1667, "Porto Moniz"], [32.8097, -17.1436, "Fanal — opcjonalnie"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/C%C3%A2mara+de+Lobos/Ribeira+Brava/Seixal,+Madeira/Porto+Moniz",
       agenda: [["09:30", "Câmara de Lobos", "Krótki spacer przy porcie i rodzinne zdjęcie."], ["11:00", "Ribeira Brava", "Kawa, toaleta i przerwa przed północnym wybrzeżem."], ["12:15", "Seixal", "Plaża lub punkt przy miejscowości — bez ryzykownego schodzenia."], ["13:30", "Porto Moniz", "Lunch i obserwacja basenów; kąpiel tylko przy dobrych warunkach."], ["15:30", "Fanal opcjonalnie", "Tylko gdy pogoda jest dobra, a grupa nadal ma energię."], ["17:30", "Powrót do hotelu", "Cabo Girão nie jest punktem obowiązkowym."]],
-      tips: ["To długi dzień — ograniczyć liczbę postojów, jeśli dzieci są zmęczone.", "Dla kolana wybierać postoje tuż przy busie, bez schodzenia na nierówne plaże; Fanal pomijamy przy bólu, niestabilności lub zmęczeniu.", "Cabo Girão traktować wyłącznie jako propozycję dla chętnych.", "Kąpiel w Porto Moniz zależy od fal, komunikatów i czasu."],
+      tips: ["To długi dzień, ale plan zakłada spacery w miejscowościach i przy wybrzeżu — łącznie około 3–5 km.", "Fanal jest możliwy przy suchej nawierzchni i dobrej energii; osoba z kolanem używa ortezy i kijków, bez forsowania tempa.", "Cabo Girão traktować wyłącznie jako propozycję dla chętnych ze względu na wysokość.", "Kąpiel w Porto Moniz zależy od fal, komunikatów i czasu."],
       planB: "Przy złej pogodzie na północy zostajemy dłużej w Câmara de Lobos i Ribeira Brava, potem wracamy południowym wybrzeżem.", gentle: "Tryb łagodny: bez Cabo Girão i bez postojów wymagających podejścia do krawędzi."
     },
     {
       id: "2026-08-25", date: "25 sierpnia · wtorek", title: "Funchal po swojemu", short: "Ogród, zakupy albo Monte — z pełnym wariantem bez kolejki.",
       image: images.funchal, alt: "Zielone ogrody i zabudowa Funchal", cats: ["spokojny", "odpoczynek"],
-      intensity: "Łagodna", duration: "3–5 h", transport: "Taxi / autobus", walking: "Do 1–2 km w wersji łagodnej", kids: "Tak", exposure: "Wariant bez wysokości", knee: "Bez Monte i stromych alejek",
+      intensity: "Umiarkowana", duration: "4–6 h", transport: "Autobus / taxi", walking: "3–5 km", kids: "Tak, sprawnie chodzą", exposure: "Wariant bez wysokości", knee: "Orteza; kijki do ogrodu",
       center: [32.662, -16.895], route: [[32.6384, -16.9353, "Hotel"], [32.6624, -16.8946, "Ogród botaniczny"], [32.6496, -16.9080, "Centrum Funchal"], [32.6750, -16.9022, "Monte — opcjonalnie"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Hotel+Baia+Azul,+Funchal/Madeira+Botanical+Garden/Funchal",
       agenda: [["10:00", "Wybór wariantu", "Ogród botaniczny albo centrum, zakupy i spokojna kawiarnia."], ["12:30", "Lunch", "Bez rezerwowania kolejnych atrakcji na siłę."], ["14:30", "Monte tylko dla chętnych", "Kolejka i wysokość są całkowicie opcjonalne."], ["16:00", "Hotel", "Basen i spokojna kolacja."]],
-      tips: ["Wariant bez kolejki: taxi i płaskie nabrzeże w centrum Funchal.", "Ogród botaniczny ma pochyłe alejki i schody — osoba przed operacją kolana wybiera go tylko po ocenie komfortu; bezpieczniejszą bazą jest centrum.", "Rodziny mogą rozdzielić się na 2–3 godziny i spotkać na lunchu.", "Sprawdzić godziny ogrodu i temperaturę przed wyjazdem."],
+      tips: ["Plan podstawowy to ogród botaniczny i centrum: 3–5 km z przerwami, w ortezie, z kijkami na pochyłych alejkach.", "Wariant bez kolejki pozostaje pełnym programem — wysokość jest kwestią komfortu, nie kondycji dzieci.", "Rodziny mogą rozdzielić się na 2–3 godziny i spotkać na lunchu.", "Sprawdzić godziny ogrodu i temperaturę przed wyjazdem."],
       planB: "Cały dzień w hotelu i przy Lido; zakupy można zrobić wieczorem w najbliższej okolicy.", gentle: "Tryb łagodny: bez kolejki i bez Monte; wybieramy ogród dostępny taxi albo centrum."
     },
     {
       id: "2026-08-26", date: "26 sierpnia · środa", title: "Curral das Freiras", short: "Pół dnia w Dolinie Zakonnic, spokojne widoki i lunch.",
       image: images.camara, alt: "Górskie doliny i miejscowości w centralnej Maderze", cats: ["aktywny", "spokojny"],
-      intensity: "Umiarkowana", duration: "4–5 h", transport: "Taxi / wycieczka", walking: "Mało; bez podejścia na punkt", kids: "Tak", exposure: "Kontrolowana", knee: "Curral bez podejścia Eira do Serrado",
+      intensity: "Umiarkowana", duration: "5–6 h", transport: "Taxi / wycieczka", walking: "2–4 km", kids: "Tak, sprawnie chodzą", exposure: "Kontrolowana", knee: "Krótkie podejście w ortezie i z kijkami",
       center: [32.7202, -16.9691], route: [[32.6384, -16.9353, "Hotel"], [32.7107, -16.9615, "Eira do Serrado"], [32.7202, -16.9691, "Curral das Freiras"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Funchal/Eira+do+Serrado/Curral+das+Freiras",
-      agenda: [["09:30", "Wyjazd z Funchal", "Krótka trasa w głąb wyspy."], ["10:15", "Widok bez podejścia", "Tylko miejsce dostępne bez stromego marszu. Klasyczne podejście do Eira do Serrado nie jest obowiązkowe."], ["11:30", "Curral das Freiras", "Krótki spacer po możliwie równym odcinku i spokojny lunch."], ["14:00", "Powrót do hotelu", "Popołudnie na basenie."]],
-      tips: ["Osoba przed operacją kolana nie idzie stromym podejściem do punktu Eira do Serrado; kierowca pomaga wybrać widok dostępny blisko samochodu.", "Nie trzeba podchodzić do barierek, aby zobaczyć dolinę.", "W razie choroby lokomocyjnej usiąść z przodu i przygotować wodę.", "Dzień można zamienić na relaks bez straty dla całego planu."],
+      agenda: [["09:30", "Wyjazd z Funchal", "Trasa w głąb wyspy i spokojne rozpoczęcie aktywnego pół dnia."], ["10:15", "Eira do Serrado", "Krótkie podejście do komfortowego punktu widokowego; orteza, kijki i przerwy według potrzeby."], ["11:45", "Curral das Freiras", "Spacer 2–3 km po miejscowości i spokojny lunch."], ["15:00", "Powrót do hotelu", "Popołudnie na basenie lub krótka promenada."]],
+      tips: ["Podejście do punktu widokowego jest częścią planu, jeśli nawierzchnia jest sucha i kolano nie boli; zawrócenie pozostaje prostą opcją.", "Nie trzeba podchodzić do barierek, aby zobaczyć dolinę.", "W razie choroby lokomocyjnej usiąść z przodu i przygotować wodę.", "Dzieci mogą przejść pełny spacer; dorosły z kolanem reguluje tempo."] ,
       planB: "Zamiana na ogród w Funchal, Lido lub dzień hotelowy — szczególnie przy niskich chmurach w dolinie.", gentle: "Tryb łagodny: pomijamy każdy punkt, który powoduje dyskomfort; sama miejscowość i lunch wystarczą."
     },
     {
       id: "2026-08-27", date: "27 sierpnia · czwartek", title: "Calheta i południowy zachód", short: "Piaszczysta plaża, Engenhos i słoneczne Ponta do Sol.",
       image: images.beach, alt: "Spokojne wybrzeże południowo-zachodniej Madery", cats: ["wycieczka busem", "spokojny"],
-      intensity: "Łagodna", duration: "09:30–17:00", transport: "Prywatny bus", walking: "Mało i możliwie płasko", kids: "Bardzo dobry", exposure: "Niska", knee: "Calheta i Ponta do Sol; bez Jardim do Mar",
+      intensity: "Umiarkowana", duration: "09:30–17:00", transport: "Prywatny bus", walking: "2–4 km", kids: "Bardzo dobry", exposure: "Niska", knee: "Orteza; kijki w Jardim do Mar",
       center: [32.7219, -17.1775], route: [[32.6384, -16.9353, "Hotel"], [32.7219, -17.1775, "Plaża Calheta"], [32.7223, -17.1785, "Engenhos da Calheta"], [32.6819, -17.1045, "Ponta do Sol"], [32.7370, -17.2115, "Jardim do Mar — opcjonalnie"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Calheta+Beach/Engenhos+da+Calheta/Ponta+do+Sol/Jardim+do+Mar",
       agenda: [["09:30", "Wyjazd z hotelu", "Trzeci dzień madeira-in w spokojnym rytmie."], ["10:30", "Calheta", "Piaszczysta plaża i czas rodzinny bez pośpiechu."], ["13:00", "Engenhos da Calheta", "Krótka wizyta zależna od godzin otwarcia."], ["14:30", "Ponta do Sol", "Lunch lub lody i spacer przy oceanie."], ["16:00", "Jardim do Mar opcjonalnie", "Tylko jeśli grupa ma energię i dojazd jest komfortowy."], ["17:00", "Powrót", "Bez dokładania Rabaçal ani Risco."]],
-      tips: ["Rabaçal i Risco nie są domyślną rekomendacją dla tej grupy.", "Według korespondencji madeira-in Risco nie jest dobrym wyborem przy problemie z klifami.", "Dla kolana wybieramy płaską promenadę w Calheta; Jardim do Mar ze stromymi uliczkami i schodami pomijamy.", "Sprawdzić godziny Engenhos i zabrać rzeczy plażowe."],
+      tips: ["Rabaçal i Risco nie są domyślną rekomendacją dla tej grupy — zgodnie z sugestią madeira-in, a nie z powodu niskiej kondycji dzieci.", "Według korespondencji madeira-in Risco nie jest dobrym wyborem przy problemie z klifami.", "Calheta i Ponta do Sol dają 2–4 km spacerów; Jardim do Mar można dodać z kijkami, jeśli kolano jest spokojne.", "Sprawdzić godziny Engenhos i zabrać rzeczy plażowe."],
       planB: "Przy gorszej pogodzie: dłuższy lunch w Ponta do Sol, krótka Calheta i wcześniejszy powrót.", gentle: "Tryb łagodny: wyłącznie Calheta i Ponta do Sol; żadnych tras przy klifach."
     },
     {
@@ -107,10 +107,10 @@
     {
       id: "2026-08-29", date: "29 sierpnia · sobota", title: "Dzień rezerwowy", short: "Machico, Funchal, plaża albo powrót do ulubionego miejsca.",
       image: images.coast, alt: "Miasteczko i wybrzeże Madery nad Atlantykiem", cats: ["spokojny", "odpoczynek"],
-      intensity: "Do wyboru", duration: "2–6 h", transport: "Taxi / autobus", walking: "Do 1–2 km", kids: "Tak", exposure: "Wariant nisko położony", knee: "Płaska promenada lub dzień hotelowy",
+      intensity: "Do wyboru", duration: "3–7 h", transport: "Autobus / taxi", walking: "2–5 km", kids: "Tak, sprawnie chodzą", exposure: "Wariant nisko położony", knee: "Orteza; aktywny wariant nisko położony",
       center: [32.7163, -16.7653], route: [[32.6384, -16.9353, "Hotel"], [32.6454, -16.9096, "Marina — termin zapasowy rejsu"], [32.7163, -16.7653, "Wariant: Machico"], [32.6496, -16.9080, "Wariant: Funchal"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Funchal/Machico",
       agenda: [["09:00", "Najpierw termin zapasowy rejsu", "Jeżeli rejs 28 sierpnia odwołano z powodu morza, dziś ma pierwszeństwo przed pozostałymi wariantami."], ["10:30", "Machico", "Plaża i płaska promenada — wariant, jeśli rejs odbył się poprzedniego dnia."], ["10:30", "Funchal", "Ostatnie zakupy, kawiarnia i miejsce pominięte wcześniej."], ["10:30", "Ulubione miejsce", "Powtórka bez poczucia, że trzeba zobaczyć coś nowego."], ["17:00", "Pakowanie", "Przygotować dokumenty, bagaże i ubrania na powrót."]],
-      tips: ["29 sierpnia jest terminem zapasowym rejsu — nie rezerwować na rano innej bezzwrotnej atrakcji.", "Dla kolana wybierać płaską promenadę, taxi i regularne przerwy na siedząco.", "Machico daje łatwy dostęp do plaży bez górskiej ekspozycji.", "Wieczorem zakończyć pakowanie i potwierdzić transfer."],
+      tips: ["29 sierpnia jest terminem zapasowym rejsu — nie rezerwować na rano innej bezzwrotnej atrakcji.", "Jeśli rejs odbył się wcześniej, planujemy 2–5 km spaceru w Machico albo Funchal; orteza i kijki według nawierzchni.", "Machico daje aktywny, nisko położony wariant bez górskiej ekspozycji.", "Wieczorem zakończyć pakowanie i potwierdzić transfer."],
       planB: "Hotel i Funchal. Najważniejszym zadaniem dnia jest spokojne przygotowanie powrotu.", gentle: "Tryb łagodny: wybieramy najbliższy, nisko położony wariant i kończymy dzień wcześnie."
     },
     {
@@ -124,11 +124,11 @@
     }
   ];
 
-  const stateKey = "madeira-premium-plan-v1";
+  const stateKey = "madeira-premium-plan-v2";
   const readState = () => {
     try { return JSON.parse(localStorage.getItem(stateKey)) || {}; } catch (_) { return {}; }
   };
-  const state = Object.assign({ gentle: true, selected: [], skipped: {}, checklist: {}, calculator: {} }, readState());
+  const state = Object.assign({ gentle: false, selected: [], skipped: {}, checklist: {}, calculator: {} }, readState());
   const save = () => localStorage.setItem(stateKey, JSON.stringify(state));
   const escapeHtml = (value) => String(value).replace(/[&<>"]/g, (char) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[char]));
   let routeMapInstance = null;
@@ -295,7 +295,7 @@
       <main id="main-content">
         <div class="grid">
           <section class="card" aria-labelledby="agenda-title"><div class="card-body"><h2 id="agenda-title">Plan dnia</h2><div class="timeline">${day.agenda.map((slot, slotIndex) => `<article class="slot ${state.skipped[day.id]?.includes(slotIndex) ? "is-skipped" : ""}" data-slot="${slotIndex}"><span class="time">${slot[0]}</span><span class="dot" aria-hidden="true"></span><div><h3>${slot[1]}</h3><p>${slot[2]}</p><button class="skip-item" type="button" data-skip="${slotIndex}">${state.skipped[day.id]?.includes(slotIndex) ? "Przywróć punkt" : "Pomijamy"}</button></div></article>`).join("")}</div></div></section>
-          <aside class="card"><div class="card-body"><h2>W skrócie</h2><div class="info">${metrics.map((metric) => `<div class="metric"><strong>${metric[1]}</strong><span>${metric[0]}</span></div>`).join("")}</div><div class="badges"><span class="badge">Bezpieczne dla dzieci</span><span class="badge">Plan oszczędza kolano</span><span class="badge">Niska ekspozycja</span>${day.cats.includes("odpoczynek") ? "<span class=\"badge optional\">Elastyczny plan</span>" : ""}${day.cats.includes("wycieczka busem") || day.id === "2026-08-28" ? "<span class=\"badge weather\">Pogoda ma znaczenie</span>" : ""}</div><p class="gentle-note">${day.gentle}</p></div></aside>
+          <aside class="card"><div class="card-body"><h2>W skrócie</h2><div class="info">${metrics.map((metric) => `<div class="metric"><strong>${metric[1]}</strong><span>${metric[0]}</span></div>`).join("")}</div><div class="badges"><span class="badge">Dzieci chodzą po górach</span><span class="badge">Aktywnie z ochroną kolana</span><span class="badge">Niska ekspozycja</span>${day.cats.includes("odpoczynek") ? "<span class=\"badge optional\">Elastyczny plan</span>" : ""}${day.cats.includes("wycieczka busem") || day.id === "2026-08-28" ? "<span class=\"badge weather\">Pogoda ma znaczenie</span>" : ""}</div><p class="gentle-note">${day.gentle}</p></div></aside>
         </div>
         <section class="section grid" aria-label="Mapa i wskazówki">
           <div class="card"><div class="map-shell"><button class="map-activate" type="button">Aktywuj mapę</button><div class="route-map" id="route-map" role="application" aria-label="Mapa OpenStreetMap z trasą: ${day.title}"></div></div><div class="route-summary"><p><strong>Orientacyjna trasa dnia</strong> — linia łączy główne punkty; dokładny przebieg dróg sprawdź w Google Maps.</p><ol class="route-stop-list">${day.route.map((stop, stopIndex) => `<li><span>${stopIndex + 1}</span>${stop[2]}</li>`).join("")}</ol></div><div class="map-actions"><a class="button" href="${day.google}" target="_blank" rel="noopener">Otwórz trasę w Google Maps ↗</a><button class="button secondary" type="button" data-deactivate-map>Wyłącz mapę</button></div></div>
