@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Madera 2026 - plan rodzinny</title>
-  <meta name="description" content="Plan pobytu Berlin-Madera-Berlin, 20-30 sierpnia 2026, dla dwóch rodzin, z prywatnymi busami madeira-in i spokojną logistyką.">
+  <meta name="description" content="Plan pobytu Łódź-Berlin-Madera-Berlin, 19-30 sierpnia 2026, dla dwóch rodzin, z parkingiem P8 przy BER, prywatnymi busami madeira-in i spokojną logistyką.">
   <style>
     :root {
       --paper: #f7f4ee;
@@ -50,338 +50,75 @@
         url("https://images.unsplash.com/photo-1576176539998-0237d1ac6a85?auto=format&fit=crop&w=2000&q=80") center / cover;
     }
 
-    .hero {
-      max-width: 980px;
-      animation: rise .7s ease-out both;
-    }
+    .hero { max-width: 980px; animation: rise .7s ease-out both; }
+    .eyebrow { margin: 0 0 16px; font-size: 14px; font-weight: 700; color: rgba(255,253,248,.84); text-transform: uppercase; }
+    h1 { margin: 0; max-width: 800px; font-size: clamp(42px, 8vw, 92px); line-height: .95; letter-spacing: 0; }
+    .lead { max-width: 700px; margin: 24px 0 0; color: rgba(255,253,248,.88); font-size: clamp(18px, 2.2vw, 23px); line-height: 1.5; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 12px 18px; border: 1px solid rgba(255,253,248,.42); border-radius: 8px; color: var(--white); text-decoration: none; font-weight: 800; backdrop-filter: blur(10px); transition: transform .18s ease, background .18s ease; }
+    .button:hover { transform: translateY(-2px); background: rgba(255,253,248,.13); }
 
-    .eyebrow {
-      margin: 0 0 16px;
-      font-size: 14px;
-      font-weight: 700;
-      color: rgba(255,253,248,.84);
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 0;
-      max-width: 800px;
-      font-size: clamp(42px, 8vw, 92px);
-      line-height: .95;
-      letter-spacing: 0;
-    }
-
-    .lead {
-      max-width: 680px;
-      margin: 24px 0 0;
-      color: rgba(255,253,248,.88);
-      font-size: clamp(18px, 2.2vw, 23px);
-      line-height: 1.5;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 12px 18px;
-      border: 1px solid rgba(255,253,248,.42);
-      border-radius: 8px;
-      color: var(--white);
-      text-decoration: none;
-      font-weight: 800;
-      backdrop-filter: blur(10px);
-      transition: transform .18s ease, background .18s ease;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-      background: rgba(255,253,248,.13);
-    }
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      display: flex;
-      gap: 10px;
-      overflow-x: auto;
-      padding: 12px clamp(18px, 4vw, 56px);
-      background: rgba(247,244,238,.92);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(16px);
-    }
-
-    nav a {
-      flex: 0 0 auto;
-      padding: 9px 12px;
-      border-radius: 999px;
-      color: var(--green);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 800;
-      transition: background .18s ease;
-    }
-
+    nav { position: sticky; top: 0; z-index: 20; display: flex; gap: 10px; overflow-x: auto; padding: 12px clamp(18px, 4vw, 56px); background: rgba(247,244,238,.92); border-bottom: 1px solid var(--line); backdrop-filter: blur(16px); }
+    nav a { flex: 0 0 auto; padding: 9px 12px; border-radius: 999px; color: var(--green); text-decoration: none; font-size: 14px; font-weight: 800; transition: background .18s ease; }
     nav a:hover { background: var(--green-2); }
 
-    main {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 42px clamp(18px, 4vw, 44px) 70px;
-    }
+    main { max-width: 1180px; margin: 0 auto; padding: 42px clamp(18px, 4vw, 44px) 70px; }
+    section { margin-top: 42px; }
+    .section-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 18px; align-items: end; margin-bottom: 18px; }
+    h2 { margin: 0; color: var(--green); font-size: clamp(28px, 5vw, 50px); line-height: 1; letter-spacing: 0; }
+    .note { max-width: 760px; margin: 8px 0 0; color: var(--muted); font-size: 16px; line-height: 1.55; }
 
-    section {
-      margin-top: 42px;
-    }
+    .summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); background: var(--line); }
+    .summary div { min-height: 128px; padding: 18px; background: rgba(255,253,248,.9); }
+    .summary strong { display: block; margin-bottom: 10px; color: var(--green); font-size: 26px; line-height: 1; }
+    .summary span { color: var(--muted); line-height: 1.4; }
 
-    .section-head {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 18px;
-      align-items: end;
-      margin-bottom: 18px;
-    }
-
-    h2 {
-      margin: 0;
-      color: var(--green);
-      font-size: clamp(28px, 5vw, 50px);
-      line-height: 1;
-      letter-spacing: 0;
-    }
-
-    .note {
-      max-width: 720px;
-      margin: 8px 0 0;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.55;
-    }
-
-    .summary {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-      background: var(--line);
-    }
-
-    .summary div {
-      min-height: 128px;
-      padding: 18px;
-      background: rgba(255,253,248,.9);
-    }
-
-    .summary strong {
-      display: block;
-      margin-bottom: 10px;
-      color: var(--green);
-      font-size: 26px;
-      line-height: 1;
-    }
-
-    .summary span {
-      color: var(--muted);
-      line-height: 1.4;
-    }
-
-    .filters {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .filter {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: var(--white);
-      color: var(--green);
-      cursor: pointer;
-      font-weight: 800;
-      padding: 9px 13px;
-      transition: background .18s ease, color .18s ease, transform .18s ease;
-    }
-
+    .filters { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+    .filter { border: 1px solid var(--line); border-radius: 999px; background: var(--white); color: var(--green); cursor: pointer; font-weight: 800; padding: 9px 13px; transition: background .18s ease, color .18s ease, transform .18s ease; }
     .filter:hover { transform: translateY(-1px); }
-    .filter.active {
-      background: var(--green);
-      color: var(--white);
-      border-color: var(--green);
-    }
+    .filter.active { background: var(--green); color: var(--white); border-color: var(--green); }
 
-    .timeline {
-      display: grid;
-      gap: 12px;
-    }
-
-    .day {
-      display: grid;
-      grid-template-columns: 130px minmax(0, 1fr) 190px;
-      gap: 18px;
-      align-items: start;
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: rgba(255,253,248,.94);
-      box-shadow: 0 10px 28px rgba(38, 54, 47, .07);
-      animation: fadeIn .45s ease both;
-      transition: transform .18s ease, border-color .18s ease;
-    }
-
-    .day:hover {
-      transform: translateY(-2px);
-      border-color: rgba(40, 91, 76, .35);
-    }
-
-    .date {
-      color: var(--green);
-      font-weight: 900;
-      line-height: 1.3;
-    }
-
-    .date span {
-      display: block;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 700;
-      margin-top: 6px;
-    }
-
-    .day h3 {
-      margin: 0 0 8px;
-      font-size: 22px;
-      line-height: 1.2;
-      letter-spacing: 0;
-    }
-
-    .day p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    .tags {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .tag {
-      border-radius: 999px;
-      padding: 6px 9px;
-      color: var(--green);
-      background: var(--green-2);
-      font-size: 12px;
-      font-weight: 900;
-      white-space: nowrap;
-    }
-
+    .timeline { display: grid; gap: 12px; }
+    .day { display: grid; grid-template-columns: 130px minmax(0, 1fr) 190px; gap: 18px; align-items: start; padding: 18px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,253,248,.94); box-shadow: 0 10px 28px rgba(38, 54, 47, .07); animation: fadeIn .45s ease both; transition: transform .18s ease, border-color .18s ease; }
+    .day:hover { transform: translateY(-2px); border-color: rgba(40, 91, 76, .35); }
+    .date { color: var(--green); font-weight: 900; line-height: 1.3; }
+    .date span { display: block; color: var(--muted); font-size: 13px; font-weight: 700; margin-top: 6px; }
+    .day h3 { margin: 0 0 8px; font-size: 22px; line-height: 1.2; letter-spacing: 0; }
+    .day p { margin: 0; color: var(--muted); line-height: 1.55; }
+    .tags { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+    .tag { border-radius: 999px; padding: 6px 9px; color: var(--green); background: var(--green-2); font-size: 12px; font-weight: 900; white-space: nowrap; }
     .tag.bus { color: var(--sea); background: #dbecee; }
     .tag.rest { color: #6e5a24; background: #eee4cc; }
     .tag.warn { color: var(--alert); background: #f0dfd4; }
     .tag.flight { color: #4d4968; background: #e3e1f0; }
+    .tag.travel { color: #72531b; background: #efe2c6; }
 
-    .two-col {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr);
-      gap: 22px;
-      align-items: start;
-    }
-
-    .panel {
-      padding: 24px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: rgba(255,253,248,.94);
-      box-shadow: 0 10px 28px rgba(38, 54, 47, .07);
-    }
-
-    .panel h3 {
-      margin: 0 0 12px;
-      color: var(--green);
-      font-size: 22px;
-    }
-
-    ul {
-      margin: 0;
-      padding-left: 19px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
+    .two-col { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr); gap: 22px; align-items: start; }
+    .panel { padding: 24px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,253,248,.94); box-shadow: 0 10px 28px rgba(38, 54, 47, .07); }
+    .panel h3 { margin: 0 0 12px; color: var(--green); font-size: 22px; }
+    ul { margin: 0; padding-left: 19px; color: var(--muted); line-height: 1.6; }
     li + li { margin-top: 8px; }
-
-    .operator {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 14px;
-    }
-
-    .operator div {
-      padding: 14px;
-      border-radius: 8px;
-      background: #edf2ea;
-    }
-
-    .operator strong {
-      display: block;
-      color: var(--green);
-      margin-bottom: 5px;
-    }
-
-    .foot {
-      margin-top: 42px;
-      padding-top: 18px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.55;
-    }
-
+    .operator { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+    .operator div { padding: 14px; border-radius: 8px; background: #edf2ea; }
+    .operator strong { display: block; color: var(--green); margin-bottom: 5px; }
+    .foot { margin-top: 42px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; line-height: 1.55; }
     .is-hidden { display: none; }
 
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(18px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
     @media (max-width: 860px) {
       header { min-height: 68svh; }
       .summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .section-head { grid-template-columns: 1fr; }
       .filters { justify-content: flex-start; }
-      .day {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
+      .day { grid-template-columns: 1fr; gap: 12px; }
       .tags { justify-content: flex-start; }
       .two-col { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 540px) {
-      header {
-        min-height: 72svh;
-        padding-top: 22px;
-      }
+      header { min-height: 72svh; padding-top: 22px; }
       .summary { grid-template-columns: 1fr; }
       .summary div { min-height: auto; }
       .operator { grid-template-columns: 1fr; }
@@ -392,9 +129,9 @@
 <body>
   <header>
     <div class="hero">
-      <p class="eyebrow">20-30 sierpnia 2026 · Berlin BER ⇄ Funchal · 2 rodziny · 7 osob</p>
+      <p class="eyebrow">19-30 sierpnia 2026 · Łódź → Berlin BER ⇄ Funchal · 2 rodziny · 7 osób</p>
       <h1>Madera spokojnym rytmem</h1>
-      <p class="lead">Plan po aktualizacji: agenda zaczyna i konczy sie w Berlinie, obejmuje loty BER-FNC-BER, transfery madeira-in i trzy glowne dni wycieczek bez forsowania ekspozycji.</p>
+      <p class="lead">Plan po aktualizacji: agenda zaczyna się 19.08 wyjazdem z Łodzi o 11:00, parkingiem P8 przy BER, krótkim Berlinem i kolacją przed lotem na Maderę.</p>
       <div class="hero-actions">
         <a class="button" href="#plan">Zobacz plan</a>
         <a class="button" href="#berlin">Berlin i loty</a>
@@ -408,7 +145,7 @@
     <a href="#berlin">Berlin i loty</a>
     <a href="#transport">Busy madeira-in</a>
     <a href="#cr7">CR7</a>
-    <a href="#bezpieczenstwo">Bezpieczenstwo</a>
+    <a href="#bezpieczenstwo">Bezpieczeństwo</a>
   </nav>
 
   <main>
@@ -416,14 +153,14 @@
       <div class="section-head">
         <div>
           <h2 id="podsumowanie">Założenia</h2>
-          <p class="note">Baza to Hotel Baía Azul w Funchal. Wedlug rezerwacji lot BER-FNC EJU5333 laduje 20.08 o 10:55, a powrot FNC-BER EJU5334 startuje 30.08 o 11:45 i laduje w Berlinie o 17:10. W dokumentach jest brak transferu lotnisko-hotel-lotnisko na Maderze, wiec zakladamy madeira-in.</p>
+          <p class="note">Wyjazd zaczyna się 19.08 z Łodzi o 11:00. Po dojeździe do Berlina zostawiamy auto na parkingu P8 przy BER, robimy krótki, lekki spacer po mieście i spokojną kolację. Lot BER-FNC EJU5333 ląduje 20.08 o 10:55, a powrót FNC-BER EJU5334 startuje 30.08 o 11:45 i ląduje w Berlinie o 17:10.</p>
         </div>
       </div>
       <div class="summary">
-        <div><strong>BER</strong><span>agenda obejmuje start z Berlina, odprawe i powrot do Berlina 30.08.</span></div>
-        <div><strong>3</strong><span>pełne dni busem: wschod, zachod i lagodny dzien Calheta zamiast Rabaçal/Risco.</span></div>
-        <div><strong>4</strong><span>dni lekkie lub odpoczynkowe, z basenem, Lido, Funchal i buforem pogodowym.</span></div>
-        <div><strong>0</strong><span>obowiazkowych tras z ekspozycja typu Pico do Arieiro-Pico Ruivo.</span></div>
+        <div><strong>19.08</strong><span>Łódź 11:00, BER P8, krótki Berlin i kolacja bez późnego wieczoru.</span></div>
+        <div><strong>3</strong><span>pełne dni busem: wschód, zachód i łagodny dzień Calheta zamiast Rabaçal/Risco.</span></div>
+        <div><strong>6</strong><span>dni lekkie lub odpoczynkowe, z basenem, Lido, Funchal i buforem pogodowym.</span></div>
+        <div><strong>0</strong><span>obowiązkowych tras z ekspozycją typu Pico do Arieiro-Pico Ruivo.</span></div>
       </div>
     </section>
 
@@ -431,10 +168,11 @@
       <div class="section-head">
         <div>
           <h2 id="plan-title">Plan pobytu</h2>
-          <p class="note">Filtry pomagaja szybko zobaczyc, ktore dni sa aktywne, ktore sa lotnicze, a ktore daja oddech dzieciom i doroslym.</p>
+          <p class="note">Filtry pomagają szybko zobaczyć, które dni są aktywne, które są lotnicze, a które dają oddech dzieciom i dorosłym.</p>
         </div>
         <div class="filters" aria-label="Filtry dni">
           <button class="filter active" data-filter="all">Wszystkie</button>
+          <button class="filter" data-filter="travel">Dojazd</button>
           <button class="filter" data-filter="flight">Loty</button>
           <button class="filter" data-filter="bus">Busy</button>
           <button class="filter" data-filter="light">Lekko</button>
@@ -443,11 +181,20 @@
       </div>
 
       <div class="timeline">
+        <article class="day" data-kind="travel">
+          <div class="date">19.08 śr.<span>Łódź i Berlin</span></div>
+          <div>
+            <h3>Łódź 11:00 → Berlin BER P8 → krótki spacer i kolacja</h3>
+            <p>Wyjazd z Łodzi o 11:00, dojazd z zapasem na przerwy i zostawienie auta na parkingu P8 przy BER. Po ogarnięciu bagaży lekki Berlin: Brama Brandenburska, Reichstag z zewnątrz i krótki spacer Unter den Linden albo Nikolaiviertel. Kolacja wcześnie, bez przeciągania wieczoru przed lotem.</p>
+          </div>
+          <div class="tags"><span class="tag travel">Łódź</span><span class="tag flight">BER P8</span><span class="tag rest">lekko</span></div>
+        </article>
+
         <article class="day" data-kind="flight">
           <div class="date">20.08 czw.<span>Berlin i przylot</span></div>
           <div>
             <h3>Berlin BER → FNC → Hotel Baía Azul</h3>
-            <p>Start dnia na lotnisku Berlin Brandenburg. Lot BER-FNC EJU5333 wedlug dokumentow laduje w Funchal o 10:55. Po odbiorze bagazu prywatny transfer madeira-in do hotelu, check-in, obiad blisko hotelu, basen i krotki spacer promenada przy Lido.</p>
+            <p>Start dnia z Berlina po spokojniejszym wieczorze na miejscu. Lot BER-FNC EJU5333 według dokumentów ląduje w Funchal o 10:55. Po odbiorze bagażu prywatny transfer madeira-in do hotelu, check-in, obiad blisko hotelu, basen i krótki spacer promenadą przy Lido.</p>
           </div>
           <div class="tags"><span class="tag flight">Berlin BER</span><span class="tag bus">transfer</span><span class="tag rest">lekko</span></div>
         </article>
@@ -456,34 +203,34 @@
           <div class="date">21.08 pt.<span>Funchal</span></div>
           <div>
             <h3>Centrum, marina i Muzeum CR7</h3>
-            <p>Autobus lub taxi do centrum. CR7 najlepiej zrobic przed lunchem, potem marina, stare miasto i powrot na spokojne popoludnie przy basenie.</p>
+            <p>Autobus lub taxi do centrum. CR7 najlepiej zrobić przed lunchem, potem marina, stare miasto i powrót na spokojne popołudnie przy basenie.</p>
           </div>
           <div class="tags"><span class="tag">CR7</span><span class="tag rest">lekko</span></div>
         </article>
 
         <article class="day" data-kind="bus">
-          <div class="date">22.08 sob.<span>Wschod</span></div>
+          <div class="date">22.08 sob.<span>Wschód</span></div>
           <div>
             <h3>Ribeiro Frio, Balcões, Arieiro, Santana</h3>
-            <p>Prywatny bus ok. 09:30-17:00/17:30. Balcões jako latwy spacer, Pico do Arieiro tylko punkt widokowy, bez trasy na Pico Ruivo. Lunch i przerwy w Santana lub Porto da Cruz.</p>
+            <p>Prywatny bus ok. 09:30-17:00/17:30. Balcões jako łatwy spacer, Pico do Arieiro tylko punkt widokowy, bez trasy na Pico Ruivo. Lunch i przerwy w Santana lub Porto da Cruz.</p>
           </div>
-          <div class="tags"><span class="tag bus">madeira-in</span><span class="tag">gory</span></div>
+          <div class="tags"><span class="tag bus">madeira-in</span><span class="tag">góry</span></div>
         </article>
 
         <article class="day" data-kind="rest">
           <div class="date">23.08 niedz.<span>Regeneracja</span></div>
           <div>
             <h3>Lido, Ponta Gorda i hotel</h3>
-            <p>Dzien bez presji. Basen hotelowy, zejscie nad ocean, Forum Madeira lub krotki spacer. Dobry moment, zeby nie kumulowac dwoch mocnych dni z rzedu.</p>
+            <p>Dzień bez presji. Basen hotelowy, zejście nad ocean, Forum Madeira lub krótki spacer. Dobry moment, żeby nie kumulować dwóch mocnych dni z rzędu.</p>
           </div>
           <div class="tags"><span class="tag rest">odpoczynek</span></div>
         </article>
 
         <article class="day" data-kind="bus">
-          <div class="date">24.08 pon.<span>Zachod</span></div>
+          <div class="date">24.08 pon.<span>Zachód</span></div>
           <div>
             <h3>Camara de Lobos, Seixal, Porto Moniz, Fanal</h3>
-            <p>Najdluzszy dzien busem, ale logistycznie najlatwiejszy z kierowca. Cabo Girão tylko opcjonalnie i bez nacisku na osobe z lekiem wysokosci. Porto Moniz z lunchem i ocena warunkow przy oceanie.</p>
+            <p>Najdłuższy dzień busem, ale logistycznie najłatwiejszy z kierowcą. Cabo Girão tylko opcjonalnie i bez nacisku na osobę z lękiem wysokości. Porto Moniz z lunchem i oceną warunków przy oceanie.</p>
           </div>
           <div class="tags"><span class="tag bus">madeira-in</span><span class="tag warn">klif opcjonalnie</span></div>
         </article>
@@ -492,16 +239,16 @@
           <div class="date">25.08 wt.<span>Funchal</span></div>
           <div>
             <h3>Mercado, stare miasto, spokojny lunch</h3>
-            <p>Lekki dzien miejski bez wynajmu auta. Warto zostawic popoludnie puste: basen, drzemka, planszowki, kolacja blisko hotelu.</p>
+            <p>Lekki dzień miejski bez wynajmu auta. Warto zostawić popołudnie puste: basen, drzemka, planszówki, kolacja blisko hotelu.</p>
           </div>
           <div class="tags"><span class="tag rest">lekko</span></div>
         </article>
 
         <article class="day" data-kind="bus">
-          <div class="date">26.08 sr.<span>Lagodny zachod</span></div>
+          <div class="date">26.08 śr.<span>Łagodny zachód</span></div>
           <div>
             <h3>Calheta zamiast Rabaçal/Risco</h3>
-            <p>Wariant zgodny z sugestia madeira-in: plaża Calheta, Engenhos da Calheta, Ponta do Sol lub Jardim do Mar. Bez obowiazkowej levady Risco, bo moze byc slabsza dla dzieci i osoby niekomfortowej przy klifach.</p>
+            <p>Wariant zgodny z sugestią madeira-in: plaża Calheta, Engenhos da Calheta, Ponta do Sol lub Jardim do Mar. Bez obowiązkowej levady Risco, bo może być słabsza dla dzieci i osoby niekomfortowej przy klifach.</p>
           </div>
           <div class="tags"><span class="tag bus">madeira-in</span><span class="tag rest">rodzinnie</span></div>
         </article>
@@ -509,8 +256,8 @@
         <article class="day" data-kind="light">
           <div class="date">27.08 czw.<span>Ocean</span></div>
           <div>
-            <h3>Rejs z Funchal albo wolny dzien</h3>
-            <p>Opcjonalny rejs na delfiny i wieloryby z mariny. Jesli grupa bedzie zmeczona, ten dzien zostaje jako pelny odpoczynek w hotelu i okolicy Lido.</p>
+            <h3>Rejs z Funchal albo wolny dzień</h3>
+            <p>Opcjonalny rejs na delfiny i wieloryby z mariny. Jeśli grupa będzie zmęczona, ten dzień zostaje jako pełny odpoczynek w hotelu i okolicy Lido.</p>
           </div>
           <div class="tags"><span class="tag">opcja</span><span class="tag rest">lekko</span></div>
         </article>
@@ -519,25 +266,25 @@
           <div class="date">28.08 pt.<span>Widoki</span></div>
           <div>
             <h3>Eira do Serrado i Curral das Freiras</h3>
-            <p>Pol dnia taxi/busem lub po uzgodnieniu z madeira-in. Widoki sa mocne, wiec bez presji na dlugie stanie przy barierkach. Monte tylko jesli zostanie energia.</p>
+            <p>Pół dnia taxi/busem lub po uzgodnieniu z madeira-in. Widoki są mocne, więc bez presji na długie stanie przy barierkach. Monte tylko jeśli zostanie energia.</p>
           </div>
-          <div class="tags"><span class="tag warn">widoki</span><span class="tag">pol dnia</span></div>
+          <div class="tags"><span class="tag warn">widoki</span><span class="tag">pół dnia</span></div>
         </article>
 
         <article class="day" data-kind="rest">
           <div class="date">29.08 sob.<span>Bufor</span></div>
           <div>
-            <h3>Basen, zakupy, kolacja pozegnalna</h3>
-            <p>Dzien rezerwowy na pogode, rzeczy niedozrobione albo zwykle nicnierobienie. Wieczorem pakowanie i spokojna kolacja.</p>
+            <h3>Basen, zakupy, kolacja pożegnalna</h3>
+            <p>Dzień rezerwowy na pogodę, rzeczy niedozrobione albo zwykłe nicnierobienie. Wieczorem pakowanie i spokojna kolacja.</p>
           </div>
           <div class="tags"><span class="tag rest">odpoczynek</span></div>
         </article>
 
         <article class="day" data-kind="flight">
-          <div class="date">30.08 niedz.<span>Powrot do Berlina</span></div>
+          <div class="date">30.08 niedz.<span>Powrót do Berlina</span></div>
           <div>
             <h3>Hotel → FNC → Berlin BER</h3>
-            <p>Transfer madeira-in ok. 08:45. Lot FNC-BER EJU5334 ma w dokumentach godziny 11:45-17:10. Po ladowaniu w Berlinie zostawiamy bufor na bagaze, dzieci i dojazd z BER do domu.</p>
+            <p>Transfer madeira-in ok. 08:45. Lot FNC-BER EJU5334 ma w dokumentach godziny 11:45-17:10. Po lądowaniu w Berlinie zostawiamy bufor na bagaże, dzieci, odbiór auta z P8 i dojazd do domu.</p>
           </div>
           <div class="tags"><span class="tag bus">transfer</span><span class="tag flight">Berlin BER</span></div>
         </article>
@@ -547,21 +294,24 @@
     <section id="berlin" aria-labelledby="berlin-title">
       <div class="two-col">
         <div>
-          <h2 id="berlin-title">Berlin i loty</h2>
-          <p class="note">Berlin jest teraz osobnym elementem agendy: nie tylko kodem lotniska w rezerwacji, ale realnym etapem dnia z odprawa, bagazami, buforem dla dzieci i powrotem po przylocie.</p>
+          <h2 id="berlin-title">Berlin, P8 i loty</h2>
+          <p class="note">Berlin jest teraz pełnym etapem agendy: dojazd z Łodzi dzień wcześniej, parking P8 przy BER, lekki spacer po mieście, kolacja i dopiero następnego dnia lot na Maderę.</p>
           <div class="operator">
+            <div><strong>19.08</strong><span>Wyjazd z Łodzi o 11:00, dojazd do Berlina z przerwami i zapasem na parking P8.</span></div>
+            <div><strong>P8 BER</strong><span>Zostawiamy auto przy lotnisku; przed wyjazdem warto sprawdzić rezerwację, wjazd, kod i drogę do terminala.</span></div>
+            <div><strong>Berlin</strong><span>Krótko i lekko: Brama Brandenburska, Reichstag z zewnątrz, Unter den Linden albo Nikolaiviertel.</span></div>
+            <div><strong>Kolacja</strong><span>Wczesna, rodzinna, bez przeciągania wieczoru, żeby 20.08 zacząć spokojnie.</span></div>
             <div><strong>20.08</strong><span>Berlin BER → Funchal, EJU5333. W dokumentach potwierdzony przylot do FNC o 10:55.</span></div>
-            <div><strong>30.08</strong><span>Funchal → Berlin BER, EJU5334. W dokumentach 11:45-17:10.</span></div>
-            <div><strong>Bufor</strong><span>Przy dzieciach planowac spokojna odprawe, toalety, przekaski i margines na kolejki.</span></div>
-            <div><strong>Do sprawdzenia</strong><span>Godziny lotow, limity bagazu i terminal/stanowiska przed wyjazdem.</span></div>
+            <div><strong>30.08</strong><span>Funchal → Berlin BER, EJU5334. W dokumentach 11:45-17:10, potem bagaże, P8 i powrót.</span></div>
           </div>
         </div>
         <div class="panel">
           <h3>Praktycznie dla grupy</h3>
           <ul>
-            <li>Na 20.08 nie dokladamy zadnej atrakcji po przylocie poza hotelem, jedzeniem i Lido.</li>
-            <li>Na 30.08 nie planujemy zwiedzania: poranek jest pod transfer, lotnisko i spokojny powrot do Berlina.</li>
-            <li>Dokumenty nie potwierdzaja transferu lotnisko-hotel-lotnisko na Maderze, wiec madeira-in zostaje najbezpieczniejszym zalozeniem.</li>
+            <li>19.08 traktujemy jako logistykę plus miły akcent Berlina, nie jako intensywne zwiedzanie.</li>
+            <li>Najbezpieczniejszy wariant to jedna okolica spacerowa i kolacja blisko niej, bez przeskakiwania po całym mieście.</li>
+            <li>Na 20.08 nie dokładamy atrakcji po przylocie poza hotelem, jedzeniem i Lido.</li>
+            <li>Na 30.08 nie planujemy zwiedzania: poranek jest pod transfer, lotnisko i spokojny powrót przez P8.</li>
           </ul>
         </div>
       </div>
@@ -571,21 +321,21 @@
       <div class="two-col">
         <div>
           <h2 id="transport-title">Busy madeira-in</h2>
-          <p class="note">Zakladamy oferte madeira-in jako najbardziej sensowna dla calego pakietu: prywatne transfery FNC-hotel-FNC i trzy dni wycieczek, ten sam kierowca jesli potwierdza dostepnosc, foteliki/podkladki i Mercedes Sprinter.</p>
+          <p class="note">Na Maderze zakładamy ofertę madeira-in jako najbardziej sensowną dla całego pakietu: prywatne transfery FNC-hotel-FNC i trzy dni wycieczek, ten sam kierowca jeśli potwierdzą dostępność, foteliki/podkładki i Mercedes Sprinter.</p>
           <div class="operator">
-            <div><strong>Transfery</strong><span>FNC-hotel-FNC: w mailu 45 EUR w jedna strone dla grupy.</span></div>
-            <div><strong>Wycieczki</strong><span>Ok. 09:30-17:00/17:30, 220 EUR za dzien.</span></div>
-            <div><strong>Priorytet</strong><span>Bezpieczne postoje, toalety, lunch i mozliwosc skrocenia dnia.</span></div>
-            <div><strong>Do potwierdzenia</strong><span>Anulacja, platnosc, konkretne godziny i foteliki.</span></div>
+            <div><strong>Transfery</strong><span>FNC-hotel-FNC: w mailu 45 EUR w jedną stronę dla grupy.</span></div>
+            <div><strong>Wycieczki</strong><span>Ok. 09:30-17:00/17:30, 220 EUR za dzień.</span></div>
+            <div><strong>Priorytet</strong><span>Bezpieczne postoje, toalety, lunch i możliwość skrócenia dnia.</span></div>
+            <div><strong>Do potwierdzenia</strong><span>Anulacja, płatność, konkretne godziny i foteliki.</span></div>
           </div>
         </div>
         <div class="panel">
           <h3>Dlaczego bus zamiast auta</h3>
           <ul>
-            <li>Mniej stresu na gorskich drogach i przy parkingach.</li>
-            <li>Kierowca moze dopasowac postoje do dzieci i pogody.</li>
-            <li>Osoba z lekiem wysokosci nie musi siedziec za kierownica ani podejmowac trudnych decyzji na miejscu.</li>
-            <li>Najdluzszy zachodni dzien robi sie realny bez zmeczenia kierowcy z grupy.</li>
+            <li>Mniej stresu na górskich drogach i przy parkingach.</li>
+            <li>Kierowca może dopasować postoje do dzieci i pogody.</li>
+            <li>Osoba z lękiem wysokości nie musi siedzieć za kierownicą ani podejmować trudnych decyzji na miejscu.</li>
+            <li>Najdłuższy zachodni dzień robi się realny bez zmęczenia kierowcy z grupy.</li>
           </ul>
         </div>
       </div>
@@ -596,15 +346,15 @@
         <div class="panel">
           <h3>CR7 w planie</h3>
           <ul>
-            <li>Najlepszy termin: 21.08, bo to lekki dzien po przylocie.</li>
-            <li>Oficjalna informacja Visit Madeira: poniedzialek-sobota 10:00-17:00.</li>
-            <li>Lokalizacja przy marinie, wiec pasuje do spaceru po centrum.</li>
-            <li>Wystarczy 45-75 minut, potem lunch i powrot do hotelu.</li>
+            <li>Najlepszy termin: 21.08, bo to lekki dzień po przylocie.</li>
+            <li>Oficjalna informacja Visit Madeira: poniedziałek-sobota 10:00-17:00.</li>
+            <li>Lokalizacja przy marinie, więc pasuje do spaceru po centrum.</li>
+            <li>Wystarczy 45-75 minut, potem lunch i powrót do hotelu.</li>
           </ul>
         </div>
         <div>
           <h2 id="cr7-title">Muzeum Ronaldo</h2>
-          <p class="note">To dobra atrakcja miejska dla dzieci 10 i 12 lat, a dla 6-latka na tyle krotka, ze nie powinna rozbic dnia. Nie laczylbym jej z mocnym wyjazdem w gory.</p>
+          <p class="note">To dobra atrakcja miejska dla dzieci 10 i 12 lat, a dla 6-latka na tyle krótka, że nie powinna rozbić dnia. Nie łączyłbym jej z mocnym wyjazdem w góry.</p>
         </div>
       </div>
     </section>
@@ -613,18 +363,18 @@
       <div class="section-head">
         <div>
           <h2 id="safe-title">Zasady bezpieczeństwa</h2>
-          <p class="note">Plan celowo unika tras z duza ekspozycja jako punktow obowiazkowych. Tam, gdzie widoki sa mocne, traktujemy je jako opcje, nie test charakteru.</p>
+          <p class="note">Plan celowo unika tras z dużą ekspozycją jako punktów obowiązkowych. Tam, gdzie widoki są mocne, traktujemy je jako opcje, nie test charakteru.</p>
         </div>
       </div>
       <div class="summary">
+        <div><strong>Berlin</strong><span>19.08 krótki spacer i kolacja, bez przeładowania po trasie z Łodzi.</span></div>
         <div><strong>Arieiro</strong><span>Punkt widokowy tak, trasa do Pico Ruivo nie.</span></div>
-        <div><strong>Girão</strong><span>Opcja dla chetnych; reszta moze zostac przy busie lub kawie.</span></div>
-        <div><strong>Risco</strong><span>Nie jako domyslny dzien. Calheta jest lagodniejsza.</span></div>
-        <div><strong>Ocean</strong><span>Porto Moniz zalezy od fal; dzieci trzymamy blisko doroslych.</span></div>
+        <div><strong>Girão</strong><span>Opcja dla chętnych; reszta może zostać przy busie lub kawie.</span></div>
+        <div><strong>Ocean</strong><span>Porto Moniz zależy od fal; dzieci trzymamy blisko dorosłych.</span></div>
       </div>
     </section>
 
-    <p class="foot">Aktualizacja: plan uwzglednia dokumenty rezerwacji, opis hotelu, przewodniki w workspace, informacje od uzytkownika oraz oferte madeira-in z Gmaila. Godziny lotow, limity bagazu, transfery i godziny atrakcji nalezy sprawdzic ponownie przed wyjazdem.</p>
+    <p class="foot">Aktualizacja: plan uwzględnia dokumenty rezerwacji, opis hotelu, przewodniki w workspace, informacje od użytkownika, wyjazd z Łodzi 19.08 o 11:00, parking P8 przy BER oraz ofertę madeira-in. Godziny lotów, limity bagażu, parking P8, transfery i godziny atrakcji należy sprawdzić ponownie przed wyjazdem.</p>
   </main>
 
   <script>
