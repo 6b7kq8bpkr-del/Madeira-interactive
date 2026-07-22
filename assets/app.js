@@ -262,6 +262,7 @@
 
     updateSelectionUI();
     renderHighlights();
+    renderGallery();
     setupChecklist();
     renderOverviewLegend();
     setupOverviewMap();
@@ -457,10 +458,16 @@
     deactivate.addEventListener("click", () => { mapShell.classList.remove("is-active"); activate.textContent = "Aktywuj mapę"; setMapInteractions(routeMapInstance, false); });
     document.addEventListener("keydown", (event) => {
       if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+      if (document.body.classList.contains("lb-open")) return;
       if (event.target.matches("input, select, textarea")) return;
       if (event.key === "ArrowLeft" && prev) window.location.href = `${prev.id}.html`;
       if (event.key === "ArrowRight" && next) window.location.href = `${next.id}.html`;
     });
+    const heroImg = document.querySelector(".hero-media");
+    if (heroImg) {
+      heroImg.classList.add("zoomable");
+      heroImg.addEventListener("click", () => lightbox.open([{ src: day.image, caption: day.alt }], 0));
+    }
     const rail = document.querySelector(".day-rail");
     const currentRail = rail && rail.querySelector(".is-current");
     if (rail && currentRail) {
@@ -666,11 +673,104 @@
     onScroll();
   }
 
+  // Galeria + lightbox
+  const galleryItems = [
+    { src: images.funchal, caption: "Funchal i Ocean Atlantycki" },
+    { src: images.arieiro, caption: "Górski krajobraz centralnej Madery" },
+    { src: images.coast, caption: "Zielone wybrzeże wyspy" },
+    { src: images.porto, caption: "Baseny lawowe Porto Moniz" },
+    { src: images.camara, caption: "Doliny i miejscowości Madery" },
+    { src: images.beach, caption: "Południowo-zachodnie wybrzeże" },
+    { src: images.lido, caption: "Baseny oceaniczne w Funchal" }
+  ];
+
+  function setupLightbox() {
+    const overlay = document.createElement("div");
+    overlay.className = "lightbox";
+    overlay.hidden = true;
+    overlay.setAttribute("role", "dialog");
+    overlay.setAttribute("aria-modal", "true");
+    overlay.setAttribute("aria-label", "Powiększone zdjęcie");
+    overlay.innerHTML = '<button class="lb-close" type="button" aria-label="Zamknij">✕</button><button class="lb-nav lb-prev" type="button" aria-label="Poprzednie zdjęcie">‹</button><figure class="lb-figure"><img class="lb-img" alt=""><figcaption class="lb-caption"></figcaption></figure><button class="lb-nav lb-next" type="button" aria-label="Następne zdjęcie">›</button><span class="lb-counter"></span>';
+    document.body.appendChild(overlay);
+    const img = overlay.querySelector(".lb-img");
+    const cap = overlay.querySelector(".lb-caption");
+    const counter = overlay.querySelector(".lb-counter");
+    const prevBtn = overlay.querySelector(".lb-prev");
+    const nextBtn = overlay.querySelector(".lb-next");
+    const closeBtn = overlay.querySelector(".lb-close");
+    let items = [], idx = 0, lastFocus = null;
+    const show = () => {
+      const it = items[idx];
+      img.src = it.src; img.alt = it.caption || "";
+      cap.textContent = it.caption || "";
+      counter.textContent = `${idx + 1} / ${items.length}`;
+      const multi = items.length > 1;
+      prevBtn.hidden = !multi; nextBtn.hidden = !multi; counter.hidden = !multi;
+    };
+    const go = (delta) => { idx = (idx + delta + items.length) % items.length; show(); };
+    const open = (list, start) => {
+      items = list; idx = start || 0; lastFocus = document.activeElement;
+      overlay.hidden = false; document.body.classList.add("lb-open"); show(); closeBtn.focus();
+    };
+    const close = () => { overlay.hidden = true; document.body.classList.remove("lb-open"); if (lastFocus && lastFocus.focus) lastFocus.focus(); };
+    closeBtn.addEventListener("click", close);
+    prevBtn.addEventListener("click", () => go(-1));
+    nextBtn.addEventListener("click", () => go(1));
+    overlay.addEventListener("click", (e) => { if (e.target === overlay || e.target.classList.contains("lb-figure")) close(); });
+    document.addEventListener("keydown", (e) => {
+      if (overlay.hidden) return;
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowLeft" && items.length > 1) go(-1);
+      else if (e.key === "ArrowRight" && items.length > 1) go(1);
+    });
+    return { open };
+  }
+
+  function renderGallery() {
+    const grid = document.querySelector("#gallery-grid");
+    if (!grid) return;
+    grid.innerHTML = galleryItems.map((it, i) => `<button class="gallery-thumb" type="button" data-index="${i}" aria-label="Powiększ: ${it.caption}"><img src="${it.src}" alt="${it.caption}" loading="lazy" decoding="async"></button>`).join("");
+    grid.querySelectorAll("[data-index]").forEach((btn) => btn.addEventListener("click", () => lightbox.open(galleryItems, Number(btn.dataset.index))));
+  }
+
+  // Pogoda (Open-Meteo)
+  const PL_WD = ["niedz.", "pon.", "wt.", "śr.", "czw.", "pt.", "sob."];
+  const wxEmoji = (c) => c === 0 ? "☀️" : c <= 3 ? "⛅" : (c === 45 || c === 48) ? "🌫️" : (c >= 51 && c <= 57) ? "🌦️" : (c >= 61 && c <= 67) ? "🌧️" : (c >= 71 && c <= 77) ? "🌨️" : (c >= 80 && c <= 82) ? "🌦️" : (c >= 85 && c <= 86) ? "🌨️" : c >= 95 ? "⛈️" : "☁️";
+  const wxLabel = (c) => c === 0 ? "Bezchmurnie" : c <= 3 ? "Częściowe zachmurzenie" : (c === 45 || c === 48) ? "Mgła" : (c >= 51 && c <= 57) ? "Mżawka" : (c >= 61 && c <= 67) ? "Deszcz" : (c >= 71 && c <= 77) ? "Śnieg" : (c >= 80 && c <= 82) ? "Przelotny deszcz" : (c >= 85 && c <= 86) ? "Przelotny śnieg" : c >= 95 ? "Burza" : "Zachmurzenie";
+  const plWeekday = (dateStr) => PL_WD[new Date(dateStr + "T12:00:00").getDay()];
+
+  async function renderWeather() {
+    const host = document.querySelector("#weather");
+    if (!host) return;
+    const locations = [
+      { name: "Funchal · wybrzeże", lat: 32.6486, lon: -16.9186 },
+      { name: "Pico do Arieiro · góry", lat: 32.7356, lon: -16.9280 }
+    ];
+    try {
+      const results = await Promise.all(locations.map(async (loc) => {
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${loc.lat}&longitude=${loc.lon}&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Atlantic%2FMadeira&forecast_days=6`;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error("weather");
+        return { loc, data: await res.json() };
+      }));
+      host.innerHTML = results.map(({ loc, data }) => {
+        const cur = data.current, d = data.daily;
+        const days6 = d.time.map((t, i) => `<div class="wd"><span class="wd-day">${i === 0 ? "dziś" : plWeekday(t)}</span><span class="wd-ico" title="${wxLabel(d.weather_code[i])}">${wxEmoji(d.weather_code[i])}</span><span class="wd-temp">${Math.round(d.temperature_2m_max[i])}° <em>${Math.round(d.temperature_2m_min[i])}°</em></span><span class="wd-pop">💧 ${d.precipitation_probability_max[i] ?? 0}%</span></div>`).join("");
+        return `<article class="weather-card"><header class="weather-head"><h3>${loc.name}</h3><p class="weather-now">${wxEmoji(cur.weather_code)} ${Math.round(cur.temperature_2m)}°C <span>${wxLabel(cur.weather_code)}</span></p></header><div class="weather-days">${days6}</div></article>`;
+      }).join("");
+    } catch (e) {
+      host.innerHTML = '<p class="weather-error">Nie udało się pobrać pogody na żywo. Aktualną prognozę dla Madery znajdziesz w serwisie <a href="https://www.ipma.pt/en/otempo/prev.localidade.hora/" target="_blank" rel="noopener">IPMA</a> albo w ulubionej aplikacji pogodowej.</p>';
+    }
+  }
+
+  const lightbox = setupLightbox();
   renderTopNav();
   renderIndex();
   renderDay();
   renderPrint();
   renderPractical();
   renderFood();
+  renderWeather();
   renderBackToTop();
 })();
