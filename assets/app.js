@@ -64,7 +64,7 @@
       intensity: "Aktywna", duration: "09:30–17:30", transport: "Prywatny bus", walking: "Balcões + okolice, 2–3 km", kids: "Tak, dobrze chodzą po górach", exposure: "Niska / kontrolowana",
       center: [32.735, -16.886], route: [[32.6384, -16.9353, "Hotel"], [32.7356, -16.9280, "Pico do Arieiro"], [32.7353, -16.8865, "Ribeiro Frio"], [32.7419, -16.8905, "Balcões"], [32.8036, -16.8819, "Santana"], [32.7163, -16.7653, "Machico / Porto da Cruz"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Pico+do+Arieiro/Ribeiro+Frio/Balc%C3%B5es/Santana,+Madeira",
       agenda: [["08:15", "Śniadanie w hotelu", "Bufet 7:30–10:00 — zjeść przed wyjazdem o 9:30 (godziny potwierdzić w recepcji)."], ["09:30", "Start z hotelu", "Mercedes Sprinter madeira-in sprzed hotelu."], ["10:15", "Pico do Arieiro", "Rano szansa na czyste widoki jest największa — chmury zwykle narastają w ciągu dnia. Punkt widokowy i krótki spacer w komfortowym obszarze; bez trasy na Pico Ruivo."], ["11:45", "Ribeiro Frio i Balcões", "Łatwa levada do tarasu Balcões (ok. 1,5 km w obie strony) plus spacer po okolicy. Spokojne tempo i możliwość zawrócenia w dowolnym momencie."], ["13:30", "Santana i lunch", "Tradycyjne trójkątne domki 'palheiros', lunch i krótkie zwiedzanie miasteczka."], ["15:30", "Porto da Cruz lub Machico", "Dodatkowy przystanek na wybrzeżu zależnie od czasu i pogody."], ["17:30", "Powrót", "Wieczór w hotelu."]],
-      tips: ["W górach temperatura może być znacznie niższa niż w Funchal — zabrać warstwy i kurtki.", "Lunch wypada dopiero w Santanie około 13:30 — spakować drugie śniadanie i przekąski dla dzieci do busa.", "Balcões jest domyślnym spacerem dnia: kijki pomagają na nierównych fragmentach, a dzieci mogą iść pełną trasę.", "Na Arieiro wybierać miejsca oddalone od krawędzi ze względu na lęk wysokości, nie ze względu na kondycję grupy.", "Pełna trasa Arieiro–Ruivo nie jest częścią planu."],
+      tips: ["W górach temperatura może być znacznie niższa niż w Funchal — zabrać warstwy i kurtki.", "Lunch wypada dopiero w Santanie około 13:30 — spakować drugie śniadanie i przekąski dla dzieci do busa.", "Balcões jest domyślnym spacerem dnia: kijki pomagają na nierównych fragmentach, a dzieci mogą iść pełną trasę.", "Na Arieiro wybierać miejsca oddalone od krawędzi ze względu na lęk wysokości, nie ze względu na kondycję grupy.", "Pełna trasa Arieiro–Ruivo i tak nie jest częścią planu — bywa zamykana po zniszczeniach z pożarów w 2024 r.; my zostajemy przy punkcie widokowym."],
       planB: "Przy chmurach na Arieiro rano odwracamy kolejność: najpierw Ribeiro Frio i Balcões, a punkt górski próbujemy po południu albo pomijamy.", gentle: "Arieiro tylko wtedy, gdy widoczność i komfort całej grupy są dobre.",
       deepDive: {
         context: "Ribeiro Frio to dawna stacja hodowli pstrąga w sercu lasu laurowego (laurisilva), wpisanego na listę UNESCO. Balcões to jeden z najłatwiej dostępnych punktów widokowych na szczyty centralnej Madery, a Pico do Arieiro — trzeci najwyższy szczyt wyspy (ok. 1818 m) — to jedno z niewielu miejsc, gdzie asfaltowa droga prowadzi niemal pod sam punkt widokowy.",
@@ -148,7 +148,7 @@
       intensity: "Łagodna", duration: "Rejs 2–3 h + odpoczynek", transport: "Taxi + stabilna łódź", walking: "Minimum", kids: "Tak, po potwierdzeniu wieku", exposure: "Zależna od morza",
       center: [32.6386, -16.9332], route: [[32.6384, -16.9353, "Hotel Baía Azul"], [32.6454, -16.9096, "Marina w Funchal"], [32.6200, -17.0300, "Obszar obserwacji na oceanie"], [32.6454, -16.9096, "Powrót do mariny"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Hotel+Baia+Azul,+Funchal/Funchal+Marina",
       agenda: [["08:00", "Śniadanie w hotelu", "Bufet 7:30–10:00 — lekki posiłek i nawodnienie przed rejsem (godziny potwierdzić w recepcji)."], ["09:30", "Taxi do mariny", "Bez długiego dojścia; przybycie z zapasem na spokojne wejście na pokład."], ["10:30", "Rejs na delfiny i wieloryby", "Zaplanowany główny punkt dnia. Wybieramy stabilniejszą jednostkę z siedzeniami, cieniem, toaletą i możliwie łatwym wejściem."], ["14:00", "Lekki lunch i odpoczynek", "Po rejsie wracamy do hotelu; bez dokładania kolejnej atrakcji."], ["wieczór", "Wspólna kolacja", "Spokojne zakończenie dnia."]],
-      tips: ["Zarezerwować rejs z możliwością bezpłatnej zmiany na 29 sierpnia przy złym stanie morza.", "Przy rezerwacji potwierdzić sposób wejścia na pokład, stabilne siedzenia, toaletę oraz pomoc załogi.", "Na wodzie wieje i mocno operuje słońce — kurtki przeciwwiatrowe, nakrycia głowy i krem są potrzebne nawet przy upale w mieście.", "Rejs jest zaplanowany, ale wypłynięcie zależy od decyzji operatora i bezpiecznych warunków; obserwacji zwierząt nie da się zagwarantować.", "Przy chorobie morskiej wcześniej ustalić bezpieczne postępowanie z lekarzem lub farmaceutą."],
+      tips: ["Wypływamy przed południem nie bez powodu — rano morze jest zwykle spokojniejsze, a szansa na spotkanie delfinów i grindwali większa.", "Zarezerwować rejs z możliwością bezpłatnej zmiany na 29 sierpnia przy złym stanie morza.", "Przy rezerwacji potwierdzić sposób wejścia na pokład, stabilne siedzenia, toaletę oraz pomoc załogi.", "Na wodzie wieje i mocno operuje słońce — kurtki przeciwwiatrowe, nakrycia głowy i krem są potrzebne nawet przy upale w mieście.", "Rejs jest zaplanowany, ale wypłynięcie zależy od decyzji operatora i bezpiecznych warunków; obserwacji zwierząt nie da się zagwarantować.", "Przy chorobie morskiej wcześniej ustalić bezpieczne postępowanie z lekarzem lub farmaceutą."],
       planB: "Jeśli operator odwoła rejs z powodu morza, przenosimy go na 29 sierpnia. Tego dnia zostają basen, Lido i odpoczynek; bezpieczeństwo ma pierwszeństwo przed wypłynięciem.", gentle: "rejs pozostaje w planie, ale wybieramy stabilną jednostkę, taxi pod marinę, miejsce siedzące i pomoc przy wejściu.",
       deepDive: {
         context: "Wody wokół Madery leżą blisko brzegu nad głębokim szelfem oceanicznym, co sprzyja obserwacji waleni przez cały rok. Najczęściej spotykane są delfiny butlonose i zwyczajne oraz oresy krótkopłetwe; sezonowo pojawiają się też większe gatunki wielorybów.",
@@ -261,6 +261,7 @@
     });
 
     updateSelectionUI();
+    renderHighlights();
     setupChecklist();
     renderOverviewLegend();
     setupOverviewMap();
@@ -528,6 +529,34 @@
     }).join("");
   }
 
+  const highlights = [
+    { dayId: "2026-08-22", image: images.arieiro, title: "Pico do Arieiro ponad chmurami", desc: "Trzeci najwyższy szczyt wyspy i widok na morze chmur — niemal od samego punktu widokowego." },
+    { dayId: "2026-08-27", image: images.coast, title: "Levada das 25 Fontes", desc: "Spacer wśród lasu laurowego UNESCO do laguny zasilanej dwudziestoma pięcioma źródłami." },
+    { dayId: "2026-08-24", image: images.camara, title: "Zamglony las Fanal", desc: "Sędziwe, poskręcane drzewa laurowe spowite mgłą na płaskowyżu Paúl da Serra." },
+    { dayId: "2026-08-28", image: images.lido, title: "Delfiny i wieloryby", desc: "Rodzinny rejs po spokojniejszych, porannych wodach u wybrzeży Funchal." },
+    { dayId: "2026-08-24", image: images.porto, title: "Baseny lawowe Porto Moniz", desc: "Naturalne baseny wykute przez lawę i ocean na północno-zachodnim krańcu wyspy." },
+    { dayId: "2026-08-25", image: images.funchal, title: "Kolacja z espetadą", desc: "Wołowina ze szpady grillowana na lauru, z bolo do caco — wieczór w Funchal." }
+  ];
+
+  function renderHighlights() {
+    const grid = document.querySelector("#highlights-grid");
+    if (!grid) return;
+    grid.innerHTML = highlights.map((h) => {
+      const day = days.find((d) => d.id === h.dayId);
+      const n = days.indexOf(day) + 1;
+      return `<a class="hl-card" href="days/${h.dayId}.html"><img src="${h.image}" alt="" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('image-fallback');this.remove()"><div class="hl-body"><span class="hl-day">Dzień ${n} · ${day.date.split(" · ")[0]}</span><h3>${h.title}</h3><p>${h.desc}</p></div></a>`;
+    }).join("");
+  }
+
+  const packing = [
+    { emoji: "🧥", title: "Ubrania i warstwy", items: ["Lekkie ubrania na dzień (23–26°C) i coś cieplejszego na wieczór.", "Polar lub bluza — w górach i we mgle bywa wyraźnie chłodniej.", "Kurtka przeciwdeszczowa lub wiatrówka zawsze w plecaku, nawet przy słonecznej prognozie."] },
+    { emoji: "🥾", title: "Na levadę i góry", items: ["Buty trekkingowe na Levadę das 25 Fontes — bywa mokro, wąsko i wysoko.", "Wygodne sneakersy na miasto i spacery po wybrzeżu.", "Mały plecak, woda i przekąski; kijki trekkingowe dla chętnych."] },
+    { emoji: "🏖️", title: "Plaża i woda", items: ["Stroje kąpielowe i ręczniki (Lido, Porto Moniz, Calheta).", "Klapki lub buty do wody na kamieniste wejścia.", "Okulary i rurka do snorkelingu dla chętnych."] },
+    { emoji: "☀️", title: "Słońce i zdrowie", items: ["Krem z wysokim filtrem — na Maderze absolutnie nieodzowny.", "Czapki, kapelusze i okulary przeciwsłoneczne.", "Tabletki na chorobę morską na rejs (28.08), apteczka i leki na receptę z zapasem.", "EKUZ i ubezpieczenie turystyczne."] },
+    { emoji: "🔌", title: "Elektronika", items: ["Ładowarki — gniazdka jak w Polsce, przejściówka niepotrzebna.", "Power bank na całodniowe wycieczki.", "Telefon z pobranymi mapami offline i aparatem."] },
+    { emoji: "🧒", title: "Dla dzieci", items: ["Przekąski i woda na dni z późniejszym lunchem.", "Coś do zajęcia w busie na dłuższych trasach.", "Zmiana ubrań i drobna gra na luźniejszy dzień."] }
+  ];
+
   const practicalInfo = [
     { emoji: "🍳", title: "Śniadania w hotelu", points: ["Bufet śniadaniowy w Hotelu Baía Azul jest w cenie i serwowany zwykle w godzinach 7:30–10:00.", "Dla wychodzących wcześnie na wycieczkę zwykle dostępne jest śniadanie kontynentalne już od ok. 6:00.", "Dokładne godziny warto potwierdzić w recepcji po zameldowaniu — bywają sezonowe różnice."] },
     { emoji: "💶", title: "Waluta i płatności", points: ["Obowiązuje euro (EUR).", "Karty płatnicze akceptowane niemal wszędzie; bankomaty (Multibanco) są powszechne w Funchal.", "Gotówka przydaje się na targu, w małych wioskach i przy straganach z poncha."] },
@@ -572,9 +601,19 @@
         <p class="lead">Krótkie ściągi, które najbardziej przydają się na miejscu — od waluty i gniazdek po pogodę, transport i numery alarmowe.</p>
       </header>
       <main id="main-content" class="guide-main">
-        <div class="guide-info-grid">
-          ${practicalInfo.map((card) => `<article class="card info-card"><div class="card-body"><h2><span class="info-emoji" aria-hidden="true">${card.emoji}</span>${card.title}</h2><ul class="info-list">${card.points.map((p) => `<li>${p}</li>`).join("")}</ul></div></article>`).join("")}
-        </div>
+        <section class="guide-section" aria-labelledby="onsite-title">
+          <h2 id="onsite-title">Na miejscu</h2>
+          <div class="guide-info-grid">
+            ${practicalInfo.map((card) => `<article class="card info-card"><div class="card-body"><h3><span class="info-emoji" aria-hidden="true">${card.emoji}</span>${card.title}</h3><ul class="info-list">${card.points.map((p) => `<li>${p}</li>`).join("")}</ul></div></article>`).join("")}
+          </div>
+        </section>
+        <section class="guide-section" aria-labelledby="packing-title">
+          <h2 id="packing-title">Co spakować</h2>
+          <p class="section-copy">Sierpień na Maderze to 23–26°C i słońce, ale w górach i we mgle bywa chłodno, a pogoda zmienia się szybko — dlatego warstwy i kurtka w plecaku to podstawa.</p>
+          <div class="guide-info-grid">
+            ${packing.map((card) => `<article class="card info-card"><div class="card-body"><h3><span class="info-emoji" aria-hidden="true">${card.emoji}</span>${card.title}</h3><ul class="info-list">${card.items.map((i) => `<li>${i}</li>`).join("")}</ul></div></article>`).join("")}
+          </div>
+        </section>
         <nav class="guide-nav" aria-label="Nawigacja przewodników">
           <a class="button secondary" href="index.html">← Wróć do planu</a>
           <a class="button" href="gdzie-zjesc.html">Gdzie zjeść →</a>
