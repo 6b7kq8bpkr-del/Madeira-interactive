@@ -23,7 +23,13 @@
     curral: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Vista_de_Curral_das_Freiras%2C_Madeira%2C_Portugal%2C_2019-05-30%2C_DD_100.jpg/1920px-Vista_de_Curral_das_Freiras%2C_Madeira%2C_Portugal%2C_2019-05-30%2C_DD_100.jpg",
     funchal: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Funchal_%28Madeira%2C_Portugal%29%2C_Travessa_das_Torres_4_--_2025_--_0928.jpg/1920px-Funchal_%28Madeira%2C_Portugal%29%2C_Travessa_das_Torres_4_--_2025_--_0928.jpg",
     santana: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Traditional_farmhouse_-_Santana_06.jpg/1920px-Traditional_farmhouse_-_Santana_06.jpg",
-    pontaDoSol: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/The_seafront_at_Ponta_do_Sol%2C_Madeira%2C_Portugal.jpg/1920px-The_seafront_at_Ponta_do_Sol%2C_Madeira%2C_Portugal.jpg"
+    pontaDoSol: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/The_seafront_at_Ponta_do_Sol%2C_Madeira%2C_Portugal.jpg/1920px-The_seafront_at_Ponta_do_Sol%2C_Madeira%2C_Portugal.jpg",
+    funchalBay: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/A_light_swing_in_the_bay_%2841520001864%29.jpg/1920px-A_light_swing_in_the_bay_%2841520001864%29.jpg",
+    lido: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Complexo_Balnear_do_Lido_2019-10.jpg/1920px-Complexo_Balnear_do_Lido_2019-10.jpg",
+    monte: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Funchal_%28Madeira%2C_Portugal%29%2C_Telef%C3%A9rico_Funchal-Monte%2C_Talstation_--_2025_--_1192.jpg/1920px-Funchal_%28Madeira%2C_Portugal%29%2C_Telef%C3%A9rico_Funchal-Monte%2C_Talstation_--_2025_--_1192.jpg",
+    machico: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Machico_Madeira_January_2014_-_panoramio.jpg/1920px-Machico_Madeira_January_2014_-_panoramio.jpg",
+    dolphin: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Golfinho_ao_largo_do_Funchal%2C_fotografia_de_Virg%C3%ADlio_Gomes%2C_27_de_agosto_de_2022_-_Image_215725.jpg/1920px-Golfinho_ao_largo_do_Funchal%2C_fotografia_de_Virg%C3%ADlio_Gomes%2C_27_de_agosto_de_2022_-_Image_215725.jpg",
+    espetada: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Espetadagrill_am_Strandfest.JPG/1920px-Espetadagrill_am_Strandfest.JPG"
   };
 
   const TOUR_COLORS = ["#0b7276", "#d9684f", "#e9ad4b", "#246b51"];
@@ -45,7 +51,7 @@
     },
     {
       id: "2026-08-20", date: "20 sierpnia · czwartek", title: "Berlin BER → Funchal", short: "Lot, prywatny transfer, Hotel Baía Azul i pierwsze spotkanie z oceanem.",
-      image: images.funchal, alt: "Panorama Funchal i Oceanu Atlantyckiego na Maderze", cats: ["podróż", "spokojny"],
+      image: commons.funchalBay, alt: "Zatoka i marina Funchal na Maderze", cats: ["podróż", "spokojny"],
       intensity: "Łagodna", duration: "Dzień logistyczny", transport: "Samolot + transfer", walking: "Mało", kids: "Tak", exposure: "Niska",
       center: [32.6387, -16.9304], route: [[52.3667, 13.5033, "Lotnisko BER"], [32.6979, -16.7745, "Lotnisko FNC"], [32.6384, -16.9353, "Hotel Baía Azul"], [32.6386, -16.9332, "Lido"]], google: "https://www.google.com/maps/dir/Madeira+Airport/Hotel+Baia+Azul,+Funchal/Lido+Bathing+Complex",
       agenda: [["rano", "Spokojny dojazd na BER", "Odprawa z zapasem i bez dodatkowego programu."], ["10:55*", "Lądowanie w Funchal", "Lot EJU5333 i godzina 10:55 są do ponownego potwierdzenia przed wylotem."], ["12:00", "Prywatny transfer", "Transfer z madeira-in; po odbiorze bagażu kontakt z kierowcą i przejazd do Hotelu Baía Azul."], ["14:00", "Obiad i odpoczynek", "Lekki posiłek, zameldowanie i basen."], ["17:00", "Lido lub promenada", "Krótki spacer tylko jeśli grupa ma energię."]],
@@ -59,7 +65,7 @@
     },
     {
       id: "2026-08-21", date: "21 sierpnia · piątek", title: "Funchal i CR7", short: "Marina, muzeum CR7 i stare miasto Funchal.",
-      image: images.funchal, alt: "Funchal widziane od strony oceanu", cats: ["aktywny", "spokojny"],
+      image: commons.funchal, alt: "Uliczki starego miasta w Funchal", cats: ["aktywny", "spokojny"],
       intensity: "Umiarkowana", duration: "4–5 h", transport: "Autobus / taxi", walking: "2–4 km", kids: "Tak, sprawnie chodzą", exposure: "Niska",
       center: [32.648, -16.913], route: [[32.6384, -16.9353, "Hotel Baía Azul"], [32.6443, -16.9148, "Muzeum CR7"], [32.6454, -16.9096, "Marina"], [32.6484, -16.9033, "Stare miasto"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/CR7+Museum/Funchal+Marina/Mercado+dos+Lavradores",
       agenda: [["08:00", "Śniadanie w hotelu", "Bufet śniadaniowy w hotelu, zwykle 7:30–10:00 (godziny potwierdzić w recepcji)."], ["09:30", "Centrum i marina", "Spokojny start przy nabrzeżu i widok na port."], ["10:30", "Muzeum CR7", "Krótka, konkretna atrakcja; bilety sprawdzić przed wyjściem."], ["12:00", "Stare miasto", "Rua de Santa Maria i lunch w wygodnym miejscu."], ["15:00", "Hotel, basen lub Lido", "Reszta dnia bez sztywnego harmonogramu."]],
@@ -73,7 +79,7 @@
     },
     {
       id: "2026-08-22", date: "22 sierpnia · sobota", title: "Wschód Madery", short: "Arieiro o poranku, levada na Balcões, Santana i wybrzeże.",
-      image: images.arieiro, alt: "Górski krajobraz Pico do Arieiro ponad chmurami", cats: ["aktywny", "wycieczka busem"],
+      image: commons.arieiro, alt: "Skaliste szczyty Pico do Arieiro na Maderze", cats: ["aktywny", "wycieczka busem"],
       intensity: "Aktywna", duration: "09:30–17:30", transport: "Prywatny bus", walking: "Balcões + okolice, 2–3 km", kids: "Tak, dobrze chodzą po górach", exposure: "Niska / kontrolowana",
       center: [32.735, -16.886], route: [[32.6384, -16.9353, "Hotel"], [32.7356, -16.9280, "Pico do Arieiro"], [32.7353, -16.8865, "Ribeiro Frio"], [32.7419, -16.8905, "Balcões"], [32.8036, -16.8819, "Santana"], [32.7163, -16.7653, "Machico / Porto da Cruz"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Pico+do+Arieiro/Ribeiro+Frio/Balc%C3%B5es/Santana,+Madeira",
       agenda: [["08:15", "Śniadanie w hotelu", "Bufet 7:30–10:00 — zjeść przed wyjazdem o 9:30 (godziny potwierdzić w recepcji)."], ["09:30", "Start z hotelu", "Mercedes Sprinter madeira-in sprzed hotelu."], ["10:15", "Pico do Arieiro", "Rano szansa na czyste widoki jest największa — chmury zwykle narastają w ciągu dnia. Punkt widokowy i krótki spacer w komfortowym obszarze; bez trasy na Pico Ruivo."], ["11:45", "Ribeiro Frio i Balcões", "Łatwa levada do tarasu Balcões (ok. 1,5 km w obie strony) plus spacer po okolicy. Spokojne tempo i możliwość zawrócenia w dowolnym momencie."], ["13:30", "Santana i lunch", "Tradycyjne trójkątne domki 'palheiros', lunch i krótkie zwiedzanie miasteczka."], ["15:30", "Porto da Cruz lub Machico", "Dodatkowy przystanek na wybrzeżu zależnie od czasu i pogody."], ["17:30", "Powrót", "Wieczór w hotelu."]],
@@ -87,7 +93,7 @@
     },
     {
       id: "2026-08-23", date: "23 sierpnia · niedziela", title: "Luźny dzień w Funchal", short: "Basen i Lido, a do wyboru snorkeling albo Stare Miasto.",
-      image: images.lido, alt: "Baseny oceaniczne przy wybrzeżu Funchal", cats: ["odpoczynek", "spokojny"],
+      image: commons.lido, alt: "Kompleks basenów Lido przy wybrzeżu Funchal", cats: ["odpoczynek", "spokojny"],
       intensity: "Lekka", duration: "Elastyczny", transport: "Pieszo / taxi", walking: "2–3 km lub według chęci", kids: "Idealny", exposure: "Niska",
       center: [32.6386, -16.9332], route: [[32.6384, -16.9353, "Hotel Baía Azul"], [32.6386, -16.9332, "Lido"], [32.6484, -16.9033, "Stare Miasto — opcjonalnie"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/search/?api=1&query=Lido+Bathing+Complex+Funchal",
       agenda: [["rano", "Śniadanie w hotelu bez budzika", "Bufet w hotelu do 10:00 — dziś bez pośpiechu, jeden wolniejszy poranek między aktywnymi dniami."], ["10:30", "Lido i kąpiel", "Baseny oceaniczne; chętni mogą wypożyczyć sprzęt do snorkelingu przy skalistym brzegu."], ["13:00", "Lunch przy oceanie", "Świeża ryba lub lekki posiłek z widokiem na wodę."], ["15:30", "Stare Miasto dla chętnych", "Spacer po Rua de Santa Maria, pomalowane drzwi i kawiarnie — dla tych, którzy nie chcą siedzieć w miejscu."]],
@@ -101,7 +107,7 @@
     },
     {
       id: "2026-08-24", date: "24 sierpnia · poniedziałek", title: "Zachód Madery", short: "Nadmorskie wioski, Porto Moniz i zamglony las Fanal.",
-      image: images.porto, alt: "Naturalne baseny lawowe Porto Moniz na Maderze", cats: ["aktywny", "wycieczka busem"],
+      image: commons.portoMoniz, alt: "Naturalne baseny lawowe Porto Moniz na Maderze", cats: ["aktywny", "wycieczka busem"],
       intensity: "Pełna", duration: "09:30–18:00", transport: "Prywatny bus", walking: "Łącznie 3–5 km", kids: "Tak, sprawnie chodzą", exposure: "Niska; Cabo opcjonalne",
       center: [32.8663, -17.1667], route: [[32.6384, -16.9353, "Hotel"], [32.6496, -16.9769, "Câmara de Lobos"], [32.6747, -17.0633, "Ribeira Brava"], [32.8126, -17.1038, "Seixal"], [32.8663, -17.1667, "Porto Moniz"], [32.8097, -17.1436, "Fanal — zamglony las"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/C%C3%A2mara+de+Lobos/Ribeira+Brava/Seixal,+Madeira/Porto+Moniz/Fanal",
       agenda: [["08:15", "Śniadanie w hotelu", "Bufet 7:30–10:00 — zjeść przed wyjazdem o 9:30 (godziny potwierdzić w recepcji)."], ["09:30", "Câmara de Lobos", "Spacer przy porcie rybackim i rodzinne zdjęcie."], ["10:45", "Ribeira Brava", "Kawa, toaleta i krótki przystanek przed północnym wybrzeżem."], ["11:45", "Seixal", "Czarna piaszczysta plaża i punkt widokowy na klifowe wybrzeże."], ["13:00", "Porto Moniz", "Lunch przy naturalnych basenach lawowych; kąpiel przy dobrych warunkach morza."], ["15:00", "Fanal — zamglony las", "Starodawny las laurowy na płaskowyżu Paúl da Serra: sędziwe, poskręcane drzewa ostrokrzewu spowite mgłą. Krótki spacer po miękkiej łące między drzewami — najbardziej klimatyczne miejsce dnia."], ["18:00", "Powrót do hotelu", "Cabo Girão można dołożyć dla chętnych po drodze."]],
@@ -115,7 +121,7 @@
     },
     {
       id: "2026-08-25", date: "25 sierpnia · wtorek", title: "Funchal po swojemu", short: "Ogród, zakupy albo Monte, a wieczorem kolacja z espetadą.",
-      image: images.funchal, alt: "Zielone ogrody i zabudowa Funchal", cats: ["spokojny", "odpoczynek"],
+      image: commons.monte, alt: "Kolejka linowa teleférico nad Funchal, dzielnica Monte", cats: ["spokojny", "odpoczynek"],
       intensity: "Umiarkowana", duration: "4–6 h + kolacja", transport: "Autobus / taxi", walking: "3–5 km", kids: "Tak, sprawnie chodzą", exposure: "Wariant bez wysokości",
       center: [32.662, -16.895], route: [[32.6384, -16.9353, "Hotel"], [32.6624, -16.8946, "Ogród botaniczny"], [32.6496, -16.9080, "Centrum Funchal"], [32.6750, -16.9022, "Monte — opcjonalnie"], [32.6484, -16.9033, "Kolacja z espetadą — Stare Miasto"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Hotel+Baia+Azul,+Funchal/Madeira+Botanical+Garden/Funchal+Old+Town",
       agenda: [["08:30", "Śniadanie w hotelu", "Bufet śniadaniowy w hotelu, zwykle 7:30–10:00 (godziny potwierdzić w recepcji)."], ["10:00", "Wybór wariantu", "Ogród botaniczny albo centrum, zakupy i spokojna kawiarnia."], ["12:30", "Lunch", "Bez rezerwowania kolejnych atrakcji na siłę."], ["14:30", "Monte tylko dla chętnych", "Kolejka i wysokość są całkowicie opcjonalne."], ["16:00", "Hotel i basen", "Popołudniowa regeneracja przed wieczornym wyjściem."], ["19:30", "Kolacja z espetadą", "Polędwica wołowa ze szpady (espetada madeirense) grillowana na lauru, podawana z bolo do caco i milho frito. Restauracja w Starym Mieście albo w Câmara de Lobos; rodzinny stół, dzieciom zwykle smakuje."]],
@@ -129,7 +135,7 @@
     },
     {
       id: "2026-08-26", date: "26 sierpnia · środa", title: "Curral das Freiras", short: "Pół dnia w Dolinie Zakonnic, spokojne widoki i lunch.",
-      image: images.camara, alt: "Górskie doliny i miejscowości w centralnej Maderze", cats: ["aktywny", "spokojny"],
+      image: commons.curral, alt: "Dolina Curral das Freiras otoczona górami", cats: ["aktywny", "spokojny"],
       intensity: "Umiarkowana", duration: "5–6 h", transport: "Taxi / wycieczka", walking: "2–4 km", kids: "Tak, sprawnie chodzą", exposure: "Kontrolowana",
       center: [32.7202, -16.9691], route: [[32.6384, -16.9353, "Hotel"], [32.7107, -16.9615, "Eira do Serrado"], [32.7202, -16.9691, "Curral das Freiras"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Funchal/Eira+do+Serrado/Curral+das+Freiras",
       agenda: [["08:15", "Śniadanie w hotelu", "Bufet 7:30–10:00 — zjeść przed wyjazdem o 9:30 (godziny potwierdzić w recepcji)."], ["09:30", "Wyjazd z Funchal", "Trasa w głąb wyspy i spokojne rozpoczęcie aktywnego pół dnia."], ["10:15", "Eira do Serrado", "Krótkie podejście do komfortowego punktu widokowego; kijki i przerwy według potrzeby."], ["11:45", "Curral das Freiras", "Spacer 2–3 km po miejscowości i spokojny lunch."], ["15:00", "Powrót do hotelu", "Popołudnie na basenie lub krótka promenada."]],
@@ -143,7 +149,7 @@
     },
     {
       id: "2026-08-27", date: "27 sierpnia · czwartek", title: "Rabaçal, 25 Fontes i południowy zachód", short: "Levada das 25 Fontes w Rabaçal, plaża w Calhecie i bananowce.",
-      image: images.beach, alt: "Spokojne wybrzeże południowo-zachodniej Madery", cats: ["aktywny", "wycieczka busem"],
+      image: commons.fontes, alt: "Levada das 25 Fontes w rezerwacie Rabaçal", cats: ["aktywny", "wycieczka busem"],
       intensity: "Aktywna", duration: "09:00–17:30", transport: "Prywatny bus + spacer", walking: "Levada 25 Fontes ok. 8 km + wybrzeże", kids: "Tak, dobrze chodzą po górach", exposure: "Kontrolowana; Risco pomijamy",
       center: [32.7400, -17.1500], route: [[32.6384, -16.9353, "Hotel"], [32.7586, -17.1313, "Rabaçal — Levada das 25 Fontes"], [32.7219, -17.1775, "Plaża Calheta"], [32.7031, -17.1276, "Bananowce — Madalena do Mar"], [32.6819, -17.1045, "Ponta do Sol"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Raba%C3%A7al,+Madeira/Calheta+Beach/Madalena+do+Mar/Ponta+do+Sol",
       agenda: [["07:45", "Śniadanie w hotelu", "Bufet rusza o 7:30 (dla wychodzących wcześniej śniadanie kontynentalne od ok. 6:00) — zjeść przed wyjazdem o 9:00."], ["09:00", "Wyjazd z hotelu", "Aktywny dzień na zachodzie — wcześniejszy start, żeby dojechać do Rabaçal przed tłumami."], ["09:45", "Rabaçal — Levada das 25 Fontes", "Sztandarowa trasa dnia: levada wśród lasu laurowego do laguny zasilanej dwudziestoma pięcioma źródłami. Około 8 km w obie strony, w większości płasko; idziemy w swoim tempie. Levadę do Risco (odsłonięte klify) pomijamy."], ["13:15", "Calheta — plaża i lunch", "Nagroda po spacerze: piaszczysta plaża i późniejszy lunch przy oceanie."], ["15:00", "Bananowce w Madalena do Mar", "Krótki przystanek wśród plantacji — dzieci zobaczą, jak rosną banany, i spróbują owoców prosto z krzaka."], ["16:00", "Ponta do Sol", "Lody i spacer przy oceanie w najbardziej słonecznym zakątku wyspy, w drodze powrotnej."], ["17:30", "Powrót", "Wieczór w hotelu."]],
@@ -157,7 +163,7 @@
     },
     {
       id: "2026-08-28", date: "28 sierpnia · piątek", title: "Rejs: delfiny i wieloryby", short: "Główny punkt dnia: rodzinny rejs obserwacyjny z odpoczynkiem po powrocie.",
-      image: images.lido, alt: "Ocean Atlantycki przy wybrzeżu Funchal, gdzie odbywają się rejsy obserwacyjne", cats: ["aktywny", "spokojny"],
+      image: commons.dolphin, alt: "Delfin u wybrzeży Funchal na Maderze", cats: ["aktywny", "spokojny"],
       intensity: "Łagodna", duration: "Rejs 2–3 h + odpoczynek", transport: "Taxi + stabilna łódź", walking: "Minimum", kids: "Tak, po potwierdzeniu wieku", exposure: "Zależna od morza",
       center: [32.6386, -16.9332], route: [[32.6384, -16.9353, "Hotel Baía Azul"], [32.6454, -16.9096, "Marina w Funchal"], [32.6200, -17.0300, "Obszar obserwacji na oceanie"], [32.6454, -16.9096, "Powrót do mariny"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Hotel+Baia+Azul,+Funchal/Funchal+Marina",
       agenda: [["08:00", "Śniadanie w hotelu", "Bufet 7:30–10:00 — lekki posiłek i nawodnienie przed rejsem (godziny potwierdzić w recepcji)."], ["09:30", "Taxi do mariny", "Bez długiego dojścia; przybycie z zapasem na spokojne wejście na pokład."], ["10:30", "Rejs na delfiny i wieloryby", "Zaplanowany główny punkt dnia. Wybieramy stabilniejszą jednostkę z siedzeniami, cieniem, toaletą i możliwie łatwym wejściem."], ["14:00", "Lekki lunch i odpoczynek", "Po rejsie wracamy do hotelu; bez dokładania kolejnej atrakcji."], ["wieczór", "Wspólna kolacja", "Spokojne zakończenie dnia."]],
@@ -171,7 +177,7 @@
     },
     {
       id: "2026-08-29", date: "29 sierpnia · sobota", title: "Dzień rezerwowy", short: "Machico, Funchal, plaża albo powrót do ulubionego miejsca.",
-      image: images.coast, alt: "Miasteczko i wybrzeże Madery nad Atlantykiem", cats: ["spokojny", "odpoczynek"],
+      image: commons.machico, alt: "Zatoka i plaża w Machico na Maderze", cats: ["spokojny", "odpoczynek"],
       intensity: "Do wyboru", duration: "3–7 h", transport: "Autobus / taxi", walking: "2–5 km", kids: "Tak, sprawnie chodzą", exposure: "Wariant nisko położony",
       center: [32.7163, -16.7653], route: [[32.6384, -16.9353, "Hotel"], [32.6454, -16.9096, "Marina — termin zapasowy rejsu"], [32.7163, -16.7653, "Wariant: Machico"], [32.6496, -16.9080, "Wariant: Funchal"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Funchal/Machico",
       agenda: [["08:00", "Śniadanie w hotelu", "Bufet śniadaniowy w hotelu, zwykle 7:30–10:00 (godziny potwierdzić w recepcji)."], ["09:00", "Najpierw termin zapasowy rejsu", "Jeżeli rejs 28 sierpnia odwołano z powodu morza, dziś ma pierwszeństwo przed pozostałymi wariantami."], ["10:30", "Machico", "Plaża i płaska promenada — wariant, jeśli rejs odbył się poprzedniego dnia."], ["10:30", "Funchal", "Ostatnie zakupy, kawiarnia i miejsce pominięte wcześniej."], ["10:30", "Ulubione miejsce", "Powtórka bez poczucia, że trzeba zobaczyć coś nowego."], ["17:00", "Pakowanie", "Przygotować dokumenty, bagaże i ubrania na powrót."]],
@@ -185,7 +191,7 @@
     },
     {
       id: "2026-08-30", date: "30 sierpnia · niedziela", title: "Powrót do Łodzi", short: "Hotel, FNC, lot do Berlina, P8 i ostatni odcinek autem.",
-      image: images.funchal, alt: "Funchal i wybrzeże Madery widziane z góry", cats: ["podróż"],
+      image: commons.funchalBay, alt: "Zatoka Funchal i wybrzeże Madery", cats: ["podróż"],
       intensity: "Logistyczna", duration: "Cały dzień", transport: "Transfer + samolot + auto", walking: "Mało", kids: "Tak, z przerwami", exposure: "Niska",
       center: [32.6942, -16.7745], route: [[32.6384, -16.9353, "Hotel Baía Azul"], [32.6979, -16.7745, "Lotnisko FNC"], [52.3667, 13.5033, "Lotnisko BER"], [52.3664, 13.5071, "Parking P8"], [51.7592, 19.4560, "Łódź"]], google: "https://www.google.com/maps/dir/Hotel+Baia+Azul,+Funchal/Madeira+Airport",
       agenda: [["rano", "Checklista hotelowa", "Dokumenty, ładowarki, leki, stroje kąpielowe i sejf."], ["07:45", "Śniadanie w hotelu", "Bufet rusza o 7:30 — zjeść przed transferem ok. 8:45; przy bardzo wczesnym wyjeździe dopytać recepcję o pakiet śniadaniowy."], ["08:45*", "Prywatny transfer", "Transfer z madeira-in; godzina odbioru do ostatecznego potwierdzenia po weryfikacji lotu FNC–BER."], ["11:45*", "Lot FNC–BER", "Godzina EJU5334 z wcześniejszych dokumentów — sprawdzić ponownie przed wyjazdem."], ["po lądowaniu", "Samochód z P8", "Zdjęcie sektora i dane rezerwacji ułatwią odbiór."], ["wieczór", "Berlin → Łódź", "Regularne przerwy i zmiana kierowcy, jeśli to możliwe."]],
@@ -553,9 +559,9 @@
     { dayId: "2026-08-22", image: commons.arieiro, title: "Pico do Arieiro ponad chmurami", desc: "Trzeci najwyższy szczyt wyspy i widok na morze chmur — niemal od samego punktu widokowego." },
     { dayId: "2026-08-27", image: commons.fontes, title: "Levada das 25 Fontes", desc: "Spacer wśród lasu laurowego UNESCO do laguny zasilanej dwudziestoma pięcioma źródłami." },
     { dayId: "2026-08-24", image: commons.fanal, title: "Zamglony las Fanal", desc: "Sędziwe, poskręcane drzewa laurowe spowite mgłą na płaskowyżu Paúl da Serra." },
-    { dayId: "2026-08-28", image: images.lido, title: "Delfiny i wieloryby", desc: "Rodzinny rejs po spokojniejszych, porannych wodach u wybrzeży Funchal." },
+    { dayId: "2026-08-28", image: commons.dolphin, title: "Delfiny i wieloryby", desc: "Rodzinny rejs po spokojniejszych, porannych wodach u wybrzeży Funchal." },
     { dayId: "2026-08-24", image: commons.portoMoniz, title: "Baseny lawowe Porto Moniz", desc: "Naturalne baseny wykute przez lawę i ocean na północno-zachodnim krańcu wyspy." },
-    { dayId: "2026-08-25", image: images.funchal, title: "Kolacja z espetadą", desc: "Wołowina ze szpady grillowana na lauru, z bolo do caco — wieczór w Funchal." }
+    { dayId: "2026-08-25", image: commons.espetada, title: "Kolacja z espetadą", desc: "Wołowina ze szpady grillowana na lauru, z bolo do caco — wieczór w Funchal." }
   ];
 
   function renderHighlights() {
@@ -699,7 +705,13 @@
     { src: commons.curral, place: "Curral das Freiras", author: "Diego Delso", license: "CC BY-SA 4.0", licenseUrl: BYSA4 },
     { src: commons.santana, place: "Domki w Santanie", author: "H. Zell", license: "CC BY-SA 3.0", licenseUrl: BYSA3 },
     { src: commons.pontaDoSol, place: "Ponta do Sol", author: "Paul Mannix", license: "CC BY 2.0", licenseUrl: BY2 },
-    { src: commons.funchal, place: "Funchal · stare miasto", author: "Dietmar Rabich", license: "CC BY-SA 4.0", licenseUrl: BYSA4 }
+    { src: commons.funchalBay, place: "Zatoka Funchal", author: "Pedro (Maia, Portugal)", license: "CC BY 2.0", licenseUrl: BY2 },
+    { src: commons.funchal, place: "Funchal · stare miasto", author: "Dietmar Rabich", license: "CC BY-SA 4.0", licenseUrl: BYSA4 },
+    { src: commons.lido, place: "Baseny Lido w Funchal", author: "Hein.Mück", license: "CC BY-SA 3.0", licenseUrl: BYSA3 },
+    { src: commons.monte, place: "Teleférico na Monte", author: "Dietmar Rabich", license: "CC BY-SA 4.0", licenseUrl: BYSA4 },
+    { src: commons.machico, place: "Machico", author: "Bengt Nyman", license: "CC BY 3.0", licenseUrl: "https://creativecommons.org/licenses/by/3.0" },
+    { src: commons.dolphin, place: "Delfin u wybrzeży Funchal", author: "Virgílio Gomes", license: "CC BY-SA 4.0", licenseUrl: BYSA4 },
+    { src: commons.espetada, place: "Espetada madeirense", author: "Dirk Klaassen", license: "CC BY-SA 4.0", licenseUrl: BYSA4 }
   ];
   const galleryCredit = (it) => `fot. ${it.author} · <a href="${it.licenseUrl}" target="_blank" rel="noopener">${it.license}</a> · Wikimedia Commons`;
   const galleryLightboxItems = () => galleryItems.map((it) => ({ src: it.src, caption: it.place, credit: galleryCredit(it) }));
