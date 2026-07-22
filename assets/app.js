@@ -13,6 +13,19 @@
     camara: "https://images.unsplash.com/photo-1619162600582-1c24c605a5fa" + IMAGE
   };
 
+  // Autentyczne zdjęcia miejsc z planu — Wikimedia Commons (atrybucja w galerii)
+  const commons = {
+    arieiro: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/View_from_Miradouro_do_Pico_do_Arieiro_-_Madeira_01.jpg/1920px-View_from_Miradouro_do_Pico_do_Arieiro_-_Madeira_01.jpg",
+    fontes: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Madeira-Rabacal-Levada_das_25_Fontes_%28PR6%29-bridge-02ASD.jpg/1920px-Madeira-Rabacal-Levada_das_25_Fontes_%28PR6%29-bridge-02ASD.jpg",
+    fanal: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Fanal_%28Madeira%2C_Portugal%29%2C_Lorbeerwald_--_2025_--_1532.jpg/1920px-Fanal_%28Madeira%2C_Portugal%29%2C_Lorbeerwald_--_2025_--_1532.jpg",
+    portoMoniz: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Porto_Moniz_%28Madeira%2C_Portugal%29%2C_Piscinas_Naturais_do_Porto_Moniz_--_2025_--_1779.jpg/1920px-Porto_Moniz_%28Madeira%2C_Portugal%29%2C_Piscinas_Naturais_do_Porto_Moniz_--_2025_--_1779.jpg",
+    camara: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/C%C3%A2mara_de_Lobos_%28Madeira%2C_Portugal%29%2C_Porto_de_C%C3%A2mara_de_Lobos_--_2025_--_1887.jpg/1920px-C%C3%A2mara_de_Lobos_%28Madeira%2C_Portugal%29%2C_Porto_de_C%C3%A2mara_de_Lobos_--_2025_--_1887.jpg",
+    curral: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Vista_de_Curral_das_Freiras%2C_Madeira%2C_Portugal%2C_2019-05-30%2C_DD_100.jpg/1920px-Vista_de_Curral_das_Freiras%2C_Madeira%2C_Portugal%2C_2019-05-30%2C_DD_100.jpg",
+    funchal: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Funchal_%28Madeira%2C_Portugal%29%2C_Travessa_das_Torres_4_--_2025_--_0928.jpg/1920px-Funchal_%28Madeira%2C_Portugal%29%2C_Travessa_das_Torres_4_--_2025_--_0928.jpg",
+    santana: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Traditional_farmhouse_-_Santana_06.jpg/1920px-Traditional_farmhouse_-_Santana_06.jpg",
+    pontaDoSol: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/The_seafront_at_Ponta_do_Sol%2C_Madeira%2C_Portugal.jpg/1920px-The_seafront_at_Ponta_do_Sol%2C_Madeira%2C_Portugal.jpg"
+  };
+
   const TOUR_COLORS = ["#0b7276", "#d9684f", "#e9ad4b", "#246b51"];
 
   const days = [
@@ -537,11 +550,11 @@
   }
 
   const highlights = [
-    { dayId: "2026-08-22", image: images.arieiro, title: "Pico do Arieiro ponad chmurami", desc: "Trzeci najwyższy szczyt wyspy i widok na morze chmur — niemal od samego punktu widokowego." },
-    { dayId: "2026-08-27", image: images.coast, title: "Levada das 25 Fontes", desc: "Spacer wśród lasu laurowego UNESCO do laguny zasilanej dwudziestoma pięcioma źródłami." },
-    { dayId: "2026-08-24", image: images.camara, title: "Zamglony las Fanal", desc: "Sędziwe, poskręcane drzewa laurowe spowite mgłą na płaskowyżu Paúl da Serra." },
+    { dayId: "2026-08-22", image: commons.arieiro, title: "Pico do Arieiro ponad chmurami", desc: "Trzeci najwyższy szczyt wyspy i widok na morze chmur — niemal od samego punktu widokowego." },
+    { dayId: "2026-08-27", image: commons.fontes, title: "Levada das 25 Fontes", desc: "Spacer wśród lasu laurowego UNESCO do laguny zasilanej dwudziestoma pięcioma źródłami." },
+    { dayId: "2026-08-24", image: commons.fanal, title: "Zamglony las Fanal", desc: "Sędziwe, poskręcane drzewa laurowe spowite mgłą na płaskowyżu Paúl da Serra." },
     { dayId: "2026-08-28", image: images.lido, title: "Delfiny i wieloryby", desc: "Rodzinny rejs po spokojniejszych, porannych wodach u wybrzeży Funchal." },
-    { dayId: "2026-08-24", image: images.porto, title: "Baseny lawowe Porto Moniz", desc: "Naturalne baseny wykute przez lawę i ocean na północno-zachodnim krańcu wyspy." },
+    { dayId: "2026-08-24", image: commons.portoMoniz, title: "Baseny lawowe Porto Moniz", desc: "Naturalne baseny wykute przez lawę i ocean na północno-zachodnim krańcu wyspy." },
     { dayId: "2026-08-25", image: images.funchal, title: "Kolacja z espetadą", desc: "Wołowina ze szpady grillowana na lauru, z bolo do caco — wieczór w Funchal." }
   ];
 
@@ -673,16 +686,23 @@
     onScroll();
   }
 
-  // Galeria + lightbox
+  // Galeria — autentyczne zdjęcia miejsc z planu (Wikimedia Commons)
+  const BYSA4 = "https://creativecommons.org/licenses/by-sa/4.0";
+  const BYSA3 = "https://creativecommons.org/licenses/by-sa/3.0";
+  const BY2 = "https://creativecommons.org/licenses/by/2.0";
   const galleryItems = [
-    { src: images.funchal, caption: "Funchal i Ocean Atlantycki" },
-    { src: images.arieiro, caption: "Górski krajobraz centralnej Madery" },
-    { src: images.coast, caption: "Zielone wybrzeże wyspy" },
-    { src: images.porto, caption: "Baseny lawowe Porto Moniz" },
-    { src: images.camara, caption: "Doliny i miejscowości Madery" },
-    { src: images.beach, caption: "Południowo-zachodnie wybrzeże" },
-    { src: images.lido, caption: "Baseny oceaniczne w Funchal" }
+    { src: commons.arieiro, place: "Pico do Arieiro", author: "H. Zell", license: "CC BY-SA 3.0", licenseUrl: BYSA3 },
+    { src: commons.fontes, place: "Levada das 25 Fontes · Rabaçal", author: "Asurnipal", license: "CC BY-SA 4.0", licenseUrl: BYSA4 },
+    { src: commons.fanal, place: "Zamglony las Fanal", author: "Dietmar Rabich", license: "CC BY-SA 4.0", licenseUrl: BYSA4 },
+    { src: commons.portoMoniz, place: "Baseny lawowe Porto Moniz", author: "Dietmar Rabich", license: "CC BY-SA 4.0", licenseUrl: BYSA4 },
+    { src: commons.camara, place: "Câmara de Lobos", author: "Dietmar Rabich", license: "CC BY-SA 4.0", licenseUrl: BYSA4 },
+    { src: commons.curral, place: "Curral das Freiras", author: "Diego Delso", license: "CC BY-SA 4.0", licenseUrl: BYSA4 },
+    { src: commons.santana, place: "Domki w Santanie", author: "H. Zell", license: "CC BY-SA 3.0", licenseUrl: BYSA3 },
+    { src: commons.pontaDoSol, place: "Ponta do Sol", author: "Paul Mannix", license: "CC BY 2.0", licenseUrl: BY2 },
+    { src: commons.funchal, place: "Funchal · stare miasto", author: "Dietmar Rabich", license: "CC BY-SA 4.0", licenseUrl: BYSA4 }
   ];
+  const galleryCredit = (it) => `fot. ${it.author} · <a href="${it.licenseUrl}" target="_blank" rel="noopener">${it.license}</a> · Wikimedia Commons`;
+  const galleryLightboxItems = () => galleryItems.map((it) => ({ src: it.src, caption: it.place, credit: galleryCredit(it) }));
 
   function setupLightbox() {
     const overlay = document.createElement("div");
@@ -703,7 +723,7 @@
     const show = () => {
       const it = items[idx];
       img.src = it.src; img.alt = it.caption || "";
-      cap.textContent = it.caption || "";
+      cap.innerHTML = `<span class="lb-place">${it.caption || ""}</span>${it.credit ? `<span class="lb-credit">${it.credit}</span>` : ""}`;
       counter.textContent = `${idx + 1} / ${items.length}`;
       const multi = items.length > 1;
       prevBtn.hidden = !multi; nextBtn.hidden = !multi; counter.hidden = !multi;
@@ -730,8 +750,9 @@
   function renderGallery() {
     const grid = document.querySelector("#gallery-grid");
     if (!grid) return;
-    grid.innerHTML = galleryItems.map((it, i) => `<button class="gallery-thumb" type="button" data-index="${i}" aria-label="Powiększ: ${it.caption}"><img src="${it.src}" alt="${it.caption}" loading="lazy" decoding="async"></button>`).join("");
-    grid.querySelectorAll("[data-index]").forEach((btn) => btn.addEventListener("click", () => lightbox.open(galleryItems, Number(btn.dataset.index))));
+    const lbItems = galleryLightboxItems();
+    grid.innerHTML = galleryItems.map((it, i) => `<button class="gallery-thumb" type="button" data-index="${i}" aria-label="Powiększ: ${it.place}"><img src="${it.src}" alt="${it.place}, Madera" loading="lazy" decoding="async"><span class="gallery-cap">${it.place}</span></button>`).join("");
+    grid.querySelectorAll("[data-index]").forEach((btn) => btn.addEventListener("click", () => lightbox.open(lbItems, Number(btn.dataset.index))));
   }
 
   // Pogoda (Open-Meteo)
