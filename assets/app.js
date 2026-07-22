@@ -101,17 +101,17 @@
       }
     },
     {
-      id: "2026-08-25", date: "25 sierpnia · wtorek", title: "Funchal po swojemu", short: "Ogród, zakupy albo Monte — z pełnym wariantem bez kolejki.",
+      id: "2026-08-25", date: "25 sierpnia · wtorek", title: "Funchal po swojemu", short: "Ogród, zakupy albo Monte, a wieczorem kolacja z espetadą.",
       image: images.funchal, alt: "Zielone ogrody i zabudowa Funchal", cats: ["spokojny", "odpoczynek"],
-      intensity: "Umiarkowana", duration: "4–6 h", transport: "Autobus / taxi", walking: "3–5 km", kids: "Tak, sprawnie chodzą", exposure: "Wariant bez wysokości",
-      center: [32.662, -16.895], route: [[32.6384, -16.9353, "Hotel"], [32.6624, -16.8946, "Ogród botaniczny"], [32.6496, -16.9080, "Centrum Funchal"], [32.6750, -16.9022, "Monte — opcjonalnie"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Hotel+Baia+Azul,+Funchal/Madeira+Botanical+Garden/Funchal",
-      agenda: [["10:00", "Wybór wariantu", "Ogród botaniczny albo centrum, zakupy i spokojna kawiarnia."], ["12:30", "Lunch", "Bez rezerwowania kolejnych atrakcji na siłę."], ["14:30", "Monte tylko dla chętnych", "Kolejka i wysokość są całkowicie opcjonalne."], ["16:00", "Hotel", "Basen i spokojna kolacja."]],
-      tips: ["Plan podstawowy to ogród botaniczny i centrum: 3–5 km z przerwami; kijki przydają się na pochyłych alejkach.", "Wariant bez kolejki pozostaje pełnym programem — wysokość jest kwestią komfortu, nie kondycji dzieci.", "Rodziny mogą rozdzielić się na 2–3 godziny i spotkać na lunchu.", "Sprawdzić godziny ogrodu i temperaturę przed wyjazdem."],
-      planB: "Cały dzień w hotelu i przy Lido; zakupy można zrobić wieczorem w najbliższej okolicy.", gentle: "bez kolejki i bez Monte; wybieramy ogród dostępny taxi albo centrum.",
+      intensity: "Umiarkowana", duration: "4–6 h + kolacja", transport: "Autobus / taxi", walking: "3–5 km", kids: "Tak, sprawnie chodzą", exposure: "Wariant bez wysokości",
+      center: [32.662, -16.895], route: [[32.6384, -16.9353, "Hotel"], [32.6624, -16.8946, "Ogród botaniczny"], [32.6496, -16.9080, "Centrum Funchal"], [32.6750, -16.9022, "Monte — opcjonalnie"], [32.6484, -16.9033, "Kolacja z espetadą — Stare Miasto"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Hotel+Baia+Azul,+Funchal/Madeira+Botanical+Garden/Funchal+Old+Town",
+      agenda: [["10:00", "Wybór wariantu", "Ogród botaniczny albo centrum, zakupy i spokojna kawiarnia."], ["12:30", "Lunch", "Bez rezerwowania kolejnych atrakcji na siłę."], ["14:30", "Monte tylko dla chętnych", "Kolejka i wysokość są całkowicie opcjonalne."], ["16:00", "Hotel i basen", "Popołudniowa regeneracja przed wieczornym wyjściem."], ["19:30", "Kolacja z espetadą", "Polędwica wołowa ze szpady (espetada madeirense) grillowana na lauru, podawana z bolo do caco i milho frito. Restauracja w Starym Mieście albo w Câmara de Lobos; rodzinny stół, dzieciom zwykle smakuje."]],
+      tips: ["Plan podstawowy to ogród botaniczny i centrum: 3–5 km z przerwami; kijki przydają się na pochyłych alejkach.", "Na espetadę w sezonie lepiej zarezerwować stół dla 7 osób z wyprzedzeniem — najlepsze lokale w Starym Mieście i w Câmara de Lobos bywają pełne.", "Espetada zwykle zamawiana jest na wagę lub 'na metr' do dzielenia — dla dzieci wystarczy mniejsza porcja lub wspólny półmisek.", "Szacunkowy koszt kolacji: 4 dorosłych po ok. 16–20 EUR, 3 dzieci po ok. 9–11 EUR, plus dodatki i napoje — razem około 120–150 EUR za grupę.", "Rodziny mogą rozdzielić się na 2–3 godziny w dzień i spotkać dopiero na wspólnej kolacji."],
+      planB: "Cały dzień w hotelu i przy Lido; jeśli wieczór wypadnie leniwie, espetadę można przenieść na inny dzień pobytu.", gentle: "bez kolejki i bez Monte; wybieramy ogród dostępny taxi albo centrum, a na kolację najbliższą dobrą espetadę.",
       deepDive: {
         context: "Ogród botaniczny w Funchal założono w połowie XX wieku na terenie dawnej posiadłości rodziny Reid. Monte to historyczna dzielnica nad miastem, znana z bazyliki Nossa Senhora do Monte oraz tradycyjnych wiklinowych sań ('carros de cesto'), którymi dawniej zjeżdżano z góry do centrum.",
-        food: "W okolicy ogrodu botanicznego i Monte warto spróbować lokalnych ciast z owocami tropikalnymi (np. z maracują); w centrum Funchal dobrym wyborem na lekki lunch są niewielkie tasquinhas z domową kuchnią.",
-        practical: "Wjazd do ogrodu botanicznego jest płatny, a kolejka linowa na Monte bywa oblegana w środku dnia — jeśli ktoś zdecyduje się na ten wariant, lepiej wybrać wcześniejsze albo późniejsze godziny."
+        food: "Wieczorna espetada madeirense to duże kawałki wołowiny nadziane na patyk z drzewa laurowego, natarte solą i czosnkiem, grillowane nad żarem i podawane zawieszone pionowo przy stole — dawniej na patyku z lauru, dziś często na metalowej szpadzie. Klasyczne dodatki to bolo do caco z masłem czosnkowym i milho frito (chrupiące kostki smażonej kukurydzy). Miejscem, które rozsławiło tę potrawę, jest Câmara de Lobos i Estreito powyżej niego.",
+        practical: "Wjazd do ogrodu botanicznego jest płatny, a kolejka linowa na Monte bywa oblegana w środku dnia. Na kolację z espetadą warto zarezerwować stół — porcje są duże i dobrze dzielą się w rodzinie, więc nie trzeba zamawiać osobnej dla każdego dziecka."
       }
     },
     {
@@ -224,29 +224,9 @@
         grid.querySelectorAll(".day-card").forEach((card) => { card.hidden = filter !== "all" && !card.dataset.cats.includes(filter); });
       });
     });
-    setupCalculator();
     setupChecklist();
     renderOverviewLegend();
     setupOverviewMap();
-  }
-
-  function setupCalculator() {
-    const form = document.querySelector("#cost-form");
-    if (!form) return;
-    const defaults = { tours: "3", transfer: "90", cruise: "0", parking: "0", other: "0", rate: "4.30" };
-    const values = Object.assign(defaults, state.calculator);
-    Object.keys(values).forEach((key) => { if (form.elements[key]) form.elements[key].value = values[key]; });
-    const update = () => {
-      const data = Object.fromEntries(new FormData(form));
-      state.calculator = data;
-      save();
-      const eur = Number(data.transfer || 0) + Number(data.tours || 0) * 220 + Number(data.cruise || 0) + Number(data.parking || 0) + Number(data.other || 0);
-      const pln = eur * Number(data.rate || 0);
-      document.querySelector("#total-eur").textContent = `${eur.toLocaleString("pl-PL", {maximumFractionDigits: 2})} EUR`;
-      document.querySelector("#total-pln").textContent = `${pln.toLocaleString("pl-PL", {maximumFractionDigits: 2})} PLN przy kursie ${Number(data.rate || 0).toLocaleString("pl-PL")}`;
-    };
-    form.addEventListener("input", update);
-    update();
   }
 
   function setupChecklist() {
@@ -256,7 +236,7 @@
     });
     const reset = document.querySelector("#reset-plan");
     if (reset) reset.addEventListener("click", () => {
-      if (!window.confirm("Zresetować wybrane dni, pominięte punkty, checklistę i kalkulator?")) return;
+      if (!window.confirm("Zresetować wybrane dni, pominięte punkty i checklistę?")) return;
       localStorage.removeItem(stateKey);
       window.location.reload();
     });
@@ -483,7 +463,111 @@
       <footer class="print-foot">Godziny lotów, rezerwacje, warunki pogodowe i dostępność atrakcji wymagają potwierdzenia przed wyjazdem. Wygenerowano ze strony planu — wersja online zawiera mapy tras.</footer>`;
   }
 
+  function renderTopNav() {
+    const host = document.querySelector("#top-actions");
+    if (!host) return;
+    const page = document.body.dataset.page;
+    const prefix = page === "day" ? "../" : "";
+    const items = [
+      { key: "home", label: "Plan", href: "index.html" },
+      { key: "practical", label: "Praktyczne", href: "praktyczne.html" },
+      { key: "food", label: "Gdzie zjeść", href: "gdzie-zjesc.html" },
+      { key: "print", label: "PDF", href: "print.html" }
+    ];
+    host.innerHTML = items.map((item) => {
+      const current = item.key === page;
+      return `<a class="nav-link${current ? " is-current" : ""}" href="${prefix}${item.href}"${current ? ' aria-current="page"' : ""}>${item.label}</a>`;
+    }).join("");
+  }
+
+  const practicalInfo = [
+    { emoji: "💶", title: "Waluta i płatności", points: ["Obowiązuje euro (EUR).", "Karty płatnicze akceptowane niemal wszędzie; bankomaty (Multibanco) są powszechne w Funchal.", "Gotówka przydaje się na targu, w małych wioskach i przy straganach z poncha."] },
+    { emoji: "🗣️", title: "Język", points: ["Językiem urzędowym jest portugalski.", "W Funchal i miejscach turystycznych powszechny jest angielski, często również niemiecki.", "Mile widziane proste zwroty: bom dia (dzień dobry), obrigado / obrigada (dziękuję — forma zależna od płci mówiącego), por favor (proszę)."] },
+    { emoji: "🔌", title: "Prąd i gniazdka", points: ["Napięcie 230 V, gniazdka typu F — takie same jak w Polsce.", "Przejściówka nie jest potrzebna.", "Warto zabrać listwę lub ładowarkę z kilkoma portami USB dla całej rodziny."] },
+    { emoji: "🕐", title: "Czas", points: ["Madera latem jest o jedną godzinę wcześniej niż Polska.", "Gdy w Łodzi jest 12:00, na Maderze jest 11:00.", "Zegarki i budziki cofamy o godzinę po przylocie, a przestawiamy z powrotem w drodze powrotnej."] },
+    { emoji: "📶", title: "Telefon i internet", points: ["Polski numer działa w roamingu UE bez dodatkowych opłat (roam like at home).", "Zasięg jest dobry na wybrzeżu, słabszy w górach, długich tunelach i głębokich dolinach.", "Warto pobrać mapy offline całej wyspy przed wyjazdem."] },
+    { emoji: "🌦️", title: "Pogoda i mikroklimaty", points: ["Południe wyspy (Funchal) jest cieplejsze i bardziej słoneczne, północ chłodniejsza i wilgotniejsza.", "W górach bywa znacznie zimniej i mgliście nawet przy upale na wybrzeżu — warstwy ubrań i kurtka przeciwwiatrowa są potrzebne latem.", "Ocean bywa chłodny; kąpiel najlepiej na strzeżonych plażach i przy basenach."] },
+    { emoji: "🚕", title: "Transport", points: ["W Funchal jest dużo taksówek; działają też aplikacje typu Bolt.", "Autobusy miejskie (Horários do Funchal) i regionalne obsługują wybrzeże, ale w góry wygodniej jechać prywatnym busem lub taxi.", "Drogi są kręte i strome, z licznymi tunelami — osoby wrażliwe na chorobę lokomocyjną najlepiej sadzać z przodu."] },
+    { emoji: "💧", title: "Woda i zdrowie", points: ["Woda z kranu jest zdatna do picia.", "Zabrać EKUZ (Europejska Karta Ubezpieczenia Zdrowotnego) oraz ubezpieczenie turystyczne.", "Apteki (farmácia) w Funchal są liczne; leki na receptę warto mieć z zapasem i w bagażu podręcznym."] },
+    { emoji: "🆘", title: "Numery alarmowe i bezpieczeństwo", points: ["Ogólny numer alarmowy to 112 (obsługa również po angielsku).", "Madera jest bardzo bezpieczna, z niską przestępczością.", "Największą ostrożność zachować przy słońcu, prądach morskich i śliskich skałach nad wodą."] },
+    { emoji: "💛", title: "Napiwki i drobne zwyczaje", points: ["Napiwki nie są obowiązkowe — mile widziane zaokrąglenie rachunku lub 5–10% przy dobrej obsłudze.", "W restauracjach couvert (pieczywo, oliwki, pasty na start) bywa płatny — można go odmówić.", "Sjesta nie obowiązuje, ale kolacje jada się później niż w Polsce, zwykle po 19:00."] }
+  ];
+
+  const foodDishes = [
+    { emoji: "🥩", name: "Espetada madeirense", desc: "Duże kawałki wołowiny natarte solą i czosnkiem, nadziane na patyk z drzewa laurowego (dziś często na metalowej szpadzie) i grillowane nad żarem. Podawane pionowo przy stole. Zaplanowana w agendzie na 25 sierpnia." },
+    { emoji: "🍞", name: "Bolo do caco", desc: "Okrągły, miękki placek pieczony na gorącym kamieniu, podawany na ciepło z masłem czosnkowym. Klasyczny dodatek do espetady i ulubieniec dzieci." },
+    { emoji: "🐟", name: "Peixe-espada preta com banana", desc: "Filet z czarnej szabli (głębinowej ryby wyławianej u wybrzeży Madery) smażony i podawany z bananem — nietypowe, ale bardzo lokalne połączenie słodkiego z rybnym." },
+    { emoji: "🌽", name: "Milho frito", desc: "Chrupiące kostki smażonej kukurydzy (rodzaj polenty) — częsty dodatek do dań głównych, który dzieci zwykle lubią." },
+    { emoji: "🐚", name: "Lapas", desc: "Grillowane skałoczepy (małże przyklejone do skał) z czosnkiem i cytryną, serwowane na gorącej patelni — przekąska dla odważniejszych podniebień." },
+    { emoji: "🍯", name: "Bolo de mel", desc: "Ciemne, korzenne ciasto z melasy trzcinowej (nie z miodu pszczelego), tradycyjnie łamane rękami. Trwały deser, który dobrze znosi drogę do domu." },
+    { emoji: "🍹", name: "Poncha i nikita", desc: "Poncha to lokalny drink z rumu trzcinowego, miodu i cytryny (dla dorosłych). Dla dzieci dobrą alternatywą jest nikita — mrożony napój na bazie owoców — oraz świeże soki z owoców tropikalnych." },
+    { emoji: "🍌", name: "Owoce tropikalne", desc: "Maderskie banany (mniejsze i słodsze), maracuja, anona (czerymoja), guawa i awokado. Najlepiej próbować ich na targu Mercado dos Lavradores w Funchal." }
+  ];
+
+  const foodPlaces = [
+    { emoji: "🏛️", name: "Funchal — Stare Miasto (Zona Velha)", desc: "Rua de Santa Maria i okoliczne uliczki pełne są restauracji i małych tasquinhas z domową kuchnią. Dobre miejsce na pierwszą kolację i na espetadę." },
+    { emoji: "🧺", name: "Funchal — Mercado dos Lavradores", desc: "Targ z owocami, warzywami i rybami; świetny na degustację owoców tropikalnych, przekąski i zakup lokalnych przetworów. Najżywszy przed południem." },
+    { emoji: "⛵", name: "Câmara de Lobos", desc: "Dawna wioska rybacka, uważana za miejsce narodzin poncha, i jeden z najlepszych adresów na autentyczną espetadę. Po drodze na wycieczkę zachodnią (24.08)." },
+    { emoji: "🌊", name: "Porto Moniz", desc: "Restauracje przy naturalnych basenach serwują świeżą rybę z grilla z widokiem na ocean. Wygodny przystanek na lunch w dniu wycieczki zachodniej (24.08)." },
+    { emoji: "☀️", name: "Ponta do Sol i Calheta", desc: "Najbardziej słoneczny zakątek wyspy; kawiarnie nad oceanem i przyjazne rodzinom lokale przy piaszczystej plaży w Calhecie. Na trasie dnia 27.08." },
+    { emoji: "🏖️", name: "Machico", desc: "Spokojne miasteczko z plażą i promenadą, dobre na lokalną kuchnię i kolejną espetadę w luźniejszym dniu (29.08)." }
+  ];
+
+  function renderPractical() {
+    const root = document.querySelector("#guide-root");
+    if (!root || document.body.dataset.page !== "practical") return;
+    root.innerHTML = `
+      <header class="guide-hero">
+        <p class="eyebrow">Przewodnik · Madera 2026</p>
+        <h1>Informacje praktyczne</h1>
+        <p class="lead">Krótkie ściągi, które najbardziej przydają się na miejscu — od waluty i gniazdek po pogodę, transport i numery alarmowe.</p>
+      </header>
+      <main id="main-content" class="guide-main">
+        <div class="guide-info-grid">
+          ${practicalInfo.map((card) => `<article class="card info-card"><div class="card-body"><h2><span class="info-emoji" aria-hidden="true">${card.emoji}</span>${card.title}</h2><ul class="info-list">${card.points.map((p) => `<li>${p}</li>`).join("")}</ul></div></article>`).join("")}
+        </div>
+        <nav class="guide-nav" aria-label="Nawigacja przewodników">
+          <a class="button secondary" href="index.html">← Wróć do planu</a>
+          <a class="button" href="gdzie-zjesc.html">Gdzie zjeść →</a>
+        </nav>
+        <footer class="footer">Informacje ogólne, aktualne przed sezonem 2026 — szczegóły (godziny, ceny, rozkłady) warto potwierdzić na miejscu.</footer>
+      </main>`;
+  }
+
+  function renderFood() {
+    const root = document.querySelector("#guide-root");
+    if (!root || document.body.dataset.page !== "food") return;
+    root.innerHTML = `
+      <header class="guide-hero">
+        <p class="eyebrow">Przewodnik · Madera 2026</p>
+        <h1>Gdzie zjeść</h1>
+        <p class="lead">Lokalne potrawy, których warto spróbować, i dzielnice oraz miejscowości, w których najłatwiej je znaleźć — z odniesieniem do dni z planu.</p>
+      </header>
+      <main id="main-content" class="guide-main">
+        <section class="guide-section" aria-labelledby="dishes-title">
+          <h2 id="dishes-title">Czego spróbować</h2>
+          <div class="guide-info-grid">
+            ${foodDishes.map((dish) => `<article class="card info-card"><div class="card-body"><h3><span class="info-emoji" aria-hidden="true">${dish.emoji}</span>${dish.name}</h3><p>${dish.desc}</p></div></article>`).join("")}
+          </div>
+        </section>
+        <section class="guide-section" aria-labelledby="places-title">
+          <h2 id="places-title">Gdzie szukać</h2>
+          <div class="guide-info-grid">
+            ${foodPlaces.map((place) => `<article class="card info-card"><div class="card-body"><h3><span class="info-emoji" aria-hidden="true">${place.emoji}</span>${place.name}</h3><p>${place.desc}</p></div></article>`).join("")}
+          </div>
+        </section>
+        <nav class="guide-nav" aria-label="Nawigacja przewodników">
+          <a class="button secondary" href="index.html">← Wróć do planu</a>
+          <a class="button" href="praktyczne.html">Informacje praktyczne →</a>
+        </nav>
+        <footer class="footer">Opisy potraw i miejscowości mają charakter orientacyjny — godziny otwarcia i dostępność dań warto potwierdzić na miejscu.</footer>
+      </main>`;
+  }
+
+  renderTopNav();
   renderIndex();
   renderDay();
   renderPrint();
+  renderPractical();
+  renderFood();
 })();

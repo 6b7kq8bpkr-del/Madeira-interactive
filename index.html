@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#0b5558">
   <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=">
   <title>Madera 2026 — rodzinny plan podróży</title>
-  <meta name="description" content="Interaktywny, rodzinny plan podróży na Maderę od 19 do 30 sierpnia 2026: osobne dni, mapy, rezerwacje i kalkulator kosztów.">
+  <meta name="description" content="Interaktywny, rodzinny plan podróży na Maderę od 19 do 30 sierpnia 2026: osobne dni, mapy tras oraz przewodniki praktyczny i kulinarny.">
   <link rel="stylesheet" href="assets/premium.css">
   <script defer src="assets/app.js"></script>
 </head>
@@ -14,10 +14,7 @@
   <a class="skip-link" href="#main-content">Przejdź do planu</a>
   <nav class="topbar" aria-label="Główna nawigacja">
     <a class="brand" href="index.html">Madera · 2026</a>
-    <div class="top-actions">
-      <span class="progress">19–30 sierpnia · 2 rodziny</span>
-      <a class="pdf-link" href="print.html">Pobierz PDF</a>
-    </div>
+    <div class="top-actions" id="top-actions"></div>
   </nav>
 
   <header class="hero home-hero">
@@ -69,32 +66,24 @@
       </div>
     </section>
 
-    <section class="section summary-grid" id="rezerwacje" aria-label="Koszty i rezerwacje">
-      <article class="card"><div class="card-body">
-        <h2>Kalkulator kosztów</h2>
-        <p class="section-copy">Baza transferów: madeira-in, 2 × 45 EUR (Ziptransfer odrzucony). Kurs PLN ustawiasz ręcznie.</p>
-        <form id="cost-form" class="form-grid">
-          <div class="field"><label for="tours">Dni wycieczek</label><select id="tours" name="tours"><option value="2">2 dni × 220 EUR</option><option value="3">3 dni × 220 EUR</option></select></div>
-          <div class="field"><label for="transfer">Dwa transfery lotniskowe (EUR)</label><input id="transfer" name="transfer" type="number" inputmode="decimal" min="0" step="1" value="90" aria-describedby="transfer-help"><small id="transfer-help">90 EUR za dwa transfery z madeira-in.</small></div>
-          <div class="field"><label for="cruise">Rejs na delfiny i wieloryby (EUR)</label><input id="cruise" name="cruise" type="number" inputmode="decimal" min="0" step="1" value="0" aria-describedby="cruise-help"><small id="cruise-help">Wpisz cenę po wyborze operatora.</small></div>
-          <div class="field"><label for="parking">Parking P8 (EUR)</label><input id="parking" name="parking" type="number" inputmode="decimal" min="0" step="1" value="0"></div>
-          <div class="field"><label for="other">Inne wydatki (EUR)</label><input id="other" name="other" type="number" inputmode="decimal" min="0" step="1" value="0"></div>
-          <div class="field"><label for="rate">Kurs EUR/PLN</label><input id="rate" name="rate" type="number" inputmode="decimal" min="0" step="0.01" value="4.30"></div>
-        </form>
-        <div class="cost-total" aria-live="polite"><strong id="total-eur">750 EUR</strong><span id="total-pln">3 225 PLN przy kursie 4,30</span></div>
-      </div></article>
-
-      <article class="card"><div class="card-body">
-        <h2>Transport na Maderze</h2>
-        <ul class="booking-list">
-          <li><strong>Transfer lotniskowy:</strong> madeira-in (Rui Nóbrega), Mercedes Sprinter, trasa FNC ↔ Hotel Baía Azul za 45 EUR w jedną stronę (90 EUR razem); godziny i miejsce spotkania do potwierdzenia mailowo.</li>
-          <li><strong>Wycieczka madeira-in:</strong> 220 EUR za dzień, zwykle 09:30–17:00 lub 17:30.</li>
-          <li><strong>Bus wycieczkowy:</strong> Mercedes Sprinter, 9 miejsc łącznie z kierowcą.</li>
-          <li><strong>Kierowca madeira-in:</strong> może obsługiwać wycieczki; możliwy język niemiecki.</li>
-          <li><strong>Płatność madeira-in:</strong> po poszczególnych dniach albo za całość — ustalić z operatorem.</li>
-        </ul>
-        <p class="notice"><strong>Baza: 750 EUR</strong> = 2 × 45 EUR + 3 × 220 EUR. Zaplanowany rejs, parking i inne wydatki nie są wliczone do bazy.</p>
-      </div></article>
+    <section class="section" aria-labelledby="guides-title">
+      <div class="section-head">
+        <div><h2 id="guides-title">Przewodniki</h2><p class="section-copy">Dwie podstrony z wiedzą, która przyda się na miejscu — niezależnie od planu dnia.</p></div>
+      </div>
+      <div class="guide-grid">
+        <a class="guide-card" href="praktyczne.html">
+          <span class="guide-emoji" aria-hidden="true">🧭</span>
+          <h3>Informacje praktyczne</h3>
+          <p>Waluta, gniazdka, pogoda, transport, zdrowie i numery alarmowe — wszystko w jednym miejscu.</p>
+          <span class="guide-cta">Otwórz →</span>
+        </a>
+        <a class="guide-card" href="gdzie-zjesc.html">
+          <span class="guide-emoji" aria-hidden="true">🍽️</span>
+          <h3>Gdzie zjeść</h3>
+          <p>Lokalne potrawy, od espetady po bolo do caco, i dzielnice, w których najlepiej ich szukać.</p>
+          <span class="guide-cta">Otwórz →</span>
+        </a>
+      </div>
     </section>
 
     <section class="section summary-grid" aria-label="Checklista i ważne ustalenia">
