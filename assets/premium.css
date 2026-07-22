@@ -29,8 +29,6 @@ body {
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
-body.gentle .optional-height { opacity: .58; }
-body.gentle .gentle-note { display: block; }
 a { color: inherit; }
 button, input, select { font: inherit; }
 button, a, input, select { -webkit-tap-highlight-color: transparent; }
@@ -56,17 +54,19 @@ button, a, input, select { -webkit-tap-highlight-color: transparent; }
 .brand { font-weight: 900; letter-spacing: .055em; text-transform: uppercase; text-decoration: none; font-size: 13px; }
 .top-actions { display: flex; align-items: center; gap: 8px; }
 .progress { font-size: 13px; color: rgba(255,255,255,.8); }
-.icon-button, .soft-toggle {
+.pdf-link {
   min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
   border: 1px solid rgba(255,255,255,.25);
   border-radius: 999px;
-  color: white;
-  background: rgba(255,255,255,.1);
-  cursor: pointer;
+  color: #123538;
+  background: #dff5ef;
+  text-decoration: none;
   font-weight: 800;
+  font-size: 13px;
 }
-.soft-toggle { padding: 10px 14px; }
-.soft-toggle[aria-pressed="true"] { color: #123538; background: #dff5ef; }
 
 .hero {
   min-height: 76svh;
@@ -128,7 +128,9 @@ h3 { color: var(--ink); }
 .tips li + li { margin-top: 9px; }
 .plan-b { padding: 22px; border-left: 5px solid var(--sun); background: #fff6dc; }
 .plan-b h2 { font-size: 30px; }
-.gentle-note { display: none; margin-top: 14px; padding: 13px 15px; border-radius: 14px; color: #28524d; background: #e4f2ee; }
+.variant-note { margin-top: 14px; padding: 13px 15px; border-radius: 14px; color: #28524d; background: #e4f2ee; line-height: 1.55; }
+.variant-note strong { color: var(--sea-dark); }
+.hero-actions { margin-top: 26px; }
 
 .map-shell { position: relative; min-height: 360px; background: #dbe8e5; }
 .route-map { width: 100%; height: 390px; display: block; pointer-events: none; z-index: 1; }
@@ -211,7 +213,7 @@ h3 { color: var(--ink); }
 @media (max-width: 560px) {
   .topbar { padding: 8px 12px; }
   .progress { display: none; }
-  .soft-toggle { padding-inline: 11px; font-size: 12px; }
+  .pdf-link { padding-inline: 12px; font-size: 12px; }
   .hero { min-height: 70svh; padding: 94px 18px 48px; }
   .hero h1 { font-size: clamp(42px, 14vw, 60px); }
   main { margin-top: -22px; padding-inline: 14px; }
@@ -223,6 +225,35 @@ h3 { color: var(--ink); }
   .nav-days a.home { order: -1; }
   .day-card { min-height: 250px; }
   .map-shell { min-height: 310px; }
+}
+
+/* Strona planu do druku / PDF */
+.print-root { max-width: 860px; margin: 84px auto 60px; padding: 0 clamp(16px, 4vw, 32px); }
+.print-head h1 { margin: 0 0 8px; color: var(--sea-dark); font-family: Georgia, "Times New Roman", serif; font-size: clamp(30px, 5vw, 44px); font-weight: 500; letter-spacing: -.03em; }
+.print-sub { margin: 0 0 16px; color: var(--muted); font-size: 16px; }
+.print-facts { margin: 0; padding: 0 0 0 18px; line-height: 1.7; }
+.print-note { margin: 10px 0 0; color: var(--muted); font-size: 13px; }
+.print-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+.print-day { margin-top: 34px; padding-top: 22px; border-top: 2px solid var(--line); }
+.print-day h2 { font-size: clamp(20px, 3vw, 26px); margin-bottom: 6px; }
+.print-short { margin: 0 0 12px; color: var(--muted); font-style: italic; }
+.print-agenda { width: 100%; border-collapse: collapse; }
+.print-agenda th { width: 84px; padding: 6px 10px 6px 0; vertical-align: top; text-align: left; color: var(--sea-dark); white-space: nowrap; }
+.print-agenda td { padding: 6px 0; vertical-align: top; line-height: 1.55; border-bottom: 1px solid rgba(16,41,44,.08); }
+.print-block { margin: 12px 0 0; line-height: 1.6; color: var(--ink); }
+.print-block strong { color: var(--sea-dark); }
+.print-check { margin: 0; padding: 0; list-style: none; line-height: 2; }
+.print-foot { margin-top: 36px; padding-top: 16px; border-top: 2px solid var(--line); color: var(--muted); font-size: 13px; line-height: 1.6; }
+
+@media print {
+  @page { margin: 14mm; }
+  .topbar, .no-print, .skip-link { display: none !important; }
+  body { background: #fff; color: #000; }
+  .print-root { margin: 0; max-width: none; padding: 0; }
+  .print-day { break-inside: avoid; border-top-color: #bbb; }
+  .print-head h1, .print-day h2, .print-agenda th, .print-block strong { color: #000; }
+  .print-short, .print-note, .print-foot, .print-sub { color: #333; }
+  a { text-decoration: none; color: inherit; }
 }
 
 @media (prefers-reduced-motion: reduce) {

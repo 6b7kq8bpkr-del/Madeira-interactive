@@ -23,7 +23,7 @@
       center: [52.5163, 13.3777], route: [[51.7592, 19.4560, "Łódź"], [52.3664, 13.5071, "Parking P8 BER"], [52.5163, 13.3777, "Brama Brandenburska"]], google: "https://www.google.com/maps/dir/%C5%81%C3%B3d%C5%BA/Berlin+Brandenburg+Airport+P8/Brandenburg+Gate",
       agenda: [["11:00", "Wyjazd z Łodzi", "Start bez pośpiechu; zaplanować regularne postoje dla dzieci."], ["17:00", "Parking P8 przy BER", "Wjazd zgodnie z rezerwacją, zdjęcie miejsca postoju i shuttle lub krótkie przejście do terminala."], ["17:45", "Pociąg do centrum", "FEX albo S-Bahn z dworca pod terminalem BER — do centrum około 30 minut, bez auta i bez szukania parkingu."], ["18:30", "Jeden lekki spacer", "Brama Brandenburska i Reichstag z zewnątrz albo kameralne Nikolaiviertel — bez łączenia wszystkiego."], ["19:30", "Wczesna kolacja", "Proste menu, nawodnienie i powrót pociągiem na nocleg w okolicy BER."]],
       tips: ["Nocleg wybrać blisko BER (najlepiej z własnym shuttle) — auto zostaje na P8, a do centrum i z powrotem jeździ FEX/S-Bahn.", "Przed wyjazdem pobrać mapę offline Berlina i okolic BER.", "Sprawdzić kod wjazdu, numer rezerwacji P8 i sposób transferu do terminala.", "Po drodze robić postoje najpóźniej co 90 minut; po przyjeździe zaplanować jeden spacer 1–3 km w ortezie, bez długiego stania.", "Zostawić bagaże lotnicze łatwo dostępne — nie przepakowywać auta wieczorem."],
-      planB: "Jeśli trasa się wydłuży, pomijamy centrum Berlina. Kolacja i spokojny nocleg w okolicy BER są pełnoprawnym planem.", gentle: "Tryb łagodny: spacer traktujemy jako bonus, nie punkt obowiązkowy.",
+      planB: "Jeśli trasa się wydłuży, pomijamy centrum Berlina. Kolacja i spokojny nocleg w okolicy BER są pełnoprawnym planem.", gentle: "spacer traktujemy jako bonus, nie punkt obowiązkowy.",
       deepDive: {
         context: "Trasa Łódź–Berlin to najkrótsza droga do lotniska BER bez nocnego pośpiechu. Berlin bywa tu tylko przystankiem, ale Brama Brandenburska i kameralne Nikolaiviertel dają poczucie stolicy nawet przy krótkim, wieczornym spacerze.",
         food: "Na szybki obiad po drodze sprawdzają się przydrożne Autohof z prostą niemiecką kuchnią; wieczorem w Berlinie warto zjeść coś lekkiego z piekarni albo klasyczne curry-wurst zamiast szukać restauracji na godziny.",
@@ -37,7 +37,7 @@
       center: [32.6387, -16.9304], route: [[52.3667, 13.5033, "Lotnisko BER"], [32.6979, -16.7745, "Lotnisko FNC"], [32.6384, -16.9353, "Hotel Baía Azul"], [32.6386, -16.9332, "Lido"]], google: "https://www.google.com/maps/dir/Madeira+Airport/Hotel+Baia+Azul,+Funchal/Lido+Bathing+Complex",
       agenda: [["rano", "Spokojny dojazd na BER", "Odprawa z zapasem i bez dodatkowego programu."], ["10:55*", "Lądowanie w Funchal", "Lot EJU5333 i godzina 10:55 są do ponownego potwierdzenia przed wylotem."], ["12:00", "Prywatny transfer", "Transfer z madeira-in; po odbiorze bagażu kontakt z kierowcą i przejazd do Hotelu Baía Azul."], ["14:00", "Obiad i odpoczynek", "Lekki posiłek, zameldowanie i basen."], ["17:00", "Lido lub promenada", "Krótki spacer tylko jeśli grupa ma energię."]],
       tips: ["Numer lotu i godziny sprawdzić ponownie w aplikacji przewoźnika.", "Jeśli dłuższe przejścia lub kolejki obciążają kolano, zamówić z wyprzedzeniem bezpłatną asystę lotniskową i potwierdzić ją z przewoźnikiem.", "Przy rezerwacji z madeira-in nie zamawiać fotelików ani podkładek; potwierdzić liczbę osób, bagaże i miejsce spotkania.", "Mieć pod ręką numer kierowcy i potwierdzenie transferu.", "Pierwszego dnia nie planować zakupów ani dalszych dojazdów."],
-      planB: "Przy opóźnieniu lotu rezygnujemy z Lido. Hotel, posiłek i sen są jedynymi priorytetami.", gentle: "Tryb łagodny: po transferze cały program odbywa się w hotelu.",
+      planB: "Przy opóźnieniu lotu rezygnujemy z Lido. Hotel, posiłek i sen są jedynymi priorytetami.", gentle: "po transferze cały program odbywa się w hotelu.",
       deepDive: {
         context: "Lot z Berlina na Maderę trwa około 4,5 godziny. Madera leży geograficznie bliżej Maroka niż kontynentalnej Portugalii, więc odmienny, łagodniejszy klimat jest odczuwalny już na płycie lotniska.",
         food: "Pierwszego dnia najlepiej sprawdza się coś lekkiego w hotelu albo w prostej kawiarni przy Lido. Na poncha, espetadę i bolo do caco przyjdzie czas w kolejnych dniach, gdy zmęczenie podróżą minie.",
@@ -51,7 +51,7 @@
       center: [32.648, -16.913], route: [[32.6384, -16.9353, "Hotel Baía Azul"], [32.6443, -16.9148, "Muzeum CR7"], [32.6454, -16.9096, "Marina"], [32.6484, -16.9033, "Stare miasto"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/CR7+Museum/Funchal+Marina/Mercado+dos+Lavradores",
       agenda: [["09:30", "Centrum i marina", "Spokojny start przy nabrzeżu i widok na port."], ["10:30", "Muzeum CR7", "Krótka, konkretna atrakcja; bilety sprawdzić przed wyjściem."], ["12:00", "Stare miasto", "Rua de Santa Maria i lunch w wygodnym miejscu."], ["15:00", "Hotel, basen lub Lido", "Reszta dnia bez sztywnego harmonogramu."]],
       tips: ["Trasa 2–4 km przez marinę, CR7 i wybrany fragment starego miasta jest planem podstawowym.", "Orteza na cały spacer; przerwa na siedząco co 45–60 minut, a taxi dopiero jeśli kolano wyraźnie daje znać.", "Kapelusze, woda i przerwa w cieniu w południe.", "Sprawdzić aktualne godziny otwarcia muzeum CR7."],
-      planB: "Przy upale lub zmęczeniu: tylko marina i CR7, a lunch oraz popołudnie w hotelu.", gentle: "Tryb łagodny: poruszamy się taxi między hotelem, CR7 i starym miastem.",
+      planB: "Przy upale lub zmęczeniu: tylko marina i CR7, a lunch oraz popołudnie w hotelu.", gentle: "poruszamy się taxi między hotelem, CR7 i starym miastem.",
       deepDive: {
         context: "Funchal jest stolicą Madery od XV wieku; nazwa nawiązuje do dziko rosnącego tu niegdyś koperku. Stare miasto wokół Rua de Santa Maria znane jest z pomalowanych drzwi — lokalnego projektu artystycznego, który ożywił dawną, zaniedbaną dzielnicę portową.",
         food: "Mercado dos Lavradores przy starym mieście to dobre miejsce na świeże owoce tropikalne i rybę espada; w mieście warto spróbować bolo do caco z masłem czosnkowym jako lekkiej przekąski między atrakcjami.",
@@ -65,7 +65,7 @@
       center: [32.735, -16.886], route: [[32.6384, -16.9353, "Hotel"], [32.7356, -16.9280, "Pico do Arieiro"], [32.7353, -16.8865, "Ribeiro Frio"], [32.7419, -16.8905, "Balcões"], [32.8036, -16.8819, "Santana"], [32.7163, -16.7653, "Machico / Porto da Cruz"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Pico+do+Arieiro/Ribeiro+Frio/Balc%C3%B5es/Santana,+Madeira",
       agenda: [["09:30", "Start z hotelu", "Mercedes Sprinter madeira-in; nie zamawiamy fotelików ani podkładek."], ["10:15", "Pico do Arieiro", "Rano szansa na czyste widoki jest największa — chmury zwykle narastają w ciągu dnia. Punkt widokowy i krótki spacer w komfortowym obszarze; bez trasy na Pico Ruivo."], ["11:45", "Ribeiro Frio i Balcões", "Łatwa levada do tarasu Balcões (ok. 1,5 km w obie strony) plus spacer po okolicy. Osoba z kolanem idzie w ortezie i z kijkami, w spokojnym tempie, z możliwością zawrócenia."], ["13:30", "Santana i lunch", "Domki, odpoczynek i spokojny posiłek."], ["15:30", "Porto da Cruz lub Machico", "Jeden dodatkowy przystanek zależnie od czasu i pogody."], ["17:30", "Powrót", "Wieczór bez dodatkowego programu."]],
       tips: ["W górach temperatura może być znacznie niższa niż w Funchal — zabrać warstwy i kurtki.", "Lunch wypada dopiero w Santanie około 13:30 — spakować drugie śniadanie i przekąski dla dzieci do busa.", "Balcões jest domyślnym spacerem dnia: kijki pomagają na nierównych fragmentach, a dzieci mogą iść pełną trasę.", "Na Arieiro wybierać miejsca oddalone od krawędzi ze względu na lęk wysokości, nie ze względu na kondycję grupy.", "Pełna trasa Arieiro–Ruivo nie jest częścią planu."],
-      planB: "Przy chmurach na Arieiro rano odwracamy kolejność: najpierw Ribeiro Frio i Balcões, a punkt górski próbujemy po południu albo pomijamy.", gentle: "Tryb łagodny: Arieiro tylko wtedy, gdy widoczność i komfort całej grupy są dobre.",
+      planB: "Przy chmurach na Arieiro rano odwracamy kolejność: najpierw Ribeiro Frio i Balcões, a punkt górski próbujemy po południu albo pomijamy.", gentle: "Arieiro tylko wtedy, gdy widoczność i komfort całej grupy są dobre.",
       deepDive: {
         context: "Ribeiro Frio to dawna stacja hodowli pstrąga w sercu lasu laurowego (laurisilva), wpisanego na listę UNESCO. Balcões to jeden z najłatwiej dostępnych punktów widokowych na szczyty centralnej Madery, a Pico do Arieiro — trzeci najwyższy szczyt wyspy (ok. 1818 m) — to jedno z niewielu miejsc, gdzie asfaltowa droga prowadzi niemal pod sam punkt widokowy.",
         food: "W Ribeiro Frio warto spróbować świeżego pstrąga z lokalnej hodowli; w Santanie tradycyjne trójkątne domki 'palheiros' sąsiadują z kawiarniami serwującymi bolo de mel i lokalny miód.",
@@ -79,7 +79,7 @@
       center: [32.6386, -16.9332], route: [[32.6384, -16.9353, "Hotel Baía Azul"], [32.6386, -16.9332, "Lido"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/search/?api=1&query=Lido+Bathing+Complex+Funchal",
       agenda: [["rano", "Śniadanie bez budzika", "Każda rodzina wybiera własne tempo."], ["11:00", "Basen lub Lido", "Krótki blok wodny z ochroną przeciwsłoneczną."], ["14:00", "Lunch i cisza", "Drzemka, książka lub czas w pokoju."], ["wieczór", "Promenada", "Tylko jeśli wszyscy mają ochotę."]],
       tips: ["Nie zamieniać dnia odpoczynku w nadrabianie atrakcji.", "Przy Lido sprawdzić warunki oceanu i komunikaty ratowników.", "Uzupełnić wodę, przekąski i drobiazgi na kolejną wycieczkę."],
-      planB: "To już jest plan awaryjny: hotel, gry, spokojny posiłek i zero dojazdów.", gentle: "Tryb łagodny: pozostajemy przy basenie hotelowym.",
+      planB: "To już jest plan awaryjny: hotel, gry, spokojny posiłek i zero dojazdów.", gentle: "pozostajemy przy basenie hotelowym.",
       deepDive: {
         context: "Complexo Balnear do Lido to największy kompleks basenów oceanicznych w Funchal, częściowo wykuty w skalistym wybrzeżu. To popularne miejsce zarówno wśród turystów, jak i mieszkańców szukających kąpieli tam, gdzie wyspa nie ma naturalnej piaszczystej plaży.",
         food: "Dzień bez planu to dobra okazja na dłuższy lunch w hotelu albo w pobliskiej knajpce z widokiem na ocean — bez pośpiechu i bez wcześniejszej rezerwacji.",
@@ -93,7 +93,7 @@
       center: [32.8663, -17.1667], route: [[32.6384, -16.9353, "Hotel"], [32.6496, -16.9769, "Câmara de Lobos"], [32.6747, -17.0633, "Ribeira Brava"], [32.8126, -17.1038, "Seixal"], [32.8663, -17.1667, "Porto Moniz"], [32.8097, -17.1436, "Fanal — opcjonalnie"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/C%C3%A2mara+de+Lobos/Ribeira+Brava/Seixal,+Madeira/Porto+Moniz",
       agenda: [["09:30", "Câmara de Lobos", "Krótki spacer przy porcie i rodzinne zdjęcie."], ["11:00", "Ribeira Brava", "Kawa, toaleta i przerwa przed północnym wybrzeżem."], ["12:15", "Seixal", "Plaża lub punkt przy miejscowości — bez ryzykownego schodzenia."], ["13:30", "Porto Moniz", "Lunch i obserwacja basenów; kąpiel tylko przy dobrych warunkach."], ["15:30", "Fanal opcjonalnie", "Tylko gdy pogoda jest dobra, a grupa nadal ma energię."], ["17:30", "Powrót do hotelu", "Cabo Girão nie jest punktem obowiązkowym."]],
       tips: ["To długi dzień, ale plan zakłada spacery w miejscowościach i przy wybrzeżu — łącznie około 3–5 km.", "Zabrać rano stroje kąpielowe i ręczniki oraz przekąski dla dzieci — lunch wypada w Porto Moniz około 13:30, a decyzja o kąpieli zapada na miejscu.", "Fanal jest możliwy przy suchej nawierzchni i dobrej energii; osoba z kolanem używa ortezy i kijków, bez forsowania tempa.", "Cabo Girão traktować wyłącznie jako propozycję dla chętnych ze względu na wysokość.", "Kąpiel w Porto Moniz zależy od fal, komunikatów i czasu."],
-      planB: "Przy złej pogodzie na północy zostajemy dłużej w Câmara de Lobos i Ribeira Brava, potem wracamy południowym wybrzeżem.", gentle: "Tryb łagodny: bez Cabo Girão i bez postojów wymagających podejścia do krawędzi.",
+      planB: "Przy złej pogodzie na północy zostajemy dłużej w Câmara de Lobos i Ribeira Brava, potem wracamy południowym wybrzeżem.", gentle: "bez Cabo Girão i bez postojów wymagających podejścia do krawędzi.",
       deepDive: {
         context: "Câmara de Lobos, dawna wioska rybacka, zasłynęła dzięki Winstonowi Churchillowi, który malował tu w latach 50. XX wieku; to również miejsce narodzin poncha, tradycyjnego madeirskiego drinka z trzciny cukrowej. Porto Moniz słynie z naturalnych basenów lawowych uformowanych przez wulkaniczne skały i ocean, a Fanal to fragment pierwotnego lasu laurowego, znany z charakterystycznej mgły i sędziwych drzew ostrokrzewu.",
         food: "W Câmara de Lobos warto spróbować poncha na miejscu jego powstania; w Porto Moniz popularna jest świeża ryba z grilla serwowana tuż przy basenach, z widokiem na ocean.",
@@ -107,7 +107,7 @@
       center: [32.662, -16.895], route: [[32.6384, -16.9353, "Hotel"], [32.6624, -16.8946, "Ogród botaniczny"], [32.6496, -16.9080, "Centrum Funchal"], [32.6750, -16.9022, "Monte — opcjonalnie"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Hotel+Baia+Azul,+Funchal/Madeira+Botanical+Garden/Funchal",
       agenda: [["10:00", "Wybór wariantu", "Ogród botaniczny albo centrum, zakupy i spokojna kawiarnia."], ["12:30", "Lunch", "Bez rezerwowania kolejnych atrakcji na siłę."], ["14:30", "Monte tylko dla chętnych", "Kolejka i wysokość są całkowicie opcjonalne."], ["16:00", "Hotel", "Basen i spokojna kolacja."]],
       tips: ["Plan podstawowy to ogród botaniczny i centrum: 3–5 km z przerwami, w ortezie, z kijkami na pochyłych alejkach.", "Wariant bez kolejki pozostaje pełnym programem — wysokość jest kwestią komfortu, nie kondycji dzieci.", "Rodziny mogą rozdzielić się na 2–3 godziny i spotkać na lunchu.", "Sprawdzić godziny ogrodu i temperaturę przed wyjazdem."],
-      planB: "Cały dzień w hotelu i przy Lido; zakupy można zrobić wieczorem w najbliższej okolicy.", gentle: "Tryb łagodny: bez kolejki i bez Monte; wybieramy ogród dostępny taxi albo centrum.",
+      planB: "Cały dzień w hotelu i przy Lido; zakupy można zrobić wieczorem w najbliższej okolicy.", gentle: "bez kolejki i bez Monte; wybieramy ogród dostępny taxi albo centrum.",
       deepDive: {
         context: "Ogród botaniczny w Funchal założono w połowie XX wieku na terenie dawnej posiadłości rodziny Reid. Monte to historyczna dzielnica nad miastem, znana z bazyliki Nossa Senhora do Monte oraz tradycyjnych wiklinowych sań ('carros de cesto'), którymi dawniej zjeżdżano z góry do centrum.",
         food: "W okolicy ogrodu botanicznego i Monte warto spróbować lokalnych ciast z owocami tropikalnymi (np. z maracują); w centrum Funchal dobrym wyborem na lekki lunch są niewielkie tasquinhas z domową kuchnią.",
@@ -121,7 +121,7 @@
       center: [32.7202, -16.9691], route: [[32.6384, -16.9353, "Hotel"], [32.7107, -16.9615, "Eira do Serrado"], [32.7202, -16.9691, "Curral das Freiras"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Funchal/Eira+do+Serrado/Curral+das+Freiras",
       agenda: [["09:30", "Wyjazd z Funchal", "Trasa w głąb wyspy i spokojne rozpoczęcie aktywnego pół dnia."], ["10:15", "Eira do Serrado", "Krótkie podejście do komfortowego punktu widokowego; orteza, kijki i przerwy według potrzeby."], ["11:45", "Curral das Freiras", "Spacer 2–3 km po miejscowości i spokojny lunch."], ["15:00", "Powrót do hotelu", "Popołudnie na basenie lub krótka promenada."]],
       tips: ["Podejście do punktu widokowego jest częścią planu, jeśli nawierzchnia jest sucha i kolano nie boli; zawrócenie pozostaje prostą opcją.", "Nie trzeba podchodzić do barierek, aby zobaczyć dolinę.", "W razie choroby lokomocyjnej usiąść z przodu i przygotować wodę.", "Dzieci mogą przejść pełny spacer; dorosły z kolanem reguluje tempo."] ,
-      planB: "Zamiana na ogród w Funchal, Lido lub dzień hotelowy — szczególnie przy niskich chmurach w dolinie.", gentle: "Tryb łagodny: pomijamy każdy punkt, który powoduje dyskomfort; sama miejscowość i lunch wystarczą.",
+      planB: "Zamiana na ogród w Funchal, Lido lub dzień hotelowy — szczególnie przy niskich chmurach w dolinie.", gentle: "pomijamy każdy punkt, który powoduje dyskomfort; sama miejscowość i lunch wystarczą.",
       deepDive: {
         context: "Curral das Freiras (Dolina Zakonnic) zawdzięcza nazwę zakonnicom, które według legendy schroniły się tu przed piratami w XVI wieku. Miejscowość leży w głębokim kraterze otoczonym szczytami centralnej Madery, przez długi czas dostępnym praktycznie tylko pieszo.",
         food: "Lokalna specjalność to kasztany (castanhas) pod różnymi postaciami — od zupy po likier 'licor de castanha' — oraz domowe ciasto orzechowe 'bolo de nozes', które najlepiej smakuje na miejscu.",
@@ -135,7 +135,7 @@
       center: [32.7219, -17.1775], route: [[32.6384, -16.9353, "Hotel"], [32.7219, -17.1775, "Plaża Calheta"], [32.7223, -17.1785, "Engenhos da Calheta"], [32.7370, -17.2115, "Jardim do Mar — opcjonalnie"], [32.6819, -17.1045, "Ponta do Sol"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Calheta+Beach/Engenhos+da+Calheta/Jardim+do+Mar/Ponta+do+Sol",
       agenda: [["09:30", "Wyjazd z hotelu", "Trzeci dzień madeira-in w spokojnym rytmie."], ["10:30", "Calheta", "Piaszczysta plaża i czas rodzinny bez pośpiechu."], ["12:45", "Lunch przy plaży", "Posiłek jeszcze w Calhecie, o normalnej porze dla dzieci — bez przesuwania na późne popołudnie."], ["14:00", "Engenhos da Calheta", "Krótka wizyta zależna od godzin otwarcia."], ["15:00", "Jardim do Mar opcjonalnie", "Leży tuż za Calhetą, więc wypada teraz — tylko jeśli grupa ma energię."], ["16:00", "Ponta do Sol", "Lody i spacer przy oceanie w drodze powrotnej do Funchal."], ["17:00", "Powrót", "Bez dokładania Rabaçal ani Risco."]],
       tips: ["Kolejność jedzie wzdłuż wybrzeża: najdalej Calheta i Jardim do Mar, a Ponta do Sol na deser w drodze powrotnej — bez cofania się.", "Rabaçal i Risco nie są domyślną rekomendacją dla tej grupy — zgodnie z sugestią madeira-in, a nie z powodu niskiej kondycji dzieci.", "Według korespondencji madeira-in Risco nie jest dobrym wyborem przy problemie z klifami.", "Calheta i Ponta do Sol dają 2–4 km spacerów; Jardim do Mar można dodać z kijkami, jeśli kolano jest spokojne.", "Sprawdzić godziny Engenhos i zabrać rzeczy plażowe."],
-      planB: "Przy gorszej pogodzie: dłuższy lunch w Ponta do Sol, krótka Calheta i wcześniejszy powrót.", gentle: "Tryb łagodny: wyłącznie Calheta i Ponta do Sol; żadnych tras przy klifach.",
+      planB: "Przy gorszej pogodzie: dłuższy lunch w Ponta do Sol, krótka Calheta i wcześniejszy powrót.", gentle: "wyłącznie Calheta i Ponta do Sol; żadnych tras przy klifach.",
       deepDive: {
         context: "Plaża w Calheta to jedna z niewielu piaszczystych plaż na Maderze — piasek został tu sprowadzony, bo wyspa ma głównie wybrzeże wulkaniczne i kamieniste. Engenhos da Calheta to dawna gorzelnia trzciny cukrowej, wciąż produkująca lokalny rum i miód trzcinowy.",
         food: "W Engenhos da Calheta można zobaczyć tradycyjny proces produkcji i spróbować rumu oraz mel de cana (melasy trzcinowej); w Ponta do Sol, znanej z najbardziej słonecznego mikroklimatu na wyspie, warto usiąść w kawiarni z widokiem na ocean.",
@@ -149,7 +149,7 @@
       center: [32.6386, -16.9332], route: [[32.6384, -16.9353, "Hotel Baía Azul"], [32.6454, -16.9096, "Marina w Funchal"], [32.6200, -17.0300, "Obszar obserwacji na oceanie"], [32.6454, -16.9096, "Powrót do mariny"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Hotel+Baia+Azul,+Funchal/Funchal+Marina",
       agenda: [["08:30", "Spokojne śniadanie", "Lekki posiłek, nawodnienie i przygotowanie zgodnie z zaleceniami operatora."], ["09:30", "Taxi do mariny", "Bez długiego dojścia; przybycie z zapasem na spokojne wejście na pokład."], ["10:30", "Rejs na delfiny i wieloryby", "Zaplanowany główny punkt dnia. Wybieramy stabilniejszą jednostkę z siedzeniami, cieniem, toaletą i możliwie łatwym wejściem."], ["14:00", "Lekki lunch i odpoczynek", "Po rejsie wracamy do hotelu; bez dokładania kolejnej atrakcji."], ["wieczór", "Wspólna kolacja", "Spokojne zakończenie dnia."]],
       tips: ["Zarezerwować rejs z możliwością bezpłatnej zmiany na 29 sierpnia przy złym stanie morza.", "Przed rezerwacją opisać operatorowi problem z kolanem i potwierdzić sposób wejścia, stabilne siedzenie, toaletę oraz pomoc załogi.", "Na wodzie wieje i mocno operuje słońce — kurtki przeciwwiatrowe, nakrycia głowy i krem są potrzebne nawet przy upale w mieście.", "Rejs jest zaplanowany, ale wypłynięcie zależy od decyzji operatora i bezpiecznych warunków; obserwacji zwierząt nie da się zagwarantować.", "Przy chorobie morskiej wcześniej ustalić bezpieczne postępowanie z lekarzem lub farmaceutą."],
-      planB: "Jeśli operator odwoła rejs z powodu morza, przenosimy go na 29 sierpnia. Tego dnia zostają basen, Lido i odpoczynek; bezpieczeństwo ma pierwszeństwo przed wypłynięciem.", gentle: "Tryb łagodny: rejs pozostaje w planie, ale wybieramy stabilną jednostkę, taxi pod marinę, miejsce siedzące i pomoc przy wejściu.",
+      planB: "Jeśli operator odwoła rejs z powodu morza, przenosimy go na 29 sierpnia. Tego dnia zostają basen, Lido i odpoczynek; bezpieczeństwo ma pierwszeństwo przed wypłynięciem.", gentle: "rejs pozostaje w planie, ale wybieramy stabilną jednostkę, taxi pod marinę, miejsce siedzące i pomoc przy wejściu.",
       deepDive: {
         context: "Wody wokół Madery leżą blisko brzegu nad głębokim szelfem oceanicznym, co sprzyja obserwacji waleni przez cały rok. Najczęściej spotykane są delfiny butlonose i zwyczajne oraz oresy krótkopłetwe; sezonowo pojawiają się też większe gatunki wielorybów.",
         food: "Przed rejsem lepiej sprawdza się lekki, niskotłuszczowy posiłek niż ciężkie śniadanie; na statku zwykle dostępna jest woda, czasem lekka przekąska — warto dopytać operatora przy rezerwacji.",
@@ -163,7 +163,7 @@
       center: [32.7163, -16.7653], route: [[32.6384, -16.9353, "Hotel"], [32.6454, -16.9096, "Marina — termin zapasowy rejsu"], [32.7163, -16.7653, "Wariant: Machico"], [32.6496, -16.9080, "Wariant: Funchal"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Funchal/Machico",
       agenda: [["09:00", "Najpierw termin zapasowy rejsu", "Jeżeli rejs 28 sierpnia odwołano z powodu morza, dziś ma pierwszeństwo przed pozostałymi wariantami."], ["10:30", "Machico", "Plaża i płaska promenada — wariant, jeśli rejs odbył się poprzedniego dnia."], ["10:30", "Funchal", "Ostatnie zakupy, kawiarnia i miejsce pominięte wcześniej."], ["10:30", "Ulubione miejsce", "Powtórka bez poczucia, że trzeba zobaczyć coś nowego."], ["17:00", "Pakowanie", "Przygotować dokumenty, bagaże i ubrania na powrót."]],
       tips: ["29 sierpnia jest terminem zapasowym rejsu — nie rezerwować na rano innej bezzwrotnej atrakcji.", "Jeśli rejs odbył się wcześniej, planujemy 2–5 km spaceru w Machico albo Funchal; orteza i kijki według nawierzchni.", "Machico daje aktywny, nisko położony wariant bez górskiej ekspozycji.", "Wieczorem zakończyć pakowanie i potwierdzić transfer."],
-      planB: "Hotel i Funchal. Najważniejszym zadaniem dnia jest spokojne przygotowanie powrotu.", gentle: "Tryb łagodny: wybieramy najbliższy, nisko położony wariant i kończymy dzień wcześnie.",
+      planB: "Hotel i Funchal. Najważniejszym zadaniem dnia jest spokojne przygotowanie powrotu.", gentle: "wybieramy najbliższy, nisko położony wariant i kończymy dzień wcześnie.",
       deepDive: {
         context: "Machico było pierwszą stolicą Madery po odkryciu wyspy przez João Gonçalvesa Zarco w 1419 roku. Dziś to spokojne miasteczko z częściowo dosypywaną, piaszczystą plażą i płaską nadmorską promenadą.",
         food: "W Machico warto spróbować lokalnej espetady — szaszłyka wołowego z liściem laurowym, tradycyjnie serwowanego na metalowym haku zamiast talerza — to jedna z najbardziej charakterystycznych madeirskich potraw.",
@@ -177,7 +177,7 @@
       center: [32.6942, -16.7745], route: [[32.6384, -16.9353, "Hotel Baía Azul"], [32.6979, -16.7745, "Lotnisko FNC"], [52.3667, 13.5033, "Lotnisko BER"], [52.3664, 13.5071, "Parking P8"], [51.7592, 19.4560, "Łódź"]], google: "https://www.google.com/maps/dir/Hotel+Baia+Azul,+Funchal/Madeira+Airport",
       agenda: [["rano", "Checklista hotelowa", "Dokumenty, ładowarki, leki, stroje kąpielowe i sejf."], ["08:45*", "Prywatny transfer", "Transfer z madeira-in; godzina odbioru do ostatecznego potwierdzenia po weryfikacji lotu FNC–BER."], ["11:45*", "Lot FNC–BER", "Godzina EJU5334 z wcześniejszych dokumentów — sprawdzić ponownie przed wyjazdem."], ["po lądowaniu", "Samochód z P8", "Zdjęcie sektora i dane rezerwacji ułatwią odbiór."], ["wieczór", "Berlin → Łódź", "Regularne przerwy i zmiana kierowcy, jeśli to możliwe."]],
       tips: ["Nie opierać godziny transferu na niepotwierdzonym rozkładzie.", "Potwierdzić asystę na FNC i BER, jeśli została zamówiona, oraz zaplanować postoje podczas jazdy do Łodzi najpóźniej co 90 minut.", "Przed wymeldowaniem sprawdzić sejf, szafki, łazienkę i gniazdka.", "Zostawić zapas na bagaż i kolejki na lotnisku w Funchal."],
-      planB: "Przy opóźnieniu po lądowaniu rozważyć dodatkowy odpoczynek lub nocleg; nie prowadzić zmęczonym.", gentle: "Tryb łagodny: bezpieczeństwo i przerwy mają pierwszeństwo przed godziną dojazdu do Łodzi.",
+      planB: "Przy opóźnieniu po lądowaniu rozważyć dodatkowy odpoczynek lub nocleg; nie prowadzić zmęczonym.", gentle: "bezpieczeństwo i przerwy mają pierwszeństwo przed godziną dojazdu do Łodzi.",
       deepDive: {
         context: "Lotnisko w Funchal bywa wrażliwe na silny boczny wiatr ze względu na ukształtowanie terenu, co czasem wydłuża czas oczekiwania na start — warto mieć to na uwadze przy planowaniu ostatnich godzin w hotelu.",
         food: "Na lotnisku FNC wybór gastronomii jest ograniczony — lekki prowiant na drogę (owoce, kanapki) kupiony wcześniej w Funchal bywa wygodniejszym rozwiązaniem niż szukanie jedzenia już po odprawie.",
@@ -190,28 +190,11 @@
   const readState = () => {
     try { return JSON.parse(localStorage.getItem(stateKey)) || {}; } catch (_) { return {}; }
   };
-  const state = Object.assign({ gentle: false, selected: [], skipped: {}, checklist: {}, calculator: {} }, readState());
+  const state = Object.assign({ selected: [], skipped: {}, checklist: {}, calculator: {} }, readState());
   const save = () => localStorage.setItem(stateKey, JSON.stringify(state));
   const escapeHtml = (value) => String(value).replace(/[&<>"]/g, (char) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[char]));
   let routeMapInstance = null;
   let overviewMapInstance = null;
-
-  function setupGlobal() {
-    document.body.classList.toggle("gentle", state.gentle);
-    document.querySelectorAll("[data-gentle-toggle]").forEach((button) => {
-      button.setAttribute("aria-pressed", String(state.gentle));
-      button.textContent = state.gentle ? "Tryb łagodny: włączony" : "Tryb łagodny: wyłączony";
-      button.addEventListener("click", () => {
-        state.gentle = !state.gentle;
-        save();
-        document.body.classList.toggle("gentle", state.gentle);
-        document.querySelectorAll("[data-gentle-toggle]").forEach((item) => {
-          item.setAttribute("aria-pressed", String(state.gentle));
-          item.textContent = state.gentle ? "Tryb łagodny: włączony" : "Tryb łagodny: wyłączony";
-        });
-      });
-    });
-  }
 
   function imageMarkup(day, eager, className) {
     return `<img${className ? ` class="${className}"` : ""} src="${day.image}" alt="${escapeHtml(day.alt)}" ${eager ? "fetchpriority=\"high\"" : "loading=\"lazy\""} decoding="async" onerror="this.parentElement.classList.add('image-fallback');this.remove()">`;
@@ -230,11 +213,17 @@
       button.textContent = state.selected.includes(id) ? "✓ Wybrany" : "+ Wybierz dzień";
     }));
 
-    document.querySelectorAll("[data-filter]").forEach((button) => button.addEventListener("click", () => {
-      const filter = button.dataset.filter;
-      document.querySelectorAll("[data-filter]").forEach((item) => item.classList.toggle("active", item === button));
-      grid.querySelectorAll(".day-card").forEach((card) => { card.hidden = filter !== "all" && !card.dataset.cats.includes(filter); });
-    }));
+    document.querySelectorAll("[data-filter]").forEach((button) => {
+      button.setAttribute("aria-pressed", String(button.classList.contains("active")));
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+        document.querySelectorAll("[data-filter]").forEach((item) => {
+          item.classList.toggle("active", item === button);
+          item.setAttribute("aria-pressed", String(item === button));
+        });
+        grid.querySelectorAll(".day-card").forEach((card) => { card.hidden = filter !== "all" && !card.dataset.cats.includes(filter); });
+      });
+    });
     setupCalculator();
     setupChecklist();
     renderOverviewLegend();
@@ -421,7 +410,7 @@
       <main id="main-content">
         <div class="grid">
           <section class="card" aria-labelledby="agenda-title"><div class="card-body"><h2 id="agenda-title">Plan dnia</h2><div class="timeline">${day.agenda.map((slot, slotIndex) => `<article class="slot ${state.skipped[day.id]?.includes(slotIndex) ? "is-skipped" : ""}" data-slot="${slotIndex}"><span class="time">${slot[0]}</span><span class="dot" aria-hidden="true"></span><div><h3>${slot[1]}</h3><p>${slot[2]}</p><button class="skip-item" type="button" data-skip="${slotIndex}">${state.skipped[day.id]?.includes(slotIndex) ? "Przywróć punkt" : "Pomijamy"}</button></div></article>`).join("")}</div></div></section>
-          <aside class="card"><div class="card-body"><h2>W skrócie</h2><div class="info">${metrics.map((metric) => `<div class="metric"><strong>${metric[1]}</strong><span>${metric[0]}</span></div>`).join("")}</div><div class="badges"><span class="badge">Dzieci chodzą po górach</span><span class="badge">Aktywnie z ochroną kolana</span><span class="badge">Niska ekspozycja</span>${day.cats.includes("odpoczynek") ? "<span class=\"badge optional\">Elastyczny plan</span>" : ""}${day.cats.includes("wycieczka busem") || day.id === "2026-08-28" ? "<span class=\"badge weather\">Pogoda ma znaczenie</span>" : ""}</div><p class="gentle-note">${day.gentle}</p></div></aside>
+          <aside class="card"><div class="card-body"><h2>W skrócie</h2><div class="info">${metrics.map((metric) => `<div class="metric"><strong>${metric[1]}</strong><span>${metric[0]}</span></div>`).join("")}</div><div class="badges"><span class="badge">Dzieci chodzą po górach</span><span class="badge">Aktywnie z ochroną kolana</span><span class="badge">Niska ekspozycja</span>${day.cats.includes("odpoczynek") ? "<span class=\"badge optional\">Elastyczny plan</span>" : ""}${day.cats.includes("wycieczka busem") || day.id === "2026-08-28" ? "<span class=\"badge weather\">Pogoda ma znaczenie</span>" : ""}</div><div class="variant-note"><strong>Wariant łagodniejszy:</strong> ${day.gentle}</div></div></aside>
         </div>
         <section class="section grid" aria-label="Mapa i wskazówki">
           <div class="card"><div class="map-shell"><button class="map-activate" type="button">Aktywuj mapę</button><div class="route-map" id="route-map" role="application" aria-label="Mapa OpenStreetMap z trasą: ${day.title}"></div></div><div class="route-summary"><p><strong>Orientacyjna trasa dnia</strong> — linia łączy główne punkty; dokładny przebieg dróg sprawdź w Google Maps.</p><ol class="route-stop-list">${day.route.map((stop, stopIndex) => `<li><span>${stopIndex + 1}</span>${stop[2]}</li>`).join("")}</ol></div><div class="map-actions"><a class="button" href="${day.google}" target="_blank" rel="noopener">Otwórz trasę w Google Maps ↗</a><button class="button secondary" type="button" data-deactivate-map>Wyłącz mapę</button></div></div>
@@ -446,10 +435,55 @@
     const deactivate = document.querySelector("[data-deactivate-map]");
     activate.addEventListener("click", () => { mapShell.classList.add("is-active"); activate.textContent = "Mapa aktywna"; setMapInteractions(routeMapInstance, true); });
     deactivate.addEventListener("click", () => { mapShell.classList.remove("is-active"); activate.textContent = "Aktywuj mapę"; setMapInteractions(routeMapInstance, false); });
+    document.addEventListener("keydown", (event) => {
+      if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+      if (event.target.matches("input, select, textarea")) return;
+      if (event.key === "ArrowLeft" && prev) window.location.href = `${prev.id}.html`;
+      if (event.key === "ArrowRight" && next) window.location.href = `${next.id}.html`;
+    });
     initRouteMap(day);
   }
 
-  setupGlobal();
+  function renderPrint() {
+    const root = document.querySelector("#print-root");
+    if (!root) return;
+    const checklistItems = ["Potwierdzone numery i godziny obu lotów", "Rezerwacja, kod wjazdu i sektor P8", "Operator transferu: madeira-in — potwierdzone godziny i miejsce spotkania", "Rezerwacja transferu bez fotelików i podkładek", "Rejs z terminem zapasowym 29 sierpnia, łatwym wejściem i miejscem siedzącym", "Zalecenia lekarza, leki i ewentualna asysta lotniskowa dla osoby przed operacją kolana", "Ubezpieczenie i EKUZ", "Dokumenty, leki i ładowarki", "Mapy offline i kontakty alarmowe"];
+    root.innerHTML = `
+      <header class="print-head">
+        <h1>Madera 2026 — plan podróży</h1>
+        <p class="print-sub">19–30 sierpnia 2026 · dwie rodziny (4 dorosłych + dzieci 6, 10 i 12 lat) · Hotel Baía Azul, Funchal</p>
+        <ul class="print-facts">
+          <li><strong>Lot tam:</strong> 20.08, EJU5333 Berlin BER → Funchal, lądowanie 10:55*</li>
+          <li><strong>Lot powrotny:</strong> 30.08, EJU5334 Funchal → Berlin BER, 11:45*, odbiór z hotelu ok. 08:45*</li>
+          <li><strong>Transfery lotniskowe:</strong> madeira-in (Rui Nóbrega), Mercedes Sprinter, 45 EUR w jedną stronę</li>
+          <li><strong>Wycieczki busem:</strong> ad hoc z madeira-in, 220 EUR/dzień — orientacyjnie 22, 24 i 27.08</li>
+          <li><strong>Auto:</strong> parking P8 przy BER, 19–30.08</li>
+        </ul>
+        <p class="print-note">* godziny z wcześniejszych dokumentów — potwierdzić przed wyjazdem</p>
+        <div class="print-actions no-print">
+          <button class="button" type="button" onclick="window.print()">Drukuj / zapisz jako PDF</button>
+          <a class="button secondary" href="index.html">← Wróć do planu online</a>
+        </div>
+      </header>
+      ${days.map((day, index) => `
+      <section class="print-day">
+        <h2>Dzień ${index + 1} · ${day.date} — ${day.title}</h2>
+        <p class="print-short">${day.short}</p>
+        <table class="print-agenda">
+          <tbody>${day.agenda.map((slot) => `<tr><th scope="row">${slot[0]}</th><td><strong>${slot[1]}.</strong> ${slot[2]}</td></tr>`).join("")}</tbody>
+        </table>
+        <p class="print-block"><strong>Wskazówki:</strong> ${day.tips.join(" ")}</p>
+        <p class="print-block"><strong>Plan B:</strong> ${day.planB}</p>
+        <p class="print-block"><strong>Wariant łagodniejszy:</strong> ${day.gentle}</p>
+      </section>`).join("")}
+      <section class="print-day">
+        <h2>Checklista przed wyjazdem</h2>
+        <ul class="print-check">${checklistItems.map((item) => `<li>☐ ${item}</li>`).join("")}</ul>
+      </section>
+      <footer class="print-foot">Godziny lotów, rezerwacje, warunki pogodowe i dostępność atrakcji wymagają potwierdzenia przed wyjazdem. Wygenerowano ze strony planu — wersja online zawiera mapy tras.</footer>`;
+  }
+
   renderIndex();
   renderDay();
+  renderPrint();
 })();
