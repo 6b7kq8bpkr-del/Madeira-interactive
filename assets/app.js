@@ -16,6 +16,7 @@
   // Autentyczne zdjęcia miejsc z planu — Wikimedia Commons (atrybucja w galerii)
   const commons = {
     arieiro: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/View_from_Miradouro_do_Pico_do_Arieiro_-_Madeira_01.jpg/1920px-View_from_Miradouro_do_Pico_do_Arieiro_-_Madeira_01.jpg",
+    picoRuivo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Pico_Ruivo%2C_Madeira%2C_Gipfelbereich.jpg/1920px-Pico_Ruivo%2C_Madeira%2C_Gipfelbereich.jpg",
     fontes: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Madeira-Rabacal-Levada_das_25_Fontes_%28PR6%29-bridge-02ASD.jpg/1920px-Madeira-Rabacal-Levada_das_25_Fontes_%28PR6%29-bridge-02ASD.jpg",
     fanal: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Fanal_%28Madeira%2C_Portugal%29%2C_Lorbeerwald_--_2025_--_1532.jpg/1920px-Fanal_%28Madeira%2C_Portugal%29%2C_Lorbeerwald_--_2025_--_1532.jpg",
     portoMoniz: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Porto_Moniz_%28Madeira%2C_Portugal%29%2C_Piscinas_Naturais_do_Porto_Moniz_--_2025_--_1779.jpg/1920px-Porto_Moniz_%28Madeira%2C_Portugal%29%2C_Piscinas_Naturais_do_Porto_Moniz_--_2025_--_1779.jpg",
@@ -78,17 +79,17 @@
       }
     },
     {
-      id: "2026-08-22", date: "22 sierpnia · sobota", title: "Wschód Madery", short: "Arieiro o poranku, levada na Balcões, Santana i wybrzeże.",
-      image: commons.arieiro, alt: "Skaliste szczyty Pico do Arieiro na Maderze", cats: ["aktywny", "wycieczka busem"],
-      intensity: "Aktywna", duration: "09:30–17:30", transport: "Prywatny bus", walking: "Balcões + okolice, 2–3 km", kids: "Tak, dobrze chodzą po górach", exposure: "Niska / kontrolowana",
-      center: [32.735, -16.886], route: [[32.6384, -16.9353, "Hotel"], [32.7356, -16.9280, "Pico do Arieiro"], [32.7353, -16.8865, "Ribeiro Frio"], [32.7419, -16.8905, "Balcões"], [32.8036, -16.8819, "Santana"], [32.7163, -16.7653, "Machico / Porto da Cruz"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Pico+do+Arieiro/Ribeiro+Frio/Balc%C3%B5es/Santana,+Madeira",
-      agenda: [["08:15", "Śniadanie w hotelu", "Bufet 7:30–10:00 — zjeść przed wyjazdem o 9:30 (godziny potwierdzić w recepcji)."], ["09:30", "Start z hotelu", "Mercedes Sprinter madeira-in sprzed hotelu."], ["10:15", "Pico do Arieiro", "Rano szansa na czyste widoki jest największa — chmury zwykle narastają w ciągu dnia. Punkt widokowy i krótki spacer w komfortowym obszarze; bez trasy na Pico Ruivo."], ["11:45", "Ribeiro Frio i Balcões", "Łatwa levada do tarasu Balcões (ok. 1,5 km w obie strony) plus spacer po okolicy. Spokojne tempo i możliwość zawrócenia w dowolnym momencie."], ["13:30", "Santana i lunch", "Tradycyjne trójkątne domki 'palheiros', lunch i krótkie zwiedzanie miasteczka."], ["15:30", "Porto da Cruz lub Machico", "Dodatkowy przystanek na wybrzeżu zależnie od czasu i pogody."], ["17:30", "Powrót", "Wieczór w hotelu."]],
-      tips: ["W górach temperatura może być znacznie niższa niż w Funchal — zabrać warstwy i kurtki.", "Lunch wypada dopiero w Santanie około 13:30 — spakować drugie śniadanie i przekąski dla dzieci do busa.", "Balcões jest domyślnym spacerem dnia: kijki pomagają na nierównych fragmentach, a dzieci mogą iść pełną trasę.", "Na Arieiro wybierać miejsca oddalone od krawędzi ze względu na lęk wysokości, nie ze względu na kondycję grupy.", "Pełna trasa Arieiro–Ruivo i tak nie jest częścią planu — bywa zamykana po zniszczeniach z pożarów w 2024 r.; my zostajemy przy punkcie widokowym."],
-      planB: "Przy chmurach na Arieiro rano odwracamy kolejność: najpierw Ribeiro Frio i Balcões, a punkt górski próbujemy po południu albo pomijamy.", gentle: "Arieiro tylko wtedy, gdy widoczność i komfort całej grupy są dobre.",
+      id: "2026-08-22", date: "22 sierpnia · sobota", title: "Pico Ruivo i wschód wyspy", short: "Wejście na najwyższy szczyt Madery (PR1.2), Santana i levada na Balcões.",
+      image: commons.picoRuivo, alt: "Szczyt Pico Ruivo — najwyższy punkt Madery", cats: ["aktywny", "wycieczka busem"],
+      intensity: "Aktywna", duration: "09:00–17:30", transport: "Prywatny bus + PR1.2", walking: "PR1.2 ok. 5,6 km + Balcões", kids: "Tak, dobrze chodzą po górach", exposure: "Umiarkowana; PR1.2, bez grani PR1",
+      center: [32.757, -16.925], route: [[32.6384, -16.9353, "Hotel"], [32.7573, -16.9110, "Achada do Teixeira — start PR1.2"], [32.7583, -16.9419, "Pico Ruivo (1862 m)"], [32.8036, -16.8819, "Santana"], [32.7353, -16.8865, "Ribeiro Frio"], [32.7419, -16.8905, "Balcões"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Achada+do+Teixeira/Pico+Ruivo/Santana,+Madeira/Ribeiro+Frio",
+      agenda: [["08:15", "Śniadanie w hotelu", "Bufet 7:30–10:00 — dziś bez pobudki o świcie, spokojne śniadanie przed wyjściem (godziny potwierdzić w recepcji)."], ["09:00", "Wyjazd z hotelu", "Mercedes Sprinter madeira-in; przejazd na płaskowyż przez Santanę, ok. godziny drogi."], ["10:15", "Achada do Teixeira", "Start szlaku PR1.2 na wysokości ~1590 m; przy parkingu skalna formacja 'Homem em Pé' (Stojący Człowiek)."], ["10:30", "PR1.2 na Pico Ruivo", "Najłatwiejsza droga na najwyższy szczyt wyspy (1862 m): ~2,8 km w jedną stronę szeroką, kamienną ścieżką ze schodami, ~260 m podejścia. Idziemy w dzień, spokojnie, z przerwami, plus czas na szczycie i zdjęcia."], ["13:00", "Santana i lunch", "Zjazd do Santany: tradycyjne trójkątne domki 'palheiros' i spokojny lunch po zejściu."], ["15:00", "Ribeiro Frio i Balcões", "W drodze powrotnej łatwa levada do tarasu Balcões (ok. 1,5 km w obie strony) i pstrąg w Ribeiro Frio."], ["17:30", "Powrót", "Wieczór w hotelu."]],
+      tips: ["Pico Ruivo to najwyższy szczyt Madery (1862 m), a PR1.2 z Achada do Teixeira to jego najłatwiejsza, dobrze utrzymana droga — dużo mniej ekspozycji niż słynna grań PR1 (Arieiro–Ruivo), której nie robimy.", "Robimy to na spokojnie, po śniadaniu, nie o świcie — rano niebo bywa czystsze (chmury narastają w ciągu dnia), a wejście w dzień jest bezpieczniejsze dla dzieci i osoby z lękiem wysokości.", "Na szczycie bywa zimno i wietrznie nawet w sierpniu — ciepłe warstwy, kurtka przeciwwiatrowa, czapki, woda i buty trekkingowe zamiast sneakersów.", "Blisko szczytu są krótkie odsłonięte fragmenty — trzymamy dzieci od strony ściany i idziemy spokojnie.", "Status trasy potwierdzić tuż przed wyjazdem — szlaki w masywie Ruivo były odbudowywane po pożarach z 2024 r. (planowane otwarcie od kwietnia 2026)."],
+      planB: "Przy mgle, deszczu lub silnym wietrze na szczycie rezygnujemy z wejścia na Pico Ruivo i zostajemy niżej: Santana, Ribeiro Frio i łatwa levada na Balcões.", gentle: "zamiast pełnego wejścia krótki odcinek PR1.2 od Achada do Teixeira i powrót, z naciskiem na Santanę i Balcões.",
       deepDive: {
-        context: "Ribeiro Frio to dawna stacja hodowli pstrąga w sercu lasu laurowego (laurisilva), wpisanego na listę UNESCO. Balcões to jeden z najłatwiej dostępnych punktów widokowych na szczyty centralnej Madery, a Pico do Arieiro — trzeci najwyższy szczyt wyspy (ok. 1818 m) — to jedno z niewielu miejsc, gdzie asfaltowa droga prowadzi niemal pod sam punkt widokowy.",
-        food: "W Ribeiro Frio warto spróbować świeżego pstrąga z lokalnej hodowli; w Santanie tradycyjne trójkątne domki 'palheiros' sąsiadują z kawiarniami serwującymi bolo de mel i lokalny miód.",
-        practical: "Na Arieiro bywa znacznie chłodniej i bardziej wietrznie niż w Funchal, a mgła potrafi ograniczyć widoczność w kilka minut — warstwowe ubranie i kurtka przeciwwiatrowa przydają się tu bardziej niż na wybrzeżu."
+        context: "Pico Ruivo (1862 m) to najwyższy szczyt Madery i trzeci co do wysokości w całej Portugalii. Trasa PR1.2 z Achada do Teixeira to najłatwiejsze podejście — szeroka, kamienna ścieżka przez wrzosowiska i relikty lasu laurowego. Sąsiednia grań PR1 z Pico do Arieiro jest znacznie trudniejsza i bardziej odsłonięta; po pożarach z 2024 r. była zamykana i odbudowywana.",
+        food: "W Ribeiro Frio warto spróbować świeżego pstrąga z górskiej hodowli; w Santanie tradycyjne trójkątne domki 'palheiros' sąsiadują z kawiarniami serwującymi bolo de mel i lokalny miód.",
+        practical: "Na wysokości 1600–1860 m bywa znacznie chłodniej i wietrzniej niż na wybrzeżu, a mgła potrafi ograniczyć widoczność w kilka minut — warstwy i kurtka przeciwwiatrowa są potrzebne nawet w sierpniu. Parking przy Achada do Teixeira jest niewielki, więc wcześniejszy przyjazd pomaga."
       }
     },
     {
@@ -556,7 +557,7 @@
   }
 
   const highlights = [
-    { dayId: "2026-08-22", image: commons.arieiro, title: "Pico do Arieiro ponad chmurami", desc: "Trzeci najwyższy szczyt wyspy i widok na morze chmur — niemal od samego punktu widokowego." },
+    { dayId: "2026-08-22", image: commons.picoRuivo, title: "Pico Ruivo — dach wyspy", desc: "Wejście na najwyższy szczyt Madery (1862 m) najłatwiejszą trasą PR1.2 z Achada do Teixeira." },
     { dayId: "2026-08-27", image: commons.fontes, title: "Levada das 25 Fontes", desc: "Spacer wśród lasu laurowego UNESCO do laguny zasilanej dwudziestoma pięcioma źródłami." },
     { dayId: "2026-08-24", image: commons.fanal, title: "Zamglony las Fanal", desc: "Sędziwe, poskręcane drzewa laurowe spowite mgłą na płaskowyżu Paúl da Serra." },
     { dayId: "2026-08-28", image: commons.dolphin, title: "Delfiny i wieloryby", desc: "Rodzinny rejs po spokojniejszych, porannych wodach u wybrzeży Funchal." },
@@ -697,7 +698,7 @@
   const BYSA3 = "https://creativecommons.org/licenses/by-sa/3.0";
   const BY2 = "https://creativecommons.org/licenses/by/2.0";
   const galleryItems = [
-    { src: commons.arieiro, place: "Pico do Arieiro", author: "H. Zell", license: "CC BY-SA 3.0", licenseUrl: BYSA3 },
+    { src: commons.picoRuivo, place: "Pico Ruivo (1862 m)", author: "GerritR", license: "CC BY-SA 4.0", licenseUrl: BYSA4 },
     { src: commons.fontes, place: "Levada das 25 Fontes · Rabaçal", author: "Asurnipal", license: "CC BY-SA 4.0", licenseUrl: BYSA4 },
     { src: commons.fanal, place: "Zamglony las Fanal", author: "Dietmar Rabich", license: "CC BY-SA 4.0", licenseUrl: BYSA4 },
     { src: commons.portoMoniz, place: "Baseny lawowe Porto Moniz", author: "Dietmar Rabich", license: "CC BY-SA 4.0", licenseUrl: BYSA4 },
@@ -778,7 +779,7 @@
     if (!host) return;
     const locations = [
       { name: "Funchal · wybrzeże", lat: 32.6486, lon: -16.9186 },
-      { name: "Pico do Arieiro · góry", lat: 32.7356, lon: -16.9280 }
+      { name: "Pico Ruivo · góry", lat: 32.7583, lon: -16.9419 }
     ];
     try {
       const results = await Promise.all(locations.map(async (loc) => {
