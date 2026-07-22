@@ -163,6 +163,31 @@ h3 { color: var(--ink); }
 .button.secondary { color: var(--sea-dark); background: #e1f0ed; }
 .button.coral { background: var(--coral); }
 
+/* Pasek szybkiego skoku do dnia */
+.day-rail { display: flex; gap: 8px; margin: 0 0 22px; padding: 4px; overflow-x: auto; scrollbar-width: thin; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
+.day-rail::-webkit-scrollbar { height: 6px; }
+.day-rail::-webkit-scrollbar-thumb { background: #cfe0dc; border-radius: 999px; }
+.day-rail-item { flex: 0 0 auto; scroll-snap-align: center; display: inline-flex; flex-direction: column; align-items: center; gap: 2px; min-width: 56px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 14px; background: white; color: var(--sea-dark); text-decoration: none; font-weight: 800; transition: transform .15s ease; }
+.day-rail-item:hover { transform: translateY(-2px); }
+.day-rail-item .drn { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: #edf7f4; font-size: 12px; }
+.day-rail-item .drd { font-size: 12px; white-space: nowrap; color: var(--muted); }
+.day-rail-item.is-current { color: white; background: var(--sea); border-color: transparent; }
+.day-rail-item.is-current .drn { background: rgba(255,255,255,.28); color: white; }
+.day-rail-item.is-current .drd { color: rgba(255,255,255,.9); }
+
+.kbd-hint { margin: 14px 2px 0; color: var(--muted); font-size: 13px; text-align: center; }
+
+/* Wybór dni na stronie głównej */
+.day-card.is-selected { outline: 3px solid var(--sea); outline-offset: 2px; }
+.filter-selected { border-color: var(--sun); }
+.filter-selected.active { color: #123538; background: var(--sun); }
+.link-btn { padding: 0; border: 0; background: none; color: var(--sea); font-weight: 800; text-decoration: underline; cursor: pointer; }
+.days-empty { margin: 6px 2px 0; padding: 22px; border: 1px dashed var(--line); border-radius: var(--radius); color: var(--muted); text-align: center; line-height: 1.6; }
+
+/* Przycisk „na górę" */
+.to-top { position: fixed; right: clamp(14px, 3vw, 28px); bottom: clamp(14px, 3vw, 28px); z-index: 40; width: 48px; height: 48px; display: grid; place-items: center; border: 0; border-radius: 50%; color: white; background: var(--sea-dark); box-shadow: 0 10px 30px rgba(7,37,40,.35); font-size: 22px; font-weight: 900; cursor: pointer; opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .2s ease, transform .2s ease; }
+.to-top.is-visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
 .nav-days { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; margin-top: 22px; }
 .nav-days a { min-height: 56px; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 18px; border-radius: 18px; color: white; background: var(--sea-dark); text-align: center; text-decoration: none; font-weight: 850; }
 .nav-days a.next { background: var(--coral); }

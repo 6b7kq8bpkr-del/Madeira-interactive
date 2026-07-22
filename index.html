@@ -36,7 +36,7 @@
 
     <section class="section" aria-labelledby="days-title">
       <div class="section-head">
-        <div><h2 id="days-title">Dzień po dniu</h2><p class="section-copy">Filtruj plan lub zaznacz dni, które chcecie zachować jako wspólny wybór. Preferencje zapisują się tylko na tym urządzeniu.</p></div>
+        <div><h2 id="days-title">Dzień po dniu</h2><p class="section-copy">Filtruj plan albo zaznacz „Wybierz dzień" na kartach — zaznaczone dni policzy filtr „★ Wybrane". Preferencje zapisują się tylko na tym urządzeniu. <button class="link-btn" id="clear-selection" type="button" hidden>Wyczyść wybór</button></p></div>
         <div class="filters" aria-label="Filtr dni">
           <button class="filter active" type="button" data-filter="all">Wszystkie</button>
           <button class="filter" type="button" data-filter="podróż">Podróż</button>
@@ -44,9 +44,11 @@
           <button class="filter" type="button" data-filter="spokojny">Spokojny</button>
           <button class="filter" type="button" data-filter="wycieczka busem">Wycieczka busem</button>
           <button class="filter" type="button" data-filter="odpoczynek">Odpoczynek</button>
+          <button class="filter filter-selected" type="button" data-filter="selected">★ Wybrane (0)</button>
         </div>
       </div>
       <div class="day-grid" id="day-grid" aria-live="polite"></div>
+      <p class="days-empty" id="days-empty" hidden>Nie zaznaczyliście jeszcze żadnego dnia. Kliknij „+ Wybierz dzień" na kartach powyżej, aby zbudować wspólną listę.</p>
     </section>
 
     <section class="section" aria-labelledby="overview-map-title">
