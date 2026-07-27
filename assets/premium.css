@@ -252,6 +252,19 @@ body.lb-open { overflow: hidden; }
 .wd-pop { font-size: 11px; color: var(--muted); }
 .weather-loading, .weather-error { margin: 0; padding: 20px; color: var(--muted); line-height: 1.6; }
 
+/* Pogoda na stronie dnia */
+.dw-loading { margin: 0; color: var(--muted); }
+.dw-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
+.dw-now, .dw-forecast { flex: 1 1 240px; min-width: 0; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 16px; background: #edf7f4; }
+.dw-forecast { background: linear-gradient(135deg, var(--sea-dark), var(--sea)); color: white; }
+.dw-ico { font-size: 34px; line-height: 1; }
+.dw-now strong, .dw-forecast strong { display: block; font-size: 24px; line-height: 1.15; }
+.dw-now strong { color: var(--sea-dark); }
+.dw-now div span, .dw-forecast div span { display: block; margin-top: 3px; font-size: 13px; line-height: 1.4; }
+.dw-now div span { color: var(--muted); }
+.dw-forecast div span { color: rgba(255,255,255,.85); }
+.dw-note { margin: 12px 0 0; padding: 13px 15px; border-radius: 14px; color: #28524d; background: #e4f2ee; line-height: 1.55; font-size: 14px; }
+
 .nav-days { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; margin-top: 22px; }
 .nav-days a { min-height: 56px; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 18px; border-radius: 18px; color: white; background: var(--sea-dark); text-align: center; text-decoration: none; font-weight: 850; }
 .nav-days a.next { background: var(--coral); }

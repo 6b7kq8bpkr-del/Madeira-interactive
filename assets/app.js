@@ -452,6 +452,7 @@
           <section class="card" aria-labelledby="agenda-title"><div class="card-body"><h2 id="agenda-title">Plan dnia</h2><div class="timeline">${day.agenda.map((slot, slotIndex) => `<article class="slot ${state.skipped[day.id]?.includes(slotIndex) ? "is-skipped" : ""}" data-slot="${slotIndex}"><span class="time">${slot[0]}</span><span class="dot" aria-hidden="true"></span><div><h3>${slot[1]}</h3><p>${slot[2]}</p><button class="skip-item" type="button" data-skip="${slotIndex}">${state.skipped[day.id]?.includes(slotIndex) ? "Przywróć punkt" : "Pomijamy"}</button></div></article>`).join("")}</div></div></section>
           <aside class="card"><div class="card-body"><h2>W skrócie</h2><div class="info">${metrics.map((metric) => `<div class="metric"><strong>${metric[1]}</strong><span>${metric[0]}</span></div>`).join("")}</div><div class="badges"><span class="badge">Dzieci chodzą po górach</span><span class="badge">Spokojne tempo</span><span class="badge">Niska ekspozycja</span>${day.cats.includes("odpoczynek") ? "<span class=\"badge optional\">Elastyczny plan</span>" : ""}${day.cats.includes("wycieczka busem") || day.id === "2026-08-28" ? "<span class=\"badge weather\">Pogoda ma znaczenie</span>" : ""}</div><div class="variant-note"><strong>Wariant łagodniejszy:</strong> ${day.gentle}</div></div></aside>
         </div>
+        <section class="section" id="day-weather" aria-label="Pogoda w rejonie tego dnia"><div class="card"><div class="card-body"><p class="dw-loading">Ładowanie pogody na żywo…</p></div></div></section>
         <section class="section grid" aria-label="Mapa i wskazówki">
           <div class="card"><div class="map-shell"><button class="map-activate" type="button">Aktywuj mapę</button><div class="route-map" id="route-map" role="application" aria-label="Mapa OpenStreetMap z trasą: ${day.title}"></div></div><div class="route-summary"><p><strong>Orientacyjna trasa dnia</strong> — linia łączy główne punkty; dokładny przebieg dróg sprawdź w Google Maps.</p><ol class="route-stop-list">${day.route.map((stop, stopIndex) => `<li><span>${stopIndex + 1}</span>${stop[2]}</li>`).join("")}</ol></div><div class="map-actions"><a class="button" href="${day.google}" target="_blank" rel="noopener">Otwórz trasę w Google Maps ↗</a><button class="button secondary" type="button" data-deactivate-map>Wyłącz mapę</button></div></div>
           <div class="card"><div class="card-body"><h2>Wskazówki praktyczne</h2><ul class="tips">${day.tips.map((tip) => `<li>${tip}</li>`).join("")}</ul></div></div>
@@ -496,6 +497,7 @@
       rail.scrollLeft += (itemRect.left + itemRect.width / 2) - (railRect.left + railRect.width / 2);
     }
     initRouteMap(day);
+    renderDayWeather(day);
   }
 
   function renderPrint() {
@@ -795,6 +797,35 @@
       }).join("");
     } catch (e) {
       host.innerHTML = '<p class="weather-error">Nie udało się pobrać pogody na żywo. Aktualną prognozę dla Madery znajdziesz w serwisie <a href="https://www.ipma.pt/en/otempo/prev.localidade.hora/" target="_blank" rel="noopener">IPMA</a> albo w ulubionej aplikacji pogodowej.</p>';
+    }
+  }
+
+  async function renderDayWeather(day) {
+    const host = document.querySelector("#day-weather");
+    if (!host) return;
+    const dayLabel = day.date.split(" · ")[0];
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${day.center[0]}&longitude=${day.center[1]}&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Atlantic%2FMadeira&forecast_days=16`;
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error("weather");
+      const data = await res.json();
+      const cur = data.current, d = data.daily;
+      const idx = d.time.indexOf(day.id);
+      const now = `<div class="dw-now"><span class="dw-ico">${wxEmoji(cur.weather_code)}</span><div><strong>${Math.round(cur.temperature_2m)}°C</strong><span>teraz · ${wxLabel(cur.weather_code)}</span></div></div>`;
+      let main;
+      if (idx >= 0) {
+        main = `<div class="dw-forecast"><span class="dw-ico">${wxEmoji(d.weather_code[idx])}</span><div><strong>${Math.round(d.temperature_2m_max[idx])}° / ${Math.round(d.temperature_2m_min[idx])}°</strong><span>prognoza na ${dayLabel} · ${wxLabel(d.weather_code[idx])} · 💧 ${d.precipitation_probability_max[idx] ?? 0}%</span></div></div>`;
+      } else {
+        main = `<p class="dw-note">Prognoza na <strong>${dayLabel}</strong> pojawi się około 16 dni przed terminem — zajrzyj tu bliżej wyjazdu. Poniżej aktualna pogoda w rejonie trasy tego dnia.</p>`;
+      }
+      host.innerHTML = `<div class="card"><div class="card-body">
+        <h2>Pogoda w rejonie trasy</h2>
+        <p class="section-copy">Dane na żywo dla okolicy, w której spędzamy ten dzień — odświeżają się przy każdym otwarciu strony.</p>
+        <div class="dw-grid">${idx >= 0 ? main + now : now}</div>
+        ${idx >= 0 ? "" : main}
+      </div></div>`;
+    } catch (e) {
+      host.innerHTML = '<div class="card"><div class="card-body"><h2>Pogoda w rejonie trasy</h2><p class="weather-error">Nie udało się pobrać pogody na żywo. Aktualną prognozę dla Madery znajdziesz w serwisie <a href="https://www.ipma.pt/en/otempo/prev.localidade.hora/" target="_blank" rel="noopener">IPMA</a> albo w ulubionej aplikacji pogodowej.</p></div></div>';
     }
   }
 
