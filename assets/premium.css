@@ -179,6 +179,9 @@ h3 { color: var(--ink); }
 /* Podróż w liczbach */
 .stats-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px; margin-bottom: 34px; padding: 12px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255,254,250,.94); box-shadow: var(--shadow); }
 .stat { padding: 14px 10px; border-radius: 14px; background: #edf7f4; text-align: center; }
+.stat.hl { color: white; background: linear-gradient(135deg, var(--sea-dark), var(--sea)); }
+.stat.hl strong { color: white; }
+.stat.hl span { color: rgba(255,255,255,.85); }
 .stat strong { display: block; font-family: Georgia, "Times New Roman", serif; font-size: clamp(28px, 4vw, 42px); font-weight: 500; line-height: 1; color: var(--sea-dark); }
 .stat span { display: block; margin-top: 6px; color: var(--muted); font-size: 12.5px; line-height: 1.3; }
 
@@ -261,6 +264,27 @@ body.lb-open { overflow: hidden; }
 .day-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; }
 .day-card { min-height: 300px; position: relative; display: flex; align-items: end; overflow: hidden; border-radius: 22px; color: white; background: #174e50; box-shadow: 0 18px 45px rgba(8,45,50,.17); text-decoration: none; transition: transform .2s ease; }
 .day-num { position: absolute; z-index: 2; top: 14px; left: 14px; padding: 5px 11px; border-radius: 999px; color: white; background: rgba(4,30,35,.62); font-size: 12px; font-weight: 900; letter-spacing: .04em; }
+
+/* Rytm dnia — kropka intensywności (wzorzec z planu Japonii) */
+.idot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; }
+.day-card .idot { position: absolute; z-index: 2; top: 17px; right: 16px; box-shadow: 0 0 0 3px rgba(4,30,35,.45); }
+.idot.g { background: var(--success); }
+.idot.y { background: var(--sun); }
+.idot.r { background: var(--coral); }
+.int-legend { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; margin: 14px 2px 0; color: var(--muted); font-size: 13px; }
+
+/* Co stałe, co można odpuścić */
+.flex { display: grid; gap: 8px; margin-top: 12px; }
+.flex span { padding: 11px 13px; border-radius: 13px; line-height: 1.5; font-size: 13.5px; }
+.flex .fxlock { color: #28524d; background: #e4f2ee; }
+.flex .fxcut { color: #7a4a3f; background: #fcece6; }
+.flex b { display: block; margin-bottom: 2px; }
+
+/* Pasek postępu czytania + wejście sekcji */
+.readbar { position: fixed; z-index: 45; inset: 0 0 auto; height: 3px; background: transparent; pointer-events: none; }
+.readbar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--sun), var(--coral)); }
+.js-reveal main > section[data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity .5s ease, transform .5s ease; }
+.js-reveal main > section[data-reveal].in { opacity: 1; transform: none; }
 .day-card:hover { transform: translateY(-4px); }
 .day-card > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .day-card.image-fallback > img { display: none; }

@@ -35,6 +35,26 @@
 
   const TOUR_COLORS = ["#0b7276", "#d9684f", "#e9ad4b", "#246b51"];
 
+  // Rytm wyjazdu: intensywność dnia -> kropka na kafelku (wzorzec z planu Japonii)
+  const INTENSITY = { "Łagodna": "g", "Lekka": "g", "Logistyczna": "g", "Do wyboru": "g", "Umiarkowana": "y", "Aktywna": "r", "Pełna": "r" };
+  const INTENSITY_LABEL = { g: "spokojny", y: "umiarkowany", r: "aktywny" };
+
+  // Co jest stałym punktem dnia, a co można odpuścić bez psucia reszty
+  const FLEX = {
+    "2026-08-19": ["dojazd do Berlina i parking P8", "wieczorny spacer po centrum"],
+    "2026-08-20": ["lot i transfer do hotelu", "Lido — tylko jeśli zostaje energia"],
+    "2026-08-21": ["muzeum CR7 i marina", "stare miasto można skrócić"],
+    "2026-08-22": ["wejście na Pico Ruivo (PR1.2)", "Ribeiro Frio i Balcões w drodze powrotnej"],
+    "2026-08-23": ["nic — to dzień bez zobowiązań", "wszystko poza basenem"],
+    "2026-08-24": ["Porto Moniz i Fanal", "Seixal i Cabo Girão"],
+    "2026-08-25": ["kolacja z espetadą (rezerwacja!)", "Monte i kolejka — całkiem opcjonalne"],
+    "2026-08-26": ["Curral das Freiras i lunch", "podejście na Eira do Serrado"],
+    "2026-08-27": ["Levada das 25 Fontes", "Jardim do Mar i bananowce"],
+    "2026-08-28": ["rejs na delfiny (rezerwacja)", "popołudnie — tylko odpoczynek"],
+    "2026-08-29": ["termin zapasowy rejsu", "Caminho Real i dalsze wyjazdy"],
+    "2026-08-30": ["transfer 08:30 i lot 11:35", "nic — dzień jest sztywny"]
+  };
+
   const days = [
     {
       id: "2026-08-19", date: "19 sierpnia · środa", title: "Łódź → Berlin", short: "Spokojny start podróży, P8 i lekki wieczór w Berlinie.",
@@ -223,7 +243,10 @@
   function renderIndex() {
     const grid = document.querySelector("#day-grid");
     if (!grid) return;
-    grid.innerHTML = days.map((day, i) => `<a class="day-card" href="days/${day.id}.html"><span class="day-num">Dzień ${i + 1}</span>${imageMarkup(day, false)}<div class="day-card-content"><small>${day.date}</small><h3>${day.title}</h3><p>${day.short}</p></div></a>`).join("");
+    grid.innerHTML = days.map((day, i) => {
+      const lvl = INTENSITY[day.intensity] || "y";
+      return `<a class="day-card" href="days/${day.id}.html"><span class="day-num">Dzień ${i + 1}</span><span class="idot ${lvl}" title="Dzień ${INTENSITY_LABEL[lvl]}"></span>${imageMarkup(day, false)}<div class="day-card-content"><small>${day.date}</small><h3>${day.title}</h3><p>${day.short}</p></div></a>`;
+    }).join("");
 
     renderHighlights();
     renderGallery();
@@ -394,7 +417,7 @@
         <nav class="day-rail" aria-label="Przejdź do innego dnia">${days.map((d, i) => `<a class="day-rail-item${d.id === day.id ? " is-current" : ""}" href="${d.id}.html"${d.id === day.id ? ' aria-current="page"' : ""}><span class="drn">${i + 1}</span><span class="drd">${d.date.split(" · ")[0]}</span></a>`).join("")}</nav>
         <div class="grid">
           <section class="card" aria-labelledby="agenda-title"><div class="card-body"><h2 id="agenda-title">Plan dnia</h2><div class="timeline">${day.agenda.map((slot) => `<article class="slot"><span class="time">${slot[0]}</span><span class="dot" aria-hidden="true"></span><div><h3>${slot[1]}</h3><p>${slot[2]}</p></div></article>`).join("")}</div></div></section>
-          <aside class="card"><div class="card-body"><h2>W skrócie</h2><div class="info">${metrics.map((metric) => `<div class="metric"><strong>${metric[1]}</strong><span>${metric[0]}</span></div>`).join("")}</div><div class="badges"><span class="badge">Dzieci chodzą po górach</span><span class="badge">Spokojne tempo</span><span class="badge">Niska ekspozycja</span>${day.cats.includes("odpoczynek") ? "<span class=\"badge optional\">Elastyczny plan</span>" : ""}${day.cats.includes("wycieczka busem") || day.id === "2026-08-28" ? "<span class=\"badge weather\">Pogoda ma znaczenie</span>" : ""}</div><div class="variant-note"><strong>Wariant łagodniejszy:</strong> ${day.gentle}</div></div></aside>
+          <aside class="card"><div class="card-body"><h2>W skrócie</h2><div class="info">${metrics.map((metric) => `<div class="metric"><strong>${metric[1]}</strong><span>${metric[0]}</span></div>`).join("")}</div><div class="badges"><span class="badge">Dzieci chodzą po górach</span><span class="badge">Spokojne tempo</span><span class="badge">Niska ekspozycja</span>${day.cats.includes("odpoczynek") ? "<span class=\"badge optional\">Elastyczny plan</span>" : ""}${day.cats.includes("wycieczka busem") || day.id === "2026-08-28" ? "<span class=\"badge weather\">Pogoda ma znaczenie</span>" : ""}</div><div class="variant-note"><strong>Wariant łagodniejszy:</strong> ${day.gentle}</div>${FLEX[day.id] ? `<div class="flex"><span class="fxlock"><b>🔒 Nie ruszać:</b> ${FLEX[day.id][0]}</span><span class="fxcut"><b>✂️ Można odpuścić:</b> ${FLEX[day.id][1]}</span></div>` : ""}</div></aside>
         </div>
         <section class="section" id="day-weather" aria-label="Pogoda w rejonie tego dnia"><div class="card"><div class="card-body"><p class="dw-loading">Ładowanie pogody na żywo…</p></div></div></section>
         <section class="section grid" aria-label="Mapa i wskazówki">
@@ -616,6 +639,49 @@
       </main>`;
   }
 
+  // Odliczanie do wyjazdu (wzorzec z planu Japonii)
+  function renderCountdown() {
+    const el = document.querySelector("#countdown");
+    if (!el) return;
+    const start = new Date("2026-08-19T00:00:00");
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const diff = Math.round((start - today) / 86400000);
+    el.textContent = diff > 0 ? diff : diff === 0 ? "0" : "—";
+    const label = el.parentElement.querySelector("span");
+    if (label) label.textContent = diff > 0 ? "dni do wyjazdu" : diff === 0 ? "wyjazd dziś!" : "w trakcie podróży";
+  }
+
+  // Pasek postępu czytania + delikatne wejście sekcji (wzorzec z planu Japonii)
+  function setupScrollUx() {
+    if (document.body.dataset.page === "print") return;
+    const bar = document.createElement("div");
+    bar.className = "readbar";
+    bar.innerHTML = '<i></i>';
+    document.body.appendChild(bar);
+    const fill = bar.firstChild;
+    const onScroll = () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      fill.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + "%";
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    // Delikatne wejście TYLKO sekcji dekoracyjnych (data-reveal). Plan dnia, mapa,
+    // pogoda i checklista są zawsze widoczne — treść użytkowa nigdy nie może zniknąć.
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const secs = [...document.querySelectorAll("main > section[data-reveal]")];
+    if (!secs.length) return;
+    const showAll = () => secs.forEach((s) => s.classList.add("in"));
+    if (reduce || !("IntersectionObserver" in window)) { showAll(); return; }
+    document.documentElement.classList.add("js-reveal");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { rootMargin: "0px 0px -6% 0px" });
+    secs.forEach((s) => io.observe(s));
+    // bezpiecznik: gdyby obserwator nie zdążył (skok scrolla, kotwica), pokaż wszystko
+    window.setTimeout(showAll, 2500);
+  }
+
   function renderBackToTop() {
     if (document.body.dataset.page === "print") return;
     const btn = document.createElement("button");
@@ -772,5 +838,7 @@
   renderPractical();
   renderFood();
   renderWeather();
+  renderCountdown();
+  setupScrollUx();
   renderBackToTop();
 })();

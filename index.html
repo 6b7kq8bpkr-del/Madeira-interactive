@@ -29,11 +29,11 @@
 
   <main id="main-content">
     <section class="stats-band" aria-label="Podróż w liczbach">
+      <div class="stat hl"><strong id="countdown">—</strong><span>dni do wyjazdu</span></div>
       <div class="stat"><strong>12</strong><span>dni podróży</span></div>
       <div class="stat"><strong>10</strong><span>dni na Maderze</span></div>
       <div class="stat"><strong>3</strong><span>wycieczki busem</span></div>
       <div class="stat"><strong>1</strong><span>rejs z delfinami</span></div>
-      <div class="stat"><strong>6</strong><span>najlepszych przeżyć</span></div>
     </section>
 
     <section class="section" aria-labelledby="days-title">
@@ -41,6 +41,7 @@
         <div><h2 id="days-title">Dzień po dniu</h2><p class="section-copy">Kliknij dzień, aby zobaczyć agendę, trasę na mapie, pogodę i plan B. Spacery planujemy w rodzinnym tempie — każdy punkt można skrócić albo pominąć bez psucia reszty planu.</p></div>
       </div>
       <div class="day-grid" id="day-grid"></div>
+      <p class="int-legend"><span class="idot g"></span> spokojny <span class="idot y"></span> umiarkowany <span class="idot r"></span> aktywny — kropka na kafelku pokazuje rytm dnia.</p>
     </section>
 
     <section class="section" aria-labelledby="overview-map-title">
@@ -67,14 +68,14 @@
       <div class="weather-wrap" id="weather"><p class="weather-loading">Ładowanie pogody na żywo…</p></div>
     </section>
 
-    <section class="section" aria-labelledby="hl-title">
+    <section class="section" data-reveal aria-labelledby="hl-title">
       <div class="section-head">
         <div><p class="eyebrow eyebrow-dark">Najlepsze z wyspy</p><h2 id="hl-title">Sześć przeżyć, po które tu jedziemy</h2><p class="section-copy">Kliknij, aby przejść do dnia, w którym są zaplanowane.</p></div>
       </div>
       <div class="hl-grid" id="highlights-grid"></div>
     </section>
 
-    <section class="section" aria-labelledby="gallery-title">
+    <section class="section" data-reveal aria-labelledby="gallery-title">
       <div class="section-head">
         <div><p class="eyebrow eyebrow-dark">Galeria</p><h2 id="gallery-title">Wyspa w kadrach</h2><p class="section-copy">Autentyczne zdjęcia miejsc z planu. Kliknij, aby powiększyć (strzałki ← → lub Esc).</p></div>
       </div>
