@@ -210,7 +210,7 @@
   const readState = () => {
     try { return JSON.parse(localStorage.getItem(stateKey)) || {}; } catch (_) { return {}; }
   };
-  const state = Object.assign({ selected: [], skipped: {}, checklist: {}, calculator: {} }, readState());
+  const state = Object.assign({ checklist: {} }, readState());
   const save = () => localStorage.setItem(stateKey, JSON.stringify(state));
   const escapeHtml = (value) => String(value).replace(/[&<>"]/g, (char) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[char]));
   let routeMapInstance = null;
@@ -223,64 +223,8 @@
   function renderIndex() {
     const grid = document.querySelector("#day-grid");
     if (!grid) return;
-    grid.innerHTML = days.map((day) => `<article class="day-card${state.selected.includes(day.id) ? " is-selected" : ""}" data-day="${day.id}" data-cats="${day.cats.join(" ")}">${imageMarkup(day, false)}<div class="day-card-content"><small>${day.date}</small><h3><a class="day-link" href="days/${day.id}.html">${day.title}</a></h3><p>${day.short}</p><button class="choose-day" type="button" data-select-day="${day.id}" aria-pressed="${state.selected.includes(day.id)}">${state.selected.includes(day.id) ? "✓ Wybrany" : "+ Wybierz dzień"}</button></div></article>`).join("");
+    grid.innerHTML = days.map((day, i) => `<a class="day-card" href="days/${day.id}.html"><span class="day-num">Dzień ${i + 1}</span>${imageMarkup(day, false)}<div class="day-card-content"><small>${day.date}</small><h3>${day.title}</h3><p>${day.short}</p></div></a>`).join("");
 
-    const selectedFilterBtn = document.querySelector('[data-filter="selected"]');
-    const clearBtn = document.querySelector("#clear-selection");
-    const emptyNote = document.querySelector("#days-empty");
-    const activeFilter = () => { const el = document.querySelector("[data-filter].active"); return el ? el.dataset.filter : "all"; };
-    const applyFilter = (filter) => {
-      let visible = 0;
-      grid.querySelectorAll(".day-card").forEach((card) => {
-        const show = filter === "all" ? true : filter === "selected" ? state.selected.includes(card.dataset.day) : card.dataset.cats.includes(filter);
-        card.hidden = !show;
-        if (show) visible += 1;
-      });
-      if (emptyNote) emptyNote.hidden = visible !== 0;
-    };
-    const updateSelectionUI = () => {
-      const n = state.selected.length;
-      if (selectedFilterBtn) selectedFilterBtn.textContent = `★ Wybrane (${n})`;
-      if (clearBtn) clearBtn.hidden = n === 0;
-    };
-
-    document.querySelectorAll("[data-select-day]").forEach((button) => button.addEventListener("click", () => {
-      const id = button.dataset.selectDay;
-      state.selected = state.selected.includes(id) ? state.selected.filter((item) => item !== id) : state.selected.concat(id);
-      save();
-      const on = state.selected.includes(id);
-      button.setAttribute("aria-pressed", String(on));
-      button.textContent = on ? "✓ Wybrany" : "+ Wybierz dzień";
-      button.closest(".day-card").classList.toggle("is-selected", on);
-      updateSelectionUI();
-      if (activeFilter() === "selected") applyFilter("selected");
-    }));
-
-    document.querySelectorAll("[data-filter]").forEach((button) => {
-      button.setAttribute("aria-pressed", String(button.classList.contains("active")));
-      button.addEventListener("click", () => {
-        const filter = button.dataset.filter;
-        document.querySelectorAll("[data-filter]").forEach((item) => {
-          item.classList.toggle("active", item === button);
-          item.setAttribute("aria-pressed", String(item === button));
-        });
-        applyFilter(filter);
-      });
-    });
-
-    if (clearBtn) clearBtn.addEventListener("click", () => {
-      state.selected = [];
-      save();
-      document.querySelectorAll("[data-select-day]").forEach((b) => {
-        b.setAttribute("aria-pressed", "false");
-        b.textContent = "+ Wybierz dzień";
-        b.closest(".day-card").classList.remove("is-selected");
-      });
-      updateSelectionUI();
-      if (activeFilter() === "selected") applyFilter("selected");
-    });
-
-    updateSelectionUI();
     renderHighlights();
     renderGallery();
     setupChecklist();
@@ -295,7 +239,7 @@
     });
     const reset = document.querySelector("#reset-plan");
     if (reset) reset.addEventListener("click", () => {
-      if (!window.confirm("Zresetować wybrane dni, pominięte punkty i checklistę?")) return;
+      if (!window.confirm("Odznaczyć wszystkie pozycje checklisty?")) return;
       localStorage.removeItem(stateKey);
       window.location.reload();
     });
@@ -449,7 +393,7 @@
       <main id="main-content">
         <nav class="day-rail" aria-label="Przejdź do innego dnia">${days.map((d, i) => `<a class="day-rail-item${d.id === day.id ? " is-current" : ""}" href="${d.id}.html"${d.id === day.id ? ' aria-current="page"' : ""}><span class="drn">${i + 1}</span><span class="drd">${d.date.split(" · ")[0]}</span></a>`).join("")}</nav>
         <div class="grid">
-          <section class="card" aria-labelledby="agenda-title"><div class="card-body"><h2 id="agenda-title">Plan dnia</h2><div class="timeline">${day.agenda.map((slot, slotIndex) => `<article class="slot ${state.skipped[day.id]?.includes(slotIndex) ? "is-skipped" : ""}" data-slot="${slotIndex}"><span class="time">${slot[0]}</span><span class="dot" aria-hidden="true"></span><div><h3>${slot[1]}</h3><p>${slot[2]}</p><button class="skip-item" type="button" data-skip="${slotIndex}">${state.skipped[day.id]?.includes(slotIndex) ? "Przywróć punkt" : "Pomijamy"}</button></div></article>`).join("")}</div></div></section>
+          <section class="card" aria-labelledby="agenda-title"><div class="card-body"><h2 id="agenda-title">Plan dnia</h2><div class="timeline">${day.agenda.map((slot) => `<article class="slot"><span class="time">${slot[0]}</span><span class="dot" aria-hidden="true"></span><div><h3>${slot[1]}</h3><p>${slot[2]}</p></div></article>`).join("")}</div></div></section>
           <aside class="card"><div class="card-body"><h2>W skrócie</h2><div class="info">${metrics.map((metric) => `<div class="metric"><strong>${metric[1]}</strong><span>${metric[0]}</span></div>`).join("")}</div><div class="badges"><span class="badge">Dzieci chodzą po górach</span><span class="badge">Spokojne tempo</span><span class="badge">Niska ekspozycja</span>${day.cats.includes("odpoczynek") ? "<span class=\"badge optional\">Elastyczny plan</span>" : ""}${day.cats.includes("wycieczka busem") || day.id === "2026-08-28" ? "<span class=\"badge weather\">Pogoda ma znaczenie</span>" : ""}</div><div class="variant-note"><strong>Wariant łagodniejszy:</strong> ${day.gentle}</div></div></aside>
         </div>
         <section class="section" id="day-weather" aria-label="Pogoda w rejonie tego dnia"><div class="card"><div class="card-body"><p class="dw-loading">Ładowanie pogody na żywo…</p></div></div></section>
@@ -460,18 +404,9 @@
         <section class="section card deep-dive" aria-labelledby="deep-dive-title"><div class="card-body"><h2 id="deep-dive-title">Więcej o tym dniu</h2><div class="deep-grid"><div><h3>Kontekst i historia</h3><p>${day.deepDive.context}</p></div><div><h3>Jedzenie i lokalne smaki</h3><p>${day.deepDive.food}</p></div><div><h3>Praktyczne detale</h3><p>${day.deepDive.practical}</p></div></div></div></section>
         <section class="section card plan-b"><h2>Plan B</h2><p class="section-copy">${day.planB}</p></section>
         <nav class="nav-days" aria-label="Nawigacja między dniami">${prev ? `<a href="${prev.id}.html">← ${prev.date.split(" · ")[0]}</a>` : "<span></span>"}<a class="home" href="../index.html">Strona główna</a>${next ? `<a class="next" href="${next.id}.html">${next.date.split(" · ")[0]} →</a>` : "<span></span>"}</nav>
-        <p class="kbd-hint">Wskazówka: przełączaj dni strzałkami ← → na klawiaturze albo skocz do dowolnego dnia z paska na górze.</p>
         <footer class="footer">Plan rodzinny 19–30 sierpnia 2026. Godziny lotów, rezerwacje, warunki pogodowe i dostępność atrakcji wymagają potwierdzenia przed wyjazdem.</footer>
       </main>`;
 
-    document.querySelectorAll("[data-skip]").forEach((button) => button.addEventListener("click", () => {
-      const slotIndex = Number(button.dataset.skip);
-      const list = state.skipped[day.id] || [];
-      state.skipped[day.id] = list.includes(slotIndex) ? list.filter((item) => item !== slotIndex) : list.concat(slotIndex);
-      save();
-      button.closest(".slot").classList.toggle("is-skipped", state.skipped[day.id].includes(slotIndex));
-      button.textContent = state.skipped[day.id].includes(slotIndex) ? "Przywróć punkt" : "Pomijamy";
-    }));
     const mapShell = document.querySelector(".map-shell");
     const activate = document.querySelector(".map-activate");
     const deactivate = document.querySelector("[data-deactivate-map]");
