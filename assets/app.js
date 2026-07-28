@@ -412,7 +412,7 @@
     document.querySelector('meta[name="description"]').setAttribute("content", day.short);
     const metrics = [["Intensywność", day.intensity], ["Czas", day.duration], ["Transport", day.transport], ["Chodzenie", day.walking], ["Dla dzieci", day.kids], ["Ekspozycja", day.exposure]];
     root.innerHTML = `
-      <header class="hero">${imageMarkup(day, true, "hero-media")}<div class="hero-inner"><p class="eyebrow">${day.date} · dzień ${index + 1} z ${days.length}</p><h1>${day.title}</h1><p class="lead">${day.short}</p><div class="chips"><span class="chip">${day.intensity}</span><span class="chip">${day.transport}</span><span class="chip">${day.walking}</span></div></div></header>
+      <header class="hero">${imageMarkup(day, true, "hero-media")}<div class="hero-inner"><p class="eyebrow">${day.date} · dzień ${index + 1} z ${days.length}</p><h1>${day.title}</h1><p class="lead">${day.short}</p><div class="chips"><span class="chip"><span class="idot ${INTENSITY[day.intensity] || "y"}"></span> ${day.intensity}</span><span class="chip">${day.transport}</span><span class="chip">${day.walking}</span></div></div></header>
       <main id="main-content">
         <nav class="day-rail" aria-label="Przejdź do innego dnia">${days.map((d, i) => `<a class="day-rail-item${d.id === day.id ? " is-current" : ""}" href="${d.id}.html"${d.id === day.id ? ' aria-current="page"' : ""}><span class="drn">${i + 1}</span><span class="drd">${d.date.split(" · ")[0]}</span></a>`).join("")}</nav>
         <div class="grid">
@@ -469,7 +469,7 @@
         <ul class="print-facts">
           <li><strong>Lot tam:</strong> 20.08, EJU5333 Berlin BER → Funchal, 07:00 → 10:55 (PNR KCXF7QW)</li>
           <li><strong>Lot powrotny:</strong> 30.08, EJU5334 Funchal → Berlin BER, 11:35 → 17:10 (PNR KD15T58); odbiór z hotelu ok. 08:30</li>
-          <li><strong>Transfery lotniskowe:</strong> madeira-in (Rui Nóbrega), Mercedes Sprinter, 45 EUR w jedną stronę</li>
+          <li><strong>Transfery lotniskowe:</strong> madeira-in (Rui Nóbrega), Mercedes Sprinter, 45 EUR w jedną stronę — <strong>90 EUR razem, płatne gotówką</strong>; tel. kierowcy +351 917 260 690</li>
           <li><strong>Wycieczki busem:</strong> ad hoc z madeira-in, 220 EUR/dzień — orientacyjnie 22, 24 i 27.08</li>
           <li><strong>Auto:</strong> parking P8 przy BER, 19–30.08</li>
         </ul>
@@ -489,6 +489,7 @@
         <p class="print-block"><strong>Wskazówki:</strong> ${day.tips.join(" ")}</p>
         <p class="print-block"><strong>Plan B:</strong> ${day.planB}</p>
         <p class="print-block"><strong>Wariant łagodniejszy:</strong> ${day.gentle}</p>
+        ${FLEX[day.id] ? `<p class="print-block"><strong>Nie ruszać:</strong> ${FLEX[day.id][0]} · <strong>Można odpuścić:</strong> ${FLEX[day.id][1]}</p>` : ""}
       </section>`).join("")}
       <section class="print-day">
         <h2>Checklista przed wyjazdem</h2>

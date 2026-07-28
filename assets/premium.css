@@ -413,3 +413,4 @@ body.lb-open { overflow: hidden; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+.chip .idot { width: 9px; height: 9px; margin-right: 2px; vertical-align: baseline; box-shadow: 0 0 0 2px rgba(255,255,255,.35); }
