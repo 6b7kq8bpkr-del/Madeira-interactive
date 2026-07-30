@@ -33,7 +33,8 @@
       <div class="stat"><strong>12</strong><span>dni podróży</span></div>
       <div class="stat"><strong>10</strong><span>dni na Maderze</span></div>
       <div class="stat"><strong>3</strong><span>wycieczki busem</span></div>
-      <div class="stat"><strong>1</strong><span>rejs z delfinami</span></div>
+      <div class="stat wx"><strong id="wx-coast">—</strong><span>teraz w Funchal</span></div>
+      <div class="stat wx"><strong id="wx-mount">—</strong><span>teraz w górach</span></div>
     </section>
 
     <section class="section" aria-labelledby="days-title">
@@ -42,6 +43,13 @@
       </div>
       <div class="day-grid" id="day-grid"></div>
       <p class="int-legend"><span class="idot g"></span> spokojny <span class="idot y"></span> umiarkowany <span class="idot r"></span> aktywny — kropka na kafelku pokazuje rytm dnia.</p>
+    </section>
+
+    <section class="section" aria-labelledby="weather-title">
+      <div class="section-head">
+        <div><p class="eyebrow eyebrow-dark">Pogoda</p><h2 id="weather-title">Pogoda na Maderze</h2><p class="section-copy">Aktualnie i na najbliższe dni — na wybrzeżu (Funchal) i w górach (Pico Ruivo), gdzie bywa znacznie chłodniej. Prognozę na konkretny dzień wyjazdu znajdziesz na jego stronie, gdy termin zbliży się na ~16 dni.</p></div>
+      </div>
+      <div class="weather-wrap" id="weather"><p class="weather-loading">Ładowanie pogody na żywo…</p></div>
     </section>
 
     <section class="section" aria-labelledby="overview-map-title">
@@ -61,12 +69,6 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="weather-title">
-      <div class="section-head">
-        <div><p class="eyebrow eyebrow-dark">Pogoda</p><h2 id="weather-title">Pogoda na Maderze</h2><p class="section-copy">Aktualnie i na najbliższe dni — na wybrzeżu (Funchal) i w górach (Pico Ruivo), gdzie bywa znacznie chłodniej. Prognozę na konkretny dzień wyjazdu znajdziesz na jego stronie, gdy termin zbliży się na ~16 dni.</p></div>
-      </div>
-      <div class="weather-wrap" id="weather"><p class="weather-loading">Ładowanie pogody na żywo…</p></div>
-    </section>
 
     <section class="section" data-reveal aria-labelledby="hl-title">
       <div class="section-head">
@@ -75,13 +77,6 @@
       <div class="hl-grid" id="highlights-grid"></div>
     </section>
 
-    <section class="section" data-reveal aria-labelledby="gallery-title">
-      <div class="section-head">
-        <div><p class="eyebrow eyebrow-dark">Galeria</p><h2 id="gallery-title">Wyspa w kadrach</h2><p class="section-copy">Autentyczne zdjęcia miejsc z planu. Kliknij, aby powiększyć (strzałki ← → lub Esc).</p></div>
-      </div>
-      <div class="gallery-grid" id="gallery-grid"></div>
-      <p class="gallery-credits">Zdjęcia miejsc pochodzą z Wikimedia Commons (licencje CC&nbsp;BY-SA i CC&nbsp;BY). Autor i licencja każdego zdjęcia są widoczne po jego powiększeniu.</p>
-    </section>
 
     <section class="section summary-grid" aria-label="Checklista i ważne ustalenia">
       <article class="card"><div class="card-body">
@@ -112,7 +107,7 @@
       </div></article>
     </section>
 
-    <footer class="footer">Rodzinny plan Madery · 19–30 sierpnia 2026 · Dane pozostają w pamięci przeglądarki na tym urządzeniu.</footer>
+    <footer class="footer">Rodzinny plan Madery · 19–30 sierpnia 2026 · Dane pozostają w pamięci przeglądarki na tym urządzeniu.<br>Zdjęcia miejsc pochodzą z Wikimedia Commons (fot. H.&nbsp;Zell, Dietmar Rabich, Asurnipal, Diego Delso, GerritR, Paul Mannix, Pedro, Hein.Mück, Bengt Nyman, Virgílio Gomes, Dirk Klaassen) na licencjach CC&nbsp;BY-SA i CC&nbsp;BY; autor i licencja każdego zdjęcia są widoczne po jego powiększeniu.</footer>
   </main>
 </body>
 </html>

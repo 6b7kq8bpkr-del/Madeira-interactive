@@ -249,7 +249,6 @@
     }).join("");
 
     renderHighlights();
-    renderGallery();
     setupChecklist();
     renderOverviewLegend();
     setupOverviewMap();
@@ -427,7 +426,7 @@
         <section class="section card deep-dive" aria-labelledby="deep-dive-title"><div class="card-body"><h2 id="deep-dive-title">Więcej o tym dniu</h2><div class="deep-grid"><div><h3>Kontekst i historia</h3><p>${day.deepDive.context}</p></div><div><h3>Jedzenie i lokalne smaki</h3><p>${day.deepDive.food}</p></div><div><h3>Praktyczne detale</h3><p>${day.deepDive.practical}</p></div></div></div></section>
         <section class="section card plan-b"><h2>Plan B</h2><p class="section-copy">${day.planB}</p></section>
         <nav class="nav-days" aria-label="Nawigacja między dniami">${prev ? `<a href="${prev.id}.html">← ${prev.date.split(" · ")[0]}</a>` : "<span></span>"}<a class="home" href="../index.html">Strona główna</a>${next ? `<a class="next" href="${next.id}.html">${next.date.split(" · ")[0]} →</a>` : "<span></span>"}</nav>
-        <footer class="footer">Plan rodzinny 19–30 sierpnia 2026. Godziny lotów, rezerwacje, warunki pogodowe i dostępność atrakcji wymagają potwierdzenia przed wyjazdem.</footer>
+        <footer class="footer">Plan rodzinny 19–30 sierpnia 2026. Godziny lotów, rezerwacje, warunki pogodowe i dostępność atrakcji wymagają potwierdzenia przed wyjazdem.${creditFor(day.image) ? `<br>Zdjęcie dnia: ${creditFor(day.image)}` : ""}</footer>
       </main>`;
 
     const mapShell = document.querySelector(".map-shell");
@@ -445,7 +444,7 @@
     const heroImg = document.querySelector(".hero-media");
     if (heroImg) {
       heroImg.classList.add("zoomable");
-      heroImg.addEventListener("click", () => lightbox.open([{ src: day.image, caption: day.alt }], 0));
+      heroImg.addEventListener("click", () => lightbox.open([{ src: day.image, caption: day.alt, credit: creditFor(day.image) }], 0));
     }
     const rail = document.querySelector(".day-rail");
     const currentRail = rail && rail.querySelector(".is-current");
@@ -697,29 +696,33 @@
     onScroll();
   }
 
-  // Galeria — autentyczne zdjęcia miejsc z planu (Wikimedia Commons)
+  // Atrybucja zdjęć z Wikimedia Commons — wymagana przez licencje CC BY-SA / CC BY
   const BYSA4 = "https://creativecommons.org/licenses/by-sa/4.0";
   const BYSA3 = "https://creativecommons.org/licenses/by-sa/3.0";
   const BY2 = "https://creativecommons.org/licenses/by/2.0";
-  const galleryItems = [
-    { src: commons.picoRuivo, place: "Pico Ruivo (1862 m)", author: "GerritR", license: "CC BY-SA 4.0", licenseUrl: BYSA4 },
-    { src: commons.fontes, place: "Levada das 25 Fontes · Rabaçal", author: "Asurnipal", license: "CC BY-SA 4.0", licenseUrl: BYSA4 },
-    { src: commons.fanal, place: "Zamglony las Fanal", author: "Dietmar Rabich", license: "CC BY-SA 4.0", licenseUrl: BYSA4 },
-    { src: commons.portoMoniz, place: "Baseny lawowe Porto Moniz", author: "Dietmar Rabich", license: "CC BY-SA 4.0", licenseUrl: BYSA4 },
-    { src: commons.camara, place: "Câmara de Lobos", author: "Dietmar Rabich", license: "CC BY-SA 4.0", licenseUrl: BYSA4 },
-    { src: commons.curral, place: "Curral das Freiras", author: "Diego Delso", license: "CC BY-SA 4.0", licenseUrl: BYSA4 },
-    { src: commons.santana, place: "Domki w Santanie", author: "H. Zell", license: "CC BY-SA 3.0", licenseUrl: BYSA3 },
-    { src: commons.pontaDoSol, place: "Ponta do Sol", author: "Paul Mannix", license: "CC BY 2.0", licenseUrl: BY2 },
-    { src: commons.funchalBay, place: "Zatoka Funchal", author: "Pedro (Maia, Portugal)", license: "CC BY 2.0", licenseUrl: BY2 },
-    { src: commons.funchal, place: "Funchal · stare miasto", author: "Dietmar Rabich", license: "CC BY-SA 4.0", licenseUrl: BYSA4 },
-    { src: commons.lido, place: "Baseny Lido w Funchal", author: "Hein.Mück", license: "CC BY-SA 3.0", licenseUrl: BYSA3 },
-    { src: commons.monte, place: "Teleférico na Monte", author: "Dietmar Rabich", license: "CC BY-SA 4.0", licenseUrl: BYSA4 },
-    { src: commons.machico, place: "Machico", author: "Bengt Nyman", license: "CC BY 3.0", licenseUrl: "https://creativecommons.org/licenses/by/3.0" },
-    { src: commons.dolphin, place: "Delfin u wybrzeży Funchal", author: "Virgílio Gomes", license: "CC BY-SA 4.0", licenseUrl: BYSA4 },
-    { src: commons.espetada, place: "Espetada madeirense", author: "Dirk Klaassen", license: "CC BY-SA 4.0", licenseUrl: BYSA4 }
+  const BY3 = "https://creativecommons.org/licenses/by/3.0";
+  const PHOTO_CREDITS = [
+    [commons.picoRuivo, "GerritR", "CC BY-SA 4.0", BYSA4],
+    [commons.arieiro, "H. Zell", "CC BY-SA 3.0", BYSA3],
+    [commons.fontes, "Asurnipal", "CC BY-SA 4.0", BYSA4],
+    [commons.fanal, "Dietmar Rabich", "CC BY-SA 4.0", BYSA4],
+    [commons.portoMoniz, "Dietmar Rabich", "CC BY-SA 4.0", BYSA4],
+    [commons.camara, "Dietmar Rabich", "CC BY-SA 4.0", BYSA4],
+    [commons.curral, "Diego Delso", "CC BY-SA 4.0", BYSA4],
+    [commons.santana, "H. Zell", "CC BY-SA 3.0", BYSA3],
+    [commons.pontaDoSol, "Paul Mannix", "CC BY 2.0", BY2],
+    [commons.funchalBay, "Pedro (Maia, Portugal)", "CC BY 2.0", BY2],
+    [commons.funchal, "Dietmar Rabich", "CC BY-SA 4.0", BYSA4],
+    [commons.lido, "Hein.M\u00fcck", "CC BY-SA 3.0", BYSA3],
+    [commons.monte, "Dietmar Rabich", "CC BY-SA 4.0", BYSA4],
+    [commons.machico, "Bengt Nyman", "CC BY 3.0", BY3],
+    [commons.dolphin, "Virg\u00edlio Gomes", "CC BY-SA 4.0", BYSA4],
+    [commons.espetada, "Dirk Klaassen", "CC BY-SA 4.0", BYSA4]
   ];
-  const galleryCredit = (it) => `fot. ${it.author} · <a href="${it.licenseUrl}" target="_blank" rel="noopener">${it.license}</a> · Wikimedia Commons`;
-  const galleryLightboxItems = () => galleryItems.map((it) => ({ src: it.src, caption: it.place, credit: galleryCredit(it) }));
+  const creditFor = (src) => {
+    const hit = PHOTO_CREDITS.find((c) => c[0] === src);
+    return hit ? `fot. ${hit[1]} · <a href="${hit[3]}" target="_blank" rel="noopener">${hit[2]}</a> · Wikimedia Commons` : "";
+  };
 
   function setupLightbox() {
     const overlay = document.createElement("div");
@@ -764,13 +767,6 @@
     return { open };
   }
 
-  function renderGallery() {
-    const grid = document.querySelector("#gallery-grid");
-    if (!grid) return;
-    const lbItems = galleryLightboxItems();
-    grid.innerHTML = galleryItems.map((it, i) => `<button class="gallery-thumb" type="button" data-index="${i}" aria-label="Powiększ: ${it.place}"><img src="${it.src}" alt="${it.place}, Madera" loading="lazy" decoding="async"><span class="gallery-cap">${it.place}</span></button>`).join("");
-    grid.querySelectorAll("[data-index]").forEach((btn) => btn.addEventListener("click", () => lightbox.open(lbItems, Number(btn.dataset.index))));
-  }
 
   // Pogoda (Open-Meteo)
   const PL_WD = ["niedz.", "pon.", "wt.", "śr.", "czw.", "pt.", "sob."];
@@ -792,6 +788,9 @@
         if (!res.ok) throw new Error("weather");
         return { loc, data: await res.json() };
       }));
+      const tile = (id, v, code) => { const el = document.querySelector(id); if (el) el.innerHTML = `${wxEmoji(code)} ${Math.round(v)}°`; };
+      if (results[0]) tile("#wx-coast", results[0].data.current.temperature_2m, results[0].data.current.weather_code);
+      if (results[1]) tile("#wx-mount", results[1].data.current.temperature_2m, results[1].data.current.weather_code);
       host.innerHTML = results.map(({ loc, data }) => {
         const cur = data.current, d = data.daily;
         const days6 = d.time.map((t, i) => `<div class="wd"><span class="wd-day">${i === 0 ? "dziś" : plWeekday(t)}</span><span class="wd-ico" title="${wxLabel(d.weather_code[i])}">${wxEmoji(d.weather_code[i])}</span><span class="wd-temp">${Math.round(d.temperature_2m_max[i])}° <em>${Math.round(d.temperature_2m_min[i])}°</em></span><span class="wd-pop">💧 ${d.precipitation_probability_max[i] ?? 0}%</span></div>`).join("");
