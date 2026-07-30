@@ -408,3 +408,23 @@ body.lb-open { overflow: hidden; }
 .chip .idot { width: 9px; height: 9px; margin-right: 2px; vertical-align: baseline; box-shadow: 0 0 0 2px rgba(255,255,255,.35); }
 .stat.wx { background: linear-gradient(135deg, #e7f3f7, #edf7f4); }
 .stat.wx strong { font-family: inherit; font-size: clamp(20px, 3vw, 28px); font-weight: 800; }
+
+/* Krocząca karta: najbliższy / dzisiejszy dzień */
+.focus-day { margin-top: 34px; }
+.fd-card { display: grid; grid-template-columns: minmax(0,1fr) minmax(190px,.42fr); gap: 0; overflow: hidden; border-radius: var(--radius); background: linear-gradient(135deg, var(--sea-dark), var(--sea)); box-shadow: var(--shadow); color: white; text-decoration: none; transition: transform .2s ease; }
+.fd-card:hover { transform: translateY(-3px); }
+.fd-main { padding: clamp(20px, 3.5vw, 30px); min-width: 0; }
+.fd-kicker { display: flex; align-items: center; gap: 8px; margin: 0 0 6px; font-size: 12.5px; font-weight: 900; text-transform: uppercase; letter-spacing: .07em; color: #cfeee7; }
+.fd-card h2 { margin: 0 0 6px; color: white; font-size: clamp(26px, 4vw, 40px); }
+.fd-short { margin: 0 0 14px; color: rgba(255,255,255,.86); line-height: 1.5; }
+.fd-list { display: grid; gap: 6px; margin: 0 0 12px; padding: 0; list-style: none; }
+.fd-list li { color: rgba(255,255,255,.92); font-size: 14px; line-height: 1.45; }
+.fd-list b { display: inline-block; min-width: 58px; color: #ffd9a0; font-weight: 900; }
+.fd-flex { margin: 0 0 14px; padding: 10px 13px; border-radius: 12px; background: rgba(255,255,255,.12); font-size: 13.5px; line-height: 1.5; }
+.fd-cta { display: inline-block; font-weight: 900; color: #ffd9a0; }
+.fd-side { display: grid; place-items: center; padding: 20px; background: rgba(255,255,255,.1); }
+.fd-wx { display: grid; gap: 4px; justify-items: center; text-align: center; }
+.fd-ico { font-size: 40px; line-height: 1; }
+.fd-wx strong { font-size: 24px; }
+.fd-wxlab, .fd-wxload { font-size: 12px; color: rgba(255,255,255,.82); line-height: 1.4; }
+@media (max-width: 720px) { .fd-card { grid-template-columns: 1fr; } .fd-side { padding: 16px; } }

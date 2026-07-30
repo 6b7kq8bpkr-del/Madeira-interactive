@@ -640,6 +640,54 @@
   }
 
   // Odliczanie do wyjazdu (wzorzec z planu Japonii)
+  // Krocząca karta: przed wyjazdem najbliższy dzień, w trakcie — dzisiejszy
+  function renderFocusDay() {
+    const host = document.querySelector("#focus-day");
+    if (!host) return;
+    const now = new Date(); now.setHours(0, 0, 0, 0);
+    const pad = (n) => String(n).padStart(2, "0");
+    const todayStr = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+    const idx = days.findIndex((d) => d.id >= todayStr);
+    if (idx < 0) { host.hidden = true; return; }
+    const day = days[idx];
+    const diff = Math.round((new Date(day.id + "T00:00:00") - now) / 86400000);
+    const kicker = diff === 0 ? "Dziś" : diff === 1 ? "Jutro" : `Za ${diff} dni`;
+    const lvl = INTENSITY[day.intensity] || "y";
+    const punkty = day.agenda.slice(0, 3).map((sl) => `<li><b>${sl[0]}</b> ${sl[1]}</li>`).join("");
+    const fx = FLEX[day.id];
+    host.hidden = false;
+    host.innerHTML = `<a class="fd-card" href="days/${day.id}.html">
+      <div class="fd-main">
+        <p class="fd-kicker"><span class="idot ${lvl}"></span> ${kicker} · dzień ${idx + 1} z ${days.length} · ${day.date}</p>
+        <h2>${day.title}</h2>
+        <p class="fd-short">${day.short}</p>
+        <ul class="fd-list">${punkty}</ul>
+        ${fx ? `<p class="fd-flex"><b>🔒 Nie ruszać:</b> ${fx[0]}</p>` : ""}
+        <span class="fd-cta">Otwórz plan dnia →</span>
+      </div>
+      <div class="fd-side"><div class="fd-wx" id="fd-wx"><span class="fd-wxload">pogoda…</span></div></div>
+    </a>`;
+    focusWeather(day);
+  }
+
+  // pogoda dla dnia z kroczącej karty
+  async function focusWeather(day) {
+    const box = document.querySelector("#fd-wx");
+    if (!box) return;
+    try {
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${day.center[0]}&longitude=${day.center[1]}&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Atlantic%2FMadeira&forecast_days=16`;
+      const res = await fetch(url);
+      if (!res.ok) throw new Error("wx");
+      const d = await res.json();
+      const i = d.daily.time.indexOf(day.id);
+      if (i >= 0) {
+        box.innerHTML = `<span class="fd-ico">${wxEmoji(d.daily.weather_code[i])}</span><strong>${Math.round(d.daily.temperature_2m_max[i])}° / ${Math.round(d.daily.temperature_2m_min[i])}°</strong><span class="fd-wxlab">prognoza na ten dzień · 💧 ${d.daily.precipitation_probability_max[i] ?? 0}%</span>`;
+      } else {
+        box.innerHTML = `<span class="fd-ico">${wxEmoji(d.current.weather_code)}</span><strong>${Math.round(d.current.temperature_2m)}°C</strong><span class="fd-wxlab">teraz w tym rejonie · prognoza na ten dzień pojawi się bliżej terminu</span>`;
+      }
+    } catch (e) { box.innerHTML = '<span class="fd-wxlab">Pogoda niedostępna — sprawdź sekcję poniżej.</span>'; }
+  }
+
   function renderCountdown() {
     const el = document.querySelector("#countdown");
     if (!el) return;
@@ -839,6 +887,7 @@
   renderFood();
   renderWeather();
   renderCountdown();
+  renderFocusDay();
   setupScrollUx();
   renderBackToTop();
 })();
