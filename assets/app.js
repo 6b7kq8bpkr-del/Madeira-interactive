@@ -55,6 +55,14 @@
     "2026-08-30": ["transfer 08:30 i lot 11:35", "nic — dzień jest sztywny"]
   };
 
+  // Dni, w których pogoda realnie decyduje o przebiegu — dla nich liczymy werdykt
+  const WEATHER_CRITICAL = {
+    "2026-08-22": "wejście na Pico Ruivo",
+    "2026-08-24": "Fanal i baseny w Porto Moniz",
+    "2026-08-27": "Levada das 25 Fontes",
+    "2026-08-28": "rejs na delfiny (termin zapasowy: 29.08)"
+  };
+
   const days = [
     {
       id: "2026-08-19", date: "19 sierpnia · środa", title: "Łódź → Berlin", short: "Spokojny start podróży, P8 i lekki wieczór w Berlinie.",
@@ -233,6 +241,7 @@
   const state = Object.assign({ checklist: {} }, readState());
   const save = () => localStorage.setItem(stateKey, JSON.stringify(state));
   const escapeHtml = (value) => String(value).replace(/[&<>"]/g, (char) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[char]));
+  const todayISO = () => { const n = new Date(), p = (x) => String(x).padStart(2, "0"); return `${n.getFullYear()}-${p(n.getMonth() + 1)}-${p(n.getDate())}`; };
   let routeMapInstance = null;
   let overviewMapInstance = null;
 
@@ -426,6 +435,7 @@
         <section class="section card deep-dive" aria-labelledby="deep-dive-title"><div class="card-body"><h2 id="deep-dive-title">Więcej o tym dniu</h2><div class="deep-grid"><div><h3>Kontekst i historia</h3><p>${day.deepDive.context}</p></div><div><h3>Jedzenie i lokalne smaki</h3><p>${day.deepDive.food}</p></div><div><h3>Praktyczne detale</h3><p>${day.deepDive.practical}</p></div></div></div></section>
         <section class="section card plan-b"><h2>Plan B</h2><p class="section-copy">${day.planB}</p></section>
         <nav class="nav-days" aria-label="Nawigacja między dniami">${prev ? `<a href="${prev.id}.html">← ${prev.date.split(" · ")[0]}</a>` : "<span></span>"}<a class="home" href="../index.html">Strona główna</a>${next ? `<a class="next" href="${next.id}.html">${next.date.split(" · ")[0]} →</a>` : "<span></span>"}</nav>
+        <p class="day-actions"><button class="button secondary" type="button" id="share-day">Udostępnij dzień</button></p>
         <footer class="footer">Plan rodzinny 19–30 sierpnia 2026. Godziny lotów, rezerwacje, warunki pogodowe i dostępność atrakcji wymagają potwierdzenia przed wyjazdem.${creditFor(day.image) ? `<br>Zdjęcie dnia: ${creditFor(day.image)}` : ""}</footer>
       </main>`;
 
@@ -455,6 +465,45 @@
     }
     initRouteMap(day);
     renderDayWeather(day);
+    markNow(day);
+    setupShare(day);
+  }
+
+  // Bieżący punkt agendy — działa tylko w dniu, którego dotyczy strona
+  function markNow(day) {
+    if (day.id !== todayISO()) return;
+    const now = new Date(), mins = now.getHours() * 60 + now.getMinutes();
+    const slots = [...document.querySelectorAll(".slot")];
+    let cur = -1;
+    day.agenda.forEach((sl, i) => {
+      const m = /^(\d{2}):(\d{2})/.exec(sl[0]);
+      if (m && (+m[1] * 60 + +m[2]) <= mins) cur = i;
+    });
+    slots.forEach((el, i) => {
+      if (i < cur) el.classList.add("is-past");
+      if (i === cur) {
+        el.classList.add("is-now");
+        const h = el.querySelector("h3");
+        if (h) h.insertAdjacentHTML("afterbegin", '<span class="now-tag">teraz</span> ');
+      }
+    });
+    const el = document.querySelector(".slot.is-now");
+    if (el) window.setTimeout(() => el.scrollIntoView({ block: "center", behavior: "smooth" }), 600);
+  }
+
+  // Udostępnianie dnia (natywne na telefonie, kopiowanie linku w przeglądarce)
+  function setupShare(day) {
+    const btn = document.querySelector("#share-day");
+    if (!btn) return;
+    btn.addEventListener("click", async () => {
+      const data = { title: `${day.date} — ${day.title}`, text: day.short, url: location.href };
+      try {
+        if (navigator.share) { await navigator.share(data); return; }
+        await navigator.clipboard.writeText(location.href);
+        btn.textContent = "Skopiowano link ✓";
+        window.setTimeout(() => { btn.textContent = "Udostępnij dzień"; }, 2000);
+      } catch (e) { /* użytkownik anulował */ }
+    });
   }
 
   function renderPrint() {
@@ -502,17 +551,20 @@
     if (!host) return;
     const page = document.body.dataset.page;
     const prefix = page === "day" ? "../" : "";
+    const t = todayISO();
+    const trip = days.find((d) => d.id === t);
     const items = [
       { key: "home", label: "Plan", href: "index.html" },
       { key: "practical", label: "Praktyczne", href: "praktyczne.html" },
       { key: "food", label: "Gdzie zjeść", href: "gdzie-zjesc.html" },
       { key: "print", label: "PDF", href: "print.html" }
     ];
+    if (trip) items.splice(1, 0, { key: "today", label: "Dziś", href: `days/${trip.id}.html`, accent: true });
     host.innerHTML = items.map((item) => {
       const current = item.key === page;
       const sectionActive = item.key === "home" && page === "day";
       const highlight = current || sectionActive;
-      return `<a class="nav-link${highlight ? " is-current" : ""}" href="${prefix}${item.href}"${current ? ' aria-current="page"' : ""}>${item.label}</a>`;
+      return `<a class="nav-link${highlight ? " is-current" : ""}${item.accent ? " is-today" : ""}" href="${prefix}${item.href}"${current ? ' aria-current="page"' : ""}>${item.label}</a>`;
     }).join("");
   }
 
@@ -849,11 +901,27 @@
     }
   }
 
+  // Czy pogoda sprzyja temu, co zaplanowane — tylko dla dni, w których to realnie decyduje
+  function weatherVerdict(day, code, pop) {
+    const what = WEATHER_CRITICAL[day.id];
+    if (!what) return "";
+    const deszcz = (code >= 51 && code <= 67) || (code >= 80 && code <= 82) || code >= 95 || pop >= 60;
+    const mgla = code === 45 || code === 48;
+    if (deszcz) return `<p class="dw-verdict bad"><b>Uwaga:</b> prognoza mówi o opadach (${pop}%). Rozważcie plan B — ${what} może być rozczarowaniem albo lepiej przełożyć.</p>`;
+    if (mgla) return `<p class="dw-verdict warn"><b>Mgła w prognozie.</b> ${what}: widoków może nie być. W Fanal mgła jest atutem, na szczytach i levadach — nie.</p>`;
+    return `<p class="dw-verdict good"><b>Prognoza sprzyja.</b> ${what} — bez przeciwwskazań pogodowych.</p>`;
+  }
+  const sunLine = (d, idx) => {
+    if (idx < 0 || !d.sunrise || !d.sunrise[idx]) return "";
+    const g = (t) => t.slice(11, 16);
+    return `<p class="dw-sun">🌅 wschód ${g(d.sunrise[idx])} · 🌇 zachód ${g(d.sunset[idx])}</p>`;
+  };
+
   async function renderDayWeather(day) {
     const host = document.querySelector("#day-weather");
     if (!host) return;
     const dayLabel = day.date.split(" · ")[0];
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${day.center[0]}&longitude=${day.center[1]}&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Atlantic%2FMadeira&forecast_days=16`;
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${day.center[0]}&longitude=${day.center[1]}&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,sunrise,sunset&timezone=Atlantic%2FMadeira&forecast_days=16`;
     try {
       const res = await fetch(url);
       if (!res.ok) throw new Error("weather");
@@ -861,9 +929,10 @@
       const cur = data.current, d = data.daily;
       const idx = d.time.indexOf(day.id);
       const now = `<div class="dw-now"><span class="dw-ico">${wxEmoji(cur.weather_code)}</span><div><strong>${Math.round(cur.temperature_2m)}°C</strong><span>teraz · ${wxLabel(cur.weather_code)}</span></div></div>`;
-      let main;
+      let main, verdict = "";
       if (idx >= 0) {
         main = `<div class="dw-forecast"><span class="dw-ico">${wxEmoji(d.weather_code[idx])}</span><div><strong>${Math.round(d.temperature_2m_max[idx])}° / ${Math.round(d.temperature_2m_min[idx])}°</strong><span>prognoza na ${dayLabel} · ${wxLabel(d.weather_code[idx])} · 💧 ${d.precipitation_probability_max[idx] ?? 0}%</span></div></div>`;
+        verdict = weatherVerdict(day, d.weather_code[idx], d.precipitation_probability_max[idx] ?? 0);
       } else {
         main = `<p class="dw-note">Prognoza na <strong>${dayLabel}</strong> pojawi się około 16 dni przed terminem — zajrzyj tu bliżej wyjazdu. Poniżej aktualna pogoda w rejonie trasy tego dnia.</p>`;
       }
@@ -871,11 +940,57 @@
         <h2>Pogoda w rejonie trasy</h2>
         <p class="section-copy">Dane na żywo dla okolicy, w której spędzamy ten dzień — odświeżają się przy każdym otwarciu strony.</p>
         <div class="dw-grid">${idx >= 0 ? main + now : now}</div>
+        ${verdict}
+        ${sunLine(d, idx)}
         ${idx >= 0 ? "" : main}
       </div></div>`;
     } catch (e) {
       host.innerHTML = '<div class="card"><div class="card-body"><h2>Pogoda w rejonie trasy</h2><p class="weather-error">Nie udało się pobrać pogody na żywo. Aktualną prognozę dla Madery znajdziesz w serwisie <a href="https://www.ipma.pt/en/otempo/prev.localidade.hora/" target="_blank" rel="noopener">IPMA</a> albo w ulubionej aplikacji pogodowej.</p></div></div>';
     }
+  }
+
+  // Eksport planu do kalendarza (.ics) — godziny „pływające", czyli takie jak na stronie
+  function setupCalendarExport() {
+    const btn = document.querySelector("#ics-export");
+    if (!btn) return;
+    btn.addEventListener("click", () => {
+      const esc = (t) => String(t).replace(/([,;\\])/g, "\\$1").replace(/\n/g, "\\n");
+      const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Madera 2026//PL", "CALSCALE:GREGORIAN", "X-WR-CALNAME:Madera 2026"];
+      days.forEach((day, di) => {
+        day.agenda.forEach((sl, si) => {
+          const m = /^(\d{2}):(\d{2})/.exec(sl[0]);
+          if (!m) return;
+          const ymd = day.id.replace(/-/g, "");
+          const start = `${ymd}T${m[1]}${m[2]}00`;
+          const endMin = (+m[1] * 60 + +m[2] + 60) % 1440;
+          const carry = (+m[1] * 60 + +m[2] + 60) >= 1440;
+          const eh = String(Math.floor(endMin / 60)).padStart(2, "0"), em = String(endMin % 60).padStart(2, "0");
+          const endYmd = carry ? String(+ymd + 1) : ymd;
+          lines.push("BEGIN:VEVENT",
+            `UID:madera-${day.id}-${si}@plan`,
+            `DTSTAMP:${ymd}T000000Z`,
+            `DTSTART:${start}`,
+            `DTEND:${endYmd}T${eh}${em}00`,
+            `SUMMARY:${esc(sl[1])}`,
+            `DESCRIPTION:${esc(sl[2])}`,
+            `LOCATION:${esc("Dzień " + (di + 1) + " · " + day.title)}`,
+            "END:VEVENT");
+        });
+      });
+      lines.push("END:VCALENDAR");
+      const blob = new Blob([lines.join("\r\n")], { type: "text/calendar;charset=utf-8" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "madera-2026.ics";
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+  }
+
+  // Tryb offline — plan działa bez zasięgu (w górach i tunelach go nie ma)
+  function registerOffline() {
+    if (!("serviceWorker" in navigator) || location.protocol === "file:") return;
+    navigator.serviceWorker.register("sw.js".replace(/^/, document.body.dataset.page === "day" ? "../" : "")).catch(() => {});
   }
 
   const lightbox = setupLightbox();
@@ -888,6 +1003,8 @@
   renderWeather();
   renderCountdown();
   renderFocusDay();
+  setupCalendarExport();
+  registerOffline();
   setupScrollUx();
   renderBackToTop();
 })();

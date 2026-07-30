@@ -428,3 +428,32 @@ body.lb-open { overflow: hidden; }
 .fd-wx strong { font-size: 24px; }
 .fd-wxlab, .fd-wxload { font-size: 12px; color: rgba(255,255,255,.82); line-height: 1.4; }
 @media (max-width: 720px) { .fd-card { grid-template-columns: 1fr; } .fd-side { padding: 16px; } }
+
+/* „Teraz" w agendzie dnia */
+.slot.is-past { opacity: .5; }
+.slot.is-now h3 { color: var(--sea-dark); }
+.slot.is-now .dot { background: var(--sea); box-shadow: 0 0 0 6px rgba(11,114,118,.18); }
+.now-tag { display: inline-block; margin-right: 7px; padding: 2px 9px; border-radius: 999px; background: var(--sea); color: white; font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: .06em; vertical-align: middle; }
+
+/* Werdykt pogodowy i słońce */
+.dw-verdict { margin: 12px 0 0; padding: 12px 14px; border-radius: 13px; line-height: 1.55; font-size: 14px; }
+.dw-verdict.good { color: #1d5340; background: #e3f2e8; }
+.dw-verdict.warn { color: #6b510b; background: #fff3ce; }
+.dw-verdict.bad { color: #7a2f22; background: #fce4de; }
+.dw-sun { margin: 10px 0 0; color: var(--muted); font-size: 13px; }
+
+/* Nawigacja: „Dziś" */
+.nav-link.is-today { color: #123538; background: var(--sun); border-color: transparent; }
+
+/* Kontakty */
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+.contact-card { display: grid; gap: 3px; padding: 18px 20px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255,254,250,.94); box-shadow: var(--shadow); text-decoration: none; transition: transform .2s ease; }
+.contact-card:hover { transform: translateY(-3px); }
+.contact-card .c-ico { font-size: 26px; }
+.contact-card strong { color: var(--sea-dark); }
+.contact-card span { font-size: 19px; font-weight: 900; color: var(--ink); }
+.contact-card em { font-style: normal; font-size: 12.5px; color: var(--muted); line-height: 1.45; }
+.contact-card.urgent span { color: var(--coral); }
+
+/* Akcje na stronie dnia */
+.day-actions { margin: 16px 0 0; text-align: center; }

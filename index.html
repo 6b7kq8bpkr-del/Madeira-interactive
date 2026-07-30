@@ -7,6 +7,7 @@
   <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=">
   <title>Madera 2026 — rodzinny plan podróży</title>
   <meta name="description" content="Interaktywny, rodzinny plan podróży na Maderę od 19 do 30 sierpnia 2026: osobne dni, mapy tras oraz przewodniki praktyczny i kulinarny.">
+  <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="assets/premium.css">
   <script defer src="assets/app.js"></script>
 </head>
@@ -23,7 +24,7 @@
       <p class="eyebrow">Łódź → Berlin → Madera · 19–30 sierpnia 2026</p>
       <h1>Od gór po ocean</h1>
       <div class="chips"><span class="chip">12 dni</span><span class="chip">3 wycieczki busem</span><span class="chip">rodzinne spacery górskie</span><span class="chip">rejs na delfiny i wieloryby</span></div>
-      <div class="hero-actions"><a class="button" href="print.html">Pobierz PDF z planem</a></div>
+      <div class="hero-actions"><a class="button" href="print.html">Pobierz PDF z planem</a> <button class="button secondary" type="button" id="ics-export">Dodaj do kalendarza</button></div>
     </div>
   </header>
 
@@ -79,6 +80,17 @@
       <div class="hl-grid" id="highlights-grid"></div>
     </section>
 
+
+    <section class="section" aria-labelledby="kontakty-title">
+      <div class="section-head">
+        <div><p class="eyebrow eyebrow-dark">Pod ręką</p><h2 id="kontakty-title">Ważne kontakty</h2><p class="section-copy">Numery, które mogą być potrzebne od razu — na telefonie wystarczy dotknąć.</p></div>
+      </div>
+      <div class="contact-grid">
+        <a class="contact-card" href="tel:+351917260690"><span class="c-ico">🚐</span><strong>Rui Nóbrega · madeira-in</strong><span>+351 917 260 690</span><em>transfer z lotniska i wycieczki</em></a>
+        <a class="contact-card" href="tel:+351291700400"><span class="c-ico">🏨</span><strong>Hotel Baía Azul</strong><span>+351 291 700 400</span><em>Rua da Quinta Calaça 1, Funchal</em></a>
+        <a class="contact-card urgent" href="tel:112"><span class="c-ico">🆘</span><strong>Numer alarmowy</strong><span>112</span><em>policja, pogotowie, straż — także po angielsku</em></a>
+      </div>
+    </section>
 
     <section class="section summary-grid" aria-label="Checklista i ważne ustalenia">
       <article class="card"><div class="card-body">
