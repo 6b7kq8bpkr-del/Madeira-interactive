@@ -3,14 +3,7 @@
 
   const IMAGE = "?auto=format&fit=crop&w=1800&q=78";
   const images = {
-    berlin: "https://images.unsplash.com/photo-1560969184-10fe8719e047" + IMAGE,
-    funchal: "https://images.unsplash.com/photo-1674333362725-84e9996aa6fb" + IMAGE,
-    lido: "https://images.unsplash.com/photo-1564741520445-3ad576259244" + IMAGE,
-    arieiro: "https://unsplash.com/photos/L9hCoorJ64M/download?force=true&w=1800&q=78",
-    porto: "https://images.unsplash.com/photo-1723098281716-bb15452fed31" + IMAGE,
-    coast: "https://images.unsplash.com/photo-1590963852640-2714d687c102" + IMAGE,
-    beach: "https://images.unsplash.com/photo-1583149090851-2b5e18615649" + IMAGE,
-    camara: "https://images.unsplash.com/photo-1619162600582-1c24c605a5fa" + IMAGE
+    berlin: "https://images.unsplash.com/photo-1560969184-10fe8719e047" + IMAGE
   };
 
   // Autentyczne zdjęcia miejsc z planu — Wikimedia Commons (atrybucja w galerii)
@@ -62,6 +55,18 @@
     "2026-08-27": "Levada das 25 Fontes",
     "2026-08-28": "rejs na delfiny (termin zapasowy: 29.08)"
   };
+
+  // Checklista przed wyjazdem — JEDNO źródło: renderuje i stronę główną, i PDF
+  const CHECKLIST = [
+    ["flights", "Potwierdzone numery i godziny obu lotów"],
+    ["p8", "Rezerwacja, kod wjazdu i sektor P8"],
+    ["transfer", "Potwierdzić z madeira-in nową godzinę odbioru 30.08 (08:30 zamiast 08:45)"],
+    ["cruise", "Rejs z terminem zapasowym 29 sierpnia, łatwym wejściem i miejscem siedzącym"],
+    ["health", "Leki, apteczka podróżna i ewentualna asysta lotniskowa"],
+    ["insurance", "Ubezpieczenie i EKUZ"],
+    ["documents", "Dokumenty, karty płatnicze i ładowarki"],
+    ["offline", "Mapy offline i kontakty alarmowe"]
+  ];
 
   const days = [
     {
@@ -264,6 +269,8 @@
   }
 
   function setupChecklist() {
+    const box = document.querySelector("#checklist");
+    if (box) box.innerHTML = CHECKLIST.map(([key, label]) => `<label class="check-row"><input type="checkbox" data-check="${key}"> ${label}</label>`).join("");
     document.querySelectorAll("[data-check]").forEach((input) => {
       input.checked = Boolean(state.checklist[input.dataset.check]);
       input.addEventListener("change", () => { state.checklist[input.dataset.check] = input.checked; save(); });
@@ -509,7 +516,7 @@
   function renderPrint() {
     const root = document.querySelector("#print-root");
     if (!root) return;
-    const checklistItems = ["Potwierdzone numery i godziny obu lotów", "Rezerwacja, kod wjazdu i sektor P8", "Operator transferu: madeira-in — potwierdzone godziny i miejsce spotkania", "Rejs z terminem zapasowym 29 sierpnia, łatwym wejściem i miejscem siedzącym", "Leki, apteczka podróżna i ewentualna asysta lotniskowa", "Ubezpieczenie i EKUZ", "Dokumenty, leki i ładowarki", "Mapy offline i kontakty alarmowe"];
+    const checklistItems = CHECKLIST.map(([, label]) => label);
     root.innerHTML = `
       <header class="print-head">
         <h1>Madera 2026 — plan podróży</h1>
