@@ -468,3 +468,7 @@ body.lb-open { overflow: hidden; }
 .parking-qr svg { display: block; width: 100%; max-width: 190px; height: auto; margin: 0 auto; border-radius: 8px; }
 .parking-qr figcaption { margin-top: 10px; color: var(--muted); font-size: 12px; line-height: 1.5; }
 @media (max-width: 760px) { .parking-box { grid-template-columns: 1fr; } .parking-facts dl { grid-template-columns: 1fr; gap: 2px; } .parking-facts dt { margin-top: 10px; } }
+
+.cash-alert { margin: 0 0 18px; padding: 14px 16px; border-radius: 14px; border-left: 5px solid var(--coral, #e2725b); background: #fff4f0; color: #4a2a20; font-size: 15px; line-height: 1.6; }
+.cash-alert strong { color: #b23c22; }
+.parking-facts h3 { margin: 0 0 12px; font-size: 17px; letter-spacing: .01em; }

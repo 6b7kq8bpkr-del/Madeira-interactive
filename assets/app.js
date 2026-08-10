@@ -61,6 +61,7 @@
     ["flights", "Potwierdzone numery i godziny obu lotów"],
     ["p8", "Rezerwacja APCOA i sektor P7/8"],
     ["transfer", "Potwierdzić z madeira-in nową godzinę odbioru 30.08 (08:30 zamiast 08:45)"],
+    ["cash", "90 € gotówką na transfery — Rui nie przyjmuje karty"],
     ["cruise", "Rejs z terminem zapasowym 29 sierpnia, łatwym wejściem i miejscem siedzącym"],
     ["health", "Leki, apteczka podróżna i ewentualna asysta lotniskowa"],
     ["insurance", "Ubezpieczenie i EKUZ"],
@@ -74,8 +75,8 @@
       image: images.berlin, alt: "Brama Brandenburska w Berlinie o wieczornej porze", cats: ["podróż", "spokojny"],
       intensity: "Łagodna", duration: "6–7 h przejazdu + 2 h", transport: "Samochód", walking: "Spacer 1–3 km", kids: "Tak, sprawnie chodzą", exposure: "Niska",
       center: [52.5163, 13.3777], route: [[51.7592, 19.4560, "Łódź"], [52.3664, 13.5071, "Parking P7/8 BER"], [52.5163, 13.3777, "Brama Brandenburska"]], google: "https://www.google.com/maps/dir/%C5%81%C3%B3d%C5%BA/Brunolf-Baade-Stra%C3%9Fe+1,+12529+Sch%C3%B6nefeld/Brandenburg+Gate",
-      agenda: [["11:00", "Wyjazd z Łodzi", "Start bez pośpiechu; zaplanować regularne postoje dla dzieci."], ["16:00", "Parking P7/8 przy BER", "Wjazd na rozpoznawanie tablicy EL2GE01 (rez. 8320774, okno 14:00–18:00). Nie wciskamy przycisku po bilet — automat sam wyda „online ticket”. Zabieramy go i robimy zdjęcie miejsca postoju."], ["17:30", "Zameldowanie w hotelu", "IntercityHotel Berlin Airport BER Terminal 1+2, Willy-Brandt-Platz 5. Hotel stoi przy samym terminalu, więc bagaże zostawiamy w pokoju i wychodzimy bez obciążenia."], ["18:15", "Pociąg do centrum", "FEX albo S-Bahn z dworca pod terminalem — do centrum około 25–30 minut, bez auta i bez szukania parkingu."], ["19:00", "Jeden lekki spacer", "Brama Brandenburska i Reichstag z zewnątrz albo kameralne Nikolaiviertel — bez łączenia wszystkiego."], ["20:00", "Kolacja i powrót", "Proste menu, powrót pociągiem do hotelu i wczesny sen — lot następnego ranka wychodzi o 07:00."]],
-      tips: ["Nocleg: IntercityHotel Berlin Airport BER Terminal 1+2 (Willy-Brandt-Platz 5, tel. +49 30 536 531 0) — wejście do Terminala 1–2 jest tuż obok, więc rano wystarczy kilka minut na dojście.", "Rachunek za hotel uregulować wieczorem albo skorzystać z ekspresowego wymeldowania — o 4:45 nie chcemy stać w recepcji.", "Śniadania w hotelu nie mamy w rezerwacji — coś do jedzenia bierzemy ze sobą albo kupujemy rano po odprawie na lotnisku.", "Przed wyjazdem pobrać mapę offline Berlina i okolic BER.", "Parking P7/8 stoi przy terminalach (2–4 min pieszo), więc do hotelu idziemy piechotą — komplet danych parkingu i kod QR z nawigacją są w zakładce Praktyczne.", "Po drodze robić postoje najpóźniej co 90 minut; po przyjeździe zaplanować jeden spacer 1–3 km, bez długiego stania.", "Zostawić bagaże lotnicze łatwo dostępne — nie przepakowywać auta wieczorem."],
+      agenda: [["11:00", "Wyjazd z Łodzi", "Start bez pośpiechu; zaplanować regularne postoje dla dzieci."], ["16:00", "Parking P7/8 przy BER", "Wjazd na rozpoznawanie tablicy EL2GE01 (rez. 8320774, okno 14:00–18:00). Nie wciskamy przycisku po bilet — automat sam wyda „online ticket”. Zabieramy go i robimy zdjęcie miejsca postoju."], ["17:30", "Zameldowanie w hotelu", "IntercityHotel Berlin Airport BER Terminal 1+2, Willy-Brandt-Platz 5. Dwa pokoje Business Twin — potwierdzenia 4RGPYJYD i 4GMN9X9N. Przy zameldowaniu odbieramy City Ticket na komunikację. Hotel stoi przy samym terminalu, więc bagaże zostawiamy w pokoju i wychodzimy bez obciążenia."], ["18:15", "Pociąg do centrum", "FEX albo S-Bahn z dworca pod terminalem — do centrum około 25–30 minut. Przejazd mamy w cenie pokoju (H Rewards City Ticket), więc biletów nie kupujemy."], ["19:00", "Jeden lekki spacer", "Brama Brandenburska i Reichstag z zewnątrz albo kameralne Nikolaiviertel — bez łączenia wszystkiego."], ["20:00", "Kolacja i powrót", "Proste menu, powrót pociągiem do hotelu i wczesny sen — lot następnego ranka wychodzi o 07:00."]],
+      tips: ["Nocleg: IntercityHotel Berlin Airport BER Terminal 1+2 (Willy-Brandt-Platz 5, tel. +49 30 536 531 0) — wejście do Terminala 1–2 jest tuż obok, więc rano wystarczy kilka minut na dojście. Dwa pokoje Business Twin, potwierdzenia 4RGPYJYD i 4GMN9X9N; pokój jest zabezpieczony kartą, więc czeka też przy późnym przyjeździe.", "Rachunek za hotel uregulować wieczorem albo skorzystać z ekspresowego wymeldowania — o 4:45 nie chcemy stać w recepcji.", "Śniadania w hotelu nie mamy w rezerwacji — coś do jedzenia bierzemy ze sobą albo kupujemy rano po odprawie na lotnisku.", "Przed wyjazdem pobrać mapę offline Berlina i okolic BER.", "Parking P7/8 stoi przy terminalach (2–4 min pieszo), więc do hotelu idziemy piechotą — komplet danych parkingu i kod QR z nawigacją są w zakładce Praktyczne.", "Po drodze robić postoje najpóźniej co 90 minut; po przyjeździe zaplanować jeden spacer 1–3 km, bez długiego stania.", "Zostawić bagaże lotnicze łatwo dostępne — nie przepakowywać auta wieczorem."],
       planB: "Jeśli trasa się wydłuży, pomijamy centrum Berlina. Kolacja i spokojny nocleg w okolicy BER są pełnoprawnym planem.", gentle: "spacer traktujemy jako bonus, nie punkt obowiązkowy.",
       deepDive: {
         context: "Trasa Łódź–Berlin to najkrótsza droga do lotniska BER bez nocnego pośpiechu. Berlin bywa tu tylko przystankiem, ale Brama Brandenburska i kameralne Nikolaiviertel dają poczucie stolicy nawet przy krótkim, wieczornym spacerze.",
@@ -88,8 +89,8 @@
       image: commons.funchalBay, alt: "Zatoka i marina Funchal na Maderze", cats: ["podróż", "spokojny"],
       intensity: "Łagodna", duration: "Dzień logistyczny", transport: "Samolot + transfer", walking: "Mało", kids: "Tak", exposure: "Niska",
       center: [32.6387, -16.9304], route: [[52.3667, 13.5033, "Lotnisko BER"], [32.6979, -16.7745, "Lotnisko FNC"], [32.6384, -16.9353, "Hotel Baía Azul"], [32.6386, -16.9332, "Lido"]], google: "https://www.google.com/maps/dir/Madeira+Airport/Hotel+Baia+Azul,+Funchal/Lido+Bathing+Complex",
-      agenda: [["04:45", "Pobudka i wyjście z hotelu", "Hotel stoi przy terminalu, więc do odprawy idziemy kilka minut — nie trzeba wstawać wcześniej ani zamawiać transferu."], ["05:00", "Odprawa na BER", "Terminal 1–2 tuż obok hotelu; bagaże, odprawa i kontrola bez pośpiechu, około 2 h przed wylotem. Śniadanie jemy dopiero po kontroli — w hotelu nie mamy go w rezerwacji."], ["07:00", "Wylot BER → FNC", "Lot EJU5333 (PNR KCXF7QW); blisko 5 godzin nad Atlantykiem."], ["10:55", "Lądowanie w Funchal", "Przylot EJU5333 o 10:55 czasu lokalnego — na Maderze jest o godzinę wcześniej niż w Berlinie."], ["12:00", "Prywatny transfer", "Transfer z madeira-in; po odbiorze bagażu kontakt z kierowcą i przejazd do Hotelu Baía Azul."], ["14:00", "Obiad i odpoczynek", "Lekki posiłek, zameldowanie i basen."], ["17:00", "Lido lub promenada", "Krótki spacer tylko jeśli grupa ma energię."]],
-      tips: ["Lot potwierdzony przez biuro (rez. 3891149): wylot z BER 07:00, lądowanie w Funchal 10:55. Nocleg w IntercityHotel przy Terminalu 1–2 sprawia, że wystarczy pobudka ~04:45 i kilka minut spaceru.", "Przy dłuższych przejściach i kolejkach można z wyprzedzeniem zamówić bezpłatną asystę lotniskową i potwierdzić ją z przewoźnikiem.", "Przy rezerwacji z madeira-in potwierdzić liczbę osób, bagaże i miejsce spotkania.", "Mieć pod ręką numer kierowcy i potwierdzenie transferu.", "Pierwszego dnia nie planować zakupów ani dalszych dojazdów."],
+      agenda: [["04:45", "Pobudka i wyjście z hotelu", "Hotel stoi przy terminalu, więc do odprawy idziemy kilka minut — nie trzeba wstawać wcześniej ani zamawiać transferu."], ["05:00", "Odprawa na BER", "Terminal 1–2 tuż obok hotelu; bagaże, odprawa i kontrola bez pośpiechu, około 2 h przed wylotem. Śniadanie jemy dopiero po kontroli — w hotelu nie mamy go w rezerwacji."], ["07:00", "Wylot BER → FNC", "Lot EJU5333 (PNR KCXF7QW); blisko 5 godzin nad Atlantykiem."], ["10:55", "Lądowanie w Funchal", "Przylot EJU5333 o 10:55 czasu lokalnego — na Maderze jest o godzinę wcześniej niż w Berlinie."], ["12:00", "Prywatny transfer", "Dzwonimy do Rui (+351 917 260 690) dopiero z kompletem bagaży; podjedzie pod kawiarnię tuż za halą przylotów. Płacimy 90 € gotówką za oba przejazdy."], ["14:00", "Obiad i odpoczynek", "Lekki posiłek, zameldowanie i basen."], ["17:00", "Lido lub promenada", "Krótki spacer tylko jeśli grupa ma energię."]],
+      tips: ["Lot potwierdzony przez biuro (rez. 3891149): wylot z BER 07:00, lądowanie w Funchal 10:55. Nocleg w IntercityHotel przy Terminalu 1–2 sprawia, że wystarczy pobudka ~04:45 i kilka minut spaceru.", "Przy dłuższych przejściach i kolejkach można z wyprzedzeniem zamówić bezpłatną asystę lotniskową i potwierdzić ją z przewoźnikiem.", "Numer do kierowcy: +351 917 260 690. Rui ma nasz kontakt (+48 607 452 332), ale to my dzwonimy pierwsi — po odebraniu bagaży.", "Gotówka na transfer musi być przygotowana przed wylotem: 90 € za oba przejazdy, płatne Rui przy przyjeździe — kartą nie zapłacimy.", "Pierwszego dnia nie planować zakupów ani dalszych dojazdów."],
       planB: "Przy opóźnieniu lotu rezygnujemy z Lido. Hotel, posiłek i sen są jedynymi priorytetami.", gentle: "po transferze cały program odbywa się w hotelu.",
       deepDive: {
         context: "Lot z Berlina na Maderę trwa około 4,5 godziny. Madera leży geograficznie bliżej Maroka niż kontynentalnej Portugalii, więc odmienny, łagodniejszy klimat jest odczuwalny już na płycie lotniska.",
@@ -524,10 +525,10 @@
         <ul class="print-facts">
           <li><strong>Lot tam:</strong> 20.08, EJU5333 Berlin BER → Funchal, 07:00 → 10:55 (PNR KCXF7QW)</li>
           <li><strong>Lot powrotny:</strong> 30.08, EJU5334 Funchal → Berlin BER, 11:35 → 17:10 (PNR KD15T58); odbiór z hotelu ok. 08:30</li>
-          <li><strong>Transfery lotniskowe:</strong> madeira-in (Rui Nóbrega), Mercedes Sprinter, 45 EUR w jedną stronę — <strong>90 EUR razem, płatne gotówką</strong>; tel. kierowcy +351 917 260 690</li>
+          <li><strong>Transfery lotniskowe:</strong> madeira-in (Rui Nóbrega), Mercedes Sprinter, 45 EUR w jedną stronę — <strong>90 EUR razem, PŁATNE GOTÓWKĄ przy przyjeździe</strong>; tel. kierowcy +351 917 260 690, mail transfers.madeira@gmail.com. Po wylądowaniu dzwonimy do Rui z kompletem bagaży, odbiór przy kawiarni obok hali przylotów</li>
           <li><strong>Wycieczki busem:</strong> ad hoc z madeira-in, 220 EUR/dzień — orientacyjnie 22, 24 i 27.08</li>
           <li><strong>Auto:</strong> parking APCOA P7/8 BER (Terminal T1&amp;T2), rez. 8320774, tablica EL2GE01, wjazd 19.08 16:00 → wyjazd 30.08 18:00, 144 € zapłacone; Brunolf-Baade-Straße 1/2</li>
-          <li><strong>Nocleg 19.08:</strong> IntercityHotel Berlin Airport BER Terminal 1+2, Willy-Brandt-Platz 5, tel. +49 30 536 531 0 — przy samym terminalu</li>
+          <li><strong>Nocleg 19.08:</strong> IntercityHotel Berlin Airport BER Terminal 1+2, Willy-Brandt-Platz 5, tel. +49 30 536 531 0 — 2 × Business Twin, potwierdzenia 4RGPYJYD i 4GMN9X9N, 166,78 € bez śniadania, City Ticket w cenie; zameldowanie od 15:00, wymeldowanie do 12:00</li>
           <li><strong>Rytm dnia:</strong> z hotelu wychodzimy standardowo o 10:15; wcześniej tylko pod samolot (20.08 i 30.08)</li>
         </ul>
         <p class="print-note">Godziny lotów potwierdzone przez biuro podróży (rezerwacja 3891149, stan 24.07.2026).</p>
@@ -660,6 +661,46 @@
           <p class="section-copy">Sierpień na Maderze to 23–26°C i słońce, ale w górach i we mgle bywa chłodno, a pogoda zmienia się szybko — dlatego warstwy i kurtka w plecaku to podstawa.</p>
           <div class="guide-info-grid">
             ${packing.map((card) => `<article class="card info-card"><div class="card-body"><h3><span class="info-emoji" aria-hidden="true">${card.emoji}</span>${card.title}</h3><ul class="info-list">${card.items.map((i) => `<li>${i}</li>`).join("")}</ul></div></article>`).join("")}
+          </div>
+        </section>
+        <section class="guide-section" aria-labelledby="rezerwacje-title">
+          <h2 id="rezerwacje-title">Rezerwacje: hotel w Berlinie i transfer na Maderze</h2>
+          <p class="section-copy">Dwie rzeczy, których nie da się załatwić na miejscu bez numerów: nocleg przed porannym lotem i odbiór z lotniska w Funchal.</p>
+          <div class="cash-alert">
+            <strong>Gotówka na transfer: 90 € (2 × 45 €).</strong> Rui bierze płatność <strong>gotówką przy przyjeździe</strong> — nie kartą, nie przelewem. Banknoty przygotować jeszcze w Polsce; bankomat na FNC to niepotrzebna komplikacja z siedmioosobową grupą i bagażami.
+          </div>
+          <div class="parking-box">
+            <div class="parking-facts">
+              <h3>🚐 Transfer FNC ↔ hotel — madeira-in</h3>
+              <dl>
+                <dt>Firma</dt><dd>madeira-in.com unipessoal Lda. · Rui Nóbrega<br><span>Estrada Francisco Álvares de Nóbrega 38, 9200-209 Água de Pena</span></dd>
+                <dt>Kontakt</dt><dd><a href="tel:+351917260690">+351 917 260 690</a> · <a href="mailto:transfers.madeira@gmail.com">transfers.madeira@gmail.com</a></dd>
+                <dt>Cena</dt><dd>45 € za stronę, <strong>90 € razem — gotówką przy przyjeździe</strong></dd>
+                <dt>Pojazd</dt><dd>Mercedes Sprinter, 9 miejsc <span>— ten sam kierowca na transfery i ewentualne wycieczki, mówi też po niemiecku</span></dd>
+                <dt>Przylot 20.08</dt><dd>EJU5333, lądowanie 10:55</dd>
+                <dt>Powrót 30.08</dt><dd>odbiór z Baía Azul <span>— potwierdzone na 08:45, my planujemy 08:30 pod przesunięty wylot 11:35 (do potwierdzenia z Rui)</span></dd>
+              </dl>
+              <ul class="info-list">
+                <li><strong>Po wylądowaniu dzwonimy do Rui</strong> — dopiero gdy mamy już wszystkie bagaże. Podjedzie pod kawiarnię tuż za halą przylotów.</li>
+                <li>Rui ma nasz numer: +48 607 452 332.</li>
+                <li>Wycieczki busem (220 €/dzień) ustalamy na miejscu — madeira-in potwierdził taką możliwość na piśmie.</li>
+              </ul>
+            </div>
+            <div class="parking-facts">
+              <h3>🏨 Nocleg 19.08 — IntercityHotel Berlin Airport</h3>
+              <dl>
+                <dt>Hotel</dt><dd>IntercityHotel Berlin Airport BER Terminal 1+2<br><span>Willy-Brandt-Platz 5, 12529 Schönefeld · <a href="tel:+493053653100">+49 30 536 531 0</a></span></dd>
+                <dt>Pobyt</dt><dd>19.08 → 20.08, 1 noc <span>— zameldowanie od 15:00, wymeldowanie do 12:00</span></dd>
+                <dt>Pokoje</dt><dd>2 × Business Twin<br><span>nr potwierdzeń: <strong>4RGPYJYD</strong> i <strong>4GMN9X9N</strong> · prośba o pokoje blisko siebie zapisana w rezerwacji</span></dd>
+                <dt>Cena</dt><dd>2 × 83,39 € = <strong>166,78 €</strong> <span>— taryfa Loyalty Smart Special, <strong>bez śniadania</strong></span></dd>
+                <dt>W cenie</dt><dd>nocleg, WiFi i <strong>H Rewards City Ticket</strong> <span>— darmowy bilet komunikacji miejskiej, wystarczy na wieczorny wypad do centrum</span></dd>
+                <dt>H Rewards</dt><dd>6527600000860526 (status STAR) <span>— bez aktywnego członkostwa hotel naliczy pełną taryfę Flex</span></dd>
+              </dl>
+              <ul class="info-list">
+                <li>Pokój jest zabezpieczony kartą i trzymany także przy późnym przyjeździe — korek na A2 nie kosztuje nas noclegu.</li>
+                <li>Rachunek uregulować wieczorem albo skorzystać z ekspresowego wymeldowania — o 4:45 nie chcemy stać w recepcji.</li>
+              </ul>
+            </div>
           </div>
         </section>
         <section class="guide-section" aria-labelledby="parking-title">
