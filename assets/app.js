@@ -34,7 +34,7 @@
 
   // Co jest stałym punktem dnia, a co można odpuścić bez psucia reszty
   const FLEX = {
-    "2026-08-19": ["dojazd do Berlina, parking P8 i zameldowanie przy terminalu", "wieczorny spacer po centrum"],
+    "2026-08-19": ["dojazd do Berlina, parking P7/8 i zameldowanie przy terminalu", "wieczorny spacer po centrum"],
     "2026-08-20": ["lot i transfer do hotelu", "Lido — tylko jeśli zostaje energia"],
     "2026-08-21": ["muzeum CR7 i marina", "stare miasto można skrócić"],
     "2026-08-22": ["wejście na Pico Ruivo (PR1.2)", "Ribeiro Frio i Balcões w drodze powrotnej"],
@@ -59,7 +59,7 @@
   // Checklista przed wyjazdem — JEDNO źródło: renderuje i stronę główną, i PDF
   const CHECKLIST = [
     ["flights", "Potwierdzone numery i godziny obu lotów"],
-    ["p8", "Rezerwacja, kod wjazdu i sektor P8"],
+    ["p8", "Rezerwacja APCOA i sektor P7/8"],
     ["transfer", "Potwierdzić z madeira-in nową godzinę odbioru 30.08 (08:30 zamiast 08:45)"],
     ["cruise", "Rejs z terminem zapasowym 29 sierpnia, łatwym wejściem i miejscem siedzącym"],
     ["health", "Leki, apteczka podróżna i ewentualna asysta lotniskowa"],
@@ -70,17 +70,17 @@
 
   const days = [
     {
-      id: "2026-08-19", date: "19 sierpnia · środa", title: "Łódź → Berlin", short: "Spokojny start podróży, P8 i lekki wieczór w Berlinie.",
+      id: "2026-08-19", date: "19 sierpnia · środa", title: "Łódź → Berlin", short: "Spokojny start podróży, parking P7/8 i lekki wieczór w Berlinie.",
       image: images.berlin, alt: "Brama Brandenburska w Berlinie o wieczornej porze", cats: ["podróż", "spokojny"],
       intensity: "Łagodna", duration: "6–7 h przejazdu + 2 h", transport: "Samochód", walking: "Spacer 1–3 km", kids: "Tak, sprawnie chodzą", exposure: "Niska",
-      center: [52.5163, 13.3777], route: [[51.7592, 19.4560, "Łódź"], [52.3664, 13.5071, "Parking P8 BER"], [52.5163, 13.3777, "Brama Brandenburska"]], google: "https://www.google.com/maps/dir/%C5%81%C3%B3d%C5%BA/Berlin+Brandenburg+Airport+P8/Brandenburg+Gate",
-      agenda: [["11:00", "Wyjazd z Łodzi", "Start bez pośpiechu; zaplanować regularne postoje dla dzieci."], ["17:00", "Parking P8 przy BER", "Wjazd zgodnie z rezerwacją i zdjęcie miejsca postoju — auto zostaje tu na cały wyjazd."], ["17:30", "Zameldowanie w hotelu", "IntercityHotel Berlin Airport BER Terminal 1+2, Willy-Brandt-Platz 5. Hotel stoi przy samym terminalu, więc bagaże zostawiamy w pokoju i wychodzimy bez obciążenia."], ["18:15", "Pociąg do centrum", "FEX albo S-Bahn z dworca pod terminalem — do centrum około 25–30 minut, bez auta i bez szukania parkingu."], ["19:00", "Jeden lekki spacer", "Brama Brandenburska i Reichstag z zewnątrz albo kameralne Nikolaiviertel — bez łączenia wszystkiego."], ["20:00", "Kolacja i powrót", "Proste menu, powrót pociągiem do hotelu i wczesny sen — lot następnego ranka wychodzi o 07:00."]],
-      tips: ["Nocleg: IntercityHotel Berlin Airport BER Terminal 1+2 (Willy-Brandt-Platz 5, tel. +49 30 536 531 0) — wejście do Terminala 1–2 jest tuż obok, więc rano wystarczy kilka minut na dojście.", "Rachunek za hotel uregulować wieczorem albo skorzystać z ekspresowego wymeldowania — o 4:45 nie chcemy stać w recepcji.", "Śniadanie w hotelu zwykle zaczyna się dopiero po 5:00 — przy wylocie o 07:00 dopytać przy zameldowaniu o wcześniejsze śniadanie albo pakiet na wynos.", "Przed wyjazdem pobrać mapę offline Berlina i okolic BER.", "Sprawdzić kod wjazdu, numer rezerwacji P8 i sposób transferu do terminala.", "Po drodze robić postoje najpóźniej co 90 minut; po przyjeździe zaplanować jeden spacer 1–3 km, bez długiego stania.", "Zostawić bagaże lotnicze łatwo dostępne — nie przepakowywać auta wieczorem."],
+      center: [52.5163, 13.3777], route: [[51.7592, 19.4560, "Łódź"], [52.3664, 13.5071, "Parking P7/8 BER"], [52.5163, 13.3777, "Brama Brandenburska"]], google: "https://www.google.com/maps/dir/%C5%81%C3%B3d%C5%BA/Brunolf-Baade-Stra%C3%9Fe+1,+12529+Sch%C3%B6nefeld/Brandenburg+Gate",
+      agenda: [["11:00", "Wyjazd z Łodzi", "Start bez pośpiechu; zaplanować regularne postoje dla dzieci."], ["16:00", "Parking P7/8 przy BER", "Wjazd na rozpoznawanie tablicy EL2GE01 (rez. 8320774, okno 14:00–18:00). Nie wciskamy przycisku po bilet — automat sam wyda „online ticket”. Zabieramy go i robimy zdjęcie miejsca postoju."], ["17:30", "Zameldowanie w hotelu", "IntercityHotel Berlin Airport BER Terminal 1+2, Willy-Brandt-Platz 5. Hotel stoi przy samym terminalu, więc bagaże zostawiamy w pokoju i wychodzimy bez obciążenia."], ["18:15", "Pociąg do centrum", "FEX albo S-Bahn z dworca pod terminalem — do centrum około 25–30 minut, bez auta i bez szukania parkingu."], ["19:00", "Jeden lekki spacer", "Brama Brandenburska i Reichstag z zewnątrz albo kameralne Nikolaiviertel — bez łączenia wszystkiego."], ["20:00", "Kolacja i powrót", "Proste menu, powrót pociągiem do hotelu i wczesny sen — lot następnego ranka wychodzi o 07:00."]],
+      tips: ["Nocleg: IntercityHotel Berlin Airport BER Terminal 1+2 (Willy-Brandt-Platz 5, tel. +49 30 536 531 0) — wejście do Terminala 1–2 jest tuż obok, więc rano wystarczy kilka minut na dojście.", "Rachunek za hotel uregulować wieczorem albo skorzystać z ekspresowego wymeldowania — o 4:45 nie chcemy stać w recepcji.", "Śniadania w hotelu nie mamy w rezerwacji — coś do jedzenia bierzemy ze sobą albo kupujemy rano po odprawie na lotnisku.", "Przed wyjazdem pobrać mapę offline Berlina i okolic BER.", "Parking P7/8 stoi przy terminalach (2–4 min pieszo), więc do hotelu idziemy piechotą — komplet danych parkingu i kod QR z nawigacją są w zakładce Praktyczne.", "Po drodze robić postoje najpóźniej co 90 minut; po przyjeździe zaplanować jeden spacer 1–3 km, bez długiego stania.", "Zostawić bagaże lotnicze łatwo dostępne — nie przepakowywać auta wieczorem."],
       planB: "Jeśli trasa się wydłuży, pomijamy centrum Berlina. Kolacja i spokojny nocleg w okolicy BER są pełnoprawnym planem.", gentle: "spacer traktujemy jako bonus, nie punkt obowiązkowy.",
       deepDive: {
         context: "Trasa Łódź–Berlin to najkrótsza droga do lotniska BER bez nocnego pośpiechu. Berlin bywa tu tylko przystankiem, ale Brama Brandenburska i kameralne Nikolaiviertel dają poczucie stolicy nawet przy krótkim, wieczornym spacerze.",
         food: "Na szybki obiad po drodze sprawdzają się przydrożne Autohof z prostą niemiecką kuchnią; wieczorem w Berlinie warto zjeść coś lekkiego z piekarni albo klasyczne curry-wurst zamiast szukać restauracji na godziny.",
-        practical: "Parking P8 przy BER to parking długoterminowy — kod wjazdu i numer rezerwacji warto mieć zapisane offline, bo zasięg w garażu bywa słaby. Hotel przy Willy-Brandt-Platz stoi wprost przy wejściu do Terminala 1–2, a pod terminalem jest dworzec, z którego FEX i S-Bahn dowożą do centrum w 25–30 minut."
+        practical: "Parking APCOA P7/8 przy BER obsługuje wjazd rozpoznawaniem tablicy rejestracyjnej, więc nie pobieramy biletu przy szlabanie; potwierdzenie i kod QR z e-maila warto mieć zapisane offline, bo zasięg w garażu bywa słaby. Hotel przy Willy-Brandt-Platz stoi wprost przy wejściu do Terminala 1–2, a pod terminalem jest dworzec, z którego FEX i S-Bahn dowożą do centrum w 25–30 minut."
       }
     },
     {
@@ -88,7 +88,7 @@
       image: commons.funchalBay, alt: "Zatoka i marina Funchal na Maderze", cats: ["podróż", "spokojny"],
       intensity: "Łagodna", duration: "Dzień logistyczny", transport: "Samolot + transfer", walking: "Mało", kids: "Tak", exposure: "Niska",
       center: [32.6387, -16.9304], route: [[52.3667, 13.5033, "Lotnisko BER"], [32.6979, -16.7745, "Lotnisko FNC"], [32.6384, -16.9353, "Hotel Baía Azul"], [32.6386, -16.9332, "Lido"]], google: "https://www.google.com/maps/dir/Madeira+Airport/Hotel+Baia+Azul,+Funchal/Lido+Bathing+Complex",
-      agenda: [["04:45", "Pobudka i wyjście z hotelu", "Hotel stoi przy terminalu, więc do odprawy idziemy kilka minut — nie trzeba wstawać wcześniej ani zamawiać transferu."], ["05:00", "Odprawa na BER", "Terminal 1–2 tuż obok hotelu; bagaże, odprawa i kontrola bez pośpiechu, około 2 h przed wylotem."], ["07:00", "Wylot BER → FNC", "Lot EJU5333 (PNR KCXF7QW); blisko 5 godzin nad Atlantykiem."], ["10:55", "Lądowanie w Funchal", "Przylot EJU5333 o 10:55 czasu lokalnego — na Maderze jest o godzinę wcześniej niż w Berlinie."], ["12:00", "Prywatny transfer", "Transfer z madeira-in; po odbiorze bagażu kontakt z kierowcą i przejazd do Hotelu Baía Azul."], ["14:00", "Obiad i odpoczynek", "Lekki posiłek, zameldowanie i basen."], ["17:00", "Lido lub promenada", "Krótki spacer tylko jeśli grupa ma energię."]],
+      agenda: [["04:45", "Pobudka i wyjście z hotelu", "Hotel stoi przy terminalu, więc do odprawy idziemy kilka minut — nie trzeba wstawać wcześniej ani zamawiać transferu."], ["05:00", "Odprawa na BER", "Terminal 1–2 tuż obok hotelu; bagaże, odprawa i kontrola bez pośpiechu, około 2 h przed wylotem. Śniadanie jemy dopiero po kontroli — w hotelu nie mamy go w rezerwacji."], ["07:00", "Wylot BER → FNC", "Lot EJU5333 (PNR KCXF7QW); blisko 5 godzin nad Atlantykiem."], ["10:55", "Lądowanie w Funchal", "Przylot EJU5333 o 10:55 czasu lokalnego — na Maderze jest o godzinę wcześniej niż w Berlinie."], ["12:00", "Prywatny transfer", "Transfer z madeira-in; po odbiorze bagażu kontakt z kierowcą i przejazd do Hotelu Baía Azul."], ["14:00", "Obiad i odpoczynek", "Lekki posiłek, zameldowanie i basen."], ["17:00", "Lido lub promenada", "Krótki spacer tylko jeśli grupa ma energię."]],
       tips: ["Lot potwierdzony przez biuro (rez. 3891149): wylot z BER 07:00, lądowanie w Funchal 10:55. Nocleg w IntercityHotel przy Terminalu 1–2 sprawia, że wystarczy pobudka ~04:45 i kilka minut spaceru.", "Przy dłuższych przejściach i kolejkach można z wyprzedzeniem zamówić bezpłatną asystę lotniskową i potwierdzić ją z przewoźnikiem.", "Przy rezerwacji z madeira-in potwierdzić liczbę osób, bagaże i miejsce spotkania.", "Mieć pod ręką numer kierowcy i potwierdzenie transferu.", "Pierwszego dnia nie planować zakupów ani dalszych dojazdów."],
       planB: "Przy opóźnieniu lotu rezygnujemy z Lido. Hotel, posiłek i sen są jedynymi priorytetami.", gentle: "po transferze cały program odbywa się w hotelu.",
       deepDive: {
@@ -224,12 +224,12 @@
       }
     },
     {
-      id: "2026-08-30", date: "30 sierpnia · niedziela", title: "Powrót do Łodzi", short: "Hotel, FNC, lot do Berlina, P8 i ostatni odcinek autem.",
+      id: "2026-08-30", date: "30 sierpnia · niedziela", title: "Powrót do Łodzi", short: "Hotel, FNC, lot do Berlina, odbiór auta i ostatni odcinek.",
       image: commons.funchalBay, alt: "Zatoka Funchal i wybrzeże Madery", cats: ["podróż"],
       intensity: "Logistyczna", duration: "Cały dzień", transport: "Transfer + samolot + auto", walking: "Mało", kids: "Tak, z przerwami", exposure: "Niska",
-      center: [32.6942, -16.7745], route: [[32.6384, -16.9353, "Hotel Baía Azul"], [32.6979, -16.7745, "Lotnisko FNC"], [52.3667, 13.5033, "Lotnisko BER"], [52.3664, 13.5071, "Parking P8"], [51.7592, 19.4560, "Łódź"]], google: "https://www.google.com/maps/dir/Hotel+Baia+Azul,+Funchal/Madeira+Airport",
-      agenda: [["rano", "Checklista hotelowa", "Dokumenty, ładowarki, leki, stroje kąpielowe i sejf."], ["07:30", "Śniadanie w hotelu", "Bufet rusza o 7:30 — zjeść przed transferem ok. 8:30."], ["08:30", "Prywatny transfer", "Transfer z madeira-in na lotnisko FNC; odbiór z hotelu ok. 08:30 pod wylot 11:35."], ["11:35", "Wylot FNC → BER", "Lot EJU5334 (PNR KD15T58); lądowanie w Berlinie o 17:10."], ["17:10", "Lądowanie w Berlinie (BER)", "Po odprawie odbiór auta z parkingu P8 i start w kierunku Łodzi."], ["wieczór", "Berlin → Łódź", "Ostatni odcinek autem; regularne przerwy i zmiana kierowcy, jeśli to możliwe — do Łodzi docieramy późnym wieczorem."]],
-      tips: ["Loty potwierdzone przez biuro (rez. 3891149): wylot z FNC 11:35, lądowanie w Berlinie 17:10 — do Łodzi (~6 h autem z BER) dotrzecie późnym wieczorem, więc rozłóżcie jazdę na przerwy co ~90 minut.", "Odbiór z hotelu ok. 08:30 potwierdzić z madeira-in; przy silnym bocznym wietrze na FNC lot może się opóźnić.", "Potwierdzić asystę na FNC i BER, jeśli została zamówiona.", "Przed wymeldowaniem sprawdzić sejf, szafki, łazienkę i gniazdka.", "Zostawić zapas na bagaż i kolejki na lotnisku w Funchal."],
+      center: [32.6942, -16.7745], route: [[32.6384, -16.9353, "Hotel Baía Azul"], [32.6979, -16.7745, "Lotnisko FNC"], [52.3667, 13.5033, "Lotnisko BER"], [52.3664, 13.5071, "Parking P7/8"], [51.7592, 19.4560, "Łódź"]], google: "https://www.google.com/maps/dir/Hotel+Baia+Azul,+Funchal/Madeira+Airport",
+      agenda: [["rano", "Checklista hotelowa", "Dokumenty, ładowarki, leki, stroje kąpielowe i sejf."], ["07:30", "Śniadanie w hotelu", "Bufet rusza o 7:30 — zjeść przed transferem ok. 8:30."], ["08:30", "Prywatny transfer", "Transfer z madeira-in na lotnisko FNC; odbiór z hotelu ok. 08:30 pod wylot 11:35."], ["11:35", "Wylot FNC → BER", "Lot EJU5334 (PNR KD15T58); lądowanie w Berlinie o 17:10."], ["17:10", "Lądowanie w Berlinie (BER)", "Odbiór auta z P7/8 — parking jest 2–4 min od terminala. Wyjazd mamy opłacony do 18:00; jeśli bagaże pójdą wolno, różnicę dopłaca się w automacie (potrzebny bilet z wjazdu)."], ["wieczór", "Berlin → Łódź", "Ostatni odcinek autem; regularne przerwy i zmiana kierowcy, jeśli to możliwe — do Łodzi docieramy późnym wieczorem."]],
+      tips: ["Loty potwierdzone przez biuro (rez. 3891149): wylot z FNC 11:35, lądowanie w Berlinie 17:10 — do Łodzi (~6 h autem z BER) dotrzecie późnym wieczorem, więc rozłóżcie jazdę na przerwy co ~90 minut.", "Rezerwacja parkingu kończy się o 18:00, czyli 50 minut po lądowaniu — to mało na bagaże i dojście. Nadwyżkę dopłaca się w automacie przy wyjeździe (trzeba mieć bilet pobrany przy wjeździe), więc nie ma powodu do nerwów.", "Odbiór z hotelu ok. 08:30 potwierdzić z madeira-in; przy silnym bocznym wietrze na FNC lot może się opóźnić.", "Potwierdzić asystę na FNC i BER, jeśli została zamówiona.", "Przed wymeldowaniem sprawdzić sejf, szafki, łazienkę i gniazdka.", "Zostawić zapas na bagaż i kolejki na lotnisku w Funchal."],
       planB: "Przy opóźnieniu po lądowaniu rozważyć dodatkowy odpoczynek lub nocleg; nie prowadzić zmęczonym.", gentle: "bezpieczeństwo i przerwy mają pierwszeństwo przed godziną dojazdu do Łodzi.",
       deepDive: {
         context: "Lotnisko w Funchal bywa wrażliwe na silny boczny wiatr ze względu na ukształtowanie terenu, co czasem wydłuża czas oczekiwania na start — warto mieć to na uwadze przy planowaniu ostatnich godzin w hotelu.",
@@ -526,7 +526,7 @@
           <li><strong>Lot powrotny:</strong> 30.08, EJU5334 Funchal → Berlin BER, 11:35 → 17:10 (PNR KD15T58); odbiór z hotelu ok. 08:30</li>
           <li><strong>Transfery lotniskowe:</strong> madeira-in (Rui Nóbrega), Mercedes Sprinter, 45 EUR w jedną stronę — <strong>90 EUR razem, płatne gotówką</strong>; tel. kierowcy +351 917 260 690</li>
           <li><strong>Wycieczki busem:</strong> ad hoc z madeira-in, 220 EUR/dzień — orientacyjnie 22, 24 i 27.08</li>
-          <li><strong>Auto:</strong> parking P8 przy BER, 19–30.08</li>
+          <li><strong>Auto:</strong> parking APCOA P7/8 BER (Terminal T1&amp;T2), rez. 8320774, tablica EL2GE01, wjazd 19.08 16:00 → wyjazd 30.08 18:00, 144 € zapłacone; Brunolf-Baade-Straße 1/2</li>
           <li><strong>Nocleg 19.08:</strong> IntercityHotel Berlin Airport BER Terminal 1+2, Willy-Brandt-Platz 5, tel. +49 30 536 531 0 — przy samym terminalu</li>
           <li><strong>Rytm dnia:</strong> z hotelu wychodzimy standardowo o 10:15; wcześniej tylko pod samolot (20.08 i 30.08)</li>
         </ul>
@@ -660,6 +660,37 @@
           <p class="section-copy">Sierpień na Maderze to 23–26°C i słońce, ale w górach i we mgle bywa chłodno, a pogoda zmienia się szybko — dlatego warstwy i kurtka w plecaku to podstawa.</p>
           <div class="guide-info-grid">
             ${packing.map((card) => `<article class="card info-card"><div class="card-body"><h3><span class="info-emoji" aria-hidden="true">${card.emoji}</span>${card.title}</h3><ul class="info-list">${card.items.map((i) => `<li>${i}</li>`).join("")}</ul></div></article>`).join("")}
+          </div>
+        </section>
+        <section class="guide-section" aria-labelledby="parking-title">
+          <h2 id="parking-title">Parking na BER</h2>
+          <p class="section-copy">Rezerwacja APCOA opłacona z góry (144 €). Wjazd i wyjazd działają na rozpoznawanie tablic — kod QR jest zapasem, gdyby kamera nie odczytała numeru.</p>
+          <div class="parking-box">
+            <div class="parking-facts">
+              <dl>
+                <dt>Parking</dt><dd>P7/8 BER Terminal T1 &amp; T2 · taryfa Comfort<br><span>2–4 min pieszo do terminali (T1: 4 min, T2: 2 min)</span></dd>
+                <dt>Adres</dt><dd>Brunolf-Baade-Straße 1/2, 12529 Schönefeld<br><span>Zjazd z A113, wyjazd nr 8 „Flughafen Berlin Brandenburg", potem znaki „Parkhaus P7/8"</span></dd>
+                <dt>Numer rezerwacji</dt><dd>8320774</dd>
+                <dt>Tablica rejestracyjna</dt><dd>EL2GE01 <span>— to ona otwiera szlaban</span></dd>
+                <dt>Wjazd</dt><dd>19.08.2026, 16:00 <span>— można wjechać w oknie 14:00–18:00</span></dd>
+                <dt>Wyjazd</dt><dd>30.08.2026, 18:00 <span>— po tej godzinie dopłata w automacie</span></dd>
+                <dt>Opłata</dt><dd>144 € — <strong>zapłacone z góry</strong></dd>
+                <dt>Obsługa APCOA</dt><dd><a href="tel:+4971130570305">+49 711 305 70 305</a> · <a href="mailto:Reservierung.BER@apcoa.de">Reservierung.BER@apcoa.de</a></dd>
+              </dl>
+              <ul class="info-list">
+                <li><strong>Nie ciągnij biletu przy szlabanie.</strong> Kamera odczyta tablicę i sama wyda „online ticket" — dopiero jego pobranie podnosi szlaban.</li>
+                <li><strong>Zachowaj ten bilet.</strong> Jest potrzebny, gdyby trzeba było dopłacić za przekroczony czas.</li>
+                <li>Gdyby tablica nie została rozpoznana, pokaż kod QR z maila APCOA (miej go w telefonie lub portfelu Apple/Google).</li>
+                <li>Wyjazd w opłaconym terminie też idzie na tablicę — biletu nie trzeba nigdzie wkładać, o ile mieścimy się w czasie.</li>
+                <li>Rezerwacja uprawnia do <strong>jednego wjazdu i jednego wyjazdu</strong>; miejsce nie jest przypisane — parkujemy, gdzie wolne.</li>
+                <li>Bilet trzymaj z dala od telefonu i słońca (magnes i ciepło potrafią go rozmagnesować). Zgubionego biletu APCOA nie wydaje ponownie.</li>
+                <li>Problem przy szlabanie: przycisk „call help" — obsługa działa całą dobę.</li>
+              </ul>
+            </div>
+            <figure class="parking-qr">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33" width="132" height="132" shape-rendering="crispEdges" role="img" aria-label="Kod QR z nawigacją do parkingu P7/8 na BER"><rect width="33" height="33" fill="#fff"/><path fill="#111" d="M2 2h7v1h-7zM10 2h2v1h-2zM14 2h1v1h-1zM17 2h1v1h-1zM20 2h1v1h-1zM24 2h7v1h-7zM2 3h1v1h-1zM8 3h1v1h-1zM10 3h2v1h-2zM14 3h3v1h-3zM18 3h1v1h-1zM21 3h1v1h-1zM24 3h1v1h-1zM30 3h1v1h-1zM2 4h1v1h-1zM4 4h3v1h-3zM8 4h1v1h-1zM10 4h2v1h-2zM15 4h3v1h-3zM20 4h1v1h-1zM22 4h1v1h-1zM24 4h1v1h-1zM26 4h3v1h-3zM30 4h1v1h-1zM2 5h1v1h-1zM4 5h3v1h-3zM8 5h1v1h-1zM11 5h1v1h-1zM15 5h1v1h-1zM18 5h3v1h-3zM22 5h1v1h-1zM24 5h1v1h-1zM26 5h3v1h-3zM30 5h1v1h-1zM2 6h1v1h-1zM4 6h3v1h-3zM8 6h1v1h-1zM10 6h2v1h-2zM13 6h1v1h-1zM18 6h1v1h-1zM20 6h2v1h-2zM24 6h1v1h-1zM26 6h3v1h-3zM30 6h1v1h-1zM2 7h1v1h-1zM8 7h1v1h-1zM13 7h1v1h-1zM16 7h1v1h-1zM18 7h1v1h-1zM24 7h1v1h-1zM30 7h1v1h-1zM2 8h7v1h-7zM10 8h1v1h-1zM12 8h1v1h-1zM14 8h1v1h-1zM16 8h1v1h-1zM18 8h1v1h-1zM20 8h1v1h-1zM22 8h1v1h-1zM24 8h7v1h-7zM12 9h4v1h-4zM17 9h1v1h-1zM2 10h1v1h-1zM5 10h8v1h-8zM15 10h2v1h-2zM18 10h1v1h-1zM23 10h1v1h-1zM26 10h1v1h-1zM28 10h3v1h-3zM2 11h2v1h-2zM5 11h1v1h-1zM7 11h1v1h-1zM9 11h1v1h-1zM12 11h1v1h-1zM17 11h1v1h-1zM19 11h4v1h-4zM26 11h1v1h-1zM28 11h2v1h-2zM2 12h1v1h-1zM5 12h2v1h-2zM8 12h1v1h-1zM11 12h2v1h-2zM14 12h6v1h-6zM24 12h1v1h-1zM28 12h1v1h-1zM2 13h1v1h-1zM4 13h3v1h-3zM9 13h1v1h-1zM11 13h2v1h-2zM16 13h1v1h-1zM19 13h1v1h-1zM21 13h2v1h-2zM25 13h3v1h-3zM30 13h1v1h-1zM3 14h3v1h-3zM8 14h2v1h-2zM11 14h1v1h-1zM13 14h3v1h-3zM17 14h1v1h-1zM19 14h1v1h-1zM22 14h1v1h-1zM24 14h1v1h-1zM30 14h1v1h-1zM2 15h1v1h-1zM5 15h3v1h-3zM9 15h1v1h-1zM11 15h4v1h-4zM16 15h2v1h-2zM24 15h7v1h-7zM2 16h3v1h-3zM6 16h1v1h-1zM8 16h7v1h-7zM17 16h1v1h-1zM21 16h4v1h-4zM26 16h1v1h-1zM28 16h1v1h-1zM30 16h1v1h-1zM2 17h2v1h-2zM5 17h1v1h-1zM7 17h1v1h-1zM9 17h1v1h-1zM11 17h2v1h-2zM14 17h1v1h-1zM18 17h1v1h-1zM20 17h2v1h-2zM23 17h2v1h-2zM26 17h1v1h-1zM28 17h1v1h-1zM30 17h1v1h-1zM2 18h1v1h-1zM4 18h2v1h-2zM7 18h2v1h-2zM10 18h1v1h-1zM14 18h5v1h-5zM21 18h2v1h-2zM27 18h1v1h-1zM2 19h1v1h-1zM4 19h2v1h-2zM7 19h1v1h-1zM9 19h1v1h-1zM11 19h1v1h-1zM14 19h1v1h-1zM16 19h3v1h-3zM20 19h4v1h-4zM26 19h1v1h-1zM28 19h2v1h-2zM2 20h3v1h-3zM6 20h6v1h-6zM13 20h2v1h-2zM17 20h2v1h-2zM21 20h1v1h-1zM23 20h2v1h-2zM26 20h2v1h-2zM30 20h1v1h-1zM2 21h2v1h-2zM7 21h1v1h-1zM9 21h2v1h-2zM12 21h4v1h-4zM17 21h1v1h-1zM20 21h1v1h-1zM26 21h3v1h-3zM2 22h3v1h-3zM8 22h1v1h-1zM10 22h2v1h-2zM13 22h1v1h-1zM15 22h1v1h-1zM17 22h1v1h-1zM21 22h9v1h-9zM10 23h1v1h-1zM15 23h2v1h-2zM19 23h2v1h-2zM22 23h1v1h-1zM26 23h2v1h-2zM2 24h7v1h-7zM10 24h2v1h-2zM14 24h2v1h-2zM17 24h6v1h-6zM24 24h1v1h-1zM26 24h2v1h-2zM2 25h1v1h-1zM8 25h1v1h-1zM10 25h2v1h-2zM13 25h1v1h-1zM15 25h1v1h-1zM17 25h1v1h-1zM19 25h4v1h-4zM26 25h1v1h-1zM29 25h2v1h-2zM2 26h1v1h-1zM4 26h3v1h-3zM8 26h1v1h-1zM10 26h1v1h-1zM12 26h2v1h-2zM15 26h1v1h-1zM18 26h1v1h-1zM21 26h7v1h-7zM29 26h1v1h-1zM2 27h1v1h-1zM4 27h3v1h-3zM8 27h1v1h-1zM10 27h1v1h-1zM15 27h4v1h-4zM21 27h1v1h-1zM23 27h1v1h-1zM30 27h1v1h-1zM2 28h1v1h-1zM4 28h3v1h-3zM8 28h1v1h-1zM11 28h1v1h-1zM15 28h1v1h-1zM17 28h1v1h-1zM19 28h1v1h-1zM22 28h1v1h-1zM25 28h2v1h-2zM28 28h3v1h-3zM2 29h1v1h-1zM8 29h1v1h-1zM11 29h2v1h-2zM15 29h1v1h-1zM24 29h5v1h-5zM30 29h1v1h-1zM2 30h7v1h-7zM10 30h1v1h-1zM12 30h1v1h-1zM15 30h2v1h-2zM19 30h1v1h-1zM22 30h2v1h-2z"/></svg>
+              <figcaption>Zeskanuj, aby otworzyć <a href="https://maps.app.goo.gl/MTnHwMoR15jeYuSK7" target="_blank" rel="noopener">nawigację do parkingu</a>.<br><strong>Uwaga:</strong> to kod do nawigacji. Kod QR uprawniający do wjazdu jest w mailu od APCOA — jego nie da się odtworzyć tutaj.</figcaption>
+            </figure>
           </div>
         </section>
         <nav class="guide-nav" aria-label="Nawigacja przewodników">

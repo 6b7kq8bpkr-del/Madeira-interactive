@@ -457,3 +457,14 @@ body.lb-open { overflow: hidden; }
 
 /* Akcje na stronie dnia */
 .day-actions { margin: 16px 0 0; text-align: center; }
+
+/* Parking na BER */
+.parking-box { display: grid; grid-template-columns: minmax(0,1.6fr) minmax(220px,.9fr); gap: 20px; align-items: start; padding: clamp(20px,3vw,28px); border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255,254,250,.94); box-shadow: var(--shadow); }
+.parking-facts dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0 0 16px; }
+.parking-facts dt { color: var(--sea-dark); font-weight: 800; font-size: 13px; }
+.parking-facts dd { margin: 0; line-height: 1.5; }
+.parking-facts dd span { color: var(--muted); font-size: 13px; }
+.parking-qr { margin: 0; padding: 14px; border-radius: 16px; background: #edf7f4; text-align: center; }
+.parking-qr svg { display: block; width: 100%; max-width: 190px; height: auto; margin: 0 auto; border-radius: 8px; }
+.parking-qr figcaption { margin-top: 10px; color: var(--muted); font-size: 12px; line-height: 1.5; }
+@media (max-width: 760px) { .parking-box { grid-template-columns: 1fr; } .parking-facts dl { grid-template-columns: 1fr; gap: 2px; } .parking-facts dt { margin-top: 10px; } }
