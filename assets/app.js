@@ -69,6 +69,44 @@
     ["offline", "Mapy offline i kontakty alarmowe"]
   ];
 
+  // Punkty mapy interaktywnej. Współrzędne z OpenStreetMap (Nominatim).
+  const POI_LOGISTYKA = [
+    { n: "Hotel Baía Azul — Funchal", lat: 32.636307, lon: -16.939799, d: "Nasza baza 20–30.08. Rua da Quinta Calaça 1, São Martinho · tel. +351 291 700 400. Śniadanie 7:30–10:00, wychodzimy standardowo 10:15." },
+    { n: "Parking APCOA P7/8 — BER", lat: 52.366279, lon: 13.510813, d: "Rez. 8320774 · tablica EL2GE01. Wjazd 19.08 16:00 (okno 14:00–18:00), wyjazd 30.08 18:00. 144 € zapłacone." },
+    { n: "IntercityHotel Berlin Airport", lat: 52.364206, lon: 13.512595, d: "Nocleg 19→20.08, 2 × Business Twin (4RGPYJYD, 4GMN9X9N). Bez śniadania, City Ticket w cenie. Tel. +49 30 536 531 0." }
+  ];
+  const POI_ATRAKCJE = [
+    { n: "Homem em Pé — Achada do Teixeira", lat: 32.765326, lon: -16.920852, d: "22.08 · Skalna formacja „Stojący Człowiek” tuż przy parkingu, z którego startuje szlak PR1.2 na Pico Ruivo. Widok bez wysiłku, jeszcze przed wejściem." },
+    { n: "Mercado dos Lavradores", lat: 32.648689, lon: -16.903511, d: "21.08 i dowolny poranek · Targ owocowo-rybny w Funchal: owoce tropikalne do degustacji, ryby, kwiaty. Najżywszy przed południem; w środku UauCacau (lokal 19)." },
+    { n: "Rua de Santa Maria — Stare Miasto", lat: 32.647907, lon: -16.900414, d: "21, 23 i 25.08 · Najstarsza ulica Funchal ze słynnymi malowanymi drzwiami i tasquinhas. Miejsce na pierwszą kolację i na espetadę." },
+    { n: "Teleférico do Funchal — stacja dolna", lat: 32.661339, lon: -16.901209, d: "25.08 · Kolejka linowa z nabrzeża do dzielnicy Monte, ok. 15 minut nad dachami i dolinami. Wjazd i zjazd można kupić osobno." },
+    { n: "Nossa Senhora do Monte", lat: 32.676001, lon: -16.902472, d: "25.08 · Kościół na szczycie Monte, w którym spoczywa cesarz Karol I Habsburg. Schody przed wejściem są częścią widoku." },
+    { n: "Estreito de Câmara de Lobos", lat: 32.671099, lon: -16.979973, d: "25.08 · Miasteczko nad Câmara de Lobos uważane za ojczyznę espetady — tutaj podaje się ją klasycznie, na laurowym patyku." },
+    { n: "Paúl da Serra", lat: 32.762940, lon: -17.095891, d: "24 i 27.08 · Jedyny płaskowyż wyspy; przejeżdżamy przez niego w drodze do Fanal i do Rabaçal. Chłodniej i wietrzniej niż na wybrzeżu, często we mgle." },
+    { n: "Prazeres — start Caminho Real", lat: 32.753931, lon: -17.202295, d: "29.08 (wariant SW) · Stąd wychodzi wykuta w skale królewska droga schodząca do Paúl do Mar. Zejście jest długie i strome — realnie planować też powrót." },
+    { n: "Jardim do Mar", lat: 32.737558, lon: -17.211130, d: "29.08 (wariant SW) · Nadmorska osada obok Paúl do Mar, znana z surfingu i spokojnej promenady." }
+  ];
+  const POI_OPCJE = [
+    { n: "Cabo Girão — szklany taras", lat: 32.656481, lon: -17.004453, d: "<b>W planie 24.08 jako propozycja dla chętnych.</b> Jeden z najwyższych klifów Europy, ze szklaną platformą nad przepaścią. Taras jest zabezpieczony, ale wrażenie wysokości mocne — do pominięcia bez straty dla dnia." },
+    { n: "Grutas e Centro do Vulcanismo — São Vicente", lat: 32.797545, lon: -17.042060, d: "<b>Plan B na deszcz, 24.08 — dokładnie na trasie.</b> Tunele lawowe sprzed 890 tys. lat i część muzealna o wulkanicznym pochodzeniu wyspy. Pod ziemią pogoda nie ma znaczenia." },
+    { n: "Aquário da Madeira — Porto Moniz", lat: 32.867306, lon: -17.165417, d: "<b>Plan B na deszcz, 24.08 — przy naszym lunchu.</b> Akwarium w XIX-wiecznym forcie São João Baptista. Mała skala, ale ratuje przystanek, gdy kąpiel w basenach odpada." },
+    { n: "Parque Temático da Madeira — Santana", lat: 32.802155, lon: -16.885605, d: "<b>Alternatywa dla dzieci, 22.08 — obok naszego lunchu.</b> Pawilony o historii wyspy, labirynt, łódki i place zabaw. Rozsądny plan B, gdyby pogoda odcięła wejście na Pico Ruivo." },
+    { n: "Monte Palace Tropical Garden", lat: 32.674192, lon: -16.902878, d: "<b>Rozszerzenie 25.08, gdy jedziemy na Monte.</b> Ogród na stromym zboczu: japońskie stawy, kolekcja azulejos, egzotyczne drzewa. Sporo schodów, 1,5–2 h." },
+    { n: "Quinta do Palheiro Ferreiro", lat: 32.659838, lon: -16.869544, d: "<b>Cichy zamiennik ogrodu botanicznego.</b> Zabytkowy park krajobrazowy nad Funchal, mniej zatłoczony niż Jardim Botânico." },
+    { n: "Praia Formosa", lat: 32.639199, lon: -16.951182, d: "<b>Najbliższa plaża od hotelu — na każdy luźny dzień.</b> Najdłuższy odcinek plaż w Funchal: kamieniste i piaszczyste zatoczki z promenadą i barami." },
+    { n: "Forte de São Tiago — Funchal", lat: 32.646722, lon: -16.898751, d: "<b>Plan B na deszcz w Funchal.</b> Żółty fort z 1614 roku na końcu Rua de Santa Maria, z tarasami nad oceanem." },
+    { n: "Camacha", lat: 32.679439, lon: -16.844868, d: "<b>Krótki wypad z Funchal.</b> Miasteczko wikliniarskie w górach nad miastem, z warsztatami plecionkarskimi i chłodniejszym klimatem niż wybrzeże." }
+  ];
+  const POI_FOOD = [
+    { n: "Quinta do Furão — Santana", lat: 32.824085, lon: -16.884929, d: "Restauracja na klifie wśród winnic. Lunch 22.08 po Pico Ruivo. Rezerwować z wyprzedzeniem." },
+    { n: "Snack Bar Estoril — São Vicente", lat: 32.804239, lon: -17.047015, d: "Prego w bolo do caco, przy kościele. Opcja 24.08. <i>Punkt na ulicy Rua do Cemitério — lokal stoi przy kościele.</i>" },
+    { n: "Peixaria no Mercado — Funchal", lat: 32.648524, lon: -16.904085, d: "Świeża ryba przy Mercado dos Lavradores. Czynne 11:00–22:30, mała sala — rezerwować." },
+    { n: "BAM — Muzeum Bananów", lat: 32.679627, lon: -17.087463, d: "Lugar de Baixo, przy VE3. Codziennie 9:00–18:00. Na trasie 27.08 między Madaleną do Mar a Ponta do Sol. <i>Punkt orientacyjny — muzeum nie jest w OpenStreetMap.</i>" },
+    { n: "Fábrica Santo António — Funchal", lat: 32.649653, lon: -16.907412, d: "Manufaktura z 1893 r. Bolo de mel i biszkopty. Pon.–pt. 9:00–19:00, sob. 9:00–13:00, niedz. nieczynne." },
+    { n: "UauCacau — Mercado dos Lavradores", lat: 32.648689, lon: -16.903511, d: "Czekolada z maracui, ponchy i miodu trzcinowego. Lokal 19 na targu." },
+    { n: "Engenhos do Norte — Porto da Cruz", lat: 32.773962, lon: -16.828129, d: "Gorzelnia z 1927 r., jedyny w Europie parowy młyn trzcinowy. Wstęp wolny. Poza naszą trasą." }
+  ];
+
   const days = [
     {
       id: "2026-08-19", date: "19 sierpnia · środa", title: "Łódź → Berlin", short: "Spokojny start podróży, parking P7/8 i lekki wieczór w Berlinie.",
@@ -566,6 +604,7 @@
     const items = [
       { key: "home", label: "Plan", href: "index.html" },
       { key: "practical", label: "Praktyczne", href: "praktyczne.html" },
+      { key: "map", label: "Mapa", href: "mapa.html" },
       { key: "food", label: "Gdzie zjeść", href: "gdzie-zjesc.html" },
       { key: "print", label: "PDF", href: "print.html" }
     ];
@@ -616,7 +655,7 @@
     { emoji: "🌦️", title: "Pogoda i mikroklimaty", points: ["Południe wyspy (Funchal) jest cieplejsze i bardziej słoneczne, północ chłodniejsza i wilgotniejsza.", "W górach bywa znacznie zimniej i mgliście nawet przy upale na wybrzeżu — warstwy ubrań i kurtka przeciwwiatrowa są potrzebne latem.", "Ocean bywa chłodny; kąpiel najlepiej na strzeżonych plażach i przy basenach."] },
     { emoji: "🚕", title: "Transport", points: ["W Funchal jest dużo taksówek; działają też aplikacje typu Bolt.", "Autobusy miejskie (Horários do Funchal) i regionalne obsługują wybrzeże, ale w góry wygodniej jechać prywatnym busem lub taxi.", "Drogi są kręte i strome, z licznymi tunelami — osoby wrażliwe na chorobę lokomocyjną najlepiej sadzać z przodu."] },
     { emoji: "💧", title: "Woda i zdrowie", points: ["Woda z kranu jest zdatna do picia.", "Zabrać EKUZ (Europejska Karta Ubezpieczenia Zdrowotnego) oraz ubezpieczenie turystyczne.", "Apteki (farmácia) w Funchal są liczne; leki na receptę warto mieć z zapasem i w bagażu podręcznym."] },
-    { emoji: "🗺️", title: "Mapa w telefonie", points: ["Na stronie głównej jest przycisk <strong>Mapa do Google</strong> — pobiera plik z całym planem (pinezki, trasy, adresy, godziny).", "Import: <a href=\"https://www.google.com/mymaps\" target=\"_blank\" rel=\"noopener\">google.com/mymaps</a> → Utwórz nową mapę → Importuj → wskaż pobrany plik. Mapa jest wtedy prywatna, widoczna tylko dla Ciebie.", "Warstwy: siedem dni planu, atrakcje po drodze, opcje na zapas (plan B na deszcz) i gastronomia. W terenie można zostawić włączoną tylko tę jedną, która jest akurat potrzebna.", "Google Maps pozwala pobrać obszar Madery offline; w górach i na levadach zasięg bywa zerowy."] },
+    { emoji: "🗺️", title: "Mapa w telefonie", points: ["Zakładka <strong>Mapa</strong> pokazuje wszystko na jednym ekranie: przystanki każdego dnia, atrakcje, opcje na zapas i gastronomię — warstwy włącza się osobno.", "Import: <a href=\"https://www.google.com/mymaps\" target=\"_blank\" rel=\"noopener\">google.com/mymaps</a> → Utwórz nową mapę → Importuj → wskaż pobrany plik. Mapa jest wtedy prywatna, widoczna tylko dla Ciebie.", "Warstwy: siedem dni planu, atrakcje po drodze, opcje na zapas (plan B na deszcz) i gastronomia. W terenie można zostawić włączoną tylko tę jedną, która jest akurat potrzebna.", "Google Maps pozwala pobrać obszar Madery offline; w górach i na levadach zasięg bywa zerowy."] },
     { emoji: "🆘", title: "Numery alarmowe i bezpieczeństwo", points: ["Ogólny numer alarmowy to 112 (obsługa również po angielsku).", "Madera jest bardzo bezpieczna, z niską przestępczością.", "Największą ostrożność zachować przy słońcu, prądach morskich i śliskich skałach nad wodą."] },
     { emoji: "💛", title: "Napiwki i drobne zwyczaje", points: ["Napiwki nie są obowiązkowe — mile widziane zaokrąglenie rachunku lub 5–10% przy dobrej obsłudze.", "W restauracjach couvert (pieczywo, oliwki, pasty na start) bywa płatny — można go odmówić.", "Sjesta nie obowiązuje, ale kolacje jada się później niż w Polsce, zwykle po 19:00."] }
   ];
@@ -840,6 +879,166 @@
         box.innerHTML = `<span class="fd-ico">${wxEmoji(d.current.weather_code)}</span><strong>${Math.round(d.current.temperature_2m)}°C</strong><span class="fd-wxlab">teraz w tym rejonie · prognoza na ten dzień pojawi się bliżej terminu</span>`;
       }
     } catch (e) { box.innerHTML = '<span class="fd-wxlab">Pogoda niedostępna — sprawdź sekcję poniżej.</span>'; }
+  }
+
+  // ── Mapa interaktywna (mapa.html) ─────────────────────────────────────
+  const MAP_GRUPY = [
+    { id: "logi",  label: "Nocleg i logistyka", kolor: "#c0392b", ikona: "🏨", typ: "poi",  dane: () => POI_LOGISTYKA, domyslnie: true },
+    { id: "dni",   label: "Przystanki dni planu", kolor: "#0b7276", ikona: "📍", typ: "dni", domyslnie: true },
+    { id: "atr",   label: "Atrakcje w planie", kolor: "#2f8b57", ikona: "⭐", typ: "poi", dane: () => POI_ATRAKCJE, domyslnie: true },
+    { id: "opcje", label: "Potencjalne i plan B", kolor: "#8e44ad", ikona: "🎲", typ: "poi", dane: () => POI_OPCJE, domyslnie: false },
+    { id: "food",  label: "Gdzie zjeść", kolor: "#1f6feb", ikona: "🍽️", typ: "poi", dane: () => POI_FOOD, domyslnie: false }
+  ];
+  const MAP_DNI_KOLORY = ["#0b7276","#2f8b57","#d4a017","#cc6600","#1e88e5","#b35c00","#607d8b","#8e44ad","#e2725b"];
+
+  function renderMapPage() {
+    const root = document.querySelector("#map-root");
+    if (!root || document.body.dataset.page !== "map") return;
+    const dniZTrasa = days.filter((d) => (d.route || []).length > 1);
+    root.innerHTML = `
+      <main class="guide-main map-main" id="main-content">
+        <header class="guide-hero">
+          <p class="eyebrow">Wszystko na jednej mapie</p>
+          <h1>Mapa wyjazdu</h1>
+          <p class="guide-lead">Każdy przystanek planu, atrakcje po drodze, opcje na zapas i miejsca do jedzenia. Włącz tylko to, czego akurat potrzebujesz — a klikając pinezkę zobaczysz godzinę i opis z planu.</p>
+        </header>
+        <section class="map-panel" aria-label="Warstwy mapy">
+          <div class="map-toggles" id="map-toggles"></div>
+          <details class="map-days" id="map-days" hidden>
+            <summary class="map-days-label">Dni planu — pokaż tylko wybrane</summary>
+            <div class="map-daychips" id="map-daychips"></div>
+          </details>
+        </section>
+        <div class="card map-card">
+          <div class="map-shell is-active" id="full-map-shell">
+            <div class="route-map full-map" id="full-map" role="application" aria-label="Interaktywna mapa całego wyjazdu"></div>
+          </div>
+          <div class="map-actions">
+            <button class="button secondary" type="button" id="map-fit">Dopasuj widok do Madery</button>
+            <button class="button secondary" type="button" id="map-fit-all">Cała trasa z Berlinem</button>
+            <a class="button secondary" href="assets/Madera-2026.kml" download>Pobierz do Google My Maps</a>
+          </div>
+        </div>
+        <p class="map-hint" id="map-count"></p>
+        <nav class="guide-nav" aria-label="Nawigacja przewodników">
+          <a class="button secondary" href="index.html">← Wróć do planu</a>
+          <a class="button" href="praktyczne.html">Informacje praktyczne →</a>
+        </nav>
+        <footer class="footer">Mapa i dane © OpenStreetMap. Współrzędne miejsc pochodzą z OpenStreetMap — godziny otwarcia potwierdzić na miejscu.</footer>
+      </main>`;
+
+    const przelaczniki = document.querySelector("#map-toggles");
+    przelaczniki.innerHTML = MAP_GRUPY.map((g) => `
+      <label class="map-toggle" style="--kolor:${g.kolor}">
+        <input type="checkbox" data-grupa="${g.id}"${g.domyslnie ? " checked" : ""}>
+        <span class="mt-ico" aria-hidden="true">${g.ikona}</span>
+        <span class="mt-label">${g.label}</span>
+      </label>`).join("");
+
+    document.querySelector("#map-daychips").innerHTML = dniZTrasa.map((d, i) => `
+      <label class="map-daychip" style="--kolor:${MAP_DNI_KOLORY[i % MAP_DNI_KOLORY.length]}">
+        <input type="checkbox" data-dzien="${d.id}" checked>
+        <span>${d.date.split(" ·")[0]}</span>
+      </label>`).join("");
+
+    initFullMap(dniZTrasa);
+  }
+
+  async function initFullMap(dniZTrasa) {
+    const element = document.querySelector("#full-map");
+    if (!element) return;
+    let L;
+    try { L = await loadLeaflet(); }
+    catch (e) {
+      element.innerHTML = '<p class="map-error">Nie udało się wczytać mapy. Sprawdź połączenie albo pobierz plik do Google My Maps.</p>';
+      return;
+    }
+    const map = L.map(element, { scrollWheelZoom: true, zoomControl: true });
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 18, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    const kropka = (kolor, etykieta) => L.divIcon({
+      className: "map-pin",
+      html: `<span style="--kolor:${kolor}">${etykieta || ""}</span>`,
+      iconSize: [22, 22], iconAnchor: [11, 11], popupAnchor: [0, -12]
+    });
+    const warstwy = {};
+    let wszystkie = [];
+
+    MAP_GRUPY.filter((g) => g.typ === "poi").forEach((g) => {
+      const grupa = L.layerGroup();
+      g.dane().forEach((p) => {
+        L.marker([p.lat, p.lon], { icon: kropka(g.kolor, g.ikona), title: p.n })
+          .bindPopup(`<strong>${p.n}</strong><br>${p.d}<br><a href="https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lon}" target="_blank" rel="noopener">Otwórz w Google Maps ↗</a>`)
+          .addTo(grupa);
+        wszystkie.push([p.lat, p.lon]);
+      });
+      warstwy[g.id] = grupa;
+    });
+
+    const warstwyDni = {};
+    dniZTrasa.forEach((d, i) => {
+      const kolor = MAP_DNI_KOLORY[i % MAP_DNI_KOLORY.length];
+      const grupa = L.layerGroup();
+      const punkty = [];
+      // hotel jest startem i metą prawie każdego dnia — pinezkę trzyma warstwa logistyki
+      const pokazHotel = d.id === "2026-08-20" || d.id === "2026-08-30";
+      d.route.forEach(([lat, lon, nazwa], idx) => {
+        if (!pokazHotel && /^hotel/i.test(nazwa)) { punkty.push([lat, lon]); return; }
+        const opis = (d.agenda.find(([, ti, op]) => (ti + " " + op).toLowerCase().includes(nazwa.split(" ")[0].toLowerCase())) || [])
+          .filter(Boolean);
+        const szczegol = opis.length ? `<br><em>${opis[0]}</em> — ${opis[1]}<br>${opis[2]}` : "";
+        L.marker([lat, lon], { icon: kropka(kolor, String(idx + 1)), title: nazwa })
+          .bindPopup(`<strong>${nazwa}</strong><br><span class="pop-day">${d.date} · ${d.title}</span>${szczegol}<br><a href="days/${d.id}.html">Otwórz plan dnia →</a>`)
+          .addTo(grupa);
+        punkty.push([lat, lon]);
+        wszystkie.push([lat, lon]);
+      });
+      if (punkty.length > 1) L.polyline(punkty, { color: kolor, weight: 3, opacity: .55, dashArray: "6 6" }).addTo(grupa);
+      warstwyDni[d.id] = grupa;
+    });
+
+    const madera = wszystkie.filter(([la, lo]) => la < 40 && lo < -10);
+    const dopasuj = (zbior) => { if (zbior.length) map.fitBounds(L.latLngBounds(zbior).pad(0.08)); };
+    dopasuj(madera.length ? madera : wszystkie);
+
+    const policz = () => {
+      let n = 0;
+      Object.values(warstwy).forEach((w) => { if (map.hasLayer(w)) n += w.getLayers().length; });
+      Object.values(warstwyDni).forEach((w) => { if (map.hasLayer(w)) n += w.getLayers().filter((l) => l instanceof L.Marker).length; });
+      const el = document.querySelector("#map-count");
+      if (el) el.textContent = `Na mapie: ${n} ${n === 1 ? "punkt" : n < 5 ? "punkty" : "punktów"}.`;
+    };
+
+    const przelacz = (warstwa, wlacz) => { if (wlacz) map.addLayer(warstwa); else map.removeLayer(warstwa); };
+
+    document.querySelectorAll("#map-toggles input").forEach((input) => {
+      const id = input.dataset.grupa;
+      if (id === "dni") {
+        if (input.checked) Object.values(warstwyDni).forEach((w) => map.addLayer(w));
+        document.querySelector("#map-days").hidden = !input.checked;
+        input.addEventListener("change", () => {
+          document.querySelector("#map-days").hidden = !input.checked;
+          document.querySelectorAll("#map-daychips input").forEach((chip) => {
+            przelacz(warstwyDni[chip.dataset.dzien], input.checked && chip.checked);
+          });
+          policz();
+        });
+        return;
+      }
+      if (input.checked) map.addLayer(warstwy[id]);
+      input.addEventListener("change", () => { przelacz(warstwy[id], input.checked); policz(); });
+    });
+
+    document.querySelectorAll("#map-daychips input").forEach((chip) => {
+      chip.addEventListener("change", () => { przelacz(warstwyDni[chip.dataset.dzien], chip.checked); policz(); });
+    });
+
+    document.querySelector("#map-fit").addEventListener("click", () => dopasuj(madera));
+    document.querySelector("#map-fit-all").addEventListener("click", () => dopasuj(wszystkie));
+    policz();
+    setTimeout(() => map.invalidateSize(), 120);
   }
 
   function renderCountdown() {
@@ -1102,6 +1301,7 @@
   renderPrint();
   renderPractical();
   renderFood();
+  renderMapPage();
   renderWeather();
   renderCountdown();
   renderFocusDay();
