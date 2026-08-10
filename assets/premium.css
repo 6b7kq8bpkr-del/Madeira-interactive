@@ -508,3 +508,17 @@ body.lb-open { overflow: hidden; }
   .map-toggle { flex: 1 1 calc(50% - 5px); justify-content: flex-start; font-size: 13px; padding: 8px 10px; }
   .full-map { height: min(62svh, 460px); }
 }
+
+/* ── Alert o rezerwacji szlaków ────────────────────────────────────── */
+.trail-alert { padding: 18px 20px; border-radius: 18px; border: 1px solid #e6c98a; border-left: 5px solid #d99a1c; background: linear-gradient(180deg, #fffaf0, #fff6e4); box-shadow: 0 10px 26px rgba(120,80,10,.10); }
+.trail-alert.is-urgent { border-color: #e8a89a; border-left-color: #c0392b; background: linear-gradient(180deg, #fff7f5, #ffefeb); box-shadow: 0 10px 26px rgba(150,40,20,.12); }
+.trail-alert.is-day { margin: 0 0 20px; }
+.ta-head { margin: 0 0 10px; font-size: 16px; line-height: 1.45; }
+.ta-ico { margin-right: 8px; font-size: 18px; }
+.ta-list { margin: 0 0 12px; padding-left: 20px; }
+.ta-list li { margin-bottom: 6px; line-height: 1.55; }
+.ta-note { margin: 0 0 14px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+.ta-actions { margin: 0; }
+.trail-alert .button { background: #b3521c; }
+.trail-alert.is-urgent .button { background: #c0392b; }
+@media (max-width: 760px) { .trail-alert { padding: 16px; border-radius: 16px; } .ta-head { font-size: 15px; } }

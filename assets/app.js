@@ -59,6 +59,7 @@
   // Checklista przed wyjazdem — JEDNO źródło: renderuje i stronę główną, i PDF
   const CHECKLIST = [
     ["flights", "Potwierdzone numery i godziny obu lotów"],
+    ["trails", "Bilety na PR1.2 Pico Ruivo (22.08) i PR6 25 Fontes (27.08) kupione w SIMplifica i zapisane offline"],
     ["p8", "Rezerwacja APCOA i sektor P7/8"],
     ["transfer", "Potwierdzić z madeira-in nową godzinę odbioru 30.08 (08:30 zamiast 08:45)"],
     ["cash", "90 € gotówką na transfery — Rui nie przyjmuje karty"],
@@ -469,6 +470,7 @@
       <header class="hero">${imageMarkup(day, true, "hero-media")}<div class="hero-inner"><p class="eyebrow">${day.date} · dzień ${index + 1} z ${days.length}</p><h1>${day.title}</h1><p class="lead">${day.short}</p><div class="chips"><span class="chip"><span class="idot ${INTENSITY[day.intensity] || "y"}"></span> ${day.intensity}</span><span class="chip">${day.transport}</span><span class="chip">${day.walking}</span></div></div></header>
       <main id="main-content">
         <nav class="day-rail" aria-label="Przejdź do innego dnia">${days.map((d, i) => `<a class="day-rail-item${d.id === day.id ? " is-current" : ""}" href="${d.id}.html"${d.id === day.id ? ' aria-current="page"' : ""}><span class="drn">${i + 1}</span><span class="drd">${d.date.split(" · ")[0]}</span></a>`).join("")}</nav>
+        <div id="day-trail-alert"></div>
         <div class="grid">
           <section class="card" aria-labelledby="agenda-title"><div class="card-body"><h2 id="agenda-title">Plan dnia</h2><div class="timeline">${day.agenda.map((slot) => `<article class="slot"><span class="time">${slot[0]}</span><span class="dot" aria-hidden="true"></span><div><h3>${slot[1]}</h3><p>${slot[2]}</p></div></article>`).join("")}</div></div></section>
           <aside class="card"><div class="card-body"><h2>W skrócie</h2><div class="info">${metrics.map((metric) => `<div class="metric"><strong>${metric[1]}</strong><span>${metric[0]}</span></div>`).join("")}</div><div class="badges"><span class="badge">Dzieci chodzą po górach</span><span class="badge">Spokojne tempo</span><span class="badge">Niska ekspozycja</span>${day.cats.includes("odpoczynek") ? "<span class=\"badge optional\">Elastyczny plan</span>" : ""}${day.cats.includes("wycieczka busem") || day.id === "2026-08-28" ? "<span class=\"badge weather\">Pogoda ma znaczenie</span>" : ""}</div><div class="variant-note"><strong>Wariant łagodniejszy:</strong> ${day.gentle}</div>${FLEX[day.id] ? `<div class="flex"><span class="fxlock"><b>🔒 Nie ruszać:</b> ${FLEX[day.id][0]}</span><span class="fxcut"><b>✂️ Można odpuścić:</b> ${FLEX[day.id][1]}</span></div>` : ""}</div></aside>
@@ -484,6 +486,8 @@
         <p class="day-actions"><button class="button secondary" type="button" id="share-day">Udostępnij dzień</button></p>
         <footer class="footer">Plan rodzinny 19–30 sierpnia 2026. Godziny lotów, rezerwacje, warunki pogodowe i dostępność atrakcji wymagają potwierdzenia przed wyjazdem.${creditFor(day.image) ? `<br>Zdjęcie dnia: ${creditFor(day.image)}` : ""}</footer>
       </main>`;
+
+    renderDayTrailAlert(day);
 
     const mapShell = document.querySelector(".map-shell");
     const activate = document.querySelector(".map-activate");
@@ -565,7 +569,8 @@
           <li><strong>Lot powrotny:</strong> 30.08, EJU5334 Funchal → Berlin BER, 11:35 → 17:10 (PNR KD15T58); odbiór z hotelu ok. 08:30</li>
           <li><strong>Transfery lotniskowe:</strong> madeira-in (Rui Nóbrega), Mercedes Sprinter, 45 EUR w jedną stronę — <strong>90 EUR razem, PŁATNE GOTÓWKĄ przy przyjeździe</strong>; tel. kierowcy +351 917 260 690, mail transfers.madeira@gmail.com. Po wylądowaniu dzwonimy do Rui z kompletem bagaży, odbiór przy kawiarni obok hali przylotów</li>
           <li><strong>Wycieczki busem:</strong> ad hoc z madeira-in, 220 EUR/dzień — orientacyjnie 22, 24 i 27.08</li>
-          <li><strong>Auto:</strong> parking APCOA P7/8 BER (Terminal T1&amp;T2), rez. 8320774, tablica EL2GE01, wjazd 19.08 16:00 → wyjazd 30.08 18:00, 144 € zapłacone; Brunolf-Baade-Straße 1/2</li>
+          <li><strong>Szlaki:</strong> PR1.2 Pico Ruivo (22.08) i PR6 25 Fontes (27.08) — bilety z SIMplifica, 4,50 €/os., okno 30 min; mieć offline w telefonie</li>
+            <li><strong>Auto:</strong> parking APCOA P7/8 BER (Terminal T1&amp;T2), rez. 8320774, tablica EL2GE01, wjazd 19.08 16:00 → wyjazd 30.08 18:00, 144 € zapłacone; Brunolf-Baade-Straße 1/2</li>
           <li><strong>Nocleg 19.08:</strong> IntercityHotel Berlin Airport BER Terminal 1+2, Willy-Brandt-Platz 5, tel. +49 30 536 531 0 — 2 × Business Twin, potwierdzenia 4RGPYJYD i 4GMN9X9N, 166,78 € bez śniadania, City Ticket w cenie; zameldowanie od 15:00, wymeldowanie do 12:00</li>
           <li><strong>Rytm dnia:</strong> z hotelu wychodzimy standardowo o 10:15; wcześniej tylko pod samolot (20.08 i 30.08)</li>
         </ul>
@@ -655,6 +660,7 @@
     { emoji: "🌦️", title: "Pogoda i mikroklimaty", points: ["Południe wyspy (Funchal) jest cieplejsze i bardziej słoneczne, północ chłodniejsza i wilgotniejsza.", "W górach bywa znacznie zimniej i mgliście nawet przy upale na wybrzeżu — warstwy ubrań i kurtka przeciwwiatrowa są potrzebne latem.", "Ocean bywa chłodny; kąpiel najlepiej na strzeżonych plażach i przy basenach."] },
     { emoji: "🚕", title: "Transport", points: ["W Funchal jest dużo taksówek; działają też aplikacje typu Bolt.", "Autobusy miejskie (Horários do Funchal) i regionalne obsługują wybrzeże, ale w góry wygodniej jechać prywatnym busem lub taxi.", "Drogi są kręte i strome, z licznymi tunelami — osoby wrażliwe na chorobę lokomocyjną najlepiej sadzać z przodu."] },
     { emoji: "💧", title: "Woda i zdrowie", points: ["Woda z kranu jest zdatna do picia.", "Zabrać EKUZ (Europejska Karta Ubezpieczenia Zdrowotnego) oraz ubezpieczenie turystyczne.", "Apteki (farmácia) w Funchal są liczne; leki na receptę warto mieć z zapasem i w bagażu podręcznym."] },
+    { emoji: "🎟️", title: "Szlaki są płatne i na rezerwację", points: ["Wejście na sklasyfikowane szlaki PR wymaga <strong>biletu kupionego online</strong> na <a href=\"https://simplifica.madeira.gov.pt/\" target=\"_blank\" rel=\"noopener\">simplifica.madeira.gov.pt</a> — rezerwuje się 30-minutowe okno wejścia.", "Nas dotyczą dwa: <strong>PR1.2 Vereda do Pico Ruivo</strong> (22.08) i <strong>PR6 Levada das 25 Fontes</strong> (27.08), po 4,50 € od osoby. Levada dos Balcões jest bezpłatna i bez rezerwacji.", "Dzieci poniżej 12 lat nie płacą, ale muszą być zgłoszone w rezerwacji — przy dwunastolatku dopytać przy zakupie.", "Bilet trzeba okazać przy wejściu; w Rabaçal i na Achada do Teixeira bywają kontrole, a mandat sięga 250 €.", "W górach zasięg znika — zapisać bilety offline (zrzut ekranu albo PDF w telefonie), nie liczyć na wczytanie maila na miejscu.", "Sierpniowe poranne sloty na 25 Fontes potrafią zniknąć na kilka dni przed terminem; ceny i zasady potwierdzić na portalu, bo zmieniały się już kilka razy."] },
     { emoji: "🗺️", title: "Mapa w telefonie", points: ["Zakładka <strong>Mapa</strong> pokazuje wszystko na jednym ekranie: przystanki każdego dnia, atrakcje, opcje na zapas i gastronomię — warstwy włącza się osobno.", "Import: <a href=\"https://www.google.com/mymaps\" target=\"_blank\" rel=\"noopener\">google.com/mymaps</a> → Utwórz nową mapę → Importuj → wskaż pobrany plik. Mapa jest wtedy prywatna, widoczna tylko dla Ciebie.", "Warstwy: siedem dni planu, atrakcje po drodze, opcje na zapas (plan B na deszcz) i gastronomia. W terenie można zostawić włączoną tylko tę jedną, która jest akurat potrzebna.", "Google Maps pozwala pobrać obszar Madery offline; w górach i na levadach zasięg bywa zerowy."] },
     { emoji: "🆘", title: "Numery alarmowe i bezpieczeństwo", points: ["Ogólny numer alarmowy to 112 (obsługa również po angielsku).", "Madera jest bardzo bezpieczna, z niską przestępczością.", "Największą ostrożność zachować przy słońcu, prądach morskich i śliskich skałach nad wodą."] },
     { emoji: "💛", title: "Napiwki i drobne zwyczaje", points: ["Napiwki nie są obowiązkowe — mile widziane zaokrąglenie rachunku lub 5–10% przy dobrej obsłudze.", "W restauracjach couvert (pieczywo, oliwki, pasty na start) bywa płatny — można go odmówić.", "Sjesta nie obowiązuje, ale kolacje jada się później niż w Polsce, zwykle po 19:00."] }
@@ -890,6 +896,80 @@
     { id: "food",  label: "Gdzie zjeść", kolor: "#1f6feb", ikona: "🍽️", typ: "poi", dane: () => POI_FOOD, domyslnie: false }
   ];
   const MAP_DNI_KOLORY = ["#0b7276","#2f8b57","#d4a017","#cc6600","#1e88e5","#b35c00","#607d8b","#8e44ad","#e2725b"];
+
+  // ── Szlaki wymagające rezerwacji (SIMplifica) ─────────────────────────
+  // Od 2024 wejście na sklasyfikowane szlaki PR jest płatne i wymaga rezerwacji
+  // slotu online. Ceny i zasady weryfikować na simplifica.madeira.gov.pt.
+  const SIMPLIFICA = "https://simplifica.madeira.gov.pt/";
+  const TRAILS = [
+    {
+      dayId: "2026-08-22", kod: "PR1.2", nazwa: "Vereda do Pico Ruivo",
+      start: "Achada do Teixeira", cena: 4.5, wymaga: true,
+      uwaga: "Wchodzimy o 11:00 — slot rezerwujemy na ten przedział."
+    },
+    {
+      dayId: "2026-08-27", kod: "PR6", nazwa: "Levada das 25 Fontes",
+      start: "Rabaçal", cena: 4.5, wymaga: true,
+      uwaga: "Najbardziej oblegana trasa wyspy. W sierpniu poranne sloty schodzą na kilka dni przed terminem."
+    },
+    {
+      dayId: "2026-08-22", kod: "PR11", nazwa: "Vereda dos Balcões",
+      start: "Ribeiro Frio", cena: 0, wymaga: false,
+      uwaga: "Bez opłaty i bez rezerwacji — levada na Balcões zostaje otwarta."
+    }
+  ];
+  const TRAILS_PLATNE = TRAILS.filter((t) => t.wymaga);
+
+  function trailsKoszt() {
+    // 4 dorosłych + 12-latek płatnie, młodsze dzieci bezpłatnie (ale w rezerwacji)
+    const platnych = 5;
+    return TRAILS_PLATNE.reduce((s, t) => s + t.cena * platnych, 0);
+  }
+
+  function dniDoWyjazdu() {
+    const start = new Date("2026-08-19T00:00:00");
+    const dzis = new Date(); dzis.setHours(0, 0, 0, 0);
+    return Math.round((start - dzis) / 86400000);
+  }
+
+  function trailAlertHTML(waga) {
+    const dni = dniDoWyjazdu();
+    const pilne = dni <= 30;
+    const lista = TRAILS_PLATNE.map((t) =>
+      `<li><strong>${t.kod} ${t.nazwa}</strong> — ${(days.find((d) => d.id === t.dayId) || {}).date || t.dayId}, ${t.cena.toFixed(2).replace(".", ",")} € od osoby. ${t.uwaga}</li>`).join("");
+    const naglowek = dni > 0
+      ? (pilne ? `Zostało ${dni} ${dni === 1 ? "dzień" : "dni"} — rezerwujcie teraz` : "Do zarezerwowania przed wyjazdem")
+      : "Bilety miejcie w telefonie przed wejściem na szlak";
+    return `
+      <aside class="trail-alert${pilne ? " is-urgent" : ""}${waga === "day" ? " is-day" : ""}" role="note">
+        <p class="ta-head"><span class="ta-ico" aria-hidden="true">🎟️</span><strong>Szlaki trzeba zarezerwować online.</strong> ${naglowek}.</p>
+        <ul class="ta-list">${lista}</ul>
+        <p class="ta-note">Rezerwacja obejmuje 30-minutowe okno wejścia i wykupuje się ją na portalu SIMplifica. Dzieci poniżej 12 lat nie płacą, ale <strong>muszą być zgłoszone w rezerwacji</strong> — przy dwunastolatku dopytać przy zakupie. Kontrole na szlaku są, a mandat sięga 250 €. Dla naszej siódemki wychodzi około <strong>${trailsKoszt().toFixed(0)} €</strong> za oba szlaki.</p>
+        <p class="ta-actions"><a class="button" href="${SIMPLIFICA}" target="_blank" rel="noopener">Zarezerwuj na SIMplifica ↗</a></p>
+      </aside>`;
+  }
+
+  function renderTrailAlert() {
+    const host = document.querySelector("#trail-alert");
+    if (!host) return;
+    host.innerHTML = trailAlertHTML("home");
+  }
+
+  function renderDayTrailAlert(day) {
+    const host = document.querySelector("#day-trail-alert");
+    if (!host || !day) return;
+    const moje = TRAILS_PLATNE.filter((t) => t.dayId === day.id);
+    if (!moje.length) { host.hidden = true; return; }
+    const dni = dniDoWyjazdu();
+    const pilne = dni <= 30 && dni > 0;
+    host.innerHTML = `
+      <aside class="trail-alert is-day${pilne ? " is-urgent" : ""}" role="note">
+        <p class="ta-head"><span class="ta-ico" aria-hidden="true">🎟️</span><strong>${moje.map((t) => t.kod + " " + t.nazwa).join(" i ")}</strong> — wejście tylko z rezerwacją online.</p>
+        <ul class="ta-list">${moje.map((t) => `<li>${t.cena.toFixed(2).replace(".", ",")} € od osoby, slot 30-minutowy. ${t.uwaga}</li>`).join("")}</ul>
+        <p class="ta-note">Bilet trzeba mieć w telefonie przy wejściu — zasięg w górach bywa zerowy, więc zapiszcie go offline (zrzut ekranu albo PDF).</p>
+        <p class="ta-actions"><a class="button" href="${SIMPLIFICA}" target="_blank" rel="noopener">Rezerwacja SIMplifica ↗</a></p>
+      </aside>`;
+  }
 
   function renderMapPage() {
     const root = document.querySelector("#map-root");
@@ -1302,6 +1382,7 @@
   renderPractical();
   renderFood();
   renderMapPage();
+  renderTrailAlert();
   renderWeather();
   renderCountdown();
   renderFocusDay();
