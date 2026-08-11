@@ -59,7 +59,7 @@
   // Checklista przed wyjazdem — JEDNO źródło: renderuje i stronę główną, i PDF
   const CHECKLIST = [
     ["flights", "Potwierdzone numery i godziny obu lotów"],
-    ["trails", "Bilety na PR1.2 Pico Ruivo (22.08) i PR6 25 Fontes (27.08) kupione w SIMplifica i zapisane offline"],
+    ["trails", "Bilety SIMplifica: PR1.2 Pico Ruivo 22.08 dla wszystkich, PR6 25 Fontes 27.08 tylko dla grupy A — kupione i zapisane offline"],
     ["p8", "Rezerwacja APCOA i sektor P7/8"],
     ["transfer", "Potwierdzić z madeira-in nową godzinę odbioru 30.08 (08:30 zamiast 08:45)"],
     ["cash", "90 € gotówką na transfery — Rui nie przyjmuje karty"],
@@ -222,13 +222,40 @@
       }
     },
     {
-      id: "2026-08-27", date: "27 sierpnia · czwartek", title: "Rabaçal, 25 Fontes i południowy zachód", short: "Levada das 25 Fontes w Rabaçal, plaża w Calhecie i bananowce.",
+      id: "2026-08-27", date: "27 sierpnia · czwartek", title: "Rabaçal, 25 Fontes i południowy zachód", short: "Dwie ścieżki: levada 25 Fontes albo banany i młyn, a po południu razem na plaży.",
       image: commons.fontes, alt: "Levada das 25 Fontes w rezerwacie Rabaçal", cats: ["aktywny", "wycieczka busem"],
-      intensity: "Aktywna", duration: "10:15–18:00", transport: "Prywatny bus + spacer", walking: "Levada 25 Fontes ok. 8 km + wybrzeże", kids: "Tak, dobrze chodzą po górach", exposure: "Kontrolowana; Risco pomijamy",
-      center: [32.7400, -17.1500], route: [[32.6384, -16.9353, "Hotel"], [32.7586, -17.1313, "Rabaçal — Levada das 25 Fontes"], [32.7219, -17.1775, "Plaża Calheta"], [32.7031, -17.1276, "Bananowce — Madalena do Mar"], [32.6819, -17.1045, "Ponta do Sol"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Raba%C3%A7al,+Madeira/Calheta+Beach/Madalena+do+Mar/Ponta+do+Sol",
-      agenda: [["08:15", "Śniadanie w hotelu", "Bufet 7:30–10:00 — spokojne śniadanie przed wyjazdem (godziny potwierdzić w recepcji)."], ["10:15", "Wyjazd z hotelu", "Aktywny dzień na zachodzie; przejazd na płaskowyż Rabaçal, ok. godziny drogi."], ["11:15", "Rabaçal — Levada das 25 Fontes", "Sztandarowa trasa dnia: levada wśród lasu laurowego do laguny zasilanej dwudziestoma pięcioma źródłami. Około 8 km w obie strony, w większości płasko; idziemy w swoim tempie. Levadę do Risco (odsłonięte klify) pomijamy."], ["14:15", "Calheta — plaża i lunch", "Nagroda po spacerze: piaszczysta plaża i lunch przy oceanie."], ["15:45", "Bananowce w Madalena do Mar", "Krótki przystanek wśród plantacji — dzieci zobaczą, jak rosną banany, i spróbują owoców prosto z krzaka. Kilka kilometrów dalej, w Lugar de Baixo, jest BAM — Muzeum Bananów (czynne do 18:00) ze zwiedzaniem plantacji doświadczalnej i filmem 4D; do rozważenia zamiast postoju przy krzakach albo obok niego."], ["16:30", "Ponta do Sol", "Lody i spacer przy oceanie w najbardziej słonecznym zakątku wyspy, w drodze powrotnej."], ["18:00", "Powrót", "Wieczór w hotelu."]],
+      intensity: "Aktywna", duration: "10:15–18:00", transport: "Prywatny bus + spacer", walking: "Grupa A 11 km · grupa B ok. 2 km", kids: "Tak — dla młodszych osobna ścieżka", exposure: "Kontrolowana; Risco pomijamy",
+      center: [32.7400, -17.1500], route: [[32.6384, -16.9353, "Hotel"], [32.7586, -17.1313, "Rabaçal — Levada das 25 Fontes"], [32.6796, -17.0875, "BAM — Muzeum Bananów (grupa B)"], [32.7219, -17.1775, "Plaża Calheta"], [32.7031, -17.1276, "Bananowce — Madalena do Mar"], [32.6819, -17.1045, "Ponta do Sol"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Raba%C3%A7al,+Madeira/Calheta+Beach/Madalena+do+Mar/Ponta+do+Sol",
+      agenda: [["08:15", "Śniadanie w hotelu", "Bufet 7:30–10:00 — spokojne śniadanie przed wyjazdem (godziny potwierdzić w recepcji)."], ["10:15", "Wyjazd z hotelu", "Aktywny dzień na zachodzie; przejazd na płaskowyż Rabaçal, ok. godziny drogi."], ["11:15", "Rozdzielamy się na pół dnia", "Grupa A zostaje w Rabaçal na Levadę das 25 Fontes, grupa B jedzie busem na wybrzeże — szczegóły obu ścieżek niżej. Spotykamy się w Calhecie o 15:30."], ["15:30", "Calheta — plaża i lunch", "Znowu razem: piaszczysta plaża, późny lunch przy oceanie i kąpiel."], ["16:00", "Bananowce w Madalena do Mar", "Krótki przystanek wśród plantacji — dzieci zobaczą, jak rosną banany, i spróbują owoców prosto z krzaka. Kilka kilometrów dalej, w Lugar de Baixo, jest BAM — Muzeum Bananów (czynne do 18:00) ze zwiedzaniem plantacji doświadczalnej i filmem 4D; do rozważenia zamiast postoju przy krzakach albo obok niego."], ["16:45", "Ponta do Sol", "Lody i spacer przy oceanie w najbardziej słonecznym zakątku wyspy, w drodze powrotnej."], ["18:00", "Powrót", "Wieczór w hotelu."]],
       tips: ["Levada das 25 Fontes to jedna z najsłynniejszych i najczęściej chodzonych tras na Maderze — dobre buty, woda i przekąski są potrzebne, bo pełne przejście zajmuje 2,5–3 godziny.", "Trasa jest w większości płaska, ale ma wąskie odcinki wzdłuż kanału, miejscami zabezpieczone barierką — idziemy spokojnie i trzymamy dzieci od strony ściany. Levadę do Risco (klify) świadomie pomijamy.", "Parking przy ER105 leży około 2 km <strong>powyżej</strong> początku trasy przy Rabaçal House — to stromy asfalt: jakieś 20 minut w dół i 30–35 minut pod górę już po przejściu levady. Kursuje tamtędy wahadłowy minibus, około 5 € w jedną stronę i 8 € w obie, <strong>płatny wyłącznie gotówką</strong> — warto mieć drobne dla całej siódemki. Najlepiej dopytać kierowcę, czy bus może zjechać pod samą Rabaçal House.", "Na plateau bywa chłodno i mgliście nawet przy upale na wybrzeżu — warstwy i kurtka przeciwwiatrowa.", "Po zejściu z levady stroje kąpielowe i ręczniki czekają w busie na plażę w Calhecie."],
-      planB: "Przy deszczu lub gęstej mgle na plateau rezygnujemy z levady i przenosimy ciężar dnia na wybrzeże: więcej czasu w Calhecie, bananowce i Ponta do Sol.", gentle: "zamiast pełnej levady krótki odcinek od strony Rabaçal, a potem wcześniejszy zjazd na plażę do Calhety.",
+      groups: {
+        naglowek: "Ten dzień idziemy dwiema ścieżkami",
+        wstep: "Levada das 25 Fontes to 11 km liczone od parkingu — najdłuższy dystans całego wyjazdu. Zamiast ciągnąć na nią wszystkich, dzielimy się na pół dnia i spotykamy w Calhecie. Bus obsługuje obie grupy: zostawia jedną w Rabaçal, wozi drugą po wybrzeżu i wraca po pierwszą.",
+        listy: [
+          {
+            kod: "A", nazwa: "Levada das 25 Fontes", sklad: "rodzina 1 · 2 dorosłych + 2 starsze dzieci",
+            meta: ["11 km z dojściem", "3–4 h marszu", "PR6 · bilet wymagany"],
+            punkty: [
+              ["11:15", "Wysiadka przy ER105", "Minibus w dół do Rabaçal House (ok. 5 € od osoby, gotówką) — oszczędza 2 km stromego asfaltu."],
+              ["11:45", "Start levady", "Las laurowy, kanał i laguna zasilana dwudziestoma pięcioma źródłami. Wąskie odcinki idziemy pojedynczo, dzieci od strony ściany."],
+              ["14:30", "Powrót do Rabaçal House", "Minibus w górę na parking; pod wodospad nie schodzimy — przejście jest zamknięte na stałe."],
+              ["15:30", "Dołączamy w Calhecie", "Bus przywozi grupę na plażę; lunch i kąpiel razem z resztą."]
+            ]
+          },
+          {
+            kod: "B", nazwa: "Banany, młyn i plaża", sklad: "rodzina 2 · 2 dorosłych + sześciolatek",
+            meta: ["ok. 2 km spacerem", "wszystko płasko", "bez biletów i rezerwacji"],
+            punkty: [
+              ["11:45", "BAM — Muzeum Bananów", "Lugar de Baixo: multimedialna wystawa o bananie, zwiedzanie plantacji doświadczalnej i szklarni, film 4D. Bar serwuje koktajle bananowe. Czynne codziennie 9:00–18:00."],
+              ["13:15", "Engenho da Calheta", "Stary młyn trzcinowy tuż przy plaży: małe muzeum produkcji cukru i rumu, kawiarnia z bolo de mel i biszkoptami. Wstęp wolny, w czwartek czynne 8:00–19:00."],
+              ["14:15", "Plaża w Calhecie", "Piaszczysta zatoka z osłoniętą wodą — jedna z niewielu na wyspie. Lunch przy oceanie i kąpiel bez pośpiechu."],
+              ["15:30", "Spotkanie z grupą A", "Reszta dnia znowu razem."]
+            ]
+          }
+        ],
+        stopka: "Podział jest propozycją, nie zobowiązaniem — decyzję można podjąć rano, po prognozie i po tym, jak grupa się czuje. Jeśli sześciolatek będzie w formie, nic nie stoi na przeszkodzie, żeby poszedł na levadę; jeśli ktoś z grupy A woli plażę, zamiana też jest w porządku. Bilet na PR6 kupuje się jednak imiennie, więc skład grupy A warto ustalić przed rezerwacją."
+      },
+      planB: "Przy deszczu lub gęstej mgle na plateau grupa A rezygnuje z levady i dołącza do ścieżki B — muzeum, młyn i wybrzeże działają w każdą pogodę. Bilet PR6 przepada, ale to 4,50 € od osoby, nie powód do brnięcia w mgłę.", gentle: "cała siódemka idzie ścieżką B, a levadę zastępuje krótki spacer po Rabaçal albo dodatkowy czas na plaży.",
       deepDive: {
         context: "Levada das 25 Fontes (szlak PR6) prowadzi przez rezerwat Rabaçal w sercu lasu laurowego (laurisilva) wpisanego na listę UNESCO, do laguny zasilanej dwudziestoma pięcioma źródłami — to jedna z ikon wyspy. Sąsiednia Levada do Risco kończy się przy wodospadzie, ale ma odsłonięte, przepaściste fragmenty, dlatego zostaje poza planem. Calheta poniżej ma jedną z niewielu piaszczystych plaż wyspy (piasek został sprowadzony), a Madalena do Mar to bananowe zagłębie z plantacjami schodzącymi tarasami do oceanu.",
         food: "Po spacerze dobrze smakuje późny lunch przy plaży w Calhecie; na plantacji w Madalena do Mar można spróbować maderskich bananów i przetworów, a w słonecznym Ponta do Sol — lodów i kawy z widokiem na ocean.",
@@ -455,6 +482,30 @@
     initOverviewMap();
   }
 
+  function groupsHTML(day) {
+    const g = day.groups;
+    if (!g) return "";
+    return `
+      <section class="section card day-groups" aria-labelledby="groups-title">
+        <div class="card-body">
+          <h2 id="groups-title">${g.naglowek}</h2>
+          <p class="section-copy">${g.wstep}</p>
+          <div class="dg-grid">
+            ${g.listy.map((l) => `
+              <article class="dg-track dg-${l.kod.toLowerCase()}">
+                <header class="dg-head">
+                  <span class="dg-kod" aria-hidden="true">${l.kod}</span>
+                  <div><h3>${l.nazwa}</h3><p class="dg-sklad">${l.sklad}</p></div>
+                </header>
+                <ul class="dg-meta">${l.meta.map((m) => `<li>${m}</li>`).join("")}</ul>
+                <div class="dg-timeline">${l.punkty.map((p) => `<div class="dg-slot"><span class="dg-time">${p[0]}</span><div><strong>${p[1]}</strong><p>${p[2]}</p></div></div>`).join("")}</div>
+              </article>`).join("")}
+          </div>
+          <p class="dg-foot">${g.stopka}</p>
+        </div>
+      </section>`;
+  }
+
   function renderDay() {
     const root = document.querySelector("#day-root");
     if (!root) return;
@@ -475,6 +526,7 @@
           <section class="card" aria-labelledby="agenda-title"><div class="card-body"><h2 id="agenda-title">Plan dnia</h2><div class="timeline">${day.agenda.map((slot) => `<article class="slot"><span class="time">${slot[0]}</span><span class="dot" aria-hidden="true"></span><div><h3>${slot[1]}</h3><p>${slot[2]}</p></div></article>`).join("")}</div></div></section>
           <aside class="card"><div class="card-body"><h2>W skrócie</h2><div class="info">${metrics.map((metric) => `<div class="metric"><strong>${metric[1]}</strong><span>${metric[0]}</span></div>`).join("")}</div><div class="badges"><span class="badge">Dzieci chodzą po górach</span><span class="badge">Spokojne tempo</span><span class="badge">Niska ekspozycja</span>${day.cats.includes("odpoczynek") ? "<span class=\"badge optional\">Elastyczny plan</span>" : ""}${day.cats.includes("wycieczka busem") || day.id === "2026-08-28" ? "<span class=\"badge weather\">Pogoda ma znaczenie</span>" : ""}</div><div class="variant-note"><strong>Wariant łagodniejszy:</strong> ${day.gentle}</div>${FLEX[day.id] ? `<div class="flex"><span class="fxlock"><b>🔒 Nie ruszać:</b> ${FLEX[day.id][0]}</span><span class="fxcut"><b>✂️ Można odpuścić:</b> ${FLEX[day.id][1]}</span></div>` : ""}</div></aside>
         </div>
+        ${groupsHTML(day)}
         <section class="section" id="day-weather" aria-label="Pogoda w rejonie tego dnia"><div class="card"><div class="card-body"><p class="dw-loading">Ładowanie pogody na żywo…</p></div></div></section>
         <section class="section grid" aria-label="Mapa i wskazówki">
           <div class="card"><div class="map-shell"><button class="map-activate" type="button">Aktywuj mapę</button><div class="route-map" id="route-map" role="application" aria-label="Mapa OpenStreetMap z trasą: ${day.title}"></div></div><div class="route-summary"><p><strong>Orientacyjna trasa dnia</strong> — linia łączy główne punkty; dokładny przebieg dróg sprawdź w Google Maps.</p><ol class="route-stop-list">${day.route.map((stop, stopIndex) => `<li><span>${stopIndex + 1}</span>${stop[2]}</li>`).join("")}</ol></div><div class="map-actions"><a class="button" href="${day.google}" target="_blank" rel="noopener">Otwórz trasę w Google Maps ↗</a><button class="button secondary" type="button" data-deactivate-map>Wyłącz mapę</button></div></div>
@@ -569,7 +621,7 @@
           <li><strong>Lot powrotny:</strong> 30.08, EJU5334 Funchal → Berlin BER, 11:35 → 17:10 (PNR KD15T58); odbiór z hotelu ok. 08:30</li>
           <li><strong>Transfery lotniskowe:</strong> madeira-in (Rui Nóbrega), Mercedes Sprinter, 45 EUR w jedną stronę — <strong>90 EUR razem, PŁATNE GOTÓWKĄ przy przyjeździe</strong>; tel. kierowcy +351 917 260 690, mail transfers.madeira@gmail.com. Po wylądowaniu dzwonimy do Rui z kompletem bagaży, odbiór przy kawiarni obok hali przylotów</li>
           <li><strong>Wycieczki busem:</strong> ad hoc z madeira-in, 220 EUR/dzień — orientacyjnie 22, 24 i 27.08</li>
-          <li><strong>Szlaki:</strong> PR1.2 Pico Ruivo (22.08) i PR6 25 Fontes (27.08) — bilety z SIMplifica, 4,50 €/os., okno 30 min; mieć offline w telefonie. Rabaçal: minibus z parkingu ER105 ok. 8 €/os. w obie strony, gotówką</li>
+          <li><strong>Szlaki:</strong> PR1.2 Pico Ruivo 22.08 — cała grupa; PR6 25 Fontes 27.08 — tylko grupa A (rodzina 1), grupa B na BAM, młyn i plażę. Bilety z SIMplifica, 4,50 €/os., okno 30 min, mieć offline. Rabaçal: minibus z ER105 ok. 8 €/os. w obie strony, gotówką</li>
             <li><strong>Auto:</strong> parking APCOA P7/8 BER (Terminal T1&amp;T2), rez. 8320774, tablica EL2GE01, wjazd 19.08 16:00 → wyjazd 30.08 18:00, 144 € zapłacone; Brunolf-Baade-Straße 1/2</li>
           <li><strong>Nocleg 19.08:</strong> IntercityHotel Berlin Airport BER Terminal 1+2, Willy-Brandt-Platz 5, tel. +49 30 536 531 0 — 2 × Business Twin, potwierdzenia 4RGPYJYD i 4GMN9X9N, 166,78 € bez śniadania, City Ticket w cenie; zameldowanie od 15:00, wymeldowanie do 12:00</li>
           <li><strong>Rytm dnia:</strong> z hotelu wychodzimy standardowo o 10:15; wcześniej tylko pod samolot (20.08 i 30.08)</li>
@@ -904,13 +956,13 @@
   const TRAILS = [
     {
       dayId: "2026-08-22", kod: "PR1.2", nazwa: "Vereda do Pico Ruivo",
-      start: "Achada do Teixeira", cena: 4.5, wymaga: true,
-      uwaga: "Wchodzimy o 11:00 — slot rezerwujemy na ten przedział."
+      start: "Achada do Teixeira", cena: 4.5, wymaga: true, platnych: 5,
+      uwaga: "Idzie cała siódemka; wchodzimy o 11:00 — slot rezerwujemy na ten przedział."
     },
     {
       dayId: "2026-08-27", kod: "PR6", nazwa: "Levada das 25 Fontes",
-      start: "Rabaçal", cena: 4.5, wymaga: true,
-      uwaga: "Najbardziej oblegana trasa wyspy. W sierpniu poranne sloty schodzą na kilka dni przed terminem."
+      start: "Rabaçal", cena: 4.5, wymaga: true, platnych: 3,
+      uwaga: "Idzie tylko grupa A (rodzina 1) — bilety kupujemy dla niej, nie dla całej siódemki. Poranne sloty schodzą w sierpniu na kilka dni przed terminem."
     },
     {
       dayId: "2026-08-22", kod: "PR11", nazwa: "Vereda dos Balcões",
@@ -921,9 +973,8 @@
   const TRAILS_PLATNE = TRAILS.filter((t) => t.wymaga);
 
   function trailsKoszt() {
-    // 4 dorosłych + 12-latek płatnie, młodsze dzieci bezpłatnie (ale w rezerwacji)
-    const platnych = 5;
-    return TRAILS_PLATNE.reduce((s, t) => s + t.cena * platnych, 0);
+    // dzieci poniżej 12 lat bezpłatnie, ale muszą być zgłoszone w rezerwacji
+    return TRAILS_PLATNE.reduce((s, t) => s + t.cena * (t.platnych || 5), 0);
   }
 
   function dniDoWyjazdu() {

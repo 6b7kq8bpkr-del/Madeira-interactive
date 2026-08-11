@@ -522,3 +522,24 @@ body.lb-open { overflow: hidden; }
 .trail-alert .button { background: #b3521c; }
 .trail-alert.is-urgent .button { background: #c0392b; }
 @media (max-width: 760px) { .trail-alert { padding: 16px; border-radius: 16px; } .ta-head { font-size: 15px; } }
+
+/* ── Dzień rozdzielony na dwie grupy ───────────────────────────────── */
+.day-groups .dg-grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-top: 6px; }
+.dg-track { padding: 18px; border-radius: 18px; border: 1px solid var(--line); background: var(--panel); }
+.dg-track.dg-a { border-left: 5px solid #0b7276; background: linear-gradient(180deg, #f2fbf8, #ffffff); }
+.dg-track.dg-b { border-left: 5px solid #d99a1c; background: linear-gradient(180deg, #fffaf0, #ffffff); }
+.dg-head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.dg-kod { display: grid; place-items: center; width: 38px; height: 38px; flex: none; border-radius: 50%; font-weight: 950; font-size: 17px; color: white; background: #0b7276; }
+.dg-b .dg-kod { background: #d99a1c; }
+.dg-head h3 { margin: 0; font-size: 19px; }
+.dg-sklad { margin: 2px 0 0; color: var(--muted); font-size: 13px; font-weight: 700; }
+.dg-meta { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 14px; padding: 0; list-style: none; }
+.dg-meta li { padding: 4px 10px; border-radius: 999px; background: #eef4f3; color: var(--sea-dark); font-size: 12px; font-weight: 800; }
+.dg-b .dg-meta li { background: #fdf0d5; color: #7a5a10; }
+.dg-slot { display: grid; grid-template-columns: 58px 1fr; gap: 10px; padding: 10px 0; border-top: 1px dashed var(--line); }
+.dg-slot:first-child { border-top: 0; padding-top: 0; }
+.dg-time { color: var(--muted); font-size: 13px; font-weight: 900; font-variant-numeric: tabular-nums; }
+.dg-slot strong { display: block; font-size: 15px; }
+.dg-slot p { margin: 3px 0 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+.dg-foot { margin: 16px 0 0; padding: 12px 14px; border-radius: 14px; background: #eef4f3; color: var(--muted); font-size: 14px; line-height: 1.6; }
+@media (max-width: 760px) { .dg-track { padding: 15px; } .dg-slot { grid-template-columns: 50px 1fr; } }
