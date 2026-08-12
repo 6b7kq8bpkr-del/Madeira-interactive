@@ -59,7 +59,7 @@
   // Checklista przed wyjazdem — JEDNO źródło: renderuje i stronę główną, i PDF
   const CHECKLIST = [
     ["flights", "Potwierdzone numery i godziny obu lotów"],
-    ["trails", "SIMplifica na 27.08: PR1.2 Pico Ruivo slot 11:30–12:00 dla 7 osób (5 płatnych) + sprawdzić, czy PR11 Balcões też wymaga biletu"],
+    ["trails", "Bilety SIMplifica na 27.08 kupione (rez. 2234556/2026) — zapisać PDF offline; wyjaśnić, czy bilet na PR1.1 Vereda da Ilha wpuszcza nas na PR1.2 z Achada do Teixeira"],
     ["p8", "Rezerwacja APCOA i sektor P7/8"],
     ["transfer", "Potwierdzić z madeira-in nową godzinę odbioru 30.08 (08:30 zamiast 08:45)"],
     ["cash", "Gotówka: 90 € na transfery + drobne na minibus w Rabaçal; na wycieczki busem po 220 € za dzień"],
@@ -735,7 +735,7 @@
           <li><strong>Transfery lotniskowe:</strong> madeira-in (Rui Nóbrega), Mercedes Sprinter, 45 EUR w jedną stronę — <strong>90 EUR razem, PŁATNE GOTÓWKĄ przy przyjeździe</strong>; tel. kierowcy +351 917 260 690, mail transfers.madeira@gmail.com. Po wylądowaniu dzwonimy do Rui z kompletem bagaży, odbiór przy kawiarni obok hali przylotów</li>
           <li><strong>Wycieczki busem:</strong> ad hoc z madeira-in, 220 EUR/dzień — orientacyjnie 22, 24 i 27.08</li>
           <li><strong>Gotówka:</strong> 90 € transfery (Rui, przy przyjeździe) · 220 €/dzień za wycieczki busem, jeśli je zamówimy · ok. 8 €/os. na minibus w Rabaçal przy wariancie z levadą. Reszta wyspy na kartę.</li>
-            <li><strong>Szlaki 27.08:</strong> PR1.2 Pico Ruivo — slot 11:30–12:00, 7 osób zgłoszonych, 5 płatnych po 4,50 € = 22,50 €. PR11 Balcões (ok. 17:00) — sprawdzić przy zakupie, czy też wymaga biletu. Mieć oba offline. PR6 25 Fontes tylko jako wariant 29.08 (wtedy minibus z ER105, ok. 8 €/os. gotówką)</li>
+            <li><strong>Szlaki 27.08 — kupione</strong> (rez. 2234556/2026): wejście 11:30 SIM4330276 i SIM4330278 (bilet wystawiony na PR1.1 Vereda da Ilha — do wyjaśnienia), Balcões 17:00 SIM4330277 i SIM4330279. 5 dorosłych + 2 dzieci zwolnione. Mieć PDF offline. PR6 25 Fontes tylko jako wariant 29.08 (wtedy minibus z ER105, ok. 8 €/os. gotówką)</li>
             <li><strong>Auto:</strong> parking APCOA P7/8 BER (Terminal T1&amp;T2), rez. 8320774, tablica EL2GE01, wjazd 19.08 16:00 → wyjazd 30.08 18:00, 144 € zapłacone; Brunolf-Baade-Straße 1/2</li>
           <li><strong>Nocleg 19.08:</strong> IntercityHotel Berlin Airport BER Terminal 1+2, Willy-Brandt-Platz 5, tel. +49 30 536 531 0 — 2 × Business Twin, potwierdzenia 4RGPYJYD i 4GMN9X9N, 166,78 € bez śniadania, City Ticket w cenie; zameldowanie od 15:00, wymeldowanie do 12:00</li>
           <li><strong>Rytm dnia:</strong> z hotelu wychodzimy standardowo o 10:15; wcześniej tylko pod samolot (20.08 i 30.08)</li>
@@ -1078,8 +1078,10 @@
   const TRAILS = [
     {
       dayId: "2026-08-27", kod: "PR1.2", nazwa: "Vereda do Pico Ruivo",
-      start: "Achada do Teixeira", cena: 4.5, wymaga: true, platnych: 5,
-      uwaga: "Idzie cała siódemka. Na Achada do Teixeira jesteśmy 11:30, marsz zaczynamy 11:45 — bierzemy slot 11:30–12:00."
+      start: "Achada do Teixeira", cena: 4.5, wymaga: true, platnych: 5, kupiony: true,
+      bilety: { numery: ["SIM4330276", "SIM4330278"], ref: "2234556/2026", godzina: "11:30", czas: "3 h", osoby: "5 dorosłych + 2 dzieci zwolnione z opłaty" },
+      rozbieznosc: "Bilety zostały wystawione na <strong>PR1.1 Vereda da Ilha</strong>, a nie na PR1.2. To inny szlak: 8,2 km z wioski Ilha (400 m) na szczyt, z przewyższeniem około 1376 m — zamiast 6 km i 300 m podejścia z Achada do Teixeira. Godzina, liczba osób i data się zgadzają, ale nazwa trasy nie.",
+      uwaga: "Idzie cała siódemka. Na Achada do Teixeira jesteśmy 11:30, marsz zaczynamy 11:45 — slot na bilecie to 11:30."
     },
     {
       dayId: "2026-08-29", kod: "PR6", nazwa: "Levada das 25 Fontes",
@@ -1088,8 +1090,9 @@
     },
     {
       dayId: "2026-08-27", kod: "PR11", nazwa: "Vereda dos Balcões",
-      start: "Ribeiro Frio", cena: 4.5, wymaga: true, platnych: 5,
-      uwaga: "Źródła są sprzeczne — część podaje ten szlak jako bezpłatny, część jako objęty opłatą od 2026 roku. Przy mandacie 250 € nie ma sensu ryzykować: sprawdzić przy zakupie i kupić, jeśli SIMplifica go wymaga. Slot ok. 17:00–17:30."
+      start: "Ribeiro Frio", cena: 4.5, wymaga: true, platnych: 5, kupiony: true,
+      bilety: { numery: ["SIM4330277", "SIM4330279"], ref: "2234556/2026", godzina: "17:00", czas: "1 h 30 min", osoby: "5 dorosłych + 2 dzieci zwolnione z opłaty" },
+      uwaga: "Kupione — a więc ten szlak jednak wymaga biletu, mimo że część źródeł podawała go jako bezpłatny."
     }
   ];
   const TRAILS_PLATNE = TRAILS.filter((t) => t.wymaga);
@@ -1225,10 +1228,13 @@
     const dni = dniDoWyjazdu();
     const pilne = dni <= 30;
     const lista = TRAILS_PLATNE.map((t) =>
-      `<li><strong>${t.kod} ${t.nazwa}</strong> — ${(days.find((d) => d.id === t.dayId) || {}).date || t.dayId}, ${t.cena.toFixed(2).replace(".", ",")} € od osoby. ${t.uwaga}</li>`).join("");
-    const naglowek = dni > 0
-      ? (pilne ? `Zostało ${dni} ${dni === 1 ? "dzień" : "dni"} — rezerwujcie teraz` : "Do zarezerwowania przed wyjazdem")
-      : "Bilety miejcie w telefonie przed wejściem na szlak";
+      `<li><strong>${t.kod} ${t.nazwa}</strong> — ${(days.find((d) => d.id === t.dayId) || {}).date || t.dayId}${t.kupiony ? " · <span class=\"tb-ok\">bilety kupione</span>" : `, ${t.cena.toFixed(2).replace(".", ",")} € od osoby`}. ${t.uwaga}${t.rozbieznosc ? ` <span class="tb-warn">⚠️ ${t.rozbieznosc}</span>` : ""}</li>`).join("");
+    const doKupienia = TRAILS_PLATNE.filter((t) => !t.kupiony && !t.warunkowy).length;
+    const naglowek = doKupienia === 0
+      ? "Bilety na dzień górski są kupione — miejcie je offline w telefonie"
+      : (dni > 0
+        ? (pilne ? `Zostało ${dni} ${dni === 1 ? "dzień" : "dni"} — rezerwujcie teraz` : "Do zarezerwowania przed wyjazdem")
+        : "Bilety miejcie w telefonie przed wejściem na szlak");
     return `
       <aside class="trail-alert${pilne ? " is-urgent" : ""}${waga === "day" ? " is-day" : ""}" role="note">
         <p class="ta-head"><span class="ta-ico" aria-hidden="true">🎟️</span><strong>Szlaki trzeba zarezerwować online.</strong> ${naglowek}.</p>
@@ -1244,6 +1250,15 @@
     host.innerHTML = trailAlertHTML("home");
   }
 
+  function biletyHTML(t) {
+    if (!t.bilety) return "";
+    return `<div class="ta-bilet">
+      <p class="tb-head">✅ <strong>Bilety kupione</strong> — rez. ${t.bilety.ref}, wejście ${t.bilety.godzina}, ${t.bilety.czas}, ${t.bilety.osoby}.</p>
+      <p class="tb-nr">Numery: ${t.bilety.numery.map((n) => `<code>${n}</code>`).join(" · ")}</p>
+      ${t.rozbieznosc ? `<p class="tb-uwaga"><strong>⚠️ Do sprawdzenia:</strong> ${t.rozbieznosc}</p>` : ""}
+    </div>`;
+  }
+
   function renderDayTrailAlert(day) {
     const host = document.querySelector("#day-trail-alert");
     if (!host || !day) return;
@@ -1255,6 +1270,7 @@
       <aside class="trail-alert is-day${pilne ? " is-urgent" : ""}" role="note">
         <p class="ta-head"><span class="ta-ico" aria-hidden="true">🎟️</span><strong>${moje.map((t) => t.kod + " " + t.nazwa).join(" i ")}</strong> — wejście tylko z rezerwacją online.</p>
         <ul class="ta-list">${moje.map((t) => `<li>${t.cena.toFixed(2).replace(".", ",")} € od osoby, slot 30-minutowy. ${t.uwaga}</li>`).join("")}</ul>
+        ${moje.map(biletyHTML).join("")}
         <p class="ta-note">Bilet trzeba mieć w telefonie przy wejściu — zasięg w górach bywa zerowy, więc zapiszcie go offline (zrzut ekranu albo PDF).</p>
         <p class="ta-actions"><a class="button" href="${SIMPLIFICA}" target="_blank" rel="noopener">Rezerwacja SIMplifica ↗</a></p>
       </aside>`;

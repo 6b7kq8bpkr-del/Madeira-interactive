@@ -599,3 +599,12 @@ body.lb-open { overflow: hidden; }
   .wx-table td { border: 0; padding: 3px 0 3px 12px; }
   .wx-dobry td:first-child, .wx-sredni td:first-child, .wx-zly td:first-child { box-shadow: inset 4px 0 0 currentColor; }
 }
+
+/* ── Kupione bilety w alercie szlaków ──────────────────────────────── */
+.ta-bilet { margin: 0 0 14px; padding: 13px 15px; border-radius: 14px; background: rgba(255,255,255,.72); border: 1px solid rgba(16,41,44,.1); }
+.tb-head { margin: 0 0 6px; font-size: 14px; line-height: 1.5; }
+.tb-nr { margin: 0; font-size: 13px; color: var(--muted); }
+.tb-nr code { padding: 2px 7px; border-radius: 6px; background: #edf7f4; font-size: 12px; font-weight: 800; }
+.tb-uwaga { margin: 10px 0 0; padding: 10px 12px; border-radius: 10px; background: #fff2ee; color: #7a3325; font-size: 13px; line-height: 1.55; }
+.tb-ok { color: var(--success); font-weight: 800; }
+.tb-warn { display: block; margin-top: 6px; color: #a3402c; font-size: 13px; line-height: 1.5; }
