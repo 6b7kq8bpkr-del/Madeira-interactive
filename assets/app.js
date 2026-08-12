@@ -78,8 +78,8 @@
   ];
   const POI_ATRAKCJE = [
     { n: "Calheta — plaża i marina", lat: 32.721900, lon: -17.177500, d: "26.08 · Ponad 200 m złotego piasku w osłoniętej zatoce, plac zabaw ze zjeżdżalniami, boiska, prysznice. Z mariny obok wypożycza się kajaki i deski SUP." },
-    { n: "Queimadas — Casa das Queimadas", lat: 32.782772, lon: -16.911610, d: "27.08 · Leśny park nad strumieniami z autentycznym domem krytym strzechą, w miejsce komercyjnych domków w Santanie. Płaskie alejki i cień. Wstęp wolny, parking płatny." },
-    { n: "Homem em Pé — Achada do Teixeira", lat: 32.765326, lon: -16.920852, d: "27.08 · Skalna formacja „Stojący Człowiek” tuż przy parkingu, z którego startuje szlak PR1.2 na Pico Ruivo. Widok bez wysiłku, jeszcze przed wejściem." },
+    { n: "Queimadas — Casa das Queimadas", lat: 32.782772, lon: -16.911610, d: "Poza trasą · Leśny park nad strumieniami z autentycznym domem krytym strzechą — znacznie lepszy niż komercyjne domki w Santanie. Wypadł z dnia górskiego przez odległości (z Achada do Teixeira 76 minut). Wstęp wolny, parking płatny." },
+    { n: "Homem em Pé — Achada do Teixeira", lat: 32.765326, lon: -16.920852, d: "27.08 · Skalna formacja „Stojący Człowiek” tuż przy parkingu, z którego startuje szlak PR1.2. Widok bez wysiłku, jeszcze przed wejściem — dobre miejsce na rozprostowanie nóg po 95 minutach jazdy." },
     { n: "Mercado dos Lavradores", lat: 32.648689, lon: -16.903511, d: "21.08 i dowolny poranek · Targ owocowo-rybny w Funchal: owoce tropikalne do degustacji, ryby, kwiaty. Najżywszy przed południem; w środku UauCacau (lokal 19)." },
     { n: "Rua de Santa Maria — Stare Miasto", lat: 32.647907, lon: -16.900414, d: "21, 23 i 25.08 · Najstarsza ulica Funchal ze słynnymi malowanymi drzwiami i tasquinhas. Miejsce na pierwszą kolację i na espetadę." },
     { n: "Teleférico do Funchal — stacja dolna", lat: 32.661339, lon: -16.901209, d: "25.08 · Kolejka linowa z nabrzeża do dzielnicy Monte, ok. 15 minut nad dachami i dolinami. Wjazd i zjazd można kupić osobno." },
@@ -93,7 +93,7 @@
     { n: "Cabo Girão — szklany taras", lat: 32.656481, lon: -17.004453, d: "<b>W planie 24.08 jako propozycja dla chętnych.</b> Jeden z najwyższych klifów Europy, ze szklaną platformą nad przepaścią. Taras jest w pełni zabezpieczony szkłem i barierkami; z małym dzieckiem po prostu za rękę." },
     { n: "Grutas e Centro do Vulcanismo — São Vicente", lat: 32.797545, lon: -17.042060, d: "<b>Plan B na deszcz, 24.08 — dokładnie na trasie.</b> Tunele lawowe sprzed 890 tys. lat i część muzealna o wulkanicznym pochodzeniu wyspy. Pod ziemią pogoda nie ma znaczenia." },
     { n: "Aquário da Madeira — Porto Moniz", lat: 32.867306, lon: -17.165417, d: "<b>Plan B na deszcz, 24.08 — przy naszym lunchu.</b> Akwarium w XIX-wiecznym forcie São João Baptista. Mała skala, ale ratuje przystanek, gdy kąpiel w basenach odpada." },
-    { n: "Parque Temático da Madeira — Santana", lat: 32.802155, lon: -16.885605, d: "<b>Alternatywa dla dzieci, 27.08 — obok naszego lunchu.</b> Pawilony o historii wyspy, labirynt, łódki i place zabaw. Rozsądny plan B, gdyby pogoda odcięła wejście na Pico Ruivo." },
+    { n: "Parque Temático da Madeira — Santana", lat: 32.802155, lon: -16.885605, d: "<b>Alternatywa dla dzieci — poza obecną trasą.</b> Pawilony o historii wyspy, labirynt, łódki i place zabaw. Rozsądny plan B, gdyby pogoda odcięła wejście na Pico Ruivo." },
     { n: "Monte Palace Tropical Garden", lat: 32.674192, lon: -16.902878, d: "<b>Rozszerzenie 25.08, gdy jedziemy na Monte.</b> Ogród na stromym zboczu: japońskie stawy, kolekcja azulejos, egzotyczne drzewa. Sporo schodów, 1,5–2 h." },
     { n: "Quinta do Palheiro Ferreiro", lat: 32.659838, lon: -16.869544, d: "<b>Cichy zamiennik ogrodu botanicznego.</b> Zabytkowy park krajobrazowy nad Funchal, mniej zatłoczony niż Jardim Botânico." },
     { n: "Praia Formosa", lat: 32.639199, lon: -16.951182, d: "<b>Najbliższa plaża od hotelu — na każdy luźny dzień.</b> Najdłuższy odcinek plaż w Funchal: kamieniste i piaszczyste zatoczki z promenadą i barami." },
@@ -224,13 +224,13 @@
       }
     },
     {
-      id: "2026-08-27", date: "27 sierpnia · czwartek", title: "Pico Ruivo i wschód wyspy", short: "Wejście na najwyższy szczyt Madery (PR1.2), leśne Queimadas i levada na Balcões.",
+      id: "2026-08-27", date: "27 sierpnia · czwartek", title: "Pico Ruivo i wschód wyspy", short: "Wejście na najwyższy szczyt Madery (PR1.2), pstrąg w Ribeiro Frio i levada na Balcões.",
       image: commons.picoRuivo, alt: "Szczyt Pico Ruivo — najwyższy punkt Madery", cats: ["aktywny", "wycieczka busem"],
-      intensity: "Aktywna", duration: "10:15–18:45", transport: "Prywatny bus + PR1.2", walking: "PR1.2 ok. 5,6 km + Balcões", kids: "Tak, dobrze chodzą po górach", exposure: "Umiarkowana; PR1.2, bez grani PR1",
-      center: [32.757, -16.925], route: [[32.6384, -16.9353, "Hotel"], [32.7573, -16.9110, "Achada do Teixeira — start PR1.2"], [32.7583, -16.9419, "Pico Ruivo (1862 m)"], [32.8240, -16.8849, "Quinta do Furão — lunch"], [32.7828, -16.9116, "Queimadas"], [32.7353, -16.8865, "Ribeiro Frio"], [32.7419, -16.8905, "Balcões"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Achada+do+Teixeira/Pico+Ruivo/Parque+Florestal+das+Queimadas/Ribeiro+Frio",
-      agenda: [["08:15", "Śniadanie w hotelu", "Bufet 7:30–10:00 — spokojne śniadanie przed wyjściem (godziny potwierdzić w recepcji)."], ["10:15", "Wyjazd z hotelu", "Mercedes Sprinter madeira-in; przejazd na płaskowyż przez Santanę, ok. godziny drogi. Rekomendowana godzina wyjazdu: ok. 08:30 dla chętnych na czystsze niebo na szczycie — cała agenda przesuwa się wtedy o ~1,5 h wcześniej (chmury narastają w ciągu dnia)."], ["11:30", "Achada do Teixeira", "Start szlaku PR1.2 na wysokości ~1590 m; przy parkingu skalna formacja 'Homem em Pé' (Stojący Człowiek)."], ["11:45", "PR1.2 na Pico Ruivo", "Najłatwiejsza droga na najwyższy szczyt wyspy (1862 m). W tempie dorosłego 1,5–2 h w obie strony, ale z dziećmi i przerwami realnie bliżej 3 h — dlatego lunch jest dopiero o 15:00. ~2,8 km w jedną stronę szeroką, kamienną ścieżką ze schodami, ~260 m podejścia. Idziemy w dzień, spokojnie, z przerwami, plus czas na szczycie i zdjęcia."], ["15:00", "Lunch w Quinta do Furão", "Restauracja na skraju klifu w Achada do Gramacho, wśród własnych winnic, z tarasem nad dzikim północnym wybrzeżem — ta z odcinka Makłowicza. Warto zadzwonić rano i zarezerwować stolik."], ["16:30", "Queimadas — las laurowy i Casa das Queimadas", "Leśny park nad strumieniami, z autentycznym domem krytym strzechą — tym prawdziwym, nie sklepikiem z pamiątkami. Płaskie alejki, mostki i cień; dobre miejsce, żeby dojść do siebie po szczycie. Wstęp wolny."], ["17:15", "Ribeiro Frio i Balcões", "W drodze powrotnej łatwa levada do tarasu Balcões (ok. 1,5 km w obie strony) i pstrąg w Ribeiro Frio. To pierwszy punkt do odpuszczenia, jeśli zejście ze szczytu się przeciągnie."], ["18:45", "Powrót", "Wieczór w hotelu."]],
-      tips: ["Słynne trójkątne domki w samej Santanie świadomie pomijamy — zostało ich kilka, działają dziś jako sklepiki z pamiątkami, a przy wejściu zaczepia fotograf inkasujący ok. 10 € za zdjęcie w stroju ludowym. Autentyczny dom kryty strzechą, w lesie i za darmo, stoi w Queimadas. Kto jednak chce zobaczyć te kolorowe, ma je po drodze — postój zajmuje 20 minut.", "Pico Ruivo to najwyższy szczyt Madery (1862 m), a PR1.2 z Achada do Teixeira to jego najłatwiejsza, dobrze utrzymana droga — dużo mniej ekspozycji niż słynna grań PR1 (Arieiro–Ruivo), której nie robimy.", "Robimy to na spokojnie, po śniadaniu, nie o świcie — rano niebo bywa czystsze (chmury narastają w ciągu dnia), a wejście w dzień jest po prostu bezpieczniejsze z dziećmi.", "Na szczycie bywa zimno i wietrznie nawet w sierpniu — ciepłe warstwy, kurtka przeciwwiatrowa, czapki, woda i buty trekkingowe zamiast sneakersów.", "Blisko szczytu są krótkie odsłonięte fragmenty — trzymamy dzieci od strony ściany i idziemy spokojnie.", "Status trasy potwierdzić tuż przed wyjazdem — szlaki w masywie Ruivo były odbudowywane po pożarach z 2024 r. (planowane otwarcie od kwietnia 2026)."],
-      planB: "Przy mgle, deszczu lub silnym wietrze na szczycie rezygnujemy z wejścia na Pico Ruivo i zostajemy niżej: Queimadas, Ribeiro Frio i łatwa levada na Balcões.", gentle: "zamiast pełnego wejścia krótki odcinek PR1.2 od Achada do Teixeira i powrót, z naciskiem na Queimadas i Balcões.",
+      intensity: "Aktywna", duration: "10:15–18:35", transport: "Prywatny bus + PR1.2", walking: "PR1.2 6 km + Balcões 1,5 km", kids: "Tak, dobrze chodzą po górach", exposure: "Umiarkowana; PR1.2, bez grani PR1",
+      center: [32.757, -16.925], route: [[32.6384, -16.9353, "Hotel"], [32.7573, -16.9110, "Achada do Teixeira — start PR1.2"], [32.7583, -16.9419, "Pico Ruivo (1862 m)"], [32.7353, -16.8865, "Ribeiro Frio"], [32.7419, -16.8905, "Balcões"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Hotel+Baia+Azul,+Funchal/Achada+do+Teixeira/Ribeiro+Frio/Bal%C3%A7%C3%B5es",
+      agenda: [["08:15", "Śniadanie w hotelu", "Bufet 7:30–10:00. Dziś warto zabrać ze sobą prowiant — kanapki, owoce, batony — bo pierwszy przystanek z jedzeniem wypada dopiero po zejściu ze szczytu."], ["10:15", "Wyjazd z hotelu", "Do Achada do Teixeira jedzie się <strong>około 95 minut</strong>: autostradą do Santany, a potem wąską, kręta drogą ER218 wysoko w góry. To najdłuższy dojazd całego wyjazdu — kierowca madeira-in potwierdził, że wcześniejsze szacunki były zbyt optymistyczne."], ["11:50", "Achada do Teixeira", "Parking na wysokości ~1590 m. Przy nim skalna formacja 'Homem em Pé'. Chwila na kurtki, buty i toaletę przed wejściem."], ["12:00", "PR1.2 na Pico Ruivo", "Wejście w oknie 12:00–12:30 zgodnie z biletem. Najłatwiejsza droga na najwyższy szczyt wyspy (1862 m): 2,8 km w jedną stronę szeroką, kamienną ścieżką ze schodami. W tempie dorosłego 1,5–2 h w obie strony, z dziećmi i przerwami liczymy 3 h z zapasem. Prowiant zjadamy na szczycie albo przy schronisku."], ["15:15", "Zjazd do Ribeiro Frio", "Około godziny drogi w dół — ta sama wąska droga, tylko w drugą stronę."], ["16:20", "Późny obiad w Ribeiro Frio", "Pstrąg z górskiej hodowli tuż przy szlaku; miejsce proste, ciepłe i dokładnie tam, gdzie trzeba. Godzina bez pośpiechu."], ["17:00", "Vereda dos Balcões", "Wejście zgodnie z biletem na 17:00. Płaska, szeroka levada do tarasu widokowego — 1,5 km w obie stronę, 45–60 minut. Idealna nagroda po szczycie, bo nie wymaga już żadnego wysiłku."], ["18:00", "Powrót do Funchal", "Około 35 minut drogi w dół."], ["18:35", "Hotel", "Wieczór bez planów — po takim dniu nikt nie będzie chciał nigdzie wychodzić."]],
+      tips: ["<strong>Dojazd jest tu głównym ograniczeniem.</strong> Hotel → Achada do Teixeira to około 95 minut, a z powrotem w dół do Ribeiro Frio kolejne 65. Dlatego dzień ma tylko dwa przystanki po zejściu, a nie cztery — kierowca madeira-in zwrócił uwagę, że wcześniejsza wersja była nierealna.", "Bilety na oba szlaki mieć zapisane offline — zrzut ekranu albo PDF. Na Achada do Teixeira i w Ribeiro Frio zasięgu praktycznie nie ma.", "Okno wejścia na PR1.2 trwa 30 minut (12:00–12:30), więc nawet 20 minut opóźnienia na drodze niczego nie psuje. Gdyby zejście się przeciągnęło, bilet na Balcões też ma okno do 17:30.", "Prowiant zabrać z hotelu. Przy Achada do Teixeira nie ma sklepu ani kawiarni, a pierwszy posiłek wypada dopiero o 16:20 w Ribeiro Frio.", "Na wysokości 1600–1860 m bywa znacznie chłodniej i wietrzniej niż na wybrzeżu — warstwy, kurtka przeciwwiatrowa i czapka, nawet przy 26°C w Funchal.", "Blisko szczytu są krótkie odsłonięte fragmenty — dzieci prowadzimy od strony ściany i idziemy spokojnie.", "Kijki trekkingowe przydają się bardziej na zejściu niż na podejściu."],
+      planB: "Przy mgle, deszczu lub silnym wietrze na szczycie rezygnujemy z wejścia i zostajemy niżej: Ribeiro Frio, pstrąg i łatwa levada na Balcões — bilet na Balcões zachowuje ważność niezależnie od tego, czy weszliśmy na szczyt. Wtedy dzień zaczyna się spokojniej i można dorzucić Queimadas albo Santanę.", gentle: "zamiast pełnego wejścia krótki odcinek PR1.2 od Achada do Teixeira i powrót do parkingu — sam widok z Homem em Pé wart jest przyjazdu — a potem spokojnie Ribeiro Frio i Balcões.",
       deepDive: {
         context: "Pico Ruivo (1862 m) to najwyższy szczyt Madery i trzeci co do wysokości w całej Portugalii. Trasa PR1.2 z Achada do Teixeira to najłatwiejsze podejście — szeroka, kamienna ścieżka przez wrzosowiska i relikty lasu laurowego. Sąsiednia grań PR1 z Pico do Arieiro jest znacznie trudniejsza i bardziej odsłonięta; po pożarach z 2024 r. była zamykana i odbudowywana.",
         food: "W Ribeiro Frio warto spróbować świeżego pstrąga z górskiej hodowli, a lunch w Quinta do Furão to kuchnia maderska bez przebrania za międzynarodową: espetada, dorsz, stek i wino z winnic wokół restauracji.",
@@ -854,7 +854,7 @@
   // Miejsca z trzech odcinków "Makłowicz w podróży" o Maderze (odc. 160-162, XII 2023 - I 2024).
   // Każde zderzone z naszą trasą — dopasowanie do dnia jest nasze, nie jego.
   const maklowicz = [
-    { emoji: "🍷", name: "Quinta do Furão", where: "Santana", day: "27.08 — lunch po Pico Ruivo", desc: "Restauracja na skraju klifu w Achada do Gramacho, wśród własnych winnic, z tarasem nad dzikim północnym wybrzeżem. Kuchnia maderska bez przebrania za międzynarodową: espetada, dorsz, stek. Wpada nam idealnie w lunch po zejściu ze szczytu — ale to miejsce, do którego lepiej zadzwonić z wyprzedzeniem." },
+    { emoji: "🍷", name: "Quinta do Furão", where: "Santana", day: "poza trasą — osobny wyjazd", desc: "Restauracja na skraju klifu w Achada do Gramacho, wśród własnych winnic, z tarasem nad dzikim północnym wybrzeżem. Kuchnia maderska bez przebrania za międzynarodową: espetada, dorsz, stek. Wypadła z dnia górskiego, bo z Achada do Teixeira jedzie się tam 70 minut — zostaje jako pomysł na osobny wyjazd na północ, np. w dniu rezerwowym." },
     { emoji: "🥪", name: "Snack Bar Estoril", where: "São Vicente, Rua do Cemitério 22", day: "24.08 — po drodze przez São Vicente", desc: "Przeciwieństwo Quinty: zwykły przydrożny bar przy kościele, gdzie je się prego — kanapkę ze stekiem w bolo do caco z masłem czosnkowym. Tanio, szybko i dokładnie tak, jak jedzą tu miejscowi. Dobry przystanek, gdy dzień na zachodzie się rozciąga." },
     { emoji: "🐟", name: "Peixaria no Mercado", where: "Funchal, Rua Brigadeiro Oudinot 24", day: "dowolny wieczór w Funchal", desc: "Lokal przy samym Mercado dos Lavradores — rybę wybiera się praktycznie z sąsiedniej lady. Tempura z czarnej szabli, lapas, tuńczyk. Czynne 11:00–22:30; na kolację lepiej zarezerwować, bo sala jest mała." },
     { emoji: "🍌", name: "BAM — Muzeum Bananów Madery", where: "Lugar de Baixo, Ponta do Sol", day: "26.08 — dokładnie na naszej trasie", desc: "Leży między Madaleną do Mar a Ponta do Sol, czyli między dwoma naszymi przystankami. Multimedialna wystawa o bananie jako motorze gospodarki wyspy, zwiedzanie plantacji doświadczalnej i szklarni, film 4D. Bar serwuje kanapki i koktajle bananowe. Otwarte codziennie 9:00–18:00 — trzeba tylko wyjść z Rabaçal bez zwłoki." },
@@ -1079,9 +1079,8 @@
     {
       dayId: "2026-08-27", kod: "PR1.2", nazwa: "Vereda do Pico Ruivo",
       start: "Achada do Teixeira", cena: 4.5, wymaga: true, platnych: 5, kupiony: true,
-      bilety: { numery: ["SIM4330276", "SIM4330278"], ref: "2234556/2026", godzina: "11:30", czas: "3 h", osoby: "5 dorosłych + 2 dzieci zwolnione z opłaty" },
-      rozbieznosc: "Bilety zostały wystawione na <strong>PR1.1 Vereda da Ilha</strong>, a nie na PR1.2. To inny szlak: 8,2 km z wioski Ilha (400 m) na szczyt, z przewyższeniem około 1376 m — zamiast 6 km i 300 m podejścia z Achada do Teixeira. Godzina, liczba osób i data się zgadzają, ale nazwa trasy nie.",
-      uwaga: "Idzie cała siódemka. Na Achada do Teixeira jesteśmy 11:30, marsz zaczynamy 11:45 — slot na bilecie to 11:30."
+      bilety: { godzina: "12:00–12:30", czas: "3 h", osoby: "5 dorosłych + 2 dzieci zwolnione z opłaty" },
+      uwaga: "Idzie cała siódemka. Na Achada do Teixeira jesteśmy około 11:50 — okno wejścia 12:00–12:30 daje 40 minut zapasu na drogę i postój."
     },
     {
       dayId: "2026-08-29", kod: "PR6", nazwa: "Levada das 25 Fontes",
@@ -1092,7 +1091,7 @@
       dayId: "2026-08-27", kod: "PR11", nazwa: "Vereda dos Balcões",
       start: "Ribeiro Frio", cena: 4.5, wymaga: true, platnych: 5, kupiony: true,
       bilety: { numery: ["SIM4330277", "SIM4330279"], ref: "2234556/2026", godzina: "17:00", czas: "1 h 30 min", osoby: "5 dorosłych + 2 dzieci zwolnione z opłaty" },
-      uwaga: "Kupione — a więc ten szlak jednak wymaga biletu, mimo że część źródeł podawała go jako bezpłatny."
+      uwaga: "Wejście 17:00, okno do 17:30 — czyli nawet przy wolniejszym zejściu ze szczytu zdążymy."
     }
   ];
   const TRAILS_PLATNE = TRAILS.filter((t) => t.wymaga);
@@ -1253,8 +1252,8 @@
   function biletyHTML(t) {
     if (!t.bilety) return "";
     return `<div class="ta-bilet">
-      <p class="tb-head">✅ <strong>Bilety kupione</strong> — rez. ${t.bilety.ref}, wejście ${t.bilety.godzina}, ${t.bilety.czas}, ${t.bilety.osoby}.</p>
-      <p class="tb-nr">Numery: ${t.bilety.numery.map((n) => `<code>${n}</code>`).join(" · ")}</p>
+      <p class="tb-head">✅ <strong>Bilety kupione</strong>${t.bilety.ref ? ` — rez. ${t.bilety.ref}` : ""} — wejście ${t.bilety.godzina}, ${t.bilety.czas}, ${t.bilety.osoby}.</p>
+      ${t.bilety.numery ? `<p class="tb-nr">Numery: ${t.bilety.numery.map((n) => `<code>${n}</code>`).join(" · ")}</p>` : ""}
       ${t.rozbieznosc ? `<p class="tb-uwaga"><strong>⚠️ Do sprawdzenia:</strong> ${t.rozbieznosc}</p>` : ""}
     </div>`;
   }
@@ -1745,22 +1744,27 @@
   }
 
   const lightbox = setupLightbox();
-  zastosujZapisanyUklad();
-  renderTopNav();
-  renderIndex();
-  renderDay();
-  renderPrint();
-  renderPractical();
-  renderFood();
-  renderMapPage();
-  renderTrailAlert();
-  renderWeather();
-  renderWeatherPlan();
-  renderCountdown();
-  renderFocusDay();
-  setupSwap();
-  setupCalendarExport();
-  registerOffline();
-  setupScrollUx();
-  renderBackToTop();
+  // Jeden błąd w którymkolwiek module nie może wygasić całej strony.
+  [
+    ["zastosujZapisanyUklad", zastosujZapisanyUklad],
+    ["renderTopNav", renderTopNav],
+    ["renderIndex", renderIndex],
+    ["renderDay", renderDay],
+    ["renderPrint", renderPrint],
+    ["renderPractical", renderPractical],
+    ["renderFood", renderFood],
+    ["renderMapPage", renderMapPage],
+    ["renderTrailAlert", renderTrailAlert],
+    ["renderWeather", renderWeather],
+    ["renderWeatherPlan", renderWeatherPlan],
+    ["renderCountdown", renderCountdown],
+    ["renderFocusDay", renderFocusDay],
+    ["setupSwap", setupSwap],
+    ["setupCalendarExport", setupCalendarExport],
+    ["registerOffline", registerOffline],
+    ["setupScrollUx", setupScrollUx],
+    ["renderBackToTop", renderBackToTop]
+  ].forEach(([nazwa, fn]) => {
+    try { fn(); } catch (e) { console.error("Moduł " + nazwa + " zgłosił błąd:", e); }
+  });
 })();
