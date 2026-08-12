@@ -59,7 +59,7 @@
   // Checklista przed wyjazdem — JEDNO źródło: renderuje i stronę główną, i PDF
   const CHECKLIST = [
     ["flights", "Potwierdzone numery i godziny obu lotów"],
-    ["trails", "Bilet SIMplifica na PR1.2 Pico Ruivo (27.08) dla wszystkich; PR6 25 Fontes tylko jeśli decydujemy się na wariant 29.08"],
+    ["trails", "SIMplifica na 27.08: PR1.2 Pico Ruivo slot 11:30–12:00 dla 7 osób (5 płatnych) + sprawdzić, czy PR11 Balcões też wymaga biletu"],
     ["p8", "Rezerwacja APCOA i sektor P7/8"],
     ["transfer", "Potwierdzić z madeira-in nową godzinę odbioru 30.08 (08:30 zamiast 08:45)"],
     ["cash", "Gotówka: 90 € na transfery + drobne na minibus w Rabaçal; na wycieczki busem po 220 € za dzień"],
@@ -735,7 +735,7 @@
           <li><strong>Transfery lotniskowe:</strong> madeira-in (Rui Nóbrega), Mercedes Sprinter, 45 EUR w jedną stronę — <strong>90 EUR razem, PŁATNE GOTÓWKĄ przy przyjeździe</strong>; tel. kierowcy +351 917 260 690, mail transfers.madeira@gmail.com. Po wylądowaniu dzwonimy do Rui z kompletem bagaży, odbiór przy kawiarni obok hali przylotów</li>
           <li><strong>Wycieczki busem:</strong> ad hoc z madeira-in, 220 EUR/dzień — orientacyjnie 22, 24 i 27.08</li>
           <li><strong>Gotówka:</strong> 90 € transfery (Rui, przy przyjeździe) · 220 €/dzień za wycieczki busem, jeśli je zamówimy · ok. 8 €/os. na minibus w Rabaçal przy wariancie z levadą. Reszta wyspy na kartę.</li>
-            <li><strong>Szlaki:</strong> PR1.2 Pico Ruivo 27.08 — cała grupa, bilet SIMplifica 4,50 €/os., okno 30 min, mieć offline. PR6 25 Fontes tylko jako wariant 29.08 dla chętnych (wtedy też minibus z ER105, ok. 8 €/os. gotówką)</li>
+            <li><strong>Szlaki 27.08:</strong> PR1.2 Pico Ruivo — slot 11:30–12:00, 7 osób zgłoszonych, 5 płatnych po 4,50 € = 22,50 €. PR11 Balcões (ok. 17:00) — sprawdzić przy zakupie, czy też wymaga biletu. Mieć oba offline. PR6 25 Fontes tylko jako wariant 29.08 (wtedy minibus z ER105, ok. 8 €/os. gotówką)</li>
             <li><strong>Auto:</strong> parking APCOA P7/8 BER (Terminal T1&amp;T2), rez. 8320774, tablica EL2GE01, wjazd 19.08 16:00 → wyjazd 30.08 18:00, 144 € zapłacone; Brunolf-Baade-Straße 1/2</li>
           <li><strong>Nocleg 19.08:</strong> IntercityHotel Berlin Airport BER Terminal 1+2, Willy-Brandt-Platz 5, tel. +49 30 536 531 0 — 2 × Business Twin, potwierdzenia 4RGPYJYD i 4GMN9X9N, 166,78 € bez śniadania, City Ticket w cenie; zameldowanie od 15:00, wymeldowanie do 12:00</li>
           <li><strong>Rytm dnia:</strong> z hotelu wychodzimy standardowo o 10:15; wcześniej tylko pod samolot (20.08 i 30.08)</li>
@@ -1079,7 +1079,7 @@
     {
       dayId: "2026-08-27", kod: "PR1.2", nazwa: "Vereda do Pico Ruivo",
       start: "Achada do Teixeira", cena: 4.5, wymaga: true, platnych: 5,
-      uwaga: "Idzie cała siódemka; wchodzimy o 11:00 — slot rezerwujemy na ten przedział."
+      uwaga: "Idzie cała siódemka. Na Achada do Teixeira jesteśmy 11:30, marsz zaczynamy 11:45 — bierzemy slot 11:30–12:00."
     },
     {
       dayId: "2026-08-29", kod: "PR6", nazwa: "Levada das 25 Fontes",
@@ -1088,8 +1088,8 @@
     },
     {
       dayId: "2026-08-27", kod: "PR11", nazwa: "Vereda dos Balcões",
-      start: "Ribeiro Frio", cena: 0, wymaga: false,
-      uwaga: "Bez opłaty i bez rezerwacji — levada na Balcões zostaje otwarta."
+      start: "Ribeiro Frio", cena: 4.5, wymaga: true, platnych: 5,
+      uwaga: "Źródła są sprzeczne — część podaje ten szlak jako bezpłatny, część jako objęty opłatą od 2026 roku. Przy mandacie 250 € nie ma sensu ryzykować: sprawdzić przy zakupie i kupić, jeśli SIMplifica go wymaga. Slot ok. 17:00–17:30."
     }
   ];
   const TRAILS_PLATNE = TRAILS.filter((t) => t.wymaga);
