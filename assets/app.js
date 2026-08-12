@@ -338,7 +338,8 @@
     if (!grid) return;
     grid.innerHTML = days.map((day, i) => {
       const lvl = INTENSITY[day.intensity] || "y";
-      return `<a class="day-card" href="days/${day.id}.html"><span class="day-num">Dzień ${i + 1}</span><span class="idot ${lvl}" title="Dzień ${INTENSITY_LABEL[lvl]}"></span>${imageMarkup(day, false)}<div class="day-card-content"><small>${day.date}</small><h3>${day.title}</h3><p>${day.short}</p></div></a>`;
+      const zamek = LOCKED[day.id] ? `<span class="day-lock" title="${escapeHtml(LOCKED[day.id])}" aria-hidden="true">🔒</span>` : "";
+      return `<a class="day-card" data-day-id="${day.id}" href="days/${day.id}.html">${zamek}<span class="day-num">Dzień ${i + 1}</span><span class="idot ${lvl}" title="Dzień ${INTENSITY_LABEL[lvl]}"></span>${imageMarkup(day, false)}<div class="day-card-content"><small>${day.date}</small><h3>${day.title}</h3><p>${day.short}</p></div></a>`;
     }).join("");
 
     renderHighlights();
@@ -1093,6 +1094,118 @@
   ];
   const TRAILS_PLATNE = TRAILS.filter((t) => t.wymaga);
 
+  // ── Przestawianie dni ─────────────────────────────────────────────────
+  // Treść dnia da się przenieść na inną datę. Wyjątkiem są dni przypięte
+  // do lotu, rezerwacji albo biletu kupionego na konkretny termin.
+  const LOCKED = {
+    "2026-08-19": "dojazd do Berlina — data stała",
+    "2026-08-20": "lot EJU5333 o 07:00",
+    "2026-08-26": "bilet na PR1.2 kupiony na tę datę",
+    "2026-08-28": "rezerwacja rejsu",
+    "2026-08-29": "termin zapasowy rejsu",
+    "2026-08-30": "lot powrotny EJU5334"
+  };
+  const SWAP_KEY = "madera-uklad-dni-v1";
+
+  function wczytajUklad() {
+    try {
+      const s = JSON.parse(localStorage.getItem(SWAP_KEY));
+      return s && typeof s === "object" ? s : {};
+    } catch (e) { return {}; }
+  }
+
+  function zapiszUklad(u) {
+    try { localStorage.setItem(SWAP_KEY, JSON.stringify(u)); } catch (e) {}
+  }
+
+  // Zamienia treść dwóch dni, zostawiając na miejscu datę i identyfikator.
+  function przeniesTresc(a, b) {
+    const stale = ["id", "date"];
+    const tmp = {};
+    Object.keys(a).forEach((k) => { if (!stale.includes(k)) { tmp[k] = a[k]; delete a[k]; } });
+    Object.keys(b).forEach((k) => { if (!stale.includes(k)) { a[k] = b[k]; delete b[k]; } });
+    Object.keys(tmp).forEach((k) => { b[k] = tmp[k]; });
+  }
+
+  function zamienDni(idA, idB, zapisz) {
+    const a = days.find((d) => d.id === idA);
+    const b = days.find((d) => d.id === idB);
+    if (!a || !b || LOCKED[idA] || LOCKED[idB]) return false;
+    przeniesTresc(a, b);
+    // struktury kluczowane datą jadą razem z treścią
+    [FLEX, WEATHER_CRITICAL].forEach((m) => {
+      const t = m[idA]; 
+      if (m[idB] === undefined) delete m[idA]; else m[idA] = m[idB];
+      if (t === undefined) delete m[idB]; else m[idB] = t;
+    });
+    [...highlights, ...TRAILS].forEach((x) => {
+      if (x.dayId === idA) x.dayId = idB;
+      else if (x.dayId === idB) x.dayId = idA;
+    });
+    if (zapisz) {
+      const u = wczytajUklad();
+      u.pary = (u.pary || []).concat([[idA, idB]]);
+      zapiszUklad(u);
+    }
+    return true;
+  }
+
+  function zastosujZapisanyUklad() {
+    const u = wczytajUklad();
+    (u.pary || []).forEach(([a, b]) => zamienDni(a, b, false));
+    return (u.pary || []).length;
+  }
+
+  function resetUkladu() {
+    try { localStorage.removeItem(SWAP_KEY); } catch (e) {}
+    window.location.reload();
+  }
+
+  function setupSwap() {
+    const host = document.querySelector("#swap-bar");
+    if (!host) return;
+    const zmian = (wczytajUklad().pary || []).length;
+    host.innerHTML = `
+      <button class="button secondary" type="button" id="swap-toggle">⇄ Przestaw dni</button>
+      ${zmian ? `<span class="swap-info">Kolejność zmieniona ręcznie (${zmian}×) <button class="swap-reset" type="button" id="swap-reset">przywróć pierwotną</button></span>` : ""}`;
+    const reset = document.querySelector("#swap-reset");
+    if (reset) reset.addEventListener("click", resetUkladu);
+
+    let tryb = false, pierwszy = null;
+    const grid = document.querySelector("#day-grid");
+    document.querySelector("#swap-toggle").addEventListener("click", () => {
+      tryb = !tryb; pierwszy = null;
+      document.body.classList.toggle("swap-mode", tryb);
+      document.querySelector("#swap-toggle").textContent = tryb ? "✕ Zakończ przestawianie" : "⇄ Przestaw dni";
+      grid.querySelectorAll(".day-card").forEach((c) => {
+        const id = c.dataset.dayId;
+        c.classList.remove("is-picked");
+        if (LOCKED[id]) { c.classList.toggle("is-locked", tryb); c.title = tryb ? "Nie do przestawienia: " + LOCKED[id] : ""; }
+      });
+      if (!tryb) return;
+      const info = document.querySelector(".swap-hint");
+      if (!info) {
+        const p = document.createElement("p");
+        p.className = "swap-hint";
+        p.innerHTML = "Kliknij dwa dni, żeby zamienić je miejscami. Dni z kłódką są przypięte do lotu, rezerwacji albo biletu i nie da się ich ruszyć.";
+        grid.parentElement.insertBefore(p, grid);
+      }
+    });
+
+    grid.addEventListener("click", (e) => {
+      if (!tryb) return;
+      const karta = e.target.closest(".day-card");
+      if (!karta) return;
+      e.preventDefault();
+      const id = karta.dataset.dayId;
+      if (LOCKED[id]) return;
+      if (!pierwszy) { pierwszy = id; karta.classList.add("is-picked"); return; }
+      if (pierwszy === id) { pierwszy = null; karta.classList.remove("is-picked"); return; }
+      if (zamienDni(pierwszy, id, true)) window.location.reload();
+    });
+  }
+
+
   function trailsKoszt() {
     // dzieci poniżej 12 lat bezpłatnie, ale muszą być zgłoszone w rezerwacji
     return TRAILS_PLATNE.reduce((s, t) => s + t.cena * (t.platnych || 5), 0);
@@ -1551,6 +1664,7 @@
   }
 
   const lightbox = setupLightbox();
+  zastosujZapisanyUklad();
   renderTopNav();
   renderIndex();
   renderDay();
@@ -1562,6 +1676,7 @@
   renderWeather();
   renderCountdown();
   renderFocusDay();
+  setupSwap();
   setupCalendarExport();
   registerOffline();
   setupScrollUx();

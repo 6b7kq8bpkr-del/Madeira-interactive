@@ -563,3 +563,16 @@ body.lb-open { overflow: hidden; }
 .pak-slot span { color: var(--muted); font-size: 13px; font-weight: 900; }
 .map-wait { margin: 0; padding: 14px 16px; color: var(--muted); text-align: center; font-weight: 700; background: #edf7f4; }
 @media (max-width: 760px) { .pak-slot { grid-template-columns: 92px 1fr; } .pak-szczegol { padding: 15px; } }
+
+/* ── Przestawianie dni ─────────────────────────────────────────────── */
+.swap-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 16px; }
+.swap-info { color: var(--muted); font-size: 13px; font-weight: 700; }
+.swap-reset { border: 0; background: none; padding: 0; color: var(--coral); font-weight: 800; text-decoration: underline; cursor: pointer; font-size: 13px; }
+.swap-hint { margin: 0 0 14px; padding: 12px 15px; border-radius: 14px; background: #fff6dc; color: #6b5312; font-size: 14px; line-height: 1.55; }
+.day-card { position: relative; }
+.day-lock { position: absolute; z-index: 3; right: 12px; top: 12px; width: 28px; height: 28px; display: none; place-items: center; border-radius: 50%; background: rgba(255,255,255,.94); box-shadow: 0 3px 10px rgba(7,37,40,.22); font-size: 13px; }
+.swap-mode .day-lock { display: grid; }
+.swap-mode .day-card { cursor: pointer; }
+.swap-mode .day-card:not(.is-locked) { outline: 2px dashed var(--sea); outline-offset: -4px; }
+.swap-mode .day-card.is-locked { opacity: .55; cursor: not-allowed; }
+.swap-mode .day-card.is-picked { outline: 3px solid var(--coral); outline-offset: -4px; box-shadow: 0 14px 34px rgba(217,104,79,.28); }
