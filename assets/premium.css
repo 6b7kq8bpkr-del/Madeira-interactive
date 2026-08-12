@@ -543,3 +543,23 @@ body.lb-open { overflow: hidden; }
 .dg-slot p { margin: 3px 0 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
 .dg-foot { margin: 16px 0 0; padding: 12px 14px; border-radius: 14px; background: #eef4f3; color: var(--muted); font-size: 14px; line-height: 1.6; }
 @media (max-width: 760px) { .dg-track { padding: 15px; } .dg-slot { grid-template-columns: 50px 1fr; } }
+
+/* ── Pakiety dnia ──────────────────────────────────────────────────── */
+.pak-grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); margin-top: 6px; }
+.pak-card { display: flex; flex-direction: column; align-items: flex-start; gap: 7px; min-height: 118px; padding: 15px; border: 1px solid var(--line); border-radius: 16px; background: var(--panel); text-align: left; cursor: pointer; transition: border-color .15s ease, box-shadow .15s ease, transform .12s ease; }
+.pak-card:hover { border-color: var(--sea); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(8,45,50,.10); }
+.pak-card.is-on { border-color: var(--sea); box-shadow: inset 0 0 0 2px var(--sea), 0 10px 24px rgba(8,45,50,.12); background: #f2fbf8; }
+.pak-ico { font-size: 22px; line-height: 1; }
+.pak-nazwa { font-weight: 900; font-size: 15px; color: var(--sea-dark); }
+.pak-meta { display: flex; flex-wrap: wrap; gap: 5px; }
+.pak-meta em { padding: 3px 8px; border-radius: 999px; background: #eef4f3; color: var(--muted); font-size: 11px; font-style: normal; font-weight: 800; }
+.pak-card.is-on .pak-meta em { background: #dcefeb; color: #28524d; }
+.pak-szczegol { margin-top: 18px; padding: 18px; border-radius: 16px; background: #edf7f4; }
+.pak-szczegol h3 { margin: 0 0 8px; font-size: 19px; }
+.pak-opis { margin: 0 0 14px; color: var(--muted); line-height: 1.6; }
+.pak-plan { display: grid; gap: 8px; }
+.pak-slot { display: grid; grid-template-columns: 110px 1fr; gap: 10px; padding: 8px 0; border-top: 1px dashed rgba(16,41,44,.16); }
+.pak-slot:first-child { border-top: 0; }
+.pak-slot span { color: var(--muted); font-size: 13px; font-weight: 900; }
+.map-wait { margin: 0; padding: 14px 16px; color: var(--muted); text-align: center; font-weight: 700; background: #edf7f4; }
+@media (max-width: 760px) { .pak-slot { grid-template-columns: 92px 1fr; } .pak-szczegol { padding: 15px; } }

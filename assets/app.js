@@ -252,12 +252,49 @@
       }
     },
     {
-      id: "2026-08-29", date: "29 sierpnia · sobota", title: "Dzień rezerwowy", short: "Machico, Funchal, Caminho Real na południowym zachodzie albo powrót do ulubionego miejsca.",
+      id: "2026-08-29", date: "29 sierpnia · sobota", title: "Dzień rezerwowy", short: "Pięć gotowych pakietów do wyboru — od rejsu z terminu zapasowego po spokojny Funchal. Decyzja zapada rano.",
       image: commons.machico, alt: "Zatoka i plaża w Machico na Maderze", cats: ["spokojny", "odpoczynek"],
-      intensity: "Do wyboru", duration: "3–7 h", transport: "Autobus / taxi / bus", walking: "2–5 km", kids: "Tak, sprawnie chodzą", exposure: "Nisko; Caminho Real dla chętnych",
-      center: [32.7163, -16.7653], route: [[32.6384, -16.9353, "Hotel"], [32.6454, -16.9096, "Marina — termin zapasowy rejsu"], [32.7586, -17.1313, "Wariant: Rabaçal — 25 Fontes"], [32.7163, -16.7653, "Wariant: Machico"], [32.6496, -16.9080, "Wariant: Funchal"], [32.7472, -17.2258, "Wariant SW: Caminho Real (Paúl do Mar)"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Funchal/Machico",
-      agenda: [["08:00", "Śniadanie w hotelu", "Bufet śniadaniowy w hotelu, zwykle 7:30–10:00 (godziny potwierdzić w recepcji)."], ["rano", "Termin zapasowy rejsu", "Jeżeli rejs z 28 sierpnia odwołano z powodu morza, dziś ma pierwszeństwo — o godzinie ustalonej z operatorem."], ["10:15", "Wybieramy kierunek dnia", "Jeden z czterech wariantów poniżej — decyzja zapada przy śniadaniu, po prognozie i po tym, na co grupa ma ochotę. Nie robimy ich po kolei."], ["do wyboru", "Levada das 25 Fontes (PR6)", "Dla chętnych na jeszcze jedną porządną trasę: 11 km od parkingu przy ER105, w większości płasko, przez las laurowy do laguny zasilanej dwudziestoma pięcioma źródłami. Wymaga biletu SIMplifica kupionego z wyprzedzeniem i drobnych na minibus w dół do Rabaçal House. <strong>Uwaga na następny dzień:</strong> 30 sierpnia zaczyna się transferem o 8:30 i kończy jazdą z Berlina do Łodzi, więc 11 km dzień wcześniej to świadoma decyzja. Kto zostaje, ma Funchal albo plażę."], ["do wyboru", "Machico", "Plaża i płaska promenada — wariant, jeśli rejs odbył się poprzedniego dnia."], ["do wyboru", "Funchal", "Ostatnie zakupy, kawiarnia i miejsce pominięte wcześniej."], ["do wyboru", "Caminho Real do Paúl do Mar", "Wariant SW dla chętnych na historyczną, wykutą w klifie królewską drogę (PR19). Domyślnie bezpiecznie: górny punkt widokowy z Prazeres na zygzak schodzący do morza i widok na Jardim do Mar. Pełny, stromy zjazd ~500 m (ok. 1,5 h) tylko dla chętnych — bus odbiera na dole w Paúl do Mar; z najmłodszym zostajemy przy górnym punkcie widokowym."], ["do wyboru", "Ulubione miejsce", "Powtórka bez poczucia, że trzeba zobaczyć coś nowego."], ["17:00", "Pakowanie", "Przygotować dokumenty, bagaże i ubrania na powrót."]],
+      intensity: "Do wyboru", duration: "zależnie od pakietu", transport: "Autobus / taxi / bus", walking: "zależnie od pakietu", kids: "Tak, sprawnie chodzą", exposure: "Nisko; Caminho Real dla chętnych",
+      center: [32.7163, -16.7653], route: [[32.6384, -16.9353, "Hotel Baía Azul"]], google: "https://www.google.com/maps/dir/Funchal/Machico",
+      agenda: [["08:00", "Śniadanie w hotelu", "Bufet śniadaniowy w hotelu, zwykle 7:30–10:00 (godziny potwierdzić w recepcji)."], ["przy śniadaniu", "Wybieramy pakiet dnia", "To jedyny dzień bez ustalonego planu. Cztery gotowe pakiety poniżej — każdy z własną trasą, czasem i mapą. Decyzja zapada rano, po prognozie i po tym, na co grupa ma ochotę."], ["cały dzień", "Realizujemy wybrany pakiet", "Szczegóły i mapa pojawiają się po wybraniu wariantu."], ["17:00", "Pakowanie", "Przygotować dokumenty, bagaże i ubrania na powrót; wieczorem tylko kolacja i wczesny sen."]],
       tips: ["29 sierpnia jest terminem zapasowym rejsu — nie rezerwować na rano innej bezzwrotnej atrakcji.", "Jeśli rejs odbył się wcześniej, planujemy 2–5 km spaceru w Machico albo Funchal; kijki według nawierzchni.", "Caminho Real do Paúl do Mar (PR19) to opcja tylko przy dobrej pogodzie, suchej nawierzchni i chęciach — pełny zjazd jest stromy i miejscami odsłonięty, więc bezpieczną wersją dla wszystkich jest sam górny punkt widokowy. Dojazd na SW to ~1 h w jedną stronę, a bus odbiera schodzących na dole.", "Machico daje aktywny, nisko położony wariant bez górskiej ekspozycji.", "Wieczorem zakończyć pakowanie i potwierdzić transfer."],
+      packages: [
+        {
+          id: "rejs", nazwa: "Termin zapasowy rejsu", ikona: "🐬",
+          meta: ["2–3 h na wodzie", "ma pierwszeństwo", "rezerwacja z 28.08"],
+          opis: "Jeżeli rejs z 28 sierpnia odwołano z powodu stanu morza, dziś ma pierwszeństwo przed wszystkim innym — to ostatnia szansa w tym wyjeździe. Reszta dnia układa się wtedy sama: powrót do hotelu, basen i spokojne pakowanie.",
+          route: [[32.6384, -16.9353, "Hotel Baía Azul"], [32.6446, -16.9111, "Marina w Funchal"], [32.6100, -16.9200, "Obszar obserwacji"], [32.6446, -16.9111, "Powrót do mariny"], [32.6384, -16.9353, "Hotel"]],
+          punkty: [["09:30", "Taxi do mariny"], ["10:00", "Rejs na delfiny i wieloryby"], ["13:00", "Powrót i lekki lunch"]]
+        },
+        {
+          id: "levada", nazwa: "Levada das 25 Fontes", ikona: "🥾",
+          meta: ["11 km od parkingu", "3–4 h marszu", "bilet PR6 wymagany"],
+          opis: "Dla chętnych na jeszcze jedną porządną trasę: las laurowy UNESCO i laguna zasilana dwudziestoma pięcioma źródłami, w większości płasko. Wymaga biletu SIMplifica kupionego wcześniej na tę datę i drobnych na minibus w dół do Rabaçal House. Uwaga na jutro — 30 sierpnia zaczyna się transferem o 8:30 i kończy jazdą z Berlina do Łodzi.",
+          route: [[32.6384, -16.9353, "Hotel Baía Azul"], [32.7586, -17.1313, "Rabaçal — start levady"], [32.7520, -17.1420, "Laguna 25 Fontes"], [32.6384, -16.9353, "Hotel"]],
+          punkty: [["09:00", "Wyjazd — Rabaçal jest daleko"], ["10:30", "Minibus w dół i start levady"], ["14:30", "Powrót"], ["16:30", "Hotel"]]
+        },
+        {
+          id: "machico", nazwa: "Machico i wschód", ikona: "🏖️",
+          meta: ["ok. 2 km spacerem", "pół dnia", "plaża i promenada"],
+          opis: "Najspokojniejszy z aktywnych wariantów: piaszczysta plaża w Machico, płaska promenada wzdłuż zatoki i lunch w miasteczku. Blisko lotniska, więc dobrze wpisuje się w dzień przed powrotem.",
+          route: [[32.6384, -16.9353, "Hotel Baía Azul"], [32.7163, -16.7653, "Machico — plaża"], [32.6979, -16.7745, "Santa Cruz (opcjonalnie)"], [32.6384, -16.9353, "Hotel"]],
+          punkty: [["10:15", "Wyjazd z hotelu"], ["11:00", "Plaża i promenada w Machico"], ["13:30", "Lunch"], ["15:30", "Powrót"]]
+        },
+        {
+          id: "funchal", nazwa: "Funchal na spokojnie", ikona: "🛍️",
+          meta: ["wszystko pieszo", "bez dojazdów", "zakupy i kawiarnie"],
+          opis: "Bez wsiadania do niczego: ostatnie zakupy, targ, kawiarnia i to jedno miejsce, które wcześniej się nie zmieściło. Najlepszy wybór, jeśli grupa ma dość jeżdżenia albo pogoda jest niepewna.",
+          route: [[32.6384, -16.9353, "Hotel Baía Azul"], [32.6487, -16.9035, "Mercado dos Lavradores"], [32.6479, -16.9004, "Rua de Santa Maria"], [32.6446, -16.9111, "Marina i promenada"], [32.6384, -16.9353, "Hotel"]],
+          punkty: [["10:15", "Wyjście z hotelu"], ["11:00", "Targ i stare miasto"], ["13:30", "Lunch przy marinie"], ["16:00", "Powrót"]]
+        },
+        {
+          id: "caminho", nazwa: "Caminho Real do Paúl do Mar", ikona: "⛰️",
+          meta: ["zejście ok. 500 m", "1,5 h w dół", "potrzebny odbiór busem"],
+          opis: "Historyczna droga królewska wykuta w pionowym klifie. Bezpieczna wersja dla wszystkich to sam górny punkt widokowy w Prazeres z widokiem na zygzak schodzący do oceanu. Pełne zejście tylko dla chętnych, przy suchej nawierzchni — i pod warunkiem, że bus odbiera na dole w Paúl do Mar, bo podejście z powrotem to zupełnie inna historia.",
+          route: [[32.6384, -16.9353, "Hotel Baía Azul"], [32.7539, -17.2023, "Prazeres — punkt widokowy"], [32.7622, -17.2261, "Paúl do Mar (odbiór busem)"], [32.6384, -16.9353, "Hotel"]],
+          punkty: [["10:15", "Wyjazd z hotelu"], ["11:30", "Prazeres — punkt widokowy"], ["12:00", "Zejście dla chętnych"], ["16:00", "Powrót"]]
+        }
+      ],
       planB: "Hotel i Funchal. Najważniejszym zadaniem dnia jest spokojne przygotowanie powrotu.", gentle: "wybieramy najbliższy, nisko położony wariant (bez pełnego zjazdu Caminho Real) i kończymy dzień wcześnie.",
       deepDive: {
         context: "Machico było pierwszą stolicą Madery po odkryciu wyspy przez João Gonçalvesa Zarco w 1419 roku. Dziś to spokojne miasteczko z częściowo dosypywaną, piaszczystą plażą i płaską nadmorską promenadą. Na przeciwległym, południowo-zachodnim krańcu wyspy dawne caminhos reais — królewskie drogi — łączyły wioski przed powstaniem dzisiejszych dróg; najbardziej znany z nich, Caminho Real do Paúl do Mar, jest wykuty w pionowym klifie.",
@@ -378,6 +415,18 @@
         maxZoom: 19,
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
       }).addTo(routeMapInstance);
+      if (day.packages && day.route.length < 2) {
+        // dzień oparty na pakietach — mapa czeka na wybór wariantu
+        routeMapInstance.setView([day.route[0][0], day.route[0][1]], 11);
+        if (!document.querySelector(".map-wait")) {
+          const info = document.createElement("p");
+          info.className = "map-wait";
+          info.textContent = "Wybierz pakiet powyżej, aby zobaczyć trasę.";
+          element.parentElement.appendChild(info);
+        }
+        setMapInteractions(routeMapInstance, shell.classList.contains("is-active"));
+        return;
+      }
       const coordinates = day.route.map((stop) => [stop[0], stop[1]]);
       L.polyline(coordinates, { color: "#d9684f", weight: 5, opacity: .9, lineJoin: "round" }).addTo(routeMapInstance);
       day.route.forEach((stop, index) => {
@@ -457,6 +506,92 @@
     initOverviewMap();
   }
 
+  // ── Pakiety dnia (dzień bez ustalonego planu) ─────────────────────────
+  let wybranyPakiet = null;
+
+  function packagesHTML(day) {
+    if (!day.packages) return "";
+    return `
+      <section class="section card day-packages" aria-labelledby="pak-title">
+        <div class="card-body">
+          <h2 id="pak-title">Pakiety na ten dzień</h2>
+          <p class="section-copy">Wybierz jeden — agenda, trasa i mapa poniżej dopasują się do niego. Bez wyboru mapa zostaje pusta, bo warianty prowadzą w przeciwne końce wyspy.</p>
+          <div class="pak-grid" role="radiogroup" aria-label="Wybór pakietu dnia">
+            ${day.packages.map((p) => `
+              <button class="pak-card" type="button" role="radio" aria-checked="false" data-pak="${p.id}">
+                <span class="pak-ico" aria-hidden="true">${p.ikona}</span>
+                <span class="pak-nazwa">${p.nazwa}</span>
+                <span class="pak-meta">${p.meta.map((m) => `<em>${m}</em>`).join("")}</span>
+              </button>`).join("")}
+          </div>
+          <div class="pak-szczegol" id="pak-szczegol" hidden></div>
+        </div>
+      </section>`;
+  }
+
+  function pokazPakiet(day, id) {
+    const p = day.packages.find((x) => x.id === id);
+    const box = document.querySelector("#pak-szczegol");
+    if (!p || !box) return;
+    wybranyPakiet = id;
+    try { localStorage.setItem("madera-pakiet-" + day.id, id); } catch (e) {}
+    document.querySelectorAll(".pak-card").forEach((b) => {
+      const on = b.dataset.pak === id;
+      b.classList.toggle("is-on", on);
+      b.setAttribute("aria-checked", on ? "true" : "false");
+    });
+    const czekaj = document.querySelector(".map-wait");
+    if (czekaj) czekaj.remove();
+    box.hidden = false;
+    box.innerHTML = `
+      <h3>${p.ikona} ${p.nazwa}</h3>
+      <p class="pak-opis">${p.opis}</p>
+      <div class="pak-plan">${p.punkty.map(([t, co]) => `<div class="pak-slot"><span>${t}</span><strong>${co}</strong></div>`).join("")}</div>`;
+    // mapa przeładowuje się na trasę pakietu
+    przeladujMape(p.route, p.nazwa);
+    const stops = document.querySelector(".route-stop-list");
+    if (stops) stops.innerHTML = p.route.map((s, k) => `<li><span>${k + 1}</span>${escapeHtml(s[2])}</li>`).join("");
+  }
+
+  async function przeladujMape(route, tytul) {
+    const element = document.querySelector("#route-map");
+    if (!element) return;
+    if (routeMapInstance) { routeMapInstance.remove(); routeMapInstance = null; }
+    element.innerHTML = "";
+    const shell = document.querySelector(".map-shell");
+    try {
+      const L = await loadLeaflet();
+      routeMapInstance = L.map(element, {
+        dragging: false, touchZoom: false, doubleClickZoom: false,
+        boxZoom: false, keyboard: false, scrollWheelZoom: false,
+        zoomControl: true, attributionControl: true
+      });
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      }).addTo(routeMapInstance);
+      const wsp = route.map((s) => [s[0], s[1]]);
+      if (wsp.length > 1) L.polyline(wsp, { color: "#d9684f", weight: 5, opacity: .9, lineJoin: "round" }).addTo(routeMapInstance);
+      route.forEach((s, k) => {
+        const icon = L.divIcon({ className: "route-marker", html: `<span>${k + 1}</span>`, iconSize: [30, 30], iconAnchor: [15, 15] });
+        L.marker([s[0], s[1]], { icon, title: s[2] }).addTo(routeMapInstance).bindPopup(`<strong>${k + 1}. ${escapeHtml(s[2])}</strong>`);
+      });
+      routeMapInstance.fitBounds(L.latLngBounds(wsp), { padding: [28, 28], maxZoom: 13 });
+      setMapInteractions(routeMapInstance, shell && shell.classList.contains("is-active"));
+    } catch (_) {
+      element.innerHTML = '<p class="map-error">Mapa nie załadowała się. Skorzystaj z listy punktów poniżej.</p>';
+    }
+  }
+
+  function setupPackages(day) {
+    if (!day.packages) return;
+    document.querySelectorAll(".pak-card").forEach((b) => {
+      b.addEventListener("click", () => pokazPakiet(day, b.dataset.pak));
+    });
+    let zapisany = null;
+    try { zapisany = localStorage.getItem("madera-pakiet-" + day.id); } catch (e) {}
+    if (zapisany && day.packages.some((p) => p.id === zapisany)) pokazPakiet(day, zapisany);
+  }
+
   function groupsHTML(day) {
     const g = day.groups;
     if (!g) return "";
@@ -502,6 +637,7 @@
           <aside class="card"><div class="card-body"><h2>W skrócie</h2><div class="info">${metrics.map((metric) => `<div class="metric"><strong>${metric[1]}</strong><span>${metric[0]}</span></div>`).join("")}</div><div class="badges"><span class="badge">Dzieci chodzą po górach</span><span class="badge">Spokojne tempo</span><span class="badge">Niska ekspozycja</span>${day.cats.includes("odpoczynek") ? "<span class=\"badge optional\">Elastyczny plan</span>" : ""}${day.cats.includes("wycieczka busem") || day.id === "2026-08-28" ? "<span class=\"badge weather\">Pogoda ma znaczenie</span>" : ""}</div><div class="variant-note"><strong>Wariant łagodniejszy:</strong> ${day.gentle}</div>${FLEX[day.id] ? `<div class="flex"><span class="fxlock"><b>🔒 Nie ruszać:</b> ${FLEX[day.id][0]}</span><span class="fxcut"><b>✂️ Można odpuścić:</b> ${FLEX[day.id][1]}</span></div>` : ""}</div></aside>
         </div>
         ${groupsHTML(day)}
+        ${packagesHTML(day)}
         <section class="section" id="day-weather" aria-label="Pogoda w rejonie tego dnia"><div class="card"><div class="card-body"><p class="dw-loading">Ładowanie pogody na żywo…</p></div></div></section>
         <section class="section grid" aria-label="Mapa i wskazówki">
           <div class="card"><div class="map-shell"><button class="map-activate" type="button">Aktywuj mapę</button><div class="route-map" id="route-map" role="application" aria-label="Mapa OpenStreetMap z trasą: ${day.title}"></div></div><div class="route-summary"><p><strong>Orientacyjna trasa dnia</strong> — linia łączy główne punkty; dokładny przebieg dróg sprawdź w Google Maps.</p><ol class="route-stop-list">${day.route.map((stop, stopIndex) => `<li><span>${stopIndex + 1}</span>${stop[2]}</li>`).join("")}</ol></div><div class="map-actions"><a class="button" href="${day.google}" target="_blank" rel="noopener">Otwórz trasę w Google Maps ↗</a><button class="button secondary" type="button" data-deactivate-map>Wyłącz mapę</button></div></div>
@@ -515,6 +651,7 @@
       </main>`;
 
     renderDayTrailAlert(day);
+    setupPackages(day);
 
     const mapShell = document.querySelector(".map-shell");
     const activate = document.querySelector(".map-activate");
