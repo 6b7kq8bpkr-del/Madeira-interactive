@@ -37,10 +37,10 @@
     "2026-08-19": ["dojazd do Berlina, parking P7/8 i zameldowanie przy terminalu", "wieczorny spacer po centrum"],
     "2026-08-20": ["lot i transfer do hotelu", "Lido — tylko jeśli zostaje energia"],
     "2026-08-21": ["muzeum CR7 i marina", "stare miasto można skrócić"],
-    "2026-08-22": ["Curral das Freiras i lunch", "podejście na Eira do Serrado"],
+    "2026-08-22": ["kolacja z espetadą (rezerwacja!)", "Monte i kolejka — całkiem opcjonalne"],
     "2026-08-23": ["nic — to dzień bez zobowiązań", "wszystko poza basenem"],
     "2026-08-24": ["Porto Moniz i Fanal", "Seixal i Cabo Girão"],
-    "2026-08-25": ["kolacja z espetadą (rezerwacja!)", "Monte i kolejka — całkiem opcjonalne"],
+    "2026-08-25": ["Curral das Freiras i lunch", "podejście na Eira do Serrado"],
     "2026-08-26": ["BAM i plaża w Calhecie", "Ponta do Sol, jeśli dzień się przeciągnie"],
     "2026-08-27": ["wejście na Pico Ruivo (PR1.2)", "Ribeiro Frio i Balcões w drodze powrotnej"],
     "2026-08-28": ["rejs na delfiny (rezerwacja)", "popołudnie — tylko odpoczynek"],
@@ -81,10 +81,10 @@
     { n: "Queimadas — Casa das Queimadas", lat: 32.782772, lon: -16.911610, d: "Poza trasą · Leśny park nad strumieniami z autentycznym domem krytym strzechą — znacznie lepszy niż komercyjne domki w Santanie. Wypadł z dnia górskiego przez odległości (z Achada do Teixeira 76 minut). Wstęp wolny, parking płatny." },
     { n: "Homem em Pé — Achada do Teixeira", lat: 32.765326, lon: -16.920852, d: "27.08 · Skalna formacja „Stojący Człowiek” tuż przy parkingu, z którego startuje szlak PR1.2. Widok bez wysiłku, jeszcze przed wejściem — dobre miejsce na rozprostowanie nóg po 95 minutach jazdy." },
     { n: "Mercado dos Lavradores", lat: 32.648689, lon: -16.903511, d: "21.08 i dowolny poranek · Targ owocowo-rybny w Funchal: owoce tropikalne do degustacji, ryby, kwiaty. Najżywszy przed południem; w środku UauCacau (lokal 19)." },
-    { n: "Rua de Santa Maria — Stare Miasto", lat: 32.647907, lon: -16.900414, d: "21, 23 i 25.08 · Najstarsza ulica Funchal ze słynnymi malowanymi drzwiami i tasquinhas. Miejsce na pierwszą kolację i na espetadę." },
-    { n: "Teleférico do Funchal — stacja dolna", lat: 32.661339, lon: -16.901209, d: "25.08 · Kolejka linowa z nabrzeża do dzielnicy Monte, ok. 15 minut nad dachami i dolinami. Wjazd i zjazd można kupić osobno." },
-    { n: "Nossa Senhora do Monte", lat: 32.676001, lon: -16.902472, d: "25.08 · Kościół na szczycie Monte, w którym spoczywa cesarz Karol I Habsburg. Schody przed wejściem są częścią widoku." },
-    { n: "Estreito de Câmara de Lobos", lat: 32.671099, lon: -16.979973, d: "25.08 · Miasteczko nad Câmara de Lobos uważane za ojczyznę espetady — tutaj podaje się ją klasycznie, na laurowym patyku." },
+    { n: "Rua de Santa Maria — Stare Miasto", lat: 32.647907, lon: -16.900414, d: "21, 22 i 23.08 · Najstarsza ulica Funchal ze słynnymi malowanymi drzwiami i tasquinhas. Miejsce na pierwszą kolację i na espetadę." },
+    { n: "Teleférico do Funchal — stacja dolna", lat: 32.661339, lon: -16.901209, d: "22.08 · Kolejka linowa z nabrzeża do dzielnicy Monte, ok. 15 minut nad dachami i dolinami. Wjazd i zjazd można kupić osobno." },
+    { n: "Nossa Senhora do Monte", lat: 32.676001, lon: -16.902472, d: "22.08 · Kościół na szczycie Monte, w którym spoczywa cesarz Karol I Habsburg. Schody przed wejściem są częścią widoku." },
+    { n: "Estreito de Câmara de Lobos", lat: 32.671099, lon: -16.979973, d: "22.08 · Miasteczko nad Câmara de Lobos uważane za ojczyznę espetady — tutaj podaje się ją klasycznie, na laurowym patyku." },
     { n: "Paúl da Serra", lat: 32.762940, lon: -17.095891, d: "24 i 27.08 · Jedyny płaskowyż wyspy; przejeżdżamy przez niego w drodze do Fanal i do Rabaçal. Chłodniej i wietrzniej niż na wybrzeżu, często we mgle." },
     { n: "Prazeres — start Caminho Real", lat: 32.753931, lon: -17.202295, d: "29.08 (wariant SW) · Stąd wychodzi wykuta w skale królewska droga schodząca do Paúl do Mar. Zejście jest długie i strome — realnie planować też powrót." },
     { n: "Jardim do Mar", lat: 32.737558, lon: -17.211130, d: "29.08 (wariant SW) · Nadmorska osada obok Paúl do Mar, znana z surfingu i spokojnej promenady." }
@@ -94,7 +94,7 @@
     { n: "Grutas e Centro do Vulcanismo — São Vicente", lat: 32.797545, lon: -17.042060, d: "<b>Plan B na deszcz, 24.08 — dokładnie na trasie.</b> Tunele lawowe sprzed 890 tys. lat i część muzealna o wulkanicznym pochodzeniu wyspy. Pod ziemią pogoda nie ma znaczenia." },
     { n: "Aquário da Madeira — Porto Moniz", lat: 32.867306, lon: -17.165417, d: "<b>Plan B na deszcz, 24.08 — przy naszym lunchu.</b> Akwarium w XIX-wiecznym forcie São João Baptista. Mała skala, ale ratuje przystanek, gdy kąpiel w basenach odpada." },
     { n: "Parque Temático da Madeira — Santana", lat: 32.802155, lon: -16.885605, d: "<b>Alternatywa dla dzieci — poza obecną trasą.</b> Pawilony o historii wyspy, labirynt, łódki i place zabaw. Rozsądny plan B, gdyby pogoda odcięła wejście na Pico Ruivo." },
-    { n: "Monte Palace Tropical Garden", lat: 32.674192, lon: -16.902878, d: "<b>Rozszerzenie 25.08, gdy jedziemy na Monte.</b> Ogród na stromym zboczu: japońskie stawy, kolekcja azulejos, egzotyczne drzewa. Sporo schodów, 1,5–2 h." },
+    { n: "Monte Palace Tropical Garden", lat: 32.674192, lon: -16.902878, d: "<b>Rozszerzenie 22.08, gdy jedziemy na Monte.</b> Ogród na stromym zboczu: japońskie stawy, kolekcja azulejos, egzotyczne drzewa. Sporo schodów, 1,5–2 h." },
     { n: "Quinta do Palheiro Ferreiro", lat: 32.659838, lon: -16.869544, d: "<b>Cichy zamiennik ogrodu botanicznego.</b> Zabytkowy park krajobrazowy nad Funchal, mniej zatłoczony niż Jardim Botânico." },
     { n: "Praia Formosa", lat: 32.639199, lon: -16.951182, d: "<b>Najbliższa plaża od hotelu — na każdy luźny dzień.</b> Najdłuższy odcinek plaż w Funchal: kamieniste i piaszczyste zatoczki z promenadą i barami." },
     { n: "Forte de São Tiago — Funchal", lat: 32.646722, lon: -16.898751, d: "<b>Plan B na deszcz w Funchal.</b> Żółty fort z 1614 roku na końcu Rua de Santa Maria, z tarasami nad oceanem." },
@@ -154,17 +154,17 @@
       }
     },
     {
-      id: "2026-08-22", date: "22 sierpnia · sobota", title: "Curral das Freiras", short: "Pół dnia w Dolinie Zakonnic, spokojne widoki i lunch.",
-      image: commons.curral, alt: "Dolina Curral das Freiras otoczona górami", cats: ["aktywny", "spokojny"],
-      intensity: "Umiarkowana", duration: "5–6 h", transport: "Taxi / wycieczka", walking: "2–4 km", kids: "Tak, sprawnie chodzą", exposure: "Kontrolowana",
-      center: [32.7202, -16.9691], route: [[32.6384, -16.9353, "Hotel"], [32.7107, -16.9615, "Eira do Serrado"], [32.7202, -16.9691, "Curral das Freiras"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Funchal/Eira+do+Serrado/Curral+das+Freiras",
-      agenda: [["08:15", "Śniadanie w hotelu", "Bufet 7:30–10:00 — zjeść przed wyjazdem o 10:15 (godziny potwierdzić w recepcji)."], ["10:15", "Wyjazd z Funchal", "Trasa w głąb wyspy i spokojne rozpoczęcie aktywnego pół dnia."], ["11:00", "Eira do Serrado", "Krótkie podejście do komfortowego punktu widokowego; kijki i przerwy według potrzeby."], ["12:15", "Curral das Freiras", "Spacer 2–3 km po miejscowości i spokojny lunch."], ["15:30", "Powrót do hotelu", "Popołudnie na basenie lub krótka promenada."]],
-      tips: ["Podejście do punktu widokowego jest częścią planu przy suchej nawierzchni; zawrócenie pozostaje prostą opcją.", "Nie trzeba podchodzić do barierek, aby zobaczyć dolinę.", "W razie choroby lokomocyjnej usiąść z przodu i przygotować wodę.", "Dzieci mogą przejść pełny spacer; tempo dopasowujemy do najwolniejszej osoby."] ,
-      planB: "Zamiana na ogród w Funchal, Lido lub dzień hotelowy — szczególnie przy niskich chmurach w dolinie.", gentle: "pomijamy każdy punkt, który powoduje dyskomfort; sama miejscowość i lunch wystarczą.",
+      id: "2026-08-22", date: "22 sierpnia · sobota", title: "Funchal po swojemu", short: "Ogród, zakupy albo Monte, a wieczorem kolacja z espetadą.",
+      image: commons.monte, alt: "Kolejka linowa teleférico nad Funchal, dzielnica Monte", cats: ["spokojny", "odpoczynek"],
+      intensity: "Umiarkowana", duration: "4–6 h + kolacja", transport: "Autobus / taxi", walking: "3–5 km", kids: "Tak, sprawnie chodzą", exposure: "Wariant bez wysokości",
+      center: [32.662, -16.895], route: [[32.6384, -16.9353, "Hotel"], [32.6624, -16.8946, "Ogród botaniczny"], [32.6496, -16.9080, "Centrum Funchal"], [32.6750, -16.9022, "Monte — opcjonalnie"], [32.6484, -16.9033, "Kolacja z espetadą — Stare Miasto"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Hotel+Baia+Azul,+Funchal/Madeira+Botanical+Garden/Funchal+Old+Town",
+      agenda: [["08:30", "Śniadanie w hotelu", "Bufet śniadaniowy w hotelu, zwykle 7:30–10:00 (godziny potwierdzić w recepcji)."], ["10:15", "Wybór wariantu", "Ogród botaniczny albo centrum, zakupy i spokojna kawiarnia."], ["12:30", "Lunch", "Bez rezerwowania kolejnych atrakcji na siłę."], ["14:30", "Monte tylko dla chętnych", "Kolejka i wysokość są całkowicie opcjonalne."], ["16:00", "Hotel i basen", "Popołudniowa regeneracja przed wieczornym wyjściem."], ["19:30", "Kolacja z espetadą", "Polędwica wołowa ze szpady (espetada madeirense) grillowana na lauru, podawana z bolo do caco i milho frito. Restauracja w Starym Mieście albo w Câmara de Lobos; rodzinny stół, dzieciom zwykle smakuje."]],
+      tips: ["Plan podstawowy to ogród botaniczny i centrum: 3–5 km z przerwami; kijki przydają się na pochyłych alejkach.", "Na espetadę w sezonie lepiej zarezerwować stół dla 7 osób z wyprzedzeniem — najlepsze lokale w Starym Mieście i w Câmara de Lobos bywają pełne.", "Espetada zwykle zamawiana jest na wagę lub 'na metr' do dzielenia — dla dzieci wystarczy mniejsza porcja lub wspólny półmisek.", "Szacunkowy koszt kolacji: 4 dorosłych po ok. 16–20 EUR, 3 dzieci po ok. 9–11 EUR, plus dodatki i napoje — razem około 120–150 EUR za grupę.", "Rodziny mogą rozdzielić się na 2–3 godziny w dzień i spotkać dopiero na wspólnej kolacji."],
+      planB: "Cały dzień w hotelu i przy Lido; jeśli wieczór wypadnie leniwie, espetadę można przenieść na inny dzień pobytu.", gentle: "bez kolejki i bez Monte; wybieramy ogród dostępny taxi albo centrum, a na kolację najbliższą dobrą espetadę.",
       deepDive: {
-        context: "Curral das Freiras (Dolina Zakonnic) zawdzięcza nazwę zakonnicom, które według legendy schroniły się tu przed piratami w XVI wieku. Miejscowość leży w głębokim kraterze otoczonym szczytami centralnej Madery, przez długi czas dostępnym praktycznie tylko pieszo.",
-        food: "Lokalna specjalność to kasztany (castanhas) pod różnymi postaciami — od zupy po likier 'licor de castanha' — oraz domowe ciasto orzechowe 'bolo de nozes', które najlepiej smakuje na miejscu.",
-        practical: "Punkt widokowy Eira do Serrado bywa zatłoczony w środku dnia z powodu wycieczek autokarowych; wcześniejszy przyjazd daje spokojniejszy widok na dolinę i lepsze warunki do zdjęć."
+        context: "Ogród botaniczny w Funchal założono w połowie XX wieku na terenie dawnej posiadłości rodziny Reid. Monte to historyczna dzielnica nad miastem, znana z bazyliki Nossa Senhora do Monte oraz tradycyjnych wiklinowych sań ('carros de cesto'), którymi dawniej zjeżdżano z góry do centrum.",
+        food: "Wieczorna espetada madeirense to duże kawałki wołowiny nadziane na patyk z drzewa laurowego, natarte solą i czosnkiem, grillowane nad żarem i podawane zawieszone pionowo przy stole — dawniej na patyku z lauru, dziś często na metalowej szpadzie. Klasyczne dodatki to bolo do caco z masłem czosnkowym i milho frito (chrupiące kostki smażonej kukurydzy). Miejscem, które rozsławiło tę potrawę, jest Câmara de Lobos i Estreito powyżej niego.",
+        practical: "Wjazd do ogrodu botanicznego jest płatny, a kolejka linowa na Monte bywa oblegana w środku dnia. Na kolację z espetadą warto zarezerwować stół — porcje są duże i dobrze dzielą się w rodzinie, więc nie trzeba zamawiać osobnej dla każdego dziecka."
       }
     },
     {
@@ -196,17 +196,17 @@
       }
     },
     {
-      id: "2026-08-25", date: "25 sierpnia · wtorek", title: "Funchal po swojemu", short: "Ogród, zakupy albo Monte, a wieczorem kolacja z espetadą.",
-      image: commons.monte, alt: "Kolejka linowa teleférico nad Funchal, dzielnica Monte", cats: ["spokojny", "odpoczynek"],
-      intensity: "Umiarkowana", duration: "4–6 h + kolacja", transport: "Autobus / taxi", walking: "3–5 km", kids: "Tak, sprawnie chodzą", exposure: "Wariant bez wysokości",
-      center: [32.662, -16.895], route: [[32.6384, -16.9353, "Hotel"], [32.6624, -16.8946, "Ogród botaniczny"], [32.6496, -16.9080, "Centrum Funchal"], [32.6750, -16.9022, "Monte — opcjonalnie"], [32.6484, -16.9033, "Kolacja z espetadą — Stare Miasto"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Hotel+Baia+Azul,+Funchal/Madeira+Botanical+Garden/Funchal+Old+Town",
-      agenda: [["08:30", "Śniadanie w hotelu", "Bufet śniadaniowy w hotelu, zwykle 7:30–10:00 (godziny potwierdzić w recepcji)."], ["10:15", "Wybór wariantu", "Ogród botaniczny albo centrum, zakupy i spokojna kawiarnia."], ["12:30", "Lunch", "Bez rezerwowania kolejnych atrakcji na siłę."], ["14:30", "Monte tylko dla chętnych", "Kolejka i wysokość są całkowicie opcjonalne."], ["16:00", "Hotel i basen", "Popołudniowa regeneracja przed wieczornym wyjściem."], ["19:30", "Kolacja z espetadą", "Polędwica wołowa ze szpady (espetada madeirense) grillowana na lauru, podawana z bolo do caco i milho frito. Restauracja w Starym Mieście albo w Câmara de Lobos; rodzinny stół, dzieciom zwykle smakuje."]],
-      tips: ["Plan podstawowy to ogród botaniczny i centrum: 3–5 km z przerwami; kijki przydają się na pochyłych alejkach.", "Na espetadę w sezonie lepiej zarezerwować stół dla 7 osób z wyprzedzeniem — najlepsze lokale w Starym Mieście i w Câmara de Lobos bywają pełne.", "Espetada zwykle zamawiana jest na wagę lub 'na metr' do dzielenia — dla dzieci wystarczy mniejsza porcja lub wspólny półmisek.", "Szacunkowy koszt kolacji: 4 dorosłych po ok. 16–20 EUR, 3 dzieci po ok. 9–11 EUR, plus dodatki i napoje — razem około 120–150 EUR za grupę.", "Rodziny mogą rozdzielić się na 2–3 godziny w dzień i spotkać dopiero na wspólnej kolacji."],
-      planB: "Cały dzień w hotelu i przy Lido; jeśli wieczór wypadnie leniwie, espetadę można przenieść na inny dzień pobytu.", gentle: "bez kolejki i bez Monte; wybieramy ogród dostępny taxi albo centrum, a na kolację najbliższą dobrą espetadę.",
+      id: "2026-08-25", date: "25 sierpnia · wtorek", title: "Curral das Freiras", short: "Pół dnia w Dolinie Zakonnic, spokojne widoki i lunch.",
+      image: commons.curral, alt: "Dolina Curral das Freiras otoczona górami", cats: ["aktywny", "spokojny"],
+      intensity: "Umiarkowana", duration: "5–6 h", transport: "Taxi / wycieczka", walking: "2–4 km", kids: "Tak, sprawnie chodzą", exposure: "Kontrolowana",
+      center: [32.7202, -16.9691], route: [[32.6384, -16.9353, "Hotel"], [32.7107, -16.9615, "Eira do Serrado"], [32.7202, -16.9691, "Curral das Freiras"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Funchal/Eira+do+Serrado/Curral+das+Freiras",
+      agenda: [["08:15", "Śniadanie w hotelu", "Bufet 7:30–10:00 — zjeść przed wyjazdem o 10:15 (godziny potwierdzić w recepcji)."], ["10:15", "Wyjazd z Funchal", "Trasa w głąb wyspy i spokojne rozpoczęcie aktywnego pół dnia."], ["11:00", "Eira do Serrado", "Krótkie podejście do komfortowego punktu widokowego; kijki i przerwy według potrzeby."], ["12:15", "Curral das Freiras", "Spacer 2–3 km po miejscowości i spokojny lunch."], ["15:30", "Powrót do hotelu", "Popołudnie na basenie lub krótka promenada."]],
+      tips: ["Podejście do punktu widokowego jest częścią planu przy suchej nawierzchni; zawrócenie pozostaje prostą opcją.", "Nie trzeba podchodzić do barierek, aby zobaczyć dolinę.", "W razie choroby lokomocyjnej usiąść z przodu i przygotować wodę.", "Dzieci mogą przejść pełny spacer; tempo dopasowujemy do najwolniejszej osoby."] ,
+      planB: "Zamiana na ogród w Funchal, Lido lub dzień hotelowy — szczególnie przy niskich chmurach w dolinie.", gentle: "pomijamy każdy punkt, który powoduje dyskomfort; sama miejscowość i lunch wystarczą.",
       deepDive: {
-        context: "Ogród botaniczny w Funchal założono w połowie XX wieku na terenie dawnej posiadłości rodziny Reid. Monte to historyczna dzielnica nad miastem, znana z bazyliki Nossa Senhora do Monte oraz tradycyjnych wiklinowych sań ('carros de cesto'), którymi dawniej zjeżdżano z góry do centrum.",
-        food: "Wieczorna espetada madeirense to duże kawałki wołowiny nadziane na patyk z drzewa laurowego, natarte solą i czosnkiem, grillowane nad żarem i podawane zawieszone pionowo przy stole — dawniej na patyku z lauru, dziś często na metalowej szpadzie. Klasyczne dodatki to bolo do caco z masłem czosnkowym i milho frito (chrupiące kostki smażonej kukurydzy). Miejscem, które rozsławiło tę potrawę, jest Câmara de Lobos i Estreito powyżej niego.",
-        practical: "Wjazd do ogrodu botanicznego jest płatny, a kolejka linowa na Monte bywa oblegana w środku dnia. Na kolację z espetadą warto zarezerwować stół — porcje są duże i dobrze dzielą się w rodzinie, więc nie trzeba zamawiać osobnej dla każdego dziecka."
+        context: "Curral das Freiras (Dolina Zakonnic) zawdzięcza nazwę zakonnicom, które według legendy schroniły się tu przed piratami w XVI wieku. Miejscowość leży w głębokim kraterze otoczonym szczytami centralnej Madery, przez długi czas dostępnym praktycznie tylko pieszo.",
+        food: "Lokalna specjalność to kasztany (castanhas) pod różnymi postaciami — od zupy po likier 'licor de castanha' — oraz domowe ciasto orzechowe 'bolo de nozes', które najlepiej smakuje na miejscu.",
+        practical: "Punkt widokowy Eira do Serrado bywa zatłoczony w środku dnia z powodu wycieczek autokarowych; wcześniejszy przyjazd daje spokojniejszy widok na dolinę i lepsze warunki do zdjęć."
       }
     },
     {
@@ -794,7 +794,7 @@
     { dayId: "2026-08-24", image: commons.fanal, title: "Zamglony las Fanal", desc: "Sędziwe, poskręcane drzewa laurowe spowite mgłą na płaskowyżu Paúl da Serra." },
     { dayId: "2026-08-28", image: commons.dolphin, title: "Delfiny i wieloryby", desc: "Rodzinny rejs po spokojniejszych, porannych wodach u wybrzeży Funchal." },
     { dayId: "2026-08-24", image: commons.portoMoniz, title: "Baseny lawowe Porto Moniz", desc: "Naturalne baseny wykute przez lawę i ocean na północno-zachodnim krańcu wyspy." },
-    { dayId: "2026-08-25", image: commons.espetada, title: "Kolacja z espetadą", desc: "Wołowina ze szpady grillowana na lauru, z bolo do caco — wieczór w Funchal." }
+    { dayId: "2026-08-22", image: commons.espetada, title: "Kolacja z espetadą", desc: "Wołowina ze szpady grillowana na lauru, z bolo do caco — wieczór w Funchal." }
   ];
 
   function renderHighlights() {
@@ -841,7 +841,7 @@
   ];
 
   const foodDishes = [
-    { emoji: "🥩", name: "Espetada madeirense", desc: "Duże kawałki wołowiny natarte solą i czosnkiem, nadziane na patyk z drzewa laurowego (dziś często na metalowej szpadzie) i grillowane nad żarem. Podawane pionowo przy stole. Zaplanowana w agendzie na 25 sierpnia." },
+    { emoji: "🥩", name: "Espetada madeirense", desc: "Duże kawałki wołowiny natarte solą i czosnkiem, nadziane na patyk z drzewa laurowego (dziś często na metalowej szpadzie) i grillowane nad żarem. Podawane pionowo przy stole. Zaplanowana w agendzie na 22 sierpnia." },
     { emoji: "🍞", name: "Bolo do caco", desc: "Okrągły, miękki placek pieczony na gorącym kamieniu, podawany na ciepło z masłem czosnkowym. Klasyczny dodatek do espetady i ulubieniec dzieci." },
     { emoji: "🐟", name: "Peixe-espada preta com banana", desc: "Filet z czarnej szabli (głębinowej ryby wyławianej u wybrzeży Madery) smażony i podawany z bananem — nietypowe, ale bardzo lokalne połączenie słodkiego z rybnym." },
     { emoji: "🌽", name: "Milho frito", desc: "Chrupiące kostki smażonej kukurydzy (rodzaj polenty) — częsty dodatek do dań głównych, który dzieci zwykle lubią." },
