@@ -608,3 +608,10 @@ body.lb-open { overflow: hidden; }
 .tb-uwaga { margin: 10px 0 0; padding: 10px 12px; border-radius: 10px; background: #fff2ee; color: #7a3325; font-size: 13px; line-height: 1.55; }
 .tb-ok { color: var(--success); font-weight: 800; }
 .tb-warn { display: block; margin-top: 6px; color: #a3402c; font-size: 13px; line-height: 1.5; }
+
+/* ── QR biletów w alercie szlaku ───────────────────────────────────── */
+.tb-qr-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; }
+.tb-qr { margin: 0; padding: 10px; border-radius: 12px; background: white; border: 1px solid rgba(16,41,44,.1); text-align: center; }
+.tb-qr img { display: block; width: 96px; height: 96px; image-rendering: pixelated; }
+.tb-qr figcaption { margin-top: 6px; max-width: 96px; color: var(--muted); font-size: 11px; line-height: 1.35; }
+@media (max-width: 480px) { .tb-qr img { width: 84px; height: 84px; } .tb-qr figcaption { max-width: 84px; } }

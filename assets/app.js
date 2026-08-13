@@ -59,7 +59,7 @@
   // Checklista przed wyjazdem — JEDNO źródło: renderuje i stronę główną, i PDF
   const CHECKLIST = [
     ["flights", "Potwierdzone numery i godziny obu lotów"],
-    ["trails", "Domknąć wymianę biletu na PR1.2 (slot 11:30) w IFCN i zapisać wszystkie bilety offline w telefonie"],
+    ["trails", "Bilety PR1.2 i PR11 na 27.08 kupione — zapisane offline w telefonie (kody QR w planie)"],
     ["bus27", "Zaakceptować (albo renegocjować) 290 € za bus na dzień górski — odpowiedź do Rui czeka w Robocze"],
     ["p8", "Rezerwacja APCOA i sektor P7/8"],
     ["transfer", "Potwierdzić z madeira-in nową godzinę odbioru 30.08 (08:30 zamiast 08:45)"],
@@ -736,7 +736,7 @@
           <li><strong>Transfery lotniskowe:</strong> madeira-in (Rui Nóbrega), Mercedes Sprinter, 45 EUR w jedną stronę — <strong>90 EUR razem, PŁATNE GOTÓWKĄ przy przyjeździe</strong>; tel. kierowcy +351 917 260 690, mail transfers.madeira@gmail.com. Po wylądowaniu dzwonimy do Rui z kompletem bagaży, odbiór przy kawiarni obok hali przylotów</li>
           <li><strong>Wycieczki busem:</strong> ad hoc z madeira-in, 220 EUR/dzień — orientacyjnie 22, 24 i 27.08</li>
           <li><strong>Gotówka:</strong> 90 € transfery (Rui) · góry 27.08: 290 € wg wyceny Rui (do akceptacji) · zachód 24.08 z Rui: 220–255 € · banany 26.08: taxi-van ~85–180 € albo Rui, decyzja na miejscu · Curral 25.08: autobus 81, ~40 € za rodzinę · minibus Rabaçal ~8 €/os. przy wariancie levady. Reszta wyspy na kartę.</li>
-            <li><strong>Szlaki 27.08:</strong> PR1.2 Pico Ruivo slot 11:30 (wymiana w toku — rez. 2234556/2026), Balcões 17:00 SIM4330277 i SIM4330279. 5 dorosłych + 2 dzieci zwolnione. Wyjazd z hotelu wyjątkowo 9:45. Mieć PDF offline. PR6 25 Fontes tylko jako wariant 29.08 (wtedy minibus z ER105, ok. 8 €/os. gotówką)</li>
+            <li><strong>Szlaki 27.08:</strong> PR1.2 Pico Ruivo 11:30 (SIM4340084, SIM4340085, rez. 2251723/2026), Balcões 17:00 (SIM4330277, SIM4330279, rez. 2234556/2026). 5 dorosłych + 2 dzieci zwolnione. Wyjazd z hotelu wyjątkowo 9:45. Mieć PDF/QR offline. PR6 25 Fontes tylko jako wariant 29.08 (wtedy minibus z ER105, ok. 8 €/os. gotówką)</li>
             <li><strong>Auto:</strong> parking APCOA P7/8 BER (Terminal T1&amp;T2), rez. 8320774, tablica EL2GE01, wjazd 19.08 16:00 → wyjazd 30.08 18:00, 144 € zapłacone; Brunolf-Baade-Straße 1/2</li>
           <li><strong>Nocleg 19.08:</strong> IntercityHotel Berlin Airport BER Terminal 1+2, Willy-Brandt-Platz 5, tel. +49 30 536 531 0 — 2 × Business Twin, potwierdzenia 4RGPYJYD i 4GMN9X9N, 166,78 € bez śniadania, City Ticket w cenie; zameldowanie od 15:00, wymeldowanie do 12:00</li>
           <li><strong>Rytm dnia:</strong> z hotelu wychodzimy standardowo o 10:15; wcześniej tylko pod samolot (20.08 i 30.08)</li>
@@ -1080,8 +1080,9 @@
     {
       dayId: "2026-08-27", kod: "PR1.2", nazwa: "Vereda do Pico Ruivo",
       start: "Achada do Teixeira", cena: 4.5, wymaga: true, platnych: 5, kupiony: true,
-      bilety: { godzina: "11:30–12:00", czas: "3 h", osoby: "5 dorosłych + 2 dzieci zwolnione z opłaty" },
-      uwaga: "Idzie cała siódemka. Wyjeżdżamy wyjątkowo o 9:45, na Achada do Teixeira jesteśmy ~11:20 — kwadrans przed slotem, a okno trwa do 12:00."
+      bilety: { numery: ["SIM4340084", "SIM4340085"], ref: "2251723/2026", godzina: "11:30", czas: "1 h 30 min", osoby: "5 dorosłych + 2 dzieci zwolnione z opłaty",
+        qr: [{ src: "assets/qr-pr12-adultos.png", opis: "SIM4340084 — 5 dorosłych" }, { src: "assets/qr-pr12-criancas.png", opis: "SIM4340085 — 2 dzieci zwolnione" }] },
+      uwaga: "Idzie cała siódemka. Wyjeżdżamy wyjątkowo o 9:45, na Achada do Teixeira jesteśmy ~11:20 — kwadrans przed slotem 11:30."
     },
     {
       dayId: "2026-08-29", kod: "PR6", nazwa: "Levada das 25 Fontes",
@@ -1256,6 +1257,7 @@
       <p class="tb-head">✅ <strong>Bilety kupione</strong>${t.bilety.ref ? ` — rez. ${t.bilety.ref}` : ""} — wejście ${t.bilety.godzina}, ${t.bilety.czas}, ${t.bilety.osoby}.</p>
       ${t.bilety.numery ? `<p class="tb-nr">Numery: ${t.bilety.numery.map((n) => `<code>${n}</code>`).join(" · ")}</p>` : ""}
       ${t.rozbieznosc ? `<p class="tb-uwaga"><strong>⚠️ Do sprawdzenia:</strong> ${t.rozbieznosc}</p>` : ""}
+      ${t.bilety.qr ? `<div class="tb-qr-row">${t.bilety.qr.map((q) => `<figure class="tb-qr"><img src="${document.body.dataset.page === "day" ? "../" : ""}${q.src}" alt="Kod QR biletu ${escapeHtml(q.opis)}" loading="lazy"><figcaption>${escapeHtml(q.opis)}</figcaption></figure>`).join("")}</div>` : ""}
     </div>`;
   }
 
