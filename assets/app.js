@@ -327,6 +327,7 @@
   const escapeHtml = (value) => String(value).replace(/[&<>"]/g, (char) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[char]));
   const todayISO = () => { const n = new Date(), p = (x) => String(x).padStart(2, "0"); return `${n.getFullYear()}-${p(n.getMonth() + 1)}-${p(n.getDate())}`; };
   let routeMapInstance = null;
+  let routeMarkers = [];
   let overviewMapInstance = null;
 
   function imageMarkup(day, eager, className) {
@@ -414,6 +415,41 @@
     }
   }
 
+  // Klik w przystanek na liście przenosi mapę na ten punkt i otwiera dymek.
+  function skoczDoPunktu(indeks) {
+    const marker = routeMarkers[indeks];
+    if (!routeMapInstance || !marker) return;
+    const shell = document.querySelector(".map-shell");
+    if (shell && !shell.classList.contains("is-active")) {
+      shell.classList.add("is-active");
+      const activate = document.querySelector(".map-activate");
+      if (activate) activate.textContent = "Mapa aktywna";
+      setMapInteractions(routeMapInstance, true);
+    }
+    routeMapInstance.setView(marker.getLatLng(), Math.max(routeMapInstance.getZoom(), 13), { animate: true });
+    marker.openPopup();
+    document.querySelectorAll(".route-stop-list li").forEach((li, i) => li.classList.toggle("is-active", i === indeks));
+    const mapa = document.querySelector("#route-map");
+    if (mapa) mapa.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
+  function setupListaPrzystankow() {
+    const lista = document.querySelector(".route-stop-list");
+    if (!lista) return;
+    lista.addEventListener("click", (e) => {
+      const li = e.target.closest("li");
+      if (!li) return;
+      skoczDoPunktu([...lista.children].indexOf(li));
+    });
+    lista.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      const li = e.target.closest("li");
+      if (!li) return;
+      e.preventDefault();
+      skoczDoPunktu([...lista.children].indexOf(li));
+    });
+  }
+
   async function initRouteMap(day) {
     const element = document.querySelector("#route-map");
     const shell = document.querySelector(".map-shell");
@@ -450,14 +486,14 @@
       }
       const coordinates = day.route.map((stop) => [stop[0], stop[1]]);
       L.polyline(coordinates, { color: "#d9684f", weight: 5, opacity: .9, lineJoin: "round" }).addTo(routeMapInstance);
-      day.route.forEach((stop, index) => {
+      routeMarkers = day.route.map((stop, index) => {
         const icon = L.divIcon({
           className: "route-marker",
           html: `<span>${index + 1}</span>`,
           iconSize: [30, 30],
           iconAnchor: [15, 15]
         });
-        L.marker([stop[0], stop[1]], { icon, title: stop[2] }).addTo(routeMapInstance).bindPopup(`<strong>${index + 1}. ${escapeHtml(stop[2])}</strong>`);
+        return L.marker([stop[0], stop[1]], { icon, title: stop[2] }).addTo(routeMapInstance).bindPopup(`<strong>${index + 1}. ${escapeHtml(stop[2])}</strong>`);
       });
       dopasujKadr(routeMapInstance, coordinates, L);
       setMapInteractions(routeMapInstance, shell.classList.contains("is-active"));
@@ -573,7 +609,7 @@
     // mapa przeładowuje się na trasę pakietu
     przeladujMape(p.route, p.nazwa);
     const stops = document.querySelector(".route-stop-list");
-    if (stops) stops.innerHTML = p.route.map((s, k) => `<li><span>${k + 1}</span>${escapeHtml(s[2])}</li>`).join("");
+    if (stops) stops.innerHTML = p.route.map((s, k) => `<li tabindex="0" role="button" title="Pokaż na mapie"><span>${k + 1}</span>${escapeHtml(s[2])}</li>`).join("");
   }
 
   async function przeladujMape(route, tytul) {
@@ -594,9 +630,9 @@
       }).addTo(routeMapInstance);
       const wsp = route.map((s) => [s[0], s[1]]);
       if (wsp.length > 1) L.polyline(wsp, { color: "#d9684f", weight: 5, opacity: .9, lineJoin: "round" }).addTo(routeMapInstance);
-      route.forEach((s, k) => {
+      routeMarkers = route.map((s, k) => {
         const icon = L.divIcon({ className: "route-marker", html: `<span>${k + 1}</span>`, iconSize: [30, 30], iconAnchor: [15, 15] });
-        L.marker([s[0], s[1]], { icon, title: s[2] }).addTo(routeMapInstance).bindPopup(`<strong>${k + 1}. ${escapeHtml(s[2])}</strong>`);
+        return L.marker([s[0], s[1]], { icon, title: s[2] }).addTo(routeMapInstance).bindPopup(`<strong>${k + 1}. ${escapeHtml(s[2])}</strong>`);
       });
       dopasujKadr(routeMapInstance, wsp, L);
       setMapInteractions(routeMapInstance, shell && shell.classList.contains("is-active"));
@@ -711,7 +747,7 @@
         ${packagesHTML(day)}
         <section class="section" id="day-weather" aria-label="Pogoda w rejonie tego dnia"><div class="card"><div class="card-body"><p class="dw-loading">Ładowanie pogody na żywo…</p></div></div></section>
         <section class="section grid" aria-label="Mapa i wskazówki">
-          <div class="card"><div class="map-shell"><button class="map-activate" type="button">Aktywuj mapę</button><div class="route-map" id="route-map" role="application" aria-label="Mapa OpenStreetMap z trasą: ${day.title}"></div></div><div class="route-summary"><p><strong>Orientacyjna trasa dnia</strong> — linia łączy główne punkty; dokładny przebieg dróg sprawdź w Google Maps.</p><ol class="route-stop-list">${day.route.map((stop, stopIndex) => `<li><span>${stopIndex + 1}</span>${stop[2]}</li>`).join("")}</ol></div><div class="map-actions"><a class="button" href="${day.google}" target="_blank" rel="noopener">Otwórz trasę w Google Maps ↗</a><button class="button secondary" type="button" data-deactivate-map>Wyłącz mapę</button></div></div>
+          <div class="card"><div class="map-shell"><button class="map-activate" type="button">Aktywuj mapę</button><div class="route-map" id="route-map" role="application" aria-label="Mapa OpenStreetMap z trasą: ${day.title}"></div></div><div class="route-summary"><p><strong>Orientacyjna trasa dnia</strong> — linia łączy główne punkty; dokładny przebieg dróg sprawdź w Google Maps.</p><p class="route-hint">Kliknij przystanek, aby pokazać go na mapie.</p><ol class="route-stop-list">${day.route.map((stop, stopIndex) => `<li tabindex="0" role="button" title="Pokaż na mapie"><span>${stopIndex + 1}</span>${stop[2]}</li>`).join("")}</ol></div><div class="map-actions"><a class="button" href="${day.google}" target="_blank" rel="noopener">Otwórz trasę w Google Maps ↗</a><button class="button secondary" type="button" data-deactivate-map>Wyłącz mapę</button></div></div>
           <div class="card"><div class="card-body"><h2>Wskazówki praktyczne</h2><ul class="tips">${day.tips.map((tip) => `<li>${tip}</li>`).join("")}</ul></div></div>
         </section>
         <section class="section card deep-dive" aria-labelledby="deep-dive-title"><div class="card-body"><h2 id="deep-dive-title">Więcej o tym dniu</h2><div class="deep-grid"><div><h3>Kontekst i historia</h3><p>${day.deepDive.context}</p></div><div><h3>Jedzenie i lokalne smaki</h3><p>${day.deepDive.food}</p></div><div><h3>Praktyczne detale</h3><p>${day.deepDive.practical}</p></div></div></div></section>
@@ -725,6 +761,7 @@
     renderDayTrailAlert(day);
     setupPackages(day);
     setupPodmiana(day);
+    setupListaPrzystankow();
 
     const mapShell = document.querySelector(".map-shell");
     const activate = document.querySelector(".map-activate");

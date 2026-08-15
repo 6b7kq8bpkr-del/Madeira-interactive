@@ -642,3 +642,11 @@ body.lb-open { overflow: hidden; }
 .bilet-qr figcaption { margin-top: 8px; max-width: 132px; color: var(--muted); font-size: 11px; line-height: 1.4; }
 .bilet-brak { margin: 0; padding: 12px 14px; border-radius: 12px; background: #fff6dc; color: #6b5312; font-size: 13px; line-height: 1.55; }
 @media (max-width: 480px) { .bilet-qr img { width: 116px; height: 116px; } .bilet-qr figcaption { max-width: 116px; } }
+
+/* ── Klikalne przystanki trasy ─────────────────────────────────────── */
+.route-hint { margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+.route-stop-list li { cursor: pointer; transition: background .15s ease, box-shadow .15s ease, transform .15s ease; }
+.route-stop-list li:hover { background: #dff0ec; transform: translateY(-1px); }
+.route-stop-list li:focus-visible { outline: 3px solid var(--sun); outline-offset: 2px; }
+.route-stop-list li.is-active { background: var(--sea); color: white; box-shadow: 0 6px 16px rgba(11,114,118,.32); }
+.route-stop-list li.is-active span { background: white; color: var(--sea-dark); }
