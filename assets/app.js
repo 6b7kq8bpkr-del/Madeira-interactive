@@ -396,6 +396,24 @@
     if (active) instance.invalidateSize();
   }
 
+  // Leaflet liczy kadr z rozmiaru kontenera — jeśli policzy go za wcześnie,
+  // trasa ląduje w wąskim pasie pośrodku. Przeliczamy i dopasowujemy ponownie.
+  function dopasujKadr(mapa, wspolrzedne, L) {
+    if (!mapa || !wspolrzedne.length) return;
+    const dopasuj = () => {
+      mapa.invalidateSize({ animate: false });
+      if (wspolrzedne.length === 1) mapa.setView(wspolrzedne[0], 13);
+      else mapa.fitBounds(L.latLngBounds(wspolrzedne), { padding: [24, 24], maxZoom: 13 });
+    };
+    dopasuj();
+    // po dociągnięciu układu i czcionek kontener bywa już innej wielkości
+    setTimeout(dopasuj, 250);
+    if (window.ResizeObserver && mapa.getContainer()) {
+      const obs = new ResizeObserver(() => dopasuj());
+      obs.observe(mapa.getContainer());
+    }
+  }
+
   async function initRouteMap(day) {
     const element = document.querySelector("#route-map");
     const shell = document.querySelector(".map-shell");
@@ -410,7 +428,9 @@
         keyboard: false,
         scrollWheelZoom: false,
         zoomControl: true,
-        attributionControl: true
+        attributionControl: true,
+        zoomSnap: 0,
+        zoomDelta: 0.5
       });
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 19,
@@ -439,7 +459,7 @@
         });
         L.marker([stop[0], stop[1]], { icon, title: stop[2] }).addTo(routeMapInstance).bindPopup(`<strong>${index + 1}. ${escapeHtml(stop[2])}</strong>`);
       });
-      routeMapInstance.fitBounds(L.latLngBounds(coordinates), { padding: [28, 28], maxZoom: 12 });
+      dopasujKadr(routeMapInstance, coordinates, L);
       setMapInteractions(routeMapInstance, shell.classList.contains("is-active"));
     } catch (_) {
       element.innerHTML = '<p class="map-error">Mapa nie załadowała się. Skorzystaj z listy punktów lub otwórz trasę w Google Maps.</p>';
@@ -467,7 +487,9 @@
         keyboard: false,
         scrollWheelZoom: false,
         zoomControl: true,
-        attributionControl: true
+        attributionControl: true,
+        zoomSnap: 0,
+        zoomDelta: 0.5
       });
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 19,
@@ -576,7 +598,7 @@
         const icon = L.divIcon({ className: "route-marker", html: `<span>${k + 1}</span>`, iconSize: [30, 30], iconAnchor: [15, 15] });
         L.marker([s[0], s[1]], { icon, title: s[2] }).addTo(routeMapInstance).bindPopup(`<strong>${k + 1}. ${escapeHtml(s[2])}</strong>`);
       });
-      routeMapInstance.fitBounds(L.latLngBounds(wsp), { padding: [28, 28], maxZoom: 13 });
+      dopasujKadr(routeMapInstance, wsp, L);
       setMapInteractions(routeMapInstance, shell && shell.classList.contains("is-active"));
     } catch (_) {
       element.innerHTML = '<p class="map-error">Mapa nie załadowała się. Skorzystaj z listy punktów poniżej.</p>';
