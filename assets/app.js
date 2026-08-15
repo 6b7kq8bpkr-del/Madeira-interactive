@@ -1568,10 +1568,11 @@
     "2026-08-29": { lat: 32.7586, lon: -17.1313, co: "Levada das 25 Fontes (wariant)", szuka: "sucho" }
   };
 
-  function wxWerdykt(szuka, chmury, deszcz, wiatr, opad) {
+  function wxWerdykt(szuka, chmury, deszcz, wiatr, opad, zakotwiczony) {
     if (szuka === "widok") {
       if (chmury <= 30 && deszcz <= 25) return ["dobry", "Szczyt powinien być odsłonięty — to dzień na widok."];
       if (chmury <= 60 && deszcz <= 45) return ["sredni", "Szczyt może tonąć w chmurach; wejście ma sens, ale bez gwarancji panoramy."];
+      if (zakotwiczony) return ["sredni", "Zapowiada się pochmurno, ale dzień jest przypięty biletami. Chmury na Maderze zwykle rozchodzą się w południe — sprawdźcie prognozę godzinową rano. Gdyby padało, plan B (Faial, Ribeiro Frio, Balcões) działa bez szczytu, a bilet na Balcões zachowuje ważność."];
       return ["zly", "Duże zachmurzenie — rozważcie przestawienie dnia górskiego na pogodniejszy termin."];
     }
     if (szuka === "spokoj") {
@@ -1609,9 +1610,9 @@
         if (!d) return `<tr><td><strong>${data}</strong><span>${p.co}</span></td><td colspan="2" class="wx-daleko">Prognoza pojawi się bliżej terminu (16 dni naprzód).</td></tr>`;
         const chmury = d.cloud_cover_mean[k] ?? 50, deszcz = d.precipitation_probability_max[k] ?? 0;
         const wiatr = Math.round(d.wind_speed_10m_max[k] ?? 0), opad = d.precipitation_sum[k] ?? 0;
-        const [klasa, tekst] = wxWerdykt(p.szuka, chmury, deszcz, wiatr, opad);
+        const [klasa, tekst] = wxWerdykt(p.szuka, chmury, deszcz, wiatr, opad, Boolean(LOCKED[id]));
         return `<tr class="wx-${klasa}">
-          <td><strong>${data}</strong><span>${p.co}</span></td>
+          <td><strong>${data}</strong><span>${p.co}${LOCKED[id] ? " · 🔒 termin stały" : ""}</span></td>
           <td class="wx-liczby">${wxEmoji(d.weather_code[k])} ${Math.round(d.temperature_2m_max[k])}° · chmury ${chmury}% · deszcz ${deszcz}% · wiatr ${wiatr} km/h</td>
           <td class="wx-werdykt">${tekst}</td></tr>`;
       }).join("");
