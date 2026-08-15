@@ -615,3 +615,16 @@ body.lb-open { overflow: hidden; }
 .tb-qr img { display: block; width: 96px; height: 96px; image-rendering: pixelated; }
 .tb-qr figcaption { margin-top: 6px; max-width: 96px; color: var(--muted); font-size: 11px; line-height: 1.35; }
 @media (max-width: 480px) { .tb-qr img { width: 84px; height: 84px; } .tb-qr figcaption { max-width: 84px; } }
+
+/* ── Podmiana programu na stronie dnia ─────────────────────────────── */
+.day-swap { margin-top: 24px; }
+.day-swap.is-locked-day { border-left: 5px solid var(--sea); background: #eef7f5; }
+.ds-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; margin-top: 18px; }
+.ds-card { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; padding: 15px 16px; border: 1px solid var(--line); border-radius: 16px; background: var(--panel); text-align: left; cursor: pointer; transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease; }
+.ds-card:hover { border-color: var(--sea); box-shadow: 0 10px 26px rgba(8,45,50,.12); transform: translateY(-2px); }
+.ds-date { color: var(--muted); font-size: 12px; font-weight: 900; letter-spacing: .05em; text-transform: uppercase; }
+.ds-title { color: var(--sea-dark); font-size: 16px; line-height: 1.3; }
+.ds-short { color: var(--muted); font-size: 13px; line-height: 1.5; }
+.ds-cta { margin-top: 4px; color: var(--coral); font-size: 13px; font-weight: 800; }
+.ds-nota { margin: 16px 0 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+@media (max-width: 560px) { .ds-grid { grid-template-columns: 1fr; } }

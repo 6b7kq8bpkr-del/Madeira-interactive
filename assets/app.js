@@ -36,11 +36,11 @@
   const FLEX = {
     "2026-08-19": ["dojazd do Berlina, parking P7/8 i zameldowanie przy terminalu", "wieczorny spacer po centrum"],
     "2026-08-20": ["lot i transfer do hotelu", "Lido — tylko jeśli zostaje energia"],
-    "2026-08-21": ["muzeum CR7 i marina", "stare miasto można skrócić"],
+    "2026-08-21": ["Curral das Freiras i lunch", "podejście na Eira do Serrado"],
     "2026-08-22": ["kolacja z espetadą (rezerwacja!)", "Monte i kolejka — całkiem opcjonalne"],
     "2026-08-23": ["nic — to dzień bez zobowiązań", "wszystko poza basenem"],
     "2026-08-24": ["Porto Moniz i Fanal", "Seixal i Cabo Girão"],
-    "2026-08-25": ["Curral das Freiras i lunch", "podejście na Eira do Serrado"],
+    "2026-08-25": ["muzeum CR7 i marina", "stare miasto można skrócić"],
     "2026-08-26": ["BAM i plaża w Calhecie", "Ponta do Sol, jeśli dzień się przeciągnie"],
     "2026-08-27": ["wejście na Pico Ruivo (PR1.2)", "Ribeiro Frio i Balcões w drodze powrotnej"],
     "2026-08-28": ["rejs na delfiny (rezerwacja)", "popołudnie — tylko odpoczynek"],
@@ -81,8 +81,8 @@
     { n: "Calheta — plaża i marina", lat: 32.721900, lon: -17.177500, d: "26.08 · Ponad 200 m złotego piasku w osłoniętej zatoce, plac zabaw ze zjeżdżalniami, boiska, prysznice. Z mariny obok wypożycza się kajaki i deski SUP." },
     { n: "Queimadas — Casa das Queimadas", lat: 32.782772, lon: -16.911610, d: "Poza trasą · Leśny park nad strumieniami z autentycznym domem krytym strzechą — znacznie lepszy niż komercyjne domki w Santanie. Wypadł z dnia górskiego przez odległości (z Achada do Teixeira 76 minut). Wstęp wolny, parking płatny." },
     { n: "Homem em Pé — Achada do Teixeira", lat: 32.765326, lon: -16.920852, d: "27.08 · Skalna formacja „Stojący Człowiek” tuż przy parkingu, z którego startuje szlak PR1.2. Widok bez wysiłku, jeszcze przed wejściem — dobre miejsce na rozprostowanie nóg po 95 minutach jazdy." },
-    { n: "Mercado dos Lavradores", lat: 32.648689, lon: -16.903511, d: "21.08 i dowolny poranek · Targ owocowo-rybny w Funchal: owoce tropikalne do degustacji, ryby, kwiaty. Najżywszy przed południem; w środku UauCacau (lokal 19)." },
-    { n: "Rua de Santa Maria — Stare Miasto", lat: 32.647907, lon: -16.900414, d: "21, 22 i 23.08 · Najstarsza ulica Funchal ze słynnymi malowanymi drzwiami i tasquinhas. Miejsce na pierwszą kolację i na espetadę." },
+    { n: "Mercado dos Lavradores", lat: 32.648689, lon: -16.903511, d: "25.08 i dowolny poranek · Targ owocowo-rybny w Funchal: owoce tropikalne do degustacji, ryby, kwiaty. Najżywszy przed południem; w środku UauCacau (lokal 19)." },
+    { n: "Rua de Santa Maria — Stare Miasto", lat: 32.647907, lon: -16.900414, d: "22, 23 i 25.08 · Najstarsza ulica Funchal ze słynnymi malowanymi drzwiami i tasquinhas. Miejsce na pierwszą kolację i na espetadę." },
     { n: "Teleférico do Funchal — stacja dolna", lat: 32.661339, lon: -16.901209, d: "22.08 · Kolejka linowa z nabrzeża do dzielnicy Monte, ok. 15 minut nad dachami i dolinami. Wjazd i zjazd można kupić osobno." },
     { n: "Nossa Senhora do Monte", lat: 32.676001, lon: -16.902472, d: "22.08 · Kościół na szczycie Monte, w którym spoczywa cesarz Karol I Habsburg. Schody przed wejściem są częścią widoku." },
     { n: "Estreito de Câmara de Lobos", lat: 32.671099, lon: -16.979973, d: "22.08 · Miasteczko nad Câmara de Lobos uważane za ojczyznę espetady — tutaj podaje się ją klasycznie, na laurowym patyku." },
@@ -141,17 +141,17 @@
       }
     },
     {
-      id: "2026-08-21", date: "21 sierpnia · piątek", title: "Funchal i CR7", short: "Marina, muzeum CR7 i stare miasto Funchal.",
-      image: commons.funchal, alt: "Uliczki starego miasta w Funchal", cats: ["aktywny", "spokojny"],
-      intensity: "Umiarkowana", duration: "4–5 h", transport: "Autobus / taxi", walking: "2–4 km", kids: "Tak, sprawnie chodzą", exposure: "Niska",
-      center: [32.648, -16.913], route: [[32.6384, -16.9353, "Hotel Baía Azul"], [32.6443, -16.9148, "Muzeum CR7"], [32.6454, -16.9096, "Marina"], [32.6484, -16.9033, "Stare miasto"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/CR7+Museum/Funchal+Marina/Mercado+dos+Lavradores",
-      agenda: [["08:00", "Śniadanie w hotelu", "Bufet śniadaniowy w hotelu, zwykle 7:30–10:00 (godziny potwierdzić w recepcji)."], ["10:15", "Centrum i marina", "Spokojny start przy nabrzeżu i widok na port."], ["11:00", "Muzeum CR7", "Krótka, konkretna atrakcja; bilety sprawdzić przed wyjściem."], ["12:15", "Stare miasto", "Rua de Santa Maria i lunch w wygodnym miejscu."], ["15:00", "Hotel, basen lub Lido", "Reszta dnia bez sztywnego harmonogramu."]],
-      tips: ["Trasa 2–4 km przez marinę, CR7 i wybrany fragment starego miasta jest planem podstawowym.", "Przerwa na siedząco co 45–60 minut; taxi zawsze pozostaje wygodną opcją.", "Kapelusze, woda i przerwa w cieniu w południe.", "Sprawdzić aktualne godziny otwarcia muzeum CR7."],
-      planB: "Przy upale lub zmęczeniu: tylko marina i CR7, a lunch oraz popołudnie w hotelu.", gentle: "poruszamy się taxi między hotelem, CR7 i starym miastem.",
+      id: "2026-08-21", date: "21 sierpnia · piątek", title: "Curral das Freiras", short: "Pół dnia w Dolinie Zakonnic, spokojne widoki i lunch.",
+      image: commons.curral, alt: "Dolina Curral das Freiras otoczona górami", cats: ["aktywny", "spokojny"],
+      intensity: "Umiarkowana", duration: "5–6 h", transport: "Autobus 81 albo taxi", walking: "2–4 km", kids: "Tak, sprawnie chodzą", exposure: "Kontrolowana",
+      center: [32.7202, -16.9691], route: [[32.6384, -16.9353, "Hotel"], [32.7107, -16.9615, "Eira do Serrado"], [32.7202, -16.9691, "Curral das Freiras"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Funchal/Eira+do+Serrado/Curral+das+Freiras",
+      agenda: [["08:15", "Śniadanie w hotelu", "Bufet 7:30–10:00 — zjeść przed wyjazdem o 10:15 (godziny potwierdzić w recepcji)."], ["10:15", "Wyjazd z Funchal", "Trasa w głąb wyspy i spokojne rozpoczęcie aktywnego pół dnia."], ["11:00", "Eira do Serrado", "Krótkie podejście do komfortowego punktu widokowego; kijki i przerwy według potrzeby."], ["12:15", "Curral das Freiras", "Spacer 2–3 km po miejscowości i spokojny lunch."], ["15:30", "Powrót do hotelu", "Popołudnie na basenie lub krótka promenada."]],
+      tips: ["Najtańszy i najciekawszy dojazd to <strong>autobus 81</strong> (Horários do Funchal): jedzie z centrum Funchal przez Eira do Serrado do Curral das Freiras, ok. 45 minut serpentynami i tunelami. Bilet ok. 2–3 € od osoby (z kartą GIRO taniej) — cała siódemka w obie strony za ~40 €, podczas gdy dwie taksówki to 120–140 €. Autobus zatrzymuje się przy punkcie widokowym.", "Podejście do punktu widokowego jest częścią planu przy suchej nawierzchni; zawrócenie pozostaje prostą opcją.", "Nie trzeba podchodzić do barierek, aby zobaczyć dolinę.", "W razie choroby lokomocyjnej usiąść z przodu i przygotować wodę.", "Dzieci mogą przejść pełny spacer; tempo dopasowujemy do najwolniejszej osoby."] ,
+      planB: "Zamiana na ogród w Funchal, Lido lub dzień hotelowy — szczególnie przy niskich chmurach w dolinie.", gentle: "pomijamy każdy punkt, który powoduje dyskomfort; sama miejscowość i lunch wystarczą.",
       deepDive: {
-        context: "Funchal jest stolicą Madery od XV wieku; nazwa nawiązuje do dziko rosnącego tu niegdyś koperku. Stare miasto wokół Rua de Santa Maria znane jest z pomalowanych drzwi — lokalnego projektu artystycznego, który ożywił dawną, zaniedbaną dzielnicę portową.",
-        food: "Mercado dos Lavradores przy starym mieście to dobre miejsce na świeże owoce tropikalne i rybę espada; w mieście warto spróbować bolo do caco z masłem czosnkowym jako lekkiej przekąski między atrakcjami.",
-        practical: "Muzeum CR7, poświęcone urodzonemu w Funchal Cristianowi Ronaldo, ma osobny cennik biletów i bywa zamykane w niektóre dni poza sezonem — aktualne godziny warto sprawdzić dzień wcześniej."
+        context: "Curral das Freiras (Dolina Zakonnic) zawdzięcza nazwę zakonnicom, które według legendy schroniły się tu przed piratami w XVI wieku. Miejscowość leży w głębokim kraterze otoczonym szczytami centralnej Madery, przez długi czas dostępnym praktycznie tylko pieszo.",
+        food: "Lokalna specjalność to kasztany (castanhas) pod różnymi postaciami — od zupy po likier 'licor de castanha' — oraz domowe ciasto orzechowe 'bolo de nozes', które najlepiej smakuje na miejscu.",
+        practical: "Punkt widokowy Eira do Serrado bywa zatłoczony w środku dnia z powodu wycieczek autokarowych; wcześniejszy przyjazd daje spokojniejszy widok na dolinę i lepsze warunki do zdjęć."
       }
     },
     {
@@ -197,17 +197,17 @@
       }
     },
     {
-      id: "2026-08-25", date: "25 sierpnia · wtorek", title: "Curral das Freiras", short: "Pół dnia w Dolinie Zakonnic, spokojne widoki i lunch.",
-      image: commons.curral, alt: "Dolina Curral das Freiras otoczona górami", cats: ["aktywny", "spokojny"],
-      intensity: "Umiarkowana", duration: "5–6 h", transport: "Autobus 81 albo taxi", walking: "2–4 km", kids: "Tak, sprawnie chodzą", exposure: "Kontrolowana",
-      center: [32.7202, -16.9691], route: [[32.6384, -16.9353, "Hotel"], [32.7107, -16.9615, "Eira do Serrado"], [32.7202, -16.9691, "Curral das Freiras"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Funchal/Eira+do+Serrado/Curral+das+Freiras",
-      agenda: [["08:15", "Śniadanie w hotelu", "Bufet 7:30–10:00 — zjeść przed wyjazdem o 10:15 (godziny potwierdzić w recepcji)."], ["10:15", "Wyjazd z Funchal", "Trasa w głąb wyspy i spokojne rozpoczęcie aktywnego pół dnia."], ["11:00", "Eira do Serrado", "Krótkie podejście do komfortowego punktu widokowego; kijki i przerwy według potrzeby."], ["12:15", "Curral das Freiras", "Spacer 2–3 km po miejscowości i spokojny lunch."], ["15:30", "Powrót do hotelu", "Popołudnie na basenie lub krótka promenada."]],
-      tips: ["Najtańszy i najciekawszy dojazd to <strong>autobus 81</strong> (Horários do Funchal): jedzie z centrum Funchal przez Eira do Serrado do Curral das Freiras, ok. 45 minut serpentynami i tunelami. Bilet ok. 2–3 € od osoby (z kartą GIRO taniej) — cała siódemka w obie strony za ~40 €, podczas gdy dwie taksówki to 120–140 €. Autobus zatrzymuje się przy punkcie widokowym.", "Podejście do punktu widokowego jest częścią planu przy suchej nawierzchni; zawrócenie pozostaje prostą opcją.", "Nie trzeba podchodzić do barierek, aby zobaczyć dolinę.", "W razie choroby lokomocyjnej usiąść z przodu i przygotować wodę.", "Dzieci mogą przejść pełny spacer; tempo dopasowujemy do najwolniejszej osoby."] ,
-      planB: "Zamiana na ogród w Funchal, Lido lub dzień hotelowy — szczególnie przy niskich chmurach w dolinie.", gentle: "pomijamy każdy punkt, który powoduje dyskomfort; sama miejscowość i lunch wystarczą.",
+      id: "2026-08-25", date: "25 sierpnia · wtorek", title: "Funchal i CR7", short: "Marina, muzeum CR7 i stare miasto Funchal.",
+      image: commons.funchal, alt: "Uliczki starego miasta w Funchal", cats: ["aktywny", "spokojny"],
+      intensity: "Umiarkowana", duration: "4–5 h", transport: "Autobus / taxi", walking: "2–4 km", kids: "Tak, sprawnie chodzą", exposure: "Niska",
+      center: [32.648, -16.913], route: [[32.6384, -16.9353, "Hotel Baía Azul"], [32.6443, -16.9148, "Muzeum CR7"], [32.6454, -16.9096, "Marina"], [32.6484, -16.9033, "Stare miasto"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/CR7+Museum/Funchal+Marina/Mercado+dos+Lavradores",
+      agenda: [["08:00", "Śniadanie w hotelu", "Bufet śniadaniowy w hotelu, zwykle 7:30–10:00 (godziny potwierdzić w recepcji)."], ["10:15", "Centrum i marina", "Spokojny start przy nabrzeżu i widok na port."], ["11:00", "Muzeum CR7", "Krótka, konkretna atrakcja; bilety sprawdzić przed wyjściem."], ["12:15", "Stare miasto", "Rua de Santa Maria i lunch w wygodnym miejscu."], ["15:00", "Hotel, basen lub Lido", "Reszta dnia bez sztywnego harmonogramu."]],
+      tips: ["Trasa 2–4 km przez marinę, CR7 i wybrany fragment starego miasta jest planem podstawowym.", "Przerwa na siedząco co 45–60 minut; taxi zawsze pozostaje wygodną opcją.", "Kapelusze, woda i przerwa w cieniu w południe.", "Sprawdzić aktualne godziny otwarcia muzeum CR7."],
+      planB: "Przy upale lub zmęczeniu: tylko marina i CR7, a lunch oraz popołudnie w hotelu.", gentle: "poruszamy się taxi między hotelem, CR7 i starym miastem.",
       deepDive: {
-        context: "Curral das Freiras (Dolina Zakonnic) zawdzięcza nazwę zakonnicom, które według legendy schroniły się tu przed piratami w XVI wieku. Miejscowość leży w głębokim kraterze otoczonym szczytami centralnej Madery, przez długi czas dostępnym praktycznie tylko pieszo.",
-        food: "Lokalna specjalność to kasztany (castanhas) pod różnymi postaciami — od zupy po likier 'licor de castanha' — oraz domowe ciasto orzechowe 'bolo de nozes', które najlepiej smakuje na miejscu.",
-        practical: "Punkt widokowy Eira do Serrado bywa zatłoczony w środku dnia z powodu wycieczek autokarowych; wcześniejszy przyjazd daje spokojniejszy widok na dolinę i lepsze warunki do zdjęć."
+        context: "Funchal jest stolicą Madery od XV wieku; nazwa nawiązuje do dziko rosnącego tu niegdyś koperku. Stare miasto wokół Rua de Santa Maria znane jest z pomalowanych drzwi — lokalnego projektu artystycznego, który ożywił dawną, zaniedbaną dzielnicę portową.",
+        food: "Mercado dos Lavradores przy starym mieście to dobre miejsce na świeże owoce tropikalne i rybę espada; w mieście warto spróbować bolo do caco z masłem czosnkowym jako lekkiej przekąski między atrakcjami.",
+        practical: "Muzeum CR7, poświęcone urodzonemu w Funchal Cristianowi Ronaldo, ma osobny cennik biletów i bywa zamykane w niektóre dni poza sezonem — aktualne godziny warto sprawdzić dzień wcześniej."
       }
     },
     {
@@ -618,6 +618,54 @@
       </section>`;
   }
 
+  // ── Podmiana programu na stronie dnia ─────────────────────────────────
+  function podmianaHTML(day) {
+    if (LOCKED[day.id]) {
+      return `
+        <section class="section card day-swap is-locked-day">
+          <div class="card-body">
+            <h2>Program tego dnia jest zakotwiczony</h2>
+            <p class="section-copy">${escapeHtml(LOCKED[day.id])} — dlatego nie da się go zamienić z innym dniem. Reszta planu pozostaje elastyczna.</p>
+          </div>
+        </section>`;
+    }
+    const wolne = days.filter((d) => d.id !== day.id && !LOCKED[d.id]);
+    if (!wolne.length) return "";
+    return `
+      <section class="section card day-swap" aria-labelledby="swap-title">
+        <div class="card-body">
+          <h2 id="swap-title">Nie ta pogoda na dziś?</h2>
+          <p class="section-copy">Możesz wziąć program z innego elastycznego dnia — zamienią się miejscami, razem z trasą, mapą i wskazówkami. Decyzję da się cofnąć w każdej chwili.</p>
+          <div class="ds-grid">
+            ${wolne.map((d) => `
+              <button class="ds-card" type="button" data-swap-with="${d.id}">
+                <span class="ds-date">${d.date.split(" · ")[0]}</span>
+                <strong class="ds-title">${escapeHtml(d.title)}</strong>
+                <span class="ds-short">${escapeHtml(d.short)}</span>
+                <span class="ds-cta">Weź ten program na dziś →</span>
+              </button>`).join("")}
+          </div>
+          <p class="ds-nota">Dni z rezerwacją — loty, rejs i wejście na Pico Ruivo — są zakotwiczone i nie pojawiają się na tej liście.</p>
+        </div>
+      </section>`;
+  }
+
+  function setupPodmiana(day) {
+    document.querySelectorAll("[data-swap-with]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const cel = btn.dataset.swapWith;
+        const inny = days.find((d) => d.id === cel);
+        if (!inny) return;
+        const zgoda = window.confirm(
+          `Zamienić programy?\n\n${day.date}: ${day.title}\n${inny.date}: ${inny.title}\n\n` +
+          `Po zamianie dziś robicie "${inny.title}", a "${day.title}" przenosi się na ${inny.date}.`
+        );
+        if (!zgoda) return;
+        if (zamienDni(day.id, cel, true)) window.location.reload();
+      });
+    });
+  }
+
   function renderDay() {
     const root = document.querySelector("#day-root");
     if (!root) return;
@@ -647,6 +695,7 @@
         </section>
         <section class="section card deep-dive" aria-labelledby="deep-dive-title"><div class="card-body"><h2 id="deep-dive-title">Więcej o tym dniu</h2><div class="deep-grid"><div><h3>Kontekst i historia</h3><p>${day.deepDive.context}</p></div><div><h3>Jedzenie i lokalne smaki</h3><p>${day.deepDive.food}</p></div><div><h3>Praktyczne detale</h3><p>${day.deepDive.practical}</p></div></div></div></section>
         <section class="section card plan-b"><h2>Plan B</h2><p class="section-copy">${day.planB}</p></section>
+        ${podmianaHTML(day)}
         <nav class="nav-days" aria-label="Nawigacja między dniami">${prev ? `<a href="${prev.id}.html">← ${prev.date.split(" · ")[0]}</a>` : "<span></span>"}<a class="home" href="../index.html">Strona główna</a>${next ? `<a class="next" href="${next.id}.html">${next.date.split(" · ")[0]} →</a>` : "<span></span>"}</nav>
         <p class="day-actions"><button class="button secondary" type="button" id="share-day">Udostępnij dzień</button></p>
         <footer class="footer">Plan rodzinny 19–30 sierpnia 2026. Godziny lotów, rezerwacje, warunki pogodowe i dostępność atrakcji wymagają potwierdzenia przed wyjazdem.${creditFor(day.image) ? `<br>Zdjęcie dnia: ${creditFor(day.image)}` : ""}</footer>
@@ -654,6 +703,7 @@
 
     renderDayTrailAlert(day);
     setupPackages(day);
+    setupPodmiana(day);
 
     const mapShell = document.querySelector(".map-shell");
     const activate = document.querySelector(".map-activate");
@@ -735,7 +785,7 @@
           <li><strong>Lot powrotny:</strong> 30.08, EJU5334 Funchal → Berlin BER, 11:35 → 17:10 (PNR KD15T58); odbiór z hotelu ok. 08:30</li>
           <li><strong>Transfery lotniskowe:</strong> madeira-in (Rui Nóbrega), Mercedes Sprinter, 45 EUR w jedną stronę — <strong>90 EUR razem, PŁATNE GOTÓWKĄ przy przyjeździe</strong>; tel. kierowcy +351 917 260 690, mail transfers.madeira@gmail.com. Po wylądowaniu dzwonimy do Rui z kompletem bagaży, odbiór przy kawiarni obok hali przylotów</li>
           <li><strong>Wycieczki busem:</strong> ad hoc z madeira-in, 220 EUR/dzień — orientacyjnie 22, 24 i 27.08</li>
-          <li><strong>Gotówka:</strong> 90 € transfery (Rui) · góry 27.08: 290 € wg wyceny Rui (do akceptacji) · zachód 24.08 z Rui: 220–255 € · banany 26.08: taxi-van ~85–180 € albo Rui, decyzja na miejscu · Curral 25.08: autobus 81, ~40 € za rodzinę · minibus Rabaçal ~8 €/os. przy wariancie levady. Reszta wyspy na kartę.</li>
+          <li><strong>Gotówka:</strong> 90 € transfery (Rui) · góry 27.08: 290 € wg wyceny Rui (do akceptacji) · zachód 24.08 z Rui: 220–255 € · banany 26.08: taxi-van ~85–180 € albo Rui, decyzja na miejscu · Curral 21.08: autobus 81, ~40 € za rodzinę · minibus Rabaçal ~8 €/os. przy wariancie levady. Reszta wyspy na kartę.</li>
             <li><strong>Szlaki 27.08:</strong> PR1.2 Pico Ruivo 11:30 (SIM4340084, SIM4340085, rez. 2251723/2026), Balcões 17:00 (SIM4330277, SIM4330279, rez. 2234556/2026). 5 dorosłych + 2 dzieci zwolnione. Wyjazd z hotelu wyjątkowo 9:45. Mieć PDF/QR offline. PR6 25 Fontes tylko jako wariant 29.08 (wtedy minibus z ER105, ok. 8 €/os. gotówką)</li>
             <li><strong>Auto:</strong> parking APCOA P7/8 BER (Terminal T1&amp;T2), rez. 8320774, tablica EL2GE01, wjazd 19.08 16:00 → wyjazd 30.08 18:00, 144 € zapłacone; Brunolf-Baade-Straße 1/2</li>
           <li><strong>Nocleg 19.08:</strong> IntercityHotel Berlin Airport BER Terminal 1+2, Willy-Brandt-Platz 5, tel. +49 30 536 531 0 — 2 × Business Twin, potwierdzenia 4RGPYJYD i 4GMN9X9N, 166,78 € bez śniadania, City Ticket w cenie; zameldowanie od 15:00, wymeldowanie do 12:00</li>
@@ -829,7 +879,7 @@
     { emoji: "💧", title: "Woda i zdrowie", points: ["Woda z kranu jest zdatna do picia.", "Zabrać EKUZ (Europejska Karta Ubezpieczenia Zdrowotnego) oraz ubezpieczenie turystyczne.", "Apteki (farmácia) w Funchal są liczne; leki na receptę warto mieć z zapasem i w bagażu podręcznym."] },
     { emoji: "💶", title: "Ile gotówki mieć przy sobie", points: [
       "<strong>90 € — transfery lotniskowe.</strong> Rui rozlicza się gotówką przy przyjeździe, nie kartą i nie przelewem. Banknoty przygotować jeszcze w Polsce.",
-      "<strong>Ok. 500–750 € — transport na wycieczki.</strong> Dzień górski 27.08 z Rui to wg jego wyceny 290 € — akceptacja jeszcze nie wysłana. Zachód 24.08 też z Rui: 220 € do 17:00, 255 € do 18:00 — na Fanal nic innego nie dojeżdża. Dzień bananowy 26.08 ma tańsze opcje: taxi-van do 8 osób za ~85–180 € albo linia 142 za grosze; decyzja na miejscu. Do Curral 25.08 jedzie autobus 81 za ~40 € za całą rodzinę.",
+      "<strong>Ok. 500–750 € — transport na wycieczki.</strong> Dzień górski 27.08 z Rui to wg jego wyceny 290 € — akceptacja jeszcze nie wysłana. Zachód 24.08 też z Rui: 220 € do 17:00, 255 € do 18:00 — na Fanal nic innego nie dojeżdża. Dzień bananowy 26.08 ma tańsze opcje: taxi-van do 8 osób za ~85–180 € albo linia 142 za grosze; decyzja na miejscu. Do Curral 21.08 jedzie autobus 81 za ~40 € za całą rodzinę.",
       "<strong>ok. 8 € od osoby — minibus w Rabaçal</strong>, tylko jeśli wybierzemy levadę 25 Fontes 29.08. Płatny wyłącznie gotówką, więc drobne muszą być tego dnia w kieszeni, nie w hotelu.",
       "<strong>Bilety na szlaki płacimy kartą</strong> — SIMplifica przyjmuje tylko płatność online, gotówki tam nie potrzeba.",
       "Reszta wyspy działa normalnie na kartę: restauracje, sklepy, muzea, taksówki. Gotówka jest potrzebna głównie do tych trzech rzeczy powyżej i na drobne w małych barach.",
