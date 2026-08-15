@@ -885,7 +885,7 @@
       "Reszta wyspy działa normalnie na kartę: restauracje, sklepy, muzea, taksówki. Gotówka jest potrzebna głównie do tych trzech rzeczy powyżej i na drobne w małych barach.",
       "Bankomaty (multibanco) są w Funchal na każdym kroku, ale w górach i małych miejscowościach już nie — wypłacać w mieście, nie w drodze."
     ] },
-    { emoji: "🎟️", title: "Szlaki są płatne i na rezerwację", points: ["Wejście na sklasyfikowane szlaki PR wymaga <strong>biletu kupionego online</strong> na <a href=\"https://simplifica.madeira.gov.pt/\" target=\"_blank\" rel=\"noopener\">simplifica.madeira.gov.pt</a> — rezerwuje się 30-minutowe okno wejścia.", "Nas dotyczą dwa: <strong>PR1.2 Vereda do Pico Ruivo</strong> (27.08) i — opcjonalnie — <strong>PR6 Levada das 25 Fontes</strong> (29.08), po 4,50 € od osoby. Levada dos Balcões jest bezpłatna i bez rezerwacji.", "Dzieci poniżej 12 lat nie płacą, ale muszą być zgłoszone w rezerwacji — przy dwunastolatku dopytać przy zakupie.", "Bilet trzeba okazać przy wejściu; w Rabaçal i na Achada do Teixeira bywają kontrole, a mandat sięga 250 €.", "W górach zasięg znika — zapisać bilety offline (zrzut ekranu albo PDF w telefonie), nie liczyć na wczytanie maila na miejscu.", "Sierpniowe poranne sloty na 25 Fontes potrafią zniknąć na kilka dni przed terminem; ceny i zasady potwierdzić na portalu, bo zmieniały się już kilka razy."] },
+    { emoji: "🎟️", title: "Szlaki są płatne i na rezerwację", points: ["Wejście na sklasyfikowane szlaki PR wymaga <strong>biletu kupionego online</strong> na <a href=\"https://simplifica.madeira.gov.pt/\" target=\"_blank\" rel=\"noopener\">simplifica.madeira.gov.pt</a> — rezerwuje się 30-minutowe okno wejścia.", "Nas dotyczą trzy: <strong>PR1.2 Vereda do Pico Ruivo</strong> i <strong>PR11 Vereda dos Balcões</strong> (oba 27.08, kupione) oraz — opcjonalnie — <strong>PR6 Levada das 25 Fontes</strong> (29.08), po 4,50 € od osoby.", "Dzieci poniżej 12 lat nie płacą, ale muszą być zgłoszone w rezerwacji — przy dwunastolatku dopytać przy zakupie.", "Bilet trzeba okazać przy wejściu; w Rabaçal i na Achada do Teixeira bywają kontrole, a mandat sięga 250 €.", "W górach zasięg znika — zapisać bilety offline (zrzut ekranu albo PDF w telefonie), nie liczyć na wczytanie maila na miejscu.", "Sierpniowe poranne sloty na 25 Fontes potrafią zniknąć na kilka dni przed terminem; ceny i zasady potwierdzić na portalu, bo zmieniały się już kilka razy."] },
     { emoji: "🗺️", title: "Mapa w telefonie", points: ["Zakładka <strong>Mapa</strong> pokazuje wszystko na jednym ekranie: przystanki każdego dnia, atrakcje, opcje na zapas i gastronomię — warstwy włącza się osobno.", "Import: <a href=\"https://www.google.com/mymaps\" target=\"_blank\" rel=\"noopener\">google.com/mymaps</a> → Utwórz nową mapę → Importuj → wskaż pobrany plik. Mapa jest wtedy prywatna, widoczna tylko dla Ciebie.", "Warstwy: siedem dni planu, atrakcje po drodze, opcje na zapas (plan B na deszcz) i gastronomia. W terenie można zostawić włączoną tylko tę jedną, która jest akurat potrzebna.", "Google Maps pozwala pobrać obszar Madery offline; w górach i na levadach zasięg bywa zerowy."] },
     { emoji: "🆘", title: "Numery alarmowe i bezpieczeństwo", points: ["Ogólny numer alarmowy to 112 (obsługa również po angielsku).", "Madera jest bardzo bezpieczna, z niską przestępczością.", "Największą ostrożność zachować przy słońcu, prądach morskich i śliskich skałach nad wodą."] },
     { emoji: "💛", title: "Napiwki i drobne zwyczaje", points: ["Napiwki nie są obowiązkowe — mile widziane zaokrąglenie rachunku lub 5–10% przy dobrej obsłudze.", "W restauracjach couvert (pieczywo, oliwki, pasty na start) bywa płatny — można go odmówić.", "Sjesta nie obowiązuje, ale kolacje jada się później niż w Polsce, zwykle po 19:00."] }
@@ -985,6 +985,30 @@
               </ul>
             </div>
           </div>
+        </section>
+        <section class="guide-section" aria-labelledby="bilety-title">
+          <h2 id="bilety-title">Bilety na szlaki — miej pod ręką</h2>
+          <p class="section-copy">Kody z zakupionych biletów SIMplifica. Zapisz tę stronę offline albo zrób zrzut ekranu — w Rabaçal, na Achada do Teixeira i w Ribeiro Frio zasięgu praktycznie nie ma, a bilet trzeba okazać przy wejściu.</p>
+          <div class="bilety-grid">
+            ${TRAILS.filter((t) => t.bilety).map((t) => `
+              <article class="card bilet-card">
+                <div class="card-body">
+                  <h3>${t.kod} · ${escapeHtml(t.nazwa)}</h3>
+                  <dl class="bilet-fakty">
+                    <dt>Dzień</dt><dd>${(days.find((d) => d.id === t.dayId) || {}).date || t.dayId}</dd>
+                    <dt>Wejście</dt><dd>${t.bilety.godzina}${t.bilety.czas ? ` · ${t.bilety.czas}` : ""}</dd>
+                    <dt>Start</dt><dd>${escapeHtml(t.start)}</dd>
+                    <dt>Skład</dt><dd>${t.bilety.osoby}</dd>
+                    ${t.bilety.ref ? `<dt>Rezerwacja</dt><dd>${t.bilety.ref}</dd>` : ""}
+                    ${t.bilety.numery ? `<dt>Numery</dt><dd>${t.bilety.numery.map((n) => `<code>${n}</code>`).join(" · ")}</dd>` : ""}
+                  </dl>
+                  ${t.bilety.qr
+                    ? `<div class="bilet-qr-row">${t.bilety.qr.map((q) => `<figure class="bilet-qr"><img src="${q.src}" alt="Kod QR biletu ${escapeHtml(q.opis)}" loading="lazy"><figcaption>${escapeHtml(q.opis)}</figcaption></figure>`).join("")}</div>`
+                    : `<p class="bilet-brak">Kody QR tego biletu są w PDF-ie z SIMplifiki — trzymaj go w telefonie razem z tą stroną.</p>`}
+                </div>
+              </article>`).join("")}
+          </div>
+          <p class="notice">Dzieci poniżej 12 lat nie płacą, ale są zgłoszone w rezerwacji i mają własny bilet — nie wchodzą „przy okazji". Kontrole na szlakach bywają, a mandat sięga 250 €.</p>
         </section>
         <section class="guide-section" aria-labelledby="parking-title">
           <h2 id="parking-title">Parking na BER</h2>
