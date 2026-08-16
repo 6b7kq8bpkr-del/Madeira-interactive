@@ -329,6 +329,7 @@
   let routeMapInstance = null;
   let routeMarkers = [];
   let mapObserver = null;
+  let mapaDniaGotowa = Promise.resolve();
   let overviewMapInstance = null;
 
   function imageMarkup(day, eager, className) {
@@ -650,7 +651,10 @@
     });
     let zapisany = null;
     try { zapisany = localStorage.getItem("madera-pakiet-" + day.id); } catch (e) {}
-    if (zapisany && day.packages.some((p) => p.id === zapisany)) pokazPakiet(day, zapisany);
+    if (zapisany && day.packages.some((p) => p.id === zapisany)) {
+      // mapa dnia ładuje się asynchronicznie — bez tego nadpisałaby trasę pakietu
+      Promise.resolve(mapaDniaGotowa).then(() => pokazPakiet(day, zapisany));
+    }
   }
 
   function groupsHTML(day) {
@@ -761,6 +765,8 @@
       </main>`;
 
     renderDayTrailAlert(day);
+    // mapa dnia startuje pierwsza — przywracanie pakietu czeka na jej obietnicę
+    mapaDniaGotowa = initRouteMap(day);
     setupPackages(day);
     setupPodmiana(day);
     setupListaPrzystankow();
@@ -789,7 +795,6 @@
       const railRect = rail.getBoundingClientRect();
       rail.scrollLeft += (itemRect.left + itemRect.width / 2) - (railRect.left + railRect.width / 2);
     }
-    initRouteMap(day);
     renderDayWeather(day);
     markNow(day);
     setupShare(day);
