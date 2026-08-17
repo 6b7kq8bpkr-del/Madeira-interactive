@@ -26,6 +26,25 @@
     espetada: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Espetadagrill_am_Strandfest.JPG/1920px-Espetadagrill_am_Strandfest.JPG"
   };
 
+  // Wikimedia i Unsplash generują miniatury o dowolnej szerokości — na wyspie ze słabym
+  // zasięgiem pobieramy tyle pikseli, ile realnie widać, a nie zawsze pełne 1920.
+  const foto = (url, w) =>
+    url.includes("/1920px-") ? url.replace("/1920px-", `/${w}px-`)
+      : url.includes("w=1800") ? url.replace("w=1800", `w=${w}`)
+        : url;
+  const skalowalne = (url) => url.includes("/1920px-") || url.includes("w=1800");
+  const fotoSrcset = (url, szerokosci) => szerokosci.map((w) => `${foto(url, w)} ${w}w`).join(", ");
+  // Wikimedia przyjmuje wyłącznie standardowe szerokości miniatur (120, 250, 330, 500, 960, 1280, 1920)
+  const KAFELEK_W = [330, 500, 960];
+  const HERO_W = [500, 960, 1280, 1920];
+  // Kafelki: 3 kolumny w kontenerze 1240 px, poniżej 900 px jedna kolumna na całą szerokość
+  const KAFELEK_SIZES = "(max-width: 900px) 92vw, 373px";
+  const HL_SIZES = "(max-width: 560px) 92vw, (max-width: 900px) 46vw, 373px";
+  function atrybutyFoto(url, szerokosci, sizes, domyslna) {
+    if (!skalowalne(url)) return ` src="${url}"`;
+    return ` src="${foto(url, domyslna)}" srcset="${fotoSrcset(url, szerokosci)}" sizes="${sizes}"`;
+  }
+
   const TOUR_COLORS = ["#0b7276", "#d9684f", "#e9ad4b", "#246b51"];
 
   // Rytm wyjazdu: intensywność dnia -> kropka na kafelku (wzorzec z planu Japonii)
@@ -333,7 +352,10 @@
   let overviewMapInstance = null;
 
   function imageMarkup(day, eager, className) {
-    return `<img${className ? ` class="${className}"` : ""} src="${day.image}" alt="${escapeHtml(day.alt)}" ${eager ? "fetchpriority=\"high\"" : "loading=\"lazy\""} decoding="async" onerror="this.parentElement.classList.add('image-fallback');this.remove()">`;
+    const foty = eager
+      ? atrybutyFoto(day.image, HERO_W, "100vw", 1280)
+      : atrybutyFoto(day.image, KAFELEK_W, KAFELEK_SIZES, 500);
+    return `<img${className ? ` class="${className}"` : ""}${foty} alt="${escapeHtml(day.alt)}" ${eager ? "fetchpriority=\"high\"" : "loading=\"lazy\""} decoding="async" onerror="this.parentElement.classList.add('image-fallback');this.remove()">`;
   }
 
   function renderIndex() {
@@ -919,7 +941,7 @@
     grid.innerHTML = highlights.map((h) => {
       const day = days.find((d) => d.id === h.dayId);
       const n = days.indexOf(day) + 1;
-      return `<a class="hl-card" href="days/${h.dayId}.html"><img src="${h.image}" alt="" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('image-fallback');this.remove()"><div class="hl-body"><span class="hl-day">Dzień ${n} · ${day.date.split(" · ")[0]}</span><h3>${h.title}</h3><p>${h.desc}</p></div></a>`;
+      return `<a class="hl-card" href="days/${h.dayId}.html"><img${atrybutyFoto(h.image, KAFELEK_W, HL_SIZES, 500)} alt="" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('image-fallback');this.remove()"><div class="hl-body"><span class="hl-day">Dzień ${n} · ${day.date.split(" · ")[0]}</span><h3>${h.title}</h3><p>${h.desc}</p></div></a>`;
     }).join("");
   }
 
@@ -931,6 +953,73 @@
     { emoji: "🔌", title: "Elektronika", items: ["Ładowarki — gniazdka jak w Polsce, przejściówka niepotrzebna.", "Power bank na całodniowe wycieczki.", "Telefon z pobranymi mapami offline i aparatem."] },
     { emoji: "🧒", title: "Dla dzieci", items: ["Przekąski i woda na dni z późniejszym lunchem.", "Coś do zajęcia w busie na dłuższych trasach.", "Zmiana ubrań i drobna gra na luźniejszy dzień."] }
   ];
+
+  // ── Budżet ─────────────────────────────────────────────────────────────
+  // Kwoty rozsiane po planie zebrane w jedno miejsce. Transfery i bus Rui
+  // wyceniane są za pojazd, więc cena zależy od składu — stąd dwie kolumny.
+  const SKLAD_KEY = "madera-sklad-v1";
+  const KOSZTY_OPLACONE = [
+    { co: "Nocleg 19.08 — IntercityHotel Berlin Airport", kwota: 166.78, jak: "kartą · 2 × Business Twin, bez śniadania" },
+    { co: "Parking APCOA P7/8 na BER", kwota: 144, jak: "kartą · rezerwacja 8320774, 19–30.08" },
+    { co: "Bilety na szlaki PR1.2 i PR11", kwota: null, jak: "kartą przez SIMplifica · 4,50 € od osoby za szlak" }
+  ];
+  const KOSZTY_GOTOWKA = [
+    { co: "Transfery lotnisko ↔ hotel", g4: 70, g7: 90, uwaga: "Dwa przejazdy po 35 € (czwórka) albo 45 € (siódemka). Rui przyjmuje wyłącznie gotówkę, przy przyjeździe — banknoty przygotować jeszcze w Polsce." },
+    { co: "Dzień górski 27.08 z Rui", g4: 240, g7: 290, uwaga: "Potwierdzone przez obie strony. Przy siódemce to 220 € za okno do 17:00 plus dwie rozpoczęte godziny po 35 €, bo wracamy po 18:00." },
+    { co: "Autobus 81 do Curral 21.08", g4: 23, g7: 40, uwaga: "2–3 € od osoby w jedną stronę, taniej z kartą GIRO. Dwie taksówki kosztowałyby 120–140 €." },
+    { co: "Drobne: couvert, napiwki, małe bary", g4: 60, g7: 100, uwaga: "Restauracje, sklepy, muzea i taksówki działają normalnie na kartę." },
+    { co: "Zachód wyspy 24.08 — jeśli zamawiamy busa", g4: null, g7: 255, opcja: true, uwaga: "220 € przy powrocie do 17:00, 255 € do 18:00. Stawki dla czwórki do ustalenia z Rui — przy dniu górskim zeszła z 290 na 240 €." },
+    { co: "Dzień bananowy 26.08 — taxi-van", g4: 130, g7: 130, opcja: true, uwaga: "85–180 € zależnie od długości pętli. Linia 142 to alternatywa za 2–3 € od osoby." },
+    { co: "Minibus w Rabaçal — tylko przy levadzie 29.08", g4: 32, g7: 56, opcja: true, uwaga: "Ok. 8 € od osoby z ER105, płatny wyłącznie gotówką. Doliczyć wtedy bilety PR6 kartą." }
+  ];
+
+  const eur = (v) => v.toFixed(2).replace(".", ",").replace(",00", "") + " €";
+  const czytajSklad = () => (localStorage.getItem(SKLAD_KEY) === "4" ? 4 : 7);
+
+  function renderKoszty() {
+    const host = document.querySelector("#koszty");
+    if (!host) return;
+    const n = czytajSklad();
+    const kwota = (r) => (n === 4 ? r.g4 : r.g7);
+    const pewne = KOSZTY_GOTOWKA.filter((r) => !r.opcja);
+    const opcje = KOSZTY_GOTOWKA.filter((r) => r.opcja);
+    const suma = (lista) => lista.reduce((s, r) => s + (kwota(r) || 0), 0);
+    const zaplacone = KOSZTY_OPLACONE.reduce((s, r) => s + (r.kwota === null ? trailsKosztPewny() : r.kwota), 0);
+    const wiersz = (r) => {
+      const k = kwota(r);
+      return `<tr><th scope="row">${r.co}<span class="kb-uwaga">${r.uwaga}</span></th><td>${k === null ? "<em>do ustalenia</em>" : eur(k)}</td></tr>`;
+    };
+    host.innerHTML = `
+      <div class="kb-head">
+        <p class="section-copy">Wszystko, co już zapłacone, i wszystko, co trzeba mieć w banknotach. Transfery i bus Rui wyceniane są za pojazd, nie od osoby — dlatego kwoty zależą od składu.</p>
+        <div class="kb-switch" role="group" aria-label="Liczba osób">
+          <button type="button" data-sklad="4" class="${n === 4 ? "on" : ""}" aria-pressed="${n === 4}">4 osoby</button>
+          <button type="button" data-sklad="7" class="${n === 7 ? "on" : ""}" aria-pressed="${n === 7}">7 osób</button>
+        </div>
+      </div>
+      <div class="kb-grid">
+        <table class="kb-table">
+          <caption>Zapłacone z góry — kartą, przed wyjazdem</caption>
+          <tbody>${KOSZTY_OPLACONE.map((r) => `<tr><th scope="row">${r.co}<span class="kb-uwaga">${r.jak}</span></th><td>${eur(r.kwota === null ? trailsKosztPewny() : r.kwota)}</td></tr>`).join("")}</tbody>
+          <tfoot><tr><th scope="row">Razem</th><td>${eur(zaplacone)}</td></tr></tfoot>
+        </table>
+        <table class="kb-table kb-cash">
+          <caption>Gotówka na miejscu — pewne</caption>
+          <tbody>${pewne.map(wiersz).join("")}</tbody>
+          <tfoot><tr><th scope="row">Razem gotówką</th><td>${eur(suma(pewne))}</td></tr></tfoot>
+        </table>
+        <table class="kb-table">
+          <caption>Gotówka na miejscu — tylko jeśli się zdecydujemy</caption>
+          <tbody>${opcje.map(wiersz).join("")}</tbody>
+          <tfoot><tr><th scope="row">Razem, gdyby wszystko</th><td>do ${eur(suma(opcje))}</td></tr></tfoot>
+        </table>
+      </div>
+      <p class="kb-suma"><strong>Banknotów zabrać: ${eur(suma(pewne))}</strong> na rzeczy pewne. Z zapasem na wszystkie warianty — <strong>${eur(suma(pewne) + suma(opcje))}</strong>. Bankomaty (multibanco) są w Funchal na każdym kroku, ale w górach i małych miejscowościach już nie — wypłacać w mieście, nie w drodze.</p>`;
+    host.querySelectorAll("[data-sklad]").forEach((b) => b.addEventListener("click", () => {
+      localStorage.setItem(SKLAD_KEY, b.dataset.sklad);
+      renderKoszty();
+    }));
+  }
 
   const practicalInfo = [
     { emoji: "🍳", title: "Śniadania w hotelu", points: ["Bufet śniadaniowy w Hotelu Baía Azul jest w cenie i serwowany zwykle w godzinach 7:30–10:00.", "Dla wychodzących wcześnie na wycieczkę zwykle dostępne jest śniadanie kontynentalne już od ok. 6:00.", "Dokładne godziny warto potwierdzić w recepcji po zameldowaniu — bywają sezonowe różnice."] },
@@ -998,6 +1087,10 @@
         <p class="lead">Krótkie ściągi, które najbardziej przydają się na miejscu — od waluty i gniazdek po pogodę, transport i numery alarmowe.</p>
       </header>
       <main id="main-content" class="guide-main">
+        <section class="guide-section" aria-labelledby="koszty-title">
+          <h2 id="koszty-title">Koszty i gotówka</h2>
+          <div id="koszty"></div>
+        </section>
         <section class="guide-section" aria-labelledby="onsite-title">
           <h2 id="onsite-title">Na miejscu</h2>
           <div class="guide-info-grid">
@@ -1895,6 +1988,7 @@
     ["renderDay", renderDay],
     ["renderPrint", renderPrint],
     ["renderPractical", renderPractical],
+    ["renderKoszty", renderKoszty],
     ["renderFood", renderFood],
     ["renderMapPage", renderMapPage],
     ["renderTrailAlert", renderTrailAlert],

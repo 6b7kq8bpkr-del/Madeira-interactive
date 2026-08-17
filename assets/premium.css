@@ -53,7 +53,6 @@ button, a, input, select { -webkit-tap-highlight-color: transparent; }
 }
 .brand { font-weight: 900; letter-spacing: .055em; text-transform: uppercase; text-decoration: none; font-size: 13px; }
 .top-actions { display: flex; align-items: center; gap: 8px; }
-.progress { font-size: 13px; color: rgba(255,255,255,.8); }
 .top-actions { flex-wrap: wrap; justify-content: flex-end; }
 .nav-link {
   min-height: 40px;
@@ -289,17 +288,6 @@ body.lb-open { overflow: hidden; }
 .day-card p { margin: 0; color: rgba(255,255,255,.82); line-height: 1.45; }
 
 .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.field { display: grid; gap: 7px; }
-.field label { color: var(--sea-dark); font-weight: 850; }
-.field small { color: var(--muted); line-height: 1.4; }
-.field input, .field select { width: 100%; min-height: 48px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; color: var(--ink); background: white; }
-.cost-total { margin: 20px 0 0; padding: 20px; border-radius: 18px; color: white; background: linear-gradient(135deg, var(--sea-dark), var(--sea)); }
-.cost-total strong { display: block; font-family: Georgia, "Times New Roman", serif; font-size: clamp(32px, 5vw, 48px); font-weight: 500; }
-.cost-total span { color: rgba(255,255,255,.8); }
-.booking-list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
-.booking-list li { padding: 14px; border-radius: 14px; background: #eef7f4; line-height: 1.5; }
-.booking-list strong { color: var(--sea-dark); }
 .checklist { display: grid; gap: 9px; }
 .check-row { min-height: 48px; display: flex; align-items: center; gap: 11px; padding: 10px 12px; border-radius: 12px; background: #f4f5f0; cursor: pointer; }
 .check-row input { width: 20px; height: 20px; accent-color: var(--sea); }
@@ -308,7 +296,7 @@ body.lb-open { overflow: hidden; }
 .footer { padding: 34px 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
 
 @media (max-width: 900px) {
-  .grid, .day-grid, .summary-grid, .deep-grid, .guide-grid, .guide-info-grid, .weather-wrap { grid-template-columns: 1fr; }
+  .grid, .day-grid, .summary-grid, .deep-grid, .guide-info-grid, .weather-wrap { grid-template-columns: 1fr; }
   .hl-grid { grid-template-columns: 1fr 1fr; }
   .hero { min-height: 68svh; }
   .section-head { align-items: start; flex-direction: column; }
@@ -325,13 +313,11 @@ body.lb-open { overflow: hidden; }
 
 @media (max-width: 560px) {
   .topbar { padding: 8px 12px; }
-  .progress { display: none; }
-  .pdf-link { padding-inline: 12px; font-size: 12px; }
   .hero { min-height: 70svh; padding: 94px 18px 48px; }
   .hero h1 { font-size: clamp(42px, 14vw, 60px); }
   main { margin-top: -22px; padding-inline: 14px; }
   .card { border-radius: 19px; }
-  .info, .form-grid { grid-template-columns: 1fr; }
+  .info { grid-template-columns: 1fr; }
   .slot { grid-template-columns: 62px 16px 1fr; gap: 9px; }
   .slot::before { left: 70px; }
   .nav-days { grid-template-columns: 1fr; }
@@ -391,7 +377,7 @@ body.lb-open { overflow: hidden; }
 
 /* Nadpisania przewodników/wydruku — po definicjach bazowych, by wygrać kolejnością źródła */
 @media (max-width: 900px) {
-  .guide-grid, .guide-info-grid { grid-template-columns: 1fr; }
+  .guide-info-grid { grid-template-columns: 1fr; }
 }
 @media (min-width: 561px) and (max-width: 900px) {
   .guide-info-grid { grid-template-columns: 1fr 1fr; }
@@ -650,3 +636,28 @@ body.lb-open { overflow: hidden; }
 .route-stop-list li:focus-visible { outline: 3px solid var(--sun); outline-offset: 2px; }
 .route-stop-list li.is-active { background: var(--sea); color: white; box-shadow: 0 6px 16px rgba(11,114,118,.32); }
 .route-stop-list li.is-active span { background: white; color: var(--sea-dark); }
+
+/* ── Koszty i gotówka ──────────────────────────────────────────────── */
+.kb-head { display: flex; flex-wrap: wrap; align-items: start; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.kb-head .section-copy { flex: 1 1 420px; }
+.kb-switch { display: inline-flex; flex: 0 0 auto; padding: 4px; border-radius: 999px; background: #e6f1ef; }
+.kb-switch button { padding: 8px 18px; border: 0; border-radius: 999px; background: transparent; color: var(--sea-dark); font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; transition: background .15s ease, color .15s ease; }
+.kb-switch button:hover { background: #d3e7e3; }
+.kb-switch button.on { background: var(--sea); color: white; box-shadow: 0 4px 12px rgba(11,114,118,.28); }
+.kb-switch button:focus-visible { outline: 3px solid var(--sun); outline-offset: 2px; }
+.kb-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; align-items: start; }
+.kb-table { width: 100%; border-collapse: collapse; background: white; border-radius: 18px; overflow: hidden; box-shadow: 0 12px 32px rgba(8,45,50,.09); }
+.kb-table caption { padding: 16px 18px 10px; text-align: left; font-weight: 900; font-size: 13px; letter-spacing: .07em; text-transform: uppercase; color: var(--sea-dark); }
+.kb-table th, .kb-table td { padding: 12px 18px; text-align: left; vertical-align: top; border-top: 1px solid #e8efee; font-weight: 400; line-height: 1.45; }
+.kb-table td { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; font-weight: 700; color: var(--sea-dark); }
+.kb-table tbody th { font-weight: 700; color: #26383c; }
+.kb-uwaga { display: block; margin-top: 4px; font-size: 13.5px; font-weight: 400; line-height: 1.5; color: var(--muted); }
+.kb-table tfoot th, .kb-table tfoot td { border-top: 2px solid var(--sea); background: #f2f8f7; font-weight: 900; color: var(--sea-dark); }
+.kb-cash { box-shadow: 0 12px 32px rgba(226,114,91,.16); }
+.kb-cash tfoot th, .kb-cash tfoot td { border-top-color: var(--coral, #e2725b); background: #fff4f0; color: #b23c22; }
+.kb-suma { margin: 18px 0 0; padding: 16px 18px; border-radius: 14px; background: #f2f8f7; color: #26383c; line-height: 1.6; }
+@media (max-width: 560px) {
+  .kb-table th, .kb-table td { padding: 11px 14px; }
+  .kb-switch { width: 100%; }
+  .kb-switch button { flex: 1; }
+}

@@ -1,5 +1,7 @@
 // Tryb offline planu Madery — na wyspie zasięgu brakuje w górach i tunelach
-const CACHE = "madera-2026-v6";
+const CACHE = "madera-2026-v7";
+const OBRAZY = "madera-obrazy-v1";
+const OBRAZY_MAX = 80;
 const SHELL = [
   "index.html", "praktyczne.html", "gdzie-zjesc.html",
   "mapa.html", "print.html",
@@ -16,8 +18,18 @@ self.addEventListener("install", (e) => {
 });
 
 self.addEventListener("activate", (e) => {
-  e.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k)))).then(() => self.clients.claim()));
+  e.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((k) => k !== CACHE && k !== OBRAZY).map((k) => caches.delete(k)))).then(() => self.clients.claim()));
 });
+
+// Zdjęcia z Wikimedia i Unsplash nigdy się nie zmieniają pod danym adresem,
+// więc raz obejrzane zostają w telefonie i działają bez zasięgu.
+const zdjecieZewnetrzne = (url) => url.hostname === "upload.wikimedia.org" || url.hostname === "images.unsplash.com";
+
+async function przytnijCache(nazwa, limit) {
+  const c = await caches.open(nazwa);
+  const klucze = await c.keys();
+  for (let i = 0; i < klucze.length - limit; i++) await c.delete(klucze[i]);
+}
 
 self.addEventListener("fetch", (e) => {
   const req = e.request;
@@ -25,6 +37,18 @@ self.addEventListener("fetch", (e) => {
   const url = new URL(req.url);
   // pogoda i mapy zawsze z sieci — offline po prostu ich nie będzie
   if (url.hostname.includes("open-meteo") || url.hostname.includes("tile.openstreetmap") || url.hostname.includes("cdnjs")) return;
+  if (zdjecieZewnetrzne(url)) {
+    e.respondWith(
+      caches.match(req).then((hit) => hit || fetch(req).then((res) => {
+        if (res && (res.status === 200 || res.type === "opaque")) {
+          const copy = res.clone();
+          caches.open(OBRAZY).then((c) => c.put(req, copy)).then(() => przytnijCache(OBRAZY, OBRAZY_MAX)).catch(() => {});
+        }
+        return res;
+      }))
+    );
+    return;
+  }
   // strony i zasoby: najpierw sieć (świeże treści), z odwrotem do kopii offline
   e.respondWith(
     fetch(req).then((res) => {
