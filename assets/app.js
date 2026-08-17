@@ -924,6 +924,10 @@
       const highlight = current || sectionActive;
       return `<a class="nav-link${highlight ? " is-current" : ""}${item.accent ? " is-today" : ""}" href="${prefix}${item.href}"${current ? ' aria-current="page"' : ""}>${item.label}</a>`;
     }).join("");
+    // Na wąskim ekranie pasek przewija się w poziomie — aktywna zakładka
+    // musi być widoczna od razu, także gdy jest ostatnia w rzędzie.
+    const aktywna = host.querySelector(".is-current");
+    if (aktywna && host.scrollWidth > host.clientWidth) host.scrollLeft = Math.max(0, aktywna.offsetLeft - 12);
   }
 
   const highlights = [
@@ -1324,7 +1328,8 @@
     {
       dayId: "2026-08-27", kod: "PR11", nazwa: "Vereda dos Balcões",
       start: "Ribeiro Frio", cena: 4.5, wymaga: true, platnych: 5, kupiony: true,
-      bilety: { numery: ["SIM4330277", "SIM4330279"], ref: "2234556/2026", godzina: "17:00", czas: "1 h 30 min", osoby: "5 dorosłych + 2 dzieci zwolnione z opłaty" },
+      bilety: { numery: ["SIM4330277", "SIM4330279"], ref: "2234556/2026", godzina: "17:00", czas: "1 h 30 min", osoby: "5 dorosłych + 2 dzieci zwolnione z opłaty",
+        qr: [{ src: "assets/qr-pr11-adultos.png", opis: "SIM4330277 — 5 dorosłych" }, { src: "assets/qr-pr11-criancas.png", opis: "SIM4330279 — 2 dzieci zwolnione" }] },
       uwaga: "Wejście 17:00, okno do 17:30 — czyli nawet przy wolniejszym zejściu ze szczytu zdążymy."
     }
   ];
