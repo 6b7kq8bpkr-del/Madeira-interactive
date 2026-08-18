@@ -77,7 +77,7 @@
 
   // Checklista przed wyjazdem — JEDNO źródło: renderuje i stronę główną, i PDF
   const CHECKLIST = [
-    ["flights", "Potwierdzone numery i godziny obu lotów"],
+    ["flights", "Potwierdzone numery i godziny obu lotów easyJet: EJU5333 (20.08) i EJU5334 (30.08)"],
     ["katowice", "Transfer Rui 22.08 po znajomych (przylot 10:45) — cena i dostępność potwierdzone"],
     ["trails", "Bilety PR1.2 i PR11 na 27.08 kupione — zapisane offline w telefonie (kody QR w planie)"],
     ["p8", "Rezerwacja APCOA 8320774 i sektor P7/8 — potwierdzenie zapisane offline"],
@@ -150,7 +150,7 @@
       image: commons.funchalBay, alt: "Zatoka i marina Funchal na Maderze", cats: ["podróż", "spokojny"],
       intensity: "Łagodna", duration: "Dzień logistyczny", transport: "Samolot + transfer", walking: "Mało", kids: "Tak", exposure: "Niska",
       center: [32.6387, -16.9304], route: [[52.3667, 13.5033, "Lotnisko BER"], [32.6979, -16.7745, "Lotnisko FNC"], [32.6384, -16.9353, "Hotel Baía Azul"], [32.6386, -16.9332, "Lido"]], google: "https://www.google.com/maps/dir/Madeira+Airport/Hotel+Baia+Azul,+Funchal/Lido+Bathing+Complex",
-      agenda: [["04:45", "Pobudka i wyjście z hotelu", "Hotel stoi przy terminalu, więc do odprawy idziemy kilka minut — nie trzeba wstawać wcześniej ani zamawiać transferu."], ["05:00", "Odprawa na BER", "Terminal 1–2 tuż obok hotelu; bagaże, odprawa i kontrola bez pośpiechu. Odprawa zamyka się 120 minut przed odlotem, czyli o 05:00 — po tym czasie linia może zwolnić miejsce. Śniadanie jemy dopiero po kontroli — w hotelu nie mamy go w rezerwacji."], ["07:00", "Wylot BER → FNC", "Lot EJU5333 (PNR KCXF7QW); blisko 5 godzin nad Atlantykiem."], ["10:55", "Lądowanie w Funchal", "Przylot EJU5333 o 10:55 czasu lokalnego — na Maderze jest o godzinę wcześniej niż w Berlinie."], ["12:00", "Prywatny transfer", "Dzwonimy do Rui (+351 917 260 690) dopiero z kompletem bagaży; podjedzie pod kawiarnię tuż za halą przylotów. Dziś jedzie czworo — 35 € gotówką za ten kurs. Rodzina z Katowic dołącza w sobotę, osobnym kursem."], ["14:00", "Obiad i odpoczynek", "Lekki posiłek, zameldowanie i basen. Voucher biura potwierdza pokój rodzinny z widokiem na morze i śniadanie w cenie — gdyby coś się nie zgadzało, dzwonimy do Travel One: +351 967 807 512."], ["17:00", "Lido lub promenada", "Krótki spacer tylko jeśli grupa ma energię."]],
+      agenda: [["04:45", "Pobudka i wyjście z hotelu", "Hotel stoi przy terminalu, więc do odprawy idziemy kilka minut — nie trzeba wstawać wcześniej ani zamawiać transferu."], ["05:00", "Odprawa na BER", "Terminal 1–2 tuż obok hotelu; bagaże, odprawa i kontrola bez pośpiechu. Odprawa zamyka się 120 minut przed odlotem, czyli o 05:00 — po tym czasie linia może zwolnić miejsce. Śniadanie jemy dopiero po kontroli — w hotelu nie mamy go w rezerwacji."], ["07:00", "Wylot BER → FNC", "<strong>easyJet</strong>, lot EJU5333 (na bilecie U2 5333), PNR KCXF7QW — blisko 5 godzin nad Atlantykiem."], ["10:55", "Lądowanie w Funchal", "Przylot easyJetem o 10:55 czasu lokalnego — na Maderze jest o godzinę wcześniej niż w Berlinie."], ["12:00", "Prywatny transfer", "Dzwonimy do Rui (+351 917 260 690) dopiero z kompletem bagaży; podjedzie pod kawiarnię tuż za halą przylotów. Dziś jedzie czworo — 35 € gotówką za ten kurs. Rodzina z Katowic dołącza w sobotę, osobnym kursem."], ["14:00", "Obiad i odpoczynek", "Lekki posiłek, zameldowanie i basen. Voucher biura potwierdza pokój rodzinny z widokiem na morze i śniadanie w cenie — gdyby coś się nie zgadzało, dzwonimy do Travel One: +351 967 807 512."], ["17:00", "Lido lub promenada", "Krótki spacer tylko jeśli grupa ma energię."]],
       tips: ["Lot potwierdzony przez biuro (rez. 3891149): wylot z BER 07:00, lądowanie w Funchal 10:55. Nocleg w IntercityHotel przy Terminalu 1–2 sprawia, że wystarczy pobudka ~04:45 i kilka minut spaceru.", "Przy dłuższych przejściach i kolejkach można z wyprzedzeniem zamówić bezpłatną asystę lotniskową i potwierdzić ją z przewoźnikiem.", "Numer do kierowcy: +351 917 260 690. Rui ma nasz kontakt (+48 607 452 332), ale to my dzwonimy pierwsi — po odebraniu bagaży.", "Gotówka na transfer musi być przygotowana przed wylotem: 35 € za dzisiejszy kurs, płatne Rui przy przyjeździe — kartą nie zapłacimy. Powrót 30.08 to drugie 35 €, a w sobotę dochodzi kurs po znajomych.", "Pierwszego dnia nie planować zakupów ani dalszych dojazdów."],
       planB: "Przy opóźnieniu lotu rezygnujemy z Lido. Hotel, posiłek i sen są jedynymi priorytetami.", gentle: "po transferze cały program odbywa się w hotelu.",
       deepDive: {
@@ -178,7 +178,7 @@
       image: commons.monte, alt: "Kolejka linowa teleférico nad Funchal, dzielnica Monte", cats: ["spokojny", "odpoczynek"],
       intensity: "Umiarkowana", duration: "4–6 h + kolacja", transport: "Autobus / taxi", walking: "2–4 km", kids: "Tak, sprawnie chodzą", exposure: "Wariant bez wysokości",
       center: [32.662, -16.895], route: [[32.6384, -16.9353, "Hotel"], [32.6360, -16.9270, "Promenada i Lido"], [32.6750, -16.9022, "Monte — opcjonalnie"], [32.6484, -16.9033, "Kolacja z espetadą — Stare Miasto"], [32.6384, -16.9353, "Hotel"]], google: "https://www.google.com/maps/dir/Hotel+Baia+Azul,+Funchal/Madeira+Botanical+Garden/Funchal+Old+Town",
-      agenda: [["08:30", "Śniadanie w hotelu", "Bufet śniadaniowy w hotelu, zwykle 7:30–10:00 (godziny potwierdzić w recepcji)."], ["10:15", "Poranek blisko hotelu", "Promenada wzdłuż wybrzeża i baseny Lido — kilka minut od Baía Azul, bez logistyki i bez zobowiązań. Ogród botaniczny i centrum zostawiamy na inny dzień, bo koło południa chcemy być z powrotem."], ["12:00", "Znajomi docierają do hotelu", "Lądowanie 10:45, odbiór przez Rui po telefonie z hali przylotów, około 25 minut jazdy. Pokój zwykle dopiero od 15:00, ale bagaże zostawia się w recepcji."], ["12:45", "Pierwszy wspólny lunch", "Blisko hotelu, bez przemieszczania się przez pół miasta — po pobudce przed czwartą i locie z pięciolatkiem to jedyne, na co warto liczyć."], ["14:00", "Zameldowanie i odpoczynek", "Basen dla dzieci, cień dla dorosłych. Reszta popołudnia jest do wzięcia albo do przespania."], ["16:30", "Monte kolejką linową — dla chętnych", "Dla tych, którzy mają energię: 15 minut kolejką nad dachami, bazylika i ogrody, powrót kolejką albo autobusem 20/21. Świeżo przylotowi raczej zostają na miejscu."], ["19:30", "Kolacja z espetadą", "Pierwszy posiłek w komplecie. Polędwica wołowa ze szpady grillowana na lauru, podawana z bolo do caco i milho frito. Restauracja w Starym Mieście albo w Câmara de Lobos — stół na siedem osób zarezerwowany wcześniej."]],
+      agenda: [["08:30", "Śniadanie w hotelu", "Bufet śniadaniowy w hotelu, zwykle 7:30–10:00 (godziny potwierdzić w recepcji)."], ["10:15", "Poranek blisko hotelu", "Promenada wzdłuż wybrzeża i baseny Lido — kilka minut od Baía Azul, bez logistyki i bez zobowiązań. Ogród botaniczny i centrum zostawiamy na inny dzień, bo koło południa chcemy być z powrotem."], ["12:00", "Znajomi docierają do hotelu", "<strong>Electra Airways</strong> z Katowic (czarter Itaki), wylot 06:35, lądowanie 10:45. Odbiera ich Rui — dzwonią do niego po odbiorze bagaży, około 25 minut jazdy. Pokój zwykle dopiero od 15:00, ale bagaże zostawia się w recepcji."], ["12:45", "Pierwszy wspólny lunch", "Blisko hotelu, bez przemieszczania się przez pół miasta — po pobudce przed czwartą i locie z pięciolatkiem to jedyne, na co warto liczyć."], ["14:00", "Zameldowanie i odpoczynek", "Basen dla dzieci, cień dla dorosłych. Reszta popołudnia jest do wzięcia albo do przespania."], ["16:30", "Monte kolejką linową — dla chętnych", "Dla tych, którzy mają energię: 15 minut kolejką nad dachami, bazylika i ogrody, powrót kolejką albo autobusem 20/21. Świeżo przylotowi raczej zostają na miejscu."], ["19:30", "Kolacja z espetadą", "Pierwszy posiłek w komplecie. Polędwica wołowa ze szpady grillowana na lauru, podawana z bolo do caco i milho frito. Restauracja w Starym Mieście albo w Câmara de Lobos — stół na siedem osób zarezerwowany wcześniej."]],
       tips: ["Po Funchal poruszamy się pieszo i autobusami miejskimi (bilet ok. 2 € u kierowcy, taniej z kartą GIRO). Na Monte wjeżdża <strong>kolejka linowa z nabrzeża</strong> — 15 minut nad dachami i dolinami, a w dół można zjechać tą samą kolejką albo autobusem 20/21. Bolt działa w całym Funchal i przy krótkich kursach wychodzi zwykle 5–8 €.", "Plan podstawowy to ogród botaniczny i centrum: 3–5 km z przerwami; kijki przydają się na pochyłych alejkach.", "Na espetadę w sezonie lepiej zarezerwować stół dla 7 osób z wyprzedzeniem — najlepsze lokale w Starym Mieście i w Câmara de Lobos bywają pełne.", "Espetada zwykle zamawiana jest na wagę lub 'na metr' do dzielenia — dla dzieci wystarczy mniejsza porcja lub wspólny półmisek.", "Szacunkowy koszt kolacji: 4 dorosłych po ok. 16–20 EUR, 3 dzieci po ok. 9–11 EUR, plus dodatki i napoje — razem około 120–150 EUR za grupę.", "Rodziny mogą rozdzielić się na 2–3 godziny w dzień i spotkać dopiero na wspólnej kolacji.", "Znajomi lądują o 10:45, więc po transferze dołączają koło południa — pierwszą część dnia robimy we czworo, a po lunchu jesteśmy już w komplecie. Po pobudce przed czwartą i locie z pięciolatkiem nie planujmy im na to popołudnie nic ambitnego. Stół na espetadę rezerwujemy na siedem osób."],
       planB: "Cały dzień w hotelu i przy Lido; jeśli wieczór wypadnie leniwie, espetadę można przenieść na inny dzień pobytu.", gentle: "bez kolejki i bez Monte; wybieramy ogród dostępny taxi albo centrum, a na kolację najbliższą dobrą espetadę.",
       deepDive: {
@@ -327,7 +327,7 @@
       image: commons.funchalBay, alt: "Zatoka Funchal i wybrzeże Madery", cats: ["podróż"],
       intensity: "Logistyczna", duration: "Cały dzień", transport: "Transfer + samolot + auto", walking: "Mało", kids: "Tak, z przerwami", exposure: "Niska",
       center: [32.6942, -16.7745], route: [[32.6384, -16.9353, "Hotel Baía Azul"], [32.6979, -16.7745, "Lotnisko FNC"], [52.3667, 13.5033, "Lotnisko BER"], [52.3664, 13.5071, "Parking P7/8"], [51.7592, 19.4560, "Łódź"]], google: "https://www.google.com/maps/dir/Hotel+Baia+Azul,+Funchal/Madeira+Airport",
-      agenda: [["rano", "Checklista hotelowa", "Dokumenty, ładowarki, leki, stroje kąpielowe i sejf."], ["07:30", "Śniadanie w hotelu", "Bufet rusza o 7:30 — zjeść przed transferem ok. 8:30."], ["08:30", "Prywatny transfer", "Transfer z madeira-in na lotnisko FNC; odbiór z hotelu ok. 08:30 pod wylot 11:35."], ["11:35", "Wylot FNC → BER", "Lot EJU5334 (PNR KD15T58); lądowanie w Berlinie o 17:10. Odprawa zamyka się o 09:35, więc odbiór o 08:30 daje zapas."], ["17:10", "Lądowanie w Berlinie (BER)", "Odbiór auta z P7/8 — parking jest 2–4 min od terminala. Wyjazd mamy opłacony do 18:00; jeśli bagaże pójdą wolno, różnicę dopłaca się w automacie (potrzebny bilet z wjazdu)."], ["wieczór", "Berlin → Łódź", "Ostatni odcinek autem; regularne przerwy i zmiana kierowcy, jeśli to możliwe — do Łodzi docieramy późnym wieczorem."]],
+      agenda: [["rano", "Checklista hotelowa", "Dokumenty, ładowarki, leki, stroje kąpielowe i sejf."], ["07:30", "Śniadanie w hotelu", "Bufet rusza o 7:30 — zjeść przed transferem ok. 8:30."], ["08:30", "Prywatny transfer", "Transfer z madeira-in na lotnisko FNC; odbiór z hotelu ok. 08:30 pod wylot 11:35."], ["11:35", "Wylot FNC → BER", "<strong>easyJet</strong>, lot EJU5334 (na bilecie U2 5334), PNR KD15T58 — lądowanie w Berlinie o 17:10. Odprawa zamyka się o 09:35, więc odbiór o 08:30 daje zapas."], ["17:10", "Lądowanie w Berlinie (BER)", "Odbiór auta z P7/8 — parking jest 2–4 min od terminala. Wyjazd mamy opłacony do 18:00; jeśli bagaże pójdą wolno, różnicę dopłaca się w automacie (potrzebny bilet z wjazdu)."], ["wieczór", "Berlin → Łódź", "Ostatni odcinek autem; regularne przerwy i zmiana kierowcy, jeśli to możliwe — do Łodzi docieramy późnym wieczorem."]],
       tips: ["Loty potwierdzone przez biuro (rez. 3891149): wylot z FNC 11:35, lądowanie w Berlinie 17:10 — do Łodzi (~6 h autem z BER) dotrzecie późnym wieczorem, więc rozłóżcie jazdę na przerwy co ~90 minut.", "Rezerwacja parkingu kończy się o 18:00, czyli 50 minut po lądowaniu — to mało na bagaże i dojście. Nadwyżkę dopłaca się w automacie przy wyjeździe (trzeba mieć bilet pobrany przy wjeździe), więc nie ma powodu do nerwów.", "Odbiór z hotelu ok. 08:30 potwierdzić z madeira-in; przy silnym bocznym wietrze na FNC lot może się opóźnić.", "Potwierdzić asystę na FNC i BER, jeśli została zamówiona.", "Przed wymeldowaniem sprawdzić sejf, szafki, łazienkę i gniazdka.", "Zostawić zapas na bagaż i kolejki na lotnisku w Funchal."],
       planB: "Przy opóźnieniu po lądowaniu rozważyć dodatkowy odpoczynek lub nocleg; nie prowadzić zmęczonym.", gentle: "bezpieczeństwo i przerwy mają pierwszeństwo przed godziną dojazdu do Łodzi.",
       deepDive: {
@@ -342,7 +342,7 @@
   const readState = () => {
     try { return JSON.parse(localStorage.getItem(stateKey)) || {}; } catch (_) { return {}; }
   };
-  const state = Object.assign({ checklist: {} }, readState());
+  const state = Object.assign({ checklist: {}, pakowanie: {} }, readState());
   const save = () => localStorage.setItem(stateKey, JSON.stringify(state));
   const escapeHtml = (value) => String(value).replace(/[&<>"]/g, (char) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[char]));
   const todayISO = () => { const n = new Date(), p = (x) => String(x).padStart(2, "0"); return `${n.getFullYear()}-${p(n.getMonth() + 1)}-${p(n.getDate())}`; };
@@ -372,6 +372,46 @@
     setupChecklist();
     renderOverviewLegend();
     setupOverviewMap();
+  }
+
+  // Lista pakowania: odhaczanie zapisane lokalnie, licznik postępu u góry
+  function renderPakowanie() {
+    const host = document.querySelector("#pakowanie");
+    if (!host) return;
+    const klucz = (gi, ii) => `p${gi}_${ii}`;
+    const wszystkich = packing.reduce((n, g) => n + g.items.length, 0);
+    const policz = () => packing.reduce((n, g, gi) => n + g.items.filter((_, ii) => state.pakowanie[klucz(gi, ii)]).length, 0);
+
+    host.innerHTML = `
+      <div class="pak-postep">
+        <p><strong id="pak-licznik">${policz()}</strong> z ${wszystkich} spakowane <span>· lista na jedną osobę dorosłą, odhaczenia zostają w tej przeglądarce</span></p>
+        <button class="button secondary" type="button" id="pak-reset">Odznacz wszystko</button>
+      </div>
+      <div class="guide-info-grid">
+        ${packing.map((g, gi) => `<article class="card info-card pak-grupa"><div class="card-body">
+          <h3><span class="info-emoji" aria-hidden="true">${g.emoji}</span>${g.title}</h3>
+          ${g.items.map((it, ii) => `<label class="check-row"><input type="checkbox" data-pak="${klucz(gi, ii)}"> <span>${it}</span></label>`).join("")}
+        </div></article>`).join("")}
+      </div>`;
+
+    const licznik = host.querySelector("#pak-licznik");
+    host.querySelectorAll("[data-pak]").forEach((input) => {
+      input.checked = Boolean(state.pakowanie[input.dataset.pak]);
+      input.closest(".check-row").classList.toggle("spakowane", input.checked);
+      input.addEventListener("change", () => {
+        state.pakowanie[input.dataset.pak] = input.checked;
+        input.closest(".check-row").classList.toggle("spakowane", input.checked);
+        save();
+        licznik.textContent = policz();
+      });
+    });
+    const reset = host.querySelector("#pak-reset");
+    if (reset) reset.addEventListener("click", () => {
+      if (!window.confirm("Odznaczyć całą listę pakowania?")) return;
+      state.pakowanie = {};
+      save();
+      renderPakowanie();
+    });
   }
 
   function setupChecklist() {
@@ -869,8 +909,9 @@
         <h1>Madera 2026 — plan podróży</h1>
         <p class="print-sub">19–30 sierpnia 2026 · dwie rodziny (4 dorosłych + dzieci 6, 10 i 12 lat) · Hotel Baía Azul, Funchal</p>
         <ul class="print-facts">
-          <li><strong>Lot tam:</strong> 20.08, EJU5333 Berlin BER → Funchal, 07:00 → 10:55 (PNR KCXF7QW)</li>
-          <li><strong>Lot powrotny:</strong> 30.08, EJU5334 Funchal → Berlin BER, 11:35 → 17:10 (PNR KD15T58); odbiór z hotelu ok. 08:30</li>
+          <li><strong>Lot tam:</strong> 20.08, <strong>easyJet</strong> EJU5333 (U2 5333) Berlin BER → Funchal, 07:00 → 10:55 (PNR KCXF7QW)</li>
+          <li><strong>Lot powrotny:</strong> 30.08, <strong>easyJet</strong> EJU5334 (U2 5334) Funchal → Berlin BER, 11:35 → 17:10 (PNR KD15T58); odbiór z hotelu ok. 08:30</li>
+            <li><strong>Znajomi:</strong> 22.08, <strong>Electra Airways</strong> (czarter Itaki) Katowice → Funchal, 06:35 → 10:45; odbiera ich Rui</li>
           <li><strong>Transfery lotniskowe:</strong> madeira-in (Rui Nóbrega), Mercedes Sprinter — 2 × 35 EUR za czworo (20.08 i 30.08) plus kurs 22.08 po znajomych. <strong>PŁATNE GOTÓWKĄ przy przyjeździe</strong>; tel. kierowcy +351 917 260 690, mail transfers.madeira@gmail.com. Po wylądowaniu dzwonimy do Rui z kompletem bagaży, odbiór przy kawiarni obok hali przylotów</li>
           <li><strong>Wycieczki busem:</strong> 27.08 dzień górski potwierdzony (290 EUR, odbiór 9:45). Zachód 24.08 i banany 26.08 ustalamy na miejscu — 220 EUR do 17:00, 255 do 18:00, 290 później</li>
           <li><strong>Gotówka:</strong> transfery (Rui): 2 × 35 € (20.08 i 30.08) + kurs 22.08 · góry 27.08: 290 € potwierdzone · zachód 24.08 z Rui: 220–255 € · banany 26.08: taxi-van ~85–180 € albo Rui, decyzja na miejscu · Curral 21.08: autobus 81, ~40 € za rodzinę · minibus Rabaçal ~8 €/os. przy wariancie levady. Reszta wyspy na kartę.</li>
@@ -954,13 +995,79 @@
     }).join("");
   }
 
+  // Lista pakowania — na jedną osobę dorosłą, plus osobna grupa dla dzieci.
+  // Odhaczanie zapisuje się w przeglądarce, więc każdy pakuje na swoim telefonie.
   const packing = [
-    { emoji: "🧥", title: "Ubrania i warstwy", items: ["Lekkie ubrania na dzień (23–26°C) i coś cieplejszego na wieczór.", "Polar lub bluza — w górach i we mgle bywa wyraźnie chłodniej.", "Kurtka przeciwdeszczowa lub wiatrówka zawsze w plecaku, nawet przy słonecznej prognozie."] },
-    { emoji: "🥾", title: "Na levadę i góry", items: ["Buty trekkingowe na Levadę das 25 Fontes — bywa mokro, wąsko i wysoko.", "Wygodne sneakersy na miasto i spacery po wybrzeżu.", "Mały plecak, woda i przekąski; kijki trekkingowe dla chętnych."] },
-    { emoji: "🏖️", title: "Plaża i woda", items: ["Stroje kąpielowe i ręczniki (Lido, Porto Moniz, Calheta).", "Klapki lub buty do wody na kamieniste wejścia.", "Okulary i rurka do snorkelingu dla chętnych."] },
-    { emoji: "☀️", title: "Słońce i zdrowie", items: ["Krem z wysokim filtrem — na Maderze absolutnie nieodzowny.", "Czapki, kapelusze i okulary przeciwsłoneczne.", "Tabletki na chorobę morską na rejs (28.08), apteczka i leki na receptę z zapasem.", "EKUZ i ubezpieczenie turystyczne."] },
-    { emoji: "🔌", title: "Elektronika", items: ["Ładowarki — gniazdka jak w Polsce, przejściówka niepotrzebna.", "Power bank na całodniowe wycieczki.", "Telefon z pobranymi mapami offline i aparatem."] },
-    { emoji: "🧒", title: "Dla dzieci", items: ["Przekąski i woda na dni z późniejszym lunchem.", "Coś do zajęcia w busie na dłuższych trasach.", "Zmiana ubrań i drobna gra na luźniejszy dzień."] }
+    { emoji: "🪪", title: "Dokumenty i pieniądze", items: [
+      "Dowód osobisty albo paszport",
+      "Prawo jazdy i dokumenty auta na przejazd do Berlina",
+      "EKUZ i polisa ubezpieczeniowa — numer zapisany też offline",
+      "Dwie karty płatnicze, różnych organizacji",
+      "<strong>Banknoty euro przygotowane w Polsce</strong> — Rui bierze wyłącznie gotówkę",
+      "Bilet parkingowy z wjazdu na P7/8 — zachować do ewentualnej dopłaty"
+    ] },
+    { emoji: "👕", title: "Ubrania na 11 dni", items: [
+      "8–10 × bielizna",
+      "8–10 × skarpetki, w tym 2 pary trekkingowych",
+      "6–7 × koszulka, w tym 2 szybkoschnące na szlaki",
+      "2 × spodnie długie — trekkingowe i miejskie",
+      "2 × szorty",
+      "<strong>Polar albo gruba bluza</strong> — na Pico Ruivo bywa 10°C i wieje",
+      "<strong>Kurtka przeciwdeszczowa albo wiatrówka</strong>",
+      "Coś wyjściowego na espetadę 22.08",
+      "Piżama",
+      "Chusta albo buff na wiatr w górach i na łodzi"
+    ] },
+    { emoji: "👟", title: "Buty", items: [
+      "Buty trekkingowe — na Pico Ruivo i levady",
+      "Wygodne sneakersy na Funchal",
+      "Klapki albo sandały do wody"
+    ] },
+    { emoji: "🥾", title: "Góry i levady", items: [
+      "Plecak 20–25 l",
+      "Butelka na wodę — kranówka jest zdatna do picia",
+      "Kijki trekkingowe",
+      "<strong>Czołówka</strong> — tunele w Rabaçal, Balcões o 17:00",
+      "Plastry na odciski",
+      "Wydruk biletów na szlaki jako zapas do kodów w telefonie"
+    ] },
+    { emoji: "🏖️", title: "Woda i plaża", items: [
+      "2 × strój kąpielowy — jeden zawsze schnie",
+      "Ręcznik plażowy (hotel daje tylko basenowe)",
+      "Okulary do pływania albo maska z rurką"
+    ] },
+    { emoji: "☀️", title: "Słońce i zdrowie", items: [
+      "<strong>Filtr SPF 50</strong> — sierpień, Atlantyk, wysokość",
+      "Balsam po opalaniu i sztyft na usta",
+      "Kapelusz albo czapka, najlepiej ze sznurkiem",
+      "Okulary przeciwsłoneczne, zapasowe korekcyjne",
+      "<strong>Tabletki na chorobę morską</strong> — brać 30–60 min przed rejsem 28.08",
+      "Leki na receptę z zapasem, w bagażu podręcznym",
+      "Apteczka: przeciwbólowe, plastry, coś na żołądek"
+    ] },
+    { emoji: "🔌", title: "Elektronika", items: [
+      "Ładowarka do telefonu — gniazdka jak w Polsce",
+      "<strong>Power bank</strong> — dzień górski trwa od 9:45 do 18:30",
+      "Ładowarka samochodowa i uchwyt na telefon",
+      "Listwa albo ładowarka z kilkoma portami USB"
+    ] },
+    { emoji: "🧩", title: "Łatwe do pominięcia", items: [
+      "Sucha torba albo woreczek strunowy na telefon — łódź i wodospady",
+      "Woreczki na mokre stroje",
+      "Mały pojemnik na leki do plecaka",
+      "Płyn albo listki do prania — jedno pranie w połowie pobytu"
+    ] },
+    { emoji: "🧳", title: "Osobno, na rękę", items: [
+      "<strong>Torba na noc w Berlinie</strong>: kosmetyczka, piżama, bielizna, ubranie na rano — pobudka 04:45, walizki mają stać spakowane",
+      "Do podręcznego: dokumenty, gotówka, leki, power bank, ładowarka, coś ciepłego",
+      "Płyny do 100 ml w jednej przezroczystej torebce litrowej"
+    ] },
+    { emoji: "🧒", title: "Dla dzieci", items: [
+      "Przekąski i woda na dni z późniejszym lunchem",
+      "Coś do zajęcia w busie na dłuższych trasach",
+      "Zmiana ubrań i drobna gra na luźniejszy dzień",
+      "Krem z filtrem dla dzieci i czapka z daszkiem"
+    ] }
   ];
 
   // ── Budżet ─────────────────────────────────────────────────────────────
@@ -1111,9 +1218,7 @@
         <section class="guide-section" aria-labelledby="packing-title">
           <h2 id="packing-title">Co spakować</h2>
           <p class="section-copy"><strong>Limit bagażu: 23 kg na osobę</strong> — jedna walizka do luku plus jedna sztuka podręcznego, identycznie w obie strony. Sierpień na Maderze to 23–26°C i słońce, ale w górach i we mgle bywa chłodno, a pogoda zmienia się szybko — dlatego warstwy i kurtka w plecaku to podstawa.</p>
-          <div class="guide-info-grid">
-            ${packing.map((card) => `<article class="card info-card"><div class="card-body"><h3><span class="info-emoji" aria-hidden="true">${card.emoji}</span>${card.title}</h3><ul class="info-list">${card.items.map((i) => `<li>${i}</li>`).join("")}</ul></div></article>`).join("")}
-          </div>
+          <div id="pakowanie"></div>
         </section>
         <section class="guide-section" aria-labelledby="voucher-title">
           <h2 id="voucher-title">Voucher biura i kontakt na wyspie</h2>
@@ -1125,7 +1230,8 @@
                 <dt>Pobyt</dt><dd>Baía Azul, 20–30.08.2026, <strong>10 nocy</strong></dd>
                 <dt>Pokój</dt><dd>Familienzimmer Meerblick <span>— jeden pokój rodzinny z widokiem na morze</span></dd>
                 <dt>Wyżywienie</dt><dd><strong>Śniadanie w cenie</strong> <span>— bufet zwykle 7:30–10:00</span></dd>
-                <dt>Loty</dt><dd>U2 5333 (tam) · <code>KCXF7QW</code><br>U2 5334 (powrót) · <code>KD15T58</code></dd>
+                <dt>Przewoźnik</dt><dd><strong>easyJet</strong> <span>— na bilecie kod U2, w rozkładach EJU</span></dd>
+                <dt>Loty</dt><dd>U2 5333 / EJU5333 (tam) · <code>KCXF7QW</code><br>U2 5334 / EJU5334 (powrót) · <code>KD15T58</code></dd>
                 <dt>Bagaż</dt><dd><strong>23 kg na osobę</strong>, jedna sztuka w luku <span>— tak samo na EJU5333 i EJU5334, klasa Y; do tego jedna sztuka podręcznego na osobę</span></dd>
                 <dt>Odprawa</dt><dd>zamyka się <strong>120 minut przed odlotem</strong> <span>— po tym czasie linia może zwolnić miejsce</span></dd>
                 <dt>Transfery</dt><dd><strong>Nie ma ich w pakiecie</strong> <span>— voucher mówi wprost „ohne Transfer", dlatego lotnisko ↔ hotel jedziemy z Ruim i płacimy osobno</span></dd>
@@ -2074,6 +2180,7 @@
     ["renderPrint", renderPrint],
     ["renderPractical", renderPractical],
     ["renderKoszty", renderKoszty],
+    ["renderPakowanie", renderPakowanie],
     ["renderFood", renderFood],
     ["renderMapPage", renderMapPage],
     ["renderTrailAlert", renderTrailAlert],
