@@ -1,6 +1,6 @@
 // Tryb offline planu Madery — na wyspie zasięgu brakuje w górach i tunelach
-const CACHE = "madera-2026-v17";
-const OBRAZY = "madera-obrazy-v1";
+const CACHE = "madera-2026-v18";
+const OBRAZY = "madera-obrazy-v2";
 const OBRAZY_MAX = 80;
 const SHELL = [
   "index.html", "praktyczne.html", "gdzie-zjesc.html",
@@ -20,7 +20,9 @@ self.addEventListener("install", (e) => {
 });
 
 self.addEventListener("activate", (e) => {
-  e.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((k) => k !== CACHE && k !== OBRAZY).map((k) => caches.delete(k)))).then(() => self.clients.claim()));
+  // Bez clients.claim(): nowy worker obejmuje dopiero kolejne wejście na stronę.
+  // Przejmowanie kontroli w trakcie ładowania potrafiło przerwać pobieranie zdjęcia.
+  e.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((k) => k !== CACHE && k !== OBRAZY).map((k) => caches.delete(k)))));
 });
 
 // Zdjęcia z Wikimedia i Unsplash nigdy się nie zmieniają pod danym adresem,
@@ -33,6 +35,23 @@ async function przytnijCache(nazwa, limit) {
   for (let i = 0; i < klucze.length - limit; i++) await c.delete(klucze[i]);
 }
 
+// Wikimedia i Unsplash wysyłają Access-Control-Allow-Origin: *, więc zdjęcie
+// da się pobrać z CORS i sprawdzić status. Odpowiedź typu opaque ma status 0
+// i nie odróżnia sukcesu od błędu — zapisana w pamięci utrwaliłaby awarię,
+// a na wyspie ze słabym zasięgiem błędów nie brakuje.
+async function pobierzZdjecie(req) {
+  try {
+    const res = await fetch(req.url, { mode: "cors", credentials: "omit" });
+    if (res.ok) {
+      const kopia = res.clone();
+      caches.open(OBRAZY).then((c) => c.put(req, kopia)).then(() => przytnijCache(OBRAZY, OBRAZY_MAX)).catch(() => {});
+    }
+    return res;
+  } catch (err) {
+    return fetch(req); // pokazujemy zdjęcie, ale go nie zapisujemy
+  }
+}
+
 self.addEventListener("fetch", (e) => {
   const req = e.request;
   if (req.method !== "GET") return;
@@ -40,15 +59,7 @@ self.addEventListener("fetch", (e) => {
   // pogoda i mapy zawsze z sieci — offline po prostu ich nie będzie
   if (url.hostname.includes("open-meteo") || url.hostname.includes("tile.openstreetmap") || url.hostname.includes("cdnjs")) return;
   if (zdjecieZewnetrzne(url)) {
-    e.respondWith(
-      caches.match(req).then((hit) => hit || fetch(req).then((res) => {
-        if (res && (res.status === 200 || res.type === "opaque")) {
-          const copy = res.clone();
-          caches.open(OBRAZY).then((c) => c.put(req, copy)).then(() => przytnijCache(OBRAZY, OBRAZY_MAX)).catch(() => {});
-        }
-        return res;
-      }))
-    );
+    e.respondWith(caches.match(req).then((hit) => hit || pobierzZdjecie(req)));
     return;
   }
   // strony i zasoby: najpierw sieć (świeże treści), z odwrotem do kopii offline
