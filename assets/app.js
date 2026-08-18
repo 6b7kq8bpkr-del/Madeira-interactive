@@ -1106,7 +1106,7 @@
         </section>
         <section class="guide-section" aria-labelledby="packing-title">
           <h2 id="packing-title">Co spakować</h2>
-          <p class="section-copy">Sierpień na Maderze to 23–26°C i słońce, ale w górach i we mgle bywa chłodno, a pogoda zmienia się szybko — dlatego warstwy i kurtka w plecaku to podstawa.</p>
+          <p class="section-copy"><strong>Limit bagażu: 23 kg na osobę</strong> — jedna walizka do luku plus jedna sztuka podręcznego, identycznie w obie strony. Sierpień na Maderze to 23–26°C i słońce, ale w górach i we mgle bywa chłodno, a pogoda zmienia się szybko — dlatego warstwy i kurtka w plecaku to podstawa.</p>
           <div class="guide-info-grid">
             ${packing.map((card) => `<article class="card info-card"><div class="card-body"><h3><span class="info-emoji" aria-hidden="true">${card.emoji}</span>${card.title}</h3><ul class="info-list">${card.items.map((i) => `<li>${i}</li>`).join("")}</ul></div></article>`).join("")}
           </div>
@@ -1122,7 +1122,7 @@
                 <dt>Pokój</dt><dd>Familienzimmer Meerblick <span>— jeden pokój rodzinny z widokiem na morze</span></dd>
                 <dt>Wyżywienie</dt><dd><strong>Śniadanie w cenie</strong> <span>— bufet zwykle 7:30–10:00</span></dd>
                 <dt>Loty</dt><dd>U2 5333 (tam) · <code>KCXF7QW</code><br>U2 5334 (powrót) · <code>KD15T58</code></dd>
-                <dt>Bagaż</dt><dd>min. 15 kg na osobę w luku <span>— dokładny limit u easyJet, jedna sztuka podręcznego na osobę</span></dd>
+                <dt>Bagaż</dt><dd><strong>23 kg na osobę</strong>, jedna sztuka w luku <span>— tak samo na EJU5333 i EJU5334, klasa Y; do tego jedna sztuka podręcznego na osobę</span></dd>
                 <dt>Odprawa</dt><dd>zamyka się <strong>120 minut przed odlotem</strong> <span>— po tym czasie linia może zwolnić miejsce</span></dd>
                 <dt>Transfery</dt><dd><strong>Nie ma ich w pakiecie</strong> <span>— voucher mówi wprost „ohne Transfer", dlatego lotnisko ↔ hotel jedziemy z Ruim i płacimy osobno</span></dd>
               </dl>
