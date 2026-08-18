@@ -700,3 +700,24 @@ main, .guide-main, .guide-hero { padding-left: max(clamp(16px, 4vw, 44px), env(s
   .guide-hero { padding-top: calc(88px + env(safe-area-inset-top)); }
   .print-root { margin-top: calc(80px + env(safe-area-inset-top)); }
 }
+
+/* ── Prognoza godzinowa (trzy najbliższe dni) ──────────────────────────── */
+.wxh-blok { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); }
+.wxh-tytul { margin: 0 0 10px; font-size: 12px; font-weight: 900; letter-spacing: .07em; text-transform: uppercase; color: var(--sea-dark); }
+.wxh-dzien + .wxh-dzien { margin-top: 12px; }
+.wxh-dzien h4 { margin: 0 0 6px; font-size: 13px; font-weight: 800; color: var(--ink); text-transform: capitalize; }
+.wxh-dzien h4 span { margin-left: 6px; font-weight: 500; color: var(--muted); font-variant-numeric: tabular-nums; }
+.wxh-row { min-width: 0; display: flex; gap: 6px; overflow-x: auto; padding-bottom: 6px; scrollbar-width: thin; -webkit-overflow-scrolling: touch; }
+.wxh-row::-webkit-scrollbar { height: 5px; }
+.wxh-row::-webkit-scrollbar-thumb { background: #cddfe0; border-radius: 999px; }
+.wxh { flex: 0 0 auto; min-width: 52px; display: grid; gap: 2px; padding: 8px 6px; border-radius: 11px; background: #e7efef; text-align: center; }
+.wxh-godz { font-size: 11px; font-weight: 800; color: var(--sea-dark); font-variant-numeric: tabular-nums; }
+.wxh-ico { font-size: 16px; line-height: 1.1; }
+.wxh-temp { font-size: 14px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.wxh-pop { font-size: 10px; color: var(--muted); font-variant-numeric: tabular-nums; }
+/* deszcz od 40% w górę — jedyny sygnał, który zmienia plany */
+.wxh.mokro { background: #cfe0e8; }
+.wxh.mokro .wxh-pop { color: #17566e; font-weight: 800; }
+.wxh.teraz { background: var(--sea-dark); }
+.wxh.teraz .wxh-godz, .wxh.teraz .wxh-pop { color: rgba(255,255,255,.82); }
+.wxh.teraz .wxh-temp { color: white; }

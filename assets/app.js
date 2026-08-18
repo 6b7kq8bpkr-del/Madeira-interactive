@@ -1906,6 +1906,44 @@
   const wxLabel = (c) => c === 0 ? "Bezchmurnie" : c <= 3 ? "Częściowe zachmurzenie" : (c === 45 || c === 48) ? "Mgła" : (c >= 51 && c <= 57) ? "Mżawka" : (c >= 61 && c <= 67) ? "Deszcz" : (c >= 71 && c <= 77) ? "Śnieg" : (c >= 80 && c <= 82) ? "Przelotny deszcz" : (c >= 85 && c <= 86) ? "Przelotny śnieg" : c >= 95 ? "Burza" : "Zachmurzenie";
   const plWeekday = (dateStr) => PL_WD[new Date(dateStr + "T12:00:00").getDay()];
 
+  // Prognoza godzinowa — tylko na trzy najbliższe dni. Dalej rozdzielczość
+  // godzinowa niczego nie wnosi, bo modele i tak nie trafiają w porę opadu.
+  const GODZIN_DNI = 3, GODZINA_OD = 6, GODZINA_DO = 22;
+
+  function paskGodzinowy(h, dataISO, terazISO) {
+    if (!h || !h.time) return "";
+    const teraz = terazISO ? terazISO.slice(0, 13) : null;
+    const komorki = [];
+    for (let i = 0; i < h.time.length; i++) {
+      const t = h.time[i];
+      if (t.slice(0, 10) !== dataISO) continue;
+      const g = Number(t.slice(11, 13));
+      if (g < GODZINA_OD || g > GODZINA_DO) continue;
+      if (teraz && t.slice(0, 13) < teraz) continue; // godziny, które już minęły
+      const pop = h.precipitation_probability ? (h.precipitation_probability[i] ?? 0) : 0;
+      const kod = h.weather_code ? h.weather_code[i] : 0;
+      const jestTeraz = teraz && t.slice(0, 13) === teraz;
+      komorki.push(`<div class="wxh${pop >= 40 ? " mokro" : ""}${jestTeraz ? " teraz" : ""}">`
+        + `<span class="wxh-godz">${jestTeraz ? "teraz" : t.slice(11, 16)}</span>`
+        + `<span class="wxh-ico" title="${wxLabel(kod)}">${wxEmoji(kod)}</span>`
+        + `<span class="wxh-temp">${Math.round(h.temperature_2m[i])}°</span>`
+        + `<span class="wxh-pop">${pop}%</span></div>`);
+    }
+    return komorki.length ? `<div class="wxh-row">${komorki.join("")}</div>` : "";
+  }
+
+  // Trzy najbliższe dni, każdy jako osobny pasek
+  function godzinowe(data, terazISO) {
+    const dni = (data.daily && data.daily.time ? data.daily.time : []).slice(0, GODZIN_DNI);
+    const paski = dni.map((t, i) => {
+      const pasek = paskGodzinowy(data.hourly, t, i === 0 ? terazISO : null);
+      if (!pasek) return "";
+      const etykieta = i === 0 ? "dziś" : i === 1 ? "jutro" : plWeekday(t);
+      return `<div class="wxh-dzien"><h4>${etykieta} <span>${t.slice(8, 10)}.${t.slice(5, 7)}</span></h4>${pasek}</div>`;
+    }).filter(Boolean).join("");
+    return paski ? `<div class="wxh-blok"><p class="wxh-tytul">Godzina po godzinie</p>${paski}</div>` : "";
+  }
+
   async function renderWeather() {
     const host = document.querySelector("#weather");
     if (!host) return;
@@ -1915,7 +1953,7 @@
     ];
     try {
       const results = await Promise.all(locations.map(async (loc) => {
-        const url = `https://api.open-meteo.com/v1/forecast?latitude=${loc.lat}&longitude=${loc.lon}&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Atlantic%2FMadeira&forecast_days=6`;
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${loc.lat}&longitude=${loc.lon}&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&hourly=temperature_2m,precipitation_probability,weather_code&timezone=Atlantic%2FMadeira&forecast_days=6`;
         const res = await fetch(url);
         if (!res.ok) throw new Error("weather");
         return { loc, data: await res.json() };
@@ -1926,7 +1964,7 @@
       host.innerHTML = results.map(({ loc, data }) => {
         const cur = data.current, d = data.daily;
         const days6 = d.time.map((t, i) => `<div class="wd"><span class="wd-day">${i === 0 ? "dziś" : plWeekday(t)}</span><span class="wd-ico" title="${wxLabel(d.weather_code[i])}">${wxEmoji(d.weather_code[i])}</span><span class="wd-temp">${Math.round(d.temperature_2m_max[i])}° <em>${Math.round(d.temperature_2m_min[i])}°</em></span><span class="wd-pop">💧 ${d.precipitation_probability_max[i] ?? 0}%</span></div>`).join("");
-        return `<article class="weather-card"><header class="weather-head"><h3>${loc.name}</h3><p class="weather-now">${wxEmoji(cur.weather_code)} ${Math.round(cur.temperature_2m)}°C <span>${wxLabel(cur.weather_code)}</span></p></header><div class="weather-days">${days6}</div></article>`;
+        return `<article class="weather-card"><header class="weather-head"><h3>${loc.name}</h3><p class="weather-now">${wxEmoji(cur.weather_code)} ${Math.round(cur.temperature_2m)}°C <span>${wxLabel(cur.weather_code)}</span></p></header><div class="weather-days">${days6}</div>${godzinowe(data, cur.time)}</article>`;
       }).join("");
     } catch (e) {
       host.innerHTML = '<p class="weather-error">Nie udało się pobrać pogody na żywo. Aktualną prognozę dla Madery znajdziesz w serwisie <a href="https://www.ipma.pt/en/otempo/prev.localidade.hora/" target="_blank" rel="noopener">IPMA</a> albo w ulubionej aplikacji pogodowej.</p>';
@@ -1953,7 +1991,7 @@
     const host = document.querySelector("#day-weather");
     if (!host) return;
     const dayLabel = day.date.split(" · ")[0];
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${day.center[0]}&longitude=${day.center[1]}&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,sunrise,sunset&timezone=Atlantic%2FMadeira&forecast_days=16`;
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${day.center[0]}&longitude=${day.center[1]}&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,sunrise,sunset&hourly=temperature_2m,precipitation_probability,weather_code&timezone=Atlantic%2FMadeira&forecast_days=16`;
     try {
       const res = await fetch(url);
       if (!res.ok) throw new Error("weather");
@@ -1973,6 +2011,7 @@
         <p class="section-copy">Dane na żywo dla okolicy, w której spędzamy ten dzień — odświeżają się przy każdym otwarciu strony.</p>
         <div class="dw-grid">${idx >= 0 ? main + now : now}</div>
         ${verdict}
+        ${idx >= 0 && idx < GODZIN_DNI ? `<div class="wxh-blok"><p class="wxh-tytul">Godzina po godzinie</p><div class="wxh-dzien">${paskGodzinowy(data.hourly, day.id, idx === 0 ? cur.time : null)}</div></div>` : ""}
         ${sunLine(d, idx)}
         ${idx >= 0 ? "" : main}
       </div></div>`;
