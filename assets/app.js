@@ -86,7 +86,7 @@
     ["cruise", "Rejs z terminem zapasowym 29 sierpnia, łatwym wejściem i miejscem siedzącym"],
     ["health", "Leki, apteczka podróżna i ewentualna asysta lotniskowa"],
     ["insurance", "Ubezpieczenie i EKUZ"],
-    ["documents", "Dokumenty, karty płatnicze i ładowarki"],
+    ["documents", "Dokumenty, karty płatnicze i ładowarki — voucher biura (rez. 3891149) zapisany offline"],
     ["offline", "Mapy offline i kontakty alarmowe"]
   ];
 
@@ -150,7 +150,7 @@
       image: commons.funchalBay, alt: "Zatoka i marina Funchal na Maderze", cats: ["podróż", "spokojny"],
       intensity: "Łagodna", duration: "Dzień logistyczny", transport: "Samolot + transfer", walking: "Mało", kids: "Tak", exposure: "Niska",
       center: [32.6387, -16.9304], route: [[52.3667, 13.5033, "Lotnisko BER"], [32.6979, -16.7745, "Lotnisko FNC"], [32.6384, -16.9353, "Hotel Baía Azul"], [32.6386, -16.9332, "Lido"]], google: "https://www.google.com/maps/dir/Madeira+Airport/Hotel+Baia+Azul,+Funchal/Lido+Bathing+Complex",
-      agenda: [["04:45", "Pobudka i wyjście z hotelu", "Hotel stoi przy terminalu, więc do odprawy idziemy kilka minut — nie trzeba wstawać wcześniej ani zamawiać transferu."], ["05:00", "Odprawa na BER", "Terminal 1–2 tuż obok hotelu; bagaże, odprawa i kontrola bez pośpiechu, około 2 h przed wylotem. Śniadanie jemy dopiero po kontroli — w hotelu nie mamy go w rezerwacji."], ["07:00", "Wylot BER → FNC", "Lot EJU5333 (PNR KCXF7QW); blisko 5 godzin nad Atlantykiem."], ["10:55", "Lądowanie w Funchal", "Przylot EJU5333 o 10:55 czasu lokalnego — na Maderze jest o godzinę wcześniej niż w Berlinie."], ["12:00", "Prywatny transfer", "Dzwonimy do Rui (+351 917 260 690) dopiero z kompletem bagaży; podjedzie pod kawiarnię tuż za halą przylotów. Dziś jedzie czworo — 35 € gotówką za ten kurs. Rodzina z Katowic dołącza w sobotę, osobnym kursem."], ["14:00", "Obiad i odpoczynek", "Lekki posiłek, zameldowanie i basen."], ["17:00", "Lido lub promenada", "Krótki spacer tylko jeśli grupa ma energię."]],
+      agenda: [["04:45", "Pobudka i wyjście z hotelu", "Hotel stoi przy terminalu, więc do odprawy idziemy kilka minut — nie trzeba wstawać wcześniej ani zamawiać transferu."], ["05:00", "Odprawa na BER", "Terminal 1–2 tuż obok hotelu; bagaże, odprawa i kontrola bez pośpiechu. Odprawa zamyka się 120 minut przed odlotem, czyli o 05:00 — po tym czasie linia może zwolnić miejsce. Śniadanie jemy dopiero po kontroli — w hotelu nie mamy go w rezerwacji."], ["07:00", "Wylot BER → FNC", "Lot EJU5333 (PNR KCXF7QW); blisko 5 godzin nad Atlantykiem."], ["10:55", "Lądowanie w Funchal", "Przylot EJU5333 o 10:55 czasu lokalnego — na Maderze jest o godzinę wcześniej niż w Berlinie."], ["12:00", "Prywatny transfer", "Dzwonimy do Rui (+351 917 260 690) dopiero z kompletem bagaży; podjedzie pod kawiarnię tuż za halą przylotów. Dziś jedzie czworo — 35 € gotówką za ten kurs. Rodzina z Katowic dołącza w sobotę, osobnym kursem."], ["14:00", "Obiad i odpoczynek", "Lekki posiłek, zameldowanie i basen. Voucher biura potwierdza pokój rodzinny z widokiem na morze i śniadanie w cenie — gdyby coś się nie zgadzało, dzwonimy do Travel One: +351 967 807 512."], ["17:00", "Lido lub promenada", "Krótki spacer tylko jeśli grupa ma energię."]],
       tips: ["Lot potwierdzony przez biuro (rez. 3891149): wylot z BER 07:00, lądowanie w Funchal 10:55. Nocleg w IntercityHotel przy Terminalu 1–2 sprawia, że wystarczy pobudka ~04:45 i kilka minut spaceru.", "Przy dłuższych przejściach i kolejkach można z wyprzedzeniem zamówić bezpłatną asystę lotniskową i potwierdzić ją z przewoźnikiem.", "Numer do kierowcy: +351 917 260 690. Rui ma nasz kontakt (+48 607 452 332), ale to my dzwonimy pierwsi — po odebraniu bagaży.", "Gotówka na transfer musi być przygotowana przed wylotem: 35 € za dzisiejszy kurs, płatne Rui przy przyjeździe — kartą nie zapłacimy. Powrót 30.08 i kurs po rodzinę 22.08 rozliczamy osobno.", "Pierwszego dnia nie planować zakupów ani dalszych dojazdów."],
       planB: "Przy opóźnieniu lotu rezygnujemy z Lido. Hotel, posiłek i sen są jedynymi priorytetami.", gentle: "po transferze cały program odbywa się w hotelu.",
       deepDive: {
@@ -327,7 +327,7 @@
       image: commons.funchalBay, alt: "Zatoka Funchal i wybrzeże Madery", cats: ["podróż"],
       intensity: "Logistyczna", duration: "Cały dzień", transport: "Transfer + samolot + auto", walking: "Mało", kids: "Tak, z przerwami", exposure: "Niska",
       center: [32.6942, -16.7745], route: [[32.6384, -16.9353, "Hotel Baía Azul"], [32.6979, -16.7745, "Lotnisko FNC"], [52.3667, 13.5033, "Lotnisko BER"], [52.3664, 13.5071, "Parking P7/8"], [51.7592, 19.4560, "Łódź"]], google: "https://www.google.com/maps/dir/Hotel+Baia+Azul,+Funchal/Madeira+Airport",
-      agenda: [["rano", "Checklista hotelowa", "Dokumenty, ładowarki, leki, stroje kąpielowe i sejf."], ["07:30", "Śniadanie w hotelu", "Bufet rusza o 7:30 — zjeść przed transferem ok. 8:30."], ["08:30", "Prywatny transfer", "Transfer z madeira-in na lotnisko FNC; odbiór z hotelu ok. 08:30 pod wylot 11:35."], ["11:35", "Wylot FNC → BER", "Lot EJU5334 (PNR KD15T58); lądowanie w Berlinie o 17:10."], ["17:10", "Lądowanie w Berlinie (BER)", "Odbiór auta z P7/8 — parking jest 2–4 min od terminala. Wyjazd mamy opłacony do 18:00; jeśli bagaże pójdą wolno, różnicę dopłaca się w automacie (potrzebny bilet z wjazdu)."], ["wieczór", "Berlin → Łódź", "Ostatni odcinek autem; regularne przerwy i zmiana kierowcy, jeśli to możliwe — do Łodzi docieramy późnym wieczorem."]],
+      agenda: [["rano", "Checklista hotelowa", "Dokumenty, ładowarki, leki, stroje kąpielowe i sejf."], ["07:30", "Śniadanie w hotelu", "Bufet rusza o 7:30 — zjeść przed transferem ok. 8:30."], ["08:30", "Prywatny transfer", "Transfer z madeira-in na lotnisko FNC; odbiór z hotelu ok. 08:30 pod wylot 11:35."], ["11:35", "Wylot FNC → BER", "Lot EJU5334 (PNR KD15T58); lądowanie w Berlinie o 17:10. Odprawa zamyka się o 09:35, więc odbiór o 08:30 daje zapas."], ["17:10", "Lądowanie w Berlinie (BER)", "Odbiór auta z P7/8 — parking jest 2–4 min od terminala. Wyjazd mamy opłacony do 18:00; jeśli bagaże pójdą wolno, różnicę dopłaca się w automacie (potrzebny bilet z wjazdu)."], ["wieczór", "Berlin → Łódź", "Ostatni odcinek autem; regularne przerwy i zmiana kierowcy, jeśli to możliwe — do Łodzi docieramy późnym wieczorem."]],
       tips: ["Loty potwierdzone przez biuro (rez. 3891149): wylot z FNC 11:35, lądowanie w Berlinie 17:10 — do Łodzi (~6 h autem z BER) dotrzecie późnym wieczorem, więc rozłóżcie jazdę na przerwy co ~90 minut.", "Rezerwacja parkingu kończy się o 18:00, czyli 50 minut po lądowaniu — to mało na bagaże i dojście. Nadwyżkę dopłaca się w automacie przy wyjeździe (trzeba mieć bilet pobrany przy wjeździe), więc nie ma powodu do nerwów.", "Odbiór z hotelu ok. 08:30 potwierdzić z madeira-in; przy silnym bocznym wietrze na FNC lot może się opóźnić.", "Potwierdzić asystę na FNC i BER, jeśli została zamówiona.", "Przed wymeldowaniem sprawdzić sejf, szafki, łazienkę i gniazdka.", "Zostawić zapas na bagaż i kolejki na lotnisku w Funchal."],
       planB: "Przy opóźnieniu po lądowaniu rozważyć dodatkowy odpoczynek lub nocleg; nie prowadzić zmęczonym.", gentle: "bezpieczeństwo i przerwy mają pierwszeństwo przed godziną dojazdu do Łodzi.",
       deepDive: {
@@ -1048,7 +1048,7 @@
     ] },
     { emoji: "🎟️", title: "Szlaki są płatne i na rezerwację", points: ["Wejście na sklasyfikowane szlaki PR wymaga <strong>biletu kupionego online</strong> na <a href=\"https://simplifica.madeira.gov.pt/\" target=\"_blank\" rel=\"noopener\">simplifica.madeira.gov.pt</a> — rezerwuje się 30-minutowe okno wejścia.", "Nas dotyczą trzy: <strong>PR1.2 Vereda do Pico Ruivo</strong> i <strong>PR11 Vereda dos Balcões</strong> (oba 27.08, kupione) oraz — opcjonalnie — <strong>PR6 Levada das 25 Fontes</strong> (29.08), po 4,50 € od osoby.", "Dzieci poniżej 12 lat nie płacą, ale muszą być zgłoszone w rezerwacji — przy dwunastolatku dopytać przy zakupie.", "Bilet trzeba okazać przy wejściu; w Rabaçal i na Achada do Teixeira bywają kontrole, a mandat sięga 250 €.", "W górach zasięg znika — zapisać bilety offline (zrzut ekranu albo PDF w telefonie), nie liczyć na wczytanie maila na miejscu.", "Sierpniowe poranne sloty na 25 Fontes potrafią zniknąć na kilka dni przed terminem; ceny i zasady potwierdzić na portalu, bo zmieniały się już kilka razy."] },
     { emoji: "🗺️", title: "Mapa w telefonie", points: ["Zakładka <strong>Mapa</strong> pokazuje wszystko na jednym ekranie: przystanki każdego dnia, atrakcje, opcje na zapas i gastronomię — warstwy włącza się osobno.", "Import: <a href=\"https://www.google.com/mymaps\" target=\"_blank\" rel=\"noopener\">google.com/mymaps</a> → Utwórz nową mapę → Importuj → wskaż pobrany plik. Mapa jest wtedy prywatna, widoczna tylko dla Ciebie.", "Warstwy: siedem dni planu, atrakcje po drodze, opcje na zapas (plan B na deszcz) i gastronomia. W terenie można zostawić włączoną tylko tę jedną, która jest akurat potrzebna.", "Google Maps pozwala pobrać obszar Madery offline; w górach i na levadach zasięg bywa zerowy."] },
-    { emoji: "🆘", title: "Numery alarmowe i bezpieczeństwo", points: ["Ogólny numer alarmowy to 112 (obsługa również po angielsku).", "Madera jest bardzo bezpieczna, z niską przestępczością.", "Największą ostrożność zachować przy słońcu, prądach morskich i śliskich skałach nad wodą."] },
+    { emoji: "🆘", title: "Numery alarmowe i bezpieczeństwo", points: ["Ogólny numer alarmowy to 112 (obsługa również po angielsku).", "<strong>Travel One — przedstawiciel biura na Maderze: <a href=\"tel:+351967807512\">+351 967 807 512</a></strong> (całodobowo). Dzwonimy tam przy problemie z hotelem albo lotem; biuro w Funchal działa pon.–pt. do 18:00 pod +351 291 707 280.", "Madera jest bardzo bezpieczna, z niską przestępczością.", "Największą ostrożność zachować przy słońcu, prądach morskich i śliskich skałach nad wodą."] },
     { emoji: "💛", title: "Napiwki i drobne zwyczaje", points: ["Napiwki nie są obowiązkowe — mile widziane zaokrąglenie rachunku lub 5–10% przy dobrej obsłudze.", "W restauracjach couvert (pieczywo, oliwki, pasty na start) bywa płatny — można go odmówić.", "Sjesta nie obowiązuje, ale kolacje jada się później niż w Polsce, zwykle po 19:00."] }
   ];
 
@@ -1109,6 +1109,39 @@
           <p class="section-copy">Sierpień na Maderze to 23–26°C i słońce, ale w górach i we mgle bywa chłodno, a pogoda zmienia się szybko — dlatego warstwy i kurtka w plecaku to podstawa.</p>
           <div class="guide-info-grid">
             ${packing.map((card) => `<article class="card info-card"><div class="card-body"><h3><span class="info-emoji" aria-hidden="true">${card.emoji}</span>${card.title}</h3><ul class="info-list">${card.items.map((i) => `<li>${i}</li>`).join("")}</ul></div></article>`).join("")}
+          </div>
+        </section>
+        <section class="guide-section" aria-labelledby="voucher-title">
+          <h2 id="voucher-title">Voucher biura i kontakt na wyspie</h2>
+          <p class="section-copy">To, co potwierdza schauinsland-reisen: pokój, wyżywienie i loty. Najważniejszy jest tu numer alarmowy przedstawiciela na Maderze — dzwonimy pod niego, gdy problem dotyczy hotelu albo lotu, a nie naszych własnych rezerwacji.</p>
+          <div class="parking-box">
+            <div class="parking-facts">
+              <h3>📄 Rezerwacja 3891149 — schauinsland-reisen</h3>
+              <dl>
+                <dt>Pobyt</dt><dd>Baía Azul, 20–30.08.2026, <strong>10 nocy</strong></dd>
+                <dt>Pokój</dt><dd>Familienzimmer Meerblick <span>— jeden pokój rodzinny z widokiem na morze</span></dd>
+                <dt>Wyżywienie</dt><dd><strong>Śniadanie w cenie</strong> <span>— bufet zwykle 7:30–10:00</span></dd>
+                <dt>Loty</dt><dd>U2 5333 (tam) · <code>KCXF7QW</code><br>U2 5334 (powrót) · <code>KD15T58</code></dd>
+                <dt>Bagaż</dt><dd>min. 15 kg na osobę w luku <span>— dokładny limit u easyJet, jedna sztuka podręcznego na osobę</span></dd>
+                <dt>Odprawa</dt><dd>zamyka się <strong>120 minut przed odlotem</strong> <span>— po tym czasie linia może zwolnić miejsce</span></dd>
+                <dt>Transfery</dt><dd><strong>Nie ma ich w pakiecie</strong> <span>— voucher mówi wprost „ohne Transfer", dlatego lotnisko ↔ hotel jedziemy z Ruim i płacimy osobno</span></dd>
+              </dl>
+            </div>
+            <div class="parking-facts">
+              <h3>☎️ Travel One — przedstawiciel na Maderze</h3>
+              <dl>
+                <dt>Numer alarmowy</dt><dd><a href="tel:+351967807512"><strong>+351 967 807 512</strong></a> <span>— całodobowo, na sprawy hotelowe i lotnicze</span></dd>
+                <dt>Biuro</dt><dd><a href="tel:+351291707280">+351 291 707 280</a> <span>— pon.–pt. do 18:00</span></dd>
+                <dt>Adres</dt><dd>Rua do Amparo 26, 9000-774 Funchal</dd>
+                <dt>Centrala w Niemczech</dt><dd><a href="tel:+49203994050">+49 203 994050</a> <span>— schauinsland-reisen, Duisburg</span></dd>
+              </dl>
+              <ul class="info-list">
+                <li><strong>Kiedy dzwonić do Travel One:</strong> pokój niezgodny z rezerwacją, problem z zameldowaniem, odwołany albo przesunięty lot, konieczność wcześniejszego powrotu.</li>
+                <li><strong>Kiedy nie:</strong> transfery, wycieczki i szlaki to nasze własne rezerwacje — tam dzwonimy do Rui albo do SIMplifiki.</li>
+                <li>Komplet dokumentów podróży (voucher hotelowy, dokumenty lotnicze, numery alarmowe biura) jest do pobrania poniżej — warto mieć go w telefonie także offline.</li>
+              </ul>
+              <p class="section-copy"><a class="button secondary" href="assets/dokumenty-podrozy-3891149.pdf" target="_blank" rel="noopener">📄 Otwórz dokumenty podróży (PDF)</a></p>
+            </div>
           </div>
         </section>
         <section class="guide-section" aria-labelledby="rezerwacje-title">
