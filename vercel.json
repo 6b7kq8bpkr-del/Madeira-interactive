@@ -8,15 +8,6 @@
           "value": "noindex, nofollow, noarchive"
         }
       ]
-    },
-    {
-      "source": "/assets/karty-pokladowe-KCXF7QW.pdf",
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow, noarchive"
-        }
-      ]
     }
   ]
 }

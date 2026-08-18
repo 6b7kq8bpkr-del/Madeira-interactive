@@ -78,7 +78,7 @@
   // Checklista przed wyjazdem — JEDNO źródło: renderuje i stronę główną, i PDF
   const CHECKLIST = [
     ["flights", "Potwierdzone numery i godziny obu lotów easyJet: EJU5333 (20.08) i EJU5334 (30.08)"],
-    ["boarding", "Karty pokładowe na 20.08 w aplikacji easyJet i offline w planie — miejsca 14A–14D"],
+    ["boarding", "Karty pokładowe na 20.08 otwarte w aplikacji easyJet i zapisane offline w telefonie — miejsca 14A–14D"],
     ["katowice", "Transfer Rui 22.08 po znajomych (przylot 10:45) — cena i dostępność potwierdzone"],
     ["trails", "Bilety PR1.2 i PR11 na 27.08 kupione — zapisane offline w telefonie (kody QR w planie)"],
     ["p8", "Rezerwacja APCOA 8320774 i sektor P7/8 — potwierdzenie zapisane offline"],
@@ -1264,10 +1264,10 @@
                 <dt>Dokument</dt><dd>dowód osobisty albo paszport <span>— ze zdjęciem, obowiązkowo dla każdego</span></dd>
               </dl>
               <ul class="info-list">
-                <li><strong>Pierwsze źródło to aplikacja easyJet</strong> — karty są w niej zawsze aktualne, także gdyby lot zmienił wyjście albo godzinę. Plik poniżej to kopia zapasowa na wypadek padniętej baterii albo braku zasięgu.</li>
+                <li><strong>Karty pokładowe są w aplikacji easyJet</strong> — tam aktualizują się same, gdyby zmieniło się wyjście albo godzina. Warto je otworzyć wieczorem, żeby zapisały się w telefonie na offline, i dorzucić do portfela Apple albo Google.</li>
+                <li>Powyższe dane trzymamy tu na wypadek, gdyby telefon padł: przy stanowisku easyJet wystarczy nazwisko i <strong>numer rezerwacji KCXF7QW</strong>, żeby wydrukowali kartę na miejscu.</li>
                 <li>Pobudka 04:45 i kilka minut spaceru z hotelu do terminalu dają zapas nawet przy kolejce do bag dropu.</li>
               </ul>
-              <p class="section-copy"><a class="button secondary" href="assets/karty-pokladowe-KCXF7QW.pdf" target="_blank" rel="noopener">🎫 Otwórz karty pokładowe (PDF)</a></p>
             </div>
           </div>
         </section>
