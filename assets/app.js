@@ -928,7 +928,11 @@
     // Na wąskim ekranie pasek przewija się w poziomie — aktywna zakładka
     // musi być widoczna od razu, także gdy jest ostatnia w rzędzie.
     const aktywna = host.querySelector(".is-current");
-    if (aktywna && host.scrollWidth > host.clientWidth) host.scrollLeft = Math.max(0, aktywna.offsetLeft - 12);
+    if (aktywna && host.scrollWidth > host.clientWidth) {
+      // offsetLeft liczy się od .topbar (position: fixed), więc mierzymy względem paska
+      const przesuniecie = aktywna.getBoundingClientRect().left - host.getBoundingClientRect().left + host.scrollLeft;
+      host.scrollLeft = Math.max(0, przesuniecie - 12);
+    }
   }
 
   const highlights = [
@@ -1839,6 +1843,7 @@
     [commons.santana, "H. Zell", "CC BY-SA 3.0", BYSA3],
     [commons.pontaDoSol, "Paul Mannix", "CC BY 2.0", BY2],
     [commons.funchalBay, "Pedro (Maia, Portugal)", "CC BY 2.0", BY2],
+    ["https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Ponta_de_S%C3%A3o_Louren%C3%A7o%2C_Madeira%2C_Portugal%2C_2019-05-28%2C_DD_31.jpg/1280px-Ponta_de_S%C3%A3o_Louren%C3%A7o%2C_Madeira%2C_Portugal%2C_2019-05-28%2C_DD_31.jpg", "Diego Delso", "CC BY-SA 4.0", BYSA4],
     [commons.funchal, "Dietmar Rabich", "CC BY-SA 4.0", BYSA4],
     [commons.lido, "Hein.M\u00fcck", "CC BY-SA 3.0", BYSA3],
     [commons.monte, "Dietmar Rabich", "CC BY-SA 4.0", BYSA4],
