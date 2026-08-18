@@ -1,5 +1,5 @@
 // Tryb offline planu Madery — na wyspie zasięgu brakuje w górach i tunelach
-const CACHE = "madera-2026-v18";
+const CACHE = "madera-2026-v19";
 const OBRAZY = "madera-obrazy-v2";
 const OBRAZY_MAX = 80;
 const SHELL = [
@@ -9,6 +9,7 @@ const SHELL = [
   "assets/qr-pr12-adultos.png", "assets/qr-pr12-criancas.png",
   "assets/qr-pr11-adultos.png", "assets/qr-pr11-criancas.png",
   "assets/dokumenty-podrozy-3891149.pdf",
+  "assets/karty-pokladowe-KCXF7QW.pdf",
   "assets/icon-192.png", "assets/icon-512.png",
   "days/2026-08-19.html", "days/2026-08-20.html", "days/2026-08-21.html", "days/2026-08-22.html",
   "days/2026-08-23.html", "days/2026-08-24.html", "days/2026-08-25.html", "days/2026-08-26.html",

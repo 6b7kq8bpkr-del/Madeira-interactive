@@ -78,6 +78,7 @@
   // Checklista przed wyjazdem — JEDNO źródło: renderuje i stronę główną, i PDF
   const CHECKLIST = [
     ["flights", "Potwierdzone numery i godziny obu lotów easyJet: EJU5333 (20.08) i EJU5334 (30.08)"],
+    ["boarding", "Karty pokładowe na 20.08 w aplikacji easyJet i offline w planie — miejsca 14A–14D"],
     ["katowice", "Transfer Rui 22.08 po znajomych (przylot 10:45) — cena i dostępność potwierdzone"],
     ["trails", "Bilety PR1.2 i PR11 na 27.08 kupione — zapisane offline w telefonie (kody QR w planie)"],
     ["p8", "Rezerwacja APCOA 8320774 i sektor P7/8 — potwierdzenie zapisane offline"],
@@ -150,7 +151,7 @@
       image: commons.funchalBay, alt: "Zatoka i marina Funchal na Maderze", cats: ["podróż", "spokojny"],
       intensity: "Łagodna", duration: "Dzień logistyczny", transport: "Samolot + transfer", walking: "Mało", kids: "Tak", exposure: "Niska",
       center: [32.6387, -16.9304], route: [[52.3667, 13.5033, "Lotnisko BER"], [32.6979, -16.7745, "Lotnisko FNC"], [32.6384, -16.9353, "Hotel Baía Azul"], [32.6386, -16.9332, "Lido"]], google: "https://www.google.com/maps/dir/Madeira+Airport/Hotel+Baia+Azul,+Funchal/Lido+Bathing+Complex",
-      agenda: [["04:45", "Pobudka i wyjście z hotelu", "Hotel stoi przy terminalu, więc do odprawy idziemy kilka minut — nie trzeba wstawać wcześniej ani zamawiać transferu."], ["05:00", "Odprawa na BER", "Terminal 1–2 tuż obok hotelu; bagaże, odprawa i kontrola bez pośpiechu. Odprawa zamyka się 120 minut przed odlotem, czyli o 05:00 — po tym czasie linia może zwolnić miejsce. Śniadanie jemy dopiero po kontroli — w hotelu nie mamy go w rezerwacji."], ["07:00", "Wylot BER → FNC", "<strong>easyJet</strong>, lot EJU5333 (na bilecie U2 5333), PNR KCXF7QW — blisko 5 godzin nad Atlantykiem."], ["10:55", "Lądowanie w Funchal", "Przylot easyJetem o 10:55 czasu lokalnego — na Maderze jest o godzinę wcześniej niż w Berlinie."], ["12:00", "Prywatny transfer", "Dzwonimy do Rui (+351 917 260 690) dopiero z kompletem bagaży; podjedzie pod kawiarnię tuż za halą przylotów. Dziś jedzie czworo — 35 € gotówką za ten kurs. Rodzina z Katowic dołącza w sobotę, osobnym kursem."], ["14:00", "Obiad i odpoczynek", "Lekki posiłek, zameldowanie i basen. Voucher biura potwierdza pokój rodzinny z widokiem na morze i śniadanie w cenie — gdyby coś się nie zgadzało, dzwonimy do Travel One: +351 967 807 512."], ["17:00", "Lido lub promenada", "Krótki spacer tylko jeśli grupa ma energię."]],
+      agenda: [["04:45", "Pobudka i wyjście z hotelu", "Hotel stoi przy terminalu, więc do odprawy idziemy kilka minut — nie trzeba wstawać wcześniej ani zamawiać transferu."], ["05:00", "Odprawa na BER", "Terminal 1, tuż obok hotelu. <strong>Bag drop zamyka się 06:20, wyjście do samolotu o 06:30</strong> — to są twarde terminy tego poranka. Miejsca mamy już przypisane: 14A–14D, cały rząd razem. Śniadanie jemy dopiero po kontroli, w hotelu nie mamy go w rezerwacji."], ["07:00", "Wylot BER → FNC", "<strong>easyJet</strong>, lot EJU5333 (na bilecie U2 5333), PNR KCXF7QW — blisko 5 godzin nad Atlantykiem."], ["10:55", "Lądowanie w Funchal", "Przylot easyJetem o 10:55 czasu lokalnego — na Maderze jest o godzinę wcześniej niż w Berlinie."], ["12:00", "Prywatny transfer", "Dzwonimy do Rui (+351 917 260 690) dopiero z kompletem bagaży; podjedzie pod kawiarnię tuż za halą przylotów. Dziś jedzie czworo — 35 € gotówką za ten kurs. Rodzina z Katowic dołącza w sobotę, osobnym kursem."], ["14:00", "Obiad i odpoczynek", "Lekki posiłek, zameldowanie i basen. Voucher biura potwierdza pokój rodzinny z widokiem na morze i śniadanie w cenie — gdyby coś się nie zgadzało, dzwonimy do Travel One: +351 967 807 512."], ["17:00", "Lido lub promenada", "Krótki spacer tylko jeśli grupa ma energię."]],
       tips: ["Lot potwierdzony przez biuro (rez. 3891149): wylot z BER 07:00, lądowanie w Funchal 10:55. Nocleg w IntercityHotel przy Terminalu 1–2 sprawia, że wystarczy pobudka ~04:45 i kilka minut spaceru.", "Przy dłuższych przejściach i kolejkach można z wyprzedzeniem zamówić bezpłatną asystę lotniskową i potwierdzić ją z przewoźnikiem.", "Numer do kierowcy: +351 917 260 690. Rui ma nasz kontakt (+48 607 452 332), ale to my dzwonimy pierwsi — po odebraniu bagaży.", "Gotówka na transfer musi być przygotowana przed wylotem: 35 € za dzisiejszy kurs, płatne Rui przy przyjeździe — kartą nie zapłacimy. Powrót 30.08 to drugie 35 €, a w sobotę dochodzi kurs po znajomych.", "Pierwszego dnia nie planować zakupów ani dalszych dojazdów."],
       planB: "Przy opóźnieniu lotu rezygnujemy z Lido. Hotel, posiłek i sen są jedynymi priorytetami.", gentle: "po transferze cały program odbywa się w hotelu.",
       deepDive: {
@@ -1059,7 +1060,7 @@
     ] },
     { emoji: "🧳", title: "Osobno, na rękę", items: [
       "<strong>Torba na noc w Berlinie</strong>: kosmetyczka, piżama, bielizna, ubranie na rano — pobudka 04:45, walizki mają stać spakowane",
-      "Do podręcznego: dokumenty, gotówka, leki, power bank, ładowarka, coś ciepłego",
+      "Do podręcznego: dokumenty, gotówka, leki, power bank, ładowarka, coś ciepłego — <strong>mieści się tylko mała torba 45 × 36 × 20 cm pod fotel</strong>, większego podręcznego nie mamy wykupionego",
       "Płyny do 100 ml w jednej przezroczystej torebce litrowej"
     ] },
     { emoji: "🧒", title: "Dla dzieci", items: [
@@ -1217,7 +1218,7 @@
         </section>
         <section class="guide-section" aria-labelledby="packing-title">
           <h2 id="packing-title">Co spakować</h2>
-          <p class="section-copy"><strong>Limit bagażu: 23 kg na osobę</strong> — jedna walizka do luku plus jedna sztuka podręcznego, identycznie w obie strony. Sierpień na Maderze to 23–26°C i słońce, ale w górach i we mgle bywa chłodno, a pogoda zmienia się szybko — dlatego warstwy i kurtka w plecaku to podstawa.</p>
+          <p class="section-copy"><strong>Limit bagażu: 23 kg na osobę do luku</strong>, a do kabiny <strong>tylko mała torba 45 × 36 × 20 cm</strong> mieszcząca się pod fotelem — większy bagaż podręczny nie jest wykupiony. Sierpień na Maderze to 23–26°C i słońce, ale w górach i we mgle bywa chłodno, a pogoda zmienia się szybko — dlatego warstwy i kurtka w plecaku to podstawa.</p>
           <div id="pakowanie"></div>
         </section>
         <section class="guide-section" aria-labelledby="voucher-title">
@@ -1232,7 +1233,7 @@
                 <dt>Wyżywienie</dt><dd><strong>Śniadanie w cenie</strong> <span>— bufet zwykle 7:30–10:00</span></dd>
                 <dt>Przewoźnik</dt><dd><strong>easyJet</strong> <span>— na bilecie kod U2, w rozkładach EJU</span></dd>
                 <dt>Loty</dt><dd>U2 5333 / EJU5333 (tam) · <code>KCXF7QW</code><br>U2 5334 / EJU5334 (powrót) · <code>KD15T58</code></dd>
-                <dt>Bagaż</dt><dd><strong>23 kg na osobę</strong>, jedna sztuka w luku <span>— tak samo na EJU5333 i EJU5334, klasa Y; do tego jedna sztuka podręcznego na osobę</span></dd>
+                <dt>Bagaż</dt><dd><strong>23 kg na osobę</strong>, jedna sztuka w luku <span>— tak samo na EJU5333 i EJU5334, klasa Y; do kabiny tylko mała torba 45 × 36 × 20 cm pod fotel</span></dd>
                 <dt>Odprawa</dt><dd>zamyka się <strong>120 minut przed odlotem</strong> <span>— po tym czasie linia może zwolnić miejsce</span></dd>
                 <dt>Transfery</dt><dd><strong>Nie ma ich w pakiecie</strong> <span>— voucher mówi wprost „ohne Transfer", dlatego lotnisko ↔ hotel jedziemy z Ruim i płacimy osobno</span></dd>
               </dl>
@@ -1251,6 +1252,22 @@
                 <li>Komplet dokumentów podróży (voucher hotelowy, dokumenty lotnicze, numery alarmowe biura) jest do pobrania poniżej — warto mieć go w telefonie także offline.</li>
               </ul>
               <p class="section-copy"><a class="button secondary" href="assets/dokumenty-podrozy-3891149.pdf" target="_blank" rel="noopener">📄 Otwórz dokumenty podróży (PDF)</a></p>
+            </div>
+            <div class="parking-facts">
+              <h3>🎫 Karty pokładowe — lot 20.08</h3>
+              <dl>
+                <dt>Bag drop</dt><dd><strong>zamyka się 06:20</strong> <span>— to najwcześniejszy z terminów tego poranka, po nim bagaży już nie nadamy</span></dd>
+                <dt>Wyjście do samolotu</dt><dd><strong>zamyka się 06:30</strong> <span>— przy odlocie 07:00, Terminal 1</span></dd>
+                <dt>Miejsca</dt><dd>14A Urban · 14B Sylwia · 14C Marcel · 14D Martyna <span>— cały rząd razem, przednia część kabiny</span></dd>
+                <dt>Bagaż rejestrowany</dt><dd>4 × 23 kg <span>— zapisane na całą rezerwację</span></dd>
+                <dt>Bagaż podręczny</dt><dd><strong>tylko mała torba 45 × 36 × 20 cm</strong> na osobę, pod fotel <span>— wymiary z uchwytami i kółkami; większy podręczny nie jest wykupiony</span></dd>
+                <dt>Dokument</dt><dd>dowód osobisty albo paszport <span>— ze zdjęciem, obowiązkowo dla każdego</span></dd>
+              </dl>
+              <ul class="info-list">
+                <li><strong>Pierwsze źródło to aplikacja easyJet</strong> — karty są w niej zawsze aktualne, także gdyby lot zmienił wyjście albo godzinę. Plik poniżej to kopia zapasowa na wypadek padniętej baterii albo braku zasięgu.</li>
+                <li>Pobudka 04:45 i kilka minut spaceru z hotelu do terminalu dają zapas nawet przy kolejce do bag dropu.</li>
+              </ul>
+              <p class="section-copy"><a class="button secondary" href="assets/karty-pokladowe-KCXF7QW.pdf" target="_blank" rel="noopener">🎫 Otwórz karty pokładowe (PDF)</a></p>
             </div>
           </div>
         </section>
