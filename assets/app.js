@@ -347,6 +347,37 @@
   const save = () => localStorage.setItem(stateKey, JSON.stringify(state));
   const escapeHtml = (value) => String(value).replace(/[&<>"]/g, (char) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[char]));
   const todayISO = () => { const n = new Date(), p = (x) => String(x).padStart(2, "0"); return `${n.getFullYear()}-${p(n.getMonth() + 1)}-${p(n.getDate())}`; };
+
+  // ── Tryb podróży: od 19 do 30 sierpnia strona ma służyć w ruchu ─────────
+  // Najważniejsze informacje idą na wierzch: co teraz, do kogo dzwonić, gdzie
+  // bilety. Poza tymi datami wszystko wygląda jak dotąd.
+  const W_PODROZY = () => { const t = todayISO(); return t >= "2026-08-19" && t <= "2026-08-30"; };
+  const terazMin = () => { const n = new Date(); return n.getHours() * 60 + n.getMinutes(); };
+  const naMinuty = (t) => { const m = /^(\d{1,2}):(\d{2})$/.exec(t || ""); return m ? Number(m[1]) * 60 + Number(m[2]) : null; };
+
+  // Który punkt agendy trwa, a który jest następny — według zegara telefonu
+  function punktyTeraz(day) {
+    const teraz = terazMin();
+    const zCzasem = day.agenda.map((sl, i) => ({ sl, i, m: naMinuty(sl[0]) })).filter((x) => x.m !== null);
+    let aktualny = null, nastepny = null;
+    zCzasem.forEach((x) => { if (x.m <= teraz) aktualny = x; else if (!nastepny) nastepny = x; });
+    return { aktualny, nastepny, poWszystkim: zCzasem.length > 0 && !nastepny && aktualny && teraz > aktualny.m + 90 };
+  }
+
+  // Szybkie akcje: to, po co sięga się w biegu. Te same na stronie głównej i na stronie dnia.
+  function szybkieAkcje(day, prefix) {
+    const akcje = [
+      { ico: "📞", t: "Rui — transfer", s: "+351 917 260 690", href: "tel:+351917260690" },
+      { ico: "🆘", t: "Travel One", s: "biuro, całodobowo", href: "tel:+351967807512" },
+      { ico: "🏨", t: "Hotel Baía Azul", s: "+351 291 700 400", href: "tel:+351291700400" },
+      { ico: "📍", t: "Adres hotelu", s: "pokaż taksówkarzowi", href: "https://maps.google.com/?q=Hotel+Ba%C3%ADa+Azul,+Rua+da+Quinta+Cala%C3%A7a+1,+Funchal", ext: true },
+      { ico: "🎫", t: "Bilety na szlaki", s: "kody QR", href: `${prefix}praktyczne.html#bilety-title` },
+      { ico: "💶", t: "Gotówka", s: "co komu płacimy", href: `${prefix}praktyczne.html#koszty-title` },
+      { ico: "🗺️", t: "Mapa dnia", s: day ? day.title : "trasa", href: day ? `${prefix}days/${day.id}.html#route-map` : `${prefix}mapa.html` },
+      { ico: "🚨", t: "112", s: "numer alarmowy", href: "tel:112" }
+    ];
+    return `<div class="szybkie" role="list">${akcje.map((a) => `<a class="sa" role="listitem" href="${a.href}"${a.ext ? ' target="_blank" rel="noopener"' : ""}><span class="sa-ico" aria-hidden="true">${a.ico}</span><span class="sa-t">${a.t}</span><span class="sa-s">${a.s}</span></a>`).join("")}</div>`;
+  }
   let routeMapInstance = null;
   let routeMarkers = [];
   let mapObserver = null;
@@ -764,13 +795,25 @@
     document.title = `${day.date} — ${day.title} | Madera 2026`;
     document.querySelector('meta[name="description"]').setAttribute("content", day.short);
     const metrics = [["Intensywność", day.intensity], ["Czas", day.duration], ["Transport", day.transport], ["Chodzenie", day.walking], ["Dla dzieci", day.kids], ["Ekspozycja", day.exposure]];
+    // Dzisiejsza strona ma działać w biegu: sloty, które minęły, są wyciszone,
+    // trwający ma etykietę "teraz", a pod paskiem dni stoją szybkie akcje.
+    const dzis = W_PODROZY() && day.id === todayISO();
+    const pt = dzis ? punktyTeraz(day) : null;
+    const klasaSlotu = (i) => {
+      if (!pt) return "";
+      const m = naMinuty(day.agenda[i][0]);
+      if (pt.aktualny && i === pt.aktualny.i) return " is-now";
+      if (m !== null && pt.aktualny && m < pt.aktualny.m) return " is-past";
+      return "";
+    };
     root.innerHTML = `
-      <header class="hero">${imageMarkup(day, true, "hero-media")}<div class="hero-inner"><p class="eyebrow">${day.date} · dzień ${index + 1} z ${days.length}</p><h1>${day.title}</h1><p class="lead">${day.short}</p><div class="chips"><span class="chip"><span class="idot ${INTENSITY[day.intensity] || "y"}"></span> ${day.intensity}</span><span class="chip">${day.transport}</span><span class="chip">${day.walking}</span></div></div></header>
+      <header class="hero${dzis ? " is-today" : ""}">${imageMarkup(day, true, "hero-media")}<div class="hero-inner"><p class="eyebrow">${day.date} · dzień ${index + 1} z ${days.length}</p><h1>${day.title}</h1><p class="lead">${day.short}</p><div class="chips"><span class="chip"><span class="idot ${INTENSITY[day.intensity] || "y"}"></span> ${day.intensity}</span><span class="chip">${day.transport}</span><span class="chip">${day.walking}</span></div></div></header>
       <main id="main-content">
         <nav class="day-rail" aria-label="Przejdź do innego dnia">${days.map((d, i) => `<a class="day-rail-item${d.id === day.id ? " is-current" : ""}" href="${d.id}.html"${d.id === day.id ? ' aria-current="page"' : ""}><span class="drn">${i + 1}</span><span class="drd">${d.date.split(" · ")[0]}</span></a>`).join("")}</nav>
+        ${dzis ? `<div class="szybkie-dnia">${szybkieAkcje(day, "../")}</div>` : ""}
         <div id="day-trail-alert"></div>
         <div class="grid">
-          <section class="card" aria-labelledby="agenda-title"><div class="card-body"><h2 id="agenda-title">Plan dnia</h2><div class="timeline">${day.agenda.map((slot) => `<article class="slot"><span class="time">${slot[0]}</span><span class="dot" aria-hidden="true"></span><div><h3>${slot[1]}</h3><p>${slot[2]}</p></div></article>`).join("")}</div></div></section>
+          <section class="card" aria-labelledby="agenda-title"><div class="card-body"><h2 id="agenda-title">Plan dnia</h2><div class="timeline">${day.agenda.map((slot, i) => `<article class="slot${klasaSlotu(i)}"><span class="time">${slot[0]}</span><span class="dot" aria-hidden="true"></span><div><h3>${slot[1]}</h3><p>${slot[2]}</p></div></article>`).join("")}</div></div></section>
           <aside class="card"><div class="card-body"><h2>W skrócie</h2><div class="info">${metrics.map((metric) => `<div class="metric"><strong>${metric[1]}</strong><span>${metric[0]}</span></div>`).join("")}</div><div class="badges"><span class="badge">Dzieci chodzą po górach</span><span class="badge">Spokojne tempo</span><span class="badge">Niska ekspozycja</span>${day.cats.includes("odpoczynek") ? "<span class=\"badge optional\">Elastyczny plan</span>" : ""}${day.cats.includes("wycieczka busem") || day.id === "2026-08-28" ? "<span class=\"badge weather\">Pogoda ma znaczenie</span>" : ""}</div><div class="variant-note"><strong>Wariant łagodniejszy:</strong> ${day.gentle}</div>${FLEX[day.id] ? `<div class="flex"><span class="fxlock"><b>🔒 Nie ruszać:</b> ${FLEX[day.id][0]}</span><span class="fxcut"><b>✂️ Można odpuścić:</b> ${FLEX[day.id][1]}</span></div>` : ""}</div></aside>
         </div>
         ${groupsHTML(day)}
@@ -1307,7 +1350,18 @@
     const diff = Math.round((new Date(day.id + "T00:00:00") - now) / 86400000);
     const kicker = diff === 0 ? "Dziś" : diff === 1 ? "Jutro" : `Za ${diff} dni`;
     const lvl = INTENSITY[day.intensity] || "y";
-    const punkty = day.agenda.slice(0, 3).map((sl) => `<li><b>${sl[0]}</b> ${sl[1]}</li>`).join("");
+    let punkty = day.agenda.slice(0, 3).map((sl) => `<li><b>${sl[0]}</b> ${sl[1]}</li>`).join("");
+    let dzisiajTeraz = "";
+    if (diff === 0 && W_PODROZY()) {
+      const { aktualny, nastepny, poWszystkim } = punktyTeraz(day);
+      const wiersze = [];
+      if (aktualny) wiersze.push(`<li class="fd-now"><b>teraz</b> ${aktualny.sl[1]} <em>od ${aktualny.sl[0]}</em></li>`);
+      if (nastepny) wiersze.push(`<li><b>${nastepny.sl[0]}</b> ${nastepny.sl[1]}</li>`);
+      if (nastepny) { const dalej = day.agenda[nastepny.i + 1]; if (dalej) wiersze.push(`<li><b>${dalej[0]}</b> ${dalej[1]}</li>`); }
+      if (poWszystkim && days[idx + 1]) wiersze.push(`<li><b>jutro</b> ${days[idx + 1].title} — ${days[idx + 1].agenda[0][0]} ${days[idx + 1].agenda[0][1]}</li>`);
+      if (wiersze.length) punkty = wiersze.join("");
+      dzisiajTeraz = szybkieAkcje(day, "");
+    }
     const fx = FLEX[day.id];
     host.hidden = false;
     host.innerHTML = `<a class="fd-card" href="days/${day.id}.html">
@@ -1320,7 +1374,9 @@
         <span class="fd-cta">Otwórz plan dnia →</span>
       </div>
       <div class="fd-side"><div class="fd-wx" id="fd-wx"><span class="fd-wxload">pogoda…</span></div></div>
-    </a>`;
+    </a>${dzisiajTeraz}`;
+    // W podróży karta "Dziś" idzie nad pasek liczb — to pierwsza rzecz po zdjęciu
+    if (W_PODROZY()) { const band = document.querySelector(".stats-band"); if (band && band.parentNode === host.parentNode) host.parentNode.insertBefore(host, band); }
     focusWeather(day);
   }
 
@@ -1781,9 +1837,15 @@
     const start = new Date("2026-08-19T00:00:00");
     const today = new Date(); today.setHours(0, 0, 0, 0);
     const diff = Math.round((start - today) / 86400000);
-    el.textContent = diff > 0 ? diff : diff === 0 ? "0" : "—";
     const label = el.parentElement.querySelector("span");
-    if (label) label.textContent = diff > 0 ? "dni do wyjazdu" : diff === 0 ? "wyjazd dziś!" : "w trakcie podróży";
+    if (W_PODROZY()) {
+      const n = days.findIndex((d) => d.id === todayISO()) + 1;
+      el.textContent = n > 0 ? `${n}/${days.length}` : "—";
+      if (label) label.textContent = "dzień podróży";
+      return;
+    }
+    el.textContent = diff > 0 ? diff : diff === 0 ? "0" : "—";
+    if (label) label.textContent = diff > 0 ? "dni do wyjazdu" : diff === 0 ? "wyjazd dziś!" : "po podróży";
   }
 
   // Pasek postępu czytania + delikatne wejście sekcji (wzorzec z planu Japonii)
@@ -2068,6 +2130,7 @@
     navigator.serviceWorker.register("sw.js".replace(/^/, document.body.dataset.page === "day" ? "../" : "")).catch(() => {});
   }
 
+  if (W_PODROZY()) document.body.classList.add("w-podrozy");
   const lightbox = setupLightbox();
   // Jeden błąd w którymkolwiek module nie może wygasić całej strony.
   [

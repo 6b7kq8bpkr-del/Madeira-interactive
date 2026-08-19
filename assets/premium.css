@@ -722,3 +722,43 @@ main, .guide-main, .guide-hero { padding-left: max(clamp(16px, 4vw, 44px), env(s
 .wxh.teraz .wxh-godz, .wxh.teraz .wxh-pop { color: rgba(255,255,255,.82); }
 .wxh.teraz .wxh-temp { color: white; }
 
+
+/* ── Tryb podróży (19–30.08): najważniejsze na wierzch ─────────────────── */
+/* Zdjęcie na froncie zostaje, ale nie może przesłaniać tego, po co otwiera
+   się stronę w biegu — karty "Dziś" i szybkich akcji. */
+.w-podrozy .home-hero { min-height: min(42svh, 420px); padding-top: calc(88px + env(safe-area-inset-top)); padding-bottom: 40px; }
+.w-podrozy .home-hero .chips { display: none; }
+.w-podrozy .home-hero h1 { font-size: clamp(38px, 6.5vw, 72px); }
+.w-podrozy .home-hero .hero-actions { margin-top: 16px; }
+.w-podrozy .focus-day { margin-top: 0; margin-bottom: 26px; }
+/* liczby stałe nie mówią nic nowego w trakcie; zostaje dzień podróży i pogoda */
+.w-podrozy .stats-band .stat:not(.hl):not(.wx) { display: none; }
+.w-podrozy .stats-band { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+/* Szybkie akcje — duże cele dotykowe, jedna siatka na każdej stronie */
+.szybkie { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; margin-top: 12px; }
+.sa { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: 10px; align-items: center; min-height: 58px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 16px; background: var(--panel); text-decoration: none; color: var(--ink); box-shadow: 0 6px 18px rgba(7,43,52,.07); transition: transform .12s ease, box-shadow .12s ease; }
+.sa:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(7,43,52,.12); }
+.sa:active { transform: translateY(0); }
+.sa-ico { grid-row: 1 / span 2; font-size: 22px; line-height: 1; }
+.sa-t { font-weight: 800; font-size: 14px; line-height: 1.2; color: var(--sea-dark); }
+.sa-s { font-size: 12px; line-height: 1.3; color: var(--muted); font-variant-numeric: tabular-nums; }
+.sa[href^="tel:"] .sa-t { color: var(--sea); }
+.szybkie-dnia { margin: 0 0 18px; }
+
+/* Karta "Dziś": wiersz "teraz" ma własny akcent */
+.fd-list li.fd-now b { color: white; background: rgba(255,255,255,.18); padding: 1px 8px; border-radius: 999px; min-width: 0; }
+.fd-list li.fd-now em { color: rgba(255,255,255,.72); font-style: normal; font-size: 13px; }
+
+/* Plan dnia dziś: minione wyciszone, trwający podświetlony */
+.slot.is-past { opacity: .55; }
+.slot.is-now .time { color: var(--coral); }
+.slot.is-now .dot { background: var(--sea-dark); box-shadow: 0 0 0 5px rgba(184,83,46,.22), 0 0 0 10px rgba(184,83,46,.08); }
+.slot.is-now h3::after { content: "teraz"; display: inline-block; margin-left: 8px; padding: 2px 9px; border-radius: 999px; background: var(--coral); color: white; font-size: 11px; font-weight: 900; letter-spacing: .05em; text-transform: uppercase; vertical-align: middle; }
+.hero.is-today { min-height: min(46svh, 460px); }
+@media (max-width: 560px) {
+  .szybkie { grid-template-columns: 1fr 1fr; }
+  .w-podrozy .home-hero { min-height: min(40svh, 380px); }
+  .w-podrozy .stats-band .stat strong { font-size: 26px; }
+}
+.w-podrozy #ics-export { display: none; }
