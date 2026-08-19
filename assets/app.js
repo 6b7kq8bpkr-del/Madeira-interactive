@@ -343,7 +343,7 @@
   const readState = () => {
     try { return JSON.parse(localStorage.getItem(stateKey)) || {}; } catch (_) { return {}; }
   };
-  const state = Object.assign({ checklist: {}, pakowanie: {} }, readState());
+  const state = Object.assign({ checklist: {} }, readState());
   const save = () => localStorage.setItem(stateKey, JSON.stringify(state));
   const escapeHtml = (value) => String(value).replace(/[&<>"]/g, (char) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[char]));
   const todayISO = () => { const n = new Date(), p = (x) => String(x).padStart(2, "0"); return `${n.getFullYear()}-${p(n.getMonth() + 1)}-${p(n.getDate())}`; };
@@ -373,46 +373,6 @@
     setupChecklist();
     renderOverviewLegend();
     setupOverviewMap();
-  }
-
-  // Lista pakowania: odhaczanie zapisane lokalnie, licznik postępu u góry
-  function renderPakowanie() {
-    const host = document.querySelector("#pakowanie");
-    if (!host) return;
-    const klucz = (gi, ii) => `p${gi}_${ii}`;
-    const wszystkich = packing.reduce((n, g) => n + g.items.length, 0);
-    const policz = () => packing.reduce((n, g, gi) => n + g.items.filter((_, ii) => state.pakowanie[klucz(gi, ii)]).length, 0);
-
-    host.innerHTML = `
-      <div class="pak-postep">
-        <p><strong id="pak-licznik">${policz()}</strong> z ${wszystkich} spakowane <span>· lista na jedną osobę dorosłą, odhaczenia zostają w tej przeglądarce</span></p>
-        <button class="button secondary" type="button" id="pak-reset">Odznacz wszystko</button>
-      </div>
-      <div class="guide-info-grid">
-        ${packing.map((g, gi) => `<article class="card info-card pak-grupa"><div class="card-body">
-          <h3><span class="info-emoji" aria-hidden="true">${g.emoji}</span>${g.title}</h3>
-          ${g.items.map((it, ii) => `<label class="check-row"><input type="checkbox" data-pak="${klucz(gi, ii)}"> <span>${it}</span></label>`).join("")}
-        </div></article>`).join("")}
-      </div>`;
-
-    const licznik = host.querySelector("#pak-licznik");
-    host.querySelectorAll("[data-pak]").forEach((input) => {
-      input.checked = Boolean(state.pakowanie[input.dataset.pak]);
-      input.closest(".check-row").classList.toggle("spakowane", input.checked);
-      input.addEventListener("change", () => {
-        state.pakowanie[input.dataset.pak] = input.checked;
-        input.closest(".check-row").classList.toggle("spakowane", input.checked);
-        save();
-        licznik.textContent = policz();
-      });
-    });
-    const reset = host.querySelector("#pak-reset");
-    if (reset) reset.addEventListener("click", () => {
-      if (!window.confirm("Odznaczyć całą listę pakowania?")) return;
-      state.pakowanie = {};
-      save();
-      renderPakowanie();
-    });
   }
 
   function setupChecklist() {
@@ -996,80 +956,6 @@
     }).join("");
   }
 
-  // Lista pakowania — na jedną osobę dorosłą, plus osobna grupa dla dzieci.
-  // Odhaczanie zapisuje się w przeglądarce, więc każdy pakuje na swoim telefonie.
-  const packing = [
-    { emoji: "🪪", title: "Dokumenty i pieniądze", items: [
-      "Dowód osobisty albo paszport",
-      "Prawo jazdy i dokumenty auta na przejazd do Berlina",
-      "EKUZ i polisa ubezpieczeniowa — numer zapisany też offline",
-      "Dwie karty płatnicze, różnych organizacji",
-      "<strong>Banknoty euro przygotowane w Polsce</strong> — Rui bierze wyłącznie gotówkę",
-      "Bilet parkingowy z wjazdu na P7/8 — zachować do ewentualnej dopłaty"
-    ] },
-    { emoji: "👕", title: "Ubrania na 11 dni", items: [
-      "8–10 × bielizna",
-      "8–10 × skarpetki, w tym 2 pary trekkingowych",
-      "6–7 × koszulka, w tym 2 szybkoschnące na szlaki",
-      "2 × spodnie długie — trekkingowe i miejskie",
-      "2 × szorty",
-      "<strong>Polar albo gruba bluza</strong> — na Pico Ruivo bywa 10°C i wieje",
-      "<strong>Kurtka przeciwdeszczowa albo wiatrówka</strong>",
-      "Coś wyjściowego na espetadę 22.08",
-      "Piżama",
-      "Chusta albo buff na wiatr w górach i na łodzi"
-    ] },
-    { emoji: "👟", title: "Buty", items: [
-      "Buty trekkingowe — na Pico Ruivo i levady",
-      "Wygodne sneakersy na Funchal",
-      "Klapki albo sandały do wody"
-    ] },
-    { emoji: "🥾", title: "Góry i levady", items: [
-      "Plecak 20–25 l",
-      "Butelka na wodę — kranówka jest zdatna do picia",
-      "Kijki trekkingowe",
-      "<strong>Czołówka</strong> — tunele w Rabaçal, Balcões o 17:00",
-      "Plastry na odciski",
-      "Wydruk biletów na szlaki jako zapas do kodów w telefonie"
-    ] },
-    { emoji: "🏖️", title: "Woda i plaża", items: [
-      "2 × strój kąpielowy — jeden zawsze schnie",
-      "Ręcznik plażowy (hotel daje tylko basenowe)",
-      "Okulary do pływania albo maska z rurką"
-    ] },
-    { emoji: "☀️", title: "Słońce i zdrowie", items: [
-      "<strong>Filtr SPF 50</strong> — sierpień, Atlantyk, wysokość",
-      "Balsam po opalaniu i sztyft na usta",
-      "Kapelusz albo czapka, najlepiej ze sznurkiem",
-      "Okulary przeciwsłoneczne, zapasowe korekcyjne",
-      "<strong>Tabletki na chorobę morską</strong> — brać 30–60 min przed rejsem 28.08",
-      "Leki na receptę z zapasem, w bagażu podręcznym",
-      "Apteczka: przeciwbólowe, plastry, coś na żołądek"
-    ] },
-    { emoji: "🔌", title: "Elektronika", items: [
-      "Ładowarka do telefonu — gniazdka jak w Polsce",
-      "<strong>Power bank</strong> — dzień górski trwa od 9:45 do 18:30",
-      "Ładowarka samochodowa i uchwyt na telefon",
-      "Listwa albo ładowarka z kilkoma portami USB"
-    ] },
-    { emoji: "🧩", title: "Łatwe do pominięcia", items: [
-      "Sucha torba albo woreczek strunowy na telefon — łódź i wodospady",
-      "Woreczki na mokre stroje",
-      "Mały pojemnik na leki do plecaka",
-      "Płyn albo listki do prania — jedno pranie w połowie pobytu"
-    ] },
-    { emoji: "🧳", title: "Osobno, na rękę", items: [
-      "<strong>Torba na noc w Berlinie</strong>: kosmetyczka, piżama, bielizna, ubranie na rano — pobudka 04:45, walizki mają stać spakowane",
-      "Do podręcznego: dokumenty, gotówka, leki, power bank, ładowarka, coś ciepłego — <strong>mieści się tylko mała torba 45 × 36 × 20 cm pod fotel</strong>, większego podręcznego nie mamy wykupionego",
-      "Płyny do 100 ml w jednej przezroczystej torebce litrowej"
-    ] },
-    { emoji: "🧒", title: "Dla dzieci", items: [
-      "Przekąski i woda na dni z późniejszym lunchem",
-      "Coś do zajęcia w busie na dłuższych trasach",
-      "Zmiana ubrań i drobna gra na luźniejszy dzień",
-      "Krem z filtrem dla dzieci i czapka z daszkiem"
-    ] }
-  ];
 
   // ── Budżet ─────────────────────────────────────────────────────────────
   // Kwoty rozsiane po planie zebrane w jedno miejsce. Transfery i bus Rui
@@ -1215,11 +1101,6 @@
           <div class="guide-info-grid">
             ${practicalInfo.map((card) => `<article class="card info-card"><div class="card-body"><h3><span class="info-emoji" aria-hidden="true">${card.emoji}</span>${card.title}</h3><ul class="info-list">${card.points.map((p) => `<li>${p}</li>`).join("")}</ul></div></article>`).join("")}
           </div>
-        </section>
-        <section class="guide-section" aria-labelledby="packing-title">
-          <h2 id="packing-title">Co spakować</h2>
-          <p class="section-copy"><strong>Limit bagażu: 23 kg na osobę do luku</strong>, a do kabiny <strong>tylko mała torba 45 × 36 × 20 cm</strong> mieszcząca się pod fotelem — większy bagaż podręczny nie jest wykupiony. Sierpień na Maderze to 23–26°C i słońce, ale w górach i we mgle bywa chłodno, a pogoda zmienia się szybko — dlatego warstwy i kurtka w plecaku to podstawa.</p>
-          <div id="pakowanie"></div>
         </section>
         <section class="guide-section" aria-labelledby="voucher-title">
           <h2 id="voucher-title">Voucher biura i kontakt na wyspie</h2>
@@ -2197,7 +2078,6 @@
     ["renderPrint", renderPrint],
     ["renderPractical", renderPractical],
     ["renderKoszty", renderKoszty],
-    ["renderPakowanie", renderPakowanie],
     ["renderFood", renderFood],
     ["renderMapPage", renderMapPage],
     ["renderTrailAlert", renderTrailAlert],

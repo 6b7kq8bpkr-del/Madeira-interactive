@@ -722,15 +722,3 @@ main, .guide-main, .guide-hero { padding-left: max(clamp(16px, 4vw, 44px), env(s
 .wxh.teraz .wxh-godz, .wxh.teraz .wxh-pop { color: rgba(255,255,255,.82); }
 .wxh.teraz .wxh-temp { color: white; }
 
-/* ── Lista pakowania ───────────────────────────────────────────────────── */
-.pak-postep { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 18px; padding: 14px 18px; border-radius: 16px; background: #e7efef; }
-.pak-postep p { margin: 0; color: var(--sea-dark); font-size: 15px; }
-.pak-postep p strong { font-size: 22px; font-variant-numeric: tabular-nums; }
-.pak-postep p span { color: var(--muted); font-weight: 400; }
-.pak-grupa .card-body { display: grid; gap: 6px; }
-.pak-grupa h3 { margin-bottom: 6px; }
-.pak-grupa .check-row { align-items: start; padding: 9px 11px; line-height: 1.45; background: #f2f6f5; }
-.pak-grupa .check-row:hover { background: #e7efef; }
-.pak-grupa .check-row input { flex: 0 0 auto; margin-top: 2px; }
-.pak-grupa .check-row.spakowane { background: #eaf1ed; }
-.pak-grupa .check-row.spakowane span { color: var(--muted); text-decoration: line-through; text-decoration-color: rgba(91,111,116,.5); }
