@@ -831,6 +831,143 @@
     save(); renderAll(); flash('Dodano zadanie');
   };
 
+  /* ════════════════ moduł: Budżet ════════════════ */
+
+  function budgetItem(b){
+    if (ui.editing['budget:' + b.id]) return budgetEditForm(b);
+    const hasActual = b.actual != null;
+    const diff = hasActual ? b.actual - b.planned : null;
+    let diffBadge = '';
+    if (hasActual){
+      if (Math.abs(diff) < 0.005) diffBadge = '<span class="badge ok">zgodnie z planem</span>';
+      else if (diff > 0) diffBadge = `<span class="badge overdue num">+${fmtPLN(diff)}</span>`;
+      else diffBadge = `<span class="badge ok num">−${fmtPLN(-diff)}</span>`;
+    }
+    return `<li>
+      <div class="item-row">
+        <div class="grow">
+          <p class="item-title">${esc(b.name)}</p>
+          <p class="item-sub num">plan: ${fmtPLN(b.planned)} · wydane: ${hasActual ? fmtPLN(b.actual) : 'jeszcze nie'}</p>
+        </div>
+        <div class="item-actions">
+          ${diffBadge}
+          <button type="button" class="btn subtle" data-action="budget-edit" data-id="${b.id}">Edytuj</button>
+        </div>
+      </div>
+    </li>`;
+  }
+
+  function budgetEditForm(b){
+    return `<li>
+      <form class="edit-form" data-action="budget-save" data-id="${b.id}">
+        <label class="field"><span>Pozycja</span>
+          <input name="name" value="${esc(b.name)}" required></label>
+        <div class="frow">
+          <label class="field"><span>Plan (zł)</span>
+            <input inputmode="decimal" name="planned" value="${b.planned != null ? esc(b.planned) : ''}" required></label>
+          <label class="field"><span>Wydane (zł) — puste, jeśli jeszcze nic</span>
+            <input inputmode="decimal" name="actual" value="${b.actual != null ? esc(b.actual) : ''}"></label>
+        </div>
+        <div class="form-actions">
+          <button class="btn" type="submit">Zapisz</button>
+          <button class="btn subtle" type="button" data-action="task-cancel">Anuluj</button>
+          <button class="btn subtle danger" type="button" data-action="budget-delete" data-id="${b.id}">Usuń</button>
+        </div>
+      </form>
+    </li>`;
+  }
+
+  function renderBudget(){
+    const s = state.settings;
+    const planned = state.budget.reduce((a, b) => a + (b.planned || 0), 0);
+    const withActual = state.budget.filter(b => b.actual != null);
+    const spent = withActual.reduce((a, b) => a + b.actual, 0);
+    const deviation = withActual.reduce((a, b) => a + (b.actual - b.planned), 0);
+    const devClass = deviation > 0.005 ? 'dev-plus' : (deviation < -0.005 ? 'dev-minus' : '');
+    const devText = Math.abs(deviation) < 0.005 ? '0 zł'
+      : (deviation > 0 ? '+' : '−') + fmtPLN(Math.abs(deviation));
+
+    return `<div class="card">
+      <h2>Budżet</h2>
+      <p class="lead">Kwoty w złotych. „Odchylenie" porównuje wydatki z planem tylko dla pozycji, które już mają wpisaną kwotę.</p>
+      <div class="totals">
+        <div class="cell"><b class="num">${fmtPLN(planned)}</b><span>plan razem</span></div>
+        <div class="cell"><b class="num">${fmtPLN(spent)}</b><span>wydane razem</span></div>
+        <div class="cell ${devClass}"><b class="num">${devText}</b><span>odchylenie</span></div>
+      </div>
+      <p class="small muted num">Plan w walutach: ${fmtCur(planned / s.rateUSD, 'USD')} · ${fmtCur(planned / s.rateEUR, 'EUR')}${spent ? ` — wydane: ${fmtCur(spent / s.rateUSD, 'USD')} · ${fmtCur(spent / s.rateEUR, 'EUR')}` : ''}</p>
+      <p class="small muted num">Poziom cen 2026 — z zapasem 5–10% na listopad 2027: ${fmtPLN(planned * 1.05)} – ${fmtPLN(planned * 1.1)}.</p>
+      <form data-action="rates-save" class="frow" style="align-items:end; margin:10px 0 0">
+        <label class="field" style="margin:0"><span>Kurs USD (zł)</span>
+          <input inputmode="decimal" name="rateUSD" value="${esc(s.rateUSD)}"></label>
+        <label class="field" style="margin:0"><span>Kurs EUR (zł)</span>
+          <input inputmode="decimal" name="rateEUR" value="${esc(s.rateEUR)}"></label>
+        <div class="form-actions" style="grid-column:1/-1; margin-top:8px">
+          <button class="btn ghost" type="submit">Przelicz po nowych kursach</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Pozycje</h2>
+      <ul class="items" style="margin-top:8px">${state.budget.map(budgetItem).join('')}</ul>
+      ${state.budget.length ? '' : '<p class="empty">Brak pozycji — dodaj pierwszą poniżej.</p>'}
+      <hr class="sep">
+      <form data-action="budget-add">
+        <p class="group-label" style="margin-top:0">Nowa pozycja</p>
+        <label class="field"><span>Nazwa</span>
+          <input name="name" required placeholder="np. dopłata do klasy biznes"></label>
+        <div class="frow">
+          <label class="field"><span>Plan (zł)</span>
+            <input inputmode="decimal" name="planned" required></label>
+          <label class="field"><span>Wydane (zł) — opcjonalnie</span>
+            <input inputmode="decimal" name="actual"></label>
+        </div>
+        <div class="form-actions"><button class="btn" type="submit">Dodaj pozycję</button></div>
+      </form>
+    </div>`;
+  }
+  renderers.budget = renderBudget;
+
+  function findBudget(id){ return state.budget.find(b => b.id === id); }
+
+  clickActions['budget-edit'] = d => { ui.editing['budget:' + d.id] = true; renderAll(); };
+  clickActions['budget-delete'] = d => {
+    const b = findBudget(d.id);
+    if (b && confirm('Usunąć pozycję „' + b.name + '"?')){
+      state.budget = state.budget.filter(x => x.id !== d.id);
+      ui.editing = {};
+      save(); renderAll(); flash('Usunięto pozycję');
+    }
+  };
+  submitActions['budget-save'] = form => {
+    const b = findBudget(form.dataset.id);
+    if (!b) return;
+    const f = new FormData(form);
+    b.name = String(f.get('name')).trim() || b.name;
+    const planned = parseAmount(f.get('planned'));
+    if (planned != null && planned >= 0) b.planned = planned;
+    b.actual = parseAmount(f.get('actual'));
+    ui.editing = {};
+    save(); renderAll(); flash('Zapisano pozycję');
+  };
+  submitActions['budget-add'] = form => {
+    const f = new FormData(form);
+    const name = String(f.get('name')).trim();
+    const planned = parseAmount(f.get('planned'));
+    if (!name || planned == null || planned < 0) return;
+    state.budget.push({ id: uid(), name, planned, actual: parseAmount(f.get('actual')) });
+    save(); renderAll(); flash('Dodano pozycję');
+  };
+  submitActions['rates-save'] = form => {
+    const f = new FormData(form);
+    const usd = parseAmount(f.get('rateUSD'));
+    const eur = parseAmount(f.get('rateEUR'));
+    if (usd && usd > 0) state.settings.rateUSD = usd;
+    if (eur && eur > 0) state.settings.rateEUR = eur;
+    save(); renderAll(); flash('Przeliczono po nowych kursach');
+  };
+
   document.addEventListener('DOMContentLoaded', () => {
     renderAll();
     if (storageBroken){
