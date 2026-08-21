@@ -721,6 +721,116 @@
     save(); setView('start'); flash('Przywrócono dane startowe');
   };
 
+  /* ════════════════ moduł: Zadania ════════════════ */
+
+  function byDue(a, b){ return String(a.due).localeCompare(String(b.due)); }
+
+  function taskItem(t){
+    if (ui.editing['task:' + t.id]) return taskEditForm(t);
+    return `<li class="${t.done ? 'done' : ''}">
+      <div class="item-row">
+        <label class="checkwrap"><input type="checkbox" ${t.done ? 'checked' : ''}
+          data-change="task-toggle" data-id="${t.id}" aria-label="Zrobione"></label>
+        <div class="grow">
+          <p class="item-title">${esc(t.title)}</p>
+          <p class="item-sub num">termin: ${fmtDate(t.due)}${t.note ? ' · ' + esc(t.note) : ''}</p>
+        </div>
+        <div class="item-actions">
+          ${t.done ? '' : dueBadge(t.due)}
+          <button type="button" class="btn subtle" data-action="task-edit" data-id="${t.id}">Edytuj</button>
+        </div>
+      </div>
+    </li>`;
+  }
+
+  function taskEditForm(t){
+    return `<li>
+      <form class="edit-form" data-action="task-save" data-id="${t.id}">
+        <label class="field"><span>Zadanie</span>
+          <input name="title" value="${esc(t.title)}" required></label>
+        <div class="frow">
+          <label class="field"><span>Termin</span>
+            <input type="date" name="due" value="${esc(t.due)}" required></label>
+          <label class="field"><span>Notatka</span>
+            <input name="note" value="${esc(t.note || '')}"></label>
+        </div>
+        <div class="form-actions">
+          <button class="btn" type="submit">Zapisz</button>
+          <button class="btn subtle" type="button" data-action="task-cancel">Anuluj</button>
+          <button class="btn subtle danger" type="button" data-action="task-delete" data-id="${t.id}">Usuń</button>
+        </div>
+      </form>
+    </li>`;
+  }
+
+  function renderTasks(){
+    const today = todayISO();
+    const overdue = state.tasks.filter(t => !t.done && t.due < today).sort(byDue);
+    const ahead   = state.tasks.filter(t => !t.done && t.due >= today).sort(byDue);
+    const done    = state.tasks.filter(t => t.done).sort(byDue);
+
+    const group = (label, arr) => arr.length
+      ? `<p class="group-label">${label} (${arr.length})</p><ul class="items">${arr.map(taskItem).join('')}</ul>`
+      : '';
+
+    return `<div class="card">
+      <h2>Zadania z terminami</h2>
+      <p class="lead">Harmonogram przygotowań — od rezerwacji willi po parking przy Chopinie. Najpilniejsze na górze.</p>
+      ${overdue.length ? `<p class="notice warn"><strong>Po terminie</strong>Te pozycje powinny już być zrobione — nadgoń albo przesuń termin.</p>` : ''}
+      ${group('Po terminie', overdue)}
+      ${group('Przed nami', ahead)}
+      ${(!overdue.length && !ahead.length) ? '<p class="empty">Nic nie czeka — wszystko zrobione.</p>' : ''}
+      ${group('Zrobione', done)}
+      <hr class="sep">
+      <form data-action="task-add">
+        <p class="group-label" style="margin-top:0">Nowe zadanie</p>
+        <div class="frow tight-sm">
+          <label class="field"><span>Zadanie</span>
+            <input name="title" required placeholder="np. rezerwacja kolacji na plaży"></label>
+          <label class="field"><span>Termin</span>
+            <input type="date" name="due" required value="${today}"></label>
+        </div>
+        <div class="form-actions"><button class="btn" type="submit">Dodaj zadanie</button></div>
+      </form>
+    </div>`;
+  }
+  renderers.tasks = renderTasks;
+
+  function findTask(id){ return state.tasks.find(t => t.id === id); }
+
+  changeActions['task-toggle'] = el => {
+    const t = findTask(el.dataset.id);
+    if (t){ t.done = el.checked; save(); renderAll(); }
+  };
+  clickActions['task-edit'] = d => { ui.editing['task:' + d.id] = true; renderAll(); };
+  clickActions['task-cancel'] = () => { ui.editing = {}; renderAll(); };
+  clickActions['task-delete'] = d => {
+    const t = findTask(d.id);
+    if (t && confirm('Usunąć zadanie „' + t.title + '"?')){
+      state.tasks = state.tasks.filter(x => x.id !== d.id);
+      ui.editing = {};
+      save(); renderAll(); flash('Usunięto zadanie');
+    }
+  };
+  submitActions['task-save'] = form => {
+    const t = findTask(form.dataset.id);
+    if (!t) return;
+    const f = new FormData(form);
+    t.title = String(f.get('title')).trim() || t.title;
+    t.due = String(f.get('due')) || t.due;
+    t.note = String(f.get('note') || '').trim();
+    ui.editing = {};
+    save(); renderAll(); flash('Zapisano zadanie');
+  };
+  submitActions['task-add'] = form => {
+    const f = new FormData(form);
+    const title = String(f.get('title')).trim();
+    const due = String(f.get('due'));
+    if (!title || !due) return;
+    state.tasks.push({ id: uid(), title, due, done: false, note: '' });
+    save(); renderAll(); flash('Dodano zadanie');
+  };
+
   document.addEventListener('DOMContentLoaded', () => {
     renderAll();
     if (storageBroken){
