@@ -22,6 +22,31 @@ zamknięcie karty i restart telefonu. Uwagi:
 - do przenoszenia między urządzeniami służy eksport/import JSON
   w sekcji „Dane i kopia zapasowa" na Starcie (plik albo schowek).
 
+## Oprawa graficzna
+
+Kolorystyka „zmierzch nad laguną": indygo i fiolet nocnego nieba,
+ciepły bursztyn zachodu na akcenty rocznicowe, kremowe tło.
+
+Ilustracje (zachód nad willami nadwodnymi w nagłówku, hydroplan w module
+Loty, rekin wielorybi w Planie) są autorskimi rysunkami wektorowymi
+wbudowanymi w plik — działają offline, nie wymagają pobierania niczego
+z sieci i nie mają obciążeń licencyjnych.
+
+### Własne zdjęcia zamiast rysunków
+
+Każda scena ma gniazdo na fotografię. Żeby je podmienić:
+
+1. wrzuć plik do `malediwy/assets/` — nazwy: `naglowek.jpg` (nagłówek),
+   `hydroplan.jpg` (moduł Loty), `rekin.jpg` (Plan dnia);
+2. w `index.html` odkomentuj odpowiednie nazwy w stałej `PHOTOS`
+   (na początku sekcji „sceny graficzne").
+
+Zdjęcie przykryje rysunek, zachowując kadrowanie i podpisy. Dopóki lista
+`PHOTOS` jest pusta, aplikacja nie wysyła żadnych zapytań o obrazy.
+Proporcje: nagłówek najlepiej wygląda w kadrze panoramicznym (ok. 3:1),
+pasy modułowe jeszcze szerszym (ok. 6:1); w obu wypadkach istotna treść
+powinna być blisko środka, bo na telefonie boki są przycinane.
+
 ## Moduły
 
 - **Start** — odliczanie do wylotu i rocznicy (10.11.2027), najbliższe

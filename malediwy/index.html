@@ -9,24 +9,26 @@
   <title>Malediwy 2027 — planer rocznicowy</title>
   <meta name="description" content="Prywatny planer podróży: Meliá Whale Lagoon Maldives, listopad 2027, 20. rocznica ślubu.">
   <style>
+    /* Paleta „zmierzch nad laguną": indygo i fiolet nocnego nieba,
+       ciepły bursztyn zachodu na akcenty rocznicowe, kremowe tło. */
     :root{
-      --bg:#f4f2ec;
-      --card:#ffffff;
-      --ink:#22343a;
-      --ink-soft:#5c6f74;
-      --line:#e3ded2;
-      --lagoon:#0e6e73;
-      --lagoon-deep:#0d3b3f;
-      --lagoon-mist:#e7f0ee;
-      --sand:#efe9db;
-      --gold:#a8894a;
-      --gold-soft:#f5efe2;
+      --bg:#f6f2ee;
+      --card:#fffdfb;
+      --ink:#2a2436;
+      --ink-soft:#6b6479;
+      --line:#e6ded6;
+      --lagoon:#574a8c;          /* barwa wiodąca: indygo */
+      --lagoon-deep:#2e2750;     /* noc nad oceanem */
+      --lagoon-mist:#eeebf6;
+      --sand:#f1e7e0;            /* ciepły piasek o zmierzchu */
+      --gold:#b8863c;
+      --gold-soft:#f8f0e1;
       --warn:#a4552c;
       --warn-soft:#f8ece3;
-      --ok:#3d7a52;
-      --ok-soft:#e9f2ea;
+      --ok:#4f7a5e;
+      --ok-soft:#e9f1ea;
       --radius:14px;
-      --shadow:0 1px 2px rgba(34,52,58,.06), 0 8px 24px rgba(34,52,58,.05);
+      --shadow:0 1px 2px rgba(42,36,54,.06), 0 8px 24px rgba(42,36,54,.06);
       --nav-h:58px;
     }
     *{box-sizing:border-box}
@@ -40,23 +42,58 @@
     button{font:inherit}
     input,select,textarea{font:inherit; color:var(--ink)}
 
-    /* ── nagłówek ── */
+    /* ── nagłówek ze sceną zachodu ── */
     .masthead{
-      background:linear-gradient(160deg, var(--lagoon-deep) 0%, #14545a 70%, #1b6168 100%);
-      color:#f2efe6; padding:26px 18px 22px;
+      position:relative; isolation:isolate; overflow:hidden;
+      background:var(--lagoon-deep); color:#f4f0ea; padding:0;
     }
-    .masthead .inner{max-width:920px; margin:0 auto}
+    .masthead .scene{position:absolute; inset:0; z-index:-1}
+    /* przyciemnienie: tekst musi być czytelny niezależnie od kadru sceny */
+    .masthead .scene::after{
+      content:""; position:absolute; inset:0; z-index:2; pointer-events:none;
+      background:linear-gradient(180deg, rgba(28,22,48,.34) 0%, rgba(28,22,48,.30) 34%,
+                 rgba(28,22,48,.58) 68%, rgba(26,21,44,.82) 100%);
+    }
+    .masthead .inner{
+      max-width:920px; margin:0 auto; padding:104px 18px 22px;
+      text-shadow:0 1px 12px rgba(24,20,40,.55);
+    }
     .masthead .eyebrow{
       margin:0 0 6px; font-size:12px; letter-spacing:.14em; text-transform:uppercase;
-      color:#c8b98e;
+      color:#f0c99a;
     }
-    .masthead h1{font-size:26px; line-height:1.25; color:#fbf9f2}
-    .masthead .sub{margin:8px 0 0; font-size:14px; color:#c3d4d2; max-width:52ch}
+    .masthead h1{font-size:26px; line-height:1.25; color:#fdfbf7}
+    .masthead .sub{margin:8px 0 0; font-size:14px; color:#efe9f1; max-width:52ch}
+    @media (min-width:760px){ .masthead .inner{padding-top:150px} }
+
+    /* ── sceny graficzne i gniazda na własne zdjęcia ──
+       <img data-photo> leży na grafice; gdy pliku brak (błąd wczytania),
+       obrazek znika i zostaje rysunek wektorowy. */
+    .scene{position:relative; overflow:hidden; background:var(--lagoon-deep)}
+    .scene svg, .scene img{display:block; width:100%; height:100%; object-fit:cover}
+    .scene svg{position:absolute; inset:0}
+    .scene img{position:relative; z-index:1}
+    .scene img[hidden]{display:none}
+    .band{
+      border-radius:var(--radius); overflow:hidden; margin:0 0 14px; box-shadow:var(--shadow);
+      border:1px solid var(--line); height:132px; position:relative;
+    }
+    .band::after{
+      content:""; position:absolute; left:0; right:0; bottom:0; height:52%; z-index:1;
+      pointer-events:none;
+      background:linear-gradient(180deg, rgba(24,19,42,0) 0%, rgba(24,19,42,.55) 74%, rgba(22,18,38,.78) 100%);
+    }
+    .band .caption{
+      position:absolute; left:14px; right:14px; bottom:10px; z-index:3; margin:0;
+      color:#fbf8f4; font-size:13px; line-height:1.35; letter-spacing:.03em;
+      text-shadow:0 1px 8px rgba(20,16,34,.6);
+    }
+    @media (min-width:760px){ .band{height:160px} }
 
     /* ── nawigacja ── */
     .nav{
       position:fixed; left:0; right:0; bottom:0; z-index:40;
-      background:rgba(253,252,248,.96); backdrop-filter:blur(8px);
+      background:rgba(255,253,251,.96); backdrop-filter:blur(8px);
       border-top:1px solid var(--line);
       display:flex; height:calc(var(--nav-h) + env(safe-area-inset-bottom, 0px));
       padding-bottom:env(safe-area-inset-bottom, 0px);
@@ -97,17 +134,17 @@
       border-radius:10px; padding:9px 15px; cursor:pointer; font-size:14.5px;
     }
     .btn:hover{background:var(--lagoon-deep); border-color:var(--lagoon-deep)}
-    .btn.ghost{background:none; color:var(--lagoon); border-color:#bccfcc}
+    .btn.ghost{background:none; color:var(--lagoon); border-color:#c9c1de}
     .btn.ghost:hover{background:var(--lagoon-mist); color:var(--lagoon-deep)}
     .btn.subtle{
       background:none; border:0; color:var(--lagoon); padding:6px 8px; font-size:13.5px;
-      text-decoration:underline; text-underline-offset:3px; text-decoration-color:#b9cdca;
+      text-decoration:underline; text-underline-offset:3px; text-decoration-color:#c2b9db;
     }
     .btn.danger{color:var(--warn); text-decoration-color:#e0c4b2}
     .field{display:flex; flex-direction:column; gap:4px; margin:0 0 10px}
     .field > span{font-size:12.5px; color:var(--ink-soft); letter-spacing:.02em}
     .field input,.field select,.field textarea{
-      border:1px solid #cfd8d3; border-radius:9px; padding:9px 10px; background:#fdfdfb; width:100%;
+      border:1px solid #d6d0e0; border-radius:9px; padding:9px 10px; background:#fffdfb; width:100%;
     }
     .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--lagoon); outline-offset:0; border-color:var(--lagoon)}
     .frow{display:grid; grid-template-columns:1fr 1fr; gap:10px}
@@ -121,8 +158,8 @@
       border:1px solid transparent; white-space:nowrap;
     }
     .badge.overdue{background:var(--warn-soft); color:var(--warn); border-color:#e6cdbc}
-    .badge.soon{background:var(--gold-soft); color:#7d6431; border-color:#e4d7b8}
-    .badge.ok{background:var(--ok-soft); color:var(--ok); border-color:#cbdfcf}
+    .badge.soon{background:var(--gold-soft); color:#7f6129; border-color:#e8d9b6}
+    .badge.ok{background:var(--ok-soft); color:var(--ok); border-color:#c9ddd0}
     .badge.plain{background:var(--sand); color:var(--ink-soft); border-color:var(--line)}
 
     /* ── start: odliczanie ── */
@@ -136,9 +173,9 @@
     .count .big{font-family:Georgia, serif; font-size:52px; line-height:1.05; margin:6px 0 2px; color:var(--lagoon-deep)}
     .count .big small{font-size:20px; color:var(--ink-soft); font-family:inherit}
     .count .when{font-size:13.5px; color:var(--ink-soft)}
-    .count.anniv{background:linear-gradient(150deg, #fbf7ec, #f4ecda); border-color:#e2d5b4}
-    .count.anniv .big{color:#79602b}
-    .count.anniv .label{color:#8a7440}
+    .count.anniv{background:linear-gradient(150deg, #fdf6e9, #f7e9d6); border-color:#e8d6b6}
+    .count.anniv .big{color:#8a5f28}
+    .count.anniv .label{color:#96733c}
 
     .facts{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:2px 18px; margin:0; font-size:14px}
     .facts div{padding:7px 0; border-bottom:1px dashed var(--line)}
@@ -154,7 +191,7 @@
     .item-title{margin:0; font-size:15.5px; line-height:1.4}
     .item-sub{margin:2px 0 0; font-size:13px; color:var(--ink-soft)}
     .item-actions{display:flex; gap:2px; flex-shrink:0}
-    .done .item-title{color:var(--ink-soft); text-decoration:line-through; text-decoration-color:#b9c4c1}
+    .done .item-title{color:var(--ink-soft); text-decoration:line-through; text-decoration-color:#bdb5ca}
     .checkwrap{padding-top:2px}
     .checkwrap input{width:20px; height:20px; accent-color:var(--lagoon); cursor:pointer}
     .group-label{
@@ -165,9 +202,9 @@
 
     /* ── komunikaty stanu ── */
     .notice{border-radius:10px; padding:11px 13px; font-size:14px; margin:0 0 12px}
-    .notice.ok{background:var(--ok-soft); color:#2c5e3e; border:1px solid #cbdfcf}
+    .notice.ok{background:var(--ok-soft); color:#39644a; border:1px solid #c9ddd0}
     .notice.warn{background:var(--warn-soft); color:#7c3f20; border:1px solid #e6cdbc}
-    .notice.info{background:var(--lagoon-mist); color:#134f53; border:1px solid #cfe0dc}
+    .notice.info{background:var(--lagoon-mist); color:#3d3468; border:1px solid #d8d1ea}
     .notice strong{display:block; margin-bottom:2px}
     .notice p{margin:4px 0 0}
 
@@ -184,18 +221,18 @@
     /* ── plan dnia ── */
     .day{border-left:3px solid var(--line); padding-left:13px; margin:0 0 16px}
     .day.anniv-day{
-      border-left-color:var(--gold); background:linear-gradient(150deg,#fdfaf1,#f7f0dd);
+      border-left-color:var(--gold); background:linear-gradient(150deg,#fdf8ee,#f8ecd9);
       border-radius:0 var(--radius) var(--radius) 0; padding:12px 14px 12px 13px; margin-left:-2px;
     }
     .day h3{font-size:16.5px}
     .day .day-date{font-size:13px; color:var(--ink-soft)}
     .day.anniv-day .day-tag{
       display:inline-block; margin-left:8px; font-size:11.5px; letter-spacing:.08em; text-transform:uppercase;
-      color:#79602b; background:#efe3c4; border-radius:99px; padding:2px 9px; vertical-align:2px;
+      color:#875f26; background:#f0dfbe; border-radius:99px; padding:2px 9px; vertical-align:2px;
     }
     .chips{display:flex; flex-wrap:wrap; gap:6px; margin:8px 0 2px}
     .chip-btn{
-      border:1px solid #cfd8d3; background:#fdfdfb; border-radius:99px; padding:4px 11px;
+      border:1px solid #d6d0e0; background:#fffdfb; border-radius:99px; padding:4px 11px;
       font-size:12.5px; color:var(--ink-soft); cursor:pointer;
     }
     .chip-btn:hover{border-color:var(--lagoon); color:var(--lagoon)}
@@ -204,7 +241,7 @@
     .hidden-file{position:absolute; width:1px; height:1px; opacity:0; overflow:hidden}
     hr.sep{border:0; border-top:1px solid var(--line); margin:16px 0}
     .flash{position:fixed; left:50%; transform:translateX(-50%); bottom:calc(var(--nav-h) + 16px);
-      background:var(--lagoon-deep); color:#f2efe6; border-radius:99px; padding:8px 18px; font-size:14px;
+      background:var(--lagoon-deep); color:#f4f0ea; border-radius:99px; padding:8px 18px; font-size:14px;
       box-shadow:var(--shadow); opacity:0; pointer-events:none; transition:opacity .25s; z-index:60}
     .flash.show{opacity:1}
     @media (min-width:760px){.flash{bottom:24px}}
@@ -212,6 +249,86 @@
 </head>
 <body>
   <header class="masthead">
+    <div class="scene">
+      <!-- Rysunek zachodu; podmienia go assets/naglowek.jpg, jeśli plik istnieje. -->
+      <svg viewBox="0 0 1200 420" preserveAspectRatio="xMidYMid slice" role="img"
+           aria-label="Zachód słońca nad laguną: willa nadwodna na palach, pomost, sylwetki palm">
+        <defs>
+          <linearGradient id="h-sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#221c3c"/><stop offset="30%" stop-color="#3f3568"/>
+            <stop offset="53%" stop-color="#7c4f77"/><stop offset="70%" stop-color="#c0705e"/>
+            <stop offset="83%" stop-color="#e29a62"/><stop offset="100%" stop-color="#f3c184"/>
+          </linearGradient>
+          <linearGradient id="h-sea" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#d9a172"/><stop offset="18%" stop-color="#9a6274"/>
+            <stop offset="55%" stop-color="#453a6b"/><stop offset="100%" stop-color="#241f3f"/>
+          </linearGradient>
+          <radialGradient id="h-glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#ffe0ad" stop-opacity=".95"/>
+            <stop offset="55%" stop-color="#f2b478" stop-opacity=".35"/>
+            <stop offset="100%" stop-color="#f2b478" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect width="1200" height="288" fill="url(#h-sky)"/>
+        <circle cx="430" cy="288" r="132" fill="url(#h-glow)"/>
+        <circle cx="430" cy="272" r="33" fill="#ffdfae"/>
+        <!-- pasma chmur -->
+        <g fill="#2b2348" opacity=".26">
+          <rect x="90" y="122" width="330" height="9" rx="4.5"/>
+          <rect x="520" y="86" width="250" height="7" rx="3.5"/>
+          <rect x="700" y="150" width="380" height="10" rx="5"/>
+          <rect x="200" y="196" width="210" height="7" rx="3.5"/>
+        </g>
+        <rect y="288" width="1200" height="132" fill="url(#h-sea)"/>
+        <!-- odbicie słońca -->
+        <g fill="#ffd8a4" opacity=".5">
+          <rect x="414" y="296" width="32" height="4" rx="2"/>
+          <rect x="404" y="310" width="52" height="4" rx="2"/>
+          <rect x="416" y="324" width="28" height="4" rx="2"/>
+          <rect x="394" y="340" width="72" height="5" rx="2.5"/>
+          <rect x="412" y="360" width="36" height="4" rx="2"/>
+          <rect x="382" y="382" width="96" height="5" rx="2.5"/>
+        </g>
+        <g fill="#f0d3c0" opacity=".14">
+          <rect x="620" y="306" width="150" height="3" rx="1.5"/>
+          <rect x="840" y="330" width="220" height="3" rx="1.5"/>
+          <rect x="60" y="352" width="180" height="3" rx="1.5"/>
+        </g>
+        <!-- wyspa z palmami po lewej -->
+        <g fill="#1d1832">
+          <path d="M150 288 q80 -18 172 -2 l0 4 -172 0 z"/>
+          <g stroke="#1d1832" stroke-width="4" fill="none" stroke-linecap="round">
+            <path d="M214 286 q3 -34 -6 -56"/><path d="M254 286 q-2 -28 6 -46"/>
+          </g>
+          <path d="M208 230 q-24 -12 -34 -2 q18 -4 34 2z M208 230 q22 -16 36 -6 q-20 -2 -36 6z M208 230 q-14 -22 -4 -32 q0 16 4 32z"/>
+          <path d="M260 240 q-20 -10 -30 -1 q16 -4 30 1z M260 240 q20 -14 32 -5 q-18 -2 -32 5z M260 240 q-10 -20 -2 -28 q-2 14 2 28z"/>
+        </g>
+        <!-- willa nadwodna i pomost -->
+        <g fill="#191529">
+          <path d="M560 290 h420 v3 h-420 z" opacity=".9"/>
+          <g opacity=".9">
+            <rect x="592" y="292" width="4" height="26"/><rect x="646" y="292" width="4" height="26"/>
+            <rect x="700" y="292" width="4" height="26"/><rect x="754" y="292" width="4" height="26"/>
+          </g>
+          <path d="M730 268 l58 -34 l58 34 z"/>
+          <rect x="748" y="268" width="80" height="26"/>
+          <rect x="756" y="294" width="4" height="30"/><rect x="816" y="294" width="4" height="30"/>
+          <path d="M866 276 l44 -26 l44 26 z"/>
+          <rect x="880" y="276" width="60" height="20"/>
+          <rect x="886" y="296" width="3" height="26"/><rect x="932" y="296" width="3" height="26"/>
+        </g>
+        <g fill="#ffcf95" opacity=".8">
+          <rect x="766" y="276" width="13" height="9" rx="1.5"/>
+          <rect x="796" y="276" width="13" height="9" rx="1.5"/>
+          <rect x="898" y="282" width="10" height="7" rx="1.5"/>
+        </g>
+        <!-- ptaki -->
+        <g stroke="#2c2447" stroke-width="2.6" fill="none" stroke-linecap="round" opacity=".55">
+          <path d="M520 118 q10 -8 20 0 M540 118 q10 -8 20 0"/>
+          <path d="M596 152 q7 -6 14 0 M610 152 q7 -6 14 0"/>
+        </g>
+      </svg>
+    </div>
     <div class="inner">
       <p class="eyebrow">Listopad 2027 · 20. rocznica ślubu</p>
       <h1>Malediwy — Meliá Whale Lagoon</h1>
@@ -433,6 +550,146 @@
 
   const renderers = {};   // moduły dopisują tu swoje funkcje render
 
+  /* ── sceny graficzne ──
+     Rysunki wektorowe są wbudowane w plik, więc działają offline i bez
+     licencji na zdjęcia. Każda scena ma gniazdo na własne zdjęcie:
+     wrzuć plik do malediwy/assets/ i dopisz jego nazwę do PHOTOS —
+     przykryje rysunek. Pusta lista = zero zapytań sieciowych. */
+
+  const PHOTOS = [
+    // 'naglowek.jpg', 'hydroplan.jpg', 'rekin.jpg'
+  ];
+
+  function photoSlot(name, alt){
+    return PHOTOS.includes(name)
+      ? `<img data-photo src="assets/${name}" alt="${esc(alt || '')}" hidden>` : '';
+  }
+
+  function band(svg, caption, photo){
+    return `<div class="band scene">
+      ${svg}
+      ${photoSlot(photo, caption)}
+      ${caption ? `<p class="caption">${caption}</p>` : ''}
+    </div>`;
+  }
+
+  const SCENE_SEAPLANE = `
+    <svg viewBox="0 0 1200 200" preserveAspectRatio="xMidYMid slice" role="img"
+         aria-label="Hydroplan nad laguną w świetle dnia">
+      <defs>
+        <linearGradient id="s-sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#6f63a6"/><stop offset="55%" stop-color="#a98cae"/>
+          <stop offset="100%" stop-color="#e6b590"/>
+        </linearGradient>
+        <linearGradient id="s-sea" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#5d739c"/><stop offset="100%" stop-color="#2f3560"/>
+        </linearGradient>
+      </defs>
+      <rect width="1200" height="150" fill="url(#s-sky)"/>
+      <rect y="150" width="1200" height="50" fill="url(#s-sea)"/>
+      <circle cx="1010" cy="52" r="26" fill="#ffe3b6" opacity=".85"/>
+      <g fill="#2f2850" opacity=".18">
+        <rect x="120" y="40" width="260" height="8" rx="4"/>
+        <rect x="560" y="96" width="200" height="7" rx="3.5"/>
+      </g>
+      <g fill="#f3dcc6" opacity=".16">
+        <rect x="80" y="166" width="200" height="3" rx="1.5"/>
+        <rect x="700" y="180" width="260" height="3" rx="1.5"/>
+      </g>
+      <!-- hydroplan: górnopłat na pływakach -->
+      <g transform="translate(400 34) scale(0.9)">
+        <g fill="#1d1a33">
+          <!-- kadłub -->
+          <path d="M14 44 C32 24 76 14 140 13 L286 13 C330 14 364 24 386 38 C394 43 392 52 376 56 C364 59 344 60 322 60 L58 60 C30 60 10 54 14 44 Z"/>
+          <!-- statecznik pionowy -->
+          <path d="M330 14 L382 -30 L398 -25 L370 16 Z"/>
+          <!-- skrzydło nad kadłubem -->
+          <rect x="104" y="-14" width="228" height="13" rx="6.5"/>
+          <!-- gondole silników i podpory skrzydła -->
+          <rect x="168" y="-3" width="56" height="15" rx="6"/>
+          <rect x="246" y="-3" width="56" height="15" rx="6"/>
+          <!-- pływaki -->
+          <path d="M96 92 C104 80 126 76 156 76 L286 76 C316 76 330 81 330 88 C330 94 318 98 296 98 L134 98 C108 98 92 96 96 92 Z"/>
+        </g>
+        <g stroke="#1d1a33" stroke-width="5" stroke-linecap="round">
+          <path d="M150 60 L138 78"/><path d="M196 60 L200 76"/>
+          <path d="M268 60 L266 76"/><path d="M304 60 L312 78"/>
+        </g>
+        <!-- śmigła -->
+        <g stroke="#1d1a33" stroke-width="4" stroke-linecap="round" opacity=".6">
+          <path d="M166 -16 L166 26"/><path d="M244 -16 L244 26"/>
+        </g>
+        <!-- okna kabiny -->
+        <g fill="#ffd9a8" opacity=".8">
+          <rect x="112" y="28" width="12" height="9" rx="2"/>
+          <rect x="136" y="28" width="12" height="9" rx="2"/>
+          <rect x="160" y="28" width="12" height="9" rx="2"/>
+          <rect x="184" y="28" width="12" height="9" rx="2"/>
+          <rect x="208" y="28" width="12" height="9" rx="2"/>
+          <path d="M46 40 q16 -14 38 -16 l0 18 z"/>
+        </g>
+      </g>
+    </svg>`;
+
+  const SCENE_WHALESHARK = `
+    <svg viewBox="0 0 1200 200" preserveAspectRatio="xMidYMid slice" role="img"
+         aria-label="Rekin wielorybi pod powierzchnią wody">
+      <defs>
+        <linearGradient id="w-deep" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#3e5c86"/><stop offset="45%" stop-color="#2a3f68"/>
+          <stop offset="100%" stop-color="#1b2447"/>
+        </linearGradient>
+        <linearGradient id="w-ray" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#cfe4f2" stop-opacity=".38"/>
+          <stop offset="100%" stop-color="#cfe4f2" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <rect width="1200" height="200" fill="url(#w-deep)"/>
+      <g fill="url(#w-ray)">
+        <path d="M180 0 l70 0 l-120 200 l-56 0z"/>
+        <path d="M420 0 l44 0 l-70 200 l-36 0z"/>
+        <path d="M760 0 l80 0 l-128 200 l-62 0z"/>
+        <path d="M1010 0 l40 0 l-58 200 l-30 0z"/>
+      </g>
+      <!-- rekin wielorybi -->
+      <g transform="translate(300 58)">
+        <path fill="#152038" d="M40 46 q92 -50 236 -42 q116 6 190 30 q-8 10 -2 22 q-74 26 -190 31 q-146 8 -236 -41z"/>
+        <path fill="#152038" d="M466 34 q34 -30 56 -34 q-14 30 -12 44 q-2 16 10 44 q-24 -6 -54 -32z"/>
+        <path fill="#152038" d="M250 6 q26 -34 52 -30 q-8 14 -14 32z"/>
+        <path fill="#152038" d="M228 82 q22 30 46 32 q-14 -14 -22 -32z"/>
+        <path fill="#152038" d="M96 74 q-30 22 -50 22 q16 -14 26 -28z"/>
+        <g fill="#7f9ec4" opacity=".5">
+          <circle cx="150" cy="30" r="4"/><circle cx="192" cy="22" r="4.5"/><circle cx="236" cy="28" r="4"/>
+          <circle cx="280" cy="20" r="4.5"/><circle cx="324" cy="30" r="4"/><circle cx="368" cy="24" r="4"/>
+          <circle cx="170" cy="56" r="4"/><circle cx="214" cy="62" r="4.5"/><circle cx="258" cy="54" r="4"/>
+          <circle cx="302" cy="62" r="4"/><circle cx="346" cy="56" r="4.5"/><circle cx="390" cy="48" r="4"/>
+          <circle cx="412" cy="34" r="3.5"/><circle cx="128" cy="44" r="3.5"/>
+        </g>
+        <circle cx="74" cy="40" r="5" fill="#0b1226"/>
+      </g>
+      <g fill="#bcd6ea" opacity=".22">
+        <circle cx="880" cy="150" r="5"/><circle cx="906" cy="126" r="3.5"/><circle cx="864" cy="118" r="2.8"/>
+        <circle cx="1080" cy="90" r="4"/><circle cx="1104" cy="66" r="2.6"/>
+      </g>
+    </svg>`;
+
+  function hydratePhotos(){
+    // gniazdo w statycznym nagłówku — wypełniane dopiero, gdy plik jest zadeklarowany
+    const head = document.querySelector('.masthead .scene');
+    if (head && !head.dataset.photoSlot){
+      head.dataset.photoSlot = '1';
+      head.insertAdjacentHTML('beforeend',
+        photoSlot('naglowek.jpg', 'Zachód słońca nad laguną'));
+    }
+    document.querySelectorAll('img[data-photo]').forEach(img => {
+      if (img.dataset.photoReady) return;
+      img.dataset.photoReady = '1';
+      if (img.complete && img.naturalWidth > 0){ img.hidden = false; return; }
+      img.addEventListener('load', () => { if (img.naturalWidth > 0) img.hidden = false; });
+      img.addEventListener('error', () => { img.remove(); });
+    });
+  }
+
   function renderAll(){
     renderNav();
     for (const v of VIEWS){
@@ -445,6 +702,7 @@
           : '<div class="card"><p class="empty">Ten moduł powstaje w kolejnym kroku.</p></div>';
       }
     }
+    hydratePhotos();
   }
 
   function setView(id){
@@ -1109,6 +1367,7 @@
   function renderFlights(){
     const s = state.settings;
     return `
+      ${band(SCENE_SEAPLANE, '30 minut hydroplanem — wyłącznie za dnia', 'hydroplan.jpg')}
       ${flightCard('out', 'Do Malé',
         'Wpisz wszystkie odcinki, łącznie z przesiadką. Sprawdzam odcinek kończący się w Malé (MLE) względem granicy przylotu.',
         analyzeOutbound(),
@@ -1245,7 +1504,9 @@
       </article>`;
     }).join('');
 
-    return `<div class="card">
+    return `
+    ${band(SCENE_WHALESHARK, 'South Ari — rekiny wielorybie przez cały rok', 'rekin.jpg')}
+    <div class="card">
       <h2>Plan dzień po dniu</h2>
       <p class="lead">Daty liczone od pierwszego dnia pobytu (${fmtDate(s.dayOne)} — zmienisz w ustawieniach na Starcie). Wolne pole to też plan: na Malediwy nie jedzie się zaliczać atrakcji.</p>
       ${days}
