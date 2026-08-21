@@ -1,0 +1,1656 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0d3b3f">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=">
+  <title>Malediwy 2027 — planer rocznicowy</title>
+  <meta name="description" content="Prywatny planer podróży: Meliá Whale Lagoon Maldives, listopad 2027, 20. rocznica ślubu.">
+  <style>
+    /* Paleta „zmierzch nad laguną": indygo i fiolet nocnego nieba,
+       ciepły bursztyn zachodu na akcenty rocznicowe, kremowe tło. */
+    :root{
+      --bg:#f6f2ee;
+      --card:#fffdfb;
+      --ink:#2a2436;
+      --ink-soft:#6b6479;
+      --line:#e6ded6;
+      --lagoon:#574a8c;          /* barwa wiodąca: indygo */
+      --lagoon-deep:#2e2750;     /* noc nad oceanem */
+      --lagoon-mist:#eeebf6;
+      --sand:#f1e7e0;            /* ciepły piasek o zmierzchu */
+      --gold:#b8863c;
+      --gold-soft:#f8f0e1;
+      --warn:#a4552c;
+      --warn-soft:#f8ece3;
+      --ok:#4f7a5e;
+      --ok-soft:#e9f1ea;
+      --radius:14px;
+      --shadow:0 1px 2px rgba(42,36,54,.06), 0 8px 24px rgba(42,36,54,.06);
+      --nav-h:58px;
+    }
+    *{box-sizing:border-box}
+    html{-webkit-text-size-adjust:100%}
+    body{
+      margin:0; background:var(--bg); color:var(--ink);
+      font:16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      padding-bottom:calc(var(--nav-h) + env(safe-area-inset-bottom, 0px));
+    }
+    h1,h2,h3{font-family:Georgia, "Times New Roman", serif; font-weight:600; letter-spacing:.01em; margin:0}
+    button{font:inherit}
+    input,select,textarea{font:inherit; color:var(--ink)}
+
+    /* ── nagłówek ze sceną zachodu ── */
+    .masthead{
+      position:relative; isolation:isolate; overflow:hidden;
+      background:var(--lagoon-deep); color:#f4f0ea; padding:0;
+    }
+    .masthead .scene{position:absolute; inset:0; z-index:-1}
+    /* przyciemnienie: tekst musi być czytelny niezależnie od kadru sceny */
+    .masthead .scene::after{
+      content:""; position:absolute; inset:0; z-index:2; pointer-events:none;
+      background:linear-gradient(180deg, rgba(28,22,48,.34) 0%, rgba(28,22,48,.30) 34%,
+                 rgba(28,22,48,.58) 68%, rgba(26,21,44,.82) 100%);
+    }
+    .masthead .inner{
+      max-width:920px; margin:0 auto; padding:104px 18px 22px;
+      text-shadow:0 1px 12px rgba(24,20,40,.55);
+    }
+    .masthead .eyebrow{
+      margin:0 0 6px; font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+      color:#f0c99a;
+    }
+    .masthead h1{font-size:26px; line-height:1.25; color:#fdfbf7}
+    .masthead .sub{margin:8px 0 0; font-size:14px; color:#efe9f1; max-width:52ch}
+    @media (min-width:760px){ .masthead .inner{padding-top:150px} }
+
+    /* ── sceny graficzne i gniazda na własne zdjęcia ──
+       <img data-photo> leży na grafice; gdy pliku brak (błąd wczytania),
+       obrazek znika i zostaje rysunek wektorowy. */
+    .scene{position:relative; overflow:hidden; background:var(--lagoon-deep)}
+    .scene svg, .scene img{display:block; width:100%; height:100%; object-fit:cover}
+    .scene svg{position:absolute; inset:0}
+    .scene img{position:relative; z-index:1}
+    .scene img[hidden]{display:none}
+    .band{
+      border-radius:var(--radius); overflow:hidden; margin:0 0 14px; box-shadow:var(--shadow);
+      border:1px solid var(--line); height:132px; position:relative;
+    }
+    .band::after{
+      content:""; position:absolute; left:0; right:0; bottom:0; height:52%; z-index:1;
+      pointer-events:none;
+      background:linear-gradient(180deg, rgba(24,19,42,0) 0%, rgba(24,19,42,.55) 74%, rgba(22,18,38,.78) 100%);
+    }
+    .band .caption{
+      position:absolute; left:14px; right:14px; bottom:10px; z-index:3; margin:0;
+      color:#fbf8f4; font-size:13px; line-height:1.35; letter-spacing:.03em;
+      text-shadow:0 1px 8px rgba(20,16,34,.6);
+    }
+    @media (min-width:760px){ .band{height:160px} }
+
+    /* ── nawigacja ── */
+    .nav{
+      position:fixed; left:0; right:0; bottom:0; z-index:40;
+      background:rgba(255,253,251,.96); backdrop-filter:blur(8px);
+      border-top:1px solid var(--line);
+      display:flex; height:calc(var(--nav-h) + env(safe-area-inset-bottom, 0px));
+      padding-bottom:env(safe-area-inset-bottom, 0px);
+    }
+    .nav button{
+      flex:1; border:0; background:none; cursor:pointer;
+      font-size:11.5px; letter-spacing:.02em; color:var(--ink-soft);
+      padding:6px 2px 8px; display:flex; flex-direction:column; align-items:center; gap:3px;
+    }
+    .nav button .dot{width:22px; height:3px; border-radius:2px; background:transparent}
+    .nav button[aria-current="true"]{color:var(--lagoon-deep); font-weight:600}
+    .nav button[aria-current="true"] .dot{background:var(--lagoon)}
+    @media (min-width:760px){
+      body{padding-bottom:0}
+      .nav{
+        position:static; height:auto; border-top:0; border-bottom:1px solid var(--line);
+        justify-content:center; gap:4px; padding:0 18px;
+      }
+      .nav button{flex:0 0 auto; padding:14px 14px 11px; font-size:14px}
+    }
+
+    /* ── układ ── */
+    main{max-width:920px; margin:0 auto; padding:18px 16px 40px}
+    .view[hidden]{display:none}
+    .card{
+      background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+      box-shadow:var(--shadow); padding:16px; margin:0 0 14px;
+    }
+    .card > h2{font-size:19px; margin-bottom:4px}
+    .card .lead{margin:0 0 12px; color:var(--ink-soft); font-size:14px}
+    .muted{color:var(--ink-soft)}
+    .small{font-size:13px}
+    .num{font-variant-numeric:tabular-nums}
+
+    /* ── przyciski i formularze ── */
+    .btn{
+      display:inline-block; border:1px solid var(--lagoon); background:var(--lagoon); color:#fdfcf7;
+      border-radius:10px; padding:9px 15px; cursor:pointer; font-size:14.5px;
+    }
+    .btn:hover{background:var(--lagoon-deep); border-color:var(--lagoon-deep)}
+    .btn.ghost{background:none; color:var(--lagoon); border-color:#c9c1de}
+    .btn.ghost:hover{background:var(--lagoon-mist); color:var(--lagoon-deep)}
+    .btn.subtle{
+      background:none; border:0; color:var(--lagoon); padding:6px 8px; font-size:13.5px;
+      text-decoration:underline; text-underline-offset:3px; text-decoration-color:#c2b9db;
+    }
+    .btn.danger{color:var(--warn); text-decoration-color:#e0c4b2}
+    .field{display:flex; flex-direction:column; gap:4px; margin:0 0 10px}
+    .field > span{font-size:12.5px; color:var(--ink-soft); letter-spacing:.02em}
+    .field input,.field select,.field textarea{
+      border:1px solid #d6d0e0; border-radius:9px; padding:9px 10px; background:#fffdfb; width:100%;
+    }
+    .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--lagoon); outline-offset:0; border-color:var(--lagoon)}
+    .frow{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+    @media (max-width:420px){.frow.tight-sm{grid-template-columns:1fr}}
+    .form-actions{display:flex; gap:10px; align-items:center; margin-top:4px; flex-wrap:wrap}
+    fieldset{border:0; padding:0; margin:0}
+
+    /* ── plakietki ── */
+    .badge{
+      display:inline-block; font-size:12px; padding:2px 9px; border-radius:99px;
+      border:1px solid transparent; white-space:nowrap;
+    }
+    .badge.overdue{background:var(--warn-soft); color:var(--warn); border-color:#e6cdbc}
+    .badge.soon{background:var(--gold-soft); color:#7f6129; border-color:#e8d9b6}
+    .badge.ok{background:var(--ok-soft); color:var(--ok); border-color:#c9ddd0}
+    .badge.plain{background:var(--sand); color:var(--ink-soft); border-color:var(--line)}
+
+    /* ── start: odliczanie ── */
+    .count-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px}
+    @media (max-width:560px){.count-grid{grid-template-columns:1fr}}
+    .count{
+      border-radius:var(--radius); padding:18px 16px; box-shadow:var(--shadow);
+      background:var(--card); border:1px solid var(--line);
+    }
+    .count .label{font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft)}
+    .count .big{font-family:Georgia, serif; font-size:52px; line-height:1.05; margin:6px 0 2px; color:var(--lagoon-deep)}
+    .count .big small{font-size:20px; color:var(--ink-soft); font-family:inherit}
+    .count .when{font-size:13.5px; color:var(--ink-soft)}
+    .count.anniv{background:linear-gradient(150deg, #fdf6e9, #f7e9d6); border-color:#e8d6b6}
+    .count.anniv .big{color:#8a5f28}
+    .count.anniv .label{color:#96733c}
+
+    .facts{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:2px 18px; margin:0; font-size:14px}
+    .facts div{padding:7px 0; border-bottom:1px dashed var(--line)}
+    .facts dt{color:var(--ink-soft); font-size:12px; letter-spacing:.03em; text-transform:uppercase}
+    .facts dd{margin:1px 0 0}
+
+    /* ── listy pozycji ── */
+    .items{list-style:none; margin:0; padding:0}
+    .items > li{border-top:1px solid var(--line); padding:11px 0}
+    .items > li:first-child{border-top:0}
+    .item-row{display:flex; gap:10px; align-items:flex-start}
+    .item-row .grow{flex:1; min-width:0}
+    .item-title{margin:0; font-size:15.5px; line-height:1.4}
+    .item-sub{margin:2px 0 0; font-size:13px; color:var(--ink-soft)}
+    .item-actions{display:flex; gap:2px; flex-shrink:0}
+    .done .item-title{color:var(--ink-soft); text-decoration:line-through; text-decoration-color:#bdb5ca}
+    .checkwrap{padding-top:2px}
+    .checkwrap input{width:20px; height:20px; accent-color:var(--lagoon); cursor:pointer}
+    .group-label{
+      margin:18px 0 6px; font-size:12.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft);
+    }
+    .group-label:first-child{margin-top:0}
+    .edit-form{background:var(--lagoon-mist); border-radius:10px; padding:12px; margin-top:10px}
+
+    /* ── komunikaty stanu ── */
+    .notice{border-radius:10px; padding:11px 13px; font-size:14px; margin:0 0 12px}
+    .notice.ok{background:var(--ok-soft); color:#39644a; border:1px solid #c9ddd0}
+    .notice.warn{background:var(--warn-soft); color:#7c3f20; border:1px solid #e6cdbc}
+    .notice.info{background:var(--lagoon-mist); color:#3d3468; border:1px solid #d8d1ea}
+    .notice strong{display:block; margin-bottom:2px}
+    .notice p{margin:4px 0 0}
+
+    /* ── tabele budżetu ── */
+    .totals{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin:0 0 14px}
+    .totals .cell{background:var(--sand); border-radius:10px; padding:10px 12px}
+    .totals .cell b{display:block; font-size:18px; font-family:Georgia, serif; font-weight:600}
+    .totals .cell span{font-size:12px; color:var(--ink-soft); letter-spacing:.03em; text-transform:uppercase}
+    .totals .cell.dev-plus b{color:var(--warn)}
+    .totals .cell.dev-minus b{color:var(--ok)}
+
+    .empty{color:var(--ink-soft); font-size:14px; font-style:italic; margin:6px 0}
+
+    /* ── plan dnia ── */
+    .day{border-left:3px solid var(--line); padding-left:13px; margin:0 0 16px}
+    .day.anniv-day{
+      border-left-color:var(--gold); background:linear-gradient(150deg,#fdf8ee,#f8ecd9);
+      border-radius:0 var(--radius) var(--radius) 0; padding:12px 14px 12px 13px; margin-left:-2px;
+    }
+    .day h3{font-size:16.5px}
+    .day .day-date{font-size:13px; color:var(--ink-soft)}
+    .day.anniv-day .day-tag{
+      display:inline-block; margin-left:8px; font-size:11.5px; letter-spacing:.08em; text-transform:uppercase;
+      color:#875f26; background:#f0dfbe; border-radius:99px; padding:2px 9px; vertical-align:2px;
+    }
+    .chips{display:flex; flex-wrap:wrap; gap:6px; margin:8px 0 2px}
+    .chip-btn{
+      border:1px solid #d6d0e0; background:#fffdfb; border-radius:99px; padding:4px 11px;
+      font-size:12.5px; color:var(--ink-soft); cursor:pointer;
+    }
+    .chip-btn:hover{border-color:var(--lagoon); color:var(--lagoon)}
+
+    .backup-box{width:100%; min-height:120px; font:12.5px/1.5 ui-monospace, Menlo, Consolas, monospace}
+    .hidden-file{position:absolute; width:1px; height:1px; opacity:0; overflow:hidden}
+    hr.sep{border:0; border-top:1px solid var(--line); margin:16px 0}
+    .flash{position:fixed; left:50%; transform:translateX(-50%); bottom:calc(var(--nav-h) + 16px);
+      background:var(--lagoon-deep); color:#f4f0ea; border-radius:99px; padding:8px 18px; font-size:14px;
+      box-shadow:var(--shadow); opacity:0; pointer-events:none; transition:opacity .25s; z-index:60}
+    .flash.show{opacity:1}
+    @media (min-width:760px){.flash{bottom:24px}}
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="scene">
+      <!-- Rysunek zachodu; podmienia go assets/naglowek.jpg, jeśli plik istnieje. -->
+      <svg viewBox="0 0 1200 420" preserveAspectRatio="xMidYMid slice" role="img"
+           aria-label="Zachód słońca nad laguną: willa nadwodna na palach, pomost, sylwetki palm">
+        <defs>
+          <linearGradient id="h-sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#221c3c"/><stop offset="30%" stop-color="#3f3568"/>
+            <stop offset="53%" stop-color="#7c4f77"/><stop offset="70%" stop-color="#c0705e"/>
+            <stop offset="83%" stop-color="#e29a62"/><stop offset="100%" stop-color="#f3c184"/>
+          </linearGradient>
+          <linearGradient id="h-sea" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#d9a172"/><stop offset="18%" stop-color="#9a6274"/>
+            <stop offset="55%" stop-color="#453a6b"/><stop offset="100%" stop-color="#241f3f"/>
+          </linearGradient>
+          <radialGradient id="h-glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#ffe0ad" stop-opacity=".95"/>
+            <stop offset="55%" stop-color="#f2b478" stop-opacity=".35"/>
+            <stop offset="100%" stop-color="#f2b478" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect width="1200" height="288" fill="url(#h-sky)"/>
+        <circle cx="430" cy="288" r="132" fill="url(#h-glow)"/>
+        <circle cx="430" cy="272" r="33" fill="#ffdfae"/>
+        <!-- pasma chmur -->
+        <g fill="#2b2348" opacity=".26">
+          <rect x="90" y="122" width="330" height="9" rx="4.5"/>
+          <rect x="520" y="86" width="250" height="7" rx="3.5"/>
+          <rect x="700" y="150" width="380" height="10" rx="5"/>
+          <rect x="200" y="196" width="210" height="7" rx="3.5"/>
+        </g>
+        <rect y="288" width="1200" height="132" fill="url(#h-sea)"/>
+        <!-- odbicie słońca -->
+        <g fill="#ffd8a4" opacity=".5">
+          <rect x="414" y="296" width="32" height="4" rx="2"/>
+          <rect x="404" y="310" width="52" height="4" rx="2"/>
+          <rect x="416" y="324" width="28" height="4" rx="2"/>
+          <rect x="394" y="340" width="72" height="5" rx="2.5"/>
+          <rect x="412" y="360" width="36" height="4" rx="2"/>
+          <rect x="382" y="382" width="96" height="5" rx="2.5"/>
+        </g>
+        <g fill="#f0d3c0" opacity=".14">
+          <rect x="620" y="306" width="150" height="3" rx="1.5"/>
+          <rect x="840" y="330" width="220" height="3" rx="1.5"/>
+          <rect x="60" y="352" width="180" height="3" rx="1.5"/>
+        </g>
+        <!-- wyspa z palmami po lewej -->
+        <g fill="#1d1832">
+          <path d="M150 288 q80 -18 172 -2 l0 4 -172 0 z"/>
+          <g stroke="#1d1832" stroke-width="4" fill="none" stroke-linecap="round">
+            <path d="M214 286 q3 -34 -6 -56"/><path d="M254 286 q-2 -28 6 -46"/>
+          </g>
+          <path d="M208 230 q-24 -12 -34 -2 q18 -4 34 2z M208 230 q22 -16 36 -6 q-20 -2 -36 6z M208 230 q-14 -22 -4 -32 q0 16 4 32z"/>
+          <path d="M260 240 q-20 -10 -30 -1 q16 -4 30 1z M260 240 q20 -14 32 -5 q-18 -2 -32 5z M260 240 q-10 -20 -2 -28 q-2 14 2 28z"/>
+        </g>
+        <!-- willa nadwodna i pomost -->
+        <g fill="#191529">
+          <path d="M560 290 h420 v3 h-420 z" opacity=".9"/>
+          <g opacity=".9">
+            <rect x="592" y="292" width="4" height="26"/><rect x="646" y="292" width="4" height="26"/>
+            <rect x="700" y="292" width="4" height="26"/><rect x="754" y="292" width="4" height="26"/>
+          </g>
+          <path d="M730 268 l58 -34 l58 34 z"/>
+          <rect x="748" y="268" width="80" height="26"/>
+          <rect x="756" y="294" width="4" height="30"/><rect x="816" y="294" width="4" height="30"/>
+          <path d="M866 276 l44 -26 l44 26 z"/>
+          <rect x="880" y="276" width="60" height="20"/>
+          <rect x="886" y="296" width="3" height="26"/><rect x="932" y="296" width="3" height="26"/>
+        </g>
+        <g fill="#ffcf95" opacity=".8">
+          <rect x="766" y="276" width="13" height="9" rx="1.5"/>
+          <rect x="796" y="276" width="13" height="9" rx="1.5"/>
+          <rect x="898" y="282" width="10" height="7" rx="1.5"/>
+        </g>
+        <!-- ptaki -->
+        <g stroke="#2c2447" stroke-width="2.6" fill="none" stroke-linecap="round" opacity=".55">
+          <path d="M520 118 q10 -8 20 0 M540 118 q10 -8 20 0"/>
+          <path d="M596 152 q7 -6 14 0 M610 152 q7 -6 14 0"/>
+        </g>
+      </svg>
+    </div>
+    <div class="inner">
+      <p class="eyebrow">Listopad 2027 · 20. rocznica ślubu</p>
+      <h1>Malediwy — Meliá Whale Lagoon</h1>
+      <p class="sub">Water Villa nad laguną, atol South Ari. Prywatny planer na jeden wyjazd we dwoje.</p>
+    </div>
+  </header>
+
+  <nav class="nav" aria-label="Sekcje planera" id="nav"></nav>
+
+  <main id="app">
+    <section class="view" id="view-start" hidden></section>
+    <section class="view" id="view-tasks" hidden></section>
+    <section class="view" id="view-budget" hidden></section>
+    <section class="view" id="view-flights" hidden></section>
+    <section class="view" id="view-days" hidden></section>
+    <section class="view" id="view-docs" hidden></section>
+  </main>
+
+  <div class="flash" id="flash" role="status"></div>
+
+  <script>
+  'use strict';
+
+  /* ════════════════ model danych i utrwalanie ════════════════
+     Jedno drzewo stanu, serializowane w całości do localStorage.
+     localStorage, bo: brak backendu, dane rzędu kilku KB, zapis
+     synchroniczny po każdej zmianie, a przenoszenie między
+     urządzeniami załatwia eksport/import JSON. */
+
+  const STORAGE_KEY = 'malediwy2027.v1';
+  const SCHEMA_VERSION = 1;
+
+  function uid(){
+    return (crypto.randomUUID ? crypto.randomUUID()
+      : 'id-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 9));
+  }
+
+  function seed(){
+    return {
+      schemaVersion: SCHEMA_VERSION,
+      settings: {
+        window: 'A',                 // A: sob 6–13.11, B: nd 7–14.11, custom
+        departure: '2027-11-06',     // wylot z Warszawy
+        dayOne: '2027-11-07',        // pierwszy dzień na Malediwach
+        anniversary: '2027-11-10',
+        rateUSD: 4.00,               // zł za 1 USD, wpisywane ręcznie
+        rateEUR: 4.30,               // zł za 1 EUR
+        arrivalCutoff: '15:00',      // najpóźniejszy przylot do Malé na hydroplan tego samego dnia
+        morningCutoff: '10:00'       // najwcześniejszy bezpieczny wylot powrotny z Malé
+      },
+      tasks: [
+        { id: uid(), title: 'Rezerwacja Water Villa (strona zachodnia) — taryfa zwrotna, all-inclusive', due: '2026-12-31', done: false,
+          note: 'Meliá otwiera stawki na listopad 2027 zwykle w X–XII 2026. Wybrać taryfę zwrotną.' },
+        { id: uid(), title: 'Monitoring otwarcia sprzedaży: Qatar, Emirates, Turkish, Etihad', due: '2027-01-31', done: false,
+          note: 'Przewoźnicy otwierają sprzedaż na listopad 2027 między XI 2026 a I 2027. Kluczowy jest poranny przylot do Malé.' },
+        { id: uid(), title: 'Zakup biletów i wpisanie rejsów do modułu Loty', due: '2027-02-28', done: false,
+          note: 'Po wyborze rejsu moduł Loty sprawdzi, czy przylot mieści się w oknie hydroplanu.' },
+        { id: uid(), title: 'Mail do dyrekcji resortu: 20. rocznica, ślub w Meliá Bali', due: '2027-08-06', done: false,
+          note: 'Około 3 miesiące przed przylotem. Prośba o willę po stronie zachodniej — zachody słońca.' },
+        { id: uid(), title: 'Kontrola ważności paszportów (min. 6 miesięcy od wjazdu)', due: '2027-08-31', done: false,
+          note: 'Paszporty ważne co najmniej do połowy maja 2028.' },
+        { id: uid(), title: 'Płatność końcowa za hotel (taryfa zwrotna)', due: '2027-09-25', done: false,
+          note: 'Około 6 tygodni przed przylotem.' },
+        { id: uid(), title: 'Numery rejsów do resortu — rezerwacja hydroplanu', due: '2027-09-30', done: false,
+          note: 'Hydroplanu nie rezerwuje się samodzielnie; robi to resort na podstawie przekazanych numerów rejsów.' },
+        { id: uid(), title: 'Wykupienie ubezpieczenia podróżnego', due: '2027-10-15', done: false, note: '' },
+        { id: uid(), title: 'Parking przy Chopinie i dojazd z Łodzi', due: '2027-10-20', done: false, note: '' }
+      ],
+      budget: [
+        { id: uid(), name: 'Przeloty economy, 2 os., w obie strony', planned: 8500, actual: null },
+        { id: uid(), name: 'Hotel: Water Villa, 6 nocy, all-inclusive', planned: 19000, actual: null },
+        { id: uid(), name: 'Hydroplan Malé–resort, w obie strony, 2 os.', planned: 3700, actual: null },
+        { id: uid(), name: 'Ubezpieczenie', planned: 700, actual: null },
+        { id: uid(), name: 'Dojazd Łódź–Warszawa, parking', planned: 500, actual: null },
+        { id: uid(), name: 'Wydatki na miejscu (nurkowanie, spa, kolacja na plaży, napiwki)', planned: 4000, actual: null }
+      ],
+      flights: { out: [], ret: [] },
+      days: [[], [], [], [], [], [], []],   // aktywności dni 1–7, daty liczone z settings.dayOne
+      documents: [
+        { id: uid(), name: 'Paszporty — ważność min. do połowy maja 2028', done: false, note: '' },
+        { id: uid(), name: 'Polisa ubezpieczeniowa: numer i telefon alarmowy', done: false, note: '' },
+        { id: uid(), name: 'Potwierdzenie rezerwacji hotelu (numer rezerwacji)', done: false, note: '' },
+        { id: uid(), name: 'Numery rejsów i godziny przelotów', done: false, note: '' },
+        { id: uid(), name: 'Dane kontaktowe resortu: telefon, e-mail', done: false, note: '' },
+        { id: uid(), name: 'Potwierdzenie transferu hydroplanem', done: false, note: '' },
+        { id: uid(), name: 'Karty płatnicze: limity, informacja dla banku o wyjeździe', done: false, note: '' },
+        { id: uid(), name: 'Kopie dokumentów w chmurze lub u zaufanej osoby', done: false, note: '' }
+      ]
+    };
+  }
+
+  // Uzupełnia brakujące klucze wartościami z ziarna — odporność na
+  // import ze starszej kopii i na przyszłe drobne zmiany schematu.
+  function normalize(raw){
+    const base = seed();
+    const s = (raw && typeof raw === 'object') ? raw : {};
+    const out = {
+      schemaVersion: SCHEMA_VERSION,
+      settings: Object.assign({}, base.settings, s.settings || {}),
+      tasks: Array.isArray(s.tasks) ? s.tasks : base.tasks,
+      budget: Array.isArray(s.budget) ? s.budget : base.budget,
+      flights: {
+        out: (s.flights && Array.isArray(s.flights.out)) ? s.flights.out : [],
+        ret: (s.flights && Array.isArray(s.flights.ret)) ? s.flights.ret : []
+      },
+      days: Array.isArray(s.days) ? s.days.slice(0, 7) : base.days,
+      documents: Array.isArray(s.documents) ? s.documents : base.documents
+    };
+    while (out.days.length < 7) out.days.push([]);
+    out.days = out.days.map(d => Array.isArray(d) ? d : []);
+    return out;
+  }
+
+  let storageBroken = false;
+  function load(){
+    try{
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) return normalize(JSON.parse(raw));
+    }catch(e){ storageBroken = true; }
+    return seed();
+  }
+  function save(){
+    try{
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      storageBroken = false;
+    }catch(e){
+      storageBroken = true;
+      flash('Nie udało się zapisać — sprawdź ustawienia przeglądarki');
+    }
+  }
+
+  const state = load();
+  const ui = { view: 'start', editing: {}, adding: {} };
+
+  /* ════════════════ pomocnicze: daty i kwoty ════════════════ */
+
+  const DAY_MS = 86400000;
+  const WEEKDAYS = ['niedziela','poniedziałek','wtorek','środa','czwartek','piątek','sobota'];
+
+  function parseISO(iso){
+    const [y, m, d] = String(iso).split('-').map(Number);
+    return new Date(y, m - 1, d);
+  }
+  function toISO(date){
+    const p = n => String(n).padStart(2, '0');
+    return date.getFullYear() + '-' + p(date.getMonth() + 1) + '-' + p(date.getDate());
+  }
+  function addDays(iso, n){
+    const d = parseISO(iso); d.setDate(d.getDate() + n); return toISO(d);
+  }
+  function fmtDate(iso){
+    if (!iso) return '—';
+    const [y, m, d] = String(iso).split('-');
+    return d + '.' + m + '.' + y;
+  }
+  function weekday(iso){ return WEEKDAYS[parseISO(iso).getDay()]; }
+  function todayISO(){ return toISO(new Date()); }
+  function daysUntil(iso){
+    return Math.round((parseISO(iso) - parseISO(todayISO())) / DAY_MS);
+  }
+  function plDays(n){
+    const a = Math.abs(n);
+    return a === 1 ? 'dzień' : 'dni';
+  }
+
+  // useGrouping:'always' — polskie CLDR nie grupuje liczb 4-cyfrowych,
+  // a chcemy separatora tysięcy także przy „9 100 zł".
+  const nfPLN = new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 0, useGrouping: 'always' });
+  const nfPLN2 = new Intl.NumberFormat('pl-PL', { minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: 'always' });
+  function fmtPLN(n){
+    if (n == null || isNaN(n)) return '—';
+    const f = Number.isInteger(Math.round(n * 100) / 100) && Number.isInteger(n) ? nfPLN : nfPLN2;
+    return f.format(n) + ' zł';
+  }
+  function fmtCur(n, code){
+    if (n == null || isNaN(n) || !isFinite(n)) return '—';
+    return nfPLN.format(Math.round(n)) + ' ' + code;
+  }
+  function parseAmount(v){
+    if (v == null) return null;
+    const t = String(v).replace(/\s/g, '').replace(',', '.');
+    if (t === '') return null;
+    const n = Number(t);
+    return isNaN(n) ? null : n;
+  }
+
+  function esc(s){
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  let flashTimer = null;
+  function flash(msg){
+    const el = document.getElementById('flash');
+    el.textContent = msg;
+    el.classList.add('show');
+    clearTimeout(flashTimer);
+    flashTimer = setTimeout(() => el.classList.remove('show'), 2200);
+  }
+
+  /* ════════════════ nawigacja i render ════════════════ */
+
+  const VIEWS = [
+    { id: 'start',   label: 'Start' },
+    { id: 'tasks',   label: 'Zadania' },
+    { id: 'budget',  label: 'Budżet' },
+    { id: 'flights', label: 'Loty' },
+    { id: 'days',    label: 'Plan' },
+    { id: 'docs',    label: 'Dokumenty' }
+  ];
+
+  function renderNav(){
+    document.getElementById('nav').innerHTML = VIEWS.map(v =>
+      `<button type="button" data-action="nav" data-view="${v.id}" aria-current="${ui.view === v.id}">
+         <span class="dot"></span>${v.label}
+       </button>`).join('');
+  }
+
+  const renderers = {};   // moduły dopisują tu swoje funkcje render
+
+  /* ── sceny graficzne ──
+     Rysunki wektorowe są wbudowane w plik, więc działają offline i bez
+     licencji na zdjęcia. Każda scena ma gniazdo na własne zdjęcie:
+     wrzuć plik do malediwy/assets/ i dopisz jego nazwę do PHOTOS —
+     przykryje rysunek. Pusta lista = zero zapytań sieciowych. */
+
+  const PHOTOS = [
+    // 'naglowek.jpg', 'hydroplan.jpg', 'rekin.jpg'
+  ];
+
+  function photoSlot(name, alt){
+    return PHOTOS.includes(name)
+      ? `<img data-photo src="assets/${name}" alt="${esc(alt || '')}" hidden>` : '';
+  }
+
+  function band(svg, caption, photo){
+    return `<div class="band scene">
+      ${svg}
+      ${photoSlot(photo, caption)}
+      ${caption ? `<p class="caption">${caption}</p>` : ''}
+    </div>`;
+  }
+
+  const SCENE_SEAPLANE = `
+    <svg viewBox="0 0 1200 200" preserveAspectRatio="xMidYMid slice" role="img"
+         aria-label="Hydroplan nad laguną w świetle dnia">
+      <defs>
+        <linearGradient id="s-sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#6f63a6"/><stop offset="55%" stop-color="#a98cae"/>
+          <stop offset="100%" stop-color="#e6b590"/>
+        </linearGradient>
+        <linearGradient id="s-sea" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#5d739c"/><stop offset="100%" stop-color="#2f3560"/>
+        </linearGradient>
+      </defs>
+      <rect width="1200" height="150" fill="url(#s-sky)"/>
+      <rect y="150" width="1200" height="50" fill="url(#s-sea)"/>
+      <circle cx="1010" cy="52" r="26" fill="#ffe3b6" opacity=".85"/>
+      <g fill="#2f2850" opacity=".18">
+        <rect x="120" y="40" width="260" height="8" rx="4"/>
+        <rect x="560" y="96" width="200" height="7" rx="3.5"/>
+      </g>
+      <g fill="#f3dcc6" opacity=".16">
+        <rect x="80" y="166" width="200" height="3" rx="1.5"/>
+        <rect x="700" y="180" width="260" height="3" rx="1.5"/>
+      </g>
+      <!-- hydroplan: górnopłat na pływakach -->
+      <g transform="translate(400 34) scale(0.9)">
+        <g fill="#1d1a33">
+          <!-- kadłub -->
+          <path d="M14 44 C32 24 76 14 140 13 L286 13 C330 14 364 24 386 38 C394 43 392 52 376 56 C364 59 344 60 322 60 L58 60 C30 60 10 54 14 44 Z"/>
+          <!-- statecznik pionowy -->
+          <path d="M330 14 L382 -30 L398 -25 L370 16 Z"/>
+          <!-- skrzydło nad kadłubem -->
+          <rect x="104" y="-14" width="228" height="13" rx="6.5"/>
+          <!-- gondole silników i podpory skrzydła -->
+          <rect x="168" y="-3" width="56" height="15" rx="6"/>
+          <rect x="246" y="-3" width="56" height="15" rx="6"/>
+          <!-- pływaki -->
+          <path d="M96 92 C104 80 126 76 156 76 L286 76 C316 76 330 81 330 88 C330 94 318 98 296 98 L134 98 C108 98 92 96 96 92 Z"/>
+        </g>
+        <g stroke="#1d1a33" stroke-width="5" stroke-linecap="round">
+          <path d="M150 60 L138 78"/><path d="M196 60 L200 76"/>
+          <path d="M268 60 L266 76"/><path d="M304 60 L312 78"/>
+        </g>
+        <!-- śmigła -->
+        <g stroke="#1d1a33" stroke-width="4" stroke-linecap="round" opacity=".6">
+          <path d="M166 -16 L166 26"/><path d="M244 -16 L244 26"/>
+        </g>
+        <!-- okna kabiny -->
+        <g fill="#ffd9a8" opacity=".8">
+          <rect x="112" y="28" width="12" height="9" rx="2"/>
+          <rect x="136" y="28" width="12" height="9" rx="2"/>
+          <rect x="160" y="28" width="12" height="9" rx="2"/>
+          <rect x="184" y="28" width="12" height="9" rx="2"/>
+          <rect x="208" y="28" width="12" height="9" rx="2"/>
+          <path d="M46 40 q16 -14 38 -16 l0 18 z"/>
+        </g>
+      </g>
+    </svg>`;
+
+  const SCENE_WHALESHARK = `
+    <svg viewBox="0 0 1200 200" preserveAspectRatio="xMidYMid slice" role="img"
+         aria-label="Rekin wielorybi pod powierzchnią wody">
+      <defs>
+        <linearGradient id="w-deep" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#3e5c86"/><stop offset="45%" stop-color="#2a3f68"/>
+          <stop offset="100%" stop-color="#1b2447"/>
+        </linearGradient>
+        <linearGradient id="w-ray" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#cfe4f2" stop-opacity=".38"/>
+          <stop offset="100%" stop-color="#cfe4f2" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <rect width="1200" height="200" fill="url(#w-deep)"/>
+      <g fill="url(#w-ray)">
+        <path d="M180 0 l70 0 l-120 200 l-56 0z"/>
+        <path d="M420 0 l44 0 l-70 200 l-36 0z"/>
+        <path d="M760 0 l80 0 l-128 200 l-62 0z"/>
+        <path d="M1010 0 l40 0 l-58 200 l-30 0z"/>
+      </g>
+      <!-- rekin wielorybi -->
+      <g transform="translate(300 58)">
+        <path fill="#152038" d="M40 46 q92 -50 236 -42 q116 6 190 30 q-8 10 -2 22 q-74 26 -190 31 q-146 8 -236 -41z"/>
+        <path fill="#152038" d="M466 34 q34 -30 56 -34 q-14 30 -12 44 q-2 16 10 44 q-24 -6 -54 -32z"/>
+        <path fill="#152038" d="M250 6 q26 -34 52 -30 q-8 14 -14 32z"/>
+        <path fill="#152038" d="M228 82 q22 30 46 32 q-14 -14 -22 -32z"/>
+        <path fill="#152038" d="M96 74 q-30 22 -50 22 q16 -14 26 -28z"/>
+        <g fill="#7f9ec4" opacity=".5">
+          <circle cx="150" cy="30" r="4"/><circle cx="192" cy="22" r="4.5"/><circle cx="236" cy="28" r="4"/>
+          <circle cx="280" cy="20" r="4.5"/><circle cx="324" cy="30" r="4"/><circle cx="368" cy="24" r="4"/>
+          <circle cx="170" cy="56" r="4"/><circle cx="214" cy="62" r="4.5"/><circle cx="258" cy="54" r="4"/>
+          <circle cx="302" cy="62" r="4"/><circle cx="346" cy="56" r="4.5"/><circle cx="390" cy="48" r="4"/>
+          <circle cx="412" cy="34" r="3.5"/><circle cx="128" cy="44" r="3.5"/>
+        </g>
+        <circle cx="74" cy="40" r="5" fill="#0b1226"/>
+      </g>
+      <g fill="#bcd6ea" opacity=".22">
+        <circle cx="880" cy="150" r="5"/><circle cx="906" cy="126" r="3.5"/><circle cx="864" cy="118" r="2.8"/>
+        <circle cx="1080" cy="90" r="4"/><circle cx="1104" cy="66" r="2.6"/>
+      </g>
+    </svg>`;
+
+  function hydratePhotos(){
+    // gniazdo w statycznym nagłówku — wypełniane dopiero, gdy plik jest zadeklarowany
+    const head = document.querySelector('.masthead .scene');
+    if (head && !head.dataset.photoSlot){
+      head.dataset.photoSlot = '1';
+      head.insertAdjacentHTML('beforeend',
+        photoSlot('naglowek.jpg', 'Zachód słońca nad laguną'));
+    }
+    document.querySelectorAll('img[data-photo]').forEach(img => {
+      if (img.dataset.photoReady) return;
+      img.dataset.photoReady = '1';
+      if (img.complete && img.naturalWidth > 0){ img.hidden = false; return; }
+      img.addEventListener('load', () => { if (img.naturalWidth > 0) img.hidden = false; });
+      img.addEventListener('error', () => { img.remove(); });
+    });
+  }
+
+  function renderAll(){
+    renderNav();
+    for (const v of VIEWS){
+      const el = document.getElementById('view-' + v.id);
+      const active = ui.view === v.id;
+      el.hidden = !active;
+      if (active){
+        el.innerHTML = renderers[v.id]
+          ? renderers[v.id]()
+          : '<div class="card"><p class="empty">Ten moduł powstaje w kolejnym kroku.</p></div>';
+      }
+    }
+    hydratePhotos();
+  }
+
+  function setView(id){
+    ui.view = id;
+    ui.editing = {};
+    ui.adding = {};
+    renderAll();
+    window.scrollTo({ top: 0 });
+  }
+
+  /* ── delegacja zdarzeń: klik i submit ── */
+  const clickActions = {};    // name -> (dataset, element) => void
+  const submitActions = {};   // name -> (form) => void
+
+  document.addEventListener('click', e => {
+    const el = e.target.closest('[data-action]');
+    if (!el || el.tagName === 'FORM') return;
+    const fn = clickActions[el.dataset.action];
+    if (fn){ fn(el.dataset, el); }
+  });
+  document.addEventListener('submit', e => {
+    const form = e.target.closest('form[data-action]');
+    if (!form) return;
+    e.preventDefault();
+    const fn = submitActions[form.dataset.action];
+    if (fn){ fn(form); }
+  });
+
+  const changeActions = {};   // name -> (element) => void, dla data-change
+  document.addEventListener('change', e => {
+    const el = e.target.closest('[data-change]');
+    if (!el) return;
+    const fn = changeActions[el.dataset.change];
+    if (fn){ fn(el); }
+  });
+
+  clickActions.nav = d => setView(d.view);
+
+  /* ════════════════ moduł: Start ════════════════
+     Odliczanie, fakty wyjazdu, ustawienia, kopia zapasowa. */
+
+  const WINDOW_PRESETS = {
+    A: { departure: '2027-11-06', dayOne: '2027-11-07', label: 'sobota 6.11 → sobota 13.11' },
+    B: { departure: '2027-11-07', dayOne: '2027-11-08', label: 'niedziela 7.11 → niedziela 14.11' }
+  };
+
+  function countCard(targetISO, label, extraClass, place){
+    const n = daysUntil(targetISO);
+    let big, when = weekday(targetISO) + ', ' + fmtDate(targetISO) + (place ? ' · ' + place : '');
+    if (n > 0)       big = `${n} <small>${plDays(n)}</small>`;
+    else if (n === 0) big = 'dziś';
+    else              big = '<small>za nami</small>';
+    return `<div class="count ${extraClass || ''}">
+      <div class="label">${label}</div>
+      <div class="big num">${big}</div>
+      <div class="when">${when}</div>
+    </div>`;
+  }
+
+  function renderStart(){
+    const s = state.settings;
+    const lastDay = addDays(s.dayOne, 6);
+
+    // najbliższe kroki: otwarte zadania po terminie rosnąco
+    const open = state.tasks.filter(t => !t.done)
+      .slice().sort((a, b) => String(a.due).localeCompare(String(b.due)));
+    const overdue = open.filter(t => daysUntil(t.due) < 0).length;
+    const next3 = open.slice(0, 3);
+
+    const planned = state.budget.reduce((a, b) => a + (b.planned || 0), 0);
+    const spent = state.budget.reduce((a, b) => a + (b.actual != null ? b.actual : 0), 0);
+
+    const isCustom = s.window === 'custom';
+
+    return `
+    <div class="count-grid">
+      ${countCard(s.departure, 'Do wylotu', '', 'Warszawa')}
+      ${countCard(s.anniversary, 'Do 20. rocznicy', 'anniv', '')}
+    </div>
+
+    <div class="card">
+      <h2>Najbliższe kroki</h2>
+      ${overdue ? `<p class="notice warn" style="margin-top:8px">Po terminie: ${overdue} ${overdue === 1 ? 'zadanie' : (overdue < 5 ? 'zadania' : 'zadań')} — zajrzyj do listy.</p>` : ''}
+      ${next3.length ? `<ul class="items">${next3.map(t => `
+        <li><div class="item-row">
+          <div class="grow">
+            <p class="item-title">${esc(t.title)}</p>
+            <p class="item-sub num">termin: ${fmtDate(t.due)}</p>
+          </div>
+          ${dueBadge(t.due)}
+        </div></li>`).join('')}</ul>`
+      : '<p class="empty">Wszystkie zadania odhaczone.</p>'}
+      <div class="form-actions" style="margin-top:10px">
+        <button type="button" class="btn ghost" data-action="nav" data-view="tasks">Pełna lista zadań</button>
+      </div>
+      <hr class="sep">
+      <p class="small muted num" style="margin:0">
+        Budżet: plan ${fmtPLN(planned)} · wpisane wydatki ${fmtPLN(spent)}
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Wyjazd w pigułce</h2>
+      <dl class="facts">
+        <div><dt>Termin</dt><dd class="num">${fmtDate(s.departure)} – ${fmtDate(lastDay)} · 7 dni / 6 nocy</dd></div>
+        <div><dt>Resort</dt><dd>Meliá Whale Lagoon Maldives, atol South Ari (Bodufinolhu)</dd></div>
+        <div><dt>Willa</dt><dd>Water Villa 85 m², preferencja: strona zachodnia (zachody słońca)</dd></div>
+        <div><dt>Formuła</dt><dd>all-inclusive</dd></div>
+        <div><dt>Trasa</dt><dd>Łódź → Warszawa → przesiadka (Doha / Dubaj / Stambuł / Abu Zabi) → Malé</dd></div>
+        <div><dt>Transfer</dt><dd>hydroplan, 30 min — lata tylko za dnia, rezerwuje resort</dd></div>
+        <div><dt>Formalności</dt><dd>wiza bezpłatna na miejscu · paszport ważny min. 6 miesięcy</dd></div>
+        <div><dt>Okazja</dt><dd>20. rocznica ślubu — ślub w Meliá Bali</dd></div>
+      </dl>
+    </div>
+
+    <div class="card">
+      <h2>Ustawienia</h2>
+      <p class="lead">Daty sterują odliczaniem i planem dnia, kursy — przelicznikiem w budżecie, granice godzinowe — ostrzeżeniami w module Loty.</p>
+      <form data-action="settings-save">
+        <div class="field">
+          <span>Okno podróży</span>
+          <select name="window" data-change="settings-window">
+            <option value="A" ${s.window === 'A' ? 'selected' : ''}>${WINDOW_PRESETS.A.label}</option>
+            <option value="B" ${s.window === 'B' ? 'selected' : ''}>${WINDOW_PRESETS.B.label}</option>
+            <option value="custom" ${isCustom ? 'selected' : ''}>własne daty</option>
+          </select>
+        </div>
+        <div class="frow">
+          <label class="field"><span>Wylot z Warszawy</span>
+            <input type="date" name="departure" value="${esc(s.departure)}" ${isCustom ? '' : 'disabled'} required></label>
+          <label class="field"><span>Pierwszy dzień na miejscu</span>
+            <input type="date" name="dayOne" value="${esc(s.dayOne)}" ${isCustom ? '' : 'disabled'} required></label>
+        </div>
+        <div class="frow">
+          <label class="field"><span>Kurs USD (zł za 1 USD)</span>
+            <input inputmode="decimal" name="rateUSD" value="${esc(s.rateUSD)}"></label>
+          <label class="field"><span>Kurs EUR (zł za 1 EUR)</span>
+            <input inputmode="decimal" name="rateEUR" value="${esc(s.rateEUR)}"></label>
+        </div>
+        <div class="frow">
+          <label class="field"><span>Najpóźniejszy przylot do Malé</span>
+            <input type="time" name="arrivalCutoff" value="${esc(s.arrivalCutoff)}" required></label>
+          <label class="field"><span>Najwcześniejszy wylot powrotny</span>
+            <input type="time" name="morningCutoff" value="${esc(s.morningCutoff)}" required></label>
+        </div>
+        <p class="small muted">Granice godzinowe wynikają z hydroplanu: ostatnie odloty z Malé około 16:00, więc resorty przyjmują na transfer tego samego dnia przyloty mniej więcej do 15:00. Rano hydroplan startuje po świcie — stąd margines dla rejsu powrotnego.</p>
+        <div class="form-actions">
+          <button class="btn" type="submit">Zapisz ustawienia</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Dane i kopia zapasowa</h2>
+      <p class="lead">Wszystko trzymane lokalnie w tej przeglądarce (localStorage). Przenosisz dane między urządzeniami plikiem JSON albo przez schowek.</p>
+      <div class="form-actions">
+        <button type="button" class="btn" data-action="backup-download">Pobierz kopię (JSON)</button>
+        <button type="button" class="btn ghost" data-action="backup-copy">Kopiuj JSON</button>
+        <label class="btn ghost" style="cursor:pointer">Wczytaj plik…
+          <input class="hidden-file" type="file" accept="application/json,.json" data-change="import-file">
+        </label>
+      </div>
+      <hr class="sep">
+      <form data-action="import-paste">
+        <label class="field"><span>Albo wklej JSON z innego urządzenia</span>
+          <textarea class="backup-box" name="json" id="backup-box" placeholder='{"schemaVersion":1, …}'></textarea></label>
+        <div class="form-actions">
+          <button class="btn ghost" type="submit">Wczytaj wklejone dane</button>
+          <button class="btn subtle danger" type="button" data-action="backup-reset">Przywróć dane startowe</button>
+        </div>
+      </form>
+    </div>`;
+  }
+  renderers.start = renderStart;
+
+  function dueBadge(due){
+    const n = daysUntil(due);
+    if (n < 0)  return `<span class="badge overdue num">${-n} ${plDays(n)} po terminie</span>`;
+    if (n === 0) return '<span class="badge soon">dziś</span>';
+    if (n <= 30) return `<span class="badge soon num">za ${n} ${plDays(n)}</span>`;
+    return `<span class="badge plain num">za ${n} dni</span>`;
+  }
+
+  changeActions['settings-window'] = el => {
+    const form = el.closest('form');
+    const dep = form.querySelector('[name=departure]');
+    const one = form.querySelector('[name=dayOne]');
+    const preset = WINDOW_PRESETS[el.value];
+    if (preset){
+      dep.value = preset.departure; one.value = preset.dayOne;
+      dep.disabled = one.disabled = true;
+    } else {
+      dep.disabled = one.disabled = false;
+    }
+  };
+
+  submitActions['settings-save'] = form => {
+    const f = new FormData(form);
+    const s = state.settings;
+    s.window = String(f.get('window'));
+    const preset = WINDOW_PRESETS[s.window];
+    if (preset){
+      s.departure = preset.departure; s.dayOne = preset.dayOne;
+    } else {
+      s.departure = String(form.querySelector('[name=departure]').value || s.departure);
+      s.dayOne = String(form.querySelector('[name=dayOne]').value || s.dayOne);
+    }
+    const usd = parseAmount(f.get('rateUSD'));
+    const eur = parseAmount(f.get('rateEUR'));
+    if (usd && usd > 0) s.rateUSD = usd;
+    if (eur && eur > 0) s.rateEUR = eur;
+    s.arrivalCutoff = String(f.get('arrivalCutoff') || s.arrivalCutoff);
+    s.morningCutoff = String(f.get('morningCutoff') || s.morningCutoff);
+    save(); renderAll(); flash('Zapisano ustawienia');
+  };
+
+  /* ── kopia zapasowa ── */
+
+  clickActions['backup-download'] = () => {
+    const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'malediwy-2027-kopia-' + todayISO() + '.json';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+  };
+
+  clickActions['backup-copy'] = () => {
+    const json = JSON.stringify(state);
+    const done = () => flash('Skopiowano JSON do schowka');
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(json).then(done, () => copyFallback(json));
+    } else copyFallback(json);
+    function copyFallback(text){
+      const box = document.getElementById('backup-box');
+      if (box){ box.value = text; box.focus(); box.select(); }
+      flash('Schowek niedostępny — JSON w polu poniżej, skopiuj ręcznie');
+    }
+  };
+
+  function applyImport(text){
+    let raw;
+    try{ raw = JSON.parse(text); }
+    catch(e){ flash('To nie jest poprawny JSON'); return; }
+    if (!raw || typeof raw !== 'object' || !('schemaVersion' in raw)){
+      flash('Plik nie wygląda na kopię tego planera'); return;
+    }
+    if (!confirm('Zastąpić obecne dane danymi z kopii? Tej operacji nie można cofnąć.')) return;
+    const fresh = normalize(raw);
+    Object.keys(state).forEach(k => delete state[k]);
+    Object.assign(state, fresh);
+    save(); setView('start'); flash('Wczytano dane z kopii');
+  }
+
+  changeActions['import-file'] = el => {
+    const file = el.files && el.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => applyImport(String(reader.result));
+    reader.onerror = () => flash('Nie udało się odczytać pliku');
+    reader.readAsText(file);
+    el.value = '';
+  };
+
+  submitActions['import-paste'] = form => {
+    const text = form.querySelector('[name=json]').value.trim();
+    if (!text){ flash('Wklej najpierw JSON'); return; }
+    applyImport(text);
+  };
+
+  clickActions['backup-reset'] = () => {
+    if (!confirm('Skasować wszystko i wrócić do danych startowych?')) return;
+    const fresh = seed();
+    Object.keys(state).forEach(k => delete state[k]);
+    Object.assign(state, fresh);
+    save(); setView('start'); flash('Przywrócono dane startowe');
+  };
+
+  /* ════════════════ moduł: Zadania ════════════════ */
+
+  function byDue(a, b){ return String(a.due).localeCompare(String(b.due)); }
+
+  function taskItem(t){
+    if (ui.editing['task:' + t.id]) return taskEditForm(t);
+    return `<li class="${t.done ? 'done' : ''}">
+      <div class="item-row">
+        <label class="checkwrap"><input type="checkbox" ${t.done ? 'checked' : ''}
+          data-change="task-toggle" data-id="${t.id}" aria-label="Zrobione"></label>
+        <div class="grow">
+          <p class="item-title">${esc(t.title)}</p>
+          <p class="item-sub num">termin: ${fmtDate(t.due)}${t.note ? ' · ' + esc(t.note) : ''}</p>
+        </div>
+        <div class="item-actions">
+          ${t.done ? '' : dueBadge(t.due)}
+          <button type="button" class="btn subtle" data-action="task-edit" data-id="${t.id}">Edytuj</button>
+        </div>
+      </div>
+    </li>`;
+  }
+
+  function taskEditForm(t){
+    return `<li>
+      <form class="edit-form" data-action="task-save" data-id="${t.id}">
+        <label class="field"><span>Zadanie</span>
+          <input name="title" value="${esc(t.title)}" required></label>
+        <div class="frow">
+          <label class="field"><span>Termin</span>
+            <input type="date" name="due" value="${esc(t.due)}" required></label>
+          <label class="field"><span>Notatka</span>
+            <input name="note" value="${esc(t.note || '')}"></label>
+        </div>
+        <div class="form-actions">
+          <button class="btn" type="submit">Zapisz</button>
+          <button class="btn subtle" type="button" data-action="task-cancel">Anuluj</button>
+          <button class="btn subtle danger" type="button" data-action="task-delete" data-id="${t.id}">Usuń</button>
+        </div>
+      </form>
+    </li>`;
+  }
+
+  function renderTasks(){
+    const today = todayISO();
+    const overdue = state.tasks.filter(t => !t.done && t.due < today).sort(byDue);
+    const ahead   = state.tasks.filter(t => !t.done && t.due >= today).sort(byDue);
+    const done    = state.tasks.filter(t => t.done).sort(byDue);
+
+    const group = (label, arr) => arr.length
+      ? `<p class="group-label">${label} (${arr.length})</p><ul class="items">${arr.map(taskItem).join('')}</ul>`
+      : '';
+
+    return `<div class="card">
+      <h2>Zadania z terminami</h2>
+      <p class="lead">Harmonogram przygotowań — od rezerwacji willi po parking przy Chopinie. Najpilniejsze na górze.</p>
+      ${overdue.length ? `<p class="notice warn"><strong>Po terminie</strong>Te pozycje powinny już być zrobione — nadgoń albo przesuń termin.</p>` : ''}
+      ${group('Po terminie', overdue)}
+      ${group('Przed nami', ahead)}
+      ${(!overdue.length && !ahead.length) ? '<p class="empty">Nic nie czeka — wszystko zrobione.</p>' : ''}
+      ${group('Zrobione', done)}
+      <hr class="sep">
+      <form data-action="task-add">
+        <p class="group-label" style="margin-top:0">Nowe zadanie</p>
+        <div class="frow tight-sm">
+          <label class="field"><span>Zadanie</span>
+            <input name="title" required placeholder="np. rezerwacja kolacji na plaży"></label>
+          <label class="field"><span>Termin</span>
+            <input type="date" name="due" required value="${today}"></label>
+        </div>
+        <div class="form-actions"><button class="btn" type="submit">Dodaj zadanie</button></div>
+      </form>
+    </div>`;
+  }
+  renderers.tasks = renderTasks;
+
+  function findTask(id){ return state.tasks.find(t => t.id === id); }
+
+  changeActions['task-toggle'] = el => {
+    const t = findTask(el.dataset.id);
+    if (t){ t.done = el.checked; save(); renderAll(); }
+  };
+  clickActions['task-edit'] = d => { ui.editing['task:' + d.id] = true; renderAll(); };
+  clickActions['task-cancel'] = () => { ui.editing = {}; renderAll(); };
+  clickActions['task-delete'] = d => {
+    const t = findTask(d.id);
+    if (t && confirm('Usunąć zadanie „' + t.title + '"?')){
+      state.tasks = state.tasks.filter(x => x.id !== d.id);
+      ui.editing = {};
+      save(); renderAll(); flash('Usunięto zadanie');
+    }
+  };
+  submitActions['task-save'] = form => {
+    const t = findTask(form.dataset.id);
+    if (!t) return;
+    const f = new FormData(form);
+    t.title = String(f.get('title')).trim() || t.title;
+    t.due = String(f.get('due')) || t.due;
+    t.note = String(f.get('note') || '').trim();
+    ui.editing = {};
+    save(); renderAll(); flash('Zapisano zadanie');
+  };
+  submitActions['task-add'] = form => {
+    const f = new FormData(form);
+    const title = String(f.get('title')).trim();
+    const due = String(f.get('due'));
+    if (!title || !due) return;
+    state.tasks.push({ id: uid(), title, due, done: false, note: '' });
+    save(); renderAll(); flash('Dodano zadanie');
+  };
+
+  /* ════════════════ moduł: Budżet ════════════════ */
+
+  function budgetItem(b){
+    if (ui.editing['budget:' + b.id]) return budgetEditForm(b);
+    const hasActual = b.actual != null;
+    const diff = hasActual ? b.actual - b.planned : null;
+    let diffBadge = '';
+    if (hasActual){
+      if (Math.abs(diff) < 0.005) diffBadge = '<span class="badge ok">zgodnie z planem</span>';
+      else if (diff > 0) diffBadge = `<span class="badge overdue num">+${fmtPLN(diff)}</span>`;
+      else diffBadge = `<span class="badge ok num">−${fmtPLN(-diff)}</span>`;
+    }
+    return `<li>
+      <div class="item-row">
+        <div class="grow">
+          <p class="item-title">${esc(b.name)}</p>
+          <p class="item-sub num">plan: ${fmtPLN(b.planned)} · wydane: ${hasActual ? fmtPLN(b.actual) : 'jeszcze nie'}</p>
+        </div>
+        <div class="item-actions">
+          ${diffBadge}
+          <button type="button" class="btn subtle" data-action="budget-edit" data-id="${b.id}">Edytuj</button>
+        </div>
+      </div>
+    </li>`;
+  }
+
+  function budgetEditForm(b){
+    return `<li>
+      <form class="edit-form" data-action="budget-save" data-id="${b.id}">
+        <label class="field"><span>Pozycja</span>
+          <input name="name" value="${esc(b.name)}" required></label>
+        <div class="frow">
+          <label class="field"><span>Plan (zł)</span>
+            <input inputmode="decimal" name="planned" value="${b.planned != null ? esc(b.planned) : ''}" required></label>
+          <label class="field"><span>Wydane (zł) — puste, jeśli jeszcze nic</span>
+            <input inputmode="decimal" name="actual" value="${b.actual != null ? esc(b.actual) : ''}"></label>
+        </div>
+        <div class="form-actions">
+          <button class="btn" type="submit">Zapisz</button>
+          <button class="btn subtle" type="button" data-action="task-cancel">Anuluj</button>
+          <button class="btn subtle danger" type="button" data-action="budget-delete" data-id="${b.id}">Usuń</button>
+        </div>
+      </form>
+    </li>`;
+  }
+
+  function renderBudget(){
+    const s = state.settings;
+    const planned = state.budget.reduce((a, b) => a + (b.planned || 0), 0);
+    const withActual = state.budget.filter(b => b.actual != null);
+    const spent = withActual.reduce((a, b) => a + b.actual, 0);
+    const deviation = withActual.reduce((a, b) => a + (b.actual - b.planned), 0);
+    const devClass = deviation > 0.005 ? 'dev-plus' : (deviation < -0.005 ? 'dev-minus' : '');
+    const devText = Math.abs(deviation) < 0.005 ? '0 zł'
+      : (deviation > 0 ? '+' : '−') + fmtPLN(Math.abs(deviation));
+
+    return `<div class="card">
+      <h2>Budżet</h2>
+      <p class="lead">Kwoty w złotych. „Odchylenie" porównuje wydatki z planem tylko dla pozycji, które już mają wpisaną kwotę.</p>
+      <div class="totals">
+        <div class="cell"><b class="num">${fmtPLN(planned)}</b><span>plan razem</span></div>
+        <div class="cell"><b class="num">${fmtPLN(spent)}</b><span>wydane razem</span></div>
+        <div class="cell ${devClass}"><b class="num">${devText}</b><span>odchylenie</span></div>
+      </div>
+      <p class="small muted num">Plan w walutach: ${fmtCur(planned / s.rateUSD, 'USD')} · ${fmtCur(planned / s.rateEUR, 'EUR')}${spent ? ` — wydane: ${fmtCur(spent / s.rateUSD, 'USD')} · ${fmtCur(spent / s.rateEUR, 'EUR')}` : ''}</p>
+      <p class="small muted num">Poziom cen 2026 — z zapasem 5–10% na listopad 2027: ${fmtPLN(planned * 1.05)} – ${fmtPLN(planned * 1.1)}.</p>
+      <form data-action="rates-save" class="frow" style="align-items:end; margin:10px 0 0">
+        <label class="field" style="margin:0"><span>Kurs USD (zł)</span>
+          <input inputmode="decimal" name="rateUSD" value="${esc(s.rateUSD)}"></label>
+        <label class="field" style="margin:0"><span>Kurs EUR (zł)</span>
+          <input inputmode="decimal" name="rateEUR" value="${esc(s.rateEUR)}"></label>
+        <div class="form-actions" style="grid-column:1/-1; margin-top:8px">
+          <button class="btn ghost" type="submit">Przelicz po nowych kursach</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Pozycje</h2>
+      <ul class="items" style="margin-top:8px">${state.budget.map(budgetItem).join('')}</ul>
+      ${state.budget.length ? '' : '<p class="empty">Brak pozycji — dodaj pierwszą poniżej.</p>'}
+      <hr class="sep">
+      <form data-action="budget-add">
+        <p class="group-label" style="margin-top:0">Nowa pozycja</p>
+        <label class="field"><span>Nazwa</span>
+          <input name="name" required placeholder="np. dopłata do klasy biznes"></label>
+        <div class="frow">
+          <label class="field"><span>Plan (zł)</span>
+            <input inputmode="decimal" name="planned" required></label>
+          <label class="field"><span>Wydane (zł) — opcjonalnie</span>
+            <input inputmode="decimal" name="actual"></label>
+        </div>
+        <div class="form-actions"><button class="btn" type="submit">Dodaj pozycję</button></div>
+      </form>
+    </div>`;
+  }
+  renderers.budget = renderBudget;
+
+  function findBudget(id){ return state.budget.find(b => b.id === id); }
+
+  clickActions['budget-edit'] = d => { ui.editing['budget:' + d.id] = true; renderAll(); };
+  clickActions['budget-delete'] = d => {
+    const b = findBudget(d.id);
+    if (b && confirm('Usunąć pozycję „' + b.name + '"?')){
+      state.budget = state.budget.filter(x => x.id !== d.id);
+      ui.editing = {};
+      save(); renderAll(); flash('Usunięto pozycję');
+    }
+  };
+  submitActions['budget-save'] = form => {
+    const b = findBudget(form.dataset.id);
+    if (!b) return;
+    const f = new FormData(form);
+    b.name = String(f.get('name')).trim() || b.name;
+    const planned = parseAmount(f.get('planned'));
+    if (planned != null && planned >= 0) b.planned = planned;
+    b.actual = parseAmount(f.get('actual'));
+    ui.editing = {};
+    save(); renderAll(); flash('Zapisano pozycję');
+  };
+  submitActions['budget-add'] = form => {
+    const f = new FormData(form);
+    const name = String(f.get('name')).trim();
+    const planned = parseAmount(f.get('planned'));
+    if (!name || planned == null || planned < 0) return;
+    state.budget.push({ id: uid(), name, planned, actual: parseAmount(f.get('actual')) });
+    save(); renderAll(); flash('Dodano pozycję');
+  };
+  submitActions['rates-save'] = form => {
+    const f = new FormData(form);
+    const usd = parseAmount(f.get('rateUSD'));
+    const eur = parseAmount(f.get('rateEUR'));
+    if (usd && usd > 0) state.settings.rateUSD = usd;
+    if (eur && eur > 0) state.settings.rateEUR = eur;
+    save(); renderAll(); flash('Przeliczono po nowych kursach');
+  };
+
+  /* ════════════════ moduł: Loty ════════════════
+     Twarde ograniczenie: hydroplan lata tylko za dnia. Przylot do Malé
+     po granicy godzinowej = nocleg w Malé i strata dnia. */
+
+  function isMale(txt){
+    const t = String(txt || '').toUpperCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    return t.includes('MLE') || t.includes('MALE');
+  }
+  function toMin(hhmm){
+    const [h, m] = String(hhmm || '').split(':').map(Number);
+    return (isNaN(h) ? 0 : h) * 60 + (isNaN(m) ? 0 : m);
+  }
+  function fmtMin(min){
+    const h = Math.floor(min / 60), m = min % 60;
+    if (h && m) return h + ' h ' + m + ' min';
+    if (h) return h + ' h';
+    return m + ' min';
+  }
+
+  function analyzeOutbound(){
+    const s = state.settings;
+    const segs = state.flights.out;
+    if (!segs.length) return { cls: 'info', head: 'Wpisz rejsy do Malé',
+      body: 'Po wpisaniu odcinków sprawdzę, czy przylot mieści się w oknie transferu hydroplanem tego samego dnia.' };
+    const male = segs.filter(x => isMale(x.to)).pop();
+    if (!male) return { cls: 'info', head: 'Nie widzę odcinka kończącego się w Malé',
+      body: 'Żaden z wpisanych odcinków nie ma w polu „do" lotniska MLE / Malé — nie mogę ocenić transferu.' };
+    const arr = toMin(male.arrTime), cutoff = toMin(s.arrivalCutoff);
+    const dateNote = (male.arrDate && male.arrDate !== s.dayOne)
+      ? ` Uwaga: data przylotu (${fmtDate(male.arrDate)}) różni się od pierwszego dnia pobytu w ustawieniach (${fmtDate(s.dayOne)}).` : '';
+    if (arr <= cutoff){
+      return { cls: 'ok', head: 'Transfer hydroplanem tego samego dnia: realny',
+        body: `Rejs ${esc(male.flightNo || '—')} ląduje w Malé o ${esc(male.arrTime)} — ${fmtMin(cutoff - arr)} zapasu do granicy ${esc(s.arrivalCutoff)}. Po zakupie biletów przekaż numery rejsów resortowi; to on rezerwuje hydroplan.` + dateNote };
+    }
+    return { cls: 'warn', head: 'Przylot za późno na hydroplan tego samego dnia',
+      body: `Rejs ${esc(male.flightNo || '—')} ląduje w Malé o ${esc(male.arrTime)}, czyli ${fmtMin(arr - cutoff)} po granicy ${esc(s.arrivalCutoff)}. Hydroplan nie lata po zmroku — realny scenariusz to nocleg w Malé i transfer rano, ze stratą dnia w resorcie. Poszukaj rejsu z porannym przylotem.` + dateNote };
+  }
+
+  function analyzeReturn(){
+    const s = state.settings;
+    const segs = state.flights.ret;
+    if (!segs.length) return null;
+    const male = segs.filter(x => isMale(x.from)).shift();
+    if (!male) return { cls: 'info', head: 'Nie widzę odcinka startującego z Malé',
+      body: 'Żaden z wpisanych odcinków powrotnych nie ma w polu „z" lotniska MLE / Malé.' };
+    const dep = toMin(male.depTime), cutoff = toMin(s.morningCutoff);
+    if (dep < cutoff){
+      return { cls: 'warn', head: 'Powrót startuje bardzo wcześnie',
+        body: `Rejs ${esc(male.flightNo || '—')} odlatuje z Malé o ${esc(male.depTime)} — przed granicą ${esc(s.morningCutoff)}. Hydroplan startuje dopiero po świcie, więc poranny wylot może oznaczać przeprawę do Malé dzień wcześniej. Potwierdź z resortem, czy transfer zdąży.` };
+    }
+    return { cls: 'ok', head: 'Godzina powrotu bez ryzyka',
+      body: `Odlot z Malé o ${esc(male.depTime)} zostawia czas na poranny hydroplan z resortu (granica: ${esc(s.morningCutoff)}).` };
+  }
+
+  function noticeHTML(n){
+    return n ? `<p class="notice ${n.cls}"><strong>${n.head}</strong>${n.body}</p>` : '';
+  }
+
+  function flightItem(dir, seg){
+    if (ui.editing['flight:' + seg.id]) return flightEditForm(dir, seg);
+    return `<li>
+      <div class="item-row">
+        <div class="grow">
+          <p class="item-title">${esc(seg.flightNo || 'rejs')} · ${esc(seg.from)} → ${esc(seg.to)}</p>
+          <p class="item-sub num">${fmtDate(seg.depDate)} ${esc(seg.depTime)} → ${fmtDate(seg.arrDate)} ${esc(seg.arrTime)} <span class="muted">(czasy lokalne)</span></p>
+        </div>
+        <div class="item-actions">
+          <button type="button" class="btn subtle" data-action="flight-edit" data-id="${seg.id}">Edytuj</button>
+        </div>
+      </div>
+    </li>`;
+  }
+
+  function flightFormFields(seg){
+    return `
+      <div class="frow tight-sm">
+        <label class="field"><span>Numer rejsu</span>
+          <input name="flightNo" value="${esc(seg.flightNo || '')}" placeholder="np. QR 259"></label>
+        <div class="frow" style="gap:10px">
+          <label class="field"><span>Z (lotnisko)</span>
+            <input name="from" value="${esc(seg.from || '')}" placeholder="WAW" required></label>
+          <label class="field"><span>Do (lotnisko)</span>
+            <input name="to" value="${esc(seg.to || '')}" placeholder="DOH" required></label>
+        </div>
+      </div>
+      <div class="frow">
+        <label class="field"><span>Wylot — data</span>
+          <input type="date" name="depDate" value="${esc(seg.depDate || '')}" required></label>
+        <label class="field"><span>Wylot — godzina (lokalna)</span>
+          <input type="time" name="depTime" value="${esc(seg.depTime || '')}" required></label>
+      </div>
+      <div class="frow">
+        <label class="field"><span>Przylot — data</span>
+          <input type="date" name="arrDate" value="${esc(seg.arrDate || '')}" required></label>
+        <label class="field"><span>Przylot — godzina (lokalna)</span>
+          <input type="time" name="arrTime" value="${esc(seg.arrTime || '')}" required></label>
+      </div>`;
+  }
+
+  function flightEditForm(dir, seg){
+    return `<li>
+      <form class="edit-form" data-action="flight-save" data-id="${seg.id}" data-dir="${dir}">
+        ${flightFormFields(seg)}
+        <div class="form-actions">
+          <button class="btn" type="submit">Zapisz</button>
+          <button class="btn subtle" type="button" data-action="task-cancel">Anuluj</button>
+          <button class="btn subtle danger" type="button" data-action="flight-delete" data-id="${seg.id}" data-dir="${dir}">Usuń</button>
+        </div>
+      </form>
+    </li>`;
+  }
+
+  function flightCard(dir, title, lead, notice, defaults){
+    const segs = state.flights[dir].slice()
+      .sort((a, b) => (a.depDate + a.depTime).localeCompare(b.depDate + b.depTime));
+    const addOpen = ui.adding['flight:' + dir];
+    return `<div class="card">
+      <h2>${title}</h2>
+      <p class="lead">${lead}</p>
+      ${noticeHTML(notice)}
+      ${segs.length ? `<ul class="items">${segs.map(x => flightItem(dir, x)).join('')}</ul>` : '<p class="empty">Nie wpisano jeszcze odcinków.</p>'}
+      <hr class="sep">
+      ${addOpen ? `
+      <form data-action="flight-add" data-dir="${dir}">
+        <p class="group-label" style="margin-top:0">Nowy odcinek</p>
+        ${flightFormFields(defaults)}
+        <div class="form-actions">
+          <button class="btn" type="submit">Dodaj odcinek</button>
+          <button class="btn subtle" type="button" data-action="task-cancel">Anuluj</button>
+        </div>
+      </form>`
+      : `<button type="button" class="btn ghost" data-action="flight-add-open" data-dir="${dir}">Dodaj odcinek</button>`}
+    </div>`;
+  }
+
+  function renderFlights(){
+    const s = state.settings;
+    return `
+      ${band(SCENE_SEAPLANE, '30 minut hydroplanem — wyłącznie za dnia', 'hydroplan.jpg')}
+      ${flightCard('out', 'Do Malé',
+        'Wpisz wszystkie odcinki, łącznie z przesiadką. Sprawdzam odcinek kończący się w Malé (MLE) względem granicy przylotu.',
+        analyzeOutbound(),
+        { depDate: s.departure, arrDate: s.dayOne })}
+      ${flightCard('ret', 'Powrót',
+        'Odcinki powrotne. Pilnuję, żeby wylot z Malé nie wypadał przed porannym oknem hydroplanu.',
+        analyzeReturn(),
+        { depDate: addDays(s.dayOne, 6), arrDate: addDays(s.dayOne, 6) })}
+      <div class="card">
+        <h2>Warianty przesiadki</h2>
+        <p class="lead">Brak połączeń bezpośrednich z Polski. Czas w powietrzu z Warszawy, orientacyjnie:</p>
+        <dl class="facts">
+          <div><dt>Qatar Airways</dt><dd>przez Dohę · ok. 9 h 15 min</dd></div>
+          <div><dt>Emirates</dt><dd>przez Dubaj · ok. 10 h</dd></div>
+          <div><dt>Etihad</dt><dd>przez Abu Zabi · ok. 10 h</dd></div>
+          <div><dt>Turkish Airlines</dt><dd>przez Stambuł · ok. 10 h 30 min</dd></div>
+        </dl>
+        <p class="small muted" style="margin-bottom:0">Kryterium wyboru nie jest cena, tylko godzina przylotu do Malé: rano = hydroplan tego samego dnia, wieczorem = nocleg w Malé i strata dnia.</p>
+      </div>`;
+  }
+  renderers.flights = renderFlights;
+
+  function readFlightForm(form){
+    const f = new FormData(form);
+    return {
+      flightNo: String(f.get('flightNo') || '').trim(),
+      from: String(f.get('from') || '').trim().toUpperCase(),
+      to: String(f.get('to') || '').trim().toUpperCase(),
+      depDate: String(f.get('depDate') || ''),
+      depTime: String(f.get('depTime') || ''),
+      arrDate: String(f.get('arrDate') || ''),
+      arrTime: String(f.get('arrTime') || '')
+    };
+  }
+
+  clickActions['flight-add-open'] = d => { ui.adding['flight:' + d.dir] = true; renderAll(); };
+  clickActions['flight-edit'] = d => { ui.editing['flight:' + d.id] = true; renderAll(); };
+  clickActions['flight-delete'] = d => {
+    if (!confirm('Usunąć ten odcinek lotu?')) return;
+    state.flights[d.dir] = state.flights[d.dir].filter(x => x.id !== d.id);
+    ui.editing = {};
+    save(); renderAll(); flash('Usunięto odcinek');
+  };
+  submitActions['flight-add'] = form => {
+    const seg = readFlightForm(form);
+    if (!seg.from || !seg.to || !seg.depDate || !seg.arrDate) return;
+    seg.id = uid();
+    state.flights[form.dataset.dir].push(seg);
+    ui.adding = {};
+    save(); renderAll(); flash('Dodano odcinek');
+  };
+  submitActions['flight-save'] = form => {
+    const list = state.flights[form.dataset.dir];
+    const seg = list.find(x => x.id === form.dataset.id);
+    if (!seg) return;
+    Object.assign(seg, readFlightForm(form));
+    ui.editing = {};
+    save(); renderAll(); flash('Zapisano odcinek');
+  };
+
+  /* ════════════════ moduł: Plan dnia ════════════════
+     Siedem dni; daty liczone z settings.dayOne, więc zmiana okna
+     podróży przesuwa kalendarz bez utraty wpisanych aktywności. */
+
+  const ACT_SUGGESTIONS = [
+    'Nurkowanie z rekinami wielorybimi', 'Snorkeling na rafie domowej',
+    'Spa we dwoje', 'Kolacja na plaży', 'Rejs o zachodzie słońca', 'Dzień bez planu'
+  ];
+
+  function actItem(dayIdx, a){
+    if (ui.editing['act:' + a.id]) return actEditForm(dayIdx, a);
+    return `<li>
+      <div class="item-row">
+        <div class="grow">
+          <p class="item-title">${a.time ? `<span class="num muted">${esc(a.time)}</span> · ` : ''}${esc(a.title)}</p>
+          ${a.note ? `<p class="item-sub">${esc(a.note)}</p>` : ''}
+        </div>
+        <div class="item-actions">
+          <button type="button" class="btn subtle" data-action="act-edit" data-id="${a.id}">Edytuj</button>
+        </div>
+      </div>
+    </li>`;
+  }
+
+  function actFormFields(a){
+    return `
+      <div class="frow">
+        <label class="field"><span>Godzina (opcjonalnie)</span>
+          <input type="time" name="time" value="${esc(a.time || '')}"></label>
+        <label class="field"><span>Aktywność</span>
+          <input name="title" value="${esc(a.title || '')}" required placeholder="np. spa we dwoje"></label>
+      </div>
+      <label class="field"><span>Notatka (opcjonalnie)</span>
+        <input name="note" value="${esc(a.note || '')}"></label>`;
+  }
+
+  function actEditForm(dayIdx, a){
+    return `<li>
+      <form class="edit-form" data-action="act-save" data-day="${dayIdx}" data-id="${a.id}">
+        ${actFormFields(a)}
+        <div class="form-actions">
+          <button class="btn" type="submit">Zapisz</button>
+          <button class="btn subtle" type="button" data-action="task-cancel">Anuluj</button>
+          <button class="btn subtle danger" type="button" data-action="act-delete" data-day="${dayIdx}" data-id="${a.id}">Usuń</button>
+        </div>
+      </form>
+    </li>`;
+  }
+
+  function renderDays(){
+    const s = state.settings;
+    const days = state.days.map((acts, i) => {
+      const iso = addDays(s.dayOne, i);
+      const isAnniv = iso === s.anniversary;
+      const sorted = acts.slice().sort((a, b) =>
+        String(a.time || '99:99').localeCompare(String(b.time || '99:99')));
+      const addOpen = ui.adding['act:' + i];
+      return `<article class="day ${isAnniv ? 'anniv-day' : ''}">
+        <h3>Dzień ${i + 1} — ${weekday(iso)}${isAnniv ? '<span class="day-tag">20. rocznica ślubu</span>' : ''}</h3>
+        <p class="day-date num">${fmtDate(iso)}</p>
+        ${sorted.length ? `<ul class="items">${sorted.map(a => actItem(i, a)).join('')}</ul>`
+          : `<p class="empty">${isAnniv ? 'Ten dzień zasługuje na coś specjalnego — na razie pusty.' : 'Bez planu — i dobrze.'}</p>`}
+        ${addOpen ? `
+        <form data-action="act-add" data-day="${i}" class="edit-form">
+          ${actFormFields({})}
+          <div class="chips">${ACT_SUGGESTIONS.map(t =>
+            `<button type="button" class="chip-btn" data-action="act-chip">${esc(t)}</button>`).join('')}</div>
+          <div class="form-actions">
+            <button class="btn" type="submit">Dodaj</button>
+            <button class="btn subtle" type="button" data-action="task-cancel">Anuluj</button>
+          </div>
+        </form>`
+        : `<button type="button" class="btn subtle" data-action="act-add-open" data-day="${i}">Dodaj aktywność</button>`}
+      </article>`;
+    }).join('');
+
+    return `
+    ${band(SCENE_WHALESHARK, 'South Ari — rekiny wielorybie przez cały rok', 'rekin.jpg')}
+    <div class="card">
+      <h2>Plan dzień po dniu</h2>
+      <p class="lead">Daty liczone od pierwszego dnia pobytu (${fmtDate(s.dayOne)} — zmienisz w ustawieniach na Starcie). Wolne pole to też plan: na Malediwy nie jedzie się zaliczać atrakcji.</p>
+      ${days}
+    </div>`;
+  }
+  renderers.days = renderDays;
+
+  clickActions['act-add-open'] = d => { ui.adding['act:' + d.day] = true; renderAll(); };
+  clickActions['act-edit'] = d => { ui.editing['act:' + d.id] = true; renderAll(); };
+  clickActions['act-chip'] = (d, el) => {
+    const input = el.closest('form').querySelector('[name=title]');
+    if (input){ input.value = el.textContent; input.focus(); }
+  };
+  clickActions['act-delete'] = d => {
+    const i = Number(d.day);
+    if (!confirm('Usunąć tę aktywność?')) return;
+    state.days[i] = state.days[i].filter(a => a.id !== d.id);
+    ui.editing = {};
+    save(); renderAll(); flash('Usunięto aktywność');
+  };
+  submitActions['act-add'] = form => {
+    const i = Number(form.dataset.day);
+    const f = new FormData(form);
+    const title = String(f.get('title')).trim();
+    if (!title) return;
+    state.days[i].push({
+      id: uid(), title,
+      time: String(f.get('time') || ''),
+      note: String(f.get('note') || '').trim()
+    });
+    ui.adding = {};
+    save(); renderAll(); flash('Dodano aktywność');
+  };
+  submitActions['act-save'] = form => {
+    const i = Number(form.dataset.day);
+    const a = state.days[i].find(x => x.id === form.dataset.id);
+    if (!a) return;
+    const f = new FormData(form);
+    a.title = String(f.get('title')).trim() || a.title;
+    a.time = String(f.get('time') || '');
+    a.note = String(f.get('note') || '').trim();
+    ui.editing = {};
+    save(); renderAll(); flash('Zapisano aktywność');
+  };
+
+  /* ════════════════ moduł: Dokumenty ════════════════
+     Checklista formalności; tylko statusy i notatki (numer rezerwacji,
+     telefon do resortu) — bez przechowywania skanów. */
+
+  function docItem(doc){
+    if (ui.editing['doc:' + doc.id]) return docEditForm(doc);
+    return `<li class="${doc.done ? 'done' : ''}">
+      <div class="item-row">
+        <label class="checkwrap"><input type="checkbox" ${doc.done ? 'checked' : ''}
+          data-change="doc-toggle" data-id="${doc.id}" aria-label="Skompletowane"></label>
+        <div class="grow">
+          <p class="item-title">${esc(doc.name)}</p>
+          ${doc.note ? `<p class="item-sub">${esc(doc.note)}</p>` : ''}
+        </div>
+        <div class="item-actions">
+          <button type="button" class="btn subtle" data-action="doc-edit" data-id="${doc.id}">Edytuj</button>
+        </div>
+      </div>
+    </li>`;
+  }
+
+  function docEditForm(doc){
+    return `<li>
+      <form class="edit-form" data-action="doc-save" data-id="${doc.id}">
+        <label class="field"><span>Pozycja</span>
+          <input name="name" value="${esc(doc.name)}" required></label>
+        <label class="field"><span>Notatka — np. numer rezerwacji, telefon (bez skanów)</span>
+          <input name="note" value="${esc(doc.note || '')}"></label>
+        <div class="form-actions">
+          <button class="btn" type="submit">Zapisz</button>
+          <button class="btn subtle" type="button" data-action="task-cancel">Anuluj</button>
+          <button class="btn subtle danger" type="button" data-action="doc-delete" data-id="${doc.id}">Usuń</button>
+        </div>
+      </form>
+    </li>`;
+  }
+
+  function renderDocs(){
+    const total = state.documents.length;
+    const done = state.documents.filter(d => d.done).length;
+    return `<div class="card">
+      <h2>Dokumenty i formalności</h2>
+      <p class="lead">Notatnik statusów — co jest skompletowane i gdzie co jest. Skany trzymaj gdzie indziej; tu tylko notatki tekstowe.</p>
+      ${total ? `<p class="small muted num" style="margin:0 0 10px">Skompletowane: ${done} z ${total}</p>` : ''}
+      <ul class="items">${state.documents.map(docItem).join('')}</ul>
+      ${total ? '' : '<p class="empty">Lista pusta.</p>'}
+      <hr class="sep">
+      <form data-action="doc-add">
+        <p class="group-label" style="margin-top:0">Nowa pozycja</p>
+        <div class="frow tight-sm">
+          <label class="field"><span>Pozycja</span>
+            <input name="name" required placeholder="np. międzynarodowe prawo jazdy"></label>
+          <label class="field"><span>Notatka (opcjonalnie)</span>
+            <input name="note"></label>
+        </div>
+        <div class="form-actions"><button class="btn" type="submit">Dodaj</button></div>
+      </form>
+    </div>`;
+  }
+  renderers.docs = renderDocs;
+
+  function findDoc(id){ return state.documents.find(d => d.id === id); }
+
+  changeActions['doc-toggle'] = el => {
+    const doc = findDoc(el.dataset.id);
+    if (doc){ doc.done = el.checked; save(); renderAll(); }
+  };
+  clickActions['doc-edit'] = d => { ui.editing['doc:' + d.id] = true; renderAll(); };
+  clickActions['doc-delete'] = d => {
+    const doc = findDoc(d.id);
+    if (doc && confirm('Usunąć pozycję „' + doc.name + '"?')){
+      state.documents = state.documents.filter(x => x.id !== d.id);
+      ui.editing = {};
+      save(); renderAll(); flash('Usunięto pozycję');
+    }
+  };
+  submitActions['doc-save'] = form => {
+    const doc = findDoc(form.dataset.id);
+    if (!doc) return;
+    const f = new FormData(form);
+    doc.name = String(f.get('name')).trim() || doc.name;
+    doc.note = String(f.get('note') || '').trim();
+    ui.editing = {};
+    save(); renderAll(); flash('Zapisano');
+  };
+  submitActions['doc-add'] = form => {
+    const f = new FormData(form);
+    const name = String(f.get('name')).trim();
+    if (!name) return;
+    state.documents.push({ id: uid(), name, done: false, note: String(f.get('note') || '').trim() });
+    save(); renderAll(); flash('Dodano pozycję');
+  };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderAll();
+    if (storageBroken){
+      flash('Uwaga: zapis w tej przeglądarce nie działa — użyj eksportu JSON');
+    }
+  });
+  </script>
+</body>
+</html>
