@@ -1289,6 +1289,99 @@
     save(); renderAll(); flash('Zapisano aktywność');
   };
 
+  /* ════════════════ moduł: Dokumenty ════════════════
+     Checklista formalności; tylko statusy i notatki (numer rezerwacji,
+     telefon do resortu) — bez przechowywania skanów. */
+
+  function docItem(doc){
+    if (ui.editing['doc:' + doc.id]) return docEditForm(doc);
+    return `<li class="${doc.done ? 'done' : ''}">
+      <div class="item-row">
+        <label class="checkwrap"><input type="checkbox" ${doc.done ? 'checked' : ''}
+          data-change="doc-toggle" data-id="${doc.id}" aria-label="Skompletowane"></label>
+        <div class="grow">
+          <p class="item-title">${esc(doc.name)}</p>
+          ${doc.note ? `<p class="item-sub">${esc(doc.note)}</p>` : ''}
+        </div>
+        <div class="item-actions">
+          <button type="button" class="btn subtle" data-action="doc-edit" data-id="${doc.id}">Edytuj</button>
+        </div>
+      </div>
+    </li>`;
+  }
+
+  function docEditForm(doc){
+    return `<li>
+      <form class="edit-form" data-action="doc-save" data-id="${doc.id}">
+        <label class="field"><span>Pozycja</span>
+          <input name="name" value="${esc(doc.name)}" required></label>
+        <label class="field"><span>Notatka — np. numer rezerwacji, telefon (bez skanów)</span>
+          <input name="note" value="${esc(doc.note || '')}"></label>
+        <div class="form-actions">
+          <button class="btn" type="submit">Zapisz</button>
+          <button class="btn subtle" type="button" data-action="task-cancel">Anuluj</button>
+          <button class="btn subtle danger" type="button" data-action="doc-delete" data-id="${doc.id}">Usuń</button>
+        </div>
+      </form>
+    </li>`;
+  }
+
+  function renderDocs(){
+    const total = state.documents.length;
+    const done = state.documents.filter(d => d.done).length;
+    return `<div class="card">
+      <h2>Dokumenty i formalności</h2>
+      <p class="lead">Notatnik statusów — co jest skompletowane i gdzie co jest. Skany trzymaj gdzie indziej; tu tylko notatki tekstowe.</p>
+      ${total ? `<p class="small muted num" style="margin:0 0 10px">Skompletowane: ${done} z ${total}</p>` : ''}
+      <ul class="items">${state.documents.map(docItem).join('')}</ul>
+      ${total ? '' : '<p class="empty">Lista pusta.</p>'}
+      <hr class="sep">
+      <form data-action="doc-add">
+        <p class="group-label" style="margin-top:0">Nowa pozycja</p>
+        <div class="frow tight-sm">
+          <label class="field"><span>Pozycja</span>
+            <input name="name" required placeholder="np. międzynarodowe prawo jazdy"></label>
+          <label class="field"><span>Notatka (opcjonalnie)</span>
+            <input name="note"></label>
+        </div>
+        <div class="form-actions"><button class="btn" type="submit">Dodaj</button></div>
+      </form>
+    </div>`;
+  }
+  renderers.docs = renderDocs;
+
+  function findDoc(id){ return state.documents.find(d => d.id === id); }
+
+  changeActions['doc-toggle'] = el => {
+    const doc = findDoc(el.dataset.id);
+    if (doc){ doc.done = el.checked; save(); renderAll(); }
+  };
+  clickActions['doc-edit'] = d => { ui.editing['doc:' + d.id] = true; renderAll(); };
+  clickActions['doc-delete'] = d => {
+    const doc = findDoc(d.id);
+    if (doc && confirm('Usunąć pozycję „' + doc.name + '"?')){
+      state.documents = state.documents.filter(x => x.id !== d.id);
+      ui.editing = {};
+      save(); renderAll(); flash('Usunięto pozycję');
+    }
+  };
+  submitActions['doc-save'] = form => {
+    const doc = findDoc(form.dataset.id);
+    if (!doc) return;
+    const f = new FormData(form);
+    doc.name = String(f.get('name')).trim() || doc.name;
+    doc.note = String(f.get('note') || '').trim();
+    ui.editing = {};
+    save(); renderAll(); flash('Zapisano');
+  };
+  submitActions['doc-add'] = form => {
+    const f = new FormData(form);
+    const name = String(f.get('name')).trim();
+    if (!name) return;
+    state.documents.push({ id: uid(), name, done: false, note: String(f.get('note') || '').trim() });
+    save(); renderAll(); flash('Dodano pozycję');
+  };
+
   document.addEventListener('DOMContentLoaded', () => {
     renderAll();
     if (storageBroken){
