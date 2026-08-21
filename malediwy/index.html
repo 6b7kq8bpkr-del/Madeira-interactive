@@ -377,8 +377,10 @@
     return a === 1 ? 'dzień' : 'dni';
   }
 
-  const nfPLN = new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 0 });
-  const nfPLN2 = new Intl.NumberFormat('pl-PL', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  // useGrouping:'always' — polskie CLDR nie grupuje liczb 4-cyfrowych,
+  // a chcemy separatora tysięcy także przy „9 100 zł".
+  const nfPLN = new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 0, useGrouping: 'always' });
+  const nfPLN2 = new Intl.NumberFormat('pl-PL', { minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: 'always' });
   function fmtPLN(n){
     if (n == null || isNaN(n)) return '—';
     const f = Number.isInteger(Math.round(n * 100) / 100) && Number.isInteger(n) ? nfPLN : nfPLN2;
