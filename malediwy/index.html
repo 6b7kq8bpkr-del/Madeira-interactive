@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0d3b3f">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=">
+  <title>Malediwy 2027 — planer rocznicowy</title>
+  <meta name="description" content="Prywatny planer podróży: Meliá Whale Lagoon Maldives, listopad 2027, 20. rocznica ślubu.">
+  <style>
+    :root{
+      --bg:#f4f2ec;
+      --card:#ffffff;
+      --ink:#22343a;
+      --ink-soft:#5c6f74;
+      --line:#e3ded2;
+      --lagoon:#0e6e73;
+      --lagoon-deep:#0d3b3f;
+      --lagoon-mist:#e7f0ee;
+      --sand:#efe9db;
+      --gold:#a8894a;
+      --gold-soft:#f5efe2;
+      --warn:#a4552c;
+      --warn-soft:#f8ece3;
+      --ok:#3d7a52;
+      --ok-soft:#e9f2ea;
+      --radius:14px;
+      --shadow:0 1px 2px rgba(34,52,58,.06), 0 8px 24px rgba(34,52,58,.05);
+      --nav-h:58px;
+    }
+    *{box-sizing:border-box}
+    html{-webkit-text-size-adjust:100%}
+    body{
+      margin:0; background:var(--bg); color:var(--ink);
+      font:16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      padding-bottom:calc(var(--nav-h) + env(safe-area-inset-bottom, 0px));
+    }
+    h1,h2,h3{font-family:Georgia, "Times New Roman", serif; font-weight:600; letter-spacing:.01em; margin:0}
+    button{font:inherit}
+    input,select,textarea{font:inherit; color:var(--ink)}
+
+    /* ── nagłówek ── */
+    .masthead{
+      background:linear-gradient(160deg, var(--lagoon-deep) 0%, #14545a 70%, #1b6168 100%);
+      color:#f2efe6; padding:26px 18px 22px;
+    }
+    .masthead .inner{max-width:920px; margin:0 auto}
+    .masthead .eyebrow{
+      margin:0 0 6px; font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+      color:#c8b98e;
+    }
+    .masthead h1{font-size:26px; line-height:1.25; color:#fbf9f2}
+    .masthead .sub{margin:8px 0 0; font-size:14px; color:#c3d4d2; max-width:52ch}
+
+    /* ── nawigacja ── */
+    .nav{
+      position:fixed; left:0; right:0; bottom:0; z-index:40;
+      background:rgba(253,252,248,.96); backdrop-filter:blur(8px);
+      border-top:1px solid var(--line);
+      display:flex; height:calc(var(--nav-h) + env(safe-area-inset-bottom, 0px));
+      padding-bottom:env(safe-area-inset-bottom, 0px);
+    }
+    .nav button{
+      flex:1; border:0; background:none; cursor:pointer;
+      font-size:11.5px; letter-spacing:.02em; color:var(--ink-soft);
+      padding:6px 2px 8px; display:flex; flex-direction:column; align-items:center; gap:3px;
+    }
+    .nav button .dot{width:22px; height:3px; border-radius:2px; background:transparent}
+    .nav button[aria-current="true"]{color:var(--lagoon-deep); font-weight:600}
+    .nav button[aria-current="true"] .dot{background:var(--lagoon)}
+    @media (min-width:760px){
+      body{padding-bottom:0}
+      .nav{
+        position:static; height:auto; border-top:0; border-bottom:1px solid var(--line);
+        justify-content:center; gap:4px; padding:0 18px;
+      }
+      .nav button{flex:0 0 auto; padding:14px 14px 11px; font-size:14px}
+    }
+
+    /* ── układ ── */
+    main{max-width:920px; margin:0 auto; padding:18px 16px 40px}
+    .view[hidden]{display:none}
+    .card{
+      background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+      box-shadow:var(--shadow); padding:16px; margin:0 0 14px;
+    }
+    .card > h2{font-size:19px; margin-bottom:4px}
+    .card .lead{margin:0 0 12px; color:var(--ink-soft); font-size:14px}
+    .muted{color:var(--ink-soft)}
+    .small{font-size:13px}
+    .num{font-variant-numeric:tabular-nums}
+
+    /* ── przyciski i formularze ── */
+    .btn{
+      display:inline-block; border:1px solid var(--lagoon); background:var(--lagoon); color:#fdfcf7;
+      border-radius:10px; padding:9px 15px; cursor:pointer; font-size:14.5px;
+    }
+    .btn:hover{background:var(--lagoon-deep); border-color:var(--lagoon-deep)}
+    .btn.ghost{background:none; color:var(--lagoon); border-color:#bccfcc}
+    .btn.ghost:hover{background:var(--lagoon-mist); color:var(--lagoon-deep)}
+    .btn.subtle{
+      background:none; border:0; color:var(--lagoon); padding:6px 8px; font-size:13.5px;
+      text-decoration:underline; text-underline-offset:3px; text-decoration-color:#b9cdca;
+    }
+    .btn.danger{color:var(--warn); text-decoration-color:#e0c4b2}
+    .field{display:flex; flex-direction:column; gap:4px; margin:0 0 10px}
+    .field > span{font-size:12.5px; color:var(--ink-soft); letter-spacing:.02em}
+    .field input,.field select,.field textarea{
+      border:1px solid #cfd8d3; border-radius:9px; padding:9px 10px; background:#fdfdfb; width:100%;
+    }
+    .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--lagoon); outline-offset:0; border-color:var(--lagoon)}
+    .frow{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+    @media (max-width:420px){.frow.tight-sm{grid-template-columns:1fr}}
+    .form-actions{display:flex; gap:10px; align-items:center; margin-top:4px; flex-wrap:wrap}
+    fieldset{border:0; padding:0; margin:0}
+
+    /* ── plakietki ── */
+    .badge{
+      display:inline-block; font-size:12px; padding:2px 9px; border-radius:99px;
+      border:1px solid transparent; white-space:nowrap;
+    }
+    .badge.overdue{background:var(--warn-soft); color:var(--warn); border-color:#e6cdbc}
+    .badge.soon{background:var(--gold-soft); color:#7d6431; border-color:#e4d7b8}
+    .badge.ok{background:var(--ok-soft); color:var(--ok); border-color:#cbdfcf}
+    .badge.plain{background:var(--sand); color:var(--ink-soft); border-color:var(--line)}
+
+    /* ── start: odliczanie ── */
+    .count-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px}
+    @media (max-width:560px){.count-grid{grid-template-columns:1fr}}
+    .count{
+      border-radius:var(--radius); padding:18px 16px; box-shadow:var(--shadow);
+      background:var(--card); border:1px solid var(--line);
+    }
+    .count .label{font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft)}
+    .count .big{font-family:Georgia, serif; font-size:52px; line-height:1.05; margin:6px 0 2px; color:var(--lagoon-deep)}
+    .count .big small{font-size:20px; color:var(--ink-soft); font-family:inherit}
+    .count .when{font-size:13.5px; color:var(--ink-soft)}
+    .count.anniv{background:linear-gradient(150deg, #fbf7ec, #f4ecda); border-color:#e2d5b4}
+    .count.anniv .big{color:#79602b}
+    .count.anniv .label{color:#8a7440}
+
+    .facts{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:2px 18px; margin:0; font-size:14px}
+    .facts div{padding:7px 0; border-bottom:1px dashed var(--line)}
+    .facts dt{color:var(--ink-soft); font-size:12px; letter-spacing:.03em; text-transform:uppercase}
+    .facts dd{margin:1px 0 0}
+
+    /* ── listy pozycji ── */
+    .items{list-style:none; margin:0; padding:0}
+    .items > li{border-top:1px solid var(--line); padding:11px 0}
+    .items > li:first-child{border-top:0}
+    .item-row{display:flex; gap:10px; align-items:flex-start}
+    .item-row .grow{flex:1; min-width:0}
+    .item-title{margin:0; font-size:15.5px; line-height:1.4}
+    .item-sub{margin:2px 0 0; font-size:13px; color:var(--ink-soft)}
+    .item-actions{display:flex; gap:2px; flex-shrink:0}
+    .done .item-title{color:var(--ink-soft); text-decoration:line-through; text-decoration-color:#b9c4c1}
+    .checkwrap{padding-top:2px}
+    .checkwrap input{width:20px; height:20px; accent-color:var(--lagoon); cursor:pointer}
+    .group-label{
+      margin:18px 0 6px; font-size:12.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft);
+    }
+    .group-label:first-child{margin-top:0}
+    .edit-form{background:var(--lagoon-mist); border-radius:10px; padding:12px; margin-top:10px}
+
+    /* ── komunikaty stanu ── */
+    .notice{border-radius:10px; padding:11px 13px; font-size:14px; margin:0 0 12px}
+    .notice.ok{background:var(--ok-soft); color:#2c5e3e; border:1px solid #cbdfcf}
+    .notice.warn{background:var(--warn-soft); color:#7c3f20; border:1px solid #e6cdbc}
+    .notice.info{background:var(--lagoon-mist); color:#134f53; border:1px solid #cfe0dc}
+    .notice strong{display:block; margin-bottom:2px}
+    .notice p{margin:4px 0 0}
+
+    /* ── tabele budżetu ── */
+    .totals{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin:0 0 14px}
+    .totals .cell{background:var(--sand); border-radius:10px; padding:10px 12px}
+    .totals .cell b{display:block; font-size:18px; font-family:Georgia, serif; font-weight:600}
+    .totals .cell span{font-size:12px; color:var(--ink-soft); letter-spacing:.03em; text-transform:uppercase}
+    .totals .cell.dev-plus b{color:var(--warn)}
+    .totals .cell.dev-minus b{color:var(--ok)}
+
+    .empty{color:var(--ink-soft); font-size:14px; font-style:italic; margin:6px 0}
+
+    /* ── plan dnia ── */
+    .day{border-left:3px solid var(--line); padding-left:13px; margin:0 0 16px}
+    .day.anniv-day{
+      border-left-color:var(--gold); background:linear-gradient(150deg,#fdfaf1,#f7f0dd);
+      border-radius:0 var(--radius) var(--radius) 0; padding:12px 14px 12px 13px; margin-left:-2px;
+    }
+    .day h3{font-size:16.5px}
+    .day .day-date{font-size:13px; color:var(--ink-soft)}
+    .day.anniv-day .day-tag{
+      display:inline-block; margin-left:8px; font-size:11.5px; letter-spacing:.08em; text-transform:uppercase;
+      color:#79602b; background:#efe3c4; border-radius:99px; padding:2px 9px; vertical-align:2px;
+    }
+    .chips{display:flex; flex-wrap:wrap; gap:6px; margin:8px 0 2px}
+    .chip-btn{
+      border:1px solid #cfd8d3; background:#fdfdfb; border-radius:99px; padding:4px 11px;
+      font-size:12.5px; color:var(--ink-soft); cursor:pointer;
+    }
+    .chip-btn:hover{border-color:var(--lagoon); color:var(--lagoon)}
+
+    .backup-box{width:100%; min-height:120px; font:12.5px/1.5 ui-monospace, Menlo, Consolas, monospace}
+    .hidden-file{position:absolute; width:1px; height:1px; opacity:0; overflow:hidden}
+    hr.sep{border:0; border-top:1px solid var(--line); margin:16px 0}
+    .flash{position:fixed; left:50%; transform:translateX(-50%); bottom:calc(var(--nav-h) + 16px);
+      background:var(--lagoon-deep); color:#f2efe6; border-radius:99px; padding:8px 18px; font-size:14px;
+      box-shadow:var(--shadow); opacity:0; pointer-events:none; transition:opacity .25s; z-index:60}
+    .flash.show{opacity:1}
+    @media (min-width:760px){.flash{bottom:24px}}
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="inner">
+      <p class="eyebrow">Listopad 2027 · 20. rocznica ślubu</p>
+      <h1>Malediwy — Meliá Whale Lagoon</h1>
+      <p class="sub">Water Villa nad laguną, atol South Ari. Prywatny planer na jeden wyjazd we dwoje.</p>
+    </div>
+  </header>
+
+  <nav class="nav" aria-label="Sekcje planera" id="nav"></nav>
+
+  <main id="app">
+    <section class="view" id="view-start" hidden></section>
+    <section class="view" id="view-tasks" hidden></section>
+    <section class="view" id="view-budget" hidden></section>
+    <section class="view" id="view-flights" hidden></section>
+    <section class="view" id="view-days" hidden></section>
+    <section class="view" id="view-docs" hidden></section>
+  </main>
+
+  <div class="flash" id="flash" role="status"></div>
+
+  <script>
+  'use strict';
+
+  /* ════════════════ model danych i utrwalanie ════════════════
+     Jedno drzewo stanu, serializowane w całości do localStorage.
+     localStorage, bo: brak backendu, dane rzędu kilku KB, zapis
+     synchroniczny po każdej zmianie, a przenoszenie między
+     urządzeniami załatwia eksport/import JSON. */
+
+  const STORAGE_KEY = 'malediwy2027.v1';
+  const SCHEMA_VERSION = 1;
+
+  function uid(){
+    return (crypto.randomUUID ? crypto.randomUUID()
+      : 'id-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 9));
+  }
+
+  function seed(){
+    return {
+      schemaVersion: SCHEMA_VERSION,
+      settings: {
+        window: 'A',                 // A: sob 6–13.11, B: nd 7–14.11, custom
+        departure: '2027-11-06',     // wylot z Warszawy
+        dayOne: '2027-11-07',        // pierwszy dzień na Malediwach
+        anniversary: '2027-11-10',
+        rateUSD: 4.00,               // zł za 1 USD, wpisywane ręcznie
+        rateEUR: 4.30,               // zł za 1 EUR
+        arrivalCutoff: '15:00',      // najpóźniejszy przylot do Malé na hydroplan tego samego dnia
+        morningCutoff: '10:00'       // najwcześniejszy bezpieczny wylot powrotny z Malé
+      },
+      tasks: [
+        { id: uid(), title: 'Rezerwacja Water Villa (strona zachodnia) — taryfa zwrotna, all-inclusive', due: '2026-12-31', done: false,
+          note: 'Meliá otwiera stawki na listopad 2027 zwykle w X–XII 2026. Wybrać taryfę zwrotną.' },
+        { id: uid(), title: 'Monitoring otwarcia sprzedaży: Qatar, Emirates, Turkish, Etihad', due: '2027-01-31', done: false,
+          note: 'Przewoźnicy otwierają sprzedaż na listopad 2027 między XI 2026 a I 2027. Kluczowy jest poranny przylot do Malé.' },
+        { id: uid(), title: 'Zakup biletów i wpisanie rejsów do modułu Loty', due: '2027-02-28', done: false,
+          note: 'Po wyborze rejsu moduł Loty sprawdzi, czy przylot mieści się w oknie hydroplanu.' },
+        { id: uid(), title: 'Mail do dyrekcji resortu: 20. rocznica, ślub w Meliá Bali', due: '2027-08-06', done: false,
+          note: 'Około 3 miesiące przed przylotem. Prośba o willę po stronie zachodniej — zachody słońca.' },
+        { id: uid(), title: 'Kontrola ważności paszportów (min. 6 miesięcy od wjazdu)', due: '2027-08-31', done: false,
+          note: 'Paszporty ważne co najmniej do połowy maja 2028.' },
+        { id: uid(), title: 'Płatność końcowa za hotel (taryfa zwrotna)', due: '2027-09-25', done: false,
+          note: 'Około 6 tygodni przed przylotem.' },
+        { id: uid(), title: 'Numery rejsów do resortu — rezerwacja hydroplanu', due: '2027-09-30', done: false,
+          note: 'Hydroplanu nie rezerwuje się samodzielnie; robi to resort na podstawie przekazanych numerów rejsów.' },
+        { id: uid(), title: 'Wykupienie ubezpieczenia podróżnego', due: '2027-10-15', done: false, note: '' },
+        { id: uid(), title: 'Parking przy Chopinie i dojazd z Łodzi', due: '2027-10-20', done: false, note: '' }
+      ],
+      budget: [
+        { id: uid(), name: 'Przeloty economy, 2 os., w obie strony', planned: 8500, actual: null },
+        { id: uid(), name: 'Hotel: Water Villa, 6 nocy, all-inclusive', planned: 19000, actual: null },
+        { id: uid(), name: 'Hydroplan Malé–resort, w obie strony, 2 os.', planned: 3700, actual: null },
+        { id: uid(), name: 'Ubezpieczenie', planned: 700, actual: null },
+        { id: uid(), name: 'Dojazd Łódź–Warszawa, parking', planned: 500, actual: null },
+        { id: uid(), name: 'Wydatki na miejscu (nurkowanie, spa, kolacja na plaży, napiwki)', planned: 4000, actual: null }
+      ],
+      flights: { out: [], ret: [] },
+      days: [[], [], [], [], [], [], []],   // aktywności dni 1–7, daty liczone z settings.dayOne
+      documents: [
+        { id: uid(), name: 'Paszporty — ważność min. do połowy maja 2028', done: false, note: '' },
+        { id: uid(), name: 'Polisa ubezpieczeniowa: numer i telefon alarmowy', done: false, note: '' },
+        { id: uid(), name: 'Potwierdzenie rezerwacji hotelu (numer rezerwacji)', done: false, note: '' },
+        { id: uid(), name: 'Numery rejsów i godziny przelotów', done: false, note: '' },
+        { id: uid(), name: 'Dane kontaktowe resortu: telefon, e-mail', done: false, note: '' },
+        { id: uid(), name: 'Potwierdzenie transferu hydroplanem', done: false, note: '' },
+        { id: uid(), name: 'Karty płatnicze: limity, informacja dla banku o wyjeździe', done: false, note: '' },
+        { id: uid(), name: 'Kopie dokumentów w chmurze lub u zaufanej osoby', done: false, note: '' }
+      ]
+    };
+  }
+
+  // Uzupełnia brakujące klucze wartościami z ziarna — odporność na
+  // import ze starszej kopii i na przyszłe drobne zmiany schematu.
+  function normalize(raw){
+    const base = seed();
+    const s = (raw && typeof raw === 'object') ? raw : {};
+    const out = {
+      schemaVersion: SCHEMA_VERSION,
+      settings: Object.assign({}, base.settings, s.settings || {}),
+      tasks: Array.isArray(s.tasks) ? s.tasks : base.tasks,
+      budget: Array.isArray(s.budget) ? s.budget : base.budget,
+      flights: {
+        out: (s.flights && Array.isArray(s.flights.out)) ? s.flights.out : [],
+        ret: (s.flights && Array.isArray(s.flights.ret)) ? s.flights.ret : []
+      },
+      days: Array.isArray(s.days) ? s.days.slice(0, 7) : base.days,
+      documents: Array.isArray(s.documents) ? s.documents : base.documents
+    };
+    while (out.days.length < 7) out.days.push([]);
+    out.days = out.days.map(d => Array.isArray(d) ? d : []);
+    return out;
+  }
+
+  let storageBroken = false;
+  function load(){
+    try{
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) return normalize(JSON.parse(raw));
+    }catch(e){ storageBroken = true; }
+    return seed();
+  }
+  function save(){
+    try{
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      storageBroken = false;
+    }catch(e){
+      storageBroken = true;
+      flash('Nie udało się zapisać — sprawdź ustawienia przeglądarki');
+    }
+  }
+
+  const state = load();
+  const ui = { view: 'start', editing: {}, adding: {} };
+
+  /* ════════════════ pomocnicze: daty i kwoty ════════════════ */
+
+  const DAY_MS = 86400000;
+  const WEEKDAYS = ['niedziela','poniedziałek','wtorek','środa','czwartek','piątek','sobota'];
+
+  function parseISO(iso){
+    const [y, m, d] = String(iso).split('-').map(Number);
+    return new Date(y, m - 1, d);
+  }
+  function toISO(date){
+    const p = n => String(n).padStart(2, '0');
+    return date.getFullYear() + '-' + p(date.getMonth() + 1) + '-' + p(date.getDate());
+  }
+  function addDays(iso, n){
+    const d = parseISO(iso); d.setDate(d.getDate() + n); return toISO(d);
+  }
+  function fmtDate(iso){
+    if (!iso) return '—';
+    const [y, m, d] = String(iso).split('-');
+    return d + '.' + m + '.' + y;
+  }
+  function weekday(iso){ return WEEKDAYS[parseISO(iso).getDay()]; }
+  function todayISO(){ return toISO(new Date()); }
+  function daysUntil(iso){
+    return Math.round((parseISO(iso) - parseISO(todayISO())) / DAY_MS);
+  }
+  function plDays(n){
+    const a = Math.abs(n);
+    return a === 1 ? 'dzień' : 'dni';
+  }
+
+  const nfPLN = new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 0 });
+  const nfPLN2 = new Intl.NumberFormat('pl-PL', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  function fmtPLN(n){
+    if (n == null || isNaN(n)) return '—';
+    const f = Number.isInteger(Math.round(n * 100) / 100) && Number.isInteger(n) ? nfPLN : nfPLN2;
+    return f.format(n) + ' zł';
+  }
+  function fmtCur(n, code){
+    if (n == null || isNaN(n) || !isFinite(n)) return '—';
+    return nfPLN.format(Math.round(n)) + ' ' + code;
+  }
+  function parseAmount(v){
+    if (v == null) return null;
+    const t = String(v).replace(/\s/g, '').replace(',', '.');
+    if (t === '') return null;
+    const n = Number(t);
+    return isNaN(n) ? null : n;
+  }
+
+  function esc(s){
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  let flashTimer = null;
+  function flash(msg){
+    const el = document.getElementById('flash');
+    el.textContent = msg;
+    el.classList.add('show');
+    clearTimeout(flashTimer);
+    flashTimer = setTimeout(() => el.classList.remove('show'), 2200);
+  }
+
+  /* ════════════════ nawigacja i render ════════════════ */
+
+  const VIEWS = [
+    { id: 'start',   label: 'Start' },
+    { id: 'tasks',   label: 'Zadania' },
+    { id: 'budget',  label: 'Budżet' },
+    { id: 'flights', label: 'Loty' },
+    { id: 'days',    label: 'Plan' },
+    { id: 'docs',    label: 'Dokumenty' }
+  ];
+
+  function renderNav(){
+    document.getElementById('nav').innerHTML = VIEWS.map(v =>
+      `<button type="button" data-action="nav" data-view="${v.id}" aria-current="${ui.view === v.id}">
+         <span class="dot"></span>${v.label}
+       </button>`).join('');
+  }
+
+  const renderers = {};   // moduły dopisują tu swoje funkcje render
+
+  function renderAll(){
+    renderNav();
+    for (const v of VIEWS){
+      const el = document.getElementById('view-' + v.id);
+      const active = ui.view === v.id;
+      el.hidden = !active;
+      if (active){
+        el.innerHTML = renderers[v.id]
+          ? renderers[v.id]()
+          : '<div class="card"><p class="empty">Ten moduł powstaje w kolejnym kroku.</p></div>';
+      }
+    }
+  }
+
+  function setView(id){
+    ui.view = id;
+    ui.editing = {};
+    ui.adding = {};
+    renderAll();
+    window.scrollTo({ top: 0 });
+  }
+
+  /* ── delegacja zdarzeń: klik i submit ── */
+  const clickActions = {};    // name -> (dataset, element) => void
+  const submitActions = {};   // name -> (form) => void
+
+  document.addEventListener('click', e => {
+    const el = e.target.closest('[data-action]');
+    if (!el || el.tagName === 'FORM') return;
+    const fn = clickActions[el.dataset.action];
+    if (fn){ fn(el.dataset, el); }
+  });
+  document.addEventListener('submit', e => {
+    const form = e.target.closest('form[data-action]');
+    if (!form) return;
+    e.preventDefault();
+    const fn = submitActions[form.dataset.action];
+    if (fn){ fn(form); }
+  });
+
+  clickActions.nav = d => setView(d.view);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderAll();
+    if (storageBroken){
+      flash('Uwaga: zapis w tej przeglądarce nie działa — użyj eksportu JSON');
+    }
+  });
+  </script>
+</body>
+</html>
