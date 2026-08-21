@@ -1167,6 +1167,128 @@
     save(); renderAll(); flash('Zapisano odcinek');
   };
 
+  /* ════════════════ moduł: Plan dnia ════════════════
+     Siedem dni; daty liczone z settings.dayOne, więc zmiana okna
+     podróży przesuwa kalendarz bez utraty wpisanych aktywności. */
+
+  const ACT_SUGGESTIONS = [
+    'Nurkowanie z rekinami wielorybimi', 'Snorkeling na rafie domowej',
+    'Spa we dwoje', 'Kolacja na plaży', 'Rejs o zachodzie słońca', 'Dzień bez planu'
+  ];
+
+  function actItem(dayIdx, a){
+    if (ui.editing['act:' + a.id]) return actEditForm(dayIdx, a);
+    return `<li>
+      <div class="item-row">
+        <div class="grow">
+          <p class="item-title">${a.time ? `<span class="num muted">${esc(a.time)}</span> · ` : ''}${esc(a.title)}</p>
+          ${a.note ? `<p class="item-sub">${esc(a.note)}</p>` : ''}
+        </div>
+        <div class="item-actions">
+          <button type="button" class="btn subtle" data-action="act-edit" data-id="${a.id}">Edytuj</button>
+        </div>
+      </div>
+    </li>`;
+  }
+
+  function actFormFields(a){
+    return `
+      <div class="frow">
+        <label class="field"><span>Godzina (opcjonalnie)</span>
+          <input type="time" name="time" value="${esc(a.time || '')}"></label>
+        <label class="field"><span>Aktywność</span>
+          <input name="title" value="${esc(a.title || '')}" required placeholder="np. spa we dwoje"></label>
+      </div>
+      <label class="field"><span>Notatka (opcjonalnie)</span>
+        <input name="note" value="${esc(a.note || '')}"></label>`;
+  }
+
+  function actEditForm(dayIdx, a){
+    return `<li>
+      <form class="edit-form" data-action="act-save" data-day="${dayIdx}" data-id="${a.id}">
+        ${actFormFields(a)}
+        <div class="form-actions">
+          <button class="btn" type="submit">Zapisz</button>
+          <button class="btn subtle" type="button" data-action="task-cancel">Anuluj</button>
+          <button class="btn subtle danger" type="button" data-action="act-delete" data-day="${dayIdx}" data-id="${a.id}">Usuń</button>
+        </div>
+      </form>
+    </li>`;
+  }
+
+  function renderDays(){
+    const s = state.settings;
+    const days = state.days.map((acts, i) => {
+      const iso = addDays(s.dayOne, i);
+      const isAnniv = iso === s.anniversary;
+      const sorted = acts.slice().sort((a, b) =>
+        String(a.time || '99:99').localeCompare(String(b.time || '99:99')));
+      const addOpen = ui.adding['act:' + i];
+      return `<article class="day ${isAnniv ? 'anniv-day' : ''}">
+        <h3>Dzień ${i + 1} — ${weekday(iso)}${isAnniv ? '<span class="day-tag">20. rocznica ślubu</span>' : ''}</h3>
+        <p class="day-date num">${fmtDate(iso)}</p>
+        ${sorted.length ? `<ul class="items">${sorted.map(a => actItem(i, a)).join('')}</ul>`
+          : `<p class="empty">${isAnniv ? 'Ten dzień zasługuje na coś specjalnego — na razie pusty.' : 'Bez planu — i dobrze.'}</p>`}
+        ${addOpen ? `
+        <form data-action="act-add" data-day="${i}" class="edit-form">
+          ${actFormFields({})}
+          <div class="chips">${ACT_SUGGESTIONS.map(t =>
+            `<button type="button" class="chip-btn" data-action="act-chip">${esc(t)}</button>`).join('')}</div>
+          <div class="form-actions">
+            <button class="btn" type="submit">Dodaj</button>
+            <button class="btn subtle" type="button" data-action="task-cancel">Anuluj</button>
+          </div>
+        </form>`
+        : `<button type="button" class="btn subtle" data-action="act-add-open" data-day="${i}">Dodaj aktywność</button>`}
+      </article>`;
+    }).join('');
+
+    return `<div class="card">
+      <h2>Plan dzień po dniu</h2>
+      <p class="lead">Daty liczone od pierwszego dnia pobytu (${fmtDate(s.dayOne)} — zmienisz w ustawieniach na Starcie). Wolne pole to też plan: na Malediwy nie jedzie się zaliczać atrakcji.</p>
+      ${days}
+    </div>`;
+  }
+  renderers.days = renderDays;
+
+  clickActions['act-add-open'] = d => { ui.adding['act:' + d.day] = true; renderAll(); };
+  clickActions['act-edit'] = d => { ui.editing['act:' + d.id] = true; renderAll(); };
+  clickActions['act-chip'] = (d, el) => {
+    const input = el.closest('form').querySelector('[name=title]');
+    if (input){ input.value = el.textContent; input.focus(); }
+  };
+  clickActions['act-delete'] = d => {
+    const i = Number(d.day);
+    if (!confirm('Usunąć tę aktywność?')) return;
+    state.days[i] = state.days[i].filter(a => a.id !== d.id);
+    ui.editing = {};
+    save(); renderAll(); flash('Usunięto aktywność');
+  };
+  submitActions['act-add'] = form => {
+    const i = Number(form.dataset.day);
+    const f = new FormData(form);
+    const title = String(f.get('title')).trim();
+    if (!title) return;
+    state.days[i].push({
+      id: uid(), title,
+      time: String(f.get('time') || ''),
+      note: String(f.get('note') || '').trim()
+    });
+    ui.adding = {};
+    save(); renderAll(); flash('Dodano aktywność');
+  };
+  submitActions['act-save'] = form => {
+    const i = Number(form.dataset.day);
+    const a = state.days[i].find(x => x.id === form.dataset.id);
+    if (!a) return;
+    const f = new FormData(form);
+    a.title = String(f.get('title')).trim() || a.title;
+    a.time = String(f.get('time') || '');
+    a.note = String(f.get('note') || '').trim();
+    ui.editing = {};
+    save(); renderAll(); flash('Zapisano aktywność');
+  };
+
   document.addEventListener('DOMContentLoaded', () => {
     renderAll();
     if (storageBroken){
