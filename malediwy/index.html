@@ -471,7 +471,255 @@
     if (fn){ fn(form); }
   });
 
+  const changeActions = {};   // name -> (element) => void, dla data-change
+  document.addEventListener('change', e => {
+    const el = e.target.closest('[data-change]');
+    if (!el) return;
+    const fn = changeActions[el.dataset.change];
+    if (fn){ fn(el); }
+  });
+
   clickActions.nav = d => setView(d.view);
+
+  /* ════════════════ moduł: Start ════════════════
+     Odliczanie, fakty wyjazdu, ustawienia, kopia zapasowa. */
+
+  const WINDOW_PRESETS = {
+    A: { departure: '2027-11-06', dayOne: '2027-11-07', label: 'sobota 6.11 → sobota 13.11' },
+    B: { departure: '2027-11-07', dayOne: '2027-11-08', label: 'niedziela 7.11 → niedziela 14.11' }
+  };
+
+  function countCard(targetISO, label, extraClass, place){
+    const n = daysUntil(targetISO);
+    let big, when = weekday(targetISO) + ', ' + fmtDate(targetISO) + (place ? ' · ' + place : '');
+    if (n > 0)       big = `${n} <small>${plDays(n)}</small>`;
+    else if (n === 0) big = 'dziś';
+    else              big = '<small>za nami</small>';
+    return `<div class="count ${extraClass || ''}">
+      <div class="label">${label}</div>
+      <div class="big num">${big}</div>
+      <div class="when">${when}</div>
+    </div>`;
+  }
+
+  function renderStart(){
+    const s = state.settings;
+    const lastDay = addDays(s.dayOne, 6);
+
+    // najbliższe kroki: otwarte zadania po terminie rosnąco
+    const open = state.tasks.filter(t => !t.done)
+      .slice().sort((a, b) => String(a.due).localeCompare(String(b.due)));
+    const overdue = open.filter(t => daysUntil(t.due) < 0).length;
+    const next3 = open.slice(0, 3);
+
+    const planned = state.budget.reduce((a, b) => a + (b.planned || 0), 0);
+    const spent = state.budget.reduce((a, b) => a + (b.actual != null ? b.actual : 0), 0);
+
+    const isCustom = s.window === 'custom';
+
+    return `
+    <div class="count-grid">
+      ${countCard(s.departure, 'Do wylotu', '', 'Warszawa')}
+      ${countCard(s.anniversary, 'Do 20. rocznicy', 'anniv', '')}
+    </div>
+
+    <div class="card">
+      <h2>Najbliższe kroki</h2>
+      ${overdue ? `<p class="notice warn" style="margin-top:8px">Po terminie: ${overdue} ${overdue === 1 ? 'zadanie' : (overdue < 5 ? 'zadania' : 'zadań')} — zajrzyj do listy.</p>` : ''}
+      ${next3.length ? `<ul class="items">${next3.map(t => `
+        <li><div class="item-row">
+          <div class="grow">
+            <p class="item-title">${esc(t.title)}</p>
+            <p class="item-sub num">termin: ${fmtDate(t.due)}</p>
+          </div>
+          ${dueBadge(t.due)}
+        </div></li>`).join('')}</ul>`
+      : '<p class="empty">Wszystkie zadania odhaczone.</p>'}
+      <div class="form-actions" style="margin-top:10px">
+        <button type="button" class="btn ghost" data-action="nav" data-view="tasks">Pełna lista zadań</button>
+      </div>
+      <hr class="sep">
+      <p class="small muted num" style="margin:0">
+        Budżet: plan ${fmtPLN(planned)} · wpisane wydatki ${fmtPLN(spent)}
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Wyjazd w pigułce</h2>
+      <dl class="facts">
+        <div><dt>Termin</dt><dd class="num">${fmtDate(s.departure)} – ${fmtDate(lastDay)} · 7 dni / 6 nocy</dd></div>
+        <div><dt>Resort</dt><dd>Meliá Whale Lagoon Maldives, atol South Ari (Bodufinolhu)</dd></div>
+        <div><dt>Willa</dt><dd>Water Villa 85 m², preferencja: strona zachodnia (zachody słońca)</dd></div>
+        <div><dt>Formuła</dt><dd>all-inclusive</dd></div>
+        <div><dt>Trasa</dt><dd>Łódź → Warszawa → przesiadka (Doha / Dubaj / Stambuł / Abu Zabi) → Malé</dd></div>
+        <div><dt>Transfer</dt><dd>hydroplan, 30 min — lata tylko za dnia, rezerwuje resort</dd></div>
+        <div><dt>Formalności</dt><dd>wiza bezpłatna na miejscu · paszport ważny min. 6 miesięcy</dd></div>
+        <div><dt>Okazja</dt><dd>20. rocznica ślubu — ślub w Meliá Bali</dd></div>
+      </dl>
+    </div>
+
+    <div class="card">
+      <h2>Ustawienia</h2>
+      <p class="lead">Daty sterują odliczaniem i planem dnia, kursy — przelicznikiem w budżecie, granice godzinowe — ostrzeżeniami w module Loty.</p>
+      <form data-action="settings-save">
+        <div class="field">
+          <span>Okno podróży</span>
+          <select name="window" data-change="settings-window">
+            <option value="A" ${s.window === 'A' ? 'selected' : ''}>${WINDOW_PRESETS.A.label}</option>
+            <option value="B" ${s.window === 'B' ? 'selected' : ''}>${WINDOW_PRESETS.B.label}</option>
+            <option value="custom" ${isCustom ? 'selected' : ''}>własne daty</option>
+          </select>
+        </div>
+        <div class="frow">
+          <label class="field"><span>Wylot z Warszawy</span>
+            <input type="date" name="departure" value="${esc(s.departure)}" ${isCustom ? '' : 'disabled'} required></label>
+          <label class="field"><span>Pierwszy dzień na miejscu</span>
+            <input type="date" name="dayOne" value="${esc(s.dayOne)}" ${isCustom ? '' : 'disabled'} required></label>
+        </div>
+        <div class="frow">
+          <label class="field"><span>Kurs USD (zł za 1 USD)</span>
+            <input inputmode="decimal" name="rateUSD" value="${esc(s.rateUSD)}"></label>
+          <label class="field"><span>Kurs EUR (zł za 1 EUR)</span>
+            <input inputmode="decimal" name="rateEUR" value="${esc(s.rateEUR)}"></label>
+        </div>
+        <div class="frow">
+          <label class="field"><span>Najpóźniejszy przylot do Malé</span>
+            <input type="time" name="arrivalCutoff" value="${esc(s.arrivalCutoff)}" required></label>
+          <label class="field"><span>Najwcześniejszy wylot powrotny</span>
+            <input type="time" name="morningCutoff" value="${esc(s.morningCutoff)}" required></label>
+        </div>
+        <p class="small muted">Granice godzinowe wynikają z hydroplanu: ostatnie odloty z Malé około 16:00, więc resorty przyjmują na transfer tego samego dnia przyloty mniej więcej do 15:00. Rano hydroplan startuje po świcie — stąd margines dla rejsu powrotnego.</p>
+        <div class="form-actions">
+          <button class="btn" type="submit">Zapisz ustawienia</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Dane i kopia zapasowa</h2>
+      <p class="lead">Wszystko trzymane lokalnie w tej przeglądarce (localStorage). Przenosisz dane między urządzeniami plikiem JSON albo przez schowek.</p>
+      <div class="form-actions">
+        <button type="button" class="btn" data-action="backup-download">Pobierz kopię (JSON)</button>
+        <button type="button" class="btn ghost" data-action="backup-copy">Kopiuj JSON</button>
+        <label class="btn ghost" style="cursor:pointer">Wczytaj plik…
+          <input class="hidden-file" type="file" accept="application/json,.json" data-change="import-file">
+        </label>
+      </div>
+      <hr class="sep">
+      <form data-action="import-paste">
+        <label class="field"><span>Albo wklej JSON z innego urządzenia</span>
+          <textarea class="backup-box" name="json" id="backup-box" placeholder='{"schemaVersion":1, …}'></textarea></label>
+        <div class="form-actions">
+          <button class="btn ghost" type="submit">Wczytaj wklejone dane</button>
+          <button class="btn subtle danger" type="button" data-action="backup-reset">Przywróć dane startowe</button>
+        </div>
+      </form>
+    </div>`;
+  }
+  renderers.start = renderStart;
+
+  function dueBadge(due){
+    const n = daysUntil(due);
+    if (n < 0)  return `<span class="badge overdue num">${-n} ${plDays(n)} po terminie</span>`;
+    if (n === 0) return '<span class="badge soon">dziś</span>';
+    if (n <= 30) return `<span class="badge soon num">za ${n} ${plDays(n)}</span>`;
+    return `<span class="badge plain num">za ${n} dni</span>`;
+  }
+
+  changeActions['settings-window'] = el => {
+    const form = el.closest('form');
+    const dep = form.querySelector('[name=departure]');
+    const one = form.querySelector('[name=dayOne]');
+    const preset = WINDOW_PRESETS[el.value];
+    if (preset){
+      dep.value = preset.departure; one.value = preset.dayOne;
+      dep.disabled = one.disabled = true;
+    } else {
+      dep.disabled = one.disabled = false;
+    }
+  };
+
+  submitActions['settings-save'] = form => {
+    const f = new FormData(form);
+    const s = state.settings;
+    s.window = String(f.get('window'));
+    const preset = WINDOW_PRESETS[s.window];
+    if (preset){
+      s.departure = preset.departure; s.dayOne = preset.dayOne;
+    } else {
+      s.departure = String(form.querySelector('[name=departure]').value || s.departure);
+      s.dayOne = String(form.querySelector('[name=dayOne]').value || s.dayOne);
+    }
+    const usd = parseAmount(f.get('rateUSD'));
+    const eur = parseAmount(f.get('rateEUR'));
+    if (usd && usd > 0) s.rateUSD = usd;
+    if (eur && eur > 0) s.rateEUR = eur;
+    s.arrivalCutoff = String(f.get('arrivalCutoff') || s.arrivalCutoff);
+    s.morningCutoff = String(f.get('morningCutoff') || s.morningCutoff);
+    save(); renderAll(); flash('Zapisano ustawienia');
+  };
+
+  /* ── kopia zapasowa ── */
+
+  clickActions['backup-download'] = () => {
+    const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'malediwy-2027-kopia-' + todayISO() + '.json';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+  };
+
+  clickActions['backup-copy'] = () => {
+    const json = JSON.stringify(state);
+    const done = () => flash('Skopiowano JSON do schowka');
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(json).then(done, () => copyFallback(json));
+    } else copyFallback(json);
+    function copyFallback(text){
+      const box = document.getElementById('backup-box');
+      if (box){ box.value = text; box.focus(); box.select(); }
+      flash('Schowek niedostępny — JSON w polu poniżej, skopiuj ręcznie');
+    }
+  };
+
+  function applyImport(text){
+    let raw;
+    try{ raw = JSON.parse(text); }
+    catch(e){ flash('To nie jest poprawny JSON'); return; }
+    if (!raw || typeof raw !== 'object' || !('schemaVersion' in raw)){
+      flash('Plik nie wygląda na kopię tego planera'); return;
+    }
+    if (!confirm('Zastąpić obecne dane danymi z kopii? Tej operacji nie można cofnąć.')) return;
+    const fresh = normalize(raw);
+    Object.keys(state).forEach(k => delete state[k]);
+    Object.assign(state, fresh);
+    save(); setView('start'); flash('Wczytano dane z kopii');
+  }
+
+  changeActions['import-file'] = el => {
+    const file = el.files && el.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => applyImport(String(reader.result));
+    reader.onerror = () => flash('Nie udało się odczytać pliku');
+    reader.readAsText(file);
+    el.value = '';
+  };
+
+  submitActions['import-paste'] = form => {
+    const text = form.querySelector('[name=json]').value.trim();
+    if (!text){ flash('Wklej najpierw JSON'); return; }
+    applyImport(text);
+  };
+
+  clickActions['backup-reset'] = () => {
+    if (!confirm('Skasować wszystko i wrócić do danych startowych?')) return;
+    const fresh = seed();
+    Object.keys(state).forEach(k => delete state[k]);
+    Object.assign(state, fresh);
+    save(); setView('start'); flash('Przywrócono dane startowe');
+  };
 
   document.addEventListener('DOMContentLoaded', () => {
     renderAll();
