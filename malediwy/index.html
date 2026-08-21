@@ -968,6 +968,205 @@
     save(); renderAll(); flash('Przeliczono po nowych kursach');
   };
 
+  /* ════════════════ moduł: Loty ════════════════
+     Twarde ograniczenie: hydroplan lata tylko za dnia. Przylot do Malé
+     po granicy godzinowej = nocleg w Malé i strata dnia. */
+
+  function isMale(txt){
+    const t = String(txt || '').toUpperCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    return t.includes('MLE') || t.includes('MALE');
+  }
+  function toMin(hhmm){
+    const [h, m] = String(hhmm || '').split(':').map(Number);
+    return (isNaN(h) ? 0 : h) * 60 + (isNaN(m) ? 0 : m);
+  }
+  function fmtMin(min){
+    const h = Math.floor(min / 60), m = min % 60;
+    if (h && m) return h + ' h ' + m + ' min';
+    if (h) return h + ' h';
+    return m + ' min';
+  }
+
+  function analyzeOutbound(){
+    const s = state.settings;
+    const segs = state.flights.out;
+    if (!segs.length) return { cls: 'info', head: 'Wpisz rejsy do Malé',
+      body: 'Po wpisaniu odcinków sprawdzę, czy przylot mieści się w oknie transferu hydroplanem tego samego dnia.' };
+    const male = segs.filter(x => isMale(x.to)).pop();
+    if (!male) return { cls: 'info', head: 'Nie widzę odcinka kończącego się w Malé',
+      body: 'Żaden z wpisanych odcinków nie ma w polu „do" lotniska MLE / Malé — nie mogę ocenić transferu.' };
+    const arr = toMin(male.arrTime), cutoff = toMin(s.arrivalCutoff);
+    const dateNote = (male.arrDate && male.arrDate !== s.dayOne)
+      ? ` Uwaga: data przylotu (${fmtDate(male.arrDate)}) różni się od pierwszego dnia pobytu w ustawieniach (${fmtDate(s.dayOne)}).` : '';
+    if (arr <= cutoff){
+      return { cls: 'ok', head: 'Transfer hydroplanem tego samego dnia: realny',
+        body: `Rejs ${esc(male.flightNo || '—')} ląduje w Malé o ${esc(male.arrTime)} — ${fmtMin(cutoff - arr)} zapasu do granicy ${esc(s.arrivalCutoff)}. Po zakupie biletów przekaż numery rejsów resortowi; to on rezerwuje hydroplan.` + dateNote };
+    }
+    return { cls: 'warn', head: 'Przylot za późno na hydroplan tego samego dnia',
+      body: `Rejs ${esc(male.flightNo || '—')} ląduje w Malé o ${esc(male.arrTime)}, czyli ${fmtMin(arr - cutoff)} po granicy ${esc(s.arrivalCutoff)}. Hydroplan nie lata po zmroku — realny scenariusz to nocleg w Malé i transfer rano, ze stratą dnia w resorcie. Poszukaj rejsu z porannym przylotem.` + dateNote };
+  }
+
+  function analyzeReturn(){
+    const s = state.settings;
+    const segs = state.flights.ret;
+    if (!segs.length) return null;
+    const male = segs.filter(x => isMale(x.from)).shift();
+    if (!male) return { cls: 'info', head: 'Nie widzę odcinka startującego z Malé',
+      body: 'Żaden z wpisanych odcinków powrotnych nie ma w polu „z" lotniska MLE / Malé.' };
+    const dep = toMin(male.depTime), cutoff = toMin(s.morningCutoff);
+    if (dep < cutoff){
+      return { cls: 'warn', head: 'Powrót startuje bardzo wcześnie',
+        body: `Rejs ${esc(male.flightNo || '—')} odlatuje z Malé o ${esc(male.depTime)} — przed granicą ${esc(s.morningCutoff)}. Hydroplan startuje dopiero po świcie, więc poranny wylot może oznaczać przeprawę do Malé dzień wcześniej. Potwierdź z resortem, czy transfer zdąży.` };
+    }
+    return { cls: 'ok', head: 'Godzina powrotu bez ryzyka',
+      body: `Odlot z Malé o ${esc(male.depTime)} zostawia czas na poranny hydroplan z resortu (granica: ${esc(s.morningCutoff)}).` };
+  }
+
+  function noticeHTML(n){
+    return n ? `<p class="notice ${n.cls}"><strong>${n.head}</strong>${n.body}</p>` : '';
+  }
+
+  function flightItem(dir, seg){
+    if (ui.editing['flight:' + seg.id]) return flightEditForm(dir, seg);
+    return `<li>
+      <div class="item-row">
+        <div class="grow">
+          <p class="item-title">${esc(seg.flightNo || 'rejs')} · ${esc(seg.from)} → ${esc(seg.to)}</p>
+          <p class="item-sub num">${fmtDate(seg.depDate)} ${esc(seg.depTime)} → ${fmtDate(seg.arrDate)} ${esc(seg.arrTime)} <span class="muted">(czasy lokalne)</span></p>
+        </div>
+        <div class="item-actions">
+          <button type="button" class="btn subtle" data-action="flight-edit" data-id="${seg.id}">Edytuj</button>
+        </div>
+      </div>
+    </li>`;
+  }
+
+  function flightFormFields(seg){
+    return `
+      <div class="frow tight-sm">
+        <label class="field"><span>Numer rejsu</span>
+          <input name="flightNo" value="${esc(seg.flightNo || '')}" placeholder="np. QR 259"></label>
+        <div class="frow" style="gap:10px">
+          <label class="field"><span>Z (lotnisko)</span>
+            <input name="from" value="${esc(seg.from || '')}" placeholder="WAW" required></label>
+          <label class="field"><span>Do (lotnisko)</span>
+            <input name="to" value="${esc(seg.to || '')}" placeholder="DOH" required></label>
+        </div>
+      </div>
+      <div class="frow">
+        <label class="field"><span>Wylot — data</span>
+          <input type="date" name="depDate" value="${esc(seg.depDate || '')}" required></label>
+        <label class="field"><span>Wylot — godzina (lokalna)</span>
+          <input type="time" name="depTime" value="${esc(seg.depTime || '')}" required></label>
+      </div>
+      <div class="frow">
+        <label class="field"><span>Przylot — data</span>
+          <input type="date" name="arrDate" value="${esc(seg.arrDate || '')}" required></label>
+        <label class="field"><span>Przylot — godzina (lokalna)</span>
+          <input type="time" name="arrTime" value="${esc(seg.arrTime || '')}" required></label>
+      </div>`;
+  }
+
+  function flightEditForm(dir, seg){
+    return `<li>
+      <form class="edit-form" data-action="flight-save" data-id="${seg.id}" data-dir="${dir}">
+        ${flightFormFields(seg)}
+        <div class="form-actions">
+          <button class="btn" type="submit">Zapisz</button>
+          <button class="btn subtle" type="button" data-action="task-cancel">Anuluj</button>
+          <button class="btn subtle danger" type="button" data-action="flight-delete" data-id="${seg.id}" data-dir="${dir}">Usuń</button>
+        </div>
+      </form>
+    </li>`;
+  }
+
+  function flightCard(dir, title, lead, notice, defaults){
+    const segs = state.flights[dir].slice()
+      .sort((a, b) => (a.depDate + a.depTime).localeCompare(b.depDate + b.depTime));
+    const addOpen = ui.adding['flight:' + dir];
+    return `<div class="card">
+      <h2>${title}</h2>
+      <p class="lead">${lead}</p>
+      ${noticeHTML(notice)}
+      ${segs.length ? `<ul class="items">${segs.map(x => flightItem(dir, x)).join('')}</ul>` : '<p class="empty">Nie wpisano jeszcze odcinków.</p>'}
+      <hr class="sep">
+      ${addOpen ? `
+      <form data-action="flight-add" data-dir="${dir}">
+        <p class="group-label" style="margin-top:0">Nowy odcinek</p>
+        ${flightFormFields(defaults)}
+        <div class="form-actions">
+          <button class="btn" type="submit">Dodaj odcinek</button>
+          <button class="btn subtle" type="button" data-action="task-cancel">Anuluj</button>
+        </div>
+      </form>`
+      : `<button type="button" class="btn ghost" data-action="flight-add-open" data-dir="${dir}">Dodaj odcinek</button>`}
+    </div>`;
+  }
+
+  function renderFlights(){
+    const s = state.settings;
+    return `
+      ${flightCard('out', 'Do Malé',
+        'Wpisz wszystkie odcinki, łącznie z przesiadką. Sprawdzam odcinek kończący się w Malé (MLE) względem granicy przylotu.',
+        analyzeOutbound(),
+        { depDate: s.departure, arrDate: s.dayOne })}
+      ${flightCard('ret', 'Powrót',
+        'Odcinki powrotne. Pilnuję, żeby wylot z Malé nie wypadał przed porannym oknem hydroplanu.',
+        analyzeReturn(),
+        { depDate: addDays(s.dayOne, 6), arrDate: addDays(s.dayOne, 6) })}
+      <div class="card">
+        <h2>Warianty przesiadki</h2>
+        <p class="lead">Brak połączeń bezpośrednich z Polski. Czas w powietrzu z Warszawy, orientacyjnie:</p>
+        <dl class="facts">
+          <div><dt>Qatar Airways</dt><dd>przez Dohę · ok. 9 h 15 min</dd></div>
+          <div><dt>Emirates</dt><dd>przez Dubaj · ok. 10 h</dd></div>
+          <div><dt>Etihad</dt><dd>przez Abu Zabi · ok. 10 h</dd></div>
+          <div><dt>Turkish Airlines</dt><dd>przez Stambuł · ok. 10 h 30 min</dd></div>
+        </dl>
+        <p class="small muted" style="margin-bottom:0">Kryterium wyboru nie jest cena, tylko godzina przylotu do Malé: rano = hydroplan tego samego dnia, wieczorem = nocleg w Malé i strata dnia.</p>
+      </div>`;
+  }
+  renderers.flights = renderFlights;
+
+  function readFlightForm(form){
+    const f = new FormData(form);
+    return {
+      flightNo: String(f.get('flightNo') || '').trim(),
+      from: String(f.get('from') || '').trim().toUpperCase(),
+      to: String(f.get('to') || '').trim().toUpperCase(),
+      depDate: String(f.get('depDate') || ''),
+      depTime: String(f.get('depTime') || ''),
+      arrDate: String(f.get('arrDate') || ''),
+      arrTime: String(f.get('arrTime') || '')
+    };
+  }
+
+  clickActions['flight-add-open'] = d => { ui.adding['flight:' + d.dir] = true; renderAll(); };
+  clickActions['flight-edit'] = d => { ui.editing['flight:' + d.id] = true; renderAll(); };
+  clickActions['flight-delete'] = d => {
+    if (!confirm('Usunąć ten odcinek lotu?')) return;
+    state.flights[d.dir] = state.flights[d.dir].filter(x => x.id !== d.id);
+    ui.editing = {};
+    save(); renderAll(); flash('Usunięto odcinek');
+  };
+  submitActions['flight-add'] = form => {
+    const seg = readFlightForm(form);
+    if (!seg.from || !seg.to || !seg.depDate || !seg.arrDate) return;
+    seg.id = uid();
+    state.flights[form.dataset.dir].push(seg);
+    ui.adding = {};
+    save(); renderAll(); flash('Dodano odcinek');
+  };
+  submitActions['flight-save'] = form => {
+    const list = state.flights[form.dataset.dir];
+    const seg = list.find(x => x.id === form.dataset.id);
+    if (!seg) return;
+    Object.assign(seg, readFlightForm(form));
+    ui.editing = {};
+    save(); renderAll(); flash('Zapisano odcinek');
+  };
+
   document.addEventListener('DOMContentLoaded', () => {
     renderAll();
     if (storageBroken){
