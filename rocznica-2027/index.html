@@ -443,8 +443,8 @@ window.initMap = function (scope) {
   // --- stan (pamiętany w przeglądarce) ---
   function load(k, d) { try { var v = localStorage.getItem('tyt-' + k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }
   function save(k, v) { try { localStorage.setItem('tyt-' + k, JSON.stringify(v)); } catch (e) {} }
-  var S = { fav: load('fav', []), cmp: load('cmp', []), nn: load('nn', 7), reg: load('reg', ''), lvl: load('lvl', 2), mode: load('mode', 'cards'), pick: load('pick', null), sort: ['rk', 1], q: '' };
-  function persist() { ['fav', 'cmp', 'nn', 'reg', 'lvl', 'mode', 'pick'].forEach(function (k) { save(k, S[k]); }); }
+  var S = { fav: load('fav', []), cmp: load('cmp', []), nn: load('nn', 7), reg: load('reg', ''), lvl: load('lvl', 2), rmode: load('rmode', 'pl'), mode: load('mode', 'cards'), pick: load('pick', null), sort: ['rk', 1], q: '' };
+  function persist() { ['fav', 'cmp', 'nn', 'reg', 'lvl', 'mode', 'pick', 'rmode'].forEach(function (k) { save(k, S[k]); }); }
 
   // --- pomocnicze ---
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
@@ -456,8 +456,8 @@ window.initMap = function (scope) {
     if (!o) return '<div class="noimg ' + (cls || '') + '"></div>';
     return '<img class="' + (cls || '') + '" src="' + o.s + '" srcset="' + o.s + ' 640w, ' + o.l + ' 1600w" sizes="' + (sizes || '(max-width: 760px) 100vw, 400px') + '" alt="' + esc(o.t || '') + '"' + (eager ? ' fetchpriority="high"' : ' loading="lazy"') + ' decoding="async">';
   }
-  // zegar czasu lotu: tarcza 0–20 h, pola zielone (do 6 h), żółte (6–12 h), czerwone (ponad 12 h)
-  function fzone(h) { return h <= 6 ? 'g' : h <= 12 ? 'y' : 'r'; }
+  // zegar czasu lotu: tarcza 0–20 h, pola zielone (do 8 h), żółte (8–13 h), czerwone (ponad 13 h)
+  function fzone(h) { return h <= 8 ? 'g' : h <= 13 ? 'y' : 'r'; }
   function clock(h, est, big) {
     if (h == null) return '';
     var R = 40, cx = 50, cy = 50, M = 20;
@@ -467,7 +467,7 @@ window.initMap = function (scope) {
     for (var t = 0; t <= M; t += 2) { var a = pt(t, R + 6), b = pt(t, R + (t % 6 ? 9 : 11)); ticks += '<line x1="' + a[0].toFixed(1) + '" y1="' + a[1].toFixed(1) + '" x2="' + b[0].toFixed(1) + '" y2="' + b[1].toFixed(1) + '"/>'; }
     var lab = String(h).replace('.', ',') + ' h', z = fzone(h);
     return '<span class="clk ' + (big ? 'big ' : '') + 'k' + z + '" role="img" aria-label="Czas lotu ' + (est ? 'około ' : '') + lab + ': ' + ({ g: 'krótki', y: 'średni', r: 'długi' })[z] + '">' +
-      '<svg viewBox="0 -4 100 62" aria-hidden="true">' + arc(0, 6, 'g') + arc(6, 12, 'y') + arc(12, M, 'r') + '<g class="tk">' + ticks + '</g>' +
+      '<svg viewBox="0 -4 100 62" aria-hidden="true">' + arc(0, 8, 'g') + arc(8, 13, 'y') + arc(13, M, 'r') + '<g class="tk">' + ticks + '</g>' +
       '<line class="nd" x1="' + cx + '" y1="' + cy + '" x2="' + n[0].toFixed(1) + '" y2="' + n[1].toFixed(1) + '"/><circle class="hub" cx="' + cx + '" cy="' + cy + '" r="3.5"/></svg>' +
       '<b>' + (est ? '~' : '') + lab + '</b></span>';
   }
@@ -515,6 +515,7 @@ window.initMap = function (scope) {
     var b = p.prog && p.prog.budgets[h.n], inCmp = S.cmp.indexOf(h.id) >= 0;
     return '<article class="hcard" id="h-' + h.id + '">' + (h.img ? '<img src="' + h.img + '" alt="" loading="lazy">' : img(p.gal[0])) +
       '<div class="bd"><div class="top"><div><span class="tierlab t' + h.tier + '">' + TIERN[h.tier] + '</span> <span class="ct">#' + h.rk + ' w rankingu</span><h3>' + esc(h.n) + '</h3></div>' + heart(h.id, h.n, true) + '</div>' +
+      (h.fpen ? '<p class="risk">Ocena obniżona o ' + dec(h.fpen) + ' za lot dłuższy niż 13 h — przy 7 dniach tracicie część wyjazdu.</p>' : '') +
       '<p class="why">' + esc(h.why) + '</p>' +
       (h.op ? '<p class="op">' + esc(h.op) + '</p>' : '') +
       (h.atr && h.atr.length ? '<div class="atr"><span class="lab">W okolicy</span><ul>' + h.atr.map(function (a) { return '<li>' + esc(a) + '</li>'; }).join('') + '</ul></div>' : '') +
@@ -587,15 +588,20 @@ window.initMap = function (scope) {
     return h + '</div>';
   }
 
+  function vRankingPlaces() {
+    var list = D.places.filter(function (p) { return (!S.reg || p.reg === S.reg) && (!S.q || (p.name + ' ' + p.ctry + ' ' + p.L).toLowerCase().indexOf(S.q) >= 0); });
+    return '<div class="scroll"><table class="rt"><thead><tr><th>#</th><th>Miejsce</th><th class="hm">Kraj / region</th><th class="hm">Grupa</th><th>Lot</th><th>Najlepszy hotel</th><th>Ocena</th><th>Koszt od</th></tr></thead><tbody>' +
+      list.map(function (p, i) { var b = H[p.hotels[0]]; return '<tr><td class="n">' + (i + 1) + '</td><td><a href="#/kierunek/' + p.id + '">' + esc(p.name) + '</a>' + (p.prog ? ' <span class="tierlab t1">plan</span>' : '') + '</td><td class="hm">' + esc(p.ctry) + '</td><td class="hm"><span class="tierlab t' + p.tier + '">' + TIERN[p.tier] + '</span></td><td class="n fl">' + clock(p.fh, p.fhe, false) + '</td><td>' + esc(b.n) + (p.hotels.length > 1 ? ' <span class="note">+' + (p.hotels.length - 1) + '</span>' : '') + '</td><td class="n"><b>' + dec(p.sc) + '</b></td><td class="n">' + nf(pcost(p)) + ' zł</td></tr>'; }).join('') + '</tbody></table></div>';
+  }
   function vRanking() {
     var list = D.hotels.filter(function (h) { return (!S.reg || P[h.pl].reg === S.reg) && (!S.q || (h.n + ' ' + P[h.pl].L).toLowerCase().indexOf(S.q) >= 0); });
     var k = S.sort[0], dir = S.sort[1];
     list.sort(function (a, b) { var A = k === 'cost' ? cost(a) : k === 'n' ? a.n : k === 'fh' ? (P[a.pl].fh || 99) : (a[k] || 0), B = k === 'cost' ? cost(b) : k === 'n' ? b.n : k === 'fh' ? (P[b.pl].fh || 99) : (b[k] || 0); return (A > B ? 1 : A < B ? -1 : 0) * dir; });
     var h = '<div class="wrap">' + crumbs([['Start', '#/'], ['Jak wybieraliśmy']]) +
-      '<div class="vh"><div><h1>Jak wybieraliśmy</h1><p>Cała pula: ' + D.hotels.length + ' hoteli w ' + D.places.length + ' miejscach, ' + D.cr.length + ' kryteriów dopasowanych do nas. Kliknijcie wiersz, żeby zobaczyć oceny, albo nazwę miejsca, żeby przejść do kierunku.</p></div></div>' +
-      '<div class="tools">' + regChips() + daysSeg() + '<input type="search" id="rq" placeholder="Szukaj hotelu lub miejsca" value="' + esc(S.q) + '" style="font:inherit;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);min-width:220px"></div>' +
-      '<div class="scroll"><table class="rt"><thead><tr>' + [['rk', '#'], ['n', 'Hotel'], ['', 'Miejsce'], ['tier', 'Grupa', 'hm'], ['st', 'Kategoria', 'hm'], ['fh', 'Lot'], ['sc', 'Ocena'], ['cost', 'Koszt na parę']].map(function (c) { return '<th' + (c[2] ? ' class="' + c[2] + '"' : '') + (c[0] ? ' data-sort="' + c[0] + '" aria-sort="' + (k === c[0] ? (dir > 0 ? 'ascending' : 'descending') : 'none') + '"' : '') + '>' + c[1] + (k === c[0] ? (dir > 0 ? ' ▲' : ' ▼') : '') + '</th>'; }).join('') + '</tr></thead><tbody>' +
-      list.map(function (x) { var p = P[x.pl]; return '<tr data-row="' + x.id + '"><td class="n">' + x.rk + '</td><td>' + esc(x.n) + '</td><td><a href="#/kierunek/' + p.id + '">' + esc(p.name) + '</a></td><td class="hm"><span class="tierlab t' + x.tier + '">' + TIERN[x.tier] + '</span></td><td class="hm">' + esc(x.katl || '—') + '</td><td class="n fl">' + clock(p.fh, p.fhe, false) + '</td><td class="n"><b>' + dec(x.sc) + '</b></td><td class="n"' + (cost(x) > 26000 ? ' style="color:#b3263e"' : '') + '>' + nf(cost(x)) + ' zł</td></tr>'; }).join('') + '</tbody></table></div>' +
+      '<div class="vh"><div><h1>Jak wybieraliśmy</h1><p>Cała pula: ' + D.hotels.length + ' hoteli w ' + D.places.length + ' miejscach (kierunek = miejsce, np. Teneryfa; w jednym miejscu bywa kilka hoteli), ' + D.cr.length + ' kryteriów dopasowanych do nas. Kliknijcie wiersz, żeby zobaczyć oceny, albo nazwę miejsca, żeby przejść do kierunku.</p></div></div>' +
+      '<div class="tools">' + seg('Widok rankingu', [['rmode', 'pl', 'Miejsca'], ['rmode', 'h', 'Hotele']], S.rmode) + regChips() + daysSeg() + '<input type="search" id="rq" placeholder="Szukaj hotelu lub miejsca" value="' + esc(S.q) + '" style="font:inherit;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);min-width:220px"></div>' +
+      (S.rmode === 'pl' ? vRankingPlaces() : '<div class="scroll"><table class="rt"><thead><tr>' + [['rk', '#'], ['n', 'Hotel'], ['', 'Miejsce'], ['tier', 'Grupa', 'hm'], ['st', 'Kategoria', 'hm'], ['fh', 'Lot'], ['sc', 'Ocena'], ['cost', 'Koszt na parę']].map(function (c) { return '<th' + (c[2] ? ' class="' + c[2] + '"' : '') + (c[0] ? ' data-sort="' + c[0] + '" aria-sort="' + (k === c[0] ? (dir > 0 ? 'ascending' : 'descending') : 'none') + '"' : '') + '>' + c[1] + (k === c[0] ? (dir > 0 ? ' ▲' : ' ▼') : '') + '</th>'; }).join('') + '</tr></thead><tbody>' +
+      list.map(function (x) { var p = P[x.pl]; return '<tr data-row="' + x.id + '"><td class="n">' + x.rk + '</td><td>' + esc(x.n) + '</td><td><a href="#/kierunek/' + p.id + '">' + esc(p.name) + '</a></td><td class="hm"><span class="tierlab t' + x.tier + '">' + TIERN[x.tier] + '</span></td><td class="hm">' + esc(x.katl || '—') + '</td><td class="n fl">' + clock(p.fh, p.fhe, false) + '</td><td class="n"><b>' + dec(x.sc) + '</b></td><td class="n"' + (cost(x) > 26000 ? ' style="color:#b3263e"' : '') + '>' + nf(cost(x)) + ' zł</td></tr>'; }).join('') + '</tbody></table></div>') +
       '<div class="sec"><h2>Kryteria i wagi</h2></div><ul class="crit">' + D.cr.map(function (c) { return '<li><span>' + esc(c.l) + '</span><i><s style="width:' + (c.w / 3 * 100) + '%"></s></i><b>×' + String(c.w).replace('.', ',') + '</b></li>'; }).join('') + '</ul>' +
       '<p class="note">Każdy hotel ma ocenę 1–10 w każdym kryterium; wynik to średnia ważona. Najwięcej ważą widok i efekt wow (×3), potem design i aktywność (×2,5). Kategoria hotelu (×1) to gwiazdki: oficjalne albo, gdy hotel ich nie ma (lodże, ryokany, butiki), odpowiednik z serwisów rezerwacyjnych; 5★ = 10, 4★ = 8, 3★ = 6. Cztery grupy: faworyci od ' + String(D.t1).replace('.', ',') + ', mocne alternatywy od ' + String(D.t2).replace('.', ',') + ', warte rozważenia od ' + String(D.t4).replace('.', ',') + ', a poniżej ' + String(D.t4).replace('.', ',') + ' hotele z wyraźnym kompromisem. Koszt to cały wyjazd jednej pary: hotel, lot, auto, jedzenie, wycieczki i rezerwa; hotel liczony za liczbę nocy, reszta proporcjonalnie do dni. Rewizja v3: „swoboda” to łatwość podróży z pułapem dla kraju, w tropikach krótkie ulewy liczą się łagodniej, aktywność obejmuje też snorkeling i nurkowanie. Ceny to szacunki na bazie 2026 r. Wykluczyliśmy kraje z ostrzeżeniem MSZ 3–4, miejsca, w których już byliśmy lub których nie chcemy (Madera, Gran Canaria, Malta, Egipt, Albania, Grecja, Maroko, Karaiby, Douro, Etna), oraz hotele zamknięte w listopadzie.</p>';
     return h + '</div>';
@@ -642,6 +648,7 @@ window.initMap = function (scope) {
     if (d.fav) { e.preventDefault(); var i = S.fav.indexOf(d.fav); if (i >= 0) S.fav.splice(i, 1); else S.fav.push(d.fav); persist(); t.setAttribute('aria-pressed', i < 0); paintFav(); if ((location.hash || '').indexOf('wybor') >= 0) rerender(); return; }
     if (d.reg != null) { S.reg = d.reg; persist(); rerender(); return; }
     if (d.lvl != null) { S.lvl = +d.lvl; persist(); rerender(); return; }
+    if (d.rmode) { S.rmode = d.rmode; persist(); rerender(); return; }
     if (d.mode) { S.mode = d.mode; persist(); rerender(); return; }
     if (d.nn) { S.nn = +d.nn; persist(); rerender(); return; }
     if (d.pick) { S.pick = S.pick === d.pick ? null : d.pick; persist(); rerender(); return; }
