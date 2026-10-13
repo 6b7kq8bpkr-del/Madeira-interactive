@@ -1,8 +1,3 @@
-<!doctype html>
-<html lang="pl">
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
 <meta charset="utf-8">
 <title>Twenty Years Together</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,13 +7,13 @@
   /* Układ: aplikacja-przewodnik — odliczanie i trzy najlepsze na otwarciu, mapa lotów, wybór hotelu z filtrami, potem rozdziały-podróże.
      Motyw: gody porcelanowe (20. rocznica) — biel porcelany, kobalt malatury, złoty rant. */
   :root {
-    --porcelain: #f5f6f9; --paper: #ffffff; --ink: #141a2e; --ink-2: #3e4763; --muted: #6b7391;
-    --cobalt: #2244a8; --cobalt-2: #6f86cf; --cobalt-3: #b9c6ec; --gold: #9c7424; --gold-2: #d9bb7b; --line: #dde2ee;
-    --on-cobalt: #ffffff; --chip: #eef1f9;
+    --porcelain: #e6e3dc; --paper: #f1eee7; --ink: #141a2e; --ink-2: #3a4360; --muted: #636b88;
+    --cobalt: #2244a8; --cobalt-2: #6f86cf; --cobalt-3: #b9c6ec; --gold: #9c7424; --gold-2: #d9bb7b; --line: #d2cdc1;
+    --on-cobalt: #ffffff; --chip: #e3dfd5;
     --shade: 0 1px 2px rgba(20,26,46,.06), 0 22px 44px -28px rgba(20,26,46,.45);
     --f-display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
     --f-body: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
-    --map-sea: #c3d3f3; --map-sea-2: #8da7e3; --map-shadow: #34508f; --map-land: #fdfaf2; --map-coast: #d9c79d; --map-grat: rgba(255,255,255,.6); --map-ink: #141a2e; --map-dim-ink: #55607f; --map-hot: #2244a8; --map-arc: #c08a2e; --map-plane: #9c7424; --map-accent: #9c7424; --map-on-accent: #ffffff; --map-dim: #a3abc4; --map-line: #cfd7ec; --map-paper: #ffffff; --map-font: "Hanken Grotesk", Arial, sans-serif;
+    --map-sea: #b4c4e4; --map-sea-2: #8199d2; --map-shadow: #34508f; --map-land: #ece6d8; --map-coast: #d9c79d; --map-grat: rgba(255,255,255,.6); --map-ink: #141a2e; --map-dim-ink: #55607f; --map-hot: #2244a8; --map-arc: #c08a2e; --map-plane: #9c7424; --map-accent: #9c7424; --map-on-accent: #ffffff; --map-dim: #a3abc4; --map-line: #cdc8bb; --map-paper: #f1eee7; --map-font: "Hanken Grotesk", Arial, sans-serif;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
@@ -306,6 +301,11 @@
 @keyframes eq { 0%, 100% { height: 4px; } 50% { height: 14px; } }
 @media (prefers-reduced-motion: reduce) { .musbtn[aria-pressed="true"] .eq i { animation: none; height: 10px; } }
 
+.tbtns { position: fixed; top: 14px; right: 14px; z-index: 20; display: flex; gap: 8px; }
+.tbtns .musbtn { position: static; }
+.thbtn { display: inline-flex; align-items: center; gap: 6px; padding: 9px 14px; border-radius: 999px; border: 1px solid var(--line); background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(8px); color: var(--ink); font: 600 .85rem/1 "Hanken Grotesk", sans-serif; cursor: pointer; box-shadow: var(--shade); }
+.thbtn:hover { border-color: var(--gold, #b8893a); }
+
   .wmap { display: flex; flex-direction: column; gap: 10px; }
   .wm-bar { display: flex; flex-wrap: wrap; gap: 6px; }
   .wm-bar button { font: inherit; font-size: .86rem; font-weight: 600; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--map-line); background: var(--map-paper); color: var(--map-ink); cursor: pointer; transition: background .2s, color .2s; }
@@ -365,8 +365,6 @@
   @media (max-width: 520px) { .wm-leg { font-size: .64rem; gap: 2px 8px; } .wm-tip { width: 190px; } .wm-tip img { height: 96px; } }
   @media (prefers-reduced-motion: reduce) { .arc, .mk .halo { animation: none; } .mk .halo, .wm-planes { display: none; } }
 </style>
-</head>
-<body>
 <main id="top">
   <header class="open wrap">
     <span class="eyebrow">Twenty Years Together · 20. rocznica · listopad 2027 · 6–8 dni · dwie pary</span>
@@ -1193,8 +1191,8 @@
       <span class="eyebrow">Dla dociekliwych</span>
       <h2 id="t-pool">Cała pula: 103 hoteli z 37 krajów i wysp</h2>
       <p>Te podróże wybraliśmy z dużo większej puli. Tam jest wszystko: globus z każdym miejscem, ocena w 13 kryteriach (widok, efekt wow, design, aktywność, pogoda…), koszty dla 6, 7 i 8 dni, pogoda w listopadzie i ryzyka. Kilka miejsc, które też kuszą:</p>
-      <ul class="pmore"><li><a href="pula.html#row2" ><b>Jezioro Atitlán</b><span>Hotel Casa Palopó</span><em>8,57 · 24 142 zł</em></a></li><li><a href="pula.html#row6" ><b>Lijiang</b><span>Banyan Tree Lijiang</span><em>8,41 · 22 570 zł</em></a></li><li><a href="pula.html#row7" ><b>Almora</b><span>The Kumaon</span><em>8,39 · 21 878 zł</em></a></li><li><a href="pula.html#row8" ><b>Yangshuo</b><span>Yangshuo Sugar House</span><em>8,28 · 22 270 zł</em></a></li><li><a href="pula.html#row9" ><b>Sedona</b><span>Canyon Villa Bed &amp; Breakfast Inn</span><em>8,26 · 24 761 zł</em></a></li><li><a href="pula.html#row13" ><b>Cederberg</b><span>Simbavati Cederberg Ridge</span><em>8,17 · 25 629 zł</em></a></li></ul>
-      <a class="pbtn" href="pula.html" >Otwórz całą pulę →</a>
+      <ul class="pmore"><li><a href="pula.html#row2" target="_top"><b>Jezioro Atitlán</b><span>Hotel Casa Palopó</span><em>8,57 · 24 142 zł</em></a></li><li><a href="pula.html#row6" target="_top"><b>Lijiang</b><span>Banyan Tree Lijiang</span><em>8,41 · 22 570 zł</em></a></li><li><a href="pula.html#row7" target="_top"><b>Almora</b><span>The Kumaon</span><em>8,39 · 21 878 zł</em></a></li><li><a href="pula.html#row8" target="_top"><b>Yangshuo</b><span>Yangshuo Sugar House</span><em>8,28 · 22 270 zł</em></a></li><li><a href="pula.html#row9" target="_top"><b>Sedona</b><span>Canyon Villa Bed &amp; Breakfast Inn</span><em>8,26 · 24 761 zł</em></a></li><li><a href="pula.html#row13" target="_top"><b>Cederberg</b><span>Simbavati Cederberg Ridge</span><em>8,17 · 25 629 zł</em></a></li></ul>
+      <a class="pbtn" href="pula.html" target="_top">Otwórz całą pulę →</a>
     </section>
     <footer><p>Muzyka: „Smooth Lovin”, „Airport Lounge” i „Chill Wave”, Kevin MacLeod (incompetech.com), licencja Creative Commons BY 4.0.</p><p>Ceny na listopad 2027 nie są jeszcze w sprzedaży. Kwoty to szacunki na parę, z autem dzielonym na cztery osoby, oparte na cenach z 2026 r.; doliczcie 5–10%. Kursy 1 EUR = 4,31 zł, 1 USD = 3,70 zł. Godziny wschodu i zachodu słońca liczone dla 10.11.2027 w czasie lokalnym (±2 min). Kolejność i oceny pochodzą z rankingu „Rocznica 2027”. Zdjęcia z Wikimedia Commons na wolnych licencjach, autorzy podani przy zdjęciach.</p></footer>
   </div>
@@ -1202,7 +1200,7 @@
 <div class="cmpbar" id="cmpbar" hidden><span id="cmptxt"></span><button type="button" id="cmpgo">Porównaj</button><button type="button" id="cmpclr" class="ghost">Wyczyść</button></div>
 <div class="cmpview" id="cmpview" hidden role="dialog" aria-modal="true" aria-labelledby="cmpt"><div class="cmpin"><header><h2 id="cmpt">Porównanie</h2><button type="button" id="cmpx" aria-label="Zamknij porównanie">×</button></header><div class="cmptab" id="cmptab"></div></div></div>
 <audio id="mus" preload="none" data-list="muz1.mp3|Smooth Lovin;muz2.mp3|Airport Lounge;muz3.mp3|Chill Wave"></audio>
-<button type="button" class="musbtn" id="musbtn" aria-pressed="false" aria-label="Włącz muzykę"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><span class="mt">Muzyka</span></button>
+<div class="tbtns"><button type="button" class="thbtn" id="thbtn">☾ Ciemny</button><button type="button" class="musbtn" id="musbtn" aria-pressed="false" aria-label="Włącz muzykę"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><span class="mt">Muzyka</span></button></div>
 <nav class="bnav" aria-label="Szybka nawigacja"><a href="#top">Start</a><a href="#mapa">Mapa</a><a href="#wybor">Hotele</a><a href="#pula">Cała pula</a><button type="button" id="bfav">Ulubione <span class="favn">0</span></button><button type="button" id="bcmp">Porównaj <span id="bcmpn">0</span></button></nav>
 <a class="totop" href="#top" aria-label="Wróć na górę">↑</a>
 <script>
@@ -1430,7 +1428,14 @@ var HOTELS = {"royal-hideaway-corales-suites": {"n": "Royal Hideaway Corales Sui
   a.addEventListener('pause', function () { if (!a.ended) set(false); });
 })();
 
-</script>
+(function () {
+  var b = document.getElementById('thbtn'), r = document.documentElement;
+  if (!b) return;
+  try { var s = localStorage.getItem('rocz-theme'); if (s) r.setAttribute('data-theme', s); } catch (e) {}
+  function dark() { var t = r.getAttribute('data-theme'); return t ? t === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches; }
+  function paint() { var d = dark(); b.textContent = d ? '☀ Jasny' : '☾ Ciemny'; b.setAttribute('aria-label', d ? 'Włącz jasny motyw' : 'Włącz ciemny motyw (lepszy na projektor)'); }
+  b.addEventListener('click', function () { var t = dark() ? 'light' : 'dark'; r.setAttribute('data-theme', t); try { localStorage.setItem('rocz-theme', t); } catch (e) {} paint(); });
+  paint();
+})();
 
-</body>
-</html>
+</script>
