@@ -216,6 +216,34 @@ footer { margin: 50px 0 30px; font-size: .8rem; color: var(--muted); }
 .seg button { white-space: nowrap; border-radius: 999px; }
 @media (max-width: 760px) { .seg button { padding: 7px 11px; font-size: .86rem; } }
 
+/* zegar czasu lotu */
+:root { --zg: #2e9d5b; --zy: #e3b22b; --zr: #d2483c; }
+.clk { display: inline-flex; align-items: center; gap: 6px; vertical-align: middle; }
+.clk svg { width: 46px; height: 29px; overflow: visible; }
+.clk path { fill: none; stroke-width: 9; }
+.clk .zg { stroke: var(--zg); } .clk .zy { stroke: var(--zy); } .clk .zr { stroke: var(--zr); }
+.clk .tk line { stroke: var(--muted); stroke-width: 1.2; }
+.clk .nd { stroke: var(--ink); stroke-width: 3.2; stroke-linecap: round; }
+.clk .hub { fill: var(--ink); }
+.clk b { font-size: .95rem; color: var(--ink); }
+.clk.kg b { color: var(--zg); } .clk.ky b { color: #a57d0c; } .clk.kr b { color: var(--zr); }
+.clk.big svg { width: 110px; height: 68px; }
+.clk.big b { font-family: var(--f-display); font-weight: 400; font-size: 1.6rem; }
+.facts .fclk { display: flex; flex-direction: column; gap: 6px; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .clk.ky b { color: var(--zy); } }
+:root[data-theme="dark"] .clk.ky b { color: var(--zy); }
+
+/* opis hotelu i atrakcje */
+.hcard .op { margin: 0; color: var(--ink); font-size: .96rem; }
+.atr { display: flex; flex-direction: column; gap: 6px; }
+.atr .lab { font-size: .74rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); }
+.atr ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.atr li { font-size: .84rem; padding: 4px 10px; border-radius: 999px; background: var(--chip); color: var(--ink-2); }
+/* czytelność tekstu na jasnych zdjęciach */
+.dh::after { background: linear-gradient(180deg, rgba(8,12,28,.05) 10%, rgba(8,12,28,.55) 55%, rgba(8,12,28,.9)); }
+.dh .in, .hero .in { text-shadow: 0 1px 12px rgba(0,0,0,.45); }
+.dh .crumbs a, .dh .crumbs span { color: #fff !important; }
+
 
   .wmap { display: flex; flex-direction: column; gap: 10px; }
   .wm-bar { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -418,11 +446,26 @@ window.initMap = function (scope) {
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function nf(n) { return Math.round(n).toLocaleString('pl-PL').replace(/ /g, ' '); }
   function dec(x) { return (+x).toFixed(2).replace('.', ','); }
-  function cost(h) { return h.h != null ? Math.round(h.h * S.nn / 7 + h.p * (.6 + .4 * (S.nn + 1) / 8)) : h.t; }
+  function cost(h) { var a = h.h != null ? Math.round(h.h * S.nn / 7 + h.p * (.6 + .4 * (S.nn + 1) / 8)) : h.t; return h.pk && S.nn === 7 && h.pk < a ? h.pk : a; }   // pakiet biura podróży jest na 7 nocy
   function pcost(p) { return Math.min.apply(null, p.hotels.map(function (id) { return cost(H[id]); })); }
   function img(o, cls, eager, sizes) {
     if (!o) return '<div class="noimg ' + (cls || '') + '"></div>';
     return '<img class="' + (cls || '') + '" src="' + o.s + '" srcset="' + o.s + ' 640w, ' + o.l + ' 1600w" sizes="' + (sizes || '(max-width: 760px) 100vw, 400px') + '" alt="' + esc(o.t || '') + '"' + (eager ? ' fetchpriority="high"' : ' loading="lazy"') + ' decoding="async">';
+  }
+  // zegar czasu lotu: tarcza 0–20 h, pola zielone (do 6 h), żółte (6–12 h), czerwone (ponad 12 h)
+  function fzone(h) { return h <= 6 ? 'g' : h <= 12 ? 'y' : 'r'; }
+  function clock(h, est, big) {
+    if (h == null) return '';
+    var R = 40, cx = 50, cy = 50, M = 20;
+    function pt(v, r) { var a = Math.PI * (1 - Math.min(v, M) / M); return [cx + r * Math.cos(a), cy - r * Math.sin(a)]; }
+    function arc(a, b, cls) { var p = pt(a, R), q = pt(b, R); return '<path class="z' + cls + '" d="M' + p[0].toFixed(1) + ' ' + p[1].toFixed(1) + ' A' + R + ' ' + R + ' 0 0 1 ' + q[0].toFixed(1) + ' ' + q[1].toFixed(1) + '"/>'; }
+    var n = pt(h, R - 8), ticks = '';
+    for (var t = 0; t <= M; t += 2) { var a = pt(t, R + 6), b = pt(t, R + (t % 6 ? 9 : 11)); ticks += '<line x1="' + a[0].toFixed(1) + '" y1="' + a[1].toFixed(1) + '" x2="' + b[0].toFixed(1) + '" y2="' + b[1].toFixed(1) + '"/>'; }
+    var lab = String(h).replace('.', ',') + ' h', z = fzone(h);
+    return '<span class="clk ' + (big ? 'big ' : '') + 'k' + z + '" role="img" aria-label="Czas lotu ' + (est ? 'około ' : '') + lab + ': ' + ({ g: 'krótki', y: 'średni', r: 'długi' })[z] + '">' +
+      '<svg viewBox="0 -4 100 62" aria-hidden="true">' + arc(0, 6, 'g') + arc(6, 12, 'y') + arc(12, M, 'r') + '<g class="tk">' + ticks + '</g>' +
+      '<line class="nd" x1="' + cx + '" y1="' + cy + '" x2="' + n[0].toFixed(1) + '" y2="' + n[1].toFixed(1) + '"/><circle class="hub" cx="' + cx + '" cy="' + cy + '" r="3.5"/></svg>' +
+      '<b>' + (est ? '~' : '') + lab + '</b></span>';
   }
   var HEART = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7.5-4.6-9.2-9.1C1.6 7.6 3.7 4.5 7 4.5c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.3 0 5.4 3.1 4.2 6.4C19.5 15.4 12 20 12 20z"/></svg>';
   function heart(id, name, inl) { var on = S.fav.indexOf(id) >= 0; return '<button type="button" class="heart' + (inl ? ' inl' : '') + '" data-fav="' + id + '" aria-pressed="' + on + '" aria-label="' + (on ? 'Usuń z wyboru: ' : 'Dodaj do wyboru: ') + esc(name) + '">' + HEART + '</button>'; }
@@ -451,7 +494,7 @@ window.initMap = function (scope) {
     return '<article class="pc fade"><a href="#/kierunek/' + p.id + '" style="display:contents;color:inherit;text-decoration:none">' +
       '<div class="ph">' + img(g) + '<span class="rk">' + dec(p.sc) + '</span>' + (p.prog ? '<span class="plan">plan dzień po dniu</span>' : '') + '</div>' +
       '<div class="bd"><span class="ct">' + esc(p.ctry) + '</span><h3>' + esc(p.name) + '</h3><p class="why">' + esc(p.why) + '</p>' +
-      '<div class="nums"><span>od <b>' + nf(c) + ' zł</b> na parę</span>' + (p.tmax != null ? '<span><b>' + p.tmax + ' °C</b> · ' + (p.rd != null ? p.rd + ' dni z deszczem' : '') + '</span>' : '') + '<span>' + p.hotels.length + ' ' + (p.hotels.length === 1 ? 'hotel' : p.hotels.length < 5 ? 'hotele' : 'hoteli') + '</span></div></div></a>' +
+      '<div class="nums">' + clock(p.fh, p.fhe, false) + '<span>od <b>' + nf(c) + ' zł</b> na parę</span>' + (p.tmax != null ? '<span><b>' + p.tmax + ' °C</b> · ' + (p.rd != null ? p.rd + ' dni z deszczem' : '') + '</span>' : '') + '<span>' + p.hotels.length + ' ' + (p.hotels.length === 1 ? 'hotel' : p.hotels.length < 5 ? 'hotele' : 'hoteli') + '</span></div></div></a>' +
       heart(p.id, p.name) + '</article>';
   }
   function vKierunki() {
@@ -469,7 +512,9 @@ window.initMap = function (scope) {
     return '<article class="hcard" id="h-' + h.id + '">' + (h.img ? '<img src="' + h.img + '" alt="" loading="lazy">' : img(p.gal[0])) +
       '<div class="bd"><div class="top"><div><span class="tierlab t' + h.tier + '">' + TIERN[h.tier] + '</span> <span class="ct">#' + h.rk + ' w rankingu</span><h3>' + esc(h.n) + '</h3></div>' + heart(h.id, h.n, true) + '</div>' +
       '<p class="why">' + esc(h.why) + '</p>' +
-      '<div class="nums"><span><b>' + dec(h.sc) + '</b> ocena</span>' + (h.katl ? '<span><b>' + esc(h.katl) + '</b></span>' : '') + '<span><b>' + nf(cost(h)) + ' zł</b> na parę · ' + (S.nn + 1) + ' dni</span><span>' + esc(h.oc) + '</span></div>' +
+      (h.op ? '<p class="op">' + esc(h.op) + '</p>' : '') +
+      (h.atr && h.atr.length ? '<div class="atr"><span class="lab">W okolicy</span><ul>' + h.atr.map(function (a) { return '<li>' + esc(a) + '</li>'; }).join('') + '</ul></div>' : '') +
+      '<div class="nums"><span><b>' + dec(h.sc) + '</b> ocena</span>' + (h.katl ? '<span><b>' + esc(h.katl) + '</b></span>' : '') + '<span><b>' + nf(cost(h)) + ' zł</b> na parę · ' + (S.nn + 1) + ' dni' + (h.pk && S.nn === 7 && cost(h) === h.pk ? ' (pakiet biura podróży)' : '') + '</span><span>' + esc(h.oc) + '</span></div>' +
       (h.unit ? '<p class="note" style="margin:0">' + esc(h.unit) + '</p>' : '') +
       '<details><summary>Szczegóły i słabe strony</summary><p>' + esc(h.note) + '</p>' + (b && b.note ? '<p>' + esc(b.note) + '</p>' : '') + '</details>' +
       (h.rnote ? '<p class="risk">Ryzyko: ' + esc(h.risk) + ' · ' + esc(h.rnote) + '</p>' : '') +
@@ -484,7 +529,7 @@ window.initMap = function (scope) {
       (g && g.cap ? '<span class="cred">' + esc(g.cap) + (g.page ? ' · <a href="' + esc(g.page) + '" target="_blank" rel="noopener">źródło</a>' : '') + '</span>' : '') + '</section><div class="wrap">';
     h += '<div class="facts">' +
       '<div><b>od ' + nf(pcost(p)) + ' zł</b><span>na parę, ' + (S.nn + 1) + ' dni, limit 26 000 zł</span></div>' +
-      (p.flight ? '<div><b>' + esc(p.flight.split(',')[0].replace('ok. ', '')) + '</b><span>' + esc(p.flight) + '</span></div>' : '') +
+      (p.fh != null ? '<div class="fclk">' + clock(p.fh, p.fhe, true) + '<span>' + (p.flight ? esc(p.flight) : 'lot z Warszawy (szacunek z odległości, z przesiadką przy dalekich trasach)') + '</span></div>' : '') +
       (p.wx ? '<div><b>' + (p.tmax != null ? p.tmax + ' °C' : '') + '</b><span>Listopad: ' + esc(p.wx) + '</span></div>' : '') +
       (p.sun ? '<div><b>' + p.sun[0] + ' – ' + p.sun[1] + '</b><span>wschód i zachód słońca 10.11</span></div>' : '') + '</div>';
     if (p.wow && p.wow.length) h += '<div class="sec"><h2>Dlaczego niezapomniane</h2></div><ul class="wowl">' + p.wow.map(function (w) { return '<li>' + esc(w) + '</li>'; }).join('') + '</ul>';
@@ -523,7 +568,7 @@ window.initMap = function (scope) {
       var rows = [['Miejsce', function (x) { return '<a href="#/kierunek/' + x.pl + '">' + esc(P[x.pl].name) + '</a>'; }],
         ['Ocena', function (x) { return dec(x.sc); }, function (x) { return x.sc; }],
         ['Koszt na parę', function (x) { return nf(cost(x)) + ' zł'; }, function (x) { return -cost(x); }],
-        ['Lot', function (x) { return esc(P[x.pl].flight || '—'); }],
+        ['Lot', function (x) { var p = P[x.pl]; return clock(p.fh, p.fhe, false) + (p.flight ? '<br>' + esc(p.flight) : ''); }, function (x) { return -(P[x.pl].fh || 99); }],
         ['Listopad', function (x) { return esc(P[x.pl].wx || '—'); }, function (x) { return P[x.pl].tmax || 0; }]];
       D.cr.forEach(function (c, i) { if (c.w >= 2) rows.push([c.l, function (x) { return x.s[i] != null ? String(x.s[i]).replace('.', ',') : '—'; }, function (x) { return x.s[i] || 0; }]); });
       rows.push(['Kategoria', function (x) { return esc(x.katl || '—'); }, function (x) { return x.st || 0; }]);
@@ -543,7 +588,7 @@ window.initMap = function (scope) {
     var k = S.sort[0], dir = S.sort[1];
     list.sort(function (a, b) { var A = k === 'cost' ? cost(a) : k === 'n' ? a.n : (a[k] || 0), B = k === 'cost' ? cost(b) : k === 'n' ? b.n : (b[k] || 0); return (A > B ? 1 : A < B ? -1 : 0) * dir; });
     var h = '<div class="wrap">' + crumbs([['Start', '#/'], ['Jak wybieraliśmy']]) +
-      '<div class="vh"><div><h1>Jak wybieraliśmy</h1><p>Cała pula: ' + D.hotels.length + ' hoteli w ' + D.places.length + ' miejscach, 13 kryteriów dopasowanych do nas. Kliknijcie wiersz, żeby zobaczyć oceny, albo nazwę miejsca, żeby przejść do kierunku.</p></div></div>' +
+      '<div class="vh"><div><h1>Jak wybieraliśmy</h1><p>Cała pula: ' + D.hotels.length + ' hoteli w ' + D.places.length + ' miejscach, ' + D.cr.length + ' kryteriów dopasowanych do nas. Kliknijcie wiersz, żeby zobaczyć oceny, albo nazwę miejsca, żeby przejść do kierunku.</p></div></div>' +
       '<div class="tools">' + regChips() + daysSeg() + '<input type="search" id="rq" placeholder="Szukaj hotelu lub miejsca" value="' + esc(S.q) + '" style="font:inherit;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);min-width:220px"></div>' +
       '<div class="scroll"><table class="rt"><thead><tr>' + [['rk', '#'], ['n', 'Hotel'], ['', 'Miejsce'], ['tier', 'Grupa', 'hm'], ['st', 'Kategoria', 'hm'], ['sc', 'Ocena'], ['cost', 'Koszt na parę']].map(function (c) { return '<th' + (c[2] ? ' class="' + c[2] + '"' : '') + (c[0] ? ' data-sort="' + c[0] + '" aria-sort="' + (k === c[0] ? (dir > 0 ? 'ascending' : 'descending') : 'none') + '"' : '') + '>' + c[1] + (k === c[0] ? (dir > 0 ? ' ▲' : ' ▼') : '') + '</th>'; }).join('') + '</tr></thead><tbody>' +
       list.map(function (x) { var p = P[x.pl]; return '<tr data-row="' + x.id + '"><td class="n">' + x.rk + '</td><td>' + esc(x.n) + '</td><td><a href="#/kierunek/' + p.id + '">' + esc(p.name) + '</a></td><td class="hm"><span class="tierlab t' + x.tier + '">' + TIERN[x.tier] + '</span></td><td class="hm">' + esc(x.katl || '—') + '</td><td class="n"><b>' + dec(x.sc) + '</b></td><td class="n"' + (cost(x) > 26000 ? ' style="color:#b3263e"' : '') + '>' + nf(cost(x)) + ' zł</td></tr>'; }).join('') + '</tbody></table></div>' +
