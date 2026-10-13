@@ -244,6 +244,11 @@ footer { margin: 50px 0 30px; font-size: .8rem; color: var(--muted); }
 .dh .in, .hero .in { text-shadow: 0 1px 12px rgba(0,0,0,.45); }
 .dh .crumbs a, .dh .crumbs span { color: #fff !important; }
 
+.rt td.fl .clk svg { width: 38px; height: 24px; }
+.rt td.fl .clk b { font-size: .88rem; }
+.tierlab { white-space: nowrap; display: inline-block; }
+@media (max-width: 760px) { .rt td.fl .clk svg { display: none; } .rt th, .rt td { padding: 9px 8px; } }
+
 
   .wmap { display: flex; flex-direction: column; gap: 10px; }
   .wm-bar { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -586,18 +591,18 @@ window.initMap = function (scope) {
   function vRanking() {
     var list = D.hotels.filter(function (h) { return (!S.reg || P[h.pl].reg === S.reg) && (!S.q || (h.n + ' ' + P[h.pl].L).toLowerCase().indexOf(S.q) >= 0); });
     var k = S.sort[0], dir = S.sort[1];
-    list.sort(function (a, b) { var A = k === 'cost' ? cost(a) : k === 'n' ? a.n : (a[k] || 0), B = k === 'cost' ? cost(b) : k === 'n' ? b.n : (b[k] || 0); return (A > B ? 1 : A < B ? -1 : 0) * dir; });
+    list.sort(function (a, b) { var A = k === 'cost' ? cost(a) : k === 'n' ? a.n : k === 'fh' ? (P[a.pl].fh || 99) : (a[k] || 0), B = k === 'cost' ? cost(b) : k === 'n' ? b.n : k === 'fh' ? (P[b.pl].fh || 99) : (b[k] || 0); return (A > B ? 1 : A < B ? -1 : 0) * dir; });
     var h = '<div class="wrap">' + crumbs([['Start', '#/'], ['Jak wybieraliśmy']]) +
       '<div class="vh"><div><h1>Jak wybieraliśmy</h1><p>Cała pula: ' + D.hotels.length + ' hoteli w ' + D.places.length + ' miejscach, ' + D.cr.length + ' kryteriów dopasowanych do nas. Kliknijcie wiersz, żeby zobaczyć oceny, albo nazwę miejsca, żeby przejść do kierunku.</p></div></div>' +
       '<div class="tools">' + regChips() + daysSeg() + '<input type="search" id="rq" placeholder="Szukaj hotelu lub miejsca" value="' + esc(S.q) + '" style="font:inherit;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);min-width:220px"></div>' +
-      '<div class="scroll"><table class="rt"><thead><tr>' + [['rk', '#'], ['n', 'Hotel'], ['', 'Miejsce'], ['tier', 'Grupa', 'hm'], ['st', 'Kategoria', 'hm'], ['sc', 'Ocena'], ['cost', 'Koszt na parę']].map(function (c) { return '<th' + (c[2] ? ' class="' + c[2] + '"' : '') + (c[0] ? ' data-sort="' + c[0] + '" aria-sort="' + (k === c[0] ? (dir > 0 ? 'ascending' : 'descending') : 'none') + '"' : '') + '>' + c[1] + (k === c[0] ? (dir > 0 ? ' ▲' : ' ▼') : '') + '</th>'; }).join('') + '</tr></thead><tbody>' +
-      list.map(function (x) { var p = P[x.pl]; return '<tr data-row="' + x.id + '"><td class="n">' + x.rk + '</td><td>' + esc(x.n) + '</td><td><a href="#/kierunek/' + p.id + '">' + esc(p.name) + '</a></td><td class="hm"><span class="tierlab t' + x.tier + '">' + TIERN[x.tier] + '</span></td><td class="hm">' + esc(x.katl || '—') + '</td><td class="n"><b>' + dec(x.sc) + '</b></td><td class="n"' + (cost(x) > 26000 ? ' style="color:#b3263e"' : '') + '>' + nf(cost(x)) + ' zł</td></tr>'; }).join('') + '</tbody></table></div>' +
+      '<div class="scroll"><table class="rt"><thead><tr>' + [['rk', '#'], ['n', 'Hotel'], ['', 'Miejsce'], ['tier', 'Grupa', 'hm'], ['st', 'Kategoria', 'hm'], ['fh', 'Lot'], ['sc', 'Ocena'], ['cost', 'Koszt na parę']].map(function (c) { return '<th' + (c[2] ? ' class="' + c[2] + '"' : '') + (c[0] ? ' data-sort="' + c[0] + '" aria-sort="' + (k === c[0] ? (dir > 0 ? 'ascending' : 'descending') : 'none') + '"' : '') + '>' + c[1] + (k === c[0] ? (dir > 0 ? ' ▲' : ' ▼') : '') + '</th>'; }).join('') + '</tr></thead><tbody>' +
+      list.map(function (x) { var p = P[x.pl]; return '<tr data-row="' + x.id + '"><td class="n">' + x.rk + '</td><td>' + esc(x.n) + '</td><td><a href="#/kierunek/' + p.id + '">' + esc(p.name) + '</a></td><td class="hm"><span class="tierlab t' + x.tier + '">' + TIERN[x.tier] + '</span></td><td class="hm">' + esc(x.katl || '—') + '</td><td class="n fl">' + clock(p.fh, p.fhe, false) + '</td><td class="n"><b>' + dec(x.sc) + '</b></td><td class="n"' + (cost(x) > 26000 ? ' style="color:#b3263e"' : '') + '>' + nf(cost(x)) + ' zł</td></tr>'; }).join('') + '</tbody></table></div>' +
       '<div class="sec"><h2>Kryteria i wagi</h2></div><ul class="crit">' + D.cr.map(function (c) { return '<li><span>' + esc(c.l) + '</span><i><s style="width:' + (c.w / 3 * 100) + '%"></s></i><b>×' + String(c.w).replace('.', ',') + '</b></li>'; }).join('') + '</ul>' +
       '<p class="note">Każdy hotel ma ocenę 1–10 w każdym kryterium; wynik to średnia ważona. Najwięcej ważą widok i efekt wow (×3), potem design i aktywność (×2,5). Kategoria hotelu (×1) to gwiazdki: oficjalne albo, gdy hotel ich nie ma (lodże, ryokany, butiki), odpowiednik z serwisów rezerwacyjnych; 5★ = 10, 4★ = 8, 3★ = 6. Cztery grupy: faworyci od ' + String(D.t1).replace('.', ',') + ', mocne alternatywy od ' + String(D.t2).replace('.', ',') + ', warte rozważenia od ' + String(D.t4).replace('.', ',') + ', a poniżej ' + String(D.t4).replace('.', ',') + ' hotele z wyraźnym kompromisem. Koszt to cały wyjazd jednej pary: hotel, lot, auto, jedzenie, wycieczki i rezerwa; hotel liczony za liczbę nocy, reszta proporcjonalnie do dni. Rewizja v3: „swoboda” to łatwość podróży z pułapem dla kraju, w tropikach krótkie ulewy liczą się łagodniej, aktywność obejmuje też snorkeling i nurkowanie. Ceny to szacunki na bazie 2026 r. Wykluczyliśmy kraje z ostrzeżeniem MSZ 3–4, miejsca, w których już byliśmy lub których nie chcemy (Madera, Gran Canaria, Malta, Egipt, Albania, Grecja, Maroko, Karaiby, Douro, Etna), oraz hotele zamknięte w listopadzie.</p>';
     return h + '</div>';
   }
   function detailRow(x) {
-    return '<tr class="x"><td colspan="7"><p class="note" style="margin-top:0">' + esc(x.note) + '</p><ul class="crit">' + D.cr.map(function (c, i) { var v = x.s[i]; return '<li><span>' + esc(c.l) + '</span><i><s style="width:' + (v * 10) + '%"></s></i><b>' + String(v).replace('.', ',') + '</b></li>'; }).join('') + '</ul><p><a href="#/kierunek/' + x.pl + '">Zobacz kierunek ' + esc(P[x.pl].name) + ' →</a>' + (x.url ? ' · <a href="' + esc(x.url) + '" target="_blank" rel="noopener">strona hotelu ↗</a>' : '') + '</p></td></tr>';
+    return '<tr class="x"><td colspan="8"><p class="note" style="margin-top:0">' + esc(x.note) + '</p><ul class="crit">' + D.cr.map(function (c, i) { var v = x.s[i]; return '<li><span>' + esc(c.l) + '</span><i><s style="width:' + (v * 10) + '%"></s></i><b>' + String(v).replace('.', ',') + '</b></li>'; }).join('') + '</ul><p><a href="#/kierunek/' + x.pl + '">Zobacz kierunek ' + esc(P[x.pl].name) + ' →</a>' + (x.url ? ' · <a href="' + esc(x.url) + '" target="_blank" rel="noopener">strona hotelu ↗</a>' : '') + '</p></td></tr>';
   }
 
   // --- routing z pamięcią przewijania ---
