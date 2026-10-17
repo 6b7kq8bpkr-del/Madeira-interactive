@@ -248,6 +248,7 @@ footer { margin: 50px 0 30px; font-size: .8rem; color: var(--muted); }
 .rt td.fl .clk b { font-size: .88rem; }
 .tierlab { white-space: nowrap; display: inline-block; }
 @media (max-width: 760px) { .rt td.fl .clk svg { display: none; } .rt th, .rt td { padding: 9px 8px; } }
+.clk.rk { flex-wrap: wrap; } .clk.big.rk b { font-family: var(--f-body); font-weight: 700; font-size: 1.05rem; }
 
 
   .wmap { display: flex; flex-direction: column; gap: 10px; }
@@ -472,6 +473,18 @@ window.initMap = function (scope) {
       '<line class="nd" x1="' + cx + '" y1="' + cy + '" x2="' + n[0].toFixed(1) + '" y2="' + n[1].toFixed(1) + '"/><circle class="hub" cx="' + cx + '" cy="' + cy + '" r="3.5"/></svg>' +
       '<b>' + (est ? '~' : '') + lab + '</b></span>';
   }
+  // zegar ryzyka (bezpieczeństwo, MSZ i inne ostrzeżenia): skala 0–10, zielone do 3, żółte 4–5, czerwone od 6
+  function rclock(v, big) {
+    if (v == null) return '';
+    var R = 40, cx = 50, cy = 50, M = 10;
+    function pt(x, r) { var a = Math.PI * (1 - Math.min(x, M) / M); return [cx + r * Math.cos(a), cy - r * Math.sin(a)]; }
+    function arc(a, b, cls) { var p = pt(a, R), q = pt(b, R); return '<path class="z' + cls + '" d="M' + p[0].toFixed(1) + ' ' + p[1].toFixed(1) + ' A' + R + ' ' + R + ' 0 0 1 ' + q[0].toFixed(1) + ' ' + q[1].toFixed(1) + '"/>'; }
+    var n = pt(v, R - 8), z = v <= 3 ? 'g' : v <= 5 ? 'y' : 'r', lab = ({ g: 'niskie', y: 'umiarkowane', r: 'podwyższone' })[z];
+    return '<span class="clk rk ' + (big ? 'big ' : '') + 'k' + z + '" role="img" aria-label="Ryzyko: ' + lab + ' (' + v + ' na 10)">' +
+      '<svg viewBox="0 -4 100 62" aria-hidden="true">' + arc(0, 3.5, 'g') + arc(3.5, 5.5, 'y') + arc(5.5, M, 'r') +
+      '<line class="nd" x1="' + cx + '" y1="' + cy + '" x2="' + n[0].toFixed(1) + '" y2="' + n[1].toFixed(1) + '"/><circle class="hub" cx="' + cx + '" cy="' + cy + '" r="3.5"/></svg>' +
+      '<b>' + lab + '</b></span>';
+  }
   var HEART = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7.5-4.6-9.2-9.1C1.6 7.6 3.7 4.5 7 4.5c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.3 0 5.4 3.1 4.2 6.4C19.5 15.4 12 20 12 20z"/></svg>';
   function heart(id, name, inl) { var on = S.fav.indexOf(id) >= 0; return '<button type="button" class="heart' + (inl ? ' inl' : '') + '" data-fav="' + id + '" aria-pressed="' + on + '" aria-label="' + (on ? 'Usuń z wyboru: ' : 'Dodaj do wyboru: ') + esc(name) + '">' + HEART + '</button>'; }
   function seg(name, opts, cur) { return '<span class="seg" role="group" aria-label="' + esc(name) + '">' + opts.map(function (o) { return '<button type="button" data-' + o[0] + '="' + o[1] + '" aria-pressed="' + (String(cur) === String(o[1])) + '">' + esc(o[2]) + '</button>'; }).join('') + '</span>'; }
@@ -499,7 +512,7 @@ window.initMap = function (scope) {
     return '<article class="pc fade"><a href="#/kierunek/' + p.id + '" style="display:contents;color:inherit;text-decoration:none">' +
       '<div class="ph">' + img(g) + '<span class="rk">' + dec(p.sc) + '</span>' + (p.prog ? '<span class="plan">plan dzień po dniu</span>' : '') + '</div>' +
       '<div class="bd"><span class="ct">' + esc(p.ctry) + '</span><h3>' + esc(p.name) + '</h3><p class="why">' + esc(p.why) + '</p>' +
-      '<div class="nums">' + clock(p.fh, p.fhe, false) + '<span>od <b>' + nf(c) + ' zł</b> na parę</span>' + (p.tmax != null ? '<span><b>' + p.tmax + ' °C</b> · ' + (p.rd != null ? p.rd + ' dni z deszczem' : '') + '</span>' : '') + '<span>' + p.hotels.length + ' ' + (p.hotels.length === 1 ? 'hotel' : p.hotels.length < 5 ? 'hotele' : 'hoteli') + '</span></div></div></a>' +
+      '<div class="nums">' + clock(p.fh, p.fhe, false) + rclock(H[p.hotels[0]].rv, false) + '<span>od <b>' + nf(c) + ' zł</b> na parę</span>' + (p.tmax != null ? '<span><b>' + p.tmax + ' °C</b> · ' + (p.rd != null ? p.rd + ' dni z deszczem' : '') + '</span>' : '') + '<span>' + p.hotels.length + ' ' + (p.hotels.length === 1 ? 'hotel' : p.hotels.length < 5 ? 'hotele' : 'hoteli') + '</span></div></div></a>' +
       heart(p.id, p.name) + '</article>';
   }
   function vKierunki() {
@@ -536,6 +549,7 @@ window.initMap = function (scope) {
     h += '<div class="facts">' +
       '<div><b>od ' + nf(pcost(p)) + ' zł</b><span>na parę, ' + (S.nn + 1) + ' dni, limit 26 000 zł</span></div>' +
       (p.fh != null ? '<div class="fclk">' + clock(p.fh, p.fhe, true) + '<span>' + (p.flight ? esc(p.flight) : 'lot z Warszawy (szacunek z odległości, z przesiadką przy dalekich trasach)') + '</span></div>' : '') +
+      (H[p.hotels[0]].rv != null ? '<div class="fclk">' + rclock(H[p.hotels[0]].rv, true) + '<span>Ryzyko w podróży: ' + esc(H[p.hotels[0]].rnote || '') + '</span></div>' : '') +
       (p.wx ? '<div><b>' + (p.tmax != null ? p.tmax + ' °C' : '') + '</b><span>Listopad: ' + esc(p.wx) + '</span></div>' : '') +
       (p.sun ? '<div><b>' + p.sun[0] + ' – ' + p.sun[1] + '</b><span>wschód i zachód słońca 10.11</span></div>' : '') + '</div>';
     if (p.wow && p.wow.length) h += '<div class="sec"><h2>Dlaczego niezapomniane</h2></div><ul class="wowl">' + p.wow.map(function (w) { return '<li>' + esc(w) + '</li>'; }).join('') + '</ul>';
@@ -579,7 +593,7 @@ window.initMap = function (scope) {
       D.cr.forEach(function (c, i) { if (c.w >= 2) rows.push([c.l, function (x) { return x.s[i] != null ? String(x.s[i]).replace('.', ',') : '—'; }, function (x) { return x.s[i] || 0; }]); });
       rows.push(['Kategoria', function (x) { return esc(x.katl || '—'); }, function (x) { return x.st || 0; }]);
       rows.push(['Plan dnia', function (x) { return P[x.pl].prog ? 'jest' : 'jeszcze nie'; }]);
-      rows.push(['Ryzyko', function (x) { return esc(x.risk || '—'); }]);
+      rows.push(['Ryzyko', function (x) { return rclock(x.rv, false); }, function (x) { return -(x.rv || 0); }]);
       h += '<div class="sec"><h2>Porównanie</h2></div><div class="scroll"><table class="cmpt"><thead><tr><th></th>' + cmp.map(function (x) { return '<th scope="col">' + esc(x.n) + '</th>'; }).join('') + '</tr></thead><tbody>' +
         rows.map(function (r) { var best = r[2] ? Math.max.apply(null, cmp.map(r[2])) : null; return '<tr><th scope="row">' + r[0] + '</th>' + cmp.map(function (x) { return '<td' + (r[2] && cmp.length > 1 && r[2](x) === best ? ' class="best"' : '') + '>' + r[1](x) + '</td>'; }).join('') + '</tr>'; }).join('') +
         '<tr><th scope="row"></th>' + cmp.map(function (x) { return '<td><button type="button" class="btn ghost" data-pick="' + x.id + '">' + (S.pick === x.id ? '✓ Nasz wybór' : 'To nasz wybór') + '</button></td>'; }).join('') + '</tr></tbody></table></div>';
