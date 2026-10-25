@@ -1,15 +1,81 @@
 {
  "zaktualizowano": "2026-10-25",
- "status": "Rozkład na listopad 2027 jeszcze nieopublikowany – linie otwierają sprzedaż ok. 330–360 dni przed lotem. Pierwszy właściwy odczyt: początek grudnia 2026.",
- "nastepny": "2026-12-01",
+ "status": "Rozkład na listopad 2027 jeszcze nieopublikowany – linie otwierają sprzedaż ok. 330–360 dni przed lotem. Pierwszy właściwy odczyt cen: początek grudnia 2026. Do tego czasu w tabeli są widełki orientacyjne na podstawie cen z jesieni 2026 na analogiczne terminy.",
+ "nastepny": "2026-11-01",
  "prog": 3800,
- "historia": [
+ "serie": [
   {
-   "data": "2026-10-25",
-   "min": null,
-   "typ": null,
-   "trasa": "brak rozkładu",
-   "uwagi": "Szacunek na bazie cen z jesieni 2026 na analogiczne terminy (listopad 2026): 3 300–4 300 zł od osoby w obie strony z bagażem."
+   "id": "ib-scl",
+   "linia": "Iberia + LATAM",
+   "trasa": "WAW–MAD–SCL–MDZ",
+   "orient": "3 400–4 300 zł",
+   "uwagi": "najkrótsza, ok. 22–24 h; LATAM SCL–MDZ często na osobnym bilecie",
+   "hist": []
+  },
+  {
+   "id": "latam",
+   "linia": "LATAM (z MAD lub FRA)",
+   "trasa": "WAW–MAD/FRA–SCL–MDZ",
+   "orient": "3 500–4 500 zł",
+   "uwagi": "cała trasa za Atlantyk na jednym bilecie LATAM",
+   "hist": []
+  },
+  {
+   "id": "ar",
+   "linia": "Aerolíneas Argentinas (z MAD lub FCO)",
+   "trasa": "WAW–MAD/FCO–EZE–MDZ",
+   "orient": "3 200–4 200 zł",
+   "uwagi": "często najtańsza; sprawdzić, czy lot krajowy z EZE, nie z AEP",
+   "hist": []
+  },
+  {
+   "id": "ib-eze",
+   "linia": "Iberia + Aerolíneas",
+   "trasa": "WAW–MAD–EZE–MDZ",
+   "orient": "3 300–4 300 zł",
+   "uwagi": "Iberia do Buenos Aires, dalej Aerolíneas; jeden bilet w oneworld nie zawsze",
+   "hist": []
+  },
+  {
+   "id": "af",
+   "linia": "Air France / KLM",
+   "trasa": "WAW–CDG/AMS–EZE/SCL–MDZ",
+   "orient": "3 500–4 600 zł",
+   "uwagi": "AF do Buenos Aires lub Santiago; ostatni odcinek LATAM/Aerolíneas",
+   "hist": []
+  },
+  {
+   "id": "lh",
+   "linia": "Lufthansa / Swiss",
+   "trasa": "WAW–FRA/ZRH–EZE/GRU–MDZ",
+   "orient": "3 600–4 700 zł",
+   "uwagi": "dobre przesiadki w FRA; ostatni odcinek LATAM lub Aerolíneas",
+   "hist": []
+  },
+  {
+   "id": "ita",
+   "linia": "ITA Airways",
+   "trasa": "WAW–FCO–EZE/GRU–MDZ",
+   "orient": "3 300–4 400 zł",
+   "uwagi": "często promocje do Buenos Aires i São Paulo",
+   "hist": []
+  },
+  {
+   "id": "ue",
+   "linia": "Air Europa",
+   "trasa": "WAW–MAD–EZE/SCL–MDZ",
+   "orient": "3 200–4 200 zł",
+   "uwagi": "tańsza alternatywa dla Iberii z Madrytu; mniej przestronne kabiny",
+   "hist": []
+  },
+  {
+   "id": "tk",
+   "linia": "Turkish Airlines",
+   "trasa": "WAW–IST–EZE/GRU–MDZ",
+   "orient": "3 300–4 300 zł",
+   "uwagi": "najdłużej (ok. 30 h), ale bywa najtańsza i z dobrym bagażem",
+   "hist": []
   }
- ]
+ ],
+ "historia": []
 }

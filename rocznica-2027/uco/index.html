@@ -121,6 +121,28 @@ section.blk { padding-block: clamp(44px, 7vw, 84px); }
 .bud .note { color: var(--ink-2); margin: 14px 0 0; font-size: .95rem; }
 .c1 { background: var(--malbec); } .c2 { background: var(--adobe); } .c3 { background: var(--poplar); } .c4 { background: var(--malbec-2); } .c5 { background: var(--muted); } .c6 { background: var(--line); }
 
+/* hotele */
+.hg { display: grid; gap: 22px; }
+.hk { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); background: var(--paper); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; min-width: 0; }
+.hk.main { border-color: var(--malbec); box-shadow: 0 0 0 2px var(--malbec) inset; }
+.hk .ph { margin: 0; min-height: 260px; } .hk .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hk .hb { padding: 22px 24px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.hk h3 { font-size: 1.6rem; }
+.hk .kv { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: .9rem; color: var(--ink-2); align-items: center; } .hk .kv b { color: var(--ink); font-weight: 600; }
+.hk .tagw { padding: 2px 10px; border-radius: 999px; background: var(--chip); color: var(--ink); font-size: .8rem; }
+.hk .lead { margin: 0; font-weight: 500; } .hk .more { margin: 0; color: var(--ink-2); font-size: .92rem; }
+.zp { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 6px 20px; } .zp ul { margin: 0; padding: 0; list-style: none; font-size: .9rem; display: grid; gap: 4px; }
+.zp li::before { content: "+ "; color: var(--poplar); font-weight: 700; } .zp ul.m li::before { content: "− "; color: var(--malbec); }
+@media (max-width: 760px) { .hk { grid-template-columns: 1fr; } .hk .ph { min-height: 0; aspect-ratio: 16 / 10; } }
+/* loty: tabela cen i trendów */
+.pt { width: 100%; border-collapse: collapse; font-size: .9rem; } .pt th, .pt td { text-align: left; padding: 8px 8px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+.pt th { font-family: var(--f-mono); font-weight: 500; font-size: .75rem; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
+.pt td.n { font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-space: nowrap; } .pt td.n b { color: var(--malbec); font-weight: 600; } .pt tr.ok td.n b { color: var(--poplar); }
+.pt .tr { font-family: var(--f-mono); font-size: .8rem; } .pt .up { color: var(--malbec); } .pt .dn { color: var(--poplar); } .pt .fl { color: var(--muted); }
+.pt .rt { color: var(--muted); font-family: var(--f-mono); font-size: .78rem; display: block; }
+.pt .sp { display: inline-flex; align-items: flex-end; gap: 2px; height: 22px; } .pt .sp i { width: 5px; background: var(--adobe); border-radius: 1px; display: block; } .pt .sp i.ok { background: var(--poplar); }
+.ptw { overflow-x: auto; margin: 10px 0 0; }
+.pt .or { color: var(--ink-2); white-space: nowrap; }
 /* loty */
 .fo { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
 .fo article { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 20px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
@@ -128,7 +150,8 @@ section.blk { padding-block: clamp(44px, 7vw, 84px); }
 .fo h3 { font-size: 1.35rem; } .fo .rt { font-family: var(--f-mono); font-size: .85rem; color: var(--malbec); }
 .fo .kv { display: flex; gap: 14px; flex-wrap: wrap; font-size: .9rem; color: var(--ink-2); } .fo .kv b { color: var(--ink); font-weight: 600; }
 .fo p { margin: 0; font-size: .95rem; color: var(--ink-2); } .fo .pm { display: grid; gap: 4px; } .fo .pm span::before { content: "+ "; color: var(--poplar); font-weight: 700; } .fo .pm span.m::before { content: "− "; color: var(--malbec); }
-.mon { margin-top: 28px; background: var(--paper); border-radius: 6px; padding: 24px; box-shadow: var(--shade); display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 24px 40px; }
+.mon { margin-top: 28px; background: var(--paper); border-radius: 6px; padding: 24px; box-shadow: var(--shade); display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 24px 40px; }
+.mon > div { min-width: 0; }
 @media (max-width: 760px) { .mon { grid-template-columns: 1fr; } }
 .mon h3 { font-size: 1.5rem; margin-bottom: 8px; } .mon .st { font-family: var(--f-mono); font-size: .85rem; color: var(--muted); margin: 0 0 10px; }
 .mon .status { padding: 12px 14px; border-left: 3px solid var(--adobe); background: var(--chip); font-size: .95rem; margin: 0 0 14px; }
@@ -156,7 +179,7 @@ section.blk { padding-block: clamp(44px, 7vw, 84px); }
 /* trasa */
 .route { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 28px; align-items: start; }
 .map { background: var(--paper); border-radius: 6px; box-shadow: var(--shade); overflow: hidden; }
-.map svg { display: block; width: 100%; height: auto; }
+.map > svg { display: block; width: 100%; height: auto; }
 .map .andes { fill: var(--chip); } .map .snow { fill: var(--line); }
 .map .rt { fill: none; stroke: var(--malbec); stroke-width: 3; stroke-dasharray: 7 6; }
 .map .pt { fill: var(--malbec); stroke: var(--paper); stroke-width: 3; }
@@ -196,7 +219,8 @@ footer a { color: var(--ink-2); }
     <ul>
       <li><a href="#trasa">Trasa</a></li>
       <li><a href="#plan">Plan</a></li>
-      <li><a href="#hotele">Budżet</a></li>
+      <li><a href="#hotele">Hotele</a></li>
+      <li><a href="#budzet">Budżet</a></li>
       <li><a href="#loty">Loty</a></li>
       <li><a href="#przygotowania">Przygotowania</a></li>
       <li><a href="#galeria">Galeria</a></li>
@@ -267,7 +291,18 @@ footer a { color: var(--ink-2); }
     }).join('') + '</ol></div></section>';
   // hotele i budżet
   var BL = [['nocleg', 'Noclegi (7 nocy)', 'c1'], ['loty', 'Loty', 'c2'], ['auto_transfery', 'Bus z kierowcą', 'c3'], ['jedzenie', 'Jedzenie', 'c4'], ['wycieczki_bilety', 'Wycieczki i degustacje', 'c5'], ['rezerwa', 'Rezerwa', 'c6']];
-  h += '<section class="blk" id="hotele"><div class="wrap"><div class="sh"><div><p class="eyebrow">Baza i koszty</p><h2>Wariant i budżet</h2><p>Zuccardi nie ma noclegów, więc śpimy w dwóch miejscach: 3 noce pod Mendozą i 4 noce w dolinie Uco. Wybierzcie wariant trasy, a budżet przeliczy się na parę.</p></div></div>' +
+  // hotele: karty z rolą w trasie, za/przeciw, oceną i linkiem
+  if (D.hotele && D.hotele.length) {
+    h += '<section class="blk" id="hotele"><div class="wrap"><div class="sh"><div><p class="eyebrow">Dwie bazy, pięć opcji</p><h2>Hotele</h2><p>Hotele w stylu, który lubicie: butikowe, ciche, z widokiem i designem, wysoko oceniane. Pierwsze trzy noce pod Mendozą, cztery w dolinie Uco. Ceny to szacunki za pokój dla dwojga.</p></div></div><div class="hg">' +
+      D.hotele.map(function (o) {
+        return '<article class="hk' + (o.glowny ? ' main' : '') + '">' + (o.img ? '<figure class="ph">' + img(o.img, '', false, '(max-width: 760px) 100vw, 560px') + '</figure>' : '') + '<div class="hb"><p class="eyebrow">' + esc(o.rola) + '</p><h3>' + esc(o.n) + '</h3>' +
+          '<div class="kv"><span>ok. <b>' + (o.rate || '?') + ' ' + esc(o.cur || 'USD') + '</b> za noc</span>' + (o.oc ? '<span>oceny <b>' + esc(o.oc) + '</b></span>' : '') + '<span class="tagw">' + esc(o.wariant) + '</span></div>' +
+          (o.short ? '<p class="lead">' + esc(o.short) + '</p>' : '') + (o.desc ? '<p class="more">' + esc(o.desc) + '</p>' : '') +
+          '<div class="zp"><ul>' + o.za.map(function (z) { return '<li>' + esc(z) + '</li>'; }).join('') + '</ul><ul class="m">' + o.przeciw.map(function (z) { return '<li>' + esc(z) + '</li>'; }).join('') + '</ul></div>' +
+          (o.url ? '<p><a href="' + esc(o.url) + '" target="_blank" rel="noopener">Strona hotelu →</a></p>' : '') + '</div></article>';
+      }).join('') + '</div></div></section>';
+  }
+  h += '<section class="blk" id="budzet"><div class="wrap"><div class="sh"><div><p class="eyebrow">Baza i koszty</p><h2>Wariant i budżet</h2><p>Zuccardi nie ma noclegów, więc śpimy w dwóch miejscach: 3 noce pod Mendozą i 4 noce w dolinie Uco. Wybierzcie wariant trasy, a budżet przeliczy się na parę.</p></div></div>' +
     '<div class="hsel" role="group" aria-label="Hotel">' + D.hotels.map(function (o, i) {
       return '<button type="button" class="hc" data-h="' + i + '" aria-pressed="false"><span class="eyebrow">' + (o.rate ? 'ok. ' + o.rate + ' ' + o.cur + ' za noc' : 'wariant trasy') + '</span><h3>' + esc(o.n.replace(/^Trasa: /, '')) + '</h3><span class="sum">' + nf(o.b.razem) + ' zł na parę</span><p>' + esc(o.short || (o.note.length > 170 ? o.note.slice(0, 170) + '…' : o.note)) + '</p>' + (o.oc ? '<p style="font-size:.85rem;color:var(--muted)">' + esc(o.oc) + '</p>' : '') + '</button>';
     }).join('') + '</div><div class="bud" id="bud" aria-live="polite"></div></div></section>';
@@ -277,7 +312,7 @@ footer a { color: var(--ink-2); }
     var F = P.loty;
     h += '<section class="blk" id="loty" style="background:var(--paper)"><div class="wrap"><div class="sh"><div><p class="eyebrow">Warszawa → Mendoza · 5/6 i 13/14.11.2027</p><h2>Loty</h2><p>' + esc(F.intro) + '</p></div></div>' +
       '<div class="fo">' + F.opcje.map(function (o) { return '<article' + (o.rek ? ' class="rek"' : '') + '><span class="rt">' + esc(o.trasa) + (o.rek ? ' · polecane' : '') + '</span><h3>' + esc(o.n) + '</h3><div class="kv"><span>czas <b>' + esc(o.czas) + '</b></span><span>od osoby <b>' + esc(o.cena) + '</b></span></div><p>' + esc(o.linie) + '</p><div class="pm"><span>' + esc(o.plus) + '</span><span class="m">' + esc(o.minus) + '</span></div></article>'; }).join('') + '</div>' +
-      '<div class="mon"><div><h3>Monitor cen</h3><p class="st" id="monst">Ładowanie…</p><div id="mon"></div><p class="note" style="color:var(--ink-2);font-size:.9rem;margin:12px 0 0">Agent sprawdza ceny raz w miesiącu (od grudnia 2026 co tydzień), zapisuje najniższą znalezioną cenę za osobę w obie strony z bagażem i trasę. Próg zakupu: <b>' + 3800 + ' zł</b>. To wskazówka, nie oferta – przed zakupem sprawdzić cenę u linii.</p></div>' +
+      '<div class="mon"><div><h3>Monitor cen i trendy</h3><p class="st" id="monst">Ładowanie…</p><div id="mon"></div><p class="note" style="color:var(--ink-2);font-size:.9rem;margin:12px 0 0">Agent sprawdza 1. i 15. dnia miesiąca ceny u 9 najsensowniejszych linii i tras (za osobę, w obie strony, z bagażem) i zapisuje je tutaj. Trend porównuje ostatni odczyt z poprzednim; słupki to historia. Próg zakupu: <b>3 800 zł</b>. To wskazówka, nie oferta – przed zakupem sprawdzić cenę u linii.</p></div>' +
       '<div><h3>Kiedy kupować</h3><ol class="tl">' + F.kiedy.map(function (k) { return '<li><b>' + esc(k[0]) + '</b><span>' + esc(k[1]) + '</span></li>'; }).join('') + '</ol>' +
       '<h3 style="margin-top:22px">Alerty cenowe</h3><ul class="al">' + F.alerty.map(function (a) { return '<li><a href="' + esc(a.url) + '" target="_blank" rel="noopener">' + esc(a.n) + '</a><span>' + esc(a.opis) + '</span></li>'; }).join('') + '</ul></div></div>' +
       '<div class="cols" style="margin-top:28px"><div><h3>Zasady</h3><ul class="chk" style="list-style:disc;padding-left:20px;gap:6px">' + F.zasady.map(function (z) { return '<li>' + esc(z) + '</li>'; }).join('') + '</ul></div></div></div></section>';
@@ -301,11 +336,22 @@ footer a { color: var(--ink-2); }
   (function () {
     var box = document.getElementById('mon'), st = document.getElementById('monst'); if (!box) return;
     fetch('loty.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (M) {
-      var hist = (M.historia || []).slice(), prog = M.prog || 3800, withp = hist.filter(function (x) { return x.min; });
+      var prog = M.prog || 3800, S = M.serie || [];
       st.textContent = 'Ostatnie sprawdzenie: ' + M.zaktualizowano + (M.nastepny ? ' · następne: ' + M.nastepny : '');
       var o = M.status ? '<p class="status">' + esc(M.status) + '</p>' : '';
-      if (withp.length) { var mx = Math.max.apply(null, withp.map(function (x) { return x.min; })); o += '<div class="spark" aria-hidden="true">' + withp.map(function (x) { return '<i class="' + (x.min <= prog ? 'ok' : '') + '" style="height:' + Math.max(8, 100 * x.min / mx) + '%" title="' + x.data + ': ' + x.min + ' zł"></i>'; }).join('') + '</div>'; }
-      o += '<ul class="hist">' + hist.slice().reverse().map(function (x) { return '<li' + (x.min && x.min <= prog ? ' class="ok"' : '') + '><small>' + esc(x.data) + '</small><b>' + (x.min ? x.min + ' zł' : '—') + '</b><span>' + esc(x.trasa || '') + (x.uwagi ? ' <small>' + esc(x.uwagi) + '</small>' : '') + '</span></li>'; }).join('') + '</ul>';
+      var all = []; S.forEach(function (s) { (s.hist || []).forEach(function (x) { if (x.cena) all.push(x.cena); }); });
+      var mx = all.length ? Math.max.apply(null, all) : 0;
+      function last(s) { var hh = (s.hist || []).filter(function (x) { return x.cena; }); return hh.length ? hh[hh.length - 1] : null; }
+      function prev(s) { var hh = (s.hist || []).filter(function (x) { return x.cena; }); return hh.length > 1 ? hh[hh.length - 2] : null; }
+      var rows = S.slice().sort(function (a, b) { var la = last(a), lb = last(b); return (la ? la.cena : 1e9) - (lb ? lb.cena : 1e9); });
+      o += '<div class="ptw"><table class="pt"><thead><tr><th>Linia · trasa</th><th>Teraz</th><th>Trend</th><th>Min</th><th>Historia</th></tr></thead><tbody>' + rows.map(function (s) {
+        var l = last(s), p = prev(s), hh = (s.hist || []).filter(function (x) { return x.cena; }), mn = hh.length ? Math.min.apply(null, hh.map(function (x) { return x.cena; })) : null;
+        var tr = '<span class="tr fl">—</span>';
+        if (l && p) { var d = l.cena - p.cena; tr = d > 0 ? '<span class="tr up">▲ +' + d + ' zł</span>' : d < 0 ? '<span class="tr dn">▼ ' + d + ' zł</span>' : '<span class="tr fl">= bez zmian</span>'; }
+        var now = l ? '<b>' + l.cena + ' zł</b>' : '<span class="or" title="widełki orientacyjne, rozkład jeszcze nieotwarty">' + esc(s.orient || '—') + '</span>';
+        var sp = hh.length ? '<span class="sp">' + hh.slice(-12).map(function (x) { return '<i class="' + (x.cena <= prog ? 'ok' : '') + '" style="height:' + Math.max(3, 22 * x.cena / mx) + 'px" title="' + x.data + ': ' + x.cena + ' zł"></i>'; }).join('') + '</span>' : '<span class="tr fl">brak odczytów</span>';
+        return '<tr' + (l && l.cena <= prog ? ' class="ok"' : '') + '><td><b>' + esc(s.linia) + '</b><span class="rt">' + esc(s.trasa) + (s.uwagi ? ' · ' + esc(s.uwagi) : '') + '</span></td><td class="n">' + now + '</td><td>' + tr + '</td><td class="n">' + (mn ? mn + ' zł' : '—') + '</td><td>' + sp + '</td></tr>';
+      }).join('') + '</tbody></table></div>';
       box.innerHTML = o;
     }).catch(function () { st.textContent = 'Monitor niedostępny w tym podglądzie.'; });
   })();
@@ -314,8 +360,8 @@ footer a { color: var(--ink-2); }
     var pts = D.mapa, box = document.getElementById('map'), note = document.getElementById('mapnote');
     if (!pts || !pts.length || !window.L || !box) return;
     var m = L.map('lmap', { scrollWheelZoom: false }), ok = false;
-    var tl = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 15, attribution: '© OpenStreetMap' }).addTo(m);
-    tl.on('load', function () { if (!ok) { ok = true; box.classList.add('live'); m.invalidateSize(); m.fitBounds(bounds, { padding: [24, 24] }); note.textContent = 'Mapa: OpenStreetMap. Kółka z numerem to kolejne miejsca planu, większe to noclegi i rocznica.'; } });
+    var tl = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', { subdomains: 'abc', maxZoom: 15, attribution: '© OpenStreetMap, SRTM · © OpenTopoMap (CC-BY-SA)' }).addTo(m);
+    tl.on('load', function () { if (!ok) { ok = true; box.classList.add('live'); m.invalidateSize(); m.fitBounds(bounds, { padding: [24, 24] }); note.textContent = 'Mapa topograficzna: OpenTopoMap. Kółka z numerem to kolejne miejsca planu, większe to noclegi i rocznica.'; } });
     tl.on('tileerror', function () { if (!ok) { setTimeout(function () { if (!ok) { m.remove(); note.textContent = 'Prawdziwa mapa dostępna w wersji na stronie (link w stopce); tu mapa schematyczna.'; } }, 4000); } });
     var bounds = L.latLngBounds(pts.map(function (p) { return [p.lat, p.lon]; }));
     pts.forEach(function (p, i) {
