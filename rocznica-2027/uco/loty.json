@@ -13,6 +13,14 @@
    "hist": []
   },
   {
+   "id": "stopover",
+   "linia": "Cały bilet ze stopoverem w Buenos Aires (multi-city)",
+   "trasa": "WAW–MDZ 5.11 · MDZ–EZE 12.11 · EZE–WAW 13.11 (jedna rezerwacja)",
+   "orient": "cena całego biletu + 0–150 EUR",
+   "uwagi": "przesiadka wydłużona do ok. 30 h = nasza noc w Buenos Aires; brać przy dopłacie ≤ 300 zł/os. wobec biletu w obie strony; wyszukiwać jako multi-city, nie „w obie strony”",
+   "hist": []
+  },
+  {
    "id": "mad",
    "linia": "Madryt–Mendoza chroniony (Iberia/LATAM) + dolot WAW–MAD",
    "trasa": "WAW–MAD osobno · MAD–EZE/SCL–MDZ jeden bilet",
