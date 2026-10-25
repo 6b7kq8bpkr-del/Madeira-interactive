@@ -183,6 +183,7 @@ section.blk { padding-block: clamp(44px, 7vw, 84px); }
 .btn { display: inline-block; font: inherit; font-size: .88rem; font-weight: 600; color: var(--malbec); background: var(--paper); border: 1px solid var(--malbec); border-radius: 999px; padding: 6px 14px; cursor: pointer; text-decoration: none; margin: 0 6px 6px 0; } .btn:hover { background: var(--chip); }
 .tools { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
 .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; margin-top: 6px; } .seg button { font: inherit; font-size: .78rem; padding: 4px 10px; border: 0; background: transparent; color: var(--ink-2); cursor: pointer; } .seg button[aria-pressed="true"] { background: var(--malbec); color: var(--on-malbec); }
+.grp { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin: 0 0 18px; } .grp .seg { margin-top: 0; } .grp .gnote { flex: 1 0 100%; width: 100%; font-size: .85rem; color: var(--ink-2); max-width: 70ch; } .note.gwarn { color: var(--malbec); }
 .total > div { min-width: 0; max-width: 100%; } .total > div:last-child { text-align: right; display: flex; flex-direction: column; align-items: flex-end; } .limit { white-space: normal; }
 @media (max-width: 560px) { .total { flex-direction: column; align-items: flex-start; } .total > div:last-child { text-align: left; align-items: flex-start; } }
 .tl.rz label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; min-width: 0; } .tl.rz span { min-width: 0; overflow-wrap: anywhere; } .tl.rz input { margin-top: 5px; accent-color: var(--malbec); width: 18px; height: 18px; flex: none; } .tl.rz input:checked + span { text-decoration: line-through; color: var(--muted); }
@@ -280,7 +281,7 @@ footer a { color: var(--ink-2); }
   function cred(p) { return p && p.au ? ' <a class="cred" href="' + esc(p.page) + '" target="_blank" rel="noopener">fot. ' + esc(p.au) + (p.lic ? ', ' + esc(p.lic) : '') + '</a>' : ''; }
   function band(k) { var B = D.bands && D.bands[k]; if (!B) return ''; return '<section class="band reveal" aria-label="' + esc(B.t) + '">' + img(B.img, '', false, '100vw') + '<div class="wrap"><p class="eyebrow">' + esc(B.s) + '</p><h2>' + esc(B.t) + '</h2></div><span class="cred">' + esc(B.img.cap) + cred(B.img) + '</span></section>'; }
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
-  function nf(n) { return Math.round(n).toLocaleString('pl-PL').replace(/ /g, ' '); }
+  function nf(n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ' '); }
   function load(k, d) { try { var v = localStorage.getItem('uco-' + k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }
   function save(k, v) { try { localStorage.setItem('uco-' + k, JSON.stringify(v)); } catch (e) {} }
   function img(o, cls, eager, sizes) {
@@ -291,13 +292,13 @@ footer a { color: var(--ink-2); }
   var h = '';
   // otwarcie
   h += '<header class="hero" id="start">' + (D.hero ? img(D.hero, '', true, '100vw') : '<canvas class="scn" data-k="hero" data-seed="7" aria-hidden="true"></canvas>') + '<div class="wrap">' +
-    '<p class="eyebrow">20. rocznica · 6–13 listopada 2027 · trzy pary · Mendoza i Buenos Aires</p>' +
+    '<p class="eyebrow">20. rocznica · 6–13 listopada 2027 · dwie do czterech par · Mendoza i Buenos Aires</p>' +
     '<h1>Valle de Uco<br><em>i Zuccardi</em></h1>' +
     '<p>' + esc(P.tagline || X.teaser || '') + '</p>' +
     '<div class="count"><div><b>' + dd(new Date(2027, 10, 5)) + '</b><span>dni do wylotu</span></div><div><b>' + dd(new Date(2027, 10, 10)) + '</b><span>dni do rocznicy</span></div><div><b>' + X.temp + ' °C</b><span>w listopadzie</span></div></div>' +
     '</div>' + (D.hero ? '<span class="cred">' + esc(D.hero.cap) + (D.hero.au ? ' · <a href="' + esc(D.hero.page) + '" target="_blank" rel="noopener">fot. ' + esc(D.hero.au) + (D.hero.lic ? ', ' + esc(D.hero.lic) : '') + '</a>' : ' · <a href="' + esc(D.hero.page) + '" target="_blank" rel="noopener">Wikimedia Commons</a>') + '</span>' : '') + '</header>';
   // fakty i „dlaczego”
-  h += '<section class="blk"><div class="wrap">' + (P.stats ? '<div class="stats">' + P.stats.map(function (s) { return '<div><b>' + esc(s.value) + '</b><span>' + esc(s.label) + '</span></div>'; }).join('') + '</div>' : '') +
+  h += '<section class="blk"><div class="wrap">' + (P.stats ? '<div class="stats">' + P.stats.map(function (s) { return '<div><b' + (s.dyn ? ' data-dyn="' + s.dyn + '"' : '') + '>' + esc(s.value) + '</b><span>' + esc(s.label) + '</span></div>'; }).join('') + '</div>' : '') +
     (X.wow ? '<div class="wow">' + X.wow.map(function (w) { return '<p>' + esc(w) + '</p>'; }).join('') + '</div>' : '') + '</div></section>';
   if (D.mosaic && D.mosaic.length) h += '<div class="mosaic" aria-label="Zdjęcia z trasy">' + D.mosaic.map(function (g) { return '<figure>' + img(g, '', false, '(max-width: 760px) 50vw, 20vw') + '<figcaption>' + esc(g.cap) + '</figcaption></figure>'; }).join('') + '</div>';
   h += band('trasa');
@@ -350,9 +351,10 @@ footer a { color: var(--ink-2); }
           (o.linki && o.linki.length ? '<p class="hl">' + o.linki.map(function (l) { return '<a href="' + esc(l[1]) + '" target="_blank" rel="noopener">' + esc(l[0]) + ' ↗</a>'; }).join('') + '</p>' : (o.url ? '<p><a href="' + esc(o.url) + '" target="_blank" rel="noopener">Strona hotelu →</a></p>' : '')) + '</div></article>';
       }).join('') + '</div>' + (D.odrzucone && D.odrzucone.length ? '<details class="odrz"><summary>Rozważone i odrzucone (' + D.odrzucone.length + ')</summary><ul>' + D.odrzucone.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></details>' : '') + '</div></section>';
   }
-  h += '<section class="blk" id="budzet"><div class="wrap"><div class="sh"><div><p class="eyebrow">Baza i koszty</p><h2>Wariant i budżet</h2><p>Zuccardi nie ma noclegów, więc śpimy w dwóch miejscach: 3 noce pod Mendozą i 4 noce w dolinie Uco. Plan dni jest ten sam w każdym wariancie, różnią się hotele. Wybierzcie wariant, a budżet przeliczy się na parę.</p></div></div>' +
+  h += '<section class="blk" id="budzet"><div class="wrap"><div class="sh"><div><p class="eyebrow">Baza i koszty</p><h2>Wariant i budżet</h2><p>Zuccardi nie ma noclegów, więc śpimy w dwóch miejscach: 3 noce pod Mendozą i 4 noce w dolinie Uco. Plan dni jest ten sam w każdym wariancie, różnią się hotele. Wybierzcie liczbę par i wariant, a budżet przeliczy się na parę.</p></div></div>' +
+    '<div class="grp"><span class="eyebrow">Ile par jedzie?</span><div class="seg" id="grp" role="group" aria-label="Liczba par"></div><span class="gnote" id="gnote"></span></div>' +
     '<div class="hsel" role="group" aria-label="Hotel">' + D.hotels.map(function (o, i) {
-      return '<button type="button" class="hc" data-h="' + i + '" aria-pressed="false"><span class="eyebrow">' + (o.h1 ? esc(o.h1) + ' · ' + esc(o.h2) : 'wariant trasy') + '</span><h3>' + esc(o.n.replace(/^Trasa: /, '').replace(/:.*$/, '')) + '</h3><span class="sum">' + nf(o.b.razem) + ' zł na parę</span><p>' + esc(o.short || (o.note.length > 170 ? o.note.slice(0, 170) + '…' : o.note)) + '</p>' + (o.oc ? '<p style="font-size:.85rem;color:var(--muted)">' + esc(o.oc) + '</p>' : '') + '</button>';
+      return '<button type="button" class="hc" data-h="' + i + '" aria-pressed="false"><span class="eyebrow">' + (o.h1 ? esc(o.h1) + ' · ' + esc(o.h2) : 'wariant trasy') + '</span><h3>' + esc(o.n.replace(/^Trasa: /, '').replace(/:.*$/, '')) + '</h3><span class="sum" data-sum="' + i + '"></span><p>' + esc(o.short || (o.note.length > 170 ? o.note.slice(0, 170) + '…' : o.note)) + '</p>' + (o.oc ? '<p style="font-size:.85rem;color:var(--muted)">' + esc(o.oc) + '</p>' : '') + '</button>';
     }).join('') + '</div><div class="bud" id="bud" aria-live="polite"></div></div></section>';
   // przygotowania
   // loty: opcje, kalendarz zakupu, alerty i monitor cen (loty.json aktualizuje agent)
@@ -432,17 +434,33 @@ footer a { color: var(--ink-2); }
   })();
 
   // wybór hotelu → budżet
-  var cur = Math.min(load('h', 0), D.hotels.length - 1), SK = [[1, 'na parę', 'na parę'], [0.5, 'na osobę', 'na osobę'], [3, 'na trzy pary', '3 pary']], sk = Math.min(load('sk', 0), 2);
+  var G = P.grupa || { domyslnie: 3, opcje: [3], kurs: 3.7, transport_usd: { 3: 1700 }, transport_opis: {} }, np = load('p', G.domyslnie); if (G.opcje.indexOf(np) < 0) np = G.domyslnie;
+  // budżet na parę zależny od liczby par: bus dzielony po równo, rezydencja (dom na 3 pary) + pokoje dla kolejnych par
+  function calc(o) {
+    var b = {}, m = o.model, k = G.kurs || 3.7, n = np; ['loty', 'jedzenie', 'wycieczki_bilety', 'rezerwa'].forEach(function (x) { b[x] = o.b[x] || 0; });
+    if (m && m.typ === 'rezydencja') { var ekstra = Math.max(0, n - (m.pary_w_domu || 3)); b.nocleg = Math.round((m.usd_para_poza + (m.dom_usd_noc * m.noce + ekstra * m.pokoj_usd_noc * m.noce) / n) * k); b.rez = ekstra; }
+    else if (m && m.usd_para) b.nocleg = Math.round(m.usd_para * k); else b.nocleg = o.b.nocleg;
+    b.auto_transfery = G.transport_usd && G.transport_usd[n] ? Math.round(G.transport_usd[n] * k / n / 10) * 10 : o.b.auto_transfery;
+    b.razem = b.nocleg + b.loty + b.auto_transfery + b.jedzenie + b.wycieczki_bilety + b.rezerwa; return b;
+  }
+  var cur = Math.min(load('h', 0), D.hotels.length - 1), sk = Math.min(load('sk', 0), 2);
   function bud() {
-    var o = D.hotels[cur], b = o.b, t = b.razem;
+    var SK = [[1, 'na parę', 'na parę'], [0.5, 'na osobę', 'na osobę'], [np, 'na całą grupę (' + np + ' pary)', np + ' pary']];
+    var o = D.hotels[cur], b = calc(o), t = b.razem;
+    document.getElementById('grp').innerHTML = G.opcje.map(function (n) { return '<button type="button" data-np="' + n + '" aria-pressed="' + (n === np ? 'true' : 'false') + '">' + n + ' pary · ' + (2 * n) + ' os.</button>'; }).join('');
+    document.getElementById('gnote').textContent = (G.transport_opis && G.transport_opis[np] ? 'Bus: ' + G.transport_opis[np] + ', dzielony po równo. ' : '') + (G.uwaga || '');
+    document.querySelectorAll('[data-sum]').forEach(function (el) { el.textContent = nf(calc(D.hotels[+el.dataset.sum]).razem) + ' zł na parę'; });
+    var st = document.querySelector('[data-dyn="koszt"]'); if (st) st.textContent = 'ok. ' + nf(calc(D.hotels[0]).razem) + ' zł';
     document.querySelectorAll('.hc').forEach(function (el) { el.setAttribute('aria-pressed', +el.dataset.h === cur ? 'true' : 'false'); });
     document.getElementById('bud').innerHTML = '<div class="total"><div><p class="eyebrow">Budżet ' + SK[sk][1] + ' · ' + esc(o.n.replace(/^Trasa: /, '')) + '</p><b>' + nf(t * SK[sk][0]) + ' zł</b></div><div><span class="limit' + (t <= 28000 ? '' : ' over') + '">' + (t <= 28000 ? 'zapas ' + nf((28000 - t) * SK[sk][0]) + ' zł do sufitu ' + nf(28000 * SK[sk][0]) + ' zł' : 'ponad sufit ' + nf(28000 * SK[sk][0]) + ' zł o ' + nf((t - 28000) * SK[sk][0]) + ' zł') + '</span><div class="seg" role="group" aria-label="Skala">' + SK.map(function (s, i) { return '<button type="button" data-sk="' + i + '" aria-pressed="' + (i === sk ? 'true' : 'false') + '">' + s[2] + '</button>'; }).join('') + '</div></div></div>' +
       '<div class="bar" role="img" aria-label="Podział budżetu">' + BL.map(function (r) { return b[r[0]] ? '<i class="' + r[2] + '" style="width:' + (b[r[0]] / t * 100).toFixed(2) + '%" title="' + r[1] + '"></i>' : ''; }).join('') + '</div>' +
       '<ul class="leg">' + BL.map(function (r) { return b[r[0]] != null ? '<li><s class="' + r[2] + '"></s>' + r[1] + '<b>' + nf(b[r[0]] * SK[sk][0]) + ' zł</b></li>' : ''; }).join('') + '</ul>' +
+      (o.model && o.model.typ === 'rezydencja' && np !== (o.model.pary_w_domu || 3) ? '<p class="note gwarn">' + (np < (o.model.pary_w_domu || 3) ? 'Przy ' + np + ' parach dom na trzy sypialnie dzieli się na mniej osób – ' + nf(Math.round(o.model.dom_usd_noc * (G.kurs || 3.7) / np)) + ' zł za parę za noc; ten wariant ma sens dopiero od trzech par.' : 'Przy ' + np + ' parach: rezydencja na trzy pary plus ' + b.rez + ' pokój Cordón del Plata obok; koszt całości dzielony po równo między pary.') + '</p>' : '') +
       (o.note ? '<p class="note">' + esc(o.note) + '</p>' : '') + (o.url ? '<p class="note"><a href="' + esc(o.url) + '" target="_blank" rel="noopener">Strona hotelu ↗</a></p>' : '');
   }
   document.querySelectorAll('.hc').forEach(function (el) { el.addEventListener('click', function () { cur = +el.dataset.h; save('h', cur); bud(); }); });
   document.getElementById('bud').addEventListener('click', function (e) { var b = e.target.closest('[data-sk]'); if (b) { sk = +b.dataset.sk; save('sk', sk); bud(); } });
+  document.getElementById('grp').addEventListener('click', function (e) { var b = e.target.closest('[data-np]'); if (b) { np = +b.dataset.np; save('p', np); bud(); } });
   bud();
   // stopka: kopiowanie linku i druk
   var cl = document.getElementById('copylink'), pb = document.getElementById('printbtn');
