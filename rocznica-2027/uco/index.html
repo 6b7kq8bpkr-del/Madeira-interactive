@@ -265,7 +265,7 @@ footer a { color: var(--ink-2); }
   h += '<section class="blk"><div class="wrap">' + (P.stats ? '<div class="stats">' + P.stats.map(function (s) { return '<div><b>' + esc(s.value) + '</b><span>' + esc(s.label) + '</span></div>'; }).join('') + '</div>' : '') +
     (X.wow ? '<div class="wow">' + X.wow.map(function (w) { return '<p>' + esc(w) + '</p>'; }).join('') + '</div>' : '') + '</div></section>';
   // trasa objazdu: schematyczna mapa z punktami etapów (rzut z lat/lon)
-  var ET = (P.etapy || []).filter(function (e) { return e.lat != null && e.lon != null; });
+  var ETall = (P.etapy || []), ET = ETall.filter(function (e) { return e.lat != null && e.lon != null && !e.skipmap; });
   if (ET.length) {
     var MDZ = { lat: -32.83, lon: -68.79 }, all = ET.concat([MDZ]);
     var la0 = Math.min.apply(null, all.map(function (e) { return e.lat; })) - .25, la1 = Math.max.apply(null, all.map(function (e) { return e.lat; })) + .25;
@@ -282,7 +282,7 @@ footer a { color: var(--ink-2); }
       '<circle class="ap" cx="' + pts[0][0] + '" cy="' + pts[0][1] + '" r="7"/><text class="lab" x="' + (pts[0][0] + 12) + '" y="' + (pts[0][1] + 4) + '">Mendoza · lotnisko</text>' +
       ET.map(function (e, i) { var p = xy(e), left = p[0] > VW * .45; return '<circle class="pt" cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="15"/><text class="pn" x="' + p[0].toFixed(1) + '" y="' + (p[1] + 4.5).toFixed(1) + '" text-anchor="middle">' + (i + 1) + '</text>' +
         '<text class="lab" x="' + (p[0] + (left ? -22 : 22)).toFixed(1) + '" y="' + (p[1] + 4).toFixed(1) + '" text-anchor="' + (left ? 'end' : 'start') + '">' + esc(e.nazwa) + '</text>'; }).join('') + '</svg>';
-    h += '<section class="blk" id="trasa"><div class="wrap"><div class="sh"><div><p class="eyebrow">Objazd busem z kierowcą · ' + ET.reduce(function (a, e) { return a + (+e.noce || 0); }, 0) + ' nocy</p><h2>Trasa</h2><p>Spokojny objazd z lotniska w Mendozie: najpierw baza pod miastem z wypadem w wysokie Andy, potem dolina Uco z Zuccardi. Poza dniem pod Aconcaguą żaden przejazd nie trwa dłużej niż półtorej godziny.</p></div></div>' +
+    h += '<section class="blk" id="trasa"><div class="wrap"><div class="sh"><div><p class="eyebrow">Objazd busem z kierowcą · ' + ET.reduce(function (a, e) { return a + (+e.noce || 0); }, 0) + ' nocy</p><h2>Trasa</h2><p>Spokojny objazd: baza pod Mendozą z wypadem w wysokie Andy, potem dolina Uco z Zuccardi, a na koniec lot do Buenos Aires na noc z tangiem. Poza dniem pod Aconcaguą żaden przejazd nie trwa dłużej niż półtorej godziny.</p></div></div>' +
       '<div class="route"><div><div class="map" id="map"><div class="lmap" id="lmap"></div>' + svg + '</div><p class="mapnote" id="mapnote"></p></div><ol class="stg">' + ET.map(function (e, i) {
         return '<li><span class="n">' + (i + 1) + '</span><div><h3>' + esc(e.nazwa) + '</h3><span class="meta">' + esc(e.noce) + ' ' + (+e.noce === 1 ? 'noc' : 'noce') + (e.rate ? ' · ok. ' + e.rate + ' ' + (e.cur || 'USD') + ' za noc' : '') + '</span>' +
           '<p><b>' + (e.hotel_url ? '<a href="' + esc(e.hotel_url) + '" target="_blank" rel="noopener">' + esc(e.hotel) + '</a>' : esc(e.hotel || '')) + '</b>' + (e.alt ? ' · alternatywa: ' + (e.alt_url ? '<a href="' + esc(e.alt_url) + '" target="_blank" rel="noopener">' + esc(e.alt) + '</a>' : esc(e.alt)) : '') + '</p>' +
@@ -290,7 +290,7 @@ footer a { color: var(--ink-2); }
       }).join('') + '</ol></div></div></section>';
   }
   // plan dnia
-  h += '<section class="blk" id="plan" style="background:var(--paper)"><div class="wrap"><div class="sh"><div><p class="eyebrow">Dzień po dniu</p><h2>Osiem dni w dolinie</h2><p>Rano szlak albo winnica, w południe długi lunch, wieczorem zachód słońca nad Andami. 10 listopada należy do Zuccardi.</p></div></div>' +
+  h += '<section class="blk" id="plan" style="background:var(--paper)"><div class="wrap"><div class="sh"><div><p class="eyebrow">Dzień po dniu</p><h2>Osiem dni: Andy, winnice i Buenos Aires</h2><p>Rano szlak albo winnica, w południe lekki lunch, wieczorem zachód słońca nad Andami; 10 listopada należy do Zuccardi, a finał do tanga.</p></div></div>' +
     (X.dayflow ? '<ul class="flow" aria-label="Typowy dzień">' + X.dayflow.map(function (f) { return '<li><b>' + esc(f[0]) + '</b>' + esc(f[1]) + '</li>'; }).join('') + '</ul><div style="height:26px"></div>' : '') +
     '<ol class="days" style="list-style:none;margin:0;padding:0">' + D.days.map(function (d) {
       return '<li class="day' + (d.anniv ? ' anniv' : '') + '">' + (d.img ? '<figure class="ph" style="margin:0">' + img(d.img) + '<figcaption>' + esc(d.img.cap) + cred(d.img) + '</figcaption></figure>' : '<div class="ph"><canvas class="scn" data-k="' + esc(d.k || 'gory') + '" data-seed="' + (D.days.indexOf(d) + 3) + '" data-anniv="' + (d.anniv ? 1 : 0) + '" aria-hidden="true"></canvas></div>') +
@@ -321,7 +321,7 @@ footer a { color: var(--ink-2); }
   // loty: opcje, kalendarz zakupu, alerty i monitor cen (loty.json aktualizuje agent)
   if (P.loty) {
     var F = P.loty;
-    h += '<section class="blk" id="loty" style="background:var(--paper)"><div class="wrap"><div class="sh"><div><p class="eyebrow">Warszawa → Mendoza · 5/6 i 13/14.11.2027</p><h2>Loty</h2><p>' + esc(F.intro) + '</p></div></div>' +
+    h += '<section class="blk" id="loty" style="background:var(--paper)"><div class="wrap"><div class="sh"><div><p class="eyebrow">Warszawa → Buenos Aires → Mendoza · 5/6 i 13/14.11.2027</p><h2>Loty</h2><p>' + esc(F.intro) + '</p></div></div>' +
       '<div class="fo">' + F.opcje.map(function (o) { return '<article' + (o.rek ? ' class="rek"' : '') + '><span class="rt">' + esc(o.trasa) + (o.rek ? ' · polecane' : '') + '</span><h3>' + esc(o.n) + '</h3><div class="kv"><span>czas <b>' + esc(o.czas) + '</b></span><span>od osoby <b>' + esc(o.cena) + '</b></span></div><p>' + esc(o.linie) + '</p><div class="pm"><span>' + esc(o.plus) + '</span><span class="m">' + esc(o.minus) + '</span></div></article>'; }).join('') + '</div>' +
       '<div class="mon"><div><h3>Monitor cen i trendy</h3><p class="st" id="monst">Ładowanie…</p><div id="mon"></div><p class="note" style="color:var(--ink-2);font-size:.9rem;margin:12px 0 0">Agent sprawdza 1. i 15. dnia miesiąca ceny u 9 najsensowniejszych linii i tras (za osobę, w obie strony, z bagażem) i zapisuje je tutaj. Trend porównuje ostatni odczyt z poprzednim; słupki to historia. Próg zakupu: <b>3 800 zł</b>. To wskazówka, nie oferta – przed zakupem sprawdzić cenę u linii.</p></div>' +
       '<div><h3>Kiedy kupować</h3><ol class="tl">' + F.kiedy.map(function (k) { return '<li><b>' + esc(k[0]) + '</b><span>' + esc(k[1]) + '</span></li>'; }).join('') + '</ol>' +
@@ -368,18 +368,18 @@ footer a { color: var(--ink-2); }
   })();
   // prawdziwa mapa (OpenStreetMap przez Leaflet); gdy kafelki nie dochodzą (np. w podglądzie Claude), zostaje mapa schematyczna
   (function () {
-    var pts = D.mapa, box = document.getElementById('map'), note = document.getElementById('mapnote');
+    var pts = D.mapa, box = document.getElementById('map'), note = document.getElementById('mapnote'); var ptsIn = pts.filter(function (p) { return !p.poza; });
     if (!pts || !pts.length || !window.L || !box) return;
     var m = L.map('lmap', { scrollWheelZoom: false }), ok = false;
     var tl = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', { subdomains: 'abc', maxZoom: 15, attribution: '© OpenStreetMap, SRTM · © OpenTopoMap (CC-BY-SA)' }).addTo(m);
-    tl.on('load', function () { if (!ok) { ok = true; box.classList.add('live'); m.invalidateSize(); m.fitBounds(bounds, { padding: [24, 24] }); note.textContent = 'Mapa topograficzna: OpenTopoMap. Kółka z numerem to kolejne miejsca planu, większe to noclegi i rocznica.'; } });
+    tl.on('load', function () { if (!ok) { ok = true; box.classList.add('live'); m.invalidateSize(); m.fitBounds(bounds, { padding: [24, 24] }); note.textContent = 'Mapa topograficzna: OpenTopoMap. Kółka z numerem to kolejne miejsca planu, większe to noclegi i rocznica. Buenos Aires (12–13.11) leży 1 000 km na wschód – poza kadrem.'; } });
     tl.on('tileerror', function () { if (!ok) { setTimeout(function () { if (!ok) { m.remove(); note.textContent = 'Prawdziwa mapa dostępna w wersji na stronie (link w stopce); tu mapa schematyczna.'; } }, 4000); } });
-    var bounds = L.latLngBounds(pts.map(function (p) { return [p.lat, p.lon]; }));
+    var bounds = L.latLngBounds(ptsIn.map(function (p) { return [p.lat, p.lon]; }));
     pts.forEach(function (p, i) {
       var cls = 'mk' + (p.baza ? ' base' : '') + (p.anniv ? ' anniv' : ''), lab = p.baza ? '🛏' : p.anniv ? '♥' : String(i + 1);
       L.marker([p.lat, p.lon], { icon: L.divIcon({ className: '', html: '<div class="' + cls + '">' + lab + '</div>', iconSize: [34, 34], iconAnchor: [17, 17] }) }).addTo(m).bindPopup('<b>' + esc(p.n) + '</b><br>' + esc(p.d));
     });
-    L.polyline(pts.filter(function (p) { return !/opcja/.test(p.d); }).map(function (p) { return [p.lat, p.lon]; }), { color: '#6b1d3a', weight: 3, dashArray: '7 6' }).addTo(m);
+    L.polyline(ptsIn.filter(function (p) { return !/opcja/.test(p.d); }).map(function (p) { return [p.lat, p.lon]; }), { color: '#6b1d3a', weight: 3, dashArray: '7 6' }).addTo(m);
     m.fitBounds(bounds, { padding: [24, 24] });
   })();
 
