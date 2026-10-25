@@ -117,7 +117,7 @@ section.blk { padding-block: clamp(44px, 7vw, 84px); }
 .leg li b { margin-left: auto; font-family: var(--f-mono); font-weight: 500; font-variant-numeric: tabular-nums; }
 .total { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: baseline; }
 .total b { font-family: var(--f-display); font-weight: 400; font-size: 2.4rem; }
-.limit { font-family: var(--f-mono); font-size: .85rem; color: var(--poplar); }
+.limit { font-family: var(--f-mono); font-size: .85rem; color: var(--poplar); } .limit.over { color: var(--malbec); font-weight: 600; }
 .bud .note { color: var(--ink-2); margin: 14px 0 0; font-size: .95rem; }
 .c1 { background: var(--malbec); } .c2 { background: var(--adobe); } .c3 { background: var(--poplar); } .c4 { background: var(--malbec-2); } .c5 { background: var(--muted); } .c6 { background: var(--line); }
 
@@ -134,6 +134,7 @@ section.blk { padding-block: clamp(44px, 7vw, 84px); }
 .zp { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 6px 20px; } .zp ul { margin: 0; padding: 0; list-style: none; font-size: .9rem; display: grid; gap: 4px; }
 .zp li::before { content: "+ "; color: var(--poplar); font-weight: 700; } .zp ul.m li::before { content: "− "; color: var(--malbec); }
 @media (max-width: 760px) { .hk { grid-template-columns: 1fr; } .hk .ph { min-height: 0; aspect-ratio: 16 / 10; } }
+.odrz { margin-top: 22px; } .odrz summary { cursor: pointer; font-weight: 600; color: var(--malbec); } .odrz ul { margin: 10px 0 0; padding-left: 20px; color: var(--ink-2); font-size: .92rem; display: grid; gap: 4px; }
 /* loty: tabela cen i trendów */
 .pt { width: 100%; border-collapse: collapse; font-size: .9rem; } .pt th, .pt td { text-align: left; padding: 8px 8px; border-bottom: 1px solid var(--line); vertical-align: middle; }
 .pt th { font-family: var(--f-mono); font-weight: 500; font-size: .75rem; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
@@ -293,18 +294,18 @@ footer a { color: var(--ink-2); }
   var BL = [['nocleg', 'Noclegi (7 nocy)', 'c1'], ['loty', 'Loty', 'c2'], ['auto_transfery', 'Bus z kierowcą', 'c3'], ['jedzenie', 'Jedzenie', 'c4'], ['wycieczki_bilety', 'Wycieczki i degustacje', 'c5'], ['rezerwa', 'Rezerwa', 'c6']];
   // hotele: karty z rolą w trasie, za/przeciw, oceną i linkiem
   if (D.hotele && D.hotele.length) {
-    h += '<section class="blk" id="hotele"><div class="wrap"><div class="sh"><div><p class="eyebrow">Dwie bazy, pięć opcji</p><h2>Hotele</h2><p>Hotele w stylu, który lubicie: butikowe, ciche, z widokiem i designem, wysoko oceniane. Pierwsze trzy noce pod Mendozą, cztery w dolinie Uco. Ceny to szacunki za pokój dla dwojga.</p></div></div><div class="hg">' +
+    h += '<section class="blk" id="hotele"><div class="wrap"><div class="sh"><div><p class="eyebrow">Dwie bazy, pięć opcji</p><h2>Hotele</h2><p>Hotele w stylu, który lubicie: butikowe, ciche, z widokiem i designem, wysoko oceniane. Cztery hotele składają się na trzy warianty (do wyboru w sekcji Budżet): pierwsze trzy noce pod Mendozą, cztery w dolinie Uco. Ceny to szacunki za pokój dla dwojga.</p></div></div><div class="hg">' +
       D.hotele.map(function (o) {
         return '<article class="hk' + (o.glowny ? ' main' : '') + '">' + (o.img ? '<figure class="ph">' + img(o.img, '', false, '(max-width: 760px) 100vw, 560px') + '</figure>' : '') + '<div class="hb"><p class="eyebrow">' + esc(o.rola) + '</p><h3>' + esc(o.n) + '</h3>' +
           '<div class="kv"><span>ok. <b>' + (o.rate || '?') + ' ' + esc(o.cur || 'USD') + '</b> za noc</span>' + (o.oc ? '<span>oceny <b>' + esc(o.oc) + '</b></span>' : '') + '<span class="tagw">' + esc(o.wariant) + '</span></div>' +
           (o.short ? '<p class="lead">' + esc(o.short) + '</p>' : '') + (o.desc ? '<p class="more">' + esc(o.desc) + '</p>' : '') +
           '<div class="zp"><ul>' + o.za.map(function (z) { return '<li>' + esc(z) + '</li>'; }).join('') + '</ul><ul class="m">' + o.przeciw.map(function (z) { return '<li>' + esc(z) + '</li>'; }).join('') + '</ul></div>' +
           (o.url ? '<p><a href="' + esc(o.url) + '" target="_blank" rel="noopener">Strona hotelu →</a></p>' : '') + '</div></article>';
-      }).join('') + '</div></div></section>';
+      }).join('') + '</div>' + (D.odrzucone && D.odrzucone.length ? '<details class="odrz"><summary>Rozważone i odrzucone (' + D.odrzucone.length + ')</summary><ul>' + D.odrzucone.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></details>' : '') + '</div></section>';
   }
-  h += '<section class="blk" id="budzet"><div class="wrap"><div class="sh"><div><p class="eyebrow">Baza i koszty</p><h2>Wariant i budżet</h2><p>Zuccardi nie ma noclegów, więc śpimy w dwóch miejscach: 3 noce pod Mendozą i 4 noce w dolinie Uco. Wybierzcie wariant trasy, a budżet przeliczy się na parę.</p></div></div>' +
+  h += '<section class="blk" id="budzet"><div class="wrap"><div class="sh"><div><p class="eyebrow">Baza i koszty</p><h2>Wariant i budżet</h2><p>Zuccardi nie ma noclegów, więc śpimy w dwóch miejscach: 3 noce pod Mendozą i 4 noce w dolinie Uco. Plan dni jest ten sam w każdym wariancie, różnią się hotele. Wybierzcie wariant, a budżet przeliczy się na parę.</p></div></div>' +
     '<div class="hsel" role="group" aria-label="Hotel">' + D.hotels.map(function (o, i) {
-      return '<button type="button" class="hc" data-h="' + i + '" aria-pressed="false"><span class="eyebrow">' + (o.rate ? 'ok. ' + o.rate + ' ' + o.cur + ' za noc' : 'wariant trasy') + '</span><h3>' + esc(o.n.replace(/^Trasa: /, '')) + '</h3><span class="sum">' + nf(o.b.razem) + ' zł na parę</span><p>' + esc(o.short || (o.note.length > 170 ? o.note.slice(0, 170) + '…' : o.note)) + '</p>' + (o.oc ? '<p style="font-size:.85rem;color:var(--muted)">' + esc(o.oc) + '</p>' : '') + '</button>';
+      return '<button type="button" class="hc" data-h="' + i + '" aria-pressed="false"><span class="eyebrow">' + (o.h1 ? esc(o.h1) + ' · ' + esc(o.h2) : 'wariant trasy') + '</span><h3>' + esc(o.n.replace(/^Trasa: /, '').replace(/:.*$/, '')) + '</h3><span class="sum">' + nf(o.b.razem) + ' zł na parę</span><p>' + esc(o.short || (o.note.length > 170 ? o.note.slice(0, 170) + '…' : o.note)) + '</p>' + (o.oc ? '<p style="font-size:.85rem;color:var(--muted)">' + esc(o.oc) + '</p>' : '') + '</button>';
     }).join('') + '</div><div class="bud" id="bud" aria-live="polite"></div></div></section>';
   // przygotowania
   // loty: opcje, kalendarz zakupu, alerty i monitor cen (loty.json aktualizuje agent)
