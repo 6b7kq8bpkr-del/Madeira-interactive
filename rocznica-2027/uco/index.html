@@ -157,6 +157,8 @@ section.blk { padding-block: clamp(44px, 7vw, 84px); }
 .gal { columns: 3 260px; column-gap: 12px; }
 .gal figure { margin: 0 0 12px; break-inside: avoid; }
 .gal img { width: 100%; border-radius: 4px; cursor: zoom-in; }
+.cred { color: inherit; opacity: .8; font-size: .92em; text-decoration: none; white-space: nowrap; }
+.cred:hover { text-decoration: underline; }
 .gal figcaption { font-size: .74rem; color: var(--muted); margin-top: 4px; }
 .lb { position: fixed; inset: 0; z-index: 50; background: rgba(12,9,11,.92); display: grid; place-items: center; padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
 .lb img { max-height: 84vh; width: auto; border-radius: 4px; }
@@ -187,6 +189,7 @@ footer a { color: var(--ink-2); }
 (function () {
   'use strict';
   var D = window.UCO, X = D.x, P = D.prog, app = document.getElementById('app');
+  function cred(p) { return p && p.au ? ' <a class="cred" href="' + esc(p.page) + '" target="_blank" rel="noopener">fot. ' + esc(p.au) + (p.lic ? ', ' + esc(p.lic) : '') + '</a>' : ''; }
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function nf(n) { return Math.round(n).toLocaleString('pl-PL').replace(/ /g, ' '); }
   function load(k, d) { try { var v = localStorage.getItem('uco-' + k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }
@@ -236,7 +239,7 @@ footer a { color: var(--ink-2); }
   h += '<section class="blk" id="plan" style="background:var(--paper)"><div class="wrap"><div class="sh"><div><p class="eyebrow">Dzień po dniu</p><h2>Osiem dni w dolinie</h2><p>Rano szlak albo winnica, w południe długi lunch, wieczorem zachód słońca nad Andami. 10 listopada należy do Zuccardi.</p></div></div>' +
     (X.dayflow ? '<ul class="flow" aria-label="Typowy dzień">' + X.dayflow.map(function (f) { return '<li><b>' + esc(f[0]) + '</b>' + esc(f[1]) + '</li>'; }).join('') + '</ul><div style="height:26px"></div>' : '') +
     '<ol class="days" style="list-style:none;margin:0;padding:0">' + D.days.map(function (d) {
-      return '<li class="day' + (d.anniv ? ' anniv' : '') + '">' + (d.img ? '<figure class="ph" style="margin:0">' + img(d.img) + '<figcaption>' + esc(d.img.cap) + '</figcaption></figure>' : '<div class="ph"><canvas class="scn" data-k="' + esc(d.k || 'gory') + '" data-seed="' + (D.days.indexOf(d) + 3) + '" data-anniv="' + (d.anniv ? 1 : 0) + '" aria-hidden="true"></canvas></div>') +
+      return '<li class="day' + (d.anniv ? ' anniv' : '') + '">' + (d.img ? '<figure class="ph" style="margin:0">' + img(d.img) + '<figcaption>' + esc(d.img.cap) + cred(d.img) + '</figcaption></figure>' : '<div class="ph"><canvas class="scn" data-k="' + esc(d.k || 'gory') + '" data-seed="' + (D.days.indexOf(d) + 3) + '" data-anniv="' + (d.anniv ? 1 : 0) + '" aria-hidden="true"></canvas></div>') +
         '<div class="bd"><div class="dt"><b>' + esc(d.date) + '</b><span>' + esc(d.dow || '') + '</span>' + (d.anniv ? ' <span class="tag">rocznica</span>' : '') + '</div><h3>' + esc(d.title) + '</h3><p>' + esc(d.text) + '</p>' +
         (d.cost ? '<span class="cost">ok. ' + nf(d.cost) + ' zł na parę tego dnia</span>' : '') + '</div></li>';
     }).join('') + '</ol></div></section>';
@@ -257,7 +260,7 @@ footer a { color: var(--ink-2); }
     '</div></div></section>';
   // galeria
   if (D.gallery.length) h += '<section class="blk" id="galeria"><div class="wrap"><div class="sh"><div><p class="eyebrow">Mendoza, Andy, malbec</p><h2>Galeria</h2></div></div><div class="gal">' +
-    D.gallery.map(function (g) { return '<figure>' + img(g, '', false, '(max-width: 760px) 100vw, 380px') + '<figcaption>' + esc(g.cap) + '</figcaption></figure>'; }).join('') + '</div></div></section>';
+    D.gallery.map(function (g) { return '<figure>' + img(g, '', false, '(max-width: 760px) 100vw, 380px') + '<figcaption>' + esc(g.cap) + cred(g) + '</figcaption></figure>'; }).join('') + '</div></div></section>';
   h += '<footer><div class="wrap"><p>Ceny to szacunki na bazie 2026 r.; w Argentynie zmieniają się szybko, doliczcie 5–10%. Kurs: 1 USD = 3,70 zł.</p>' +
     (P.zrodla ? '<p>Źródła: ' + P.zrodla.map(function (z) { return '<a href="' + esc(z.url) + '" target="_blank" rel="noopener">' + esc(z.label) + '</a>'; }).join(' · ') + '</p>' : '') +
     '<p>Zdjęcia: Wikimedia Commons, wolne licencje; autor i licencja na stronie każdego pliku.</p></div></footer>';
