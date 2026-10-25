@@ -52,9 +52,11 @@ h1, h2, h3 { font-family: var(--f-display); font-weight: 400; line-height: 1.08;
 
 /* otwarcie */
 .hero { position: relative; color: #fff; background: #2a2226; overflow: hidden; }
-.hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: kb 28s ease-in-out infinite alternate; transform-origin: 60% 40%; }
+@keyframes kb { from { transform: scale(1); } to { transform: scale(1.09); } }
+@media (prefers-reduced-motion: reduce) { .hero img { animation: none; } .reveal { opacity: 1 !important; transform: none !important; } }
 .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,14,18,.1) 0%, rgba(20,14,18,.35) 50%, rgba(20,14,18,.88) 100%); }
-.hero .wrap { position: relative; z-index: 1; padding-block: clamp(140px, 30vh, 300px) 44px; text-shadow: 0 1px 14px rgba(0,0,0,.4); }
+.hero .wrap { position: relative; z-index: 1; padding-block: clamp(160px, 38vh, 360px) 56px; text-shadow: 0 1px 14px rgba(0,0,0,.4); }
 .hero h1 { font-size: clamp(3.2rem, 11vw, 8.5rem); letter-spacing: -.01em; }
 .hero h1 em { font-style: normal; color: #e9b6c5; }
 .hero p { max-width: 52ch; font-size: clamp(1.05rem, 2vw, 1.3rem); margin: 14px 0 0; }
@@ -185,6 +187,21 @@ section.blk { padding-block: clamp(44px, 7vw, 84px); }
 @media (max-width: 560px) { .total { flex-direction: column; align-items: flex-start; } .total > div:last-child { text-align: left; align-items: flex-start; } }
 .tl.rz label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; min-width: 0; } .tl.rz span { min-width: 0; overflow-wrap: anywhere; } .tl.rz input { margin-top: 5px; accent-color: var(--malbec); width: 18px; height: 18px; flex: none; } .tl.rz input:checked + span { text-decoration: line-through; color: var(--muted); }
 @media print { .nav, .lmap, .leaflet-control-container, .tools, #theme, .lb, .hsel, .ptw, .al, .bastrip, .hgal .ph:not(:first-child), .gal { display: none !important; } .map > svg, .map.live > svg { display: block !important; } body { background: #fff; color: #000; } .blk { padding: 16px 0; break-inside: avoid; } .day, .hk, .tort { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; } .day .ph img { max-height: 220px; object-fit: cover; } a { color: inherit; text-decoration: none; } .hero { min-height: 0; } .hero img, .hero canvas { display: none; } .hero .wrap * { color: #000 !important; text-shadow: none !important; } }
+.mosaic { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; background: var(--paper); padding: 6px 0; } .mosaic figure { margin: 0; position: relative; overflow: hidden; } .mosaic img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; transition: transform .6s ease; cursor: zoom-in; } .mosaic figure:hover img { transform: scale(1.05); }
+.mosaic figcaption { position: absolute; left: 8px; right: 8px; bottom: 6px; font-size: .66rem; color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,.8); opacity: 0; transition: opacity .3s; } .mosaic figure:hover figcaption { opacity: 1; }
+@media (max-width: 760px) { .mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); } .mosaic figure:first-child { grid-column: 1 / -1; } .mosaic figure:first-child img { aspect-ratio: 16 / 9; } .mosaic figure:nth-child(n+4) { display: none; } }
+.band { position: relative; min-height: clamp(260px, 46vh, 520px); display: flex; align-items: flex-end; color: #fff; overflow: hidden; background: #2a2226; } .band img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; } .band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,14,18,.05) 30%, rgba(20,14,18,.72) 100%); }
+.band .wrap { position: relative; z-index: 1; width: 100%; padding-block: 34px; text-shadow: 0 1px 12px rgba(0,0,0,.5); } .band h2 { font-size: clamp(2rem, 5.5vw, 4rem); color: #fff; margin: 0; } .band p { margin: 8px 0 0; max-width: 56ch; font-size: 1.05rem; color: #f3e9ec; } .band .eyebrow { color: #f0c59a; }
+.band .cred { position: absolute; right: max(12px, env(safe-area-inset-right, 0px)); bottom: 8px; z-index: 1; font-size: .68rem; opacity: .85; color: #fff; } .band .cred a { color: #fff; }
+.day .ph img { transition: transform .7s ease; } .day:hover .ph img { transform: scale(1.04); }
+.day .ph2 { position: absolute; right: 12px; bottom: 34px; width: 34%; aspect-ratio: 4 / 3; border: 3px solid var(--paper); border-radius: 4px; overflow: hidden; box-shadow: 0 6px 18px rgba(0,0,0,.35); } .day .ph2 img { position: static; width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; }
+@media (max-width: 760px) { .day .ph2 { width: 38%; bottom: 30px; } }
+.day.anniv { position: relative; outline: 0; box-shadow: 0 0 0 2px var(--malbec), var(--shade); } .day.anniv .bd { background: linear-gradient(180deg, var(--paper), var(--chip)); }
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; } .reveal.in { opacity: 1; transform: none; }
+.gal { columns: auto; column-gap: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); grid-auto-rows: 180px; grid-auto-flow: dense; gap: 10px; } .gal figure { margin: 0; position: relative; overflow: hidden; border-radius: 4px; } .gal img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s ease; } .gal figure:hover img { transform: scale(1.05); }
+.gal figure.w { grid-column: span 2; } .gal figure.t { grid-row: span 2; } .gal figure.b { grid-column: span 2; grid-row: span 2; }
+.gal figcaption { position: absolute; left: 10px; right: 10px; bottom: 8px; font-size: .7rem; color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,.8); margin: 0; } .gal figcaption .cred, .gal figcaption a { color: #fff; }
+@media (max-width: 560px) { .gal { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 130px; } .gal figure.b { grid-column: span 2; grid-row: span 2; } }
 /* przygotowania */
 .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px 40px; }
 .cols h3 { font-size: 1.5rem; margin-bottom: 12px; }
@@ -261,6 +278,7 @@ footer a { color: var(--ink-2); }
   'use strict';
   var D = window.UCO, X = D.x, P = D.prog, app = document.getElementById('app');
   function cred(p) { return p && p.au ? ' <a class="cred" href="' + esc(p.page) + '" target="_blank" rel="noopener">fot. ' + esc(p.au) + (p.lic ? ', ' + esc(p.lic) : '') + '</a>' : ''; }
+  function band(k) { var B = D.bands && D.bands[k]; if (!B) return ''; return '<section class="band reveal" aria-label="' + esc(B.t) + '">' + img(B.img, '', false, '100vw') + '<div class="wrap"><p class="eyebrow">' + esc(B.s) + '</p><h2>' + esc(B.t) + '</h2></div><span class="cred">' + esc(B.img.cap) + cred(B.img) + '</span></section>'; }
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function nf(n) { return Math.round(n).toLocaleString('pl-PL').replace(/ /g, ' '); }
   function load(k, d) { try { var v = localStorage.getItem('uco-' + k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }
@@ -281,6 +299,8 @@ footer a { color: var(--ink-2); }
   // fakty i „dlaczego”
   h += '<section class="blk"><div class="wrap">' + (P.stats ? '<div class="stats">' + P.stats.map(function (s) { return '<div><b>' + esc(s.value) + '</b><span>' + esc(s.label) + '</span></div>'; }).join('') + '</div>' : '') +
     (X.wow ? '<div class="wow">' + X.wow.map(function (w) { return '<p>' + esc(w) + '</p>'; }).join('') + '</div>' : '') + '</div></section>';
+  if (D.mosaic && D.mosaic.length) h += '<div class="mosaic" aria-label="Zdjęcia z trasy">' + D.mosaic.map(function (g) { return '<figure>' + img(g, '', false, '(max-width: 760px) 50vw, 20vw') + '<figcaption>' + esc(g.cap) + '</figcaption></figure>'; }).join('') + '</div>';
+  h += band('trasa');
   // trasa objazdu: schematyczna mapa z punktami etapów (rzut z lat/lon)
   var ETall = (P.etapy || []), ET = ETall.filter(function (e) { return e.lat != null && e.lon != null && !e.skipmap; });
   if (ET.length) {
@@ -310,7 +330,7 @@ footer a { color: var(--ink-2); }
   h += '<section class="blk" id="plan" style="background:var(--paper)"><div class="wrap"><div class="sh"><div><p class="eyebrow">Dzień po dniu</p><h2>Osiem dni: Andy, winnice i Buenos Aires</h2><p>Rano szlak albo winnica, w południe lekki lunch, wieczorem zachód słońca nad Andami; 10 listopada należy do Zuccardi, a finał do tanga.</p></div></div>' +
     (X.dayflow ? '<ul class="flow" aria-label="Typowy dzień">' + X.dayflow.map(function (f) { return '<li><b>' + esc(f[0]) + '</b>' + esc(f[1]) + '</li>'; }).join('') + '</ul><div style="height:26px"></div>' : '') +
     '<ol class="days" style="list-style:none;margin:0;padding:0">' + D.days.map(function (d) {
-      return '<li class="day' + (d.anniv ? ' anniv' : '') + '">' + (d.img ? '<figure class="ph" style="margin:0">' + img(d.img) + '<figcaption>' + esc(d.img.cap) + cred(d.img) + '</figcaption></figure>' : '<div class="ph"><canvas class="scn" data-k="' + esc(d.k || 'gory') + '" data-seed="' + (D.days.indexOf(d) + 3) + '" data-anniv="' + (d.anniv ? 1 : 0) + '" aria-hidden="true"></canvas></div>') +
+      return '<li class="day reveal' + (d.anniv ? ' anniv' : '') + '">' + (d.img ? '<figure class="ph" style="margin:0">' + img(d.img) + (d.img2 ? '<span class="ph2">' + img(d.img2, '', false, '240px') + '</span>' : '') + '<figcaption>' + esc(d.img.cap) + cred(d.img) + '</figcaption></figure>' : '<div class="ph"><canvas class="scn" data-k="' + esc(d.k || 'gory') + '" data-seed="' + (D.days.indexOf(d) + 3) + '" data-anniv="' + (d.anniv ? 1 : 0) + '" aria-hidden="true"></canvas></div>') +
         '<div class="bd"><div class="dt"><b>' + esc(d.date) + '</b><span>' + esc(d.dow || '') + '</span>' + (d.anniv ? ' <span class="tag">rocznica</span>' : '') + '</div><h3>' + esc(d.title) + '</h3><p>' + esc(d.text) + '</p>' +
         (d.cost ? '<span class="cost">ok. ' + nf(d.cost) + ' zł na parę tego dnia</span>' : '') + '</div></li>';
     }).join('') + '</ol></div></section>';
@@ -318,11 +338,11 @@ footer a { color: var(--ink-2); }
   var BL = [['nocleg', 'Noclegi (7 nocy)', 'c1'], ['loty', 'Loty', 'c2'], ['auto_transfery', 'Bus z kierowcą', 'c3'], ['jedzenie', 'Jedzenie', 'c4'], ['wycieczki_bilety', 'Wycieczki i degustacje', 'c5'], ['rezerwa', 'Rezerwa', 'c6']];
   // hotele: karty z rolą w trasie, za/przeciw, oceną i linkiem
   if (D.hotele && D.hotele.length) {
-    h += '<section class="blk" id="hotele"><div class="wrap"><div class="sh"><div><p class="eyebrow">Trzy bazy, trzy hotele</p><h2>Hotele</h2><p>Hotele w stylu, który lubicie: butikowe, ciche, z widokiem i designem, wysoko oceniane. Dwie noce pod Andami w Alto Agrelo, cztery w dolinie Uco (trzy warianty kategorii do wyboru w sekcji Budżet) i noc w Palermo. Ceny to szacunki za pokój dla dwojga, z października 2026.</p></div></div><div class="hg">' +
+    h += band('hotele') + '<section class="blk" id="hotele"><div class="wrap"><div class="sh"><div><p class="eyebrow">Trzy bazy, trzy hotele</p><h2>Hotele</h2><p>Hotele w stylu, który lubicie: butikowe, ciche, z widokiem i designem, wysoko oceniane. Dwie noce pod Andami w Alto Agrelo, cztery w dolinie Uco (trzy warianty kategorii do wyboru w sekcji Budżet) i noc w Palermo. Ceny to szacunki za pokój dla dwojga, z października 2026.</p></div></div><div class="hg">' +
       D.hotele.map(function (o) {
         var pics = (o.gal && o.gal.length ? o.gal : (o.img ? [o.img] : []));
         var gal = pics.length ? '<div class="hgal n' + Math.min(pics.length, 4) + '">' + pics.map(function (g, j) { return '<figure class="ph">' + img(g, '', false, j ? '(max-width: 760px) 50vw, 280px' : '(max-width: 760px) 100vw, 560px') + '<figcaption>' + esc(g.cap) + cred(g) + '</figcaption></figure>'; }).join('') + '</div>' : '';
-        return '<article class="hk' + (o.glowny ? ' main' : '') + '">' + gal + '<div class="hb"><p class="eyebrow">' + esc(o.rola) + '</p><h3>' + esc(o.n) + '</h3>' +
+        return '<article class="hk reveal' + (o.glowny ? ' main' : '') + '">' + gal + '<div class="hb"><p class="eyebrow">' + esc(o.rola) + '</p><h3>' + esc(o.n) + '</h3>' +
           '<div class="kv"><span>ok. <b>' + (o.rate || '?') + ' ' + esc(o.cur || 'USD') + '</b> za noc</span>' + (o.oc ? '<span>oceny <b>' + esc(o.oc) + '</b></span>' : '') + '<span class="tagw">' + esc(o.wariant) + '</span></div>' +
           (o.short ? '<p class="lead">' + esc(o.short) + '</p>' : '') +
           (o.sekcje && o.sekcje.length ? '<dl class="hsek">' + o.sekcje.map(function (s) { return '<dt>' + esc(s[0]) + '</dt><dd>' + esc(s[1]) + '</dd>'; }).join('') + '</dl>' : (o.desc ? '<p class="more">' + esc(o.desc) + '</p>' : '')) +
@@ -338,7 +358,7 @@ footer a { color: var(--ink-2); }
   // loty: opcje, kalendarz zakupu, alerty i monitor cen (loty.json aktualizuje agent)
   if (P.loty) {
     var F = P.loty;
-    h += '<section class="blk" id="loty" style="background:var(--paper)"><div class="wrap"><div class="sh"><div><p class="eyebrow">Warszawa → Buenos Aires → Mendoza · 5/6 i 13/14.11.2027</p><h2>Loty</h2><p>' + esc(F.intro) + '</p></div></div>' +
+    h += band('loty') + '<section class="blk" id="loty" style="background:var(--paper)"><div class="wrap"><div class="sh"><div><p class="eyebrow">Warszawa → Buenos Aires → Mendoza · 5/6 i 13/14.11.2027</p><h2>Loty</h2><p>' + esc(F.intro) + '</p></div></div>' +
       '<div class="fo">' + F.opcje.map(function (o) { return '<article' + (o.rek ? ' class="rek"' : '') + '><span class="rt">' + esc(o.trasa) + (o.rek ? ' · polecane' : '') + '</span><h3>' + esc(o.n) + '</h3><div class="kv"><span>czas <b>' + esc(o.czas) + '</b></span><span>od osoby <b>' + esc(o.cena) + '</b></span></div><p>' + esc(o.linie) + '</p><div class="pm"><span>' + esc(o.plus) + '</span><span class="m">' + esc(o.minus) + '</span></div></article>'; }).join('') + '</div>' +
       '<div class="mon"><div><h3>Monitor cen i trendy</h3><p class="st" id="monst">Ładowanie…</p><div id="mon"></div><p class="note" style="color:var(--ink-2);font-size:.9rem;margin:12px 0 0">Agent sprawdza 1. i 15. dnia miesiąca ceny biletu Warszawa–Buenos Aires u 8 linii oraz lotu krajowego do Mendozy (za osobę, w obie strony, z bagażem) i zapisuje je tutaj. Trend porównuje ostatni odczyt z poprzednim; słupki to historia. Próg zakupu: <b>3 800 zł</b>. To wskazówka, nie oferta – przed zakupem sprawdzić cenę u linii.</p></div>' +
       '<div><h3>Kiedy kupować</h3><ol class="tl">' + F.kiedy.map(function (k) { return '<li><b>' + esc(k[0]) + '</b><span>' + esc(k[1]) + '</span></li>'; }).join('') + '</ol>' +
@@ -348,7 +368,7 @@ footer a { color: var(--ink-2); }
   // Buenos Aires: plan na finał, Café Tortoni, praktyczne
   if (P.ba) {
     var BA = P.ba, bp = D.bapics || [];
-    h += '<section class="blk" id="buenos"><div class="wrap"><div class="sh"><div><p class="eyebrow">Finał · 12–13 listopada</p><h2>Buenos Aires</h2><p>' + esc(BA.intro) + '</p></div></div>' +
+    h += band('buenos') + '<section class="blk" id="buenos"><div class="wrap"><div class="sh"><div><p class="eyebrow">Finał · 12–13 listopada</p><h2>Buenos Aires</h2><p>' + esc(BA.intro) + '</p></div></div>' +
       (bp.length ? '<div class="bastrip">' + bp.slice(0, 6).map(function (g) { return '<figure>' + img(g, '', false, '(max-width: 760px) 50vw, 200px') + '<figcaption>' + esc(g.cap) + cred(g) + '</figcaption></figure>'; }).join('') + '</div>' : '') +
       '<div class="bagrid"><div><h3>Plan godzina po godzinie</h3><ol class="batl">' + BA.plan.map(function (s) { return '<li>' + (s.d ? '<span class="bad">' + esc(s.d) + '</span>' : '') + '<b>' + esc(s.godz) + '</b><p>' + esc(s.co) + '</p></li>'; }).join('') + '</ol></div>' +
       '<div><div class="tort"><p class="eyebrow">Od 1858 r. · Avenida de Mayo 825</p><h3>' + esc(BA.tortoni.n) + '</h3><p>' + esc(BA.tortoni.opis) + '</p><p class="eyebrow" style="margin-top:10px">Co zamówić</p><ul>' + BA.tortoni.zamowic.map(function (z) { return '<li>' + esc(z) + '</li>'; }).join('') + '</ul>' + (BA.tortoni.url ? '<p><a href="' + esc(BA.tortoni.url) + '" target="_blank" rel="noopener">Strona kawiarni ↗</a></p>' : '') + '</div>' +
@@ -363,12 +383,14 @@ footer a { color: var(--ink-2); }
     '<div><h3>Smaki i słowa</h3><p class="prose">Danie: <b>' + esc(X.dish || '') + '</b>.' + (X.word ? ' Słowo: <b>' + esc(X.word[0]) + '</b>, czyli ' + esc(X.word[1]) + '.' : '') + '</p></div>' +
     '</div></div></section>';
   // galeria
-  if (D.gallery.length) h += '<section class="blk" id="galeria"><div class="wrap"><div class="sh"><div><p class="eyebrow">Mendoza, Andy, malbec</p><h2>Galeria</h2></div></div><div class="gal">' +
-    D.gallery.map(function (g) { return '<figure>' + img(g, '', false, '(max-width: 760px) 100vw, 380px') + '<figcaption>' + esc(g.cap) + cred(g) + '</figcaption></figure>'; }).join('') + '</div></div></section>';
+  if (D.gallery.length) h += band('galeria') + '<section class="blk" id="galeria"><div class="wrap"><div class="sh"><div><p class="eyebrow">Mendoza, Andy, malbec</p><h2>Galeria</h2></div></div><div class="gal">' +
+    D.gallery.map(function (g, i) { var c = i % 11 === 0 ? ' class="b"' : i % 7 === 3 ? ' class="w"' : (!g.land ? ' class="t"' : ''); return '<figure' + c + '>' + img(g, '', false, '(max-width: 760px) 50vw, 440px') + '<figcaption>' + esc(g.cap) + cred(g) + '</figcaption></figure>'; }).join('') + '</div></div></section>';
   h += '<footer><div class="wrap"><p>Wersja publiczna (bez logowania, z prawdziwą mapą): <a href="https://6b7kq8bpkr-del.github.io/Madeira-interactive/rocznica-2027/uco/">6b7kq8bpkr-del.github.io/Madeira-interactive/rocznica-2027/uco</a></p><p>Ceny to szacunki na bazie 2026 r.; w Argentynie zmieniają się szybko, doliczcie 5–10%. Kurs: 1 USD = 3,70 zł.</p>' +
     (P.zrodla ? '<p>Źródła: ' + P.zrodla.map(function (z) { return '<a href="' + esc(z.url) + '" target="_blank" rel="noopener">' + esc(z.label) + '</a>'; }).join(' · ') + '</p>' : '') +
     '<p>Zdjęcia: Flickr i Wikimedia Commons na wolnych licencjach (CC); autor i licencja pod każdym zdjęciem.' + (D.built ? ' Ostatnia aktualizacja planu: ' + esc(D.built) + '.' : '') + '</p><p class="tools"><button type="button" class="btn" id="copylink">Kopiuj link do planu</button> <a class="btn" href="plan.ics" download="rocznica-2027-mendoza.ics">Pobierz do kalendarza (.ics)</a> <button type="button" class="btn" id="printbtn">Drukuj / zapisz PDF</button><span id="copied" class="eyebrow" hidden>skopiowano</span></p></div></footer>';
   app.innerHTML = h;
+  // animacja wejścia
+  if ('IntersectionObserver' in window) { var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -8% 0px' }); document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); }); } else document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
   // monitor cen: loty.json obok strony
   (function () {
     var box = document.getElementById('mon'), st = document.getElementById('monst'); if (!box) return;
@@ -474,7 +496,7 @@ footer a { color: var(--ink-2); }
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(paintAll);
   // podgląd zdjęć
   var lb = document.getElementById('lb'), lbi = document.getElementById('lbi'), lbc = document.getElementById('lbc');
-  app.addEventListener('click', function (e) { var i = e.target.closest('.gal img, .day .ph img'); if (!i) return; lbi.src = i.dataset.l; lbi.alt = i.alt; lbc.textContent = i.dataset.cap || ''; lb.hidden = false; document.getElementById('lbx').focus(); });
+  app.addEventListener('click', function (e) { var i = e.target.closest('.gal img, .day .ph img, .mosaic img, .hgal img, .bastrip img'); if (!i) return; lbi.src = i.dataset.l; lbi.alt = i.alt; lbc.textContent = i.dataset.cap || ''; lb.hidden = false; document.getElementById('lbx').focus(); });
   function close() { lb.hidden = true; lbi.src = ''; }
   document.getElementById('lbx').addEventListener('click', close);
   lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
