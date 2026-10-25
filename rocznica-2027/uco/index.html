@@ -123,7 +123,7 @@ section.blk { padding-block: clamp(44px, 7vw, 84px); }
 
 /* hotele */
 .hg { display: grid; gap: 22px; }
-.hk { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); background: var(--paper); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; min-width: 0; }
+.hk { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: start; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; min-width: 0; }
 .hk.main { border-color: var(--malbec); box-shadow: 0 0 0 2px var(--malbec) inset; }
 .hk .ph { margin: 0; min-height: 260px; } .hk .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .hk .hb { padding: 22px 24px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
@@ -135,6 +135,13 @@ section.blk { padding-block: clamp(44px, 7vw, 84px); }
 .zp li::before { content: "+ "; color: var(--poplar); font-weight: 700; } .zp ul.m li::before { content: "− "; color: var(--malbec); }
 @media (max-width: 760px) { .hk { grid-template-columns: 1fr; } .hk .ph { min-height: 0; aspect-ratio: 16 / 10; } }
 .odrz { margin-top: 22px; } .odrz summary { cursor: pointer; font-weight: 600; color: var(--malbec); } .odrz ul { margin: 10px 0 0; padding-left: 20px; color: var(--ink-2); font-size: .92rem; display: grid; gap: 4px; }
+.hgal { display: grid; gap: 4px; min-width: 0; } .hgal .ph { margin: 0; position: relative; min-height: 0; } .hgal .ph img { width: 100%; height: 100%; object-fit: cover; display: block; aspect-ratio: 4 / 3; }
+.hgal .ph figcaption { position: absolute; left: 8px; right: 8px; bottom: 6px; font-size: .68rem; color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,.8); }
+.hgal.n2, .hgal.n3, .hgal.n4 { grid-template-columns: 1fr 1fr; } .hgal.n3 .ph:first-child, .hgal.n4 .ph:first-child { grid-column: 1 / -1; } .hgal.n3 .ph:first-child img, .hgal.n4 .ph:first-child img { aspect-ratio: 16 / 10; } .hgal.n4 .ph:nth-child(4) { display: none; }
+@media (min-width: 761px) { .hgal.n4 .ph:nth-child(4) { display: block; } .hgal.n4 { grid-template-columns: 1fr 1fr 1fr; } .hgal.n4 .ph:first-child { grid-column: 1 / -1; } }
+.hsek { margin: 6px 0 4px; display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 6px 14px; font-size: .92rem; } .hsek dt { font-family: var(--f-mono); font-size: .75rem; letter-spacing: .04em; text-transform: uppercase; color: var(--malbec); padding-top: 3px; } .hsek dd { margin: 0; color: var(--ink-2); }
+@media (max-width: 480px) { .hsek { grid-template-columns: 1fr; gap: 2px; } .hsek dd { margin-bottom: 8px; } }
+.hl { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 4px 0 0; font-size: .9rem; } .hl a { font-weight: 600; white-space: nowrap; }
 /* loty: tabela cen i trendów */
 .pt { width: 100%; border-collapse: collapse; font-size: .9rem; } .pt th, .pt td { text-align: left; padding: 8px 8px; border-bottom: 1px solid var(--line); vertical-align: middle; }
 .pt th { font-family: var(--f-mono); font-weight: 500; font-size: .75rem; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
@@ -296,11 +303,14 @@ footer a { color: var(--ink-2); }
   if (D.hotele && D.hotele.length) {
     h += '<section class="blk" id="hotele"><div class="wrap"><div class="sh"><div><p class="eyebrow">Dwie bazy, pięć opcji</p><h2>Hotele</h2><p>Hotele w stylu, który lubicie: butikowe, ciche, z widokiem i designem, wysoko oceniane. Cztery hotele składają się na trzy warianty (do wyboru w sekcji Budżet): pierwsze trzy noce pod Mendozą, cztery w dolinie Uco. Ceny to szacunki za pokój dla dwojga.</p></div></div><div class="hg">' +
       D.hotele.map(function (o) {
-        return '<article class="hk' + (o.glowny ? ' main' : '') + '">' + (o.img ? '<figure class="ph">' + img(o.img, '', false, '(max-width: 760px) 100vw, 560px') + '</figure>' : '') + '<div class="hb"><p class="eyebrow">' + esc(o.rola) + '</p><h3>' + esc(o.n) + '</h3>' +
+        var pics = (o.gal && o.gal.length ? o.gal : (o.img ? [o.img] : []));
+        var gal = pics.length ? '<div class="hgal n' + Math.min(pics.length, 4) + '">' + pics.map(function (g, j) { return '<figure class="ph">' + img(g, '', false, j ? '(max-width: 760px) 50vw, 280px' : '(max-width: 760px) 100vw, 560px') + '<figcaption>' + esc(g.cap) + cred(g) + '</figcaption></figure>'; }).join('') + '</div>' : '';
+        return '<article class="hk' + (o.glowny ? ' main' : '') + '">' + gal + '<div class="hb"><p class="eyebrow">' + esc(o.rola) + '</p><h3>' + esc(o.n) + '</h3>' +
           '<div class="kv"><span>ok. <b>' + (o.rate || '?') + ' ' + esc(o.cur || 'USD') + '</b> za noc</span>' + (o.oc ? '<span>oceny <b>' + esc(o.oc) + '</b></span>' : '') + '<span class="tagw">' + esc(o.wariant) + '</span></div>' +
-          (o.short ? '<p class="lead">' + esc(o.short) + '</p>' : '') + (o.desc ? '<p class="more">' + esc(o.desc) + '</p>' : '') +
+          (o.short ? '<p class="lead">' + esc(o.short) + '</p>' : '') +
+          (o.sekcje && o.sekcje.length ? '<dl class="hsek">' + o.sekcje.map(function (s) { return '<dt>' + esc(s[0]) + '</dt><dd>' + esc(s[1]) + '</dd>'; }).join('') + '</dl>' : (o.desc ? '<p class="more">' + esc(o.desc) + '</p>' : '')) +
           '<div class="zp"><ul>' + o.za.map(function (z) { return '<li>' + esc(z) + '</li>'; }).join('') + '</ul><ul class="m">' + o.przeciw.map(function (z) { return '<li>' + esc(z) + '</li>'; }).join('') + '</ul></div>' +
-          (o.url ? '<p><a href="' + esc(o.url) + '" target="_blank" rel="noopener">Strona hotelu →</a></p>' : '') + '</div></article>';
+          (o.linki && o.linki.length ? '<p class="hl">' + o.linki.map(function (l) { return '<a href="' + esc(l[1]) + '" target="_blank" rel="noopener">' + esc(l[0]) + ' ↗</a>'; }).join('') + '</p>' : (o.url ? '<p><a href="' + esc(o.url) + '" target="_blank" rel="noopener">Strona hotelu →</a></p>' : '')) + '</div></article>';
       }).join('') + '</div>' + (D.odrzucone && D.odrzucone.length ? '<details class="odrz"><summary>Rozważone i odrzucone (' + D.odrzucone.length + ')</summary><ul>' + D.odrzucone.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></details>' : '') + '</div></section>';
   }
   h += '<section class="blk" id="budzet"><div class="wrap"><div class="sh"><div><p class="eyebrow">Baza i koszty</p><h2>Wariant i budżet</h2><p>Zuccardi nie ma noclegów, więc śpimy w dwóch miejscach: 3 noce pod Mendozą i 4 noce w dolinie Uco. Plan dni jest ten sam w każdym wariancie, różnią się hotele. Wybierzcie wariant, a budżet przeliczy się na parę.</p></div></div>' +
