@@ -426,6 +426,8 @@ footer a { color: var(--ink-2); }
   var cl = document.getElementById('copylink'), pb = document.getElementById('printbtn');
   if (cl) cl.addEventListener('click', function () { var u = 'https://6b7kq8bpkr-del.github.io/Madeira-interactive/rocznica-2027/uco/'; function ok() { var c = document.getElementById('copied'); c.hidden = false; setTimeout(function () { c.hidden = true; }, 1800); } if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(u).then(ok, function () { window.prompt('Skopiuj link:', u); }); else window.prompt('Skopiuj link:', u); });
   if (pb) pb.addEventListener('click', function () { try { window.print(); } catch (e) {} });
+  // plik .ics i druk działają tylko na stronie publicznej (podgląd Claude blokuje pobieranie i druk)
+  if (!/github\.io$/.test(location.hostname)) { var ics = document.querySelector('a[href="plan.ics"]'); if (ics) ics.remove(); if (pb) pb.remove(); }
   // lista „co zabrać”
   var z = load('z', {});
   document.querySelectorAll('[data-z]').forEach(function (c) { c.checked = !!z[c.dataset.z]; c.addEventListener('change', function () { z[c.dataset.z] = c.checked; save('z', z); }); });
