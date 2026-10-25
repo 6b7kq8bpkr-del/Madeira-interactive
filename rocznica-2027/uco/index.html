@@ -121,6 +121,23 @@ section.blk { padding-block: clamp(44px, 7vw, 84px); }
 .bud .note { color: var(--ink-2); margin: 14px 0 0; font-size: .95rem; }
 .c1 { background: var(--malbec); } .c2 { background: var(--adobe); } .c3 { background: var(--poplar); } .c4 { background: var(--malbec-2); } .c5 { background: var(--muted); } .c6 { background: var(--line); }
 
+/* loty */
+.fo { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.fo article { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 20px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.fo article.rek { border-color: var(--malbec); box-shadow: 0 0 0 2px var(--malbec) inset; }
+.fo h3 { font-size: 1.35rem; } .fo .rt { font-family: var(--f-mono); font-size: .85rem; color: var(--malbec); }
+.fo .kv { display: flex; gap: 14px; flex-wrap: wrap; font-size: .9rem; color: var(--ink-2); } .fo .kv b { color: var(--ink); font-weight: 600; }
+.fo p { margin: 0; font-size: .95rem; color: var(--ink-2); } .fo .pm { display: grid; gap: 4px; } .fo .pm span::before { content: "+ "; color: var(--poplar); font-weight: 700; } .fo .pm span.m::before { content: "− "; color: var(--malbec); }
+.mon { margin-top: 28px; background: var(--paper); border-radius: 6px; padding: 24px; box-shadow: var(--shade); display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 24px 40px; }
+@media (max-width: 760px) { .mon { grid-template-columns: 1fr; } }
+.mon h3 { font-size: 1.5rem; margin-bottom: 8px; } .mon .st { font-family: var(--f-mono); font-size: .85rem; color: var(--muted); margin: 0 0 10px; }
+.mon .status { padding: 12px 14px; border-left: 3px solid var(--adobe); background: var(--chip); font-size: .95rem; margin: 0 0 14px; }
+.hist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: .92rem; }
+.hist li { display: grid; grid-template-columns: 96px 90px minmax(0, 1fr); gap: 10px; align-items: baseline; border-bottom: 1px dashed var(--line); padding-bottom: 6px; }
+.hist b { font-family: var(--f-mono); font-weight: 500; color: var(--malbec); font-variant-numeric: tabular-nums; } .hist small { color: var(--muted); }
+.hist li.ok b { color: var(--poplar); }
+.al { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; } .al a { font-weight: 600; } .al span { display: block; color: var(--ink-2); font-size: .9rem; }
+.spark { display: flex; align-items: flex-end; gap: 4px; height: 70px; margin: 8px 0 4px; } .spark i { flex: 1; background: var(--adobe); border-radius: 2px 2px 0 0; min-width: 6px; } .spark i.ok { background: var(--poplar); }
 /* przygotowania */
 .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px 40px; }
 .cols h3 { font-size: 1.5rem; margin-bottom: 12px; }
@@ -180,6 +197,7 @@ footer a { color: var(--ink-2); }
       <li><a href="#trasa">Trasa</a></li>
       <li><a href="#plan">Plan</a></li>
       <li><a href="#hotele">Budżet</a></li>
+      <li><a href="#loty">Loty</a></li>
       <li><a href="#przygotowania">Przygotowania</a></li>
       <li><a href="#galeria">Galeria</a></li>
     </ul>
@@ -254,6 +272,16 @@ footer a { color: var(--ink-2); }
       return '<button type="button" class="hc" data-h="' + i + '" aria-pressed="false"><span class="eyebrow">' + (o.rate ? 'ok. ' + o.rate + ' ' + o.cur + ' za noc' : 'wariant trasy') + '</span><h3>' + esc(o.n.replace(/^Trasa: /, '')) + '</h3><span class="sum">' + nf(o.b.razem) + ' zł na parę</span><p>' + esc(o.short || (o.note.length > 170 ? o.note.slice(0, 170) + '…' : o.note)) + '</p>' + (o.oc ? '<p style="font-size:.85rem;color:var(--muted)">' + esc(o.oc) + '</p>' : '') + '</button>';
     }).join('') + '</div><div class="bud" id="bud" aria-live="polite"></div></div></section>';
   // przygotowania
+  // loty: opcje, kalendarz zakupu, alerty i monitor cen (loty.json aktualizuje agent)
+  if (P.loty) {
+    var F = P.loty;
+    h += '<section class="blk" id="loty" style="background:var(--paper)"><div class="wrap"><div class="sh"><div><p class="eyebrow">Warszawa → Mendoza · 5/6 i 13/14.11.2027</p><h2>Loty</h2><p>' + esc(F.intro) + '</p></div></div>' +
+      '<div class="fo">' + F.opcje.map(function (o) { return '<article' + (o.rek ? ' class="rek"' : '') + '><span class="rt">' + esc(o.trasa) + (o.rek ? ' · polecane' : '') + '</span><h3>' + esc(o.n) + '</h3><div class="kv"><span>czas <b>' + esc(o.czas) + '</b></span><span>od osoby <b>' + esc(o.cena) + '</b></span></div><p>' + esc(o.linie) + '</p><div class="pm"><span>' + esc(o.plus) + '</span><span class="m">' + esc(o.minus) + '</span></div></article>'; }).join('') + '</div>' +
+      '<div class="mon"><div><h3>Monitor cen</h3><p class="st" id="monst">Ładowanie…</p><div id="mon"></div><p class="note" style="color:var(--ink-2);font-size:.9rem;margin:12px 0 0">Agent sprawdza ceny raz w miesiącu (od grudnia 2026 co tydzień), zapisuje najniższą znalezioną cenę za osobę w obie strony z bagażem i trasę. Próg zakupu: <b>' + 3800 + ' zł</b>. To wskazówka, nie oferta – przed zakupem sprawdzić cenę u linii.</p></div>' +
+      '<div><h3>Kiedy kupować</h3><ol class="tl">' + F.kiedy.map(function (k) { return '<li><b>' + esc(k[0]) + '</b><span>' + esc(k[1]) + '</span></li>'; }).join('') + '</ol>' +
+      '<h3 style="margin-top:22px">Alerty cenowe</h3><ul class="al">' + F.alerty.map(function (a) { return '<li><a href="' + esc(a.url) + '" target="_blank" rel="noopener">' + esc(a.n) + '</a><span>' + esc(a.opis) + '</span></li>'; }).join('') + '</ul></div></div>' +
+      '<div class="cols" style="margin-top:28px"><div><h3>Zasady</h3><ul class="chk" style="list-style:disc;padding-left:20px;gap:6px">' + F.zasady.map(function (z) { return '<li>' + esc(z) + '</li>'; }).join('') + '</ul></div></div></div></section>';
+  }
   h += '<section class="blk" id="przygotowania" style="background:var(--paper)"><div class="wrap"><div class="sh"><div><p class="eyebrow">Zanim polecimy</p><h2>Przygotowania</h2></div></div><div class="cols">' +
     (P.dojazd ? '<div><h3>Dojazd</h3><p class="prose">' + esc(P.dojazd) + '</p></div>' : '') +
     (P.pogoda ? '<div><h3>Pogoda w listopadzie</h3><p class="prose">' + esc(P.pogoda) + '</p></div>' : '') +
@@ -269,6 +297,18 @@ footer a { color: var(--ink-2); }
     (P.zrodla ? '<p>Źródła: ' + P.zrodla.map(function (z) { return '<a href="' + esc(z.url) + '" target="_blank" rel="noopener">' + esc(z.label) + '</a>'; }).join(' · ') + '</p>' : '') +
     '<p>Zdjęcia: Wikimedia Commons, wolne licencje; autor i licencja na stronie każdego pliku.</p></div></footer>';
   app.innerHTML = h;
+  // monitor cen: loty.json obok strony
+  (function () {
+    var box = document.getElementById('mon'), st = document.getElementById('monst'); if (!box) return;
+    fetch('loty.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (M) {
+      var hist = (M.historia || []).slice(), prog = M.prog || 3800, withp = hist.filter(function (x) { return x.min; });
+      st.textContent = 'Ostatnie sprawdzenie: ' + M.zaktualizowano + (M.nastepny ? ' · następne: ' + M.nastepny : '');
+      var o = M.status ? '<p class="status">' + esc(M.status) + '</p>' : '';
+      if (withp.length) { var mx = Math.max.apply(null, withp.map(function (x) { return x.min; })); o += '<div class="spark" aria-hidden="true">' + withp.map(function (x) { return '<i class="' + (x.min <= prog ? 'ok' : '') + '" style="height:' + Math.max(8, 100 * x.min / mx) + '%" title="' + x.data + ': ' + x.min + ' zł"></i>'; }).join('') + '</div>'; }
+      o += '<ul class="hist">' + hist.slice().reverse().map(function (x) { return '<li' + (x.min && x.min <= prog ? ' class="ok"' : '') + '><small>' + esc(x.data) + '</small><b>' + (x.min ? x.min + ' zł' : '—') + '</b><span>' + esc(x.trasa || '') + (x.uwagi ? ' <small>' + esc(x.uwagi) + '</small>' : '') + '</span></li>'; }).join('') + '</ul>';
+      box.innerHTML = o;
+    }).catch(function () { st.textContent = 'Monitor niedostępny w tym podglądzie.'; });
+  })();
   // prawdziwa mapa (OpenStreetMap przez Leaflet); gdy kafelki nie dochodzą (np. w podglądzie Claude), zostaje mapa schematyczna
   (function () {
     var pts = D.mapa, box = document.getElementById('map'), note = document.getElementById('mapnote');
