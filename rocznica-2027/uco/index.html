@@ -266,7 +266,7 @@ footer a { color: var(--ink-2); }
   var h = '';
   // otwarcie
   h += '<header class="hero" id="start">' + (D.hero ? img(D.hero, '', true, '100vw') : '<canvas class="scn" data-k="hero" data-seed="7" aria-hidden="true"></canvas>') + '<div class="wrap">' +
-    '<p class="eyebrow">20. rocznica · 6–13 listopada 2027 · trzy pary · Mendoza, Argentyna</p>' +
+    '<p class="eyebrow">20. rocznica · 6–13 listopada 2027 · trzy pary · Mendoza i Buenos Aires</p>' +
     '<h1>Valle de Uco<br><em>i Zuccardi</em></h1>' +
     '<p>' + esc(P.tagline || X.teaser || '') + '</p>' +
     '<div class="count"><div><b>' + dd(new Date(2027, 10, 5)) + '</b><span>dni do wylotu</span></div><div><b>' + dd(new Date(2027, 10, 10)) + '</b><span>dni do rocznicy</span></div><div><b>' + X.temp + ' °C</b><span>w listopadzie</span></div></div>' +
@@ -311,7 +311,7 @@ footer a { color: var(--ink-2); }
   var BL = [['nocleg', 'Noclegi (7 nocy)', 'c1'], ['loty', 'Loty', 'c2'], ['auto_transfery', 'Bus z kierowcą', 'c3'], ['jedzenie', 'Jedzenie', 'c4'], ['wycieczki_bilety', 'Wycieczki i degustacje', 'c5'], ['rezerwa', 'Rezerwa', 'c6']];
   // hotele: karty z rolą w trasie, za/przeciw, oceną i linkiem
   if (D.hotele && D.hotele.length) {
-    h += '<section class="blk" id="hotele"><div class="wrap"><div class="sh"><div><p class="eyebrow">Dwie bazy, pięć opcji</p><h2>Hotele</h2><p>Hotele w stylu, który lubicie: butikowe, ciche, z widokiem i designem, wysoko oceniane. Cztery hotele składają się na trzy warianty (do wyboru w sekcji Budżet): pierwsze trzy noce pod Mendozą, cztery w dolinie Uco. Ceny to szacunki za pokój dla dwojga.</p></div></div><div class="hg">' +
+    h += '<section class="blk" id="hotele"><div class="wrap"><div class="sh"><div><p class="eyebrow">Trzy bazy, trzy hotele</p><h2>Hotele</h2><p>Hotele w stylu, który lubicie: butikowe, ciche, z widokiem i designem, wysoko oceniane. Dwie noce pod Andami w Alto Agrelo, cztery w dolinie Uco (trzy warianty kategorii do wyboru w sekcji Budżet) i noc w Palermo. Ceny to szacunki za pokój dla dwojga, z października 2026.</p></div></div><div class="hg">' +
       D.hotele.map(function (o) {
         var pics = (o.gal && o.gal.length ? o.gal : (o.img ? [o.img] : []));
         var gal = pics.length ? '<div class="hgal n' + Math.min(pics.length, 4) + '">' + pics.map(function (g, j) { return '<figure class="ph">' + img(g, '', false, j ? '(max-width: 760px) 50vw, 280px' : '(max-width: 760px) 100vw, 560px') + '<figcaption>' + esc(g.cap) + cred(g) + '</figcaption></figure>'; }).join('') + '</div>' : '';
@@ -333,7 +333,7 @@ footer a { color: var(--ink-2); }
     var F = P.loty;
     h += '<section class="blk" id="loty" style="background:var(--paper)"><div class="wrap"><div class="sh"><div><p class="eyebrow">Warszawa → Buenos Aires → Mendoza · 5/6 i 13/14.11.2027</p><h2>Loty</h2><p>' + esc(F.intro) + '</p></div></div>' +
       '<div class="fo">' + F.opcje.map(function (o) { return '<article' + (o.rek ? ' class="rek"' : '') + '><span class="rt">' + esc(o.trasa) + (o.rek ? ' · polecane' : '') + '</span><h3>' + esc(o.n) + '</h3><div class="kv"><span>czas <b>' + esc(o.czas) + '</b></span><span>od osoby <b>' + esc(o.cena) + '</b></span></div><p>' + esc(o.linie) + '</p><div class="pm"><span>' + esc(o.plus) + '</span><span class="m">' + esc(o.minus) + '</span></div></article>'; }).join('') + '</div>' +
-      '<div class="mon"><div><h3>Monitor cen i trendy</h3><p class="st" id="monst">Ładowanie…</p><div id="mon"></div><p class="note" style="color:var(--ink-2);font-size:.9rem;margin:12px 0 0">Agent sprawdza 1. i 15. dnia miesiąca ceny u 9 najsensowniejszych linii i tras (za osobę, w obie strony, z bagażem) i zapisuje je tutaj. Trend porównuje ostatni odczyt z poprzednim; słupki to historia. Próg zakupu: <b>3 800 zł</b>. To wskazówka, nie oferta – przed zakupem sprawdzić cenę u linii.</p></div>' +
+      '<div class="mon"><div><h3>Monitor cen i trendy</h3><p class="st" id="monst">Ładowanie…</p><div id="mon"></div><p class="note" style="color:var(--ink-2);font-size:.9rem;margin:12px 0 0">Agent sprawdza 1. i 15. dnia miesiąca ceny biletu Warszawa–Buenos Aires u 8 linii oraz lotu krajowego do Mendozy (za osobę, w obie strony, z bagażem) i zapisuje je tutaj. Trend porównuje ostatni odczyt z poprzednim; słupki to historia. Próg zakupu: <b>3 800 zł</b>. To wskazówka, nie oferta – przed zakupem sprawdzić cenę u linii.</p></div>' +
       '<div><h3>Kiedy kupować</h3><ol class="tl">' + F.kiedy.map(function (k) { return '<li><b>' + esc(k[0]) + '</b><span>' + esc(k[1]) + '</span></li>'; }).join('') + '</ol>' +
       '<h3 style="margin-top:22px">Alerty cenowe</h3><ul class="al">' + F.alerty.map(function (a) { return '<li><a href="' + esc(a.url) + '" target="_blank" rel="noopener">' + esc(a.n) + '</a><span>' + esc(a.opis) + '</span></li>'; }).join('') + '</ul></div></div>' +
       '<div class="cols" style="margin-top:28px"><div><h3>Zasady</h3><ul class="chk" style="list-style:disc;padding-left:20px;gap:6px">' + F.zasady.map(function (z) { return '<li>' + esc(z) + '</li>'; }).join('') + '</ul></div></div></div></section>';
