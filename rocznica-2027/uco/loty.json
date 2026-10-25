@@ -1,87 +1,103 @@
 {
  "zaktualizowano": "2026-10-25",
- "status": "Rozkład na listopad 2027 jeszcze nieopublikowany – linie otwierają sprzedaż ok. 330–360 dni przed lotem; pierwszy właściwy odczyt na początku grudnia 2026. Weryfikacja z 25.10.2026 (Kayak, eSky, Momondo, Trip.com): bilet A kosztuje dziś 4 150–4 500 zł u Ethiopian i Turkish, 4 700–5 800 zł u linii europejskich; średnia roczna 5 750 zł, listopad najtańszy. Próg 4 300 zł to cel zakupowy, 4 800 zł cena realistyczna. Flybondi zawiesił loty w sierpniu 2026 – krajowo zostały Aerolíneas i JetSMART.",
+ "status": "Rozkład na listopad 2027 jeszcze nieopublikowany – linie otwierają sprzedaż ok. 330–360 dni przed lotem; pierwsze pełne porównanie w połowie listopada 2026. Monitor liczy kompletną podróż Warszawa–Mendoza na osobę z bagażem (jeden bilet albo bilet do Buenos Aires plus lot krajowy). Weryfikacja z 25.10.2026: sam bilet do Buenos Aires 4 150–4 500 zł u Ethiopian i Turkish, 4 700–5 800 zł u linii europejskich, lot krajowy 480–850 zł, cały bilet do Mendozy „od” ok. 5 150 zł. Próg 4 800 zł za całość to główny cel zakupu; powyżej 5 000 zł baza 1 zmienia się na Lares.",
  "nastepny": "2026-11-01",
- "prog": 4300,
+ "prog": 4800,
  "serie": [
+  {
+   "id": "calosc",
+   "linia": "Cały bilet WAW–MDZ (Iberia+AR, LATAM, Air Europa)",
+   "trasa": "WAW–EZE/SCL/GRU–MDZ · MDZ–EZE–WAW (jedna rezerwacja)",
+   "orient": "od ok. 5 150 zł (Momondo „od”)",
+   "uwagi": "główne wyszukiwanie: maks. 2 przesiadki, w Buenos Aires przylot i wylot z EZE, w São Paulo GRU; cel ≤ 4 800 zł",
+   "hist": []
+  },
+  {
+   "id": "mad",
+   "linia": "Madryt–Mendoza chroniony (Iberia/LATAM) + dolot WAW–MAD",
+   "trasa": "WAW–MAD osobno · MAD–EZE/SCL–MDZ jeden bilet",
+   "orient": "ok. 4 500–5 200 zł razem",
+   "uwagi": "Google Flights: MAD–MDZ 998 USD RT (23.01–8.02.2027) ≈ 3 690 zł + dolot 500–900 zł + bagaż + nocleg buforowy w Madrycie; tylko przy oszczędności ≥ 800 zł/os.",
+   "hist": []
+  },
   {
    "id": "ib",
    "linia": "Iberia",
    "trasa": "WAW–MAD–EZE (bilet A)",
-   "orient": "4 800–5 500 zł",
-   "uwagi": "najkrótsza przesiadka w Madrycie; z EZE lot krajowy; migawki X 2026 na XI–XII 2026",
+   "orient": "5 300–6 300 zł",
+   "uwagi": "Iberia WAW–MAD–EZE 4 800–5 500 + lot krajowy z bagażem 480–850 zł; sprawdzić też cały bilet Iberia/LATAM do MDZ",
    "hist": []
   },
   {
    "id": "ar",
    "linia": "Aerolíneas Argentinas (z MAD lub FCO)",
    "trasa": "WAW–MAD/FCO–EZE (bilet A)",
-   "orient": "4 300–5 000 zł",
-   "uwagi": "często najtańsza z europejskich; promocje z MAD/FCO z lotem krajowym w cenie (930–1 035 EUR w 2025/26)",
+   "orient": "4 800–5 800 zł",
+   "uwagi": "Aerolíneas WAW–MAD/FCO–EZE 4 300–5 000 + lot krajowy z bagażem 480–850 zł albo bilet z dolotem do MDZ w cenie (promocje 930–1 035 EUR)",
    "hist": []
   },
   {
    "id": "et",
    "linia": "Ethiopian Airlines",
    "trasa": "WAW–ADD–EZE (bilet A)",
-   "orient": "4 000–4 500 zł",
-   "uwagi": "najtańsza w migawkach X 2026 (eSky 4 154–4 256 zł na XI 2026, Kayak średnio 3 963); jedna przesiadka w Addis Abebie, długi lot, bagaż 23 kg w taryfie",
+   "orient": "4 500–5 300 zł",
+   "uwagi": "Ethiopian WAW–ADD–EZE 4 000–4 500 (bagaż w cenie) + lot krajowy z bagażem 480–850 zł",
    "hist": []
   },
   {
    "id": "ue",
    "linia": "Air Europa",
    "trasa": "WAW–MAD–EZE (bilet A)",
-   "orient": "4 600–5 200 zł",
-   "uwagi": "tańsza alternatywa dla Iberii; mniej przestronne kabiny",
+   "orient": "5 100–6 000 zł",
+   "uwagi": "Air Europa 4 600–5 200 + lot krajowy z bagażem 480–850 zł",
    "hist": []
   },
   {
    "id": "ita",
    "linia": "ITA Airways",
    "trasa": "WAW–FCO–EZE (bilet A)",
-   "orient": "4 900–5 300 zł",
-   "uwagi": "Trip.com 26.10.2026: ok. 5 160 zł na XII 2026; Economy Light bez bagażu",
+   "orient": "5 400–6 100 zł",
+   "uwagi": "ITA 4 900–5 300 + lot krajowy z bagażem 480–850 zł; Economy Light bez bagażu",
    "hist": []
   },
   {
    "id": "af",
    "linia": "Air France / KLM",
    "trasa": "WAW–CDG/AMS–EZE (bilet A)",
-   "orient": "5 300–5 800 zł",
-   "uwagi": "wygodne, ale w migawkach X 2026 najdroższe (5 530–5 790 zł)",
+   "orient": "5 800–6 600 zł",
+   "uwagi": "Air France/KLM 5 300–5 800 + lot krajowy z bagażem 480–850 zł",
    "hist": []
   },
   {
    "id": "lh",
    "linia": "Lufthansa / Swiss",
    "trasa": "WAW–FRA/ZRH–EZE (bilet A)",
-   "orient": "4 700–5 200 zł",
-   "uwagi": "lufthansa.com/swiss.com X 2026: 4 747 zł na XI 2026 (taryfa Light bez bagażu)",
+   "orient": "5 200–6 000 zł",
+   "uwagi": "Lufthansa/Swiss 4 700–5 200 + lot krajowy z bagażem 480–850 zł; Light bez bagażu",
    "hist": []
   },
   {
    "id": "tk",
    "linia": "Turkish Airlines",
    "trasa": "WAW–IST–EZE (bilet A)",
-   "orient": "4 300–4 700 zł",
-   "uwagi": "Kayak średnio 4 631 zł, Momondo „od” 3 650; najdłużej, ale 2×23 kg bagażu w cenie",
+   "orient": "4 800–5 500 zł",
+   "uwagi": "Turkish 4 300–4 700 (2×23 kg w cenie) + lot krajowy z bagażem 480–850 zł",
    "hist": []
   },
   {
    "id": "latam",
    "linia": "LATAM z Wiednia (promocje)",
    "trasa": "VIE–MAD/FRA–EZE lub SCL–MDZ",
-   "orient": "2 650–2 850 zł (bez bagażu)",
-   "uwagi": "promocje Fly4free V–VI 2026 na XI 2026–III 2027; dla porównania – wymaga dojazdu do Wiednia i bagażu +400–800 zł",
+   "orient": "3 100–3 700 zł + dojazd do Wiednia",
+   "uwagi": "promocje LATAM z Wiednia 2 650–2 850 bez bagażu (Fly4free V–VI 2026); dla porównania",
    "hist": []
   },
   {
    "id": "krajowy",
    "linia": "Aerolíneas / JetSMART",
    "trasa": "BUE–MDZ 6.11 + MDZ–AEP 12.11 (bilet B)",
-   "orient": "500–850 zł (130–230 USD z bagażem)",
-   "uwagi": "listopad to najdroższy miesiąc na BUE–MDZ (mediana 150 USD RT); Flybondi zawieszony od VIII 2026; bagaż i opłata lotniskowa 9 USD osobno",
+   "orient": "480–850 zł (130–230 USD)",
+   "uwagi": "składnik krajowy przy dwóch biletach: Aerolíneas / JetSMART, listopad najdroższy (mediana 150 USD RT), bagaż i opłata 9 USD osobno",
    "hist": []
   }
  ],
