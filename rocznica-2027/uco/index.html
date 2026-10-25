@@ -169,6 +169,15 @@ section.blk { padding-block: clamp(44px, 7vw, 84px); }
 .hist li.ok b { color: var(--poplar); }
 .al { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; } .al a { font-weight: 600; } .al span { display: block; color: var(--ink-2); font-size: .9rem; }
 .spark { display: flex; align-items: flex-end; gap: 4px; height: 70px; margin: 8px 0 4px; } .spark i { flex: 1; background: var(--adobe); border-radius: 2px 2px 0 0; min-width: 6px; } .spark i.ok { background: var(--poplar); }
+ /* buenos aires */
+.bastrip { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 8px; margin-bottom: 28px; } .bastrip figure { margin: 0; position: relative; } .bastrip img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; border-radius: 4px; }
+.bastrip figcaption { position: absolute; left: 8px; right: 8px; bottom: 6px; font-size: .68rem; color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,.8); }
+.bagrid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 28px 40px; } .bagrid > div { min-width: 0; } .bagrid h3 { font-size: 1.5rem; margin-bottom: 12px; }
+@media (max-width: 760px) { .bagrid { grid-template-columns: 1fr; } }
+.batl { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; } .batl li { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 4px 14px; border-left: 2px solid var(--adobe); padding-left: 14px; }
+.batl .bad { grid-column: 1 / -1; font-family: var(--f-mono); font-size: .78rem; color: var(--malbec); letter-spacing: .04em; text-transform: uppercase; margin-top: 8px; } .batl b { font-family: var(--f-mono); font-weight: 500; font-size: .85rem; color: var(--adobe); } .batl p { margin: 0; font-size: .95rem; color: var(--ink-2); }
+@media (max-width: 480px) { .batl li { grid-template-columns: 1fr; } }
+.tort { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 20px 22px; box-shadow: var(--shade); } .tort h3 { margin-bottom: 8px; } .tort p { margin: 0 0 6px; font-size: .95rem; color: var(--ink-2); } .tort ul { margin: 4px 0 0; padding-left: 20px; font-size: .92rem; display: grid; gap: 3px; }
 /* przygotowania */
 .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px 40px; }
 .cols h3 { font-size: 1.5rem; margin-bottom: 12px; }
@@ -230,6 +239,7 @@ footer a { color: var(--ink-2); }
       <li><a href="#hotele">Hotele</a></li>
       <li><a href="#budzet">Budżet</a></li>
       <li><a href="#loty">Loty</a></li>
+      <li><a href="#buenos">Buenos Aires</a></li>
       <li><a href="#przygotowania">Przygotowania</a></li>
       <li><a href="#galeria">Galeria</a></li>
     </ul>
@@ -327,6 +337,15 @@ footer a { color: var(--ink-2); }
       '<div><h3>Kiedy kupować</h3><ol class="tl">' + F.kiedy.map(function (k) { return '<li><b>' + esc(k[0]) + '</b><span>' + esc(k[1]) + '</span></li>'; }).join('') + '</ol>' +
       '<h3 style="margin-top:22px">Alerty cenowe</h3><ul class="al">' + F.alerty.map(function (a) { return '<li><a href="' + esc(a.url) + '" target="_blank" rel="noopener">' + esc(a.n) + '</a><span>' + esc(a.opis) + '</span></li>'; }).join('') + '</ul></div></div>' +
       '<div class="cols" style="margin-top:28px"><div><h3>Zasady</h3><ul class="chk" style="list-style:disc;padding-left:20px;gap:6px">' + F.zasady.map(function (z) { return '<li>' + esc(z) + '</li>'; }).join('') + '</ul></div></div></div></section>';
+  }
+  // Buenos Aires: plan na finał, Café Tortoni, praktyczne
+  if (P.ba) {
+    var BA = P.ba, bp = D.bapics || [];
+    h += '<section class="blk" id="buenos"><div class="wrap"><div class="sh"><div><p class="eyebrow">Finał · 12–13 listopada</p><h2>Buenos Aires</h2><p>' + esc(BA.intro) + '</p></div></div>' +
+      (bp.length ? '<div class="bastrip">' + bp.slice(0, 6).map(function (g) { return '<figure>' + img(g, '', false, '(max-width: 760px) 50vw, 200px') + '<figcaption>' + esc(g.cap) + cred(g) + '</figcaption></figure>'; }).join('') + '</div>' : '') +
+      '<div class="bagrid"><div><h3>Plan godzina po godzinie</h3><ol class="batl">' + BA.plan.map(function (s) { return '<li>' + (s.d ? '<span class="bad">' + esc(s.d) + '</span>' : '') + '<b>' + esc(s.godz) + '</b><p>' + esc(s.co) + '</p></li>'; }).join('') + '</ol></div>' +
+      '<div><div class="tort"><p class="eyebrow">Od 1858 r. · Avenida de Mayo 825</p><h3>' + esc(BA.tortoni.n) + '</h3><p>' + esc(BA.tortoni.opis) + '</p><p class="eyebrow" style="margin-top:10px">Co zamówić</p><ul>' + BA.tortoni.zamowic.map(function (z) { return '<li>' + esc(z) + '</li>'; }).join('') + '</ul>' + (BA.tortoni.url ? '<p><a href="' + esc(BA.tortoni.url) + '" target="_blank" rel="noopener">Strona kawiarni ↗</a></p>' : '') + '</div>' +
+      '<h3 style="margin-top:22px">Praktyczne</h3><ul class="chk" style="list-style:disc;padding-left:20px;gap:6px">' + BA.praktyczne.map(function (z) { return '<li>' + esc(z) + '</li>'; }).join('') + '</ul></div></div></div></section>';
   }
   h += '<section class="blk" id="przygotowania" style="background:var(--paper)"><div class="wrap"><div class="sh"><div><p class="eyebrow">Zanim polecimy</p><h2>Przygotowania</h2></div></div><div class="cols">' +
     (P.dojazd ? '<div><h3>Dojazd</h3><p class="prose">' + esc(P.dojazd) + '</p></div>' : '') +
