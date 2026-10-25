@@ -388,7 +388,7 @@ footer a { color: var(--ink-2); }
   function bud() {
     var o = D.hotels[cur], b = o.b, t = b.razem;
     document.querySelectorAll('.hc').forEach(function (el) { el.setAttribute('aria-pressed', +el.dataset.h === cur ? 'true' : 'false'); });
-    document.getElementById('bud').innerHTML = '<div class="total"><div><p class="eyebrow">Budżet na parę · ' + esc(o.n.replace(/^Trasa: /, '')) + '</p><b>' + nf(t) + ' zł</b></div><span class="limit">' + (t <= 26000 ? 'zapas ' + nf(26000 - t) + ' zł do limitu 26 000 zł' : 'ponad limit o ' + nf(t - 26000) + ' zł') + '</span></div>' +
+    document.getElementById('bud').innerHTML = '<div class="total"><div><p class="eyebrow">Budżet na parę · ' + esc(o.n.replace(/^Trasa: /, '')) + '</p><b>' + nf(t) + ' zł</b></div><span class="limit' + (t <= 28000 ? '' : ' over') + '">' + (t <= 28000 ? 'zapas ' + nf(28000 - t) + ' zł do sufitu 28 000 zł' : 'ponad sufit 28 000 zł o ' + nf(t - 28000) + ' zł') + '</span></div>' +
       '<div class="bar" role="img" aria-label="Podział budżetu">' + BL.map(function (r) { return b[r[0]] ? '<i class="' + r[2] + '" style="width:' + (b[r[0]] / t * 100).toFixed(2) + '%" title="' + r[1] + '"></i>' : ''; }).join('') + '</div>' +
       '<ul class="leg">' + BL.map(function (r) { return b[r[0]] != null ? '<li><s class="' + r[2] + '"></s>' + r[1] + '<b>' + nf(b[r[0]]) + ' zł</b></li>' : ''; }).join('') + '</ul>' +
       (o.note ? '<p class="note">' + esc(o.note) + '</p>' : '') + (o.url ? '<p class="note"><a href="' + esc(o.url) + '" target="_blank" rel="noopener">Strona hotelu ↗</a></p>' : '');
