@@ -136,6 +136,14 @@ section.blk { padding-block: clamp(44px, 7vw, 84px); }
 .zp { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 6px 20px; } .zp ul { margin: 0; padding: 0; list-style: none; font-size: .9rem; display: grid; gap: 4px; }
 .zp li::before { content: "+ "; color: var(--poplar); font-weight: 700; } .zp ul.m li::before { content: "− "; color: var(--malbec); }
 @media (max-width: 760px) { .hk { grid-template-columns: 1fr; } .hk .ph { min-height: 0; aspect-ratio: 16 / 10; } }
+.alth { margin: 44px 0 10px; max-width: 70ch; } .alth h3 { font-size: 1.6rem; margin: 2px 0 8px; } .alth p { margin: 0; color: var(--ink-2); }
+.altg { font-family: var(--f-mono); font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: var(--malbec); margin: 26px 0 10px; }
+.altgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; }
+.alt { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; min-width: 0; display: flex; flex-direction: column; }
+.alt .ph { margin: 0; position: relative; } .alt .ph img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; } .alt .ph figcaption { position: absolute; left: 8px; right: 8px; bottom: 6px; font-size: .68rem; color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,.8); }
+.alt .ab { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 6px; font-size: .9rem; } .alt h4 { margin: 0; font-size: 1.2rem; } .alt p { margin: 0; }
+.alt .kv { display: flex; flex-wrap: wrap; gap: 6px 14px; color: var(--ink-2); } .alt .kv b { color: var(--ink); } .alt .kv .up { color: var(--malbec); font-family: var(--f-mono); font-size: .82rem; } .alt .kv .down { color: var(--poplar); font-family: var(--f-mono); font-size: .82rem; }
+.alt .oc { color: var(--muted); font-size: .82rem; } .alt .hsek { grid-template-columns: 96px minmax(0, 1fr); font-size: .88rem; }
 .odrz { margin-top: 22px; } .odrz summary { cursor: pointer; font-weight: 600; color: var(--malbec); } .odrz ul { margin: 10px 0 0; padding-left: 20px; color: var(--ink-2); font-size: .92rem; display: grid; gap: 4px; }
 .hgal { display: grid; gap: 4px; min-width: 0; } .hgal .ph { margin: 0; position: relative; min-height: 0; } .hgal .ph img { width: 100%; height: 100%; object-fit: cover; display: block; aspect-ratio: 4 / 3; }
 .hgal .ph figcaption { position: absolute; left: 8px; right: 8px; bottom: 6px; font-size: .68rem; color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,.8); }
@@ -349,10 +357,22 @@ footer a { color: var(--ink-2); }
           (o.sekcje && o.sekcje.length ? '<dl class="hsek">' + o.sekcje.map(function (s) { return '<dt>' + esc(s[0]) + '</dt><dd>' + esc(s[1]) + '</dd>'; }).join('') + '</dl>' : (o.desc ? '<p class="more">' + esc(o.desc) + '</p>' : '')) +
           '<div class="zp"><ul>' + o.za.map(function (z) { return '<li>' + esc(z) + '</li>'; }).join('') + '</ul><ul class="m">' + o.przeciw.map(function (z) { return '<li>' + esc(z) + '</li>'; }).join('') + '</ul></div>' +
           (o.linki && o.linki.length ? '<p class="hl">' + o.linki.map(function (l) { return '<a href="' + esc(l[1]) + '" target="_blank" rel="noopener">' + esc(l[0]) + ' ↗</a>'; }).join('') + '</p>' : (o.url ? '<p><a href="' + esc(o.url) + '" target="_blank" rel="noopener">Strona hotelu →</a></p>' : '')) + '</div></article>';
-      }).join('') + '</div>' + (D.odrzucone && D.odrzucone.length ? '<details class="odrz"><summary>Rozważone i odrzucone (' + D.odrzucone.length + ')</summary><ul>' + D.odrzucone.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></details>' : '') + '</div></section>';
+      }).join('') + '</div>' +
+      (D.alts && D.alts.length ? '<div class="alth"><p class="eyebrow">Alternatywy</p><h3>Gdyby trzeba było zmienić hotel</h3><p>Każdą bazę sprawdziliśmy w kilku wariantach. Poniżej te, które przeszły sito kryteriów (widok, design, butik, oceny), ale przegrały z wybranymi – z ceną, różnicą na parę i warunkiem, kiedy mają sens. Różnica liczona wobec Chozos (390 USD), pokoju Cordón del Plata (442 USD) i Legado Mítico (200 USD); ceny to migawki z 2026.</p></div>' +
+        [[1, 'Baza 1 · Mendoza i Agrelo · 2 noce'], [2, 'Baza 2 · dolina Uco · 4 noce'], [3, 'Baza 3 · Buenos Aires · 1 noc']].map(function (g) {
+          var L = D.alts.filter(function (a) { return a.baza === g[0]; }); if (!L.length) return '';
+          return '<p class="altg">' + g[1] + '</p><div class="altgrid">' + L.map(function (a) {
+            var r = a.roznica, rt = r === 0 ? 'ta sama cena' : (r > 0 ? '+' : '−') + nf(Math.abs(r)) + ' zł na parę';
+            return '<article class="alt reveal">' + (a.img ? '<figure class="ph">' + img(a.img, '', false, '(max-width: 760px) 100vw, 400px') + '<figcaption>' + esc(a.img.cap) + cred(a.img) + '</figcaption></figure>' : '') +
+              '<div class="ab"><h4>' + esc(a.n) + '</h4><div class="kv"><span>ok. <b>' + a.cena + ' USD</b> za noc</span><span class="' + (r > 0 ? 'up' : 'down') + '">' + rt + '</span></div>' + (a.oc ? '<p class="oc">' + esc(a.oc) + '</p>' : '') +
+              '<p>' + esc(a.co) + '</p><dl class="hsek"><dt>Dlaczego nie</dt><dd>' + esc(a.dlaczego) + '</dd><dt>Kiedy tak</dt><dd>' + esc(a.kiedy) + '</dd></dl>' + (a.url ? '<p class="hl"><a href="' + esc(a.url) + '" target="_blank" rel="noopener">Strona hotelu ↗</a></p>' : '') + '</div></article>';
+          }).join('') + '</div>';
+        }).join('') : '') +
+      (D.odrzucone && D.odrzucone.length ? '<details class="odrz"><summary>Rozważone i odrzucone (' + D.odrzucone.length + ')</summary><ul>' + D.odrzucone.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></details>' : '') + '</div></section>';
   }
-  h += '<section class="blk" id="budzet"><div class="wrap"><div class="sh"><div><p class="eyebrow">Baza i koszty</p><h2>Wariant i budżet</h2><p>Zuccardi nie ma noclegów, więc śpimy w dwóch miejscach: 3 noce pod Mendozą i 4 noce w dolinie Uco. Plan dni jest ten sam w każdym wariancie, różnią się hotele. Wybierzcie liczbę par i wariant, a budżet przeliczy się na parę.</p></div></div>' +
+  h += '<section class="blk" id="budzet"><div class="wrap"><div class="sh"><div><p class="eyebrow">Baza i koszty</p><h2>Wariant i budżet</h2><p>Zuccardi nie ma noclegów, więc śpimy w dwóch miejscach: 3 noce pod Mendozą i 4 noce w dolinie Uco. Plan dni jest ten sam w każdym wariancie, różnią się hotele. Wybierzcie liczbę par, scenariusz zakupu lotów i wariant, a budżet przeliczy się na parę.</p></div></div>' +
     '<div class="grp"><span class="eyebrow">Ile par jedzie?</span><div class="seg" id="grp" role="group" aria-label="Liczba par"></div><span class="gnote" id="gnote"></span></div>' +
+    '<div class="grp" id="lsw"><span class="eyebrow">Loty kupione</span><div class="seg" id="lsc" role="group" aria-label="Scenariusz lotów"></div><span class="gnote" id="lnote"></span></div>' +
     '<div class="hsel" role="group" aria-label="Hotel">' + D.hotels.map(function (o, i) {
       return '<button type="button" class="hc" data-h="' + i + '" aria-pressed="false"><span class="eyebrow">' + (o.h1 ? esc(o.h1) + ' · ' + esc(o.h2) : 'wariant trasy') + '</span><h3>' + esc(o.n.replace(/^Trasa: /, '').replace(/:.*$/, '')) + '</h3><span class="sum" data-sum="' + i + '"></span><p>' + esc(o.short || (o.note.length > 170 ? o.note.slice(0, 170) + '…' : o.note)) + '</p>' + (o.oc ? '<p style="font-size:.85rem;color:var(--muted)">' + esc(o.oc) + '</p>' : '') + '</button>';
     }).join('') + '</div><div class="bud" id="bud" aria-live="polite"></div></div></section>';
@@ -362,7 +382,7 @@ footer a { color: var(--ink-2); }
     var F = P.loty;
     h += band('loty') + '<section class="blk" id="loty" style="background:var(--paper)"><div class="wrap"><div class="sh"><div><p class="eyebrow">Warszawa → Buenos Aires → Mendoza · 5/6 i 13/14.11.2027</p><h2>Loty</h2><p>' + esc(F.intro) + '</p></div></div>' +
       '<div class="fo">' + F.opcje.map(function (o) { return '<article' + (o.rek ? ' class="rek"' : '') + '><span class="rt">' + esc(o.trasa) + (o.rek ? ' · polecane' : '') + '</span><h3>' + esc(o.n) + '</h3><div class="kv"><span>czas <b>' + esc(o.czas) + '</b></span><span>od osoby <b>' + esc(o.cena) + '</b></span></div><p>' + esc(o.linie) + '</p><div class="pm"><span>' + esc(o.plus) + '</span><span class="m">' + esc(o.minus) + '</span></div></article>'; }).join('') + '</div>' +
-      '<div class="mon"><div><h3>Monitor cen i trendy</h3><p class="st" id="monst">Ładowanie…</p><div id="mon"></div><p class="note" style="color:var(--ink-2);font-size:.9rem;margin:12px 0 0">Agent sprawdza 1. i 15. dnia miesiąca ceny biletu Warszawa–Buenos Aires u 8 linii oraz lotu krajowego do Mendozy (za osobę, w obie strony, z bagażem) i zapisuje je tutaj. Trend porównuje ostatni odczyt z poprzednim; słupki to historia. Próg zakupu: <b>3 800 zł</b>. To wskazówka, nie oferta – przed zakupem sprawdzić cenę u linii.</p></div>' +
+      '<div class="mon"><div><h3>Monitor cen i trendy</h3><p class="st" id="monst">Ładowanie…</p><div id="mon"></div><p class="note" style="color:var(--ink-2);font-size:.9rem;margin:12px 0 0">Agent sprawdza 1. i 15. dnia miesiąca ceny biletu Warszawa–Buenos Aires u 9 linii oraz lotu krajowego do Mendozy (za osobę, w obie strony, z bagażem) i zapisuje je tutaj. Trend porównuje ostatni odczyt z poprzednim; słupki to historia. Próg zakupu: <b>3 800 zł</b>. To wskazówka, nie oferta – przed zakupem sprawdzić cenę u linii.</p></div>' +
       '<div><h3>Kiedy kupować</h3><ol class="tl">' + F.kiedy.map(function (k) { return '<li><b>' + esc(k[0]) + '</b><span>' + esc(k[1]) + '</span></li>'; }).join('') + '</ol>' +
       '<h3 style="margin-top:22px">Alerty cenowe</h3><ul class="al">' + F.alerty.map(function (a) { return '<li><a href="' + esc(a.url) + '" target="_blank" rel="noopener">' + esc(a.n) + '</a><span>' + esc(a.opis) + '</span></li>'; }).join('') + '</ul></div></div>' +
       '<div class="cols" style="margin-top:28px"><div><h3>Zasady</h3><ul class="chk" style="list-style:disc;padding-left:20px;gap:6px">' + F.zasady.map(function (z) { return '<li>' + esc(z) + '</li>'; }).join('') + '</ul></div></div></div></section>';
@@ -435,9 +455,11 @@ footer a { color: var(--ink-2); }
 
   // wybór hotelu → budżet
   var G = P.grupa || { domyslnie: 3, opcje: [3], kurs: 3.7, transport_usd: { 3: 1700 }, transport_opis: {} }, np = load('p', G.domyslnie); if (G.opcje.indexOf(np) < 0) np = G.domyslnie;
+  var LS = G.loty_scen || null, ls = LS ? load('l', LS.domyslnie) : null; if (LS && !LS.opcje.some(function (o) { return o[0] === ls; })) ls = LS.domyslnie;
+  function lsOpt() { return LS ? LS.opcje.filter(function (o) { return o[0] === ls; })[0] : null; }
   // budżet na parę zależny od liczby par: bus dzielony po równo, rezydencja (dom na 3 pary) + pokoje dla kolejnych par
   function calc(o) {
-    var b = {}, m = o.model, k = G.kurs || 3.7, n = np; ['loty', 'jedzenie', 'wycieczki_bilety', 'rezerwa'].forEach(function (x) { b[x] = o.b[x] || 0; });
+    var b = {}, m = o.model, k = G.kurs || 3.7, n = np; ['loty', 'jedzenie', 'wycieczki_bilety', 'rezerwa'].forEach(function (x) { b[x] = o.b[x] || 0; }); if (lsOpt()) b.loty = lsOpt()[2];
     if (m && m.typ === 'rezydencja') { var ekstra = Math.max(0, n - (m.pary_w_domu || 3)); b.nocleg = Math.round((m.usd_para_poza + (m.dom_usd_noc * m.noce + ekstra * m.pokoj_usd_noc * m.noce) / n) * k); b.rez = ekstra; }
     else if (m && m.usd_para) b.nocleg = Math.round(m.usd_para * k); else b.nocleg = o.b.nocleg;
     b.auto_transfery = G.transport_usd && G.transport_usd[n] ? Math.round(G.transport_usd[n] * k / n / 10) * 10 : o.b.auto_transfery;
@@ -448,6 +470,7 @@ footer a { color: var(--ink-2); }
     var SK = [[1, 'na parę', 'na parę'], [0.5, 'na osobę', 'na osobę'], [np, 'na całą grupę (' + np + ' pary)', np + ' pary']];
     var o = D.hotels[cur], b = calc(o), t = b.razem;
     document.getElementById('grp').innerHTML = G.opcje.map(function (n) { return '<button type="button" data-np="' + n + '" aria-pressed="' + (n === np ? 'true' : 'false') + '">' + n + ' pary · ' + (2 * n) + ' os.</button>'; }).join('');
+    if (LS) { document.getElementById('lsc').innerHTML = LS.opcje.map(function (o) { return '<button type="button" data-ls="' + o[0] + '" aria-pressed="' + (o[0] === ls ? 'true' : 'false') + '">' + o[1] + ' · ' + nf(o[2]) + ' zł</button>'; }).join(''); document.getElementById('lnote').textContent = (lsOpt() ? lsOpt()[3] + '. ' : '') + (LS.uwaga || ''); } else { document.getElementById('lsw').hidden = true; }
     document.getElementById('gnote').textContent = (G.transport_opis && G.transport_opis[np] ? 'Bus: ' + G.transport_opis[np] + ', dzielony po równo. ' : '') + (G.uwaga || '');
     document.querySelectorAll('[data-sum]').forEach(function (el) { el.textContent = nf(calc(D.hotels[+el.dataset.sum]).razem) + ' zł na parę'; });
     var st = document.querySelector('[data-dyn="koszt"]'); if (st) st.textContent = 'ok. ' + nf(calc(D.hotels[0]).razem) + ' zł';
@@ -461,6 +484,7 @@ footer a { color: var(--ink-2); }
   document.querySelectorAll('.hc').forEach(function (el) { el.addEventListener('click', function () { cur = +el.dataset.h; save('h', cur); bud(); }); });
   document.getElementById('bud').addEventListener('click', function (e) { var b = e.target.closest('[data-sk]'); if (b) { sk = +b.dataset.sk; save('sk', sk); bud(); } });
   document.getElementById('grp').addEventListener('click', function (e) { var b = e.target.closest('[data-np]'); if (b) { np = +b.dataset.np; save('p', np); bud(); } });
+  document.getElementById('lsc').addEventListener('click', function (e) { var b = e.target.closest('[data-ls]'); if (b) { ls = b.dataset.ls; save('l', ls); bud(); } });
   bud();
   // stopka: kopiowanie linku i druk
   var cl = document.getElementById('copylink'), pb = document.getElementById('printbtn');
@@ -514,7 +538,7 @@ footer a { color: var(--ink-2); }
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(paintAll);
   // podgląd zdjęć
   var lb = document.getElementById('lb'), lbi = document.getElementById('lbi'), lbc = document.getElementById('lbc');
-  app.addEventListener('click', function (e) { var i = e.target.closest('.gal img, .day .ph img, .mosaic img, .hgal img, .bastrip img'); if (!i) return; lbi.src = i.dataset.l; lbi.alt = i.alt; lbc.textContent = i.dataset.cap || ''; lb.hidden = false; document.getElementById('lbx').focus(); });
+  app.addEventListener('click', function (e) { var i = e.target.closest('.gal img, .day .ph img, .mosaic img, .hgal img, .alt .ph img, .bastrip img'); if (!i) return; lbi.src = i.dataset.l; lbi.alt = i.alt; lbc.textContent = i.dataset.cap || ''; lb.hidden = false; document.getElementById('lbx').focus(); });
   function close() { lb.hidden = true; lbi.src = ''; }
   document.getElementById('lbx').addEventListener('click', close);
   lb.addEventListener('click', function (e) { if (e.target === lb) close(); });

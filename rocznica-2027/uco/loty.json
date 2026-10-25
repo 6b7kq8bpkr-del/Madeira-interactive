@@ -1,30 +1,38 @@
 {
  "zaktualizowano": "2026-10-25",
- "status": "Rozkład na listopad 2027 jeszcze nieopublikowany – linie otwierają sprzedaż ok. 330–360 dni przed lotem; pierwszy właściwy odczyt na początku grudnia 2026. Plan zakłada dwa bilety: Warszawa–Buenos Aires w obie strony (bilet A) i lot krajowy do Mendozy (bilet B). Widełki w tabeli to migawki z jesieni 2026 na analogiczne terminy.",
+ "status": "Rozkład na listopad 2027 jeszcze nieopublikowany – linie otwierają sprzedaż ok. 330–360 dni przed lotem; pierwszy właściwy odczyt na początku grudnia 2026. Weryfikacja z 25.10.2026 (Kayak, eSky, Momondo, Trip.com): bilet A kosztuje dziś 4 150–4 500 zł u Ethiopian i Turkish, 4 700–5 800 zł u linii europejskich; średnia roczna 5 750 zł, listopad najtańszy. Próg 4 300 zł to cel zakupowy, 4 800 zł cena realistyczna. Flybondi zawiesił loty w sierpniu 2026 – krajowo zostały Aerolíneas i JetSMART.",
  "nastepny": "2026-11-01",
- "prog": 3800,
+ "prog": 4300,
  "serie": [
   {
    "id": "ib",
    "linia": "Iberia",
    "trasa": "WAW–MAD–EZE (bilet A)",
-   "orient": "4 000–4 400 zł",
-   "uwagi": "najkrótsza przesiadka w Madrycie; z EZE lot krajowy",
+   "orient": "4 800–5 500 zł",
+   "uwagi": "najkrótsza przesiadka w Madrycie; z EZE lot krajowy; migawki X 2026 na XI–XII 2026",
    "hist": []
   },
   {
    "id": "ar",
    "linia": "Aerolíneas Argentinas (z MAD lub FCO)",
    "trasa": "WAW–MAD/FCO–EZE (bilet A)",
-   "orient": "3 950–4 300 zł",
-   "uwagi": "często najtańsza; lot krajowy można dołożyć na jednym bilecie",
+   "orient": "4 300–5 000 zł",
+   "uwagi": "często najtańsza z europejskich; promocje z MAD/FCO z lotem krajowym w cenie (930–1 035 EUR w 2025/26)",
+   "hist": []
+  },
+  {
+   "id": "et",
+   "linia": "Ethiopian Airlines",
+   "trasa": "WAW–ADD–EZE (bilet A)",
+   "orient": "4 000–4 500 zł",
+   "uwagi": "najtańsza w migawkach X 2026 (eSky 4 154–4 256 zł na XI 2026, Kayak średnio 3 963); jedna przesiadka w Addis Abebie, długi lot, bagaż 23 kg w taryfie",
    "hist": []
   },
   {
    "id": "ue",
    "linia": "Air Europa",
    "trasa": "WAW–MAD–EZE (bilet A)",
-   "orient": "3 900–4 300 zł",
+   "orient": "4 600–5 200 zł",
    "uwagi": "tańsza alternatywa dla Iberii; mniej przestronne kabiny",
    "hist": []
   },
@@ -32,16 +40,16 @@
    "id": "ita",
    "linia": "ITA Airways",
    "trasa": "WAW–FCO–EZE (bilet A)",
-   "orient": "3 950–4 300 zł",
-   "uwagi": "częste promocje do Buenos Aires",
+   "orient": "4 900–5 300 zł",
+   "uwagi": "Trip.com 26.10.2026: ok. 5 160 zł na XII 2026; Economy Light bez bagażu",
    "hist": []
   },
   {
    "id": "af",
    "linia": "Air France / KLM",
    "trasa": "WAW–CDG/AMS–EZE (bilet A)",
-   "orient": "4 300–5 800 zł",
-   "uwagi": "wygodne, ale w migawkach drogie",
+   "orient": "5 300–5 800 zł",
+   "uwagi": "wygodne, ale w migawkach X 2026 najdroższe (5 530–5 790 zł)",
    "hist": []
   },
   {
@@ -49,31 +57,31 @@
    "linia": "Lufthansa / Swiss",
    "trasa": "WAW–FRA/ZRH–EZE (bilet A)",
    "orient": "4 700–5 200 zł",
-   "uwagi": "dobre przesiadki, wyższa cena",
+   "uwagi": "lufthansa.com/swiss.com X 2026: 4 747 zł na XI 2026 (taryfa Light bez bagażu)",
    "hist": []
   },
   {
    "id": "tk",
    "linia": "Turkish Airlines",
    "trasa": "WAW–IST–EZE (bilet A)",
-   "orient": "3 950–4 650 zł",
-   "uwagi": "najdłużej, ale hojny bagaż",
+   "orient": "4 300–4 700 zł",
+   "uwagi": "Kayak średnio 4 631 zł, Momondo „od” 3 650; najdłużej, ale 2×23 kg bagażu w cenie",
    "hist": []
   },
   {
    "id": "latam",
-   "linia": "LATAM (open-jaw przez Santiago)",
-   "trasa": "WAW–MAD/FRA–SCL–MDZ · EZE–MAD–WAW",
-   "orient": "brak danych",
-   "uwagi": "dla porównania: tam przez Santiago do Mendozy, z powrotem z Buenos Aires",
+   "linia": "LATAM z Wiednia (promocje)",
+   "trasa": "VIE–MAD/FRA–EZE lub SCL–MDZ",
+   "orient": "2 650–2 850 zł (bez bagażu)",
+   "uwagi": "promocje Fly4free V–VI 2026 na XI 2026–III 2027; dla porównania – wymaga dojazdu do Wiednia i bagażu +400–800 zł",
    "hist": []
   },
   {
    "id": "krajowy",
-   "linia": "Aerolíneas / JetSMART / Flybondi",
+   "linia": "Aerolíneas / JetSMART",
    "trasa": "BUE–MDZ 6.11 + MDZ–AEP 12.11 (bilet B)",
-   "orient": "400–700 zł",
-   "uwagi": "sprawdzić lotnisko wylotu 6.11 (EZE czy AEP) i bagaż rejestrowany w taryfie",
+   "orient": "500–850 zł (130–230 USD z bagażem)",
+   "uwagi": "listopad to najdroższy miesiąc na BUE–MDZ (mediana 150 USD RT); Flybondi zawieszony od VIII 2026; bagaż i opłata lotniskowa 9 USD osobno",
    "hist": []
   }
  ],
