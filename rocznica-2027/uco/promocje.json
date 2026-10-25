@@ -1,0 +1,91 @@
+{
+ "zaktualizowano": "2026-10-25",
+ "nastepny": "2026-10-28",
+ "status": "Start monitora 25.10.2026. W ostatnich 12 miesiącach promocje do Argentyny pojawiały się 6–8 razy w roku, głównie z Wiednia (LATAM 2 650–2 850 zł bez bagażu); z Warszawy w ekonomii poniżej 3 500 zł nie było żadnej. Żadna z dotychczasowych nie obejmowała listopada 2027 – pierwsze takie mogą pojawić się w maju–czerwcu 2027.",
+ "zrodla": [
+  "fly4free.pl (tag argentyna, Ameryka Południowa)",
+  "forum fly4free.pl",
+  "pepper.pl (Buenos Aires, Argentyna, Ameryka Południowa)",
+  "wakacyjnipiraci.pl",
+  "loter.pl",
+  "secretflying.com",
+  "fly4free.com",
+  "holidaypirates.com",
+  "promocje linii: Aerolíneas Argentinas, Iberia, Air Europa, ITA, LATAM, Turkish, Ethiopian, LOT",
+  "hotele: Mr & Mrs Smith (Casa de Uco), Chozos, Lares de Chacras, La Morada, Legado Mítico"
+ ],
+ "wpisy": [
+  {
+   "data": "2026-09-06",
+   "zrodlo": "Fly4free",
+   "tytul": "Wrocław → São Paulo / Buenos Aires → Berlin (open-jaw, Lufthansa/United) od 2 031 zł",
+   "url": "https://www.fly4free.pl/tanie-loty-do-ameryki-poludniowej-oraz-na-karaiby-od-2061-pln/",
+   "cena": "od 2 031 zł (BUE tylko na zrzucie)",
+   "trasa": "WRO–GRU / EZE–BER",
+   "terminy": "24.02–10.03.2027",
+   "bagaz": "tylko podręczny",
+   "pasuje": "nie",
+   "ocena": "Poza terminem; pokazuje wzorzec open-jaw z Niemiec."
+  },
+  {
+   "data": "2026-06-15",
+   "zrodlo": "Fly4free",
+   "tytul": "Wiedeń → Argentyna (LATAM + Iberia przez MAD/SCL) od 2 836 zł",
+   "url": "https://www.fly4free.pl/lec-do-argenty-od-2836-pln/",
+   "cena": "2 836 zł",
+   "trasa": "VIE–MAD/SCL–BUE",
+   "terminy": "XI 2026 – III 2027",
+   "bagaz": "b/d",
+   "pasuje": "nie",
+   "ocena": "Wzorzec: publikacja w czerwcu, terminy listopad–marzec roku następnego – taka promocja w V–VI 2027 mogłaby objąć listopad 2027."
+  },
+  {
+   "data": "2026-05-26",
+   "zrodlo": "Fly4free",
+   "tytul": "Wiedeń → Buenos Aires (LATAM) ok. 2 820–2 950 zł",
+   "url": "https://www.fly4free.pl/od-samby-po-tango-od-2735-pln/",
+   "cena": "2 654 zł (BUE ok. 2 820–2 950)",
+   "trasa": "VIE–BUE przez GRU/SCL",
+   "terminy": "XI–XII 2026",
+   "bagaz": "tylko podręczny",
+   "pasuje": "nie",
+   "ocena": "Poza terminem; 1 300–1 800 zł taniej niż typowa cena z Warszawy, ale bez bagażu i z dojazdem do Wiednia."
+  },
+  {
+   "data": "2026-05-07",
+   "zrodlo": "Fly4free",
+   "tytul": "Wiedeń → Buenos Aires (LATAM) od 2 806 zł, w tym 16–30.11.2026",
+   "url": "https://www.fly4free.pl/miasto-ktore-nie-zna-ciszy-od-2806-pln/",
+   "cena": "2 806 zł",
+   "trasa": "VIE–BUE (DE/BR, powrót CL/ES)",
+   "terminy": "IX 2026 – III 2027",
+   "bagaz": "tylko podręczny",
+   "pasuje": "nie",
+   "ocena": "Poza terminem (rok wcześniej); dokładnie ten typ oferty śledzimy na maj–czerwiec 2027."
+  },
+  {
+   "data": "2026-01-22",
+   "zrodlo": "Infobae / Aerolíneas Argentinas",
+   "tytul": "Aerolíneas: Madryt/Rzym → Buenos Aires 1 020–1 035 EUR z bagażem + lot krajowy 50–100 EUR",
+   "url": "https://www.infobae.com/economia/2026/01/22/aerolineas-argentinas-lanzo-promociones-para-vuelos-desde-roma-y-madrid-hacia-la-argentina/",
+   "cena": "1 020–1 035 EUR + 50–100 EUR dolot",
+   "trasa": "MAD/FCO–EZE–MDZ",
+   "terminy": "II–VI 2026 (sprzedaż do 25.01.2026)",
+   "bagaz": "w cenie",
+   "pasuje": "nie",
+   "ocena": "Wzorzec promocji AR na FITUR (styczeń) – w styczniu 2027 sprawdzić, czy obejmie listopad 2027."
+  },
+  {
+   "data": "2025-11-08",
+   "zrodlo": "Fly4free",
+   "tytul": "Berlin → Buenos Aires (KLM przez AMS) 2 918 zł",
+   "url": "https://www.fly4free.pl/ameryka-poludniowa-loty-do-argentyny-od-2918pln/",
+   "cena": "2 918 zł",
+   "trasa": "BER–AMS–EZE",
+   "terminy": "VI 2026",
+   "bagaz": "tylko podręczny",
+   "pasuje": "nie",
+   "ocena": "Poza terminem; Berlin bez promocji nie jest tańszy od Warszawy."
+  }
+ ]
+}

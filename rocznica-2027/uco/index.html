@@ -171,6 +171,9 @@ section.blk { padding-block: clamp(44px, 7vw, 84px); }
 .mon { margin-top: 28px; background: var(--paper); border-radius: 6px; padding: 24px; box-shadow: var(--shade); display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 24px 40px; }
 .mon > div { min-width: 0; }
 @media (max-width: 760px) { .mon { grid-template-columns: 1fr; } }
+.prom { margin-top: 20px; background: var(--paper); border-radius: 6px; padding: 24px; box-shadow: var(--shade); } .prom .ph2 { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; } .prom .ph2 h3 { margin: 0; } .prom .st { margin: 0; font-family: var(--f-mono); font-size: .8rem; color: var(--muted); }
+.pl { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 12px; } .pl li { padding: 12px 14px; border: 1px solid var(--line); border-radius: 6px; min-width: 0; } .pl .plh { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; font-family: var(--f-mono); font-size: .74rem; color: var(--muted); margin-bottom: 4px; } .pl a { font-weight: 600; overflow-wrap: anywhere; } .pl .plm { font-size: .88rem; color: var(--ink-2); margin-top: 4px; } .pl .plo { font-size: .86rem; color: var(--muted); margin-top: 4px; }
+.plb { padding: 1px 8px; border-radius: 999px; font-size: .7rem; letter-spacing: .04em; text-transform: uppercase; } .plb.ok { background: var(--poplar); color: #fff; } .plb.no { background: var(--chip); color: var(--ink-2); } .plb.mid { background: var(--sun, #d6a24a); color: #fff; }
 .mon h3 { font-size: 1.5rem; margin-bottom: 8px; } .mon .st { font-family: var(--f-mono); font-size: .85rem; color: var(--muted); margin: 0 0 10px; }
 .mon .status { padding: 12px 14px; border-left: 3px solid var(--adobe); background: var(--chip); font-size: .95rem; margin: 0 0 14px; }
 .hist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: .92rem; }
@@ -386,6 +389,7 @@ footer a { color: var(--ink-2); }
       '<div class="mon"><div><h3>Monitor cen i trendy</h3><p class="st" id="monst">Ładowanie…</p><div id="mon"></div><p class="note" style="color:var(--ink-2);font-size:.9rem;margin:12px 0 0">Agent sprawdza 1. i 15. dnia miesiąca ceny biletu Warszawa–Buenos Aires dla 11 serii (cały bilet do Mendozy, Madryt–Mendoza, 8 linii do Buenos Aires) oraz lotu krajowego do Mendozy (za osobę, w obie strony, z bagażem) i zapisuje je tutaj. Trend porównuje ostatni odczyt z poprzednim; słupki to historia. Próg zakupu: <b>4 800 zł</b> za kompletną podróż na osobę. To wskazówka, nie oferta – przed zakupem sprawdzić cenę u linii.</p></div>' +
       '<div><h3>Kiedy kupować</h3><ol class="tl">' + F.kiedy.map(function (k) { return '<li><b>' + esc(k[0]) + '</b><span>' + esc(k[1]) + '</span></li>'; }).join('') + '</ol>' +
       '<h3 style="margin-top:22px">Alerty cenowe</h3>' + (F.alerty_intro ? '<p class="prose" style="font-size:.9rem;color:var(--muted);margin:0 0 10px">' + esc(F.alerty_intro) + '</p>' : '') + '<ul class="al">' + F.alerty.map(function (a, i) { return (a.g ? '<li class="alg">' + esc(a.g) + '</li>' : '') + '<li class="alc"><label><input type="checkbox" data-al="' + i + '"><span class="alb"><a href="' + esc(a.url) + '" target="_blank" rel="noopener">' + esc(a.n) + '</a><span>' + esc(a.opis) + '</span></span></label></li>'; }).join('') + '</ul></div></div>' +
+      '<div class="prom"><div class="ph2"><h3>Promocje z forów</h3><p class="st" id="promst">Ładowanie…</p></div><div id="prom"></div><p class="note" style="color:var(--ink-2);font-size:.9rem;margin:12px 0 0">Osobny agent w środy i piątki przegląda Fly4free (serwis i forum), Pepper, Wakacyjnych Piratów, Loter, Secret Flying, Holiday Pirates oraz strony promocji linii i naszych hoteli. Nowe znaleziska dopisuje tutaj; powiadomienie push przychodzi tylko wtedy, gdy promocja obejmuje listopad 2027 i mieści się w progach.</p></div>' +
       (F.progi ? '<div class="cols" style="margin-top:28px"><div><h3>Progi zakupu (kompletna podróż, na osobę)</h3><table class="pt"><thead><tr><th>Cena za osobę</th><th>Decyzja</th></tr></thead><tbody>' + F.progi.map(function (r) { return '<tr><td><b>' + esc(r[0]) + '</b></td><td>' + esc(r[1]) + '</td></tr>'; }).join('') + '</tbody></table></div>' + (F.daty ? '<div><h3>Daty</h3><table class="pt"><thead><tr><th>Układ</th><th>Loty</th><th>Pobyt</th></tr></thead><tbody>' + F.daty.map(function (r) { return '<tr><td><b>' + esc(r[0]) + '</b></td><td>' + esc(r[1]) + '</td><td>' + esc(r[2]) + '</td></tr>'; }).join('') + '</tbody></table></div>' : '') + '</div>' : '') +
       '<div class="cols" style="margin-top:28px"><div><h3>Zasady</h3><ul class="chk" style="list-style:disc;padding-left:20px;gap:6px">' + F.zasady.map(function (z) { return '<li>' + esc(z) + '</li>'; }).join('') + '</ul></div></div></div></section>';
   }
@@ -415,6 +419,19 @@ footer a { color: var(--ink-2); }
   app.innerHTML = h;
   // animacja wejścia
   if ('IntersectionObserver' in window) { var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -8% 0px' }); document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); }); } else document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+  // promocje z forów: promocje.json obok strony
+  (function () {
+    var box = document.getElementById('prom'), st = document.getElementById('promst'); if (!box) return;
+    fetch('promocje.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (M) {
+      st.textContent = 'Ostatnie sprawdzenie: ' + M.zaktualizowano + (M.nastepny ? ' · następne: ' + M.nastepny : '');
+      var W = (M.wpisy || []).slice().sort(function (a, b) { return (b.data || '').localeCompare(a.data || ''); });
+      var kl = { tak: ['pasuje', 'ok'], nie: ['nie obejmuje XI 2027', 'no'], sprawdzic: ['do sprawdzenia', 'mid'] };
+      box.innerHTML = (M.status ? '<p class="status">' + esc(M.status) + '</p>' : '') + (W.length ? '<ul class="pl">' + W.map(function (w) {
+        var k = kl[w.pasuje] || kl.sprawdzic;
+        return '<li><div class="plh"><span class="pld">' + esc(w.data || '') + ' · ' + esc(w.zrodlo || '') + '</span><span class="plb ' + k[1] + '">' + k[0] + '</span></div><a href="' + esc(w.url || '#') + '" target="_blank" rel="noopener">' + esc(w.tytul || '') + '</a><div class="plm">' + [w.cena, w.trasa, w.terminy, w.bagaz ? 'bagaż: ' + w.bagaz : ''].filter(Boolean).map(esc).join(' · ') + '</div>' + (w.ocena ? '<div class="plo">' + esc(w.ocena) + '</div>' : '') + '</li>';
+      }).join('') + '</ul>' : '<p class="status">Jeszcze nic nie znaleziono.</p>');
+    }).catch(function () { st.textContent = 'Lista promocji niedostępna w tym podglądzie.'; });
+  })();
   // monitor cen: loty.json obok strony
   (function () {
     var box = document.getElementById('mon'), st = document.getElementById('monst'); if (!box) return;
