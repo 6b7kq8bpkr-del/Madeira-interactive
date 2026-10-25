@@ -1,79 +1,79 @@
 {
  "zaktualizowano": "2026-10-25",
- "status": "Rozkład na listopad 2027 jeszcze nieopublikowany – linie otwierają sprzedaż ok. 330–360 dni przed lotem. Pierwszy właściwy odczyt cen: początek grudnia 2026. Do tego czasu w tabeli są widełki orientacyjne na podstawie cen z jesieni 2026 na analogiczne terminy.",
+ "status": "Rozkład na listopad 2027 jeszcze nieopublikowany – linie otwierają sprzedaż ok. 330–360 dni przed lotem; pierwszy właściwy odczyt na początku grudnia 2026. Plan zakłada dwa bilety: Warszawa–Buenos Aires w obie strony (bilet A) i lot krajowy do Mendozy (bilet B). Widełki w tabeli to migawki z jesieni 2026 na analogiczne terminy.",
  "nastepny": "2026-11-01",
  "prog": 3800,
  "serie": [
   {
-   "id": "ib-scl",
-   "linia": "Iberia + LATAM",
-   "trasa": "WAW–MAD–SCL–MDZ",
-   "orient": "3 400–4 300 zł",
-   "uwagi": "najkrótsza, ok. 22–24 h; LATAM SCL–MDZ często na osobnym bilecie",
-   "hist": []
-  },
-  {
-   "id": "latam",
-   "linia": "LATAM (z MAD lub FRA)",
-   "trasa": "WAW–MAD/FRA–SCL–MDZ",
-   "orient": "3 500–4 500 zł",
-   "uwagi": "cała trasa za Atlantyk na jednym bilecie LATAM",
+   "id": "ib",
+   "linia": "Iberia",
+   "trasa": "WAW–MAD–EZE (bilet A)",
+   "orient": "4 000–4 400 zł",
+   "uwagi": "najkrótsza przesiadka w Madrycie; z EZE lot krajowy",
    "hist": []
   },
   {
    "id": "ar",
    "linia": "Aerolíneas Argentinas (z MAD lub FCO)",
-   "trasa": "WAW–MAD/FCO–EZE–MDZ",
-   "orient": "3 200–4 200 zł",
-   "uwagi": "często najtańsza; sprawdzić, czy lot krajowy z EZE, nie z AEP",
-   "hist": []
-  },
-  {
-   "id": "ib-eze",
-   "linia": "Iberia + Aerolíneas",
-   "trasa": "WAW–MAD–EZE–MDZ",
-   "orient": "3 300–4 300 zł",
-   "uwagi": "Iberia do Buenos Aires, dalej Aerolíneas; jeden bilet w oneworld nie zawsze",
-   "hist": []
-  },
-  {
-   "id": "af",
-   "linia": "Air France / KLM",
-   "trasa": "WAW–CDG/AMS–EZE/SCL–MDZ",
-   "orient": "3 500–4 600 zł",
-   "uwagi": "AF do Buenos Aires lub Santiago; ostatni odcinek LATAM/Aerolíneas",
-   "hist": []
-  },
-  {
-   "id": "lh",
-   "linia": "Lufthansa / Swiss",
-   "trasa": "WAW–FRA/ZRH–EZE/GRU–MDZ",
-   "orient": "3 600–4 700 zł",
-   "uwagi": "dobre przesiadki w FRA; ostatni odcinek LATAM lub Aerolíneas",
-   "hist": []
-  },
-  {
-   "id": "ita",
-   "linia": "ITA Airways",
-   "trasa": "WAW–FCO–EZE/GRU–MDZ",
-   "orient": "3 300–4 400 zł",
-   "uwagi": "często promocje do Buenos Aires i São Paulo",
+   "trasa": "WAW–MAD/FCO–EZE (bilet A)",
+   "orient": "3 950–4 300 zł",
+   "uwagi": "często najtańsza; lot krajowy można dołożyć na jednym bilecie",
    "hist": []
   },
   {
    "id": "ue",
    "linia": "Air Europa",
-   "trasa": "WAW–MAD–EZE/SCL–MDZ",
-   "orient": "3 200–4 200 zł",
-   "uwagi": "tańsza alternatywa dla Iberii z Madrytu; mniej przestronne kabiny",
+   "trasa": "WAW–MAD–EZE (bilet A)",
+   "orient": "3 900–4 300 zł",
+   "uwagi": "tańsza alternatywa dla Iberii; mniej przestronne kabiny",
+   "hist": []
+  },
+  {
+   "id": "ita",
+   "linia": "ITA Airways",
+   "trasa": "WAW–FCO–EZE (bilet A)",
+   "orient": "3 950–4 300 zł",
+   "uwagi": "częste promocje do Buenos Aires",
+   "hist": []
+  },
+  {
+   "id": "af",
+   "linia": "Air France / KLM",
+   "trasa": "WAW–CDG/AMS–EZE (bilet A)",
+   "orient": "4 300–5 800 zł",
+   "uwagi": "wygodne, ale w migawkach drogie",
+   "hist": []
+  },
+  {
+   "id": "lh",
+   "linia": "Lufthansa / Swiss",
+   "trasa": "WAW–FRA/ZRH–EZE (bilet A)",
+   "orient": "4 700–5 200 zł",
+   "uwagi": "dobre przesiadki, wyższa cena",
    "hist": []
   },
   {
    "id": "tk",
    "linia": "Turkish Airlines",
-   "trasa": "WAW–IST–EZE/GRU–MDZ",
-   "orient": "3 300–4 300 zł",
-   "uwagi": "najdłużej (ok. 30 h), ale bywa najtańsza i z dobrym bagażem",
+   "trasa": "WAW–IST–EZE (bilet A)",
+   "orient": "3 950–4 650 zł",
+   "uwagi": "najdłużej, ale hojny bagaż",
+   "hist": []
+  },
+  {
+   "id": "latam",
+   "linia": "LATAM (open-jaw przez Santiago)",
+   "trasa": "WAW–MAD/FRA–SCL–MDZ · EZE–MAD–WAW",
+   "orient": "brak danych",
+   "uwagi": "dla porównania: tam przez Santiago do Mendozy, z powrotem z Buenos Aires",
+   "hist": []
+  },
+  {
+   "id": "krajowy",
+   "linia": "Aerolíneas / JetSMART / Flybondi",
+   "trasa": "BUE–MDZ 6.11 + MDZ–AEP 12.11 (bilet B)",
+   "orient": "400–700 zł",
+   "uwagi": "sprawdzić lotnisko wylotu 6.11 (EZE czy AEP) i bagaż rejestrowany w taryfie",
    "hist": []
   }
  ],
