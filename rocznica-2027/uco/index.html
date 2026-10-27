@@ -126,7 +126,9 @@ section.blk { padding-block: clamp(44px, 7vw, 84px); }
 /* hotele */
 .hg { display: grid; gap: 22px; }
 .hk { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: start; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; min-width: 0; }
-.hk.main { border-color: var(--malbec); box-shadow: 0 0 0 2px var(--malbec) inset; }
+.hk.main { border-color: var(--malbec); box-shadow: 0 0 0 2px var(--malbec) inset; } .hk.dim { opacity: .82; } .hk.dim:hover { opacity: 1; }
+.hk .selb { display: none; margin-left: 10px; padding: 2px 9px; border-radius: 999px; background: var(--malbec); color: #fff; font-size: .68rem; letter-spacing: .05em; text-transform: uppercase; vertical-align: middle; } .hk.main .selb { display: inline-block; }
+.hseln { margin: 0 0 8px; font-size: .92rem; color: var(--ink-2); } .hseln b { color: var(--malbec); }
 .hk .ph { margin: 0; min-height: 260px; } .hk .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .hk .hb { padding: 22px 24px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 .hk h3 { font-size: 1.6rem; }
@@ -353,11 +355,11 @@ footer a { color: var(--ink-2); }
   var BL = [['nocleg', 'Noclegi (7 nocy)', 'c1'], ['loty', 'Loty', 'c2'], ['auto_transfery', 'Bus z kierowcą', 'c3'], ['jedzenie', 'Jedzenie', 'c4'], ['wycieczki_bilety', 'Wycieczki i degustacje', 'c5'], ['rezerwa', 'Rezerwa', 'c6']];
   // hotele: karty z rolą w trasie, za/przeciw, oceną i linkiem
   if (D.hotele && D.hotele.length) {
-    h += band('hotele') + '<section class="blk" id="hotele"><div class="wrap"><div class="sh"><div><p class="eyebrow">Trzy bazy, trzy hotele</p><h2>Hotele</h2><p>Hotele w stylu, który lubicie: butikowe, ciche, z widokiem i designem, wysoko oceniane. Dwie noce pod Andami w Alto Agrelo (Chozos; w rezerwie Lares de Chacras, gdyby loty wyszły drogo), cztery w dolinie Uco (Casa de Uco albo La Morada – trzy warianty do wyboru w sekcji Budżet) i noc w Palermo. Po urealnieniu cen lotów decyzja o bazie 1 zapada po zakupie biletów: do 5 000 zł/os. za kompletną podróż zostaje Chozos, drożej – Lares. Ceny to szacunki za pokój dla dwojga, z października 2026.</p></div></div><div class="hg">' +
+    h += band('hotele') + '<section class="blk" id="hotele"><div class="wrap"><div class="sh"><div><p class="eyebrow">Trzy bazy, trzy hotele</p><h2>Hotele</h2><p class="hseln" id="hselnote"></p><p>Hotele w stylu, który lubicie: butikowe, ciche, z widokiem i designem, wysoko oceniane. Dwie noce pod Andami w Alto Agrelo (Chozos; w rezerwie Lares de Chacras, gdyby loty wyszły drogo), cztery w dolinie Uco (Casa de Uco albo La Morada – trzy warianty do wyboru w sekcji Budżet) i noc w Palermo. Po urealnieniu cen lotów decyzja o bazie 1 zapada po zakupie biletów: do 5 000 zł/os. za kompletną podróż zostaje Chozos, drożej – Lares. Ceny to szacunki za pokój dla dwojga, z października 2026.</p></div></div><div class="hg">' +
       D.hotele.map(function (o) {
         var pics = (o.gal && o.gal.length ? o.gal : (o.img ? [o.img] : []));
         var gal = pics.length ? '<div class="hgal n' + Math.min(pics.length, 4) + '">' + pics.map(function (g, j) { return '<figure class="ph">' + img(g, '', false, j ? '(max-width: 760px) 50vw, 280px' : '(max-width: 760px) 100vw, 560px') + '<figcaption>' + esc(g.cap) + cred(g) + '</figcaption></figure>'; }).join('') + '</div>' : '';
-        return '<article class="hk reveal' + (o.glowny ? ' main' : '') + '">' + gal + '<div class="hb"><p class="eyebrow">' + esc(o.rola) + '</p><h3>' + esc(o.n) + '</h3>' +
+        return '<article class="hk reveal' + (o.glowny ? ' main' : '') + '" data-hn="' + esc(o.n) + '">' + gal + '<div class="hb"><p class="eyebrow">' + esc(o.rola) + '<span class="selb">w wybranym wariancie</span></p><h3>' + esc(o.n) + '</h3>' +
           '<div class="kv"><span>ok. <b>' + (o.rate || '?') + ' ' + esc(o.cur || 'USD') + '</b> za noc</span>' + (o.oc ? '<span>oceny <b>' + esc(o.oc) + '</b></span>' : '') + '<span class="tagw">' + esc(o.wariant) + '</span></div>' +
           (o.short ? '<p class="lead">' + esc(o.short) + '</p>' : '') +
           (o.sekcje && o.sekcje.length ? '<dl class="hsek">' + o.sekcje.map(function (s) { return '<dt>' + esc(s[0]) + '</dt><dd>' + esc(s[1]) + '</dd>'; }).join('') + '</dl>' : (o.desc ? '<p class="more">' + esc(o.desc) + '</p>' : '')) +
@@ -496,11 +498,14 @@ footer a { color: var(--ink-2); }
     document.getElementById('gnote').textContent = (G.transport_opis && G.transport_opis[np] ? 'Bus: ' + G.transport_opis[np] + ', dzielony po równo. ' : '') + (G.uwaga || '');
     document.querySelectorAll('[data-sum]').forEach(function (el) { el.textContent = nf(calc(D.hotels[+el.dataset.sum]).razem) + ' zł na parę'; });
     var st = document.querySelector('[data-dyn="koszt"]'); if (st) st.textContent = 'ok. ' + nf(calc(D.hotels[0]).razem) + ' zł';
+    var hset = o.hotele || []; document.querySelectorAll('.hk[data-hn]').forEach(function (el) { el.classList.toggle('main', hset.indexOf(el.dataset.hn) >= 0); el.classList.toggle('dim', hset.length > 0 && hset.indexOf(el.dataset.hn) < 0); });
+    var hn = document.getElementById('hselnote'); if (hn) hn.innerHTML = 'Podświetlone karty to hotele wariantu <b>' + esc(o.n.replace(/:.*$/, '')) + '</b> (' + hset.map(esc).join(' · ') + ') – wariant zmienisz w sekcji <a href="#budzet">Budżet</a>.';
     document.querySelectorAll('.hc').forEach(function (el) { el.setAttribute('aria-pressed', +el.dataset.h === cur ? 'true' : 'false'); });
     document.getElementById('bud').innerHTML = '<div class="total"><div><p class="eyebrow">Budżet ' + SK[sk][1] + ' · ' + esc(o.n.replace(/^Trasa: /, '')) + '</p><b>' + nf(t * SK[sk][0]) + ' zł</b></div><div><span class="limit' + (t <= 28000 ? '' : ' over') + '">' + (t <= 28000 ? 'zapas ' + nf((28000 - t) * SK[sk][0]) + ' zł do sufitu ' + nf(28000 * SK[sk][0]) + ' zł' : 'ponad sufit ' + nf(28000 * SK[sk][0]) + ' zł o ' + nf((t - 28000) * SK[sk][0]) + ' zł') + '</span><div class="seg" role="group" aria-label="Skala">' + SK.map(function (s, i) { return '<button type="button" data-sk="' + i + '" aria-pressed="' + (i === sk ? 'true' : 'false') + '">' + s[2] + '</button>'; }).join('') + '</div></div></div>' +
       '<div class="bar" role="img" aria-label="Podział budżetu">' + BL.map(function (r) { return b[r[0]] ? '<i class="' + r[2] + '" style="width:' + (b[r[0]] / t * 100).toFixed(2) + '%" title="' + r[1] + '"></i>' : ''; }).join('') + '</div>' +
       '<ul class="leg">' + BL.map(function (r) { return b[r[0]] != null ? '<li><s class="' + r[2] + '"></s>' + r[1] + '<b>' + nf(b[r[0]] * SK[sk][0]) + ' zł</b></li>' : ''; }).join('') + '</ul>' +
       (o.model && o.model.typ === 'rezydencja' && np !== (o.model.pary_w_domu || 3) ? '<p class="note gwarn">' + (np < (o.model.pary_w_domu || 3) ? 'Przy ' + np + ' parach dom na trzy sypialnie dzieli się na mniej osób – ' + nf(Math.round(o.model.dom_usd_noc * (G.kurs || 3.7) / np)) + ' zł za parę za noc; ten wariant ma sens dopiero od trzech par.' : 'Przy ' + np + ' parach: rezydencja na trzy pary plus ' + b.rez + ' pokój Cordón del Plata obok; koszt całości dzielony po równo między pary.') + '</p>' : '') +
+      (o.hotele && o.hotele.length ? '<p class="note"><a href="#hotele">Hotele tego wariantu: ' + o.hotele.map(esc).join(' · ') + ' ↓</a></p>' : '') +
       (o.note ? '<p class="note">' + esc(o.note) + '</p>' : '') + (o.url ? '<p class="note"><a href="' + esc(o.url) + '" target="_blank" rel="noopener">Strona hotelu ↗</a></p>' : '');
   }
   document.querySelectorAll('.hc').forEach(function (el) { el.addEventListener('click', function () { cur = +el.dataset.h; save('h', cur); bud(); }); });
