@@ -129,6 +129,13 @@ section.blk { padding-block: clamp(44px, 7vw, 84px); }
 .hk.main { border-color: var(--malbec); box-shadow: 0 0 0 2px var(--malbec) inset; } .hk.dim { opacity: .82; } .hk.dim:hover { opacity: 1; }
 .hk .selb { display: none; margin-left: 10px; padding: 2px 9px; border-radius: 999px; background: var(--malbec); color: #fff; font-size: .68rem; letter-spacing: .05em; text-transform: uppercase; vertical-align: middle; } .hk.main .selb { display: inline-block; }
 .hseln { margin: 0 0 8px; font-size: .92rem; color: var(--ink-2); } .hseln b { color: var(--malbec); }
+.hswrow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin: 0 0 10px; } .hswrow .seg { margin: 0; } .hswrow .hseln { margin: 0; flex: 1 1 100%; }
+html { scroll-behavior: smooth; } section.blk, .hk, .alth, .stop, .prom { scroll-margin-top: 72px; }
+.hk.flash { animation: hkflash 1.6s ease-out; } @keyframes hkflash { 0% { box-shadow: 0 0 0 4px var(--malbec) inset; } 100% { box-shadow: 0 0 0 2px var(--malbec) inset; } }
+.vh { margin-top: 18px; } .vh > .eyebrow { margin: 0 0 8px; } .vhg { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.vhc { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 0 12px; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--bg); text-decoration: none; color: var(--ink); min-width: 0; } .vhc:hover { border-color: var(--malbec); }
+.vhc img { width: 96px; height: 100%; min-height: 110px; object-fit: cover; display: block; } .vhc .vhb { padding: 10px 12px 10px 0; display: flex; flex-direction: column; gap: 3px; min-width: 0; } .vhc .vhb .eyebrow { margin: 0; font-size: .66rem; } .vhc b { font-size: 1rem; line-height: 1.2; }
+.vhc .vhp { font-family: var(--f-mono); font-size: .8rem; color: var(--malbec); } .vhc .vhs { font-size: .82rem; color: var(--ink-2); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; } .vhc .vhl { font-size: .82rem; font-weight: 600; color: var(--malbec); margin-top: 2px; }
 .hk .ph { margin: 0; min-height: 260px; } .hk .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .hk .hb { padding: 22px 24px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 .hk h3 { font-size: 1.6rem; }
@@ -277,8 +284,8 @@ footer a { color: var(--ink-2); }
     <ul>
       <li><a href="#trasa">Trasa</a></li>
       <li><a href="#plan">Plan</a></li>
-      <li><a href="#hotele">Hotele</a></li>
       <li><a href="#budzet">Budżet</a></li>
+      <li><a href="#hotele">Hotele</a></li>
       <li><a href="#loty">Loty</a></li>
       <li><a href="#buenos">Buenos Aires</a></li>
       <li><a href="#przygotowania">Przygotowania</a></li>
@@ -353,13 +360,19 @@ footer a { color: var(--ink-2); }
     }).join('') + '</ol></div></section>';
   // hotele i budżet
   var BL = [['nocleg', 'Noclegi (7 nocy)', 'c1'], ['loty', 'Loty', 'c2'], ['auto_transfery', 'Bus z kierowcą', 'c3'], ['jedzenie', 'Jedzenie', 'c4'], ['wycieczki_bilety', 'Wycieczki i degustacje', 'c5'], ['rezerwa', 'Rezerwa', 'c6']];
+  h += '<section class="blk" id="budzet"><div class="wrap"><div class="sh"><div><p class="eyebrow">Baza i koszty</p><h2>Wariant i budżet</h2><p>Zuccardi nie ma noclegów, więc śpimy w trzech miejscach: 2 noce pod Mendozą, 4 noce w dolinie Uco i noc w Buenos Aires. Plan dni jest ten sam w każdym wariancie, różnią się hotele. Wybierzcie liczbę par, scenariusz zakupu lotów i wariant, a budżet przeliczy się na parę.</p></div></div>' +
+    '<div class="grp"><span class="eyebrow">Ile par jedzie?</span><div class="seg" id="grp" role="group" aria-label="Liczba par"></div><span class="gnote" id="gnote"></span></div>' +
+    '<div class="grp" id="lsw"><span class="eyebrow">Loty kupione</span><div class="seg" id="lsc" role="group" aria-label="Scenariusz lotów"></div><span class="gnote" id="lnote"></span></div>' +
+    '<div class="hsel" role="group" aria-label="Hotel">' + D.hotels.map(function (o, i) {
+      return '<button type="button" class="hc" data-h="' + i + '" aria-pressed="false"><span class="eyebrow">' + (o.h1 ? esc(o.h1) + ' · ' + esc(o.h2) : 'wariant trasy') + '</span><h3>' + esc(o.n.replace(/^Trasa: /, '').replace(/:.*$/, '')) + '</h3><span class="sum" data-sum="' + i + '"></span><p>' + esc(o.short || (o.note.length > 170 ? o.note.slice(0, 170) + '…' : o.note)) + '</p>' + (o.oc ? '<p style="font-size:.85rem;color:var(--muted)">' + esc(o.oc) + '</p>' : '') + '</button>';
+    }).join('') + '</div><div class="bud" id="bud" aria-live="polite"></div></div></section>';
   // hotele: karty z rolą w trasie, za/przeciw, oceną i linkiem
   if (D.hotele && D.hotele.length) {
-    h += band('hotele') + '<section class="blk" id="hotele"><div class="wrap"><div class="sh"><div><p class="eyebrow">Trzy bazy, trzy hotele</p><h2>Hotele</h2><p class="hseln" id="hselnote"></p><p>Hotele w stylu, który lubicie: butikowe, ciche, z widokiem i designem, wysoko oceniane. Dwie noce pod Andami w Alto Agrelo (Chozos; w rezerwie Lares de Chacras, gdyby loty wyszły drogo), cztery w dolinie Uco (Casa de Uco albo La Morada – trzy warianty do wyboru w sekcji Budżet) i noc w Palermo. Po urealnieniu cen lotów decyzja o bazie 1 zapada po zakupie biletów: do 5 000 zł/os. za kompletną podróż zostaje Chozos, drożej – Lares. Ceny to szacunki za pokój dla dwojga, z października 2026.</p></div></div><div class="hg">' +
-      D.hotele.map(function (o) {
+    h += band('hotele') + '<section class="blk" id="hotele"><div class="wrap"><div class="sh"><div><p class="eyebrow">Trzy bazy, trzy hotele</p><h2>Hotele</h2><div class="hswrow"><div class="seg" id="hsw" role="group" aria-label="Wariant"></div><p class="hseln" id="hselnote"></p></div><p>Hotele w stylu, który lubicie: butikowe, ciche, z widokiem i designem, wysoko oceniane. Dwie noce pod Andami w Alto Agrelo (Chozos; w rezerwie Lares de Chacras, gdyby loty wyszły drogo), cztery w dolinie Uco (Casa de Uco albo La Morada – trzy warianty do wyboru w sekcji Budżet) i noc w Palermo. Po urealnieniu cen lotów decyzja o bazie 1 zapada po zakupie biletów: do 5 000 zł/os. za kompletną podróż zostaje Chozos, drożej – Lares. Ceny to szacunki za pokój dla dwojga, z października 2026.</p></div></div><div class="hg">' +
+      D.hotele.map(function (o, hi) {
         var pics = (o.gal && o.gal.length ? o.gal : (o.img ? [o.img] : []));
         var gal = pics.length ? '<div class="hgal n' + Math.min(pics.length, 4) + '">' + pics.map(function (g, j) { return '<figure class="ph">' + img(g, '', false, j ? '(max-width: 760px) 50vw, 280px' : '(max-width: 760px) 100vw, 560px') + '<figcaption>' + esc(g.cap) + cred(g) + '</figcaption></figure>'; }).join('') + '</div>' : '';
-        return '<article class="hk reveal' + (o.glowny ? ' main' : '') + '" data-hn="' + esc(o.n) + '">' + gal + '<div class="hb"><p class="eyebrow">' + esc(o.rola) + '<span class="selb">w wybranym wariancie</span></p><h3>' + esc(o.n) + '</h3>' +
+        return '<article class="hk reveal' + (o.glowny ? ' main' : '') + '" id="hk-' + hi + '" data-hn="' + esc(o.n) + '">' + gal + '<div class="hb"><p class="eyebrow">' + esc(o.rola) + '<span class="selb">w wybranym wariancie</span></p><h3>' + esc(o.n) + '</h3>' +
           '<div class="kv"><span>ok. <b>' + (o.rate || '?') + ' ' + esc(o.cur || 'USD') + '</b> za noc</span>' + (o.oc ? '<span>oceny <b>' + esc(o.oc) + '</b></span>' : '') + '<span class="tagw">' + esc(o.wariant) + '</span></div>' +
           (o.short ? '<p class="lead">' + esc(o.short) + '</p>' : '') +
           (o.sekcje && o.sekcje.length ? '<dl class="hsek">' + o.sekcje.map(function (s) { return '<dt>' + esc(s[0]) + '</dt><dd>' + esc(s[1]) + '</dd>'; }).join('') + '</dl>' : (o.desc ? '<p class="more">' + esc(o.desc) + '</p>' : '')) +
@@ -378,12 +391,6 @@ footer a { color: var(--ink-2); }
         }).join('') : '') +
       (D.odrzucone && D.odrzucone.length ? '<details class="odrz"><summary>Rozważone i odrzucone (' + D.odrzucone.length + ')</summary><ul>' + D.odrzucone.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></details>' : '') + '</div></section>';
   }
-  h += '<section class="blk" id="budzet"><div class="wrap"><div class="sh"><div><p class="eyebrow">Baza i koszty</p><h2>Wariant i budżet</h2><p>Zuccardi nie ma noclegów, więc śpimy w trzech miejscach: 2 noce pod Mendozą, 4 noce w dolinie Uco i noc w Buenos Aires. Plan dni jest ten sam w każdym wariancie, różnią się hotele. Wybierzcie liczbę par, scenariusz zakupu lotów i wariant, a budżet przeliczy się na parę.</p></div></div>' +
-    '<div class="grp"><span class="eyebrow">Ile par jedzie?</span><div class="seg" id="grp" role="group" aria-label="Liczba par"></div><span class="gnote" id="gnote"></span></div>' +
-    '<div class="grp" id="lsw"><span class="eyebrow">Loty kupione</span><div class="seg" id="lsc" role="group" aria-label="Scenariusz lotów"></div><span class="gnote" id="lnote"></span></div>' +
-    '<div class="hsel" role="group" aria-label="Hotel">' + D.hotels.map(function (o, i) {
-      return '<button type="button" class="hc" data-h="' + i + '" aria-pressed="false"><span class="eyebrow">' + (o.h1 ? esc(o.h1) + ' · ' + esc(o.h2) : 'wariant trasy') + '</span><h3>' + esc(o.n.replace(/^Trasa: /, '').replace(/:.*$/, '')) + '</h3><span class="sum" data-sum="' + i + '"></span><p>' + esc(o.short || (o.note.length > 170 ? o.note.slice(0, 170) + '…' : o.note)) + '</p>' + (o.oc ? '<p style="font-size:.85rem;color:var(--muted)">' + esc(o.oc) + '</p>' : '') + '</button>';
-    }).join('') + '</div><div class="bud" id="bud" aria-live="polite"></div></div></section>';
   // przygotowania
   // loty: opcje, kalendarz zakupu, alerty i monitor cen (loty.json aktualizuje agent)
   if (P.loty) {
@@ -499,19 +506,22 @@ footer a { color: var(--ink-2); }
     document.querySelectorAll('[data-sum]').forEach(function (el) { el.textContent = nf(calc(D.hotels[+el.dataset.sum]).razem) + ' zł na parę'; });
     var st = document.querySelector('[data-dyn="koszt"]'); if (st) st.textContent = 'ok. ' + nf(calc(D.hotels[0]).razem) + ' zł';
     var hset = o.hotele || []; document.querySelectorAll('.hk[data-hn]').forEach(function (el) { el.classList.toggle('main', hset.indexOf(el.dataset.hn) >= 0); el.classList.toggle('dim', hset.length > 0 && hset.indexOf(el.dataset.hn) < 0); });
-    var hn = document.getElementById('hselnote'); if (hn) hn.innerHTML = 'Podświetlone karty to hotele wariantu <b>' + esc(o.n.replace(/:.*$/, '')) + '</b> (' + hset.map(esc).join(' · ') + ') – wariant zmienisz w sekcji <a href="#budzet">Budżet</a>.';
+    var hn = document.getElementById('hselnote'); if (hn) hn.innerHTML = 'Podświetlone karty to hotele wariantu <b>' + esc(o.n.replace(/:.*$/, '')) + '</b>: ' + hset.map(esc).join(' · ') + '. Pełne liczby w sekcji <a href="#budzet">Budżet</a>.';
+    var sw = document.getElementById('hsw'); if (sw) sw.innerHTML = D.hotels.map(function (v, i) { return '<button type="button" data-hv="' + i + '" aria-pressed="' + (i === cur ? 'true' : 'false') + '">' + esc(v.n.replace(/[:(].*$/, '').trim()) + '</button>'; }).join('');
     document.querySelectorAll('.hc').forEach(function (el) { el.setAttribute('aria-pressed', +el.dataset.h === cur ? 'true' : 'false'); });
     document.getElementById('bud').innerHTML = '<div class="total"><div><p class="eyebrow">Budżet ' + SK[sk][1] + ' · ' + esc(o.n.replace(/^Trasa: /, '')) + '</p><b>' + nf(t * SK[sk][0]) + ' zł</b></div><div><span class="limit' + (t <= 28000 ? '' : ' over') + '">' + (t <= 28000 ? 'zapas ' + nf((28000 - t) * SK[sk][0]) + ' zł do sufitu ' + nf(28000 * SK[sk][0]) + ' zł' : 'ponad sufit ' + nf(28000 * SK[sk][0]) + ' zł o ' + nf((t - 28000) * SK[sk][0]) + ' zł') + '</span><div class="seg" role="group" aria-label="Skala">' + SK.map(function (s, i) { return '<button type="button" data-sk="' + i + '" aria-pressed="' + (i === sk ? 'true' : 'false') + '">' + s[2] + '</button>'; }).join('') + '</div></div></div>' +
       '<div class="bar" role="img" aria-label="Podział budżetu">' + BL.map(function (r) { return b[r[0]] ? '<i class="' + r[2] + '" style="width:' + (b[r[0]] / t * 100).toFixed(2) + '%" title="' + r[1] + '"></i>' : ''; }).join('') + '</div>' +
       '<ul class="leg">' + BL.map(function (r) { return b[r[0]] != null ? '<li><s class="' + r[2] + '"></s>' + r[1] + '<b>' + nf(b[r[0]] * SK[sk][0]) + ' zł</b></li>' : ''; }).join('') + '</ul>' +
       (o.model && o.model.typ === 'rezydencja' && np !== (o.model.pary_w_domu || 3) ? '<p class="note gwarn">' + (np < (o.model.pary_w_domu || 3) ? 'Przy ' + np + ' parach dom na trzy sypialnie dzieli się na mniej osób – ' + nf(Math.round(o.model.dom_usd_noc * (G.kurs || 3.7) / np)) + ' zł za parę za noc; ten wariant ma sens dopiero od trzech par.' : 'Przy ' + np + ' parach: rezydencja na trzy pary plus ' + b.rez + ' pokój Cordón del Plata obok; koszt całości dzielony po równo między pary.') + '</p>' : '') +
-      (o.hotele && o.hotele.length ? '<p class="note"><a href="#hotele">Hotele tego wariantu: ' + o.hotele.map(esc).join(' · ') + ' ↓</a></p>' : '') +
+      (o.hotele && o.hotele.length ? '<div class="vh"><p class="eyebrow">Hotele tego wariantu</p><div class="vhg">' + D.hotele.map(function (c, hi) { if (o.hotele.indexOf(c.n) < 0) return ''; var im = (c.gal && c.gal[0]) || c.img; return '<a class="vhc" href="#hk-' + hi + '" data-go="hk-' + hi + '">' + (im ? '<img src="' + esc(im.s) + '" alt="" loading="lazy">' : '') + '<span class="vhb"><span class="eyebrow">' + esc(c.rola) + '</span><b>' + esc(c.n) + '</b><span class="vhp">ok. ' + (c.rate || '?') + ' ' + esc(c.cur || 'USD') + ' za noc</span><span class="vhs">' + esc(c.short || '') + '</span><span class="vhl">Pełna karta hotelu ↓</span></span></a>'; }).join('') + '</div></div>' : '') +
       (o.note ? '<p class="note">' + esc(o.note) + '</p>' : '') + (o.url ? '<p class="note"><a href="' + esc(o.url) + '" target="_blank" rel="noopener">Strona hotelu ↗</a></p>' : '');
   }
   document.querySelectorAll('.hc').forEach(function (el) { el.addEventListener('click', function () { cur = +el.dataset.h; save('h', cur); bud(); }); });
   document.getElementById('bud').addEventListener('click', function (e) { var b = e.target.closest('[data-sk]'); if (b) { sk = +b.dataset.sk; save('sk', sk); bud(); } });
   document.getElementById('grp').addEventListener('click', function (e) { var b = e.target.closest('[data-np]'); if (b) { np = +b.dataset.np; save('p', np); bud(); } });
   document.getElementById('lsc').addEventListener('click', function (e) { var b = e.target.closest('[data-ls]'); if (b) { ls = b.dataset.ls; save('l', ls); bud(); } });
+  var hsw = document.getElementById('hsw'); if (hsw) hsw.addEventListener('click', function (e) { var b = e.target.closest('[data-hv]'); if (b) { cur = +b.dataset.hv; save('h', cur); bud(); } });
+  document.addEventListener('click', function (e) { var a = e.target.closest('[data-go]'); if (!a) return; var t = document.getElementById(a.dataset.go); if (!t) return; e.preventDefault(); t.classList.add('in'); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); t.classList.remove('flash'); void t.offsetWidth; t.classList.add('flash'); history.replaceState(null, '', '#' + a.dataset.go); });
   bud();
   // stopka: kopiowanie linku i druk
   var cl = document.getElementById('copylink'), pb = document.getElementById('printbtn');
