@@ -107,6 +107,30 @@
    "orient": "480–850 zł (130–230 USD)",
    "uwagi": "składnik krajowy przy dwóch biletach: Aerolíneas / JetSMART, listopad najdroższy (mediana 150 USD RT), bagaż i opłata 9 USD osobno",
    "hist": []
+  },
+  {
+   "id": "openjaw",
+   "linia": "Open-jaw: WAW→MDZ, powrót EZE→WAW (jedna rezerwacja) + osobny lot krajowy MDZ→EZE",
+   "trasa": "WAW–MDZ 5.11 · EZE–WAW 13.11 · MDZ–EZE 12.11 osobno",
+   "orient": "cena biletu w obie strony + 60–150 USD za krajowy",
+   "uwagi": "wycena multi-city z dwoma odcinkami; Mendoza i Buenos Aires w jednym kraju – zwykle bez dopłaty; w cenie serii suma z lotem krajowym z bagażem",
+   "hist": []
+  },
+  {
+   "id": "star",
+   "linia": "Star Alliance / United open-jaw (Europa → EZE/GRU → BER/VIE, 23 kg)",
+   "trasa": "WAW/BER/VIE/MAD–EZE lub GRU · powrót do BER/VIE",
+   "orient": "promocyjnie 2 030–2 320 zł (ex-MAD z 23 kg 497 EUR, X 2026)",
+   "uwagi": "taryfa z 21.10.2026 dopuszcza podróże 1.09–9.12.2027; często przez USA (ESTA); w cenie serii doliczyć dojazd do/z Berlina lub Wiednia (300–600 zł) i lot krajowy",
+   "hist": []
+  },
+  {
+   "id": "vie",
+   "linia": "Promocje ex-Wiedeń / Berlin (LATAM, oneworld) – dla 1 osoby",
+   "trasa": "VIE/BER–EZE lub MDZ (przez GRU/SCL/MAD)",
+   "orient": "2 650–2 850 zł bez bagażu (wzorzec V–VI 2026 na XI 2026)",
+   "uwagi": "wzorzec: ogłaszane w maju–czerwcu na listopad; w cenie serii doliczyć dojazd (300–600 zł), bagaż (250–450 zł/odcinek) i lot krajowy; liczy się tylko przy całości ≤ 4 000 zł/os. i 6–8 miejscach w jednej klasie",
+   "hist": []
   }
  ],
  "historia": []
