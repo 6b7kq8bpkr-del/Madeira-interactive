@@ -189,7 +189,108 @@ html { scroll-behavior: smooth; } section.blk, .hk, .alth, .stop, .prom { scroll
 .por details { border-top: 1px solid var(--line); padding: 8px 0; } .por details summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; align-items: center; } .por details summary::after { content: "+"; font-family: var(--f-mono); color: var(--muted); } .por details[open] summary::after { content: "−"; } .por details ul { margin: 8px 0 4px; padding-left: 20px; display: grid; gap: 6px; font-size: .92rem; color: var(--ink-2); } .por details ul li b { color: var(--ink); }
 .por .ck { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 6px; } .por .ck label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; font-size: .92rem; } .por .ck input { margin-top: 4px; accent-color: var(--poplar); width: 17px; height: 17px; flex: none; } .por .ck input:checked + span { color: var(--muted); text-decoration: line-through; }
 .por .wn { margin: 8px 0 0; padding-left: 20px; display: grid; gap: 6px; font-size: .95rem; } .por .wn li::marker { color: var(--poplar); font-weight: 700; }
-.kal { margin-top: 28px; background: var(--paper); border-radius: 6px; padding: 24px; box-shadow: var(--shade); border-left: 4px solid var(--malbec); scroll-margin-top: 72px; } .kal h3 { margin: 2px 0 8px; font-size: 1.5rem; } .kal p { margin: 0 0 8px; } .kal .tw { overflow-x: auto; margin-top: 10px; } .kal table.pt td { vertical-align: top; font-size: .88rem; } .kal td.kd { font-family: var(--f-mono); white-space: nowrap; font-size: .8rem; color: var(--malbec); } .kal td .kf { display: block; font-weight: 700; color: var(--ink); font-family: var(--f-body); font-size: .95rem; white-space: normal; margin-top: 2px; } .kal tr.now td { background: var(--chip); } .kal tr.now td.kd::before { content: "teraz · "; color: var(--poplar); font-weight: 700; } .kal tr.past td { color: var(--muted); } .kal td.ka { font-family: var(--f-mono); font-size: .78rem; color: var(--muted); } .kal td.kz { font-weight: 500; }
+.kal { margin-top: 28px; background: var(--paper); border-radius: 6px; padding: 24px; box-shadow: var(--shade); border-left: 4px solid var(--malbec); scroll-margin-top: 72px; } .kal h3 { margin: 2px 0 8px; font-size: 1.5rem; } .kal p { margin: 0 0 8px; }
+.kal .lead2 { color: var(--ink-2); font-size: .95rem; }
+.kos { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 0 12px; margin: 20px 0 22px; }
+.kos-l, .kos-t { display: grid; grid-template-rows: 20px 76px 34px 46px 24px; }
+.kos-l span { display: flex; align-items: center; justify-content: flex-end; text-align: right; font-family: var(--f-mono); font-size: .6rem; line-height: 1.25; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.kos-t { position: relative; }
+.kmh, .kcw, .kbd, .kkm, .kau { position: relative; }
+.kmh span { position: absolute; top: 0; padding-left: 4px; font-family: var(--f-mono); font-size: .64rem; line-height: 1; color: var(--muted); white-space: nowrap; }
+.kmh span small { font-size: .56rem; margin-left: 3px; opacity: .8; }
+.kmh span::before { content: ""; position: absolute; left: 0; top: 0; height: 200px; border-left: 1px solid var(--line); opacity: .75; }
+.kcw { color: var(--poplar); }
+.kcv { position: absolute; left: 0; top: 16px; width: 100%; height: calc(100% - 16px); display: block; overflow: visible; }
+.kca { position: absolute; top: 1px; transform: translateX(-50%); font-family: var(--f-mono); font-size: .6rem; letter-spacing: .04em; color: var(--poplar); white-space: nowrap; background: var(--paper); padding: 0 4px; border-radius: 3px; z-index: 3; }
+.ks { position: absolute; top: 3px; bottom: 3px; border: 0; padding: 0 5px; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 5px; overflow: hidden; font: 600 .72rem/1 var(--f-body); color: var(--on-malbec); background: var(--muted); transition: transform .15s, box-shadow .15s; z-index: 1; }
+.ks span { font-family: var(--f-mono); font-size: .66rem; opacity: .85; }
+.ks b { display: none; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.ks.wd b { display: inline; }
+.ks:hover, .ks:focus-visible { transform: translateY(-2px); box-shadow: 0 8px 16px -10px var(--ink); }
+.ks:focus-visible { outline: 2px solid var(--ink); outline-offset: 1px; }
+.ks.t-sprawdz, .sw.t-sprawdz { background: var(--adobe); }
+.ks.t-kupuj, .sw.t-kupuj { background: color-mix(in srgb, var(--poplar) 68%, var(--paper)); }
+.ks.t-szczyt, .sw.t-szczyt { background: var(--poplar); }
+.ks.t-szczyt { top: 0; bottom: 0; box-shadow: 0 0 0 2px var(--paper), 0 0 0 3px var(--poplar); }
+.ks.t-termin, .sw.t-termin { background: var(--malbec-2); }
+.ks.t-po { background: var(--chip); color: var(--muted); box-shadow: inset 0 0 0 1px var(--line); }
+.ks.past { opacity: .4; }
+.ks.now { box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px var(--ink); }
+.ktrip { position: absolute; top: 0; bottom: 0; border-radius: 4px; background: var(--malbec); color: var(--on-malbec); display: grid; place-items: center; font: normal .72rem/1 var(--f-body); }
+.km { position: absolute; top: 5px; width: 0; }
+.km::before { content: ""; position: absolute; left: -5px; top: 0; width: 10px; height: 10px; border-radius: 2px; transform: rotate(45deg); background: var(--ink-2); }
+.km.k-decyzja::before { background: var(--adobe); } .km.k-termin::before, .km.k-wylot::before { background: var(--malbec); }
+.km em { position: absolute; left: 7px; top: 15px; font-style: normal; white-space: nowrap; font-size: .68rem; line-height: 1.1; color: var(--ink-2); background: var(--paper); padding: 0 2px; border-radius: 2px; z-index: 3; }
+.km em b { font-family: var(--f-mono); font-weight: 600; color: var(--ink); }
+.km.r2 em { top: 29px; }
+.km.r2 em::before { content: ""; position: absolute; left: -7px; top: -16px; height: 14px; border-left: 1px solid var(--line); }
+.km.rt em { left: auto; right: 9px; } .km.rt.r2 em::before { display: none; }
+.km.k-decyzja em b, .km.k-decyzja em span { color: var(--adobe); } .km.k-termin em b, .km.k-termin em span, .km.k-wylot em b, .km.k-wylot em span { color: var(--malbec); font-weight: 600; }
+.km.past { opacity: .45; }
+.krs { position: absolute; top: 11px; height: 2px; background: repeating-linear-gradient(90deg, var(--poplar) 0 3px, transparent 3px 6px); }
+.kt { position: absolute; top: 6px; width: 1px; height: 12px; background: var(--ink-2); opacity: .55; }
+.ka2 { position: absolute; top: 6px; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; z-index: 1; }
+.ka2.ag { background: var(--malbec); box-shadow: 0 0 0 2px var(--paper); }
+.ka2.pr { background: var(--paper); border: 2px solid var(--adobe); }
+.ka2.past, .kt.past { opacity: .3; }
+.kln { position: absolute; top: 20px; bottom: 0; width: 0; border-left: 1px dashed var(--malbec); pointer-events: none; z-index: 2; }
+.kln.k-decyzja { border-left-color: var(--adobe); }
+.kln.kdz { border-left: 2px solid var(--ink); margin-left: -1px; }
+.kln.kdz em { position: absolute; bottom: -17px; left: -2px; font: 600 .62rem/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--paper); background: var(--ink); padding: 3px 6px; border-radius: 99px; white-space: nowrap; }
+.klg { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: .76rem; color: var(--ink-2); }
+.klg span { display: inline-flex; align-items: center; gap: 6px; }
+.klg .sw { width: 16px; height: 10px; border-radius: 2px; }
+.klg .lg-ag, .klg .lg-pr { width: 10px; height: 10px; border-radius: 50%; background: var(--malbec); } .klg .lg-pr { background: none; border: 2px solid var(--adobe); }
+.klg .lg-kt { width: 1px; height: 12px; background: var(--ink-2); }
+.klg .lg-rs { width: 18px; height: 2px; background: repeating-linear-gradient(90deg, var(--poplar) 0 3px, transparent 3px 6px); }
+.kcap { margin: 8px 0 0; font-size: .78rem; color: var(--muted); max-width: 90ch; }
+.kst-hd { margin: 30px 0 4px; font: 400 1.25rem/1.2 var(--f-display); }
+.kst { list-style: none; margin: 0; padding: 0; }
+.kst > li { display: grid; grid-template-columns: 150px 34px minmax(0, 1fr); gap: 0 14px; }
+.kst-d { text-align: right; padding-top: 14px; }
+.kst-d b { display: block; font-family: var(--f-mono); font-size: .8rem; font-weight: 600; color: var(--malbec); }
+.kst-d small { display: block; margin-top: 3px; font-family: var(--f-mono); font-size: .64rem; color: var(--muted); }
+.kst-r { position: relative; display: flex; justify-content: center; }
+.kst-r::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; margin-left: -1px; background: var(--line); }
+.kst > li:first-child .kst-r::before { top: 24px; } .kst > li:last-child .kst-r::before { bottom: auto; height: 24px; }
+.kst-r i { position: relative; z-index: 1; margin-top: 9px; width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font: 600 .8rem/1 var(--f-mono); background: var(--paper); border: 2px solid var(--line); color: var(--ink-2); }
+.kst-i.t-sprawdz .kst-r i { border-color: var(--adobe); color: var(--adobe); }
+.kst-i.t-kupuj .kst-r i { border-color: var(--poplar); color: var(--poplar); }
+.kst-i.t-szczyt .kst-r i { border-color: var(--poplar); background: var(--poplar); color: var(--on-malbec); }
+.kst-i.t-termin .kst-r i { border-color: var(--malbec-2); color: var(--malbec-2); }
+.kst-i.past .kst-r i { background: var(--chip); border-color: var(--line); color: var(--muted); }
+.kst-i.past .kst-c, .kst-i.past .kst-d { opacity: .6; }
+.kst-c { min-width: 0; padding: 12px 14px 18px; margin-bottom: 4px; border-radius: 8px; }
+.kst-i.now .kst-c, .kst-i.next .kst-c { border: 1px solid var(--line); box-shadow: var(--shade); margin: 4px 0 12px; }
+.kst-i.now .kst-r i, .kst-i.next .kst-r i { box-shadow: 0 0 0 5px color-mix(in srgb, var(--poplar) 22%, transparent); }
+.kst-i.now .kst-r i { animation: kpulse 2.6s ease-in-out infinite; }
+@keyframes kpulse { 50% { box-shadow: 0 0 0 10px color-mix(in srgb, var(--poplar) 8%, transparent); } }
+.kst-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.kst-h h4 { margin: 0; font: 400 1.2rem/1.2 var(--f-display); }
+.kst-t { font-family: var(--f-mono); font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; padding: 2px 8px; border-radius: 99px; background: var(--chip); color: var(--ink-2); }
+.kst-i.t-szczyt .kst-t { background: var(--poplar); color: var(--on-malbec); } .kst-i.t-termin .kst-t { background: var(--malbec-2); color: var(--on-malbec); } .kst-i.t-sprawdz .kst-t { color: var(--adobe); }
+.kst-s { margin-left: auto; font-family: var(--f-mono); font-size: .72rem; color: var(--muted); }
+.kst-i.now .kst-s { color: var(--poplar); font-weight: 600; }
+.kst-m { display: none; }
+.kst-p { height: 6px; margin-top: 10px; border-radius: 3px; background: var(--chip); overflow: hidden; } .kst-p i { display: block; height: 100%; background: var(--poplar); }
+.kst-z { margin: 10px 0 0; padding: 8px 12px; border-left: 3px solid var(--poplar); border-radius: 0 6px 6px 0; background: var(--chip); font-size: .9rem; max-width: 80ch; }
+.kst-z b, .kst-a b { display: block; margin-bottom: 2px; font-family: var(--f-mono); font-size: .6rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.kst-i.t-sprawdz .kst-z { border-left-color: var(--adobe); } .kst-i.t-termin .kst-z { border-left-color: var(--malbec-2); }
+.kst-c details { margin-top: 8px; }
+.kst-c summary { cursor: pointer; font-size: .82rem; font-weight: 600; color: var(--ink-2); }
+.kst-c summary:hover { color: var(--malbec); }
+.kst-c details p { margin: 6px 0 0; font-size: .88rem; color: var(--ink-2); max-width: 80ch; }
+.kst-a { font-family: var(--f-mono); font-size: .78rem !important; }
+.kst-x .kst-r i { width: 16px; height: 16px; margin-top: 12px; background: var(--ink); border: 3px solid var(--paper); box-shadow: 0 0 0 2px var(--ink); }
+.kst-x .kst-c { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; padding: 9px 0 12px; font-size: .86rem; color: var(--ink-2); }
+.kst-x .kst-c b { font-family: var(--f-mono); font-size: .68rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 3px 9px; border-radius: 99px; background: var(--ink); color: var(--paper); }
+.kst-w .kst-r i { background: var(--malbec); border-color: var(--malbec); color: var(--on-malbec); }
+.kst-w .kst-c p { margin: 6px 0 0; font-size: .9rem; color: var(--ink-2); }
+.kst-i.flash .kst-c { animation: kflash 1.6s ease; }
+@keyframes kflash { 0%, 35% { background: color-mix(in srgb, var(--adobe) 20%, transparent); } 100% { background: transparent; } }
+@media (max-width: 700px) { .kos { grid-template-columns: minmax(0, 1fr); } .kos-l { display: none; } .ks.wd b, .kmh small, .km em span { display: none; } .kmh span.ev { color: transparent; } .ks { padding: 0; } }
+@media (max-width: 640px) { .kst > li { grid-template-columns: 30px minmax(0, 1fr); gap: 0 10px; } .kst-d { display: none; } .kst-m { display: block; margin: 3px 0 0; font-family: var(--f-mono); font-size: .72rem; color: var(--malbec); } .kst-r i { width: 28px; height: 28px; font-size: .74rem; } .kst-s { margin-left: 0; flex-basis: 100%; } .kst-c { padding: 10px 12px 14px; } }
+@media (max-width: 560px) { .kal { padding: 18px 14px; } }
 .mon h4 { margin: 20px 0 8px; font-size: 1.05rem; } .mon .legend { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; } .mon .lg { font-family: var(--f-mono); font-size: .74rem; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--line); } .mon .lg.g { border-color: var(--poplar); color: var(--poplar); } .mon .lg.y { border-color: var(--adobe); color: var(--adobe); } .mon .lg.r { border-color: var(--malbec); color: var(--malbec); }
 .mon .podium { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin: 4px 0 6px; } .mon .pd { position: relative; border: 1px solid var(--line); border-radius: 8px; padding: 14px 14px 12px 44px; display: grid; gap: 3px; min-width: 0; border-left-width: 5px; } .mon .pd.g { border-left-color: var(--poplar); } .mon .pd.y { border-left-color: var(--adobe); } .mon .pd.r { border-left-color: var(--malbec); } .mon .pn { position: absolute; left: 12px; top: 12px; font-family: var(--f-display); font-size: 1.6rem; color: var(--muted); } .mon .pp { font-family: var(--f-display); font-size: 1.7rem; line-height: 1; } .mon .pl { font-weight: 600; font-size: .9rem; } .mon .pm { font-family: var(--f-mono); font-size: .74rem; color: var(--muted); }
 .mon .bd { display: inline-block; font-family: var(--f-mono); font-size: .7rem; padding: 2px 7px; border-radius: 999px; margin-top: 4px; white-space: nowrap; background: var(--chip); } .mon .bd.b0, .mon .bd.b1 { color: var(--poplar); } .mon .bd.b2 { color: var(--adobe); } .mon .bd.b4 { color: var(--malbec); } .mon td.n .bd { display: inline-block; width: max-content; margin-top: 3px; }
@@ -203,6 +304,49 @@ html { scroll-behavior: smooth; } section.blk, .hk, .alth, .stop, .prom { scroll
 .mon table.wy td.kd { font-family: var(--f-mono); font-size: .8rem; white-space: nowrap; color: var(--malbec); } .mon table.wy tr.now td { background: var(--chip); } .mon table.wy tr.past td { color: var(--muted); } .mon table.pt td.kd { font-family: var(--f-mono); font-size: .8rem; white-space: nowrap; }
 .mon .rs { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; font-size: .9rem; } .mon .rs li { border-top: 1px solid var(--line); padding-top: 5px; } .mon .rs li.s a { font-weight: 600; } .mon .rs .kd { font-family: var(--f-mono); font-size: .76rem; color: var(--malbec); }
 @media (max-width: 760px) { .mon .sg li { grid-template-columns: 1fr; } }
+.lead2 { max-width: 72ch; }
+details.ctx { border-top: 1px solid var(--line); padding: 8px 0; } details.ctx > summary { cursor: pointer; font-weight: 600; color: var(--ink-2); list-style: none; } details.ctx > summary::-webkit-details-marker { display: none; } details.ctx > summary::before { content: "+ "; font-family: var(--f-mono); color: var(--muted); } details.ctx[open] > summary::before { content: "− "; } details.ctx > p { margin: 8px 0 0; color: var(--ink-2); font-size: .95rem; max-width: 80ch; }
+.cockpit { margin-top: 22px; display: grid; gap: 12px; scroll-margin-top: 72px; }
+.ck4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; } @media (max-width: 1040px) { .ck4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } } @media (max-width: 560px) { .ck4 { grid-template-columns: 1fr; } }
+.cc { background: var(--paper); border: 1px solid var(--line); border-top: 4px solid var(--line); border-radius: 8px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; min-width: 0; box-shadow: var(--shade); }
+.cc .cl, .cnow .cl { font-family: var(--f-mono); font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.cc > b { font-family: var(--f-display); font-weight: 400; font-size: 1.45rem; line-height: 1.15; } .cc small { font-family: var(--f-mono); font-size: .75rem; color: var(--muted); } .cc p { margin: 4px 0 0; font-size: .88rem; color: var(--ink-2); } .cc > a { margin-top: auto; padding-top: 8px; font-size: .85rem; font-weight: 600; }
+.cphase { border-top-color: var(--malbec); } .cprice.g { border-top-color: var(--poplar); } .cprice.y { border-top-color: var(--adobe); } .cprice.r { border-top-color: var(--malbec); } .cprice.n { border-top-color: var(--line); } .cbaro { border-top-color: var(--adobe); } .cnext { border-top-color: var(--ink-2); }
+.cprice .bd { font-size: .78rem; margin-right: 4px; }
+.cnext ul { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 7px; font-size: .86rem; } .cnext .kd { font-family: var(--f-mono); color: var(--malbec); font-size: .76rem; margin-right: 2px; } .cnext small { font-size: .7rem; }
+.cnow { background: var(--chip); border-radius: 8px; padding: 12px 16px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; } .cnow ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: .9rem; flex: 1 1 380px; } .cnow li::before { content: "☐ "; color: var(--muted); } .cnow li.late b { color: var(--malbec); } .cnow small { color: var(--muted); font-family: var(--f-mono); font-size: .74rem; } .cnow > a { font-size: .85rem; font-weight: 600; } .cnow p { margin: 0; font-size: .9rem; }
+.cstat { padding-bottom: 0; } .cstat p { font-size: .9rem; }
+.bm { display: flex; height: 10px; border-radius: 99px; overflow: hidden; background: var(--line); } .bm i.dn { background: var(--poplar); } .bm i.up { background: var(--malbec); } .bm.small { height: 7px; margin: 6px 0 2px; }
+.ltabs { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 55px); z-index: 6; display: flex; gap: 6px; margin: 24px 0 0; padding: 8px 0; background: color-mix(in srgb, var(--paper) 94%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); overflow-x: auto; scrollbar-width: none; scroll-margin-top: 56px; }
+.ltabs button { flex: 0 0 auto; display: grid; text-align: left; gap: 1px; padding: 7px 14px; border-radius: 8px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); cursor: pointer; font: inherit; } .ltabs button b { font-size: .95rem; font-weight: 600; } .ltabs button small { font-size: .72rem; color: var(--muted); } .ltabs button[aria-selected="true"] { background: var(--malbec); border-color: var(--malbec); color: var(--on-malbec); } .ltabs button[aria-selected="true"] small { color: inherit; opacity: .8; } .ltabs button:focus-visible { outline: 2px solid var(--adobe); outline-offset: 2px; }
+.lpane { padding-top: 18px; } .lpane [id] { scroll-margin-top: 130px; } .lpane > .kal:first-child, .lpane > .fo:first-child, .lpane > .radar:first-child, .lpane .mon { margin-top: 0; } .lpane .mon { margin-top: 18px; } .lpane .kal { margin-top: 0; }
+@media (max-width: 560px) { .ltabs button small { display: none; } .ltabs button { padding: 7px 11px; } }
+.kalk { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 18px 20px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 14px 28px; box-shadow: var(--shade); scroll-margin-top: 130px; }
+.kalk .kh { grid-column: 1 / -1; } .kalk .kh h3 { margin: 2px 0 4px; font-size: 1.5rem; } .kalk .kh p { margin: 0; color: var(--ink-2); font-size: .92rem; max-width: 78ch; }
+.kf { display: grid; gap: 10px; align-content: start; min-width: 0; } .kc { display: grid; gap: 4px; font-size: .84rem; color: var(--ink-2); } .kc input, .kc select { font: inherit; font-size: 1rem; padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); color: var(--ink); min-width: 0; } .kin { display: flex; gap: 6px; } .kin input { flex: 1; font-family: var(--f-mono); font-size: 1.2rem; } .kin select { flex: 0 0 auto; } .kk { display: flex; gap: 8px; align-items: center; font-size: .92rem; cursor: pointer; } .kk input { accent-color: var(--malbec); width: 17px; height: 17px; flex: none; } .kx { padding-left: 25px; }
+.kout { min-width: 0; } .kempty { color: var(--muted); font-size: .92rem; margin: 0; padding: 16px; border: 1px dashed var(--line); border-radius: 8px; }
+.kv2 { display: grid; gap: 10px; } .kbig, .kver, .kbud { border-radius: 8px; padding: 12px 14px; background: var(--chip); display: grid; gap: 2px; min-width: 0; } .kbig > span, .kbud > span { font-family: var(--f-mono); font-size: .7rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); } .kbig b { font-family: var(--f-display); font-weight: 400; font-size: 2.2rem; line-height: 1.1; } .kbig small, .kbud small { color: var(--ink-2); font-size: .82rem; } .kver .bd { font-size: .9rem; justify-self: start; } .kver p { margin: 2px 0 0; font-size: .9rem; } .kver .kd { font-family: var(--f-mono); font-size: .82rem; color: var(--ink-2); } .kbud b { font-family: var(--f-display); font-weight: 400; font-size: 1.55rem; } .kbud b.ok { color: var(--poplar); } .kbud b.over { color: var(--malbec); }
+.kw { margin: 10px 0 0; font-size: .86rem; color: var(--ink-2); border-left: 3px solid var(--adobe); padding-left: 10px; }
+@media (max-width: 760px) { .kalk { grid-template-columns: 1fr; } }
+.mon .note { color: var(--ink-2); font-size: .88rem; margin: 12px 0 0; } .mon .empty { padding: 14px; border: 1px dashed var(--line); border-radius: 8px; color: var(--ink-2); font-size: .92rem; margin: 6px 0 4px; } .mon .orient { margin-top: 12px; } .mon .orient-t td { font-size: .85rem; } .mon .ph2 { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; } .mon .ph2 h3 { margin: 0; }
+.radar { background: var(--paper); border-radius: 6px; padding: 20px 22px; box-shadow: var(--shade); scroll-margin-top: 130px; }
+.rhead { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 12px 28px; align-items: end; } .rhead h3 { margin: 2px 0 0; font-size: 1.5rem; } @media (max-width: 760px) { .rhead { grid-template-columns: 1fr; } }
+.baro .bml { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 8px; font-family: var(--f-mono); font-size: .74rem; margin-top: 4px; } .baro .bml .dn { color: var(--poplar); } .baro .bml .up { color: var(--malbec); } .baro .bmv { margin: 4px 0 0; font-weight: 600; font-size: .92rem; } .baro .bmv small { font-weight: 400; color: var(--muted); }
+.rgrid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px 32px; margin-top: 20px; } .rgrid h4 { margin: 0 0 8px; font-size: 1.05rem; } .rgrid h4 small { font-weight: 400; } .rcol { min-width: 0; } @media (max-width: 900px) { .rgrid { grid-template-columns: 1fr; } }
+.radar .ph2 { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 12px; } .radar .ph2 h4 { margin: 0; } .sfl { display: flex; gap: 4px; margin-bottom: 8px; } .sfl button, .lnk { font: inherit; font-size: .78rem; padding: 3px 10px; border-radius: 99px; border: 1px solid var(--line); background: transparent; color: var(--ink-2); cursor: pointer; } .sfl button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); } .lnk { margin-top: 8px; }
+.radar .sg { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; } .radar .sg li { display: grid; grid-template-columns: 74px minmax(0, 1fr); gap: 2px 10px; font-size: .88rem; border-left: 3px solid var(--line); padding: 4px 0 4px 10px; } .radar .sg li.more { display: none; } .radar .sg.all li.more { display: grid; } .radar .sg li[hidden] { display: none !important; } .radar .sg li.dn { border-left-color: var(--poplar); } .radar .sg li.up { border-left-color: var(--malbec); }
+.radar .sgd { font-family: var(--f-mono); font-size: .74rem; color: var(--muted); grid-row: 1 / span 2; } .radar .sgk { font-family: var(--f-mono); font-size: .74rem; } .radar .sgk s { text-decoration: none; opacity: .25; } .radar .sg li.dn .sgk { color: var(--poplar); } .radar .sg li.up .sgk { color: var(--malbec); } .radar .sgt { grid-column: 2; } .radar .sgt a { font-weight: 500; }
+.tl2 { display: grid; } .tlr > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 10px; align-items: center; padding: 5px 0; border-top: 1px solid var(--line); } .tlr > summary::-webkit-details-marker { display: none; } .tlr.hdr { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 10px; }
+.tll { min-width: 0; } .tll b { font-size: .8rem; font-weight: 600; display: block; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .tll small { font-family: var(--f-mono); font-size: .68rem; color: var(--muted); }
+.tlt { position: relative; height: 18px; border-radius: 3px; background: linear-gradient(90deg, var(--chip), var(--chip)); } .tlt.tlm { height: 30px; background: none; }
+.tlm span { position: absolute; top: 0; font-family: var(--f-mono); font-size: .66rem; color: var(--muted); transform: translateX(1px); line-height: 1.1; } .tlm span small { display: block; font-size: .58rem; }
+.tlb { position: absolute; top: 3px; height: 12px; border-radius: 3px; background: var(--muted); opacity: .5; } .s-wysoka .tlb { background: var(--poplar); opacity: 1; } .s-srednia .tlb { background: var(--adobe); opacity: .95; } .tlr.past { opacity: .45; } .tlr.now .tlb { outline: 2px solid var(--ink); outline-offset: 1px; }
+.tln, .tlw { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--ink); opacity: .7; } .tlw { background: var(--malbec); opacity: 1; } .tln em, .tlw em { position: absolute; bottom: -1px; left: 4px; font-style: normal; font-family: var(--f-mono); font-size: .6rem; white-space: nowrap; color: var(--ink); } .tlw em { color: var(--malbec); left: auto; right: 4px; } .tlm .tln, .tlm .tlw { top: 16px; bottom: -2px; }
+.tlx { padding: 2px 0 10px 180px; font-size: .86rem; color: var(--ink-2); } .tlx p { margin: 2px 0; } .tlr > summary:hover .tll b { color: var(--malbec); } .tll2 { font-size: .76rem; color: var(--muted); margin: 10px 0 0; } .tll2 .s-wysoka { color: var(--poplar); } .tll2 .s-srednia { color: var(--adobe); } .tll2 .s-niska { color: var(--muted); }
+@media (max-width: 560px) { .tlr > summary, .tlr.hdr { grid-template-columns: 1fr; gap: 3px; } .tlr.hdr .tll { display: none; } .tlx { padding-left: 0; } }
+.radar .rs { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; font-size: .88rem; } .radar .rs li { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 0 8px; } .radar .rs .kd { font-family: var(--f-mono); font-size: .74rem; color: var(--malbec); } .radar .rs .rt { grid-column: 2; font-family: var(--f-mono); font-size: .72rem; color: var(--muted); } .radar .rs li.s a { font-weight: 600; } .radar .rs a { overflow-wrap: anywhere; } .radar td.kd { font-family: var(--f-mono); font-size: .78rem; white-space: nowrap; } .radar .pt .rt { display: block; font-family: var(--f-mono); font-size: .72rem; color: var(--muted); } .radar .nopr { color: var(--ink-2); font-size: .9rem; margin: 0; }
+.lpane .prom { margin-top: 18px; } .prom .plt { margin: 14px 0 6px; font-size: 1rem; } .prom .note { color: var(--ink-2); font-size: .9rem; }
+.todo .tdl { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 8px; } .todo .tdl li { border: 1px solid var(--line); border-left: 4px solid var(--line); border-radius: 6px; padding: 10px 12px; display: grid; gap: 4px; } .todo .tdl li.now { border-left-color: var(--adobe); } .todo .tdl li.late { border-left-color: var(--malbec); } .todo .tdl li.done { opacity: .55; } .todo .tdl li.done b { text-decoration: line-through; } .todo label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; } .todo input { margin-top: 3px; accent-color: var(--poplar); width: 18px; height: 18px; flex: none; } .todo label > span { display: grid; gap: 2px; min-width: 0; } .todo small { font-family: var(--f-mono); font-size: .74rem; color: var(--muted); } .todo em { font-style: normal; font-size: .88rem; color: var(--ink-2); } .todo .tdlink { font-size: .85rem; padding-left: 28px; overflow-wrap: anywhere; } .todo .note, .zcols .note { color: var(--ink-2); font-size: .88rem; margin: 4px 0 0; }
 .prom { margin-top: 20px; background: var(--paper); border-radius: 6px; padding: 24px; box-shadow: var(--shade); } .prom .ph2 { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; } .prom .ph2 h3 { margin: 0; } .prom .st { margin: 0; font-family: var(--f-mono); font-size: .8rem; color: var(--muted); }
 .pl { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 12px; } .pl li { padding: 12px 14px; border: 1px solid var(--line); border-radius: 6px; min-width: 0; } .pl .plh { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; font-family: var(--f-mono); font-size: .74rem; color: var(--muted); margin-bottom: 4px; } .pl a { font-weight: 600; overflow-wrap: anywhere; } .pl .plm { font-size: .88rem; color: var(--ink-2); margin-top: 4px; } .pl .plo { font-size: .86rem; color: var(--muted); margin-top: 4px; }
 .plb { padding: 1px 8px; border-radius: 999px; font-size: .7rem; letter-spacing: .04em; text-transform: uppercase; } .plb.ok { background: var(--poplar); color: #fff; } .plb.no { background: var(--chip); color: var(--ink-2); } .plb.mid { background: var(--sun, #d6a24a); color: #fff; }
@@ -417,11 +561,91 @@ footer a { color: var(--ink-2); }
   // loty: opcje, kalendarz zakupu, alerty i monitor cen (loty.json aktualizuje agent)
   if (P.loty) {
     var F = P.loty;
-    h += band('loty') + '<section class="blk" id="loty" style="background:var(--paper)"><div class="wrap"><div class="sh"><div><p class="eyebrow">Warszawa → Buenos Aires → Mendoza · 5/6 i 13/14.11.2027</p><h2>Loty</h2><p>' + esc(F.intro) + '</p></div></div>' +
+    function dpl(x) { if (!x) return ''; var p = String(x).split('-'); return p.length === 3 ? p[2] + '.' + p[1] + '.' + p[0] : x; }
+    var LT = [['decyzja', 'Decyzja', 'ceny, kalkulator, progi'], ['radar', 'Radar', 'sygnały, wyprzedaże, promocje'], ['plan', 'Kalendarz', 'fazy zakupu'], ['szukaj', 'Jak szukać', 'scenariusze i narzędzia'], ['zadania', 'Alerty i zadania', 'co zrobić samemu']];
+    h += band('loty') + '<section class="blk" id="loty" style="background:var(--paper)"><div class="wrap"><div class="sh"><div><p class="eyebrow">Warszawa → Mendoza → Buenos Aires · 5/6 i 13/14.11.2027</p><h2>Loty</h2><p class="lead2">Pulpit zakupu biletów: co robić teraz, gdzie są ceny wobec progu 4 800 zł na osobę i co zapowiada rynek. Dane odświeżają agenci – codziennie radar promocji, w poniedziałki i czwartki skrzynka alertów z Gmaila, 1. i 15. pełny monitor cen.</p><details class="ctx"><summary>Kontekst cenowy z października 2026</summary><p>' + esc(F.intro) + '</p></details></div></div>' +
+      '<div class="cockpit" id="teraz"><p class="st">Ładowanie stanu…</p></div>' +
+      '<div class="ltabs" role="tablist" aria-label="Widoki sekcji Loty">' + LT.map(function (t) { return '<button type="button" role="tab" data-lt="' + t[0] + '" aria-selected="false"><b>' + t[1] + '</b><small>' + t[2] + '</small></button>'; }).join('') + '</div>' +
+      // DECYZJA
+      '<div class="lpane" data-pane="decyzja" role="tabpanel">' +
+        '<div class="kalk" id="kalk"><div class="kh"><p class="eyebrow">Kalkulator oferty</p><h3>Czy ta cena się opłaca?</h3><p>Wpisz cenę z wyszukiwarki, alertu albo promocji. Policzę kompletną podróż na osobę, porównam z progami i z budżetem 28 000 zł na parę dla wybranego wariantu hoteli.</p></div>' +
+          '<div class="kf">' +
+            '<label class="kc"><span>Cena biletu</span><span class="kin"><input type="number" inputmode="decimal" min="0" step="10" id="k-cena" placeholder="np. 4300"><select id="k-wal" aria-label="Waluta"><option value="1">zł</option><option value="4.3">EUR</option><option value="3.7">USD</option></select></span></label>' +
+            '<label class="kc"><span>Cena dotyczy</span><select id="k-za"><option value="1">1 osoby</option><option value="2">2 osób – dzielę na pół</option></select></label>' +
+            '<label class="kk"><input type="checkbox" id="k-bag" checked><span>Bagaż rejestrowany w cenie</span></label><label class="kc kx" data-for="k-bag" hidden><span>Dopłata za bagaż, obie strony, na os.</span><input type="number" min="0" step="10" id="k-bagc" value="700"></label>' +
+            '<label class="kk"><input type="checkbox" id="k-kr"><span>Lot krajowy Buenos Aires–Mendoza osobno</span></label><label class="kc kx" data-for="k-kr" hidden><span>Lot krajowy z bagażem, na os.</span><input type="number" min="0" step="10" id="k-krc" value="650"></label>' +
+            '<label class="kk"><input type="checkbox" id="k-dol"><span>Osobny dolot do huba (Madryt, Wiedeń)</span></label><label class="kc kx" data-for="k-dol" hidden><span>Dolot i nocleg buforowy, na os.</span><input type="number" min="0" step="10" id="k-dolc" value="850"></label>' +
+          '</div><div class="kout" id="k-out" aria-live="polite"></div></div>' +
+        '<div class="mon"><div class="ph2"><h3>Monitor cen</h3><p class="st" id="monst">Ładowanie…</p></div><div id="mon"></div><p class="note">Ceny to kompletna podróż Warszawa–Mendoza–Warszawa na osobę z bagażem. Zapisują je: pełny monitor 1. i 15. dnia miesiąca, od 10.12.2026 przebieg poniedziałkowy, w oknie 21.05–2.07.2027 także czwartkowy, oraz skrzynka alertów. To wskazówka, nie oferta – przed zakupem sprawdzić cenę u linii.</p></div>' +
+        (F.progi ? '<div class="cols" style="margin-top:24px"><div><h3>Progi zakupu</h3><table class="pt"><thead><tr><th>Kompletna podróż / os.</th><th>Decyzja</th></tr></thead><tbody>' + F.progi.map(function (r) { return '<tr><td><b>' + esc(r[0]) + '</b></td><td>' + esc(r[1]) + '</td></tr>'; }).join('') + '</tbody></table></div>' + (F.daty ? '<div><h3>Daty</h3><table class="pt"><thead><tr><th>Układ</th><th>Loty</th><th>Pobyt</th></tr></thead><tbody>' + F.daty.map(function (r) { return '<tr><td><b>' + esc(r[0]) + '</b></td><td>' + esc(r[1]) + '</td><td>' + esc(r[2]) + '</td></tr>'; }).join('') + '</tbody></table></div>' : '') + '</div>' : '') +
+      '</div>' +
+      // RADAR
+      '<div class="lpane" data-pane="radar" role="tabpanel" hidden><div class="radar" id="radar"><p class="st">Ładowanie radaru…</p></div>' +
+        '<div class="prom"><div class="ph2"><h3>Promocje znalezione przez agentów</h3><p class="st" id="promst">Ładowanie…</p></div><div id="prom"></div><p class="note">Codziennie radar RSS (15 kanałów), w środy i piątki głębszy przegląd stron linii, Secret Flying, Chollometro i hoteli. Powiadomienie push tylko wtedy, gdy promocja obejmuje listopad 2027 i mieści się w progach.</p></div>' +
+      '</div>' +
+      // KALENDARZ
+      '<div class="lpane" data-pane="plan" role="tabpanel" hidden>' +
+      (F.kalendarz ? (function (K) {
+        var t = new Date(), td = t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0');
+        var WYL = '2027-11-05', T0 = Date.parse('2026-10-01'), SP = Date.parse('2027-11-17') - T0;
+        function X(d) { return Math.max(0, Math.min(100, (Date.parse(d) - T0) / SP * 100)); }
+        function nx(d) { var x = new Date(Date.parse(d) + 864e5); return x.toISOString().slice(0, 10); }
+        function dd(a, b) { return Math.round((Date.parse(b) - Date.parse(a)) / 864e5); }
+        function ps(x) { var p = x.split('-'); return +p[2] + '.' + p[1]; }
+        function pl(x) { return ps(x) + '.' + x.slice(0, 4); }
+        function rng(a, b) { return a === b ? pl(a) : a.slice(0, 7) === b.slice(0, 7) ? +a.slice(8) + '–' + pl(b) : a.slice(0, 4) === b.slice(0, 4) ? ps(a) + '–' + pl(b) : pl(a) + ' – ' + pl(b); }
+        function tyg(d) { return Math.round(dd(d, WYL) / 7); }
+        var FZ = K.fazy, KM = K.kamienie || [], AU = K.automaty || [], cur = -1, nxt = -1;
+        FZ.forEach(function (f, i) { if (td >= f.od && td <= f.do) cur = i; else if (nxt < 0 && f.od > td) nxt = i; });
+        var foc = cur >= 0 ? cur : nxt, TON = { sprawdz: 'sprawdzamy', kupuj: 'kupujemy w progu', szczyt: 'najlepsze okno', termin: 'ostatni dzwonek', po: 'po zakupie' };
+        // miesiące
+        var MN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'], mh = '';
+        for (var y = 2026, m = 9; y < 2027 || m <= 10; ) { var ds = y + '-' + String(m + 1).padStart(2, '0') + '-01'; mh += '<span' + ((y * 12 + m) % 2 ? ' class="ev"' : '') + ' style="left:' + X(ds).toFixed(2) + '%">' + MN[m] + (m === 0 || (y === 2026 && m === 9) ? '<small>' + y + '</small>' : '') + '</span>'; m++; if (m > 11) { m = 0; y++; } }
+        // krzywa szansy (schemat)
+        var lv = function (s) { return 96 - s / 3 * 82; }, pts = [[0, 96], [X('2026-11-05') * 10, 96]];
+        FZ.forEach(function (f) { if (!f.szansa) return; pts.push([X(f.od) * 10, lv(f.szansa)], [X(nx(f.do)) * 10, lv(f.szansa)]); });
+        pts.push([X('2027-09-12') * 10, 96], [1000, 96]);
+        var cp = 'M' + pts[0].join(' ');
+        for (var i = 1; i < pts.length; i++) { var a = pts[i - 1], b = pts[i], mx = (a[0] + b[0]) / 2; cp += a[1] === b[1] ? ' L' + b[0].toFixed(1) + ' ' + b[1].toFixed(1) : ' C' + mx.toFixed(1) + ' ' + a[1].toFixed(1) + ' ' + mx.toFixed(1) + ' ' + b[1].toFixed(1) + ' ' + b[0].toFixed(1) + ' ' + b[1].toFixed(1); }
+        var curve = '<svg class="kcv" viewBox="0 0 1000 100" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="kcg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity=".42"/><stop offset="1" stop-color="currentColor" stop-opacity=".04"/></linearGradient></defs><path d="' + cp + ' L1000 100 L0 100 Z" fill="url(#kcg)"/><path d="' + cp + '" fill="none" stroke="currentColor" stroke-width="2" vector-effect="non-scaling-stroke"/></svg>';
+        var okn = FZ.filter(function (f) { return f.ton === 'szczyt'; }), ann = okn.map(function (f) { return '<span class="kca" style="left:' + ((X(f.od) + X(nx(f.do))) / 2).toFixed(2) + '%">' + (f.kr === 'Okno' ? 'statystycznie najtaniej' : esc(f.kr.toLowerCase())) + '</span>'; }).join('');
+        // pasmo faz
+        var band = FZ.map(function (f, i) { var l = X(f.od), w = Math.max(1.1, X(nx(f.do)) - l), st = td > f.do ? ' past' : i === cur ? ' now' : ''; return '<button type="button" class="ks t-' + esc(f.ton || 'po') + st + (w >= 7 ? ' wd' : '') + '" data-kgo="' + (i + 1) + '" style="left:' + l.toFixed(2) + '%;width:' + w.toFixed(2) + '%" title="' + esc((i + 1) + '. ' + f.faza + ' · ' + rng(f.od, f.do)) + '" aria-label="' + esc('Etap ' + (i + 1) + ': ' + f.faza + ', ' + rng(f.od, f.do)) + '"><span>' + (i + 1) + '</span><b>' + esc(f.kr || f.faza) + '</b></button>'; }).join('') +
+          '<i class="ktrip" style="left:' + X(WYL).toFixed(2) + '%;width:' + (X('2027-11-14') - X(WYL)).toFixed(2) + '%" title="Wyjazd 5–13.11.2027">✈</i>';
+        // kamienie
+        var kam = KM.map(function (k, i) { var x = X(k.d); return '<i class="km r' + (i % 2 + 1) + (k.typ ? ' k-' + esc(k.typ) : '') + (td > k.d ? ' past' : '') + (x > 86 ? ' rt' : '') + '" style="left:' + x.toFixed(2) + '%"><em><b>' + esc(ps(k.d)) + '</b><span> ' + esc(k.t) + '</span></em></i>'; }).join('') +
+          '<i class="km r' + (KM.length % 2 + 1) + ' k-wylot rt" style="left:' + X(WYL).toFixed(2) + '%"><em><b>5.11</b><span> wylot</span></em></i>';
+        // automaty
+        var ticks = '';
+        for (var yy = 2026, mm = 10; yy < 2027 || mm <= 7; ) { [1, 15].forEach(function (dn) { var s = yy + '-' + String(mm + 1).padStart(2, '0') + '-' + String(dn).padStart(2, '0'); if (s >= '2026-11-01' && s <= '2027-08-31') ticks += '<i class="kt' + (td > s ? ' past' : '') + '" style="left:' + X(s).toFixed(2) + '%"></i>'; }); mm++; if (mm > 11) { mm = 0; yy++; } }
+        var aut = '<i class="krs" style="left:' + X(td < '2026-10-28' ? '2026-10-28' : td).toFixed(2) + '%;width:' + Math.max(0, X('2027-08-31') - X(td < '2026-10-28' ? '2026-10-28' : td)).toFixed(2) + '%"></i>' + ticks +
+          AU.map(function (a) { return '<i class="ka2 ' + (a.typ === 'agent' ? 'ag' : 'pr') + (td > a.d ? ' past' : '') + '" style="left:' + X(a.d).toFixed(2) + '%" title="' + esc(pl(a.d) + ' · ' + a.t) + '"></i>'; }).join('');
+        var lines = '<i class="kln kdz" style="left:' + X(td).toFixed(2) + '%"><em>dziś</em></i>' + KM.filter(function (k) { return k.typ; }).map(function (k) { return '<i class="kln k-' + esc(k.typ) + '" style="left:' + X(k.d).toFixed(2) + '%"></i>'; }).join('') + '<i class="kln k-wylot" style="left:' + X(WYL).toFixed(2) + '%"></i>';
+        var os = '<div class="kos" role="img" aria-label="Oś zakupu biletów od października 2026 do wylotu 5 listopada 2027"><div class="kos-l" aria-hidden="true"><span class="h-m"></span><span class="h-c">Szansa na cenę w progu</span><span class="h-b">Etapy</span><span class="h-k">Kamienie</span><span class="h-a">Automaty</span></div>' +
+          '<div class="kos-t"><div class="kmh">' + mh + '</div><div class="kcw">' + curve + ann + '</div><div class="kbd">' + band + '</div><div class="kkm">' + kam + '</div><div class="kau">' + aut + '</div>' + lines + '</div></div>' +
+          '<div class="klg"><span><i class="sw t-sprawdz"></i>sprawdzamy</span><span><i class="sw t-kupuj"></i>kupujemy w progu</span><span><i class="sw t-szczyt"></i>najlepsze okno</span><span><i class="sw t-termin"></i>ostatni dzwonek</span><span><i class="lg-ag"></i>agent jednorazowy</span><span><i class="lg-pr"></i>przypomnienie w Kalendarzu Google</span><span><i class="lg-kt"></i>monitor cen 1. i 15.</span><span><i class="lg-rs"></i>radar RSS codziennie</span></div>' +
+          '<p class="kcap">Krzywa to schemat, nie prognoza ceny: im wyżej, tym większa szansa na kompletną podróż ≤ 4 800 zł/os. – według statystyk (najniższe ceny 18–24 tygodnie przed wylotem) i historii wyprzedaży z lat 2022–2026. Kliknij etap na osi, żeby przejść do szczegółów.</p>';
+        // etapy (pionowa oś)
+        var dzis = '<li class="kst-x"><div class="kst-d"></div><div class="kst-r"><i></i></div><div class="kst-c"><b>Dziś · ' + esc(pl(td)) + '</b><span>do wylotu ' + dd(td, WYL) + ' dni (' + tyg(td) + ' tyg.)' + (nxt >= 0 ? ' · następny etap: ' + esc(FZ[nxt].faza) + ' za ' + dd(td, FZ[nxt].od) + ' dni' : '') + '</span></div></li>';
+        var st = FZ.map(function (f, i) {
+          var past = td > f.do, now = i === cur, n = dd(f.od, f.do) + 1, ile = (n > 28 ? Math.round(n / 7) + ' tyg.' : n + ' dni') + ' · ' + tyg(f.od) + (tyg(f.do) !== tyg(f.od) ? '–' + tyg(f.do) : '') + ' tyg. przed wylotem', s = past ? 'zakończony' : now ? 'trwa · zostało ' + (dd(td, f.do) + 1) + ' dni' : 'start za ' + dd(td, f.od) + ' dni', pr = now ? Math.round((dd(f.od, td) + 1) / n * 100) : 0;
+          return (cur < 0 && i === nxt ? dzis : '') + '<li class="kst-i t-' + esc(f.ton || 'po') + (past ? ' past' : now ? ' now' : i === foc ? ' next' : '') + '" id="kf-' + (i + 1) + '">' +
+            '<div class="kst-d"><b>' + esc(rng(f.od, f.do)) + '</b><small>' + ile + '</small></div>' +
+            '<div class="kst-r"><i>' + (past ? '✓' : i + 1) + '</i></div>' +
+            '<div class="kst-c"><div class="kst-h"><h4>' + esc(f.faza) + '</h4><span class="kst-t">' + esc(TON[f.ton] || '') + '</span><span class="kst-s">' + esc(s) + '</span></div>' +
+            '<p class="kst-m">' + esc(rng(f.od, f.do)) + ' · ' + ile + '</p>' +
+            (now ? '<div class="kst-p" role="progressbar" aria-valuenow="' + pr + '" aria-valuemin="0" aria-valuemax="100"><i style="width:' + pr + '%"></i></div>' : '') +
+            '<p class="kst-z"><b>Decyzja</b>' + esc(f.decyzja) + '</p>' +
+            '<details' + (i === foc ? ' open' : '') + '><summary>Co robimy i co działa samo</summary><p>' + esc(f.co) + '</p><p class="kst-a"><b>Automat</b>' + esc(f.automat) + '</p></details></div></li>';
+        }).join('') + (cur < 0 && nxt < 0 && td < WYL ? dzis : '') +
+          '<li class="kst-i kst-w"><div class="kst-d"><b>5–13.11.2027</b><small>wyjazd</small></div><div class="kst-r"><i>✈</i></div><div class="kst-c"><div class="kst-h"><h4>Wylot do Mendozy</h4><span class="kst-s">za ' + Math.max(0, dd(td, WYL)) + ' dni</span></div><p>Warszawa → Mendoza 5.11, Mendoza → Buenos Aires 12.11, powrót z Buenos Aires 13.11 wieczorem. 10.11 – dwudziesta rocznica.</p></div></li>';
+        return '<div class="kal" id="kalendarz"><p class="eyebrow">Oś zakupu · daty liczone od wylotu 5.11.2027</p><h3>' + esc(K.tytul) + '</h3><p class="lead2">' + esc(K.intro) + '</p>' + os + '<h4 class="kst-hd">Etapy krok po kroku</h4><ol class="kst">' + st + '</ol></div>';
+      })(F.kalendarz) : '') +
+        '<details class="ctx" style="margin-top:16px"><summary>Notatki o terminach i decyzji hotelowej</summary><ol class="tl">' + F.kiedy.map(function (k) { return '<li><b>' + esc(k[0]) + '</b><span>' + esc(k[1]) + '</span></li>'; }).join('') + '</ol></details>' +
+      '</div>' +
+      // JAK SZUKAĆ
+      '<div class="lpane" data-pane="szukaj" role="tabpanel" hidden>' +
       '<div class="fo">' + F.opcje.map(function (o) { return '<article' + (o.rek ? ' class="rek"' : '') + '><span class="rt">' + esc(o.trasa) + (o.rek ? ' · polecane' : '') + '</span><h3>' + esc(o.n) + '</h3><div class="kv"><span>czas <b>' + esc(o.czas) + '</b></span><span>od osoby <b>' + esc(o.cena) + '</b></span></div><p>' + esc(o.linie) + '</p><div class="pm"><span>' + esc(o.plus) + '</span><span class="m">' + esc(o.minus) + '</span></div></article>'; }).join('') + '</div>' +
-      (F.kalendarz ? (function (K) { var t = new Date(); var td = t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0'); function pl(x) { var p = x.split('-'); return p[2] + '.' + p[1] + '.' + p[0]; }
-        return '<div class="kal" id="kalendarz"><p class="eyebrow">Krok po kroku · daty od wylotu 5.11.2027</p><h3>' + esc(K.tytul) + '</h3><p>' + esc(K.intro) + '</p><div class="tw"><table class="pt"><thead><tr><th>Kiedy</th><th>Co robimy</th><th>Automat / przypomnienie</th><th>Decyzja</th></tr></thead><tbody>' + K.fazy.map(function (f) { var cls = td > f.do ? ' class="past"' : (td >= f.od ? ' class="now"' : ''); return '<tr' + cls + '><td class="kd">' + esc(pl(f.od)) + (f.do && f.do !== f.od ? ' – ' + esc(pl(f.do)) : '') + '<span class="kf">' + esc(f.faza) + '</span></td><td>' + esc(f.co) + '</td><td class="ka">' + esc(f.automat) + '</td><td class="kz">' + esc(f.decyzja) + '</td></tr>'; }).join('') + '</tbody></table></div></div>'; })(F.kalendarz) : '') +
-      (F.stopover ? '<div class="stop"><div><p class="eyebrow">Mechanizm</p><h3>' + esc(F.stopover.tytul) + '</h3><p>' + esc(F.stopover.intro) + '</p><ol class="tl">' + F.stopover.kroki.map(function (k, i) { return '<li><b>' + (i + 1) + '</b><span>' + esc(k) + '</span></li>'; }).join('') + '</ol></div><div><h4>Kiedy warto</h4><p>' + esc(F.stopover.kiedy_warto) + '</p><h4>Wyszukiwarki multi-city</h4><ul class="al">' + F.stopover.linki.map(function (l) { return '<li><a href="' + esc(l[1]) + '" target="_blank" rel="noopener">' + esc(l[0]) + '</a></li>'; }).join('') + '</ul><p class="note" style="color:var(--ink-2);font-size:.9rem;margin:12px 0 0">Agent cen liczy ten wariant jako osobną serię „stopover” i porównuje z biletem w obie strony.</p></div></div>' : '') +
       (F.poradnik ? (function (Q) { var sc = Q.scenariusze || [], kr = Q.kroki || [], nz = Q.narzedzia || [], ck = Q.checklista || [], bl = Q.bledy || [], wn = Q.wnioski || [];
         return '<div class="por" id="poradnik"><p class="eyebrow">Poradnik szukania' + (Q.zaktualizowano ? ' · ' + esc(Q.zaktualizowano) : '') + '</p><h3>' + esc(Q.tytul) + '</h3><p>' + esc(Q.intro) + '</p>' +
         (sc.length ? '<h4>Scenariusze – co porównujemy</h4><div class="tw"><table class="pt"><thead><tr><th>Scenariusz</th><th>Gdzie i jak szukać</th><th>Kiedy wygrywa</th><th>Ryzyka i koszty ukryte</th></tr></thead><tbody>' + sc.map(function (r) { return '<tr' + (r.rek ? ' class="rek"' : '') + '><td><b>' + esc(r.n) + '</b><span class="tg2">' + esc(r.trasa) + (r.rek ? ' · polecane' : '') + '</span></td><td>' + esc(r.jak) + '</td><td>' + esc(r.wygrywa) + '</td><td>' + esc(r.ryzyko) + '</td></tr>'; }).join('') + '</tbody></table></div>' : '') +
@@ -430,12 +654,15 @@ footer a { color: var(--ink-2); }
         '<div><h4>Narzędzia</h4>' + nz.map(function (n) { return '<details><summary>' + esc(n.n) + '</summary><ul>' + (n.p || []).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + (n.link ? '<li><a href="' + esc(n.link) + '" target="_blank" rel="noopener">' + esc(n.link.replace(/^https?:\/\//, '')) + '</a></li>' : '') + '</ul></details>'; }).join('') +
         (ck.length ? '<h4>Checklista przed zakupem</h4><ul class="ck">' + ck.map(function (c, i) { return '<li><label><input type="checkbox" data-pc="' + i + '"><span>' + esc(c) + '</span></label></li>'; }).join('') + '</ul>' : '') +
         (bl.length ? '<details style="margin-top:14px"><summary>Typowe błędy</summary><ul>' + bl.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></details>' : '') + '</div></div></div>'; })(F.poradnik) : '') +
-      '<div class="mon"><div><h3>Monitor cen i trendy</h3><p class="st" id="monst">Ładowanie…</p><div id="mon"></div><p class="note" style="color:var(--ink-2);font-size:.9rem;margin:12px 0 0">Każdy przebieg (pełny monitor 1. i 15. dnia miesiąca, od 10.12.2026 także poniedziałkowy, a w oknie 21.05–2.07.2027 dodatkowo czwartkowy) zapisuje tu ceny dla 16 serii (cały bilet do Mendozy, stopover, open-jaw, Madryt–Mendoza, 8 linii do Buenos Aires, Star Alliance open-jaw, promocje z Wiednia) oraz lotu krajowego do Mendozy (za osobę, w obie strony, z bagażem) i zapisuje je tutaj. Trend porównuje ostatni odczyt z poprzednim; słupki to historia. Próg zakupu: <b>4 800 zł</b> za kompletną podróż na osobę. To wskazówka, nie oferta – przed zakupem sprawdzić cenę u linii.</p></div>' +
-      '<div class="side"><div><h3>Kiedy kupować</h3><ol class="tl">' + F.kiedy.map(function (k) { return '<li><b>' + esc(k[0]) + '</b><span>' + esc(k[1]) + '</span></li>'; }).join('') + '</ol>' +
-      '</div><div><h3>Alerty cenowe</h3>' + (F.alerty_intro ? '<p class="prose" style="font-size:.9rem;color:var(--muted);margin:0 0 10px">' + esc(F.alerty_intro) + '</p>' : '') + '<ul class="al">' + F.alerty.map(function (a, i) { return (a.g ? '<li class="alg">' + esc(a.g) + '</li>' : '') + '<li class="alc"><label><input type="checkbox" data-al="' + i + '"><span class="alb"><a href="' + esc(a.url) + '" target="_blank" rel="noopener">' + esc(a.n) + '</a><span>' + esc(a.opis) + '</span></span></label></li>'; }).join('') + '</ul></div></div></div>' +
-      '<div class="prom"><div class="ph2"><h3>Promocje z forów</h3><p class="st" id="promst">Ładowanie…</p></div><div id="prom"></div><p class="note" style="color:var(--ink-2);font-size:.9rem;margin:12px 0 0">Osobny agent w środy i piątki przegląda Fly4free (serwis i forum), Pepper, Wakacyjnych Piratów, Loter, Secret Flying, Holiday Pirates oraz strony promocji linii i naszych hoteli. Nowe znaleziska dopisuje tutaj; powiadomienie push przychodzi tylko wtedy, gdy promocja obejmuje listopad 2027 i mieści się w progach.</p></div>' +
-      (F.progi ? '<div class="cols" style="margin-top:28px"><div><h3>Progi zakupu (kompletna podróż, na osobę)</h3><table class="pt"><thead><tr><th>Cena za osobę</th><th>Decyzja</th></tr></thead><tbody>' + F.progi.map(function (r) { return '<tr><td><b>' + esc(r[0]) + '</b></td><td>' + esc(r[1]) + '</td></tr>'; }).join('') + '</tbody></table></div>' + (F.daty ? '<div><h3>Daty</h3><table class="pt"><thead><tr><th>Układ</th><th>Loty</th><th>Pobyt</th></tr></thead><tbody>' + F.daty.map(function (r) { return '<tr><td><b>' + esc(r[0]) + '</b></td><td>' + esc(r[1]) + '</td><td>' + esc(r[2]) + '</td></tr>'; }).join('') + '</tbody></table></div>' : '') + '</div>' : '') +
-      '<div class="cols" style="margin-top:28px"><div><h3>Zasady</h3><ul class="chk" style="list-style:disc;padding-left:20px;gap:6px">' + F.zasady.map(function (z) { return '<li>' + esc(z) + '</li>'; }).join('') + '</ul></div></div></div></section>';
+      (F.stopover ? '<div class="stop"><div><p class="eyebrow">Mechanizm</p><h3>' + esc(F.stopover.tytul) + '</h3><p>' + esc(F.stopover.intro) + '</p><ol class="tl">' + F.stopover.kroki.map(function (k, i) { return '<li><b>' + (i + 1) + '</b><span>' + esc(k) + '</span></li>'; }).join('') + '</ol></div><div><h4>Kiedy warto</h4><p>' + esc(F.stopover.kiedy_warto) + '</p><h4>Wyszukiwarki multi-city</h4><ul class="al">' + F.stopover.linki.map(function (l) { return '<li><a href="' + esc(l[1]) + '" target="_blank" rel="noopener">' + esc(l[0]) + '</a></li>'; }).join('') + '</ul><p class="note" style="color:var(--ink-2);font-size:.9rem;margin:12px 0 0">Agent cen liczy ten wariant jako osobną serię „stopover” i porównuje z biletem w obie strony.</p></div></div>' : '') +
+        '<details class="ctx" style="margin-top:20px"><summary>Zasady zakupu (' + F.zasady.length + ')</summary><ul class="chk" style="list-style:disc;padding-left:20px;gap:6px">' + F.zasady.map(function (z) { return '<li>' + esc(z) + '</li>'; }).join('') + '</ul></details>' +
+      '</div>' +
+      // ZADANIA I ALERTY
+      '<div class="lpane" data-pane="zadania" role="tabpanel" hidden><div class="cols zcols"><div class="todo" id="zadania"><h3>Twoje zadania</h3><p class="note">Rzeczy, których agenci nie zrobią za Ciebie. Odhaczenie zapamiętuje ta przeglądarka; czerwone – po terminie.</p><ul class="tdl">' +
+        (F.zadania || []).map(function (z) { return '<li data-od="' + esc(z.od || '') + '" data-do="' + esc(z.do || '') + '"><label><input type="checkbox" data-td="' + esc(z.id) + '"><span><b>' + esc(z.t) + '</b><small>' + (z.od ? 'od ' + dpl(z.od) + ' · ' : '') + 'do ' + dpl(z.do) + '</small>' + (z.opis ? '<em>' + esc(z.opis) + '</em>' : '') + '</span></label>' + (z.link ? '<a class="tdlink" href="' + esc(z.link[1]) + '" target="_blank" rel="noopener">' + esc(z.link[0]) + ' ↗</a>' : '') + '</li>'; }).join('') + '</ul></div>' +
+        '<div><h3>Alerty cenowe do ustawienia</h3>' + (F.alerty_intro ? '<p class="note">' + esc(F.alerty_intro) + '</p>' : '') + '<ul class="al">' + F.alerty.map(function (a, i) { return (a.g ? '<li class="alg">' + esc(a.g) + '</li>' : '') + '<li class="alc"><label><input type="checkbox" data-al="' + i + '"><span class="alb"><a href="' + esc(a.url) + '" target="_blank" rel="noopener">' + esc(a.n) + '</a><span>' + esc(a.opis) + '</span></span></label></li>'; }).join('') + '</ul></div></div>' +
+      '</div>' +
+      '</div></section>';
   }
   // Buenos Aires: plan na finał, Café Tortoni, praktyczne
   if (P.ba) {
@@ -470,76 +697,116 @@ footer a { color: var(--ink-2); }
       st.textContent = 'Ostatnie sprawdzenie: ' + M.zaktualizowano + (M.nastepny ? ' · następne: ' + M.nastepny : '');
       var W = (M.wpisy || []).slice().sort(function (a, b) { return (b.data || '').localeCompare(a.data || ''); });
       var kl = { tak: ['pasuje', 'ok'], nie: ['nie obejmuje XI 2027', 'no'], sprawdzic: ['do sprawdzenia', 'mid'] };
-      box.innerHTML = (M.status ? '<p class="status">' + esc(M.status) + '</p>' : '') + (W.length ? '<ul class="pl">' + W.map(function (w) {
-        var k = kl[w.pasuje] || kl.sprawdzic;
-        return '<li><div class="plh"><span class="pld">' + esc(w.data || '') + ' · ' + esc(w.zrodlo || '') + '</span><span class="plb ' + k[1] + '">' + k[0] + '</span></div><a href="' + esc(w.url || '#') + '" target="_blank" rel="noopener">' + esc(w.tytul || '') + '</a><div class="plm">' + [w.cena, w.trasa, w.terminy, w.bagaz ? 'bagaż: ' + w.bagaz : ''].filter(Boolean).map(esc).join(' · ') + '</div>' + (w.ocena ? '<div class="plo">' + esc(w.ocena) + '</div>' : '') + '</li>';
-      }).join('') + '</ul>' : '<p class="status">Jeszcze nic nie znaleziono.</p>');
+      function li(w) { var k = kl[w.pasuje] || kl.sprawdzic;
+        return '<li><div class="plh"><span class="pld">' + esc(w.data || '') + ' · ' + esc(w.zrodlo || '') + '</span><span class="plb ' + k[1] + '">' + k[0] + '</span></div><a href="' + esc(w.url || '#') + '" target="_blank" rel="noopener">' + esc(w.tytul || '') + '</a><div class="plm">' + [w.cena, w.trasa, w.terminy, w.bagaz ? 'bagaż: ' + w.bagaz : ''].filter(Boolean).map(esc).join(' · ') + '</div>' + (w.ocena ? '<div class="plo">' + esc(w.ocena) + '</div>' : '') + '</li>'; }
+      var hot = W.filter(function (w) { return w.pasuje === 'tak' || w.pasuje === 'sprawdzic'; }), old = W.filter(function (w) { return w.pasuje !== 'tak' && w.pasuje !== 'sprawdzic'; });
+      box.innerHTML = (M.status ? '<p class="status">' + esc(M.status) + '</p>' : '') +
+        (hot.length ? '<h4 class="plt">Pasujące i do sprawdzenia (' + hot.length + ')</h4><ul class="pl">' + hot.map(li).join('') + '</ul>' : '<p class="note">Żadna znaleziona promocja nie obejmuje jeszcze listopada 2027.</p>') +
+        (old.length ? '<details class="ctx"><summary>Wzorce z przeszłości – poza terminem (' + old.length + ')</summary><ul class="pl">' + old.map(li).join('') + '</ul></details>' : '');
     }).catch(function () { st.textContent = 'Lista promocji niedostępna w tym podglądzie.'; });
   })();
-  // monitor cen: loty.json obok strony – ranking, trend, dziennik
+  // monitor cen + radar + panel „Co teraz”: loty.json obok strony (aktualizują agenci)
   (function () {
-    var box = document.getElementById('mon'), st = document.getElementById('monst'); if (!box) return;
-    fetch('loty.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (M) {
-      var prog = M.prog || 4800, S = (M.serie || []).filter(function (s) { return s.id !== 'krajowy'; }), KR = (M.serie || []).filter(function (s) { return s.id === 'krajowy'; })[0];
-      var fazy = (D.prog.loty.kalendarz || {}).fazy || [], t = new Date(), td = t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0');
-      var faza = fazy.filter(function (f) { return td >= f.od && td <= f.do; })[0];
-      st.textContent = 'Ostatnie sprawdzenie: ' + M.zaktualizowano + (M.nastepny ? ' · następne: ' + M.nastepny : '') + (faza ? ' · faza: ' + faza.faza : '');
+    var box = document.getElementById('mon'), st = document.getElementById('monst'), RB = document.getElementById('radar'), CK = document.getElementById('teraz'); if (!box) return;
+    var LO = (D.prog && D.prog.loty) || {}, FZ = (LO.kalendarz || {}).fazy || [], ZD = LO.zadania || [];
+    var t0 = new Date(), td = t0.getFullYear() + '-' + String(t0.getMonth() + 1).padStart(2, '0') + '-' + String(t0.getDate()).padStart(2, '0');
+    function pl2(x) { if (!x) return ''; var p = String(x).split('-'); return p.length === 3 ? p[2] + '.' + p[1] + '.' + p[0] : x; }
+    function pl2s(x) { var p = String(x).split('-'); return p.length === 3 ? p[2] + '.' + p[1] : x; }
+    function days(a, b) { return Math.round((new Date(b) - new Date(a)) / 864e5); }
+    function tdDone() { try { return JSON.parse(localStorage.getItem('uco-td') || '{}'); } catch (e) { return {}; } }
+    function render(M) {
+      var prog = M.prog || 4800, ALL = M.serie || [], S = ALL.filter(function (s) { return s.id !== 'krajowy'; }), KR = ALL.filter(function (s) { return s.id === 'krajowy'; })[0];
+      var faza = FZ.filter(function (f) { return td >= f.od && td <= f.do; })[0], nextF = FZ.filter(function (f) { return f.od > td; })[0];
+      st.textContent = M.zaktualizowano ? 'Ostatni odczyt: ' + pl2(M.zaktualizowano) + (M.nastepny ? ' · następny: ' + pl2(M.nastepny) : '') : '';
       function H(s) { return (s.hist || []).filter(function (x) { return x.cena; }); }
-      function pl2(x) { if (!x) return ''; var p = String(x).split('-'); return p.length === 3 ? p[2] + '.' + p[1] + '.' + p[0] : x; }
       function last(s) { var h = H(s); return h.length ? h[h.length - 1] : null; }
       function prev(s) { var h = H(s); return h.length > 1 ? h[h.length - 2] : null; }
       function badge(c) { return c <= 4000 ? '<span class="bd b0">🟢🟢 okazja</span>' : c <= prog ? '<span class="bd b1">🟢 w progu</span>' : c <= 5000 ? '<span class="bd b2">🟡 blisko progu</span>' : c <= 5500 ? '<span class="bd b3">⚪ powyżej</span>' : '<span class="bd b4">🔴 drogo</span>'; }
       function kl(c) { return c <= prog ? 'g' : c <= 5000 ? 'y' : 'r'; }
       function dlt(l, p) { if (!l || !p) return '<span class="tr fl">pierwszy odczyt</span>'; var d = l.cena - p.cena; return d > 0 ? '<span class="tr up">▲ +' + nf(d) + ' zł</span>' : d < 0 ? '<span class="tr dn">▼ −' + nf(-d) + ' zł</span>' : '<span class="tr fl">= bez zmian</span>'; }
       var priced = S.filter(last).sort(function (a, b) { return last(a).cena - last(b).cena; }), unpriced = S.filter(function (s) { return !last(s); });
-      var o = M.status ? '<p class="status">' + esc(M.status) + '</p>' : '';
-      o += '<div class="legend"><span class="lg g">≤ ' + nf(prog) + ' zł – kupować</span><span class="lg y">4 800–5 000 – blisko progu</span><span class="lg r">&gt; 5 000 – czekać</span></div>';
-      // podium
+      var single = priced.filter(function (s) { return s.id === 'calosc' || s.id === 'stopover'; })[0]; window.__bestSingle = single ? last(single).cena : null; if (window.__kalkUpd) window.__kalkUpd();
+      // ---------- MONITOR ----------
+      var o = '';
       if (priced.length) {
-        o += '<div class="podium">' + priced.slice(0, 3).map(function (s, i) { var l = last(s); return '<div class="pd ' + kl(l.cena) + '"><span class="pn">' + (i + 1) + '</span><span class="pp">' + nf(l.cena) + ' zł</span><span class="pl">' + esc(s.linia) + '</span><span class="pm">' + dlt(l, prev(s)) + ' · ' + esc(l.data) + '</span>' + badge(l.cena) + '</div>'; }).join('') + '</div>';
+        o += '<div class="podium">' + priced.slice(0, 3).map(function (s, i) { var l = last(s); return '<div class="pd ' + kl(l.cena) + '"><span class="pn">' + (i + 1) + '</span><span class="pp">' + nf(l.cena) + ' zł</span><span class="pl">' + esc(s.linia) + '</span><span class="pm">' + dlt(l, prev(s)) + ' · ' + esc(pl2(l.data)) + '</span>' + badge(l.cena) + '</div>'; }).join('') + '</div>';
+        var allPts = []; priced.forEach(function (s) { H(s).forEach(function (x) { allPts.push(x); }); });
+        var uniq = allPts.map(function (x) { return x.data; }).sort().filter(function (d, i, a) { return a.indexOf(d) === i; });
+        if (uniq.length >= 2) {
+          var W = 640, Hh = 230, px = 46, py = 16, ser = priced.slice(0, 5), cols = ['var(--malbec)', 'var(--poplar)', 'var(--adobe)', 'var(--ink-2)', 'var(--muted)'];
+          var vals = allPts.map(function (x) { return x.cena; }).concat([prog, 5000]), lo = Math.min.apply(null, vals) * 0.97, hi = Math.max.apply(null, vals) * 1.03;
+          var d0 = new Date(uniq[0]).getTime(), d1 = new Date(uniq[uniq.length - 1]).getTime();
+          var X = function (d) { return px + (W - px - 14) * ((new Date(d).getTime() - d0) / Math.max(1, d1 - d0)); }, Y = function (v) { return py + (Hh - py - 26) * (1 - (v - lo) / (hi - lo)); };
+          var g = '<svg class="chart" viewBox="0 0 ' + W + ' ' + Hh + '" role="img" aria-label="Trend cen kompletnej podróży">';
+          [[prog, 'próg ' + nf(prog)], [5000, '5 000']].forEach(function (L) { g += '<line x1="' + px + '" x2="' + (W - 14) + '" y1="' + Y(L[0]) + '" y2="' + Y(L[0]) + '" class="thr"/><text x="' + (W - 16) + '" y="' + (Y(L[0]) - 4) + '" class="thl" text-anchor="end">' + L[1] + '</text>'; });
+          for (var k = 0; k <= 4; k++) { var v = lo + (hi - lo) * k / 4; g += '<text x="' + (px - 6) + '" y="' + (Y(v) + 4) + '" class="ax" text-anchor="end">' + nf(Math.round(v / 100) * 100) + '</text>'; }
+          uniq.forEach(function (d, i) { if (uniq.length <= 8 || i % Math.ceil(uniq.length / 8) === 0 || i === uniq.length - 1) g += '<text x="' + X(d) + '" y="' + (Hh - 6) + '" class="ax" text-anchor="middle">' + pl2s(d) + '</text>'; });
+          ser.forEach(function (s, i) { var h = H(s); g += '<polyline fill="none" style="stroke:' + cols[i] + '" stroke-width="2.2" points="' + h.map(function (x) { return X(x.data) + ',' + Y(x.cena); }).join(' ') + '"/>' + h.map(function (x) { return '<circle cx="' + X(x.data) + '" cy="' + Y(x.cena) + '" r="3.2" style="fill:' + cols[i] + '"><title>' + esc(s.linia) + ' · ' + pl2(x.data) + ': ' + nf(x.cena) + ' zł</title></circle>'; }).join(''); });
+          g += '</svg><div class="clg">' + ser.map(function (s, i) { return '<span><i style="background:' + cols[i] + '"></i>' + esc(s.linia) + '</span>'; }).join('') + '</div>';
+          o += '<h4>Trend cen</h4>' + g;
+        }
       } else {
-        o += '<p class="nopr">Rozkład na listopad 2027 jeszcze nieotwarty – poniżej widełki orientacyjne. Pierwsze prawdziwe odczyty pojawią się w fazie „Rozkład otwarty” (od 10.12.2026).</p>';
+        o += '<div class="empty"><b>Jeszcze bez cen na nasze daty.</b> Linie otwierają sprzedaż na listopad 2027 między 11.11 a 10.12.2026; pierwsze prawdziwe odczyty pojawią się w fazie „Rozkład otwarty”. Do tego czasu niżej widełki orientacyjne z października 2026.</div>';
       }
-      // wykres trendu
-      var allPts = []; priced.forEach(function (s) { H(s).forEach(function (x) { allPts.push(x); }); });
-      var dates = allPts.map(function (x) { return x.data; }).sort(); var uniq = dates.filter(function (d, i) { return dates.indexOf(d) === i; });
-      if (uniq.length >= 2) {
-        var W = 640, Hh = 240, px = 44, py = 18, ser = priced.slice(0, 5), cols = ['#7a1f3d', '#2f6b3a', '#b5651d', '#3b5b8c', '#6b6b6b'];
-        var vals = allPts.map(function (x) { return x.cena; }).concat([prog, 5000]), lo = Math.min.apply(null, vals) * 0.97, hi = Math.max.apply(null, vals) * 1.03;
-        var d0 = new Date(uniq[0]).getTime(), d1 = new Date(uniq[uniq.length - 1]).getTime();
-        function X(d) { return px + (W - px - 12) * ((new Date(d).getTime() - d0) / Math.max(1, d1 - d0)); }
-        function Y(v) { return py + (Hh - py - 28) * (1 - (v - lo) / (hi - lo)); }
-        var g = '<svg class="chart" viewBox="0 0 ' + W + ' ' + Hh + '" role="img" aria-label="Trend cen">';
-        [[prog, 'próg ' + nf(prog)], [5000, '5 000']].forEach(function (L) { g += '<line x1="' + px + '" x2="' + (W - 12) + '" y1="' + Y(L[0]) + '" y2="' + Y(L[0]) + '" class="thr"/><text x="' + (W - 14) + '" y="' + (Y(L[0]) - 4) + '" class="thl" text-anchor="end">' + L[1] + '</text>'; });
-        var ticks = 4; for (var k = 0; k <= ticks; k++) { var v = lo + (hi - lo) * k / ticks; g += '<text x="' + (px - 6) + '" y="' + (Y(v) + 4) + '" class="ax" text-anchor="end">' + nf(Math.round(v / 100) * 100) + '</text>'; }
-        uniq.forEach(function (d, i) { if (uniq.length <= 8 || i % Math.ceil(uniq.length / 8) === 0 || i === uniq.length - 1) g += '<text x="' + X(d) + '" y="' + (Hh - 8) + '" class="ax" text-anchor="middle">' + d.slice(8, 10) + '.' + d.slice(5, 7) + '</text>'; });
-        ser.forEach(function (s, i) { var h = H(s); g += '<polyline fill="none" stroke="' + cols[i] + '" stroke-width="2.2" points="' + h.map(function (x) { return X(x.data) + ',' + Y(x.cena); }).join(' ') + '"/>' + h.map(function (x) { return '<circle cx="' + X(x.data) + '" cy="' + Y(x.cena) + '" r="3.2" fill="' + cols[i] + '"><title>' + esc(s.linia) + ' · ' + x.data + ': ' + nf(x.cena) + ' zł</title></circle>'; }).join(''); });
-        g += '</svg><div class="clg">' + ser.map(function (s, i) { return '<span><i style="background:' + cols[i] + '"></i>' + esc(s.linia) + '</span>'; }).join('') + '</div>';
-        o += '<h4>Trend cen (kompletna podróż na osobę)</h4>' + g;
-      }
-      // ranking
-      var mx = allPts.length ? Math.max.apply(null, allPts.map(function (x) { return x.cena; })) : 0;
+      var mx = 0; priced.forEach(function (s) { H(s).forEach(function (x) { mx = Math.max(mx, x.cena); }); });
       function row(s, i) { var l = last(s), p = prev(s), h = H(s), mn = h.length ? Math.min.apply(null, h.map(function (x) { return x.cena; })) : null;
-        var sp = h.length ? '<span class="sp">' + h.slice(-14).map(function (x) { return '<i class="' + (x.cena <= prog ? 'ok' : '') + '" style="height:' + Math.max(3, 22 * x.cena / mx) + 'px" title="' + x.data + ': ' + nf(x.cena) + ' zł"></i>'; }).join('') + '</span>' : '<span class="tr fl">brak odczytów</span>';
-        var now = l ? '<b>' + nf(l.cena) + ' zł</b>' + badge(l.cena) : '<span class="or">' + esc(s.orient || '—') + '</span>';
-        return '<tr class="' + (l ? kl(l.cena) : 'np') + '"><td class="rk">' + (l ? i + 1 : '–') + '</td><td><b>' + esc(s.linia) + '</b><span class="rt">' + esc(s.trasa) + '</span>' + (l && l.uwagi ? '<span class="rt">' + esc(l.uwagi) + '</span>' : (!l && s.uwagi ? '<span class="rt">' + esc(s.uwagi) + '</span>' : '')) + '</td><td class="n">' + now + '</td><td>' + (l ? dlt(l, p) : '<span class="tr fl">—</span>') + '</td><td class="n">' + (mn ? nf(mn) + ' zł' : '—') + '</td><td class="n">' + (l ? esc(l.data) + '<span class="rt">' + esc(l.zrodlo || '') + '</span>' : '—') + '</td><td>' + sp + '</td></tr>'; }
-      o += '<h4>Ranking scenariuszy' + (priced.length ? ' – od najtańszego' : ' – widełki orientacyjne') + '</h4><div class="ptw"><table class="pt rk"><thead><tr><th>#</th><th>Scenariusz · trasa</th><th>Teraz</th><th>Zmiana</th><th>Min</th><th>Odczyt</th><th>Historia</th></tr></thead><tbody>' + priced.map(row).join('') + unpriced.map(row).join('') + '</tbody></table></div>';
-      if (KR) { var kl_ = last(KR); o += '<p class="krj">Składnik krajowy Buenos Aires–Mendoza z bagażem: <b>' + (kl_ ? nf(kl_.cena) + ' zł (' + esc(kl_.data) + ')' : esc(KR.orient)) + '</b> – wliczony w scenariusze z osobnym lotem krajowym.</p>'; }
-      // dziennik przebiegów
+        var sp = h.length ? '<span class="sp">' + h.slice(-14).map(function (x) { return '<i class="' + (x.cena <= prog ? 'ok' : '') + '" style="height:' + Math.max(3, 22 * x.cena / mx) + 'px" title="' + pl2(x.data) + ': ' + nf(x.cena) + ' zł"></i>'; }).join('') + '</span>' : '';
+        return '<tr class="' + (l ? kl(l.cena) : 'np') + '"><td class="rk">' + (l ? i + 1 : '–') + '</td><td><b>' + esc(s.linia) + '</b><span class="rt">' + esc(s.trasa) + '</span>' + (l && l.uwagi ? '<span class="rt">' + esc(l.uwagi) + '</span>' : '') + '</td><td class="n">' + (l ? '<b>' + nf(l.cena) + ' zł</b>' + badge(l.cena) : '<span class="or">' + esc(s.orient || '—') + '</span>') + '</td><td>' + (l ? dlt(l, p) : '') + '</td><td class="n">' + (mn ? nf(mn) + ' zł' : '') + '</td><td class="n">' + (l ? esc(pl2(l.data)) + '<span class="rt">' + esc(l.zrodlo || '') + '</span>' : '') + '</td><td>' + sp + '</td></tr>'; }
+      var thead = '<thead><tr><th>#</th><th>Scenariusz · trasa</th><th>Teraz</th><th>Zmiana</th><th>Min</th><th>Odczyt</th><th>Historia</th></tr></thead>';
+      if (priced.length) o += '<h4>Ranking – od najtańszego</h4><div class="ptw"><table class="pt rk">' + thead + '<tbody>' + priced.map(row).join('') + '</tbody></table></div>';
+      if (unpriced.length) o += '<details class="ctx orient"' + (priced.length ? '' : ' open') + '><summary>Widełki orientacyjne – ' + unpriced.length + (unpriced.length === 1 ? ' scenariusz' : ' scenariuszy') + ' bez odczytu</summary><div class="ptw"><table class="pt rk orient-t"><thead><tr><th>Scenariusz · trasa</th><th>Widełki (X 2026)</th><th>Uwagi</th></tr></thead><tbody>' + unpriced.map(function (s) { return '<tr class="np"><td><b>' + esc(s.linia) + '</b><span class="rt">' + esc(s.trasa) + '</span></td><td class="n"><span class="or">' + esc(s.orient || '—') + '</span></td><td><span class="rt">' + esc(s.uwagi || '') + '</span></td></tr>'; }).join('') + '</tbody></table></div></details>';
+      if (KR) { var kl_ = last(KR); o += '<p class="krj">Składnik krajowy Buenos Aires–Mendoza z bagażem: <b>' + (kl_ ? nf(kl_.cena) + ' zł (' + esc(pl2(kl_.data)) + ')' : esc(KR.orient)) + '</b> – wliczony w scenariusze z osobnym lotem krajowym.</p>'; }
       var hist = (M.historia || []).slice().sort(function (a, b) { return a.data < b.data ? 1 : -1; });
-      if (hist.length) { o += '<h4>Dziennik przebiegów</h4><ul class="dz">' + hist.slice(0, 12).map(function (e) { return '<li><span class="dd">' + esc(e.data) + '</span><span class="ds">' + esc(e.zrodlo || '') + (e.faza ? ' · ' + esc(e.faza) : '') + '</span><span class="dt">' + (e.najtansza && e.najtansza.cena ? '<b>' + nf(e.najtansza.cena) + ' zł</b> · ' + esc(e.najtansza.opis || e.najtansza.id || '') : 'bez wyceny') + (e.uwaga ? ' – ' + esc(e.uwaga) : '') + '</span></li>'; }).join('') + '</ul>'; }
-      // radar: sygnały wyprzedzające, okna wyprzedaży, skrzynka alertów, skan RSS
-      var SG = (M.sygnaly || []).slice().sort(function (a, b) { return a.data < b.data ? 1 : -1; }), WY = (M.wyprzedaze || []).slice().sort(function (a, b) { return a.od < b.od ? -1 : 1; }), SK = (M.skrzynka || []).slice().sort(function (a, b) { return a.data < b.data ? 1 : -1; }), RS = M.rss || null;
-      o += '<div class="radar" id="radar"><p class="eyebrow">Radar · antycypacja obniżek</p><h4 style="margin-top:4px">Sygnały wyprzedzające</h4>';
-      o += SG.length ? '<ul class="sg">' + SG.slice(0, 10).map(function (g) { var k = g.kierunek === 'spadek' ? 'dn' : g.kierunek === 'wzrost' ? 'up' : 'fl'; return '<li class="' + k + '"><span class="sgd">' + esc(g.data) + '</span><span class="sgk">' + (k === 'dn' ? '▼ taniej' : k === 'up' ? '▲ drożej' : '• neutralnie') + (g.waga ? ' · waga ' + esc(String(g.waga)) + '/3' : '') + '</span><span class="sgt"><b>' + esc(g.typ || '') + '</b> ' + esc(g.opis || '') + (g.url ? ' <a href="' + esc(g.url) + '" target="_blank" rel="noopener">źródło</a>' : '') + '</span></li>'; }).join('') + '</ul>' : '<p class="nopr">Brak zapisanych sygnałów – agenci dopisują je przy każdym przebiegu (nowe trasy, pojemność, kursy walut, kampanie linii, remonty lotnisk).</p>';
-      o += '<h4>Okna wyprzedaży – prognoza</h4>';
-      o += WY.length ? '<div class="ptw"><table class="pt wy"><thead><tr><th>Kiedy</th><th>Linia · kampania</th><th>Szansa na listopad 2027</th><th>Co zrobić</th></tr></thead><tbody>' + WY.map(function (w) { var past = td > (w.do || w.od); var now = !past && td >= w.od; return '<tr class="' + (past ? 'past' : now ? 'now' : '') + '"><td class="kd">' + esc(pl2(w.od)) + (w.do && w.do !== w.od ? ' – ' + esc(pl2(w.do)) : '') + '</td><td><b>' + esc(w.linia) + '</b><span class="rt">' + esc(w.nazwa || '') + '</span></td><td><span class="bd ' + (w.szansa === 'wysoka' ? 'b1' : w.szansa === 'srednia' ? 'b2' : 'b3') + '">' + esc(({ wysoka: 'wysoka', srednia: 'średnia', niska: 'niska' })[w.szansa] || w.szansa || '') + '</span>' + (w.historia ? '<span class="rt">' + esc(w.historia) + '</span>' : '') + '</td><td>' + esc(w.uwaga || '') + '</td></tr>'; }).join('') + '</tbody></table></div>' : '<p class="nopr">Prognoza okien wyprzedaży pojawi się po badaniu kalendarza kampanii linii.</p>';
-      o += '<h4>Skrzynka alertów (Google Flights, Kayak, Skyscanner, newslettery)</h4>';
-      o += SK.length ? '<div class="ptw"><table class="pt"><thead><tr><th>Data</th><th>Źródło</th><th>Trasa</th><th>Cena</th><th>Zmiana</th><th>Uwaga</th></tr></thead><tbody>' + SK.slice(0, 12).map(function (m) { var d = (m.cena && m.poprzednia) ? m.cena - m.poprzednia : null; return '<tr' + (m.cena && m.cena <= prog ? ' class="g"' : '') + '><td class="kd">' + esc(m.data) + '</td><td>' + esc(m.zrodlo || '') + '</td><td>' + esc(m.trasa || '') + '</td><td class="n"><b>' + (m.cena ? nf(m.cena) + ' zł' : '—') + '</b></td><td>' + (d === null ? '—' : d < 0 ? '<span class="tr dn">▼ −' + nf(-d) + '</span>' : d > 0 ? '<span class="tr up">▲ +' + nf(d) + '</span>' : '=') + '</td><td>' + esc(m.uwaga || '') + (m.url ? ' <a href="' + esc(m.url) + '" target="_blank" rel="noopener">otwórz</a>' : '') + '</td></tr>'; }).join('') + '</tbody></table></div>' : '<p class="nopr">Brak alertów mailowych w dzienniku. Alerty z Google Flights, Kayak i Skyscannera trafiają na Gmail; codzienny przebieg „Skrzynka” wpisuje je tutaj.</p>';
-      if (RS) { o += '<h4>Ostatni skan RSS promocji' + (RS.sprawdzono ? ' · ' + esc(RS.sprawdzono) : '') + '</h4>' + ((RS.trafienia || []).length ? '<ul class="rs">' + RS.trafienia.slice().sort(function (a, b) { return (a.data || '') < (b.data || '') ? 1 : -1; }).slice(0, 10).map(function (r) { return '<li class="' + (r.sila === 'silne' ? 's' : '') + '"><span class="kd">' + esc(r.data || '') + '</span> <span class="rt" style="display:inline">' + esc(r.zrodlo || '') + '</span> <a href="' + esc(r.url || '#') + '" target="_blank" rel="noopener">' + esc(r.tytul || '') + '</a></li>'; }).join('') + '</ul>' : '<p class="nopr">Bez trafień w ostatnim skanie (' + esc(String((RS.kanaly || []).filter(function (k) { return k.ok; }).length)) + ' kanałów).</p>'); }
-      o += '</div>';
+      if (hist.length) { var li = function (e) { return '<li><span class="dd">' + esc(pl2(e.data)) + '</span><span class="ds">' + esc(e.zrodlo || '') + (e.faza ? ' · ' + esc(e.faza) : '') + '</span><span class="dt">' + (e.najtansza && e.najtansza.cena ? '<b>' + nf(e.najtansza.cena) + ' zł</b> · ' + esc(e.najtansza.opis || e.najtansza.id || '') : 'bez wyceny') + (e.uwaga ? ' – ' + esc(e.uwaga) : '') + '</span></li>'; };
+        o += '<h4>Dziennik przebiegów</h4><ul class="dz">' + hist.slice(0, 5).map(li).join('') + '</ul>' + (hist.length > 5 ? '<details class="ctx"><summary>Starsze przebiegi (' + (hist.length - 5) + ')</summary><ul class="dz">' + hist.slice(5, 40).map(li).join('') + '</ul></details>' : ''); }
       box.innerHTML = o;
-    }).catch(function () { st.textContent = 'Monitor niedostępny w tym podglądzie.'; });
+      // ---------- RADAR ----------
+      var SG = (M.sygnaly || []).slice().sort(function (a, b) { return a.data < b.data ? 1 : -1; }), WY = (M.wyprzedaze || []).slice().sort(function (a, b) { return a.od < b.od ? -1 : 1; }), SK = (M.skrzynka || []).slice().sort(function (a, b) { return a.data < b.data ? 1 : -1; }), RS = M.rss || null;
+      var since = new Date(t0.getTime() - 90 * 864e5).toISOString().slice(0, 10), dn = 0, up = 0, ndn = 0, nup = 0;
+      SG.forEach(function (g) { if (g.data >= since) { if (g.kierunek === 'spadek') { dn += +g.waga || 1; ndn++; } else if (g.kierunek === 'wzrost') { up += +g.waga || 1; nup++; } } });
+      var bal = dn + up ? Math.round(dn / (dn + up) * 100) : 50, verdict = !(dn + up) ? 'brak sygnałów' : dn > up * 1.25 ? 'przewaga sygnałów spadku – opłaca się obserwować i polować' : up > dn * 1.25 ? 'przewaga sygnałów wzrostu – dobrą cenę brać od razu' : 'sygnały zrównoważone';
+      var baro = '<div class="baro"><div class="bm" role="img" aria-label="Barometr sygnałów: taniej ' + dn + ', drożej ' + up + '"><i class="dn" style="width:' + bal + '%"></i><i class="up" style="width:' + (100 - bal) + '%"></i></div><div class="bml"><span class="dn">▼ taniej · ' + ndn + ' sygn. (waga ' + dn + ')</span><span class="up">▲ drożej · ' + nup + ' sygn. (waga ' + up + ')</span></div><p class="bmv">' + verdict + ' <small>(ostatnie 90 dni, ważone 1–3)</small></p></div>';
+      var r = '<div class="rhead"><div><p class="eyebrow">Radar · antycypacja obniżek</p><h3>Co zapowiada rynek</h3></div>' + baro + '</div>';
+      r += '<div class="rgrid"><div class="rcol"><div class="ph2"><h4>Sygnały wyprzedzające</h4><div class="sfl" role="group" aria-label="Filtr sygnałów"><button type="button" data-sf="all" aria-pressed="true">wszystkie</button><button type="button" data-sf="dn" aria-pressed="false">▼ taniej</button><button type="button" data-sf="up" aria-pressed="false">▲ drożej</button></div></div>';
+      r += SG.length ? '<ul class="sg">' + SG.map(function (g, i) { var k = g.kierunek === 'spadek' ? 'dn' : g.kierunek === 'wzrost' ? 'up' : 'fl'; return '<li class="' + k + (i >= 6 ? ' more' : '') + '" data-k="' + k + '"><span class="sgd">' + esc(pl2(g.data)) + '</span><span class="sgk">' + (k === 'dn' ? '▼ taniej' : k === 'up' ? '▲ drożej' : '• neutralnie') + ' · ' + '●●●'.slice(0, +g.waga || 1) + '<s>' + '●●●'.slice(0, 3 - (+g.waga || 1)) + '</s></span><span class="sgt"><b>' + esc(g.typ || '') + '.</b> ' + esc(g.opis || '') + (g.url ? ' <a href="' + esc(g.url) + '" target="_blank" rel="noopener">źródło</a>' : '') + '</span></li>'; }).join('') + '</ul>' + (SG.length > 6 ? '<button type="button" class="lnk" data-sgmore>Pokaż wszystkie (' + SG.length + ')</button>' : '') : '<p class="nopr">Brak zapisanych sygnałów.</p>';
+      r += '</div><div class="rcol"><h4>Okna wyprzedaży do wylotu</h4>';
+      if (WY.length) {
+        var T0 = new Date('2026-11-01').getTime(), T1 = new Date('2027-11-06').getTime(), SP = T1 - T0, P = function (d) { return Math.max(0, Math.min(100, (new Date(d).getTime() - T0) / SP * 100)); };
+        var MN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'], mh = '';
+        for (var y = 2026, m = 10; y < 2027 || m <= 10; ) { var ds = y + '-' + String(m + 1).padStart(2, '0') + '-01'; mh += '<span style="left:' + P(ds) + '%">' + MN[m] + (m === 0 ? '<small>' + y + '</small>' : '') + '</span>'; m++; if (m > 11) { m = 0; y++; } }
+        var nowL = P(td), wyl = P('2027-11-05');
+        r += '<div class="tl2"><div class="tlr hdr"><div class="tll"></div><div class="tlt tlm">' + mh + '<i class="tln" style="left:' + nowL + '%"><em>dziś</em></i><i class="tlw" style="left:' + wyl + '%"><em>wylot</em></i></div></div>' +
+          WY.map(function (w) { var past = td > (w.do || w.od), now = !past && td >= w.od, sz = w.szansa || 'niska'; return '<details class="tlr s-' + sz + (past ? ' past' : now ? ' now' : '') + '"><summary><div class="tll"><b>' + esc(w.linia) + '</b><small>' + esc(pl2s(w.od)) + (w.do && w.do !== w.od ? '–' + esc(pl2s(w.do)) : '') + '</small></div><div class="tlt"><i class="tln" style="left:' + nowL + '%"></i><i class="tlb" style="left:' + P(w.od) + '%;width:' + Math.max(1.4, P(w.do || w.od) - P(w.od)) + '%"></i></div></summary><div class="tlx"><p><b>' + esc(w.nazwa || '') + '</b> · ' + ({ wysoka: 'szansa wysoka', srednia: 'szansa średnia', niska: 'szansa niska' })[sz] + '</p>' + (w.historia ? '<p>Historia: ' + esc(w.historia) + '</p>' : '') + (w.uwaga ? '<p>Co zrobić: ' + esc(w.uwaga) + '</p>' : '') + '</div></details>'; }).join('') +
+          '<p class="tll2"><span class="s-wysoka">■</span> wysoka szansa objęcia listopada 2027 · <span class="s-srednia">■</span> średnia · <span class="s-niska">■</span> niska. Kliknij wiersz, żeby zobaczyć historię i co zrobić.</p></div>';
+      } else r += '<p class="nopr">Brak prognozy okien.</p>';
+      r += '</div></div>';
+      r += '<div class="rgrid"><div class="rcol"><h4>Skrzynka alertów z Gmaila</h4>' + (SK.length ? '<div class="ptw"><table class="pt"><thead><tr><th>Data</th><th>Źródło · trasa</th><th>Cena / os.</th><th>Zmiana</th></tr></thead><tbody>' + SK.slice(0, 10).map(function (m) { var d = (m.cena && m.poprzednia) ? m.cena - m.poprzednia : null; return '<tr' + (m.cena && m.cena <= prog ? ' class="g"' : '') + '><td class="kd">' + esc(pl2(m.data)) + '</td><td>' + esc(m.zrodlo || '') + '<span class="rt">' + esc(m.trasa || '') + (m.uwaga ? ' · ' + esc(m.uwaga) : '') + '</span>' + (m.url ? '<a href="' + esc(m.url) + '" target="_blank" rel="noopener">otwórz</a>' : '') + '</td><td class="n"><b>' + (m.cena ? nf(m.cena) + ' zł' : '—') + '</b></td><td>' + (d === null ? '—' : d < 0 ? '<span class="tr dn">▼ −' + nf(-d) + '</span>' : d > 0 ? '<span class="tr up">▲ +' + nf(d) + '</span>' : '=') + '</td></tr>'; }).join('') + '</tbody></table></div>' : '<p class="nopr">Pusto. Alerty Google Flights, Kayaka, Skyscannera i ExpertFlyer trafią tu po ich ustawieniu (od ok. 10.12.2026) – patrz karta <a href="#zadania" data-lgo="zadania">Alerty i zadania</a>.</p>') + '</div>';
+      r += '<div class="rcol"><h4>Radar RSS' + (RS && RS.sprawdzono ? ' <small class="st">' + esc(RS.sprawdzono) + ' · ' + ((RS.kanaly || []).filter(function (k) { return k.ok; }).length) + '/' + ((RS.kanaly || []).length) + ' kanałów</small>' : '') + '</h4>' + (RS && (RS.trafienia || []).length ? '<ul class="rs">' + RS.trafienia.slice().sort(function (a, b) { return (a.data || '') < (b.data || '') ? 1 : -1; }).slice(0, 8).map(function (x) { return '<li class="' + (x.sila === 'silne' ? 's' : x.sila === 'dolot' ? 'dl' : '') + '"><span class="kd">' + esc(pl2s(x.data || '')) + '</span><a href="' + esc(x.url || '#') + '" target="_blank" rel="noopener">' + esc(x.tytul || '') + '</a><span class="rt">' + esc(x.zrodlo || '') + (x.sila === 'dolot' ? ' · dolot' : '') + '</span></li>'; }).join('') + '</ul>' : '<p class="nopr">Bez trafień w ostatnim skanie.</p>') + '</div></div>';
+      if (RB) RB.innerHTML = r;
+      // ---------- CO TERAZ ----------
+      var done = tdDone(), best = priced[0] ? last(priced[0]) : null;
+      var c = '<div class="ck4">';
+      c += '<div class="cc cphase"><span class="cl">Faza teraz</span>' + (faza ? '<b>' + esc(faza.faza) + '</b><small>' + pl2(faza.od) + ' – ' + pl2(faza.do) + '</small><p>' + esc(faza.decyzja) + '</p>' : nextF ? '<b>Przed startem</b><small>do ' + pl2(nextF.od) + ' (za ' + days(td, nextF.od) + ' dni)</small><p>Teraz tylko przygotowania z listy zadań – rozkład na listopad 2027 jeszcze nieotwarty. Następnie: ' + esc(nextF.faza) + ' (' + pl2(nextF.od) + ').</p>' : '<b>Po zakupie</b>') + '<a href="#kalendarz" data-lgo="plan">kalendarz →</a></div>';
+      c += '<div class="cc cprice ' + (best ? kl(best.cena) : 'n') + '"><span class="cl">Najlepsza kompletna podróż</span>' + (best ? '<b>' + nf(best.cena) + ' zł / os.</b><small>' + esc(priced[0].linia) + ' · ' + pl2(best.data) + '</small><p>' + badge(best.cena) + ' ' + (best.cena <= prog ? nf(prog - best.cena) + ' zł poniżej progu' : nf(best.cena - prog) + ' zł ponad próg') + '</p>' : '<b>brak wyceny</b><small>rozkład otwiera się ok. 10.12.2026</small><p>Próg zakupu 4 800 zł/os. Ofertę spoza monitora sprawdź w kalkulatorze.</p>') + '<a href="#kalk" data-lgo="decyzja">kalkulator i ranking →</a></div>';
+      c += '<div class="cc cbaro"><span class="cl">Barometr rynku</span><b>' + (!(dn + up) ? 'brak sygnałów' : dn > up * 1.25 ? '▼ raczej taniej' : up > dn * 1.25 ? '▲ raczej drożej' : '≈ równowaga') + '</b><div class="bm small"><i class="dn" style="width:' + bal + '%"></i><i class="up" style="width:' + (100 - bal) + '%"></i></div><small>taniej ' + dn + ' · drożej ' + up + ' (90 dni, ważone)</small>' + (SG[0] ? '<p>' + (up > dn * 1.25 ? 'Dobrą cenę brać od razu. ' : dn > up * 1.25 ? 'Warto polować i obserwować. ' : '') + 'Najnowszy: ' + esc(SG[0].typ.toLowerCase()) + ' – ' + esc((SG[0].opis || '').split(/[.–;]/)[0].trim()) + '.</p>' : '') + '<a href="#radar" data-lgo="radar">radar →</a></div>';
+      var ev = [];
+      FZ.forEach(function (f) { if (f.od > td) ev.push([f.od, 'Faza: ' + f.faza, '']); });
+      (M.wyprzedaze || []).forEach(function (w) { if (w.od > td && w.szansa !== 'niska') ev.push([w.od, w.linia + ' – ' + (w.nazwa || '').split(/[–,(]/)[0].trim(), 'szansa ' + (w.szansa === 'srednia' ? 'średnia' : w.szansa)]); });
+      ZD.forEach(function (z) { if (!done[z.id] && z.do >= td) ev.push([z.do, 'Termin: ' + z.t, '']); });
+      ev.sort(function (a, b) { return a[0] < b[0] ? -1 : 1; });
+      c += '<div class="cc cnext"><span class="cl">Najbliższe terminy</span><ul>' + ev.slice(0, 4).map(function (e) { return '<li><span class="kd">' + pl2s(e[0]) + '</span> ' + esc(e[1]) + (e[2] ? ' <small>' + esc(e[2]) + '</small>' : '') + '</li>'; }).join('') + '</ul></div>';
+      c += '</div>';
+      var soon = new Date(t0.getTime() + 30 * 864e5).toISOString().slice(0, 10), open = ZD.filter(function (z) { return !done[z.id] && (z.od || '0') <= soon; }).sort(function (a, b) { return a.do < b.do ? -1 : 1; });
+      c += '<div class="cnow"><span class="cl">Twoje zadania na najbliższe 30 dni</span>' + (open.length ? '<ul>' + open.slice(0, 4).map(function (z) { var late = z.do < td; return '<li class="' + (late ? 'late' : '') + '"><b>' + esc(z.t) + '</b> <small>' + (late ? 'po terminie ' : 'do ') + pl2(z.do) + '</small></li>'; }).join('') + '</ul>' : '<p>Nic pilnego – następne zadania pojawią się tu same.</p>') + '<a href="#zadania" data-lgo="zadania">wszystkie zadania →</a></div>';
+      if (M.status) c += '<details class="ctx cstat"><summary>Ostatni raport agenta' + (M.zaktualizowano ? ' · ' + pl2(M.zaktualizowano) : '') + '</summary><p>' + esc(M.status) + '</p></details>';
+      if (CK) CK.innerHTML = c;
+    }
+    fetch('loty.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (M) { window.__lotyM = M; render(M); }).catch(function () { st.textContent = 'Monitor niedostępny w tym podglądzie.'; if (CK) CK.innerHTML = '<p class="st">Stan monitora niedostępny w tym podglądzie – otwórz wersję na stronie.</p>'; });
+    window.__lotyRender = function () { if (window.__lotyM) render(window.__lotyM); };
+    document.addEventListener('click', function (e) {
+      var f = e.target.closest('[data-sf]'); if (f) { var k = f.dataset.sf; f.parentNode.querySelectorAll('[data-sf]').forEach(function (b) { b.setAttribute('aria-pressed', b === f ? 'true' : 'false'); }); RB.querySelectorAll('.sg li').forEach(function (li) { li.hidden = k !== 'all' && li.dataset.k !== k; }); RB.querySelector('.sg').classList.add('all'); var mb = RB.querySelector('[data-sgmore]'); if (mb) mb.hidden = true; }
+      var mm = e.target.closest('[data-sgmore]'); if (mm) { RB.querySelector('.sg').classList.add('all'); mm.hidden = true; }
+    });
   })();
   // prawdziwa mapa (OpenStreetMap przez Leaflet); gdy kafelki nie dochodzą (np. w podglądzie Claude), zostaje mapa schematyczna
   (function () {
@@ -597,6 +864,53 @@ footer a { color: var(--ink-2); }
   var hsw = document.getElementById('hsw'); if (hsw) hsw.addEventListener('click', function (e) { var b = e.target.closest('[data-hv]'); if (b) { cur = +b.dataset.hv; save('h', cur); bud(); } });
   document.addEventListener('click', function (e) { var a = e.target.closest('[data-go]'); if (!a) return; var t = document.getElementById(a.dataset.go); if (!t) return; e.preventDefault(); t.classList.add('in'); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); t.classList.remove('flash'); void t.offsetWidth; t.classList.add('flash'); history.replaceState(null, '', '#' + a.dataset.go); });
   bud();
+  // Loty: karty widoków, kalkulator oferty, lista zadań
+  (function () {
+    var bar = document.querySelector('.ltabs'); if (!bar) return;
+    var tabs = bar.querySelectorAll('[data-lt]'), panes = document.querySelectorAll('.lpane'), keys = [].map.call(tabs, function (t) { return t.dataset.lt; });
+    function show(k, scroll) { if (keys.indexOf(k) < 0) k = 'decyzja'; tabs.forEach(function (t) { t.setAttribute('aria-selected', t.dataset.lt === k ? 'true' : 'false'); }); panes.forEach(function (p) { p.hidden = p.dataset.pane !== k; p.querySelectorAll('.reveal').forEach(function (r) { r.classList.add('in'); }); }); save('lt', k); if (scroll) bar.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    bar.addEventListener('click', function (e) { var b = e.target.closest('[data-lt]'); if (b) show(b.dataset.lt, true); });
+    bar.addEventListener('keydown', function (e) { if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return; var i = keys.indexOf(load('lt', 'decyzja')), n = (i + (e.key === 'ArrowRight' ? 1 : -1) + keys.length) % keys.length; show(keys[n], false); tabs[n].focus(); });
+    document.addEventListener('click', function (e) { var a = e.target.closest('[data-lgo]'); if (!a) return; e.preventDefault(); var tgt = a.getAttribute('href') ? document.getElementById(a.getAttribute('href').slice(1)) : null; show(a.dataset.lgo, !tgt); if (tgt) setTimeout(function () { tgt.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 30); });
+    function fromHash() { var id = (location.hash || '').slice(1); if (!id) return false; var el = document.getElementById(id); if (!el) return false; var p = el.closest('.lpane'); if (!p && id !== 'loty') return false; if (p) show(p.dataset.pane, false);
+      var stop = false, quit = function () { stop = true; }; ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function (ev) { window.addEventListener(ev, quit, { once: true, passive: true }); });
+      var go = function () { if (!stop) el.scrollIntoView({ block: 'start', behavior: 'instant' }); }; [60, 400, 1200, 2500].forEach(function (t) { setTimeout(go, t); }); return true; }
+    if (!fromHash()) show(load('lt', 'decyzja'), false);
+    window.addEventListener('hashchange', fromHash);
+  })();
+  document.addEventListener('click', function (e) { var b = e.target.closest('[data-kgo]'); if (!b) return; var el = document.getElementById('kf-' + b.dataset.kgo); if (!el) return; var dt = el.querySelector('details'); if (dt) dt.open = true; el.scrollIntoView({ behavior: 'smooth', block: 'center' }); el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); });
+  (function () {
+    var box = document.getElementById('kalk'); if (!box) return;
+    var $ = function (id) { return document.getElementById(id); };
+    function val(id) { var v = parseFloat(String($(id).value).replace(',', '.')); return isFinite(v) ? v : 0; }
+    function upd() {
+      box.querySelectorAll('.kx').forEach(function (x) { var c = $(x.dataset.for); x.hidden = x.dataset.for === 'k-bag' ? c.checked : !c.checked; });
+      var c = Math.round(val('k-cena') * (+$('k-wal').value) / (+$('k-za').value)), out = $('k-out');
+      try { localStorage.setItem('uco-kalk', JSON.stringify({ c: $('k-cena').value, w: $('k-wal').value, z: $('k-za').value, b: $('k-bag').checked, bc: $('k-bagc').value, k: $('k-kr').checked, kc: $('k-krc').value, d: $('k-dol').checked, dc: $('k-dolc').value })); } catch (e) {}
+      if (!c) { out.innerHTML = '<p class="kempty">Wpisz cenę, a pojawi się werdykt: kompletna podróż na osobę, odległość od progu 4 800 zł i wpływ na budżet pary.</p>'; return; }
+      var add = [], t = c;
+      if (!$('k-bag').checked) { t += val('k-bagc'); add.push('bagaż ' + nf(val('k-bagc'))); }
+      if ($('k-kr').checked) { t += val('k-krc'); add.push('lot krajowy ' + nf(val('k-krc'))); }
+      if ($('k-dol').checked) { t += val('k-dolc'); add.push('dolot i nocleg ' + nf(val('k-dolc'))); }
+      t = Math.round(t);
+      var prog = 4800, v = t <= 4000 ? ['b0', '🟢🟢 Wyjątkowa okazja', 'Kupować dziś, parami, u linii. W Iberii najpierw zatrzymać cenę na 72 h dla wszystkich par, potem sprawdzić miejsca dla 6.'] : t <= 4500 ? ['b1', '🟢 Bardzo dobry zakup', 'Kupować parami tego samego dnia, u linii, w walucie sprzedawcy.'] : t <= prog ? ['b1', '🟢 W progu', 'Dobry zakup, zwłaszcza na jednym bilecie – kupować parami tego samego dnia.'] : t <= 5000 ? ['b2', '🟡 Blisko progu', 'Akceptowalne. Przed lipcem porównać daty i trasy; od 3.07 (faza rezerwy) kupować.'] : t <= 5500 ? ['b3', '⚪ Powyżej progu', 'Czekać i polować; kupić dopiero w fazie rezerwy (3.07–31.08), jeśli nic lepszego.'] : ['b4', '🔴 Drogo', 'Czekać. Jeśli tak będzie 31.08, kupić i przeliczyć hotele na wariant 4.'];
+      var sep = $('k-kr').checked || $('k-dol').checked, o = D.hotels[cur], b = calc(o), para = b.razem - b.loty + 2 * t, lim = 28000, bs = window.__bestSingle;
+      out.innerHTML = '<div class="kv2"><div class="kbig"><span>Kompletna podróż na osobę</span><b>' + nf(t) + ' zł</b><small>' + (add.length ? 'bilet ' + nf(c) + ' + ' + add.join(' + ') : 'bilet z bagażem, bez dodatków') + '</small></div>' +
+        '<div class="kver"><span class="bd ' + v[0] + '">' + v[1] + '</span><p class="kd">' + (t <= prog ? nf(prog - t) + ' zł poniżej progu 4 800' : nf(t - prog) + ' zł ponad próg 4 800') + '</p><p>' + v[2] + '</p></div>' +
+        '<div class="kbud"><span>Budżet pary przy tej cenie</span><b class="' + (para <= lim ? 'ok' : 'over') + '">' + nf(para) + ' zł</b><small>' + (para <= lim ? 'zapas ' + nf(lim - para) + ' zł do sufitu 28 000' : nf(para - lim) + ' zł ponad sufit 28 000') + ' · ' + esc(o.n.replace(/[:(].*$/, '').trim()) + ', ' + np + ' pary · bilety dla ' + (2 * np) + ' os.: ' + nf(t * 2 * np) + ' zł</small></div></div>' +
+        (sep ? '<p class="kw">Osobne bilety opłacają się tylko przy oszczędności ≥ 800 zł/os. wobec najlepszego jednego biletu' + (bs ? ' (dziś ' + nf(bs) + ' zł – ten wariant ma sens poniżej ' + nf(bs - 800) + ' zł' + (t <= bs - 800 ? ', więc tu się opłaca' : ', więc tu się nie opłaca') + ')' : '') + '. Przy osobnych biletach min. 3 h przesiadki w Ezeizie i ubezpieczenie z klauzulą „missed connection”.</p>' : '');
+    }
+    try { var s = JSON.parse(localStorage.getItem('uco-kalk') || 'null'); if (s) { $('k-cena').value = s.c || ''; $('k-wal').value = s.w || '1'; $('k-za').value = s.z || '1'; $('k-bag').checked = s.b !== false; $('k-bagc').value = s.bc || 700; $('k-kr').checked = !!s.k; $('k-krc').value = s.kc || 650; $('k-dol').checked = !!s.d; $('k-dolc').value = s.dc || 850; } } catch (e) {}
+    box.addEventListener('input', upd); box.addEventListener('change', upd); upd(); window.__kalkUpd = upd;
+    var _bud = bud; bud = function () { _bud(); upd(); };
+  })();
+  (function () {
+    var L = document.querySelectorAll('[data-td]'); if (!L.length) return;
+    var t0 = new Date(), td = t0.getFullYear() + '-' + String(t0.getMonth() + 1).padStart(2, '0') + '-' + String(t0.getDate()).padStart(2, '0'), dn = load('td', {});
+    function paint() { L.forEach(function (c) { var li = c.closest('li'); c.checked = !!dn[c.dataset.td]; li.classList.toggle('done', c.checked); li.classList.toggle('late', !c.checked && li.dataset.do < td); li.classList.toggle('now', !c.checked && li.dataset.do >= td && (li.dataset.od || '0') <= td); }); }
+    L.forEach(function (c) { c.addEventListener('change', function () { dn[c.dataset.td] = c.checked; save('td', dn); paint(); if (window.__lotyRender) window.__lotyRender(); }); });
+    paint();
+  })();
   // stopka: kopiowanie linku i druk
   var cl = document.getElementById('copylink'), pb = document.getElementById('printbtn');
   if (cl) cl.addEventListener('click', function () { var u = 'https://6b7kq8bpkr-del.github.io/Madeira-interactive/rocznica-2027/uco/'; function ok() { var c = document.getElementById('copied'); c.hidden = false; setTimeout(function () { c.hidden = true; }, 1800); } if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(u).then(ok, function () { window.prompt('Skopiuj link:', u); }); else window.prompt('Skopiuj link:', u); });
