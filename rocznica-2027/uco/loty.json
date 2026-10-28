@@ -190,12 +190,160 @@
    "waga": 1,
    "opis": "LATAM rozbudowuje Europę przez São Paulo: Rzym codziennie od VI 2026, Amsterdam od IV, Bruksela od VI, więcej lotów z Barcelony i Lizbony – więcej tanich kombinacji przez GRU do Mendozy.",
    "url": "https://ulysse.com/news/latam-expansion-europe-bruxelles-rome-2026"
+  },
+  {
+   "data": "2026-10-27",
+   "typ": "Paliwo",
+   "kierunek": "wzrost",
+   "waga": 3,
+   "opis": "Paliwo lotnicze 190 USD/bbl (+111 % r/r wg IATA); Lufthansa podwoiła dopłaty paliwowe na Frankfurt–Buenos Aires, Air France ma zabezpieczone tylko 33 % paliwa na 2027. Argument, by dobrą cenę brać od razu, a nie czekać.",
+   "url": "https://travel-dealz.com/news/lufthansa-surcharges-october-2026"
+  },
+  {
+   "data": "2026-10-10",
+   "typ": "Lotnisko",
+   "kierunek": "wzrost",
+   "waga": 2,
+   "opis": "Plan przebudowy Ezeizy (760 mln USD): główny pas do repavimentacji w 2027 r. Jeśli prace wypadną jesienią 2027, linie europejskie mogą znów ciąć loty – śledzić harmonogram robót.",
+   "url": "https://www.sirchandler.com.ar/2026/10/la-nueva-gran-reforma-de-ezeiza-ahora-si/"
+  },
+  {
+   "data": "2026-02-11",
+   "typ": "Pojemność",
+   "kierunek": "spadek",
+   "waga": 2,
+   "opis": "Iberia: 4 loty dziennie Madryt–Buenos Aires latem 2026 (+12 % miejsc), Plus Ultra 5 razy w tygodniu, World2Fly Madryt–Rosario od 1.10.2026, Air France 9 razy w tygodniu – więcej miejsc na trasie Europa–Argentyna.",
+   "url": "https://www.infoviajera.com/?p=166399"
+  },
+  {
+   "data": "2026-01-12",
+   "typ": "Kampania",
+   "kierunek": "spadek",
+   "waga": 3,
+   "opis": "Rebajas Iberii 2026 (przedsprzedaż Iberia Club 5.01, ogólna 8–26.01) obejmowały podróże 10.01–10.12.2026 – jeśli wzór się powtórzy, styczeń 2027 to najlepsze okno na listopad 2027.",
+   "url": "https://www.madridinforma.es/?p=46688"
+  },
+  {
+   "data": "2026-10-27",
+   "typ": "Taryfa",
+   "kierunek": "spadek",
+   "waga": 1,
+   "opis": "Air France z Madrytu do Buenos Aires od 562 EUR na czerwiec i wrzesień 2027 (taryfa Light) – pierwsze promocyjne taryfy na 2027 już w systemach; przy listopadzie sprawdzać, czy reguły sezonu obejmą nasze daty.",
+   "url": "https://travel-dealz.com/ticker/127793/"
+  },
+  {
+   "data": "2026-10-05",
+   "typ": "Taryfa",
+   "kierunek": "spadek",
+   "waga": 1,
+   "opis": "LATAM Mendoza–Madryt w obie strony od 923 USD (przez Limę, bagaż podręczny) wobec 945 USD z Buenos Aires z bagażem – bilet „przez” do Mendozy bywa w cenie biletu do Buenos Aires; zawsze wyceniać MDZ i SCL obok EZE.",
+   "url": "https://promociones-aereas.com.ar/2026/10/vuelos-a-madrid-desde-mendoza-en-primavera-europea-latam-rt-p.html"
   }
  ],
- "wyprzedaze": [],
+ "wyprzedaze": [
+  {
+   "od": "2026-11-01",
+   "do": "2027-08-31",
+   "linia": "LOT",
+   "nazwa": "Szalone Środy (co środę)",
+   "szansa": "niska",
+   "historia": "tylko loty LOT, bagaż podręczny, krótkie okna podróży",
+   "uwaga": "Wyłącznie dolot do Madrytu/Rzymu/Paryża w scenariuszu 4; łapie codzienny radar RSS."
+  },
+  {
+   "od": "2026-11-12",
+   "do": "2027-05-31",
+   "linia": "Iberia + Visit Argentina",
+   "nazwa": "kampania INPROTUR, od 425 EUR za odcinek (Básica bez bagażu)",
+   "szansa": "niska",
+   "historia": "okno podróży nieopublikowane; wyłączenia 26.12–19.01 i Wielkanoc",
+   "uwaga": "Agent 13.11 sprawdzi, czy daty podróży sięgają listopada 2027."
+  },
+  {
+   "od": "2026-11-24",
+   "do": "2026-12-02",
+   "linia": "Black Friday – Iberia, Air Europa, LATAM, TAP, ITA, Ethiopian, LOT",
+   "nazwa": "BF 27.11.2026",
+   "szansa": "niska",
+   "historia": "2024–2025: podróże tylko do I–V następnego roku",
+   "uwaga": "Tylko sprawdzić, nie kupować „bo promocja”."
+  },
+  {
+   "od": "2027-01-01",
+   "do": "2027-08-31",
+   "linia": "Iberia Club",
+   "nazwa": "wyprzedaże Avios (co 2–3 miesiące, −30 do −60 %) i zakup Avios z bonusem 50 %",
+   "szansa": "niska",
+   "historia": "XI 2025 −60 %, I 2026 −40 %, III 2026 −35 %, VI 2026: Buenos Aires–Madryt od 20 500 Avios w jedną stronę",
+   "uwaga": "Opłaca się tylko przy zbiegu rabatu, bonusu przy zakupie Avios i miejsc nagrodowych dla par; zwykle gotówka wygrywa."
+  },
+  {
+   "od": "2027-01-05",
+   "do": "2027-01-26",
+   "linia": "Iberia",
+   "nazwa": "Rebajas de enero – przedsprzedaż Iberia Club 5.01, ogólna ok. 8–26.01",
+   "szansa": "wysoka",
+   "historia": "2026: podróże 10.01–10.12.2026 (cały listopad), São Paulo od 299 EUR w jedną stronę",
+   "uwaga": "Najlepsze okno. Założyć darmowe konto Iberia Club przed 5.01 (przedsprzedaż). Wycenić WAW–MDZ przez MAD i EZE oraz multi-city ze stopoverem; kupić przy ≤ 4 800 zł/os."
+  },
+  {
+   "od": "2027-01-13",
+   "do": "2027-01-28",
+   "linia": "Air France / KLM",
+   "nazwa": "wyprzedaż styczniowa (Real Deal Days)",
+   "szansa": "niska",
+   "historia": "I 2026: podróże do III–V 2026; BUE z Paryża od 893 EUR",
+   "uwaga": "Benchmark ceny; listopada zwykle nie obejmuje."
+  },
+  {
+   "od": "2027-01-20",
+   "do": "2027-01-25",
+   "linia": "Aerolíneas Argentinas / INPROTUR",
+   "nazwa": "FITUR – promocje z Madrytu i Rzymu z bagażem i lotem krajowym 50–100 EUR",
+   "szansa": "niska",
+   "historia": "2026: podróże II–VI; MAD od 1 020 EUR",
+   "uwaga": "Okazja do ogłoszeń pojemności na zimę 2027 (sygnały)."
+  },
+  {
+   "od": "2027-05-01",
+   "do": "2027-06-30",
+   "linia": "LATAM / oneworld (ex-Wiedeń, Skandynawia)",
+   "nazwa": "promocje na sezon XI–III",
+   "szansa": "srednia",
+   "historia": "V–VI 2026: Wiedeń–Buenos Aires 2 650–2 850 zł z terminami w listopadzie 2026",
+   "uwaga": "Dzika karta – tylko gdy całość z dojazdem, bagażem i krajowym ≤ 4 000 zł/os."
+  },
+  {
+   "od": "2027-05-10",
+   "do": "2027-08-31",
+   "linia": "Aerolíneas / rynek argentyński",
+   "nazwa": "Hot Sale (maj), Travel Sale (koniec sierpnia), promocje INPROTUR dla cudzoziemców",
+   "szansa": "niska",
+   "historia": "ceny w ARS z 30 % podatkiem „percepción”; promocje dla cudzoziemców w EUR obejmowały III–VI",
+   "uwaga": "Nie płacić w ARS; liczy się tylko wersja w EUR/USD dla biletów z Europy."
+  },
+  {
+   "od": "2027-06-01",
+   "do": "2027-09-01",
+   "linia": "Flying Blue (Air France/KLM)",
+   "nazwa": "Promo Rewards 1. dnia miesiąca, −25 % mil",
+   "szansa": "niska",
+   "historia": "2026: Buenos Aires w promocji tylko w klasie biznes (63 750 mil); w ekonomicznej sporadycznie Santiago (22 500); od 8.09.2026 dewaluacja; brak źródła mil w Polsce",
+   "uwaga": "Tylko jeśli ktoś ma mile Flying Blue; pełny monitor zerka 1. dnia miesiąca."
+  },
+  {
+   "od": "2027-09-01",
+   "do": "2027-09-25",
+   "linia": "Air France / KLM + Iberia Avios",
+   "nazwa": "Real Deal Days IX i rabat Avios Iberii (ok. 17–23.09)",
+   "szansa": "srednia",
+   "historia": "IX 2026: podróże 14.09.2026–21.06.2027",
+   "uwaga": "Awaryjne okno tylko wtedy, gdy 31.08 ceny przekraczają 5 500 zł/os.; dla 6–8 osób ryzykowne."
+  }
+ ],
  "skrzynka": [],
  "rss": {
-  "sprawdzono": "2026-10-28 09:12",
+  "sprawdzono": "2026-10-28 09:22",
   "kanaly": [
    {
     "zrodlo": "Fly4free.pl",
@@ -210,6 +358,26 @@
    {
     "zrodlo": "Fly4free.com",
     "wpisy": 50,
+    "ok": true
+   },
+   {
+    "zrodlo": "Fly4free.pl · Buenos Aires",
+    "wpisy": 0,
+    "ok": true
+   },
+   {
+    "zrodlo": "Fly4free.pl · Ameryka Płd.",
+    "wpisy": 0,
+    "ok": true
+   },
+   {
+    "zrodlo": "Travel-dealz · Argentyna",
+    "wpisy": 13,
+    "ok": true
+   },
+   {
+    "zrodlo": "Travel-dealz · Chile",
+    "wpisy": 7,
     "ok": true
    },
    {
@@ -234,8 +402,9 @@
    },
    {
     "zrodlo": "Infoviajera",
-    "wpisy": 10,
-    "ok": true
+    "wpisy": 0,
+    "ok": false,
+    "blad": "IncompleteRead(0 bytes read)"
    },
    {
     "zrodlo": "Promociones Aéreas",
@@ -255,38 +424,20 @@
   ],
   "trafienia": [
    {
-    "zrodlo": "Sir Chandler",
-    "tytul": "Vuelo de Plus Ultra a Madrid antes de la debacle",
-    "url": "https://www.sirchandler.com.ar/2026/10/mi-vuelo-a-madrid-antes-de-la-debacle-con-plus-ultra/",
-    "data": "2026-10-19",
-    "opis": " Hace unos días publiqué mi video del viaje que hice con Plus Ultra hacia Madrid hace algunas semanas, justo antes de que comenzaran a levantar frecuencias y realmente joderle la vida a muchos de los que compraron sus pasajes. El video que lo dejo al pie de este post, ya fue visto por más de... \n La entrada  Vuelo de Plus Ultra a Madrid antes de la debacle  se publicó primero en  Sir Chandler . ",
+    "zrodlo": "Travel-dealz",
+    "tytul": "Buenos Aires: €562 Air France Flights from Madrid in June & September 2027",
+    "url": "https://travel-dealz.com/ticker/127793/?utm_source=feed&utm_medium=rss&utm_campaign=rss-feed",
+    "data": "2026-10-27",
+    "opis": "SkyTeam member Air France is offering flights from Madrid to Buenos Aires starting at €562 round-trip, with a connection in Paris. This Light fare includes a small bag and hand luggage; the Standard fare with a 23 kg checked bag costs €58 more per flight. Departures are available in June and September 2027, for example: […]",
     "sila": "silne",
-    "tryb": "ar"
-   },
-   {
-    "zrodlo": "Infoviajera",
-    "tytul": "Iberia Club avisa que se pueden canjear Avios por gift cards de El Corte Inglés",
-    "url": "https://www.infoviajera.com/2026/10/iberia-club-avisa-que-se-pueden-canjear-avios-por-gift-cards-de-el-corte-ingles/",
-    "data": "2026-10-21",
-    "opis": " El programa de pasajero frecuente de la aerolínea Iberia, denominado Iberia Club, anunció que se podrán canjear Avios por gift cards para comprar en las famosas tiendas españolas El Corte Inglés. Los Avios son la «moneda» de Iberia Club y de los programas de las aerolíneas British Airways, Iberia, Aer Lingus, Vueling, Qatar Airways, Finnair y Loganair; son el equivalente a las millas que utilizan",
-    "sila": "silne",
-    "tryb": "ar"
+    "tryb": "eu"
    },
    {
     "zrodlo": "Sir Chandler",
-    "tytul": "Plus Ultra está en la mira de los dueños de Iberojet",
-    "url": "https://www.sirchandler.com.ar/2026/10/la-aerolinea-espanola-que-falta-volar-a-la-argentina/",
-    "data": "2026-10-22",
-    "opis": " El grupo turístico Ávoris, propiedad de Barceló (cadena de hoteles española), volvió a mostrar interés en comprar Plus Ultra para reforzar su aerolínea Iberojet, según informó el portal español de turismo Preferente. Las conversaciones llevan varias semanas, aunque todavía están en una etapa inicial y no existe ningún acuerdo cerrado según este sitio. La iniciativa... \n La entrada  Plus Ultra est",
-    "sila": "silne",
-    "tryb": "ar"
-   },
-   {
-    "zrodlo": "Sir Chandler",
-    "tytul": "Último día de varios aviones en Ezeiza por el achique de la pista",
-    "url": "https://www.sirchandler.com.ar/2026/10/ultimo-dia-de-varios-aviones-en-ezeiza-por-el-achique-de-la-pista/",
-    "data": "2026-10-24",
-    "opis": " Hoy será el último día de operaciones en Ezeiza de VARIAS AEROLINEAS, pero no de todas. En varios lados hablan de cierre del aeropuerto pero la realidad es que se achica la pista principal, la única que estaba en uso desde mediados de agosto, por los trabajos sobre la secundaria Este «achique» durará hasta el... \n La entrada  Último día de varios aviones en Ezeiza por el achique de la pista  se p",
+    "tytul": "El primer día de operaciones especiales en Ezeiza: así salieron los aviones",
+    "url": "https://www.sirchandler.com.ar/2026/10/el-primer-dia-de-operaciones-especiales-en-ezeiza-asi-salieron-los-aviones/",
+    "data": "2026-10-26",
+    "opis": " Ayer domingo 25 de octubre arrancaron las restricciones en Ezeiza con al menos una particularidad en relación a lo que se informó previamente. Lo que presencié es que el vuelo AR1134 de Aerolíneas Argentinas salió directo a Madrid «como si nada», ya que se había informado que los vuelos de Aerolíneas harían escala en Río... \n La entrada  El primer día de operaciones especiales en Ezeiza: así sali",
     "sila": "silne",
     "tryb": "ar"
    },
@@ -301,21 +452,39 @@
    },
    {
     "zrodlo": "Sir Chandler",
-    "tytul": "El primer día de operaciones especiales en Ezeiza: así salieron los aviones",
-    "url": "https://www.sirchandler.com.ar/2026/10/el-primer-dia-de-operaciones-especiales-en-ezeiza-asi-salieron-los-aviones/",
-    "data": "2026-10-26",
-    "opis": " Ayer domingo 25 de octubre arrancaron las restricciones en Ezeiza con al menos una particularidad en relación a lo que se informó previamente. Lo que presencié es que el vuelo AR1134 de Aerolíneas Argentinas salió directo a Madrid «como si nada», ya que se había informado que los vuelos de Aerolíneas harían escala en Río... \n La entrada  El primer día de operaciones especiales en Ezeiza: así sali",
+    "tytul": "Último día de varios aviones en Ezeiza por el achique de la pista",
+    "url": "https://www.sirchandler.com.ar/2026/10/ultimo-dia-de-varios-aviones-en-ezeiza-por-el-achique-de-la-pista/",
+    "data": "2026-10-24",
+    "opis": " Hoy será el último día de operaciones en Ezeiza de VARIAS AEROLINEAS, pero no de todas. En varios lados hablan de cierre del aeropuerto pero la realidad es que se achica la pista principal, la única que estaba en uso desde mediados de agosto, por los trabajos sobre la secundaria Este «achique» durará hasta el... \n La entrada  Último día de varios aviones en Ezeiza por el achique de la pista  se p",
     "sila": "silne",
     "tryb": "ar"
    },
    {
-    "zrodlo": "Travel-dealz",
-    "tytul": "Buenos Aires: €562 Air France Flights from Madrid in June & September 2027",
-    "url": "https://travel-dealz.com/ticker/127793/?utm_source=feed&utm_medium=rss&utm_campaign=rss-feed",
-    "data": "2026-10-27",
-    "opis": "SkyTeam member Air France is offering flights from Madrid to Buenos Aires starting at €562 round-trip, with a connection in Paris. This Light fare includes a small bag and hand luggage; the Standard fare with a 23 kg checked bag costs €58 more per flight. Departures are available in June and September 2027, for example: […]",
+    "zrodlo": "Sir Chandler",
+    "tytul": "Plus Ultra está en la mira de los dueños de Iberojet",
+    "url": "https://www.sirchandler.com.ar/2026/10/la-aerolinea-espanola-que-falta-volar-a-la-argentina/",
+    "data": "2026-10-22",
+    "opis": " El grupo turístico Ávoris, propiedad de Barceló (cadena de hoteles española), volvió a mostrar interés en comprar Plus Ultra para reforzar su aerolínea Iberojet, según informó el portal español de turismo Preferente. Las conversaciones llevan varias semanas, aunque todavía están en una etapa inicial y no existe ningún acuerdo cerrado según este sitio. La iniciativa... \n La entrada  Plus Ultra est",
     "sila": "silne",
-    "tryb": "eu"
+    "tryb": "ar"
+   },
+   {
+    "zrodlo": "Infoviajera",
+    "tytul": "Iberia Club avisa que se pueden canjear Avios por gift cards de El Corte Inglés",
+    "url": "https://www.infoviajera.com/2026/10/iberia-club-avisa-que-se-pueden-canjear-avios-por-gift-cards-de-el-corte-ingles/",
+    "data": "2026-10-21",
+    "opis": " El programa de pasajero frecuente de la aerolínea Iberia, denominado Iberia Club, anunció que se podrán canjear Avios por gift cards para comprar en las famosas tiendas españolas El Corte Inglés. Los Avios son la «moneda» de Iberia Club y de los programas de las aerolíneas British Airways, Iberia, Aer Lingus, Vueling, Qatar Airways, Finnair y Loganair; son el equivalente a las millas que utilizan",
+    "sila": "silne",
+    "tryb": "ar"
+   },
+   {
+    "zrodlo": "Sir Chandler",
+    "tytul": "Vuelo de Plus Ultra a Madrid antes de la debacle",
+    "url": "https://www.sirchandler.com.ar/2026/10/mi-vuelo-a-madrid-antes-de-la-debacle-con-plus-ultra/",
+    "data": "2026-10-19",
+    "opis": " Hace unos días publiqué mi video del viaje que hice con Plus Ultra hacia Madrid hace algunas semanas, justo antes de que comenzaran a levantar frecuencias y realmente joderle la vida a muchos de los que compraron sus pasajes. El video que lo dejo al pie de este post, ya fue visto por más de... \n La entrada  Vuelo de Plus Ultra a Madrid antes de la debacle  se publicó primero en  Sir Chandler . ",
+    "sila": "silne",
+    "tryb": "ar"
    }
   ]
  }

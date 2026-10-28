@@ -11,6 +11,10 @@ FEEDS = [
  ("Fly4free.pl", "https://www.fly4free.pl/feed/", "eu"),
  ("Fly4free.pl · Argentyna", "https://www.fly4free.pl/tag/argentyna/feed/", "eu"),
  ("Fly4free.com", "https://www.fly4free.com/feed/", "eu"),
+ ("Fly4free.pl · Buenos Aires", "https://www.fly4free.pl/tag/buenos-aires/feed/", "eu"),
+ ("Fly4free.pl · Ameryka Płd.", "https://www.fly4free.pl/tag/ameryka-poludniowa/feed/", "eu"),
+ ("Travel-dealz · Argentyna", "https://travel-dealz.com/destination/argentina/feed/", "eu"),
+ ("Travel-dealz · Chile", "https://travel-dealz.com/destination/chile/feed/", "eu"),
  ("Travel-dealz", "https://travel-dealz.com/feed/", "eu"),
  ("Wakacyjni Piraci", "https://www.wakacyjnipiraci.pl/feed", "eu"),
  ("HolidayPirates", "https://www.holidaypirates.com/feed", "eu"),
@@ -30,10 +34,15 @@ HUB = re.compile(r"madryt|madrid|rzym|rome|paryż|paryz|paris|lizbon|lisbon|fran
 KEY_ROUTES = re.compile(r"argentin|buenos aires|mendoza|aerol[ií]neas|\beze\b|\bmdz\b|(?:iberia|air europa|latam|ita|air france|klm|lufthansa|turkish|ethiopian|level|plus ultra|world2fly).*(?:argentin|buenos|mendoza|santiago|s[aã]o paulo)", re.I)
 UA = "promo-rss-check/1.0 (+rocznica-2027; publiczne kanaly RSS)"
 
-def fetch(url):
+def fetch(url, tries=3):
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/rss+xml, application/xml, text/xml, */*"})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return r.read()
+    for i in range(tries):
+        try:
+            with urllib.request.urlopen(req, timeout=30) as r:
+                return r.read()
+        except Exception:
+            if i == tries - 1: raise
+            time.sleep(3 * (i + 1))
 
 def parse(name, raw):
     out = []
