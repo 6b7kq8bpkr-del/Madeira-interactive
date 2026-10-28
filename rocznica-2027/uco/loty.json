@@ -1,6 +1,6 @@
 {
  "zaktualizowano": "2026-10-25",
- "status": "Rozkład na listopad 2027 jeszcze nieopublikowany – linie otwierają sprzedaż ok. 330–360 dni przed lotem; pierwsze pełne porównanie w połowie listopada 2026. Monitor liczy kompletną podróż Warszawa–Mendoza na osobę z bagażem (jeden bilet albo bilet do Buenos Aires plus lot krajowy). Weryfikacja z 25.10.2026: sam bilet do Buenos Aires 4 150–4 500 zł u Ethiopian i Turkish, 4 700–5 800 zł u linii europejskich, lot krajowy 480–850 zł, cały bilet do Mendozy „od” ok. 5 150 zł. Próg 4 800 zł za całość to główny cel zakupu; powyżej 5 000 zł baza 1 zmienia się na Lares.",
+ "status": "Rozkład na listopad 2027 jeszcze nieopublikowany – linie otwierają sprzedaż ok. 330–360 dni przed lotem; pierwsze pełne porównanie w połowie listopada 2026. Monitor liczy kompletną podróż Warszawa–Mendoza na osobę z bagażem (jeden bilet albo bilet do Buenos Aires plus lot krajowy). Weryfikacja z 25.10.2026: sam bilet do Buenos Aires 4 150–4 500 zł u Ethiopian i Turkish, 4 700–5 800 zł u linii europejskich, lot krajowy 480–850 zł, cały bilet do Mendozy „od” ok. 5 150 zł. Próg 4 800 zł za całość to główny cel zakupu; powyżej ok. 5 330 zł wariant polecany (Lares + Laguna Suite) przekracza sufit 28 000 zł – wtedy wariant 4 z pokojem Cordón del Plata.",
  "nastepny": "2026-11-01",
  "prog": 4800,
  "serie": [
@@ -49,7 +49,7 @@
    "linia": "Ethiopian Airlines",
    "trasa": "WAW–ADD–EZE (bilet A)",
    "orient": "4 500–5 300 zł",
-   "uwagi": "Ethiopian WAW–ADD–EZE 4 000–4 500 (bagaż w cenie) + lot krajowy z bagażem 480–850 zł Sprawdzić datę lądowania w Warszawie: przy wylocie z Buenos Aires 13.11 musi być niedziela 14.11 (dłuższe przesiadki w Addis Abebie/Stambule mogą dać poniedziałek).",
+   "uwagi": "Ethiopian WAW–ADD–EZE 4 000–4 500 (bagaż w cenie) + lot krajowy z bagażem 480–850 zł. Sprawdzić datę lądowania w Warszawie: przy wylocie z Buenos Aires 13.11 musi być niedziela 14.11 (dłuższe przesiadki w Addis Abebie/Stambule mogą dać poniedziałek).",
    "hist": []
   },
   {
@@ -89,7 +89,7 @@
    "linia": "Turkish Airlines",
    "trasa": "WAW–IST–EZE (bilet A)",
    "orient": "4 800–5 500 zł",
-   "uwagi": "Turkish 4 300–4 700 (2×23 kg w cenie) + lot krajowy z bagażem 480–850 zł Sprawdzić datę lądowania w Warszawie: przy wylocie z Buenos Aires 13.11 musi być niedziela 14.11 (dłuższe przesiadki w Addis Abebie/Stambule mogą dać poniedziałek).",
+   "uwagi": "Turkish 4 300–4 700 (2×23 kg w cenie) + lot krajowy z bagażem 480–850 zł. Sprawdzić datę lądowania w Warszawie: przy wylocie z Buenos Aires 13.11 musi być niedziela 14.11 (dłuższe przesiadki w Addis Abebie/Stambule mogą dać poniedziałek).",
    "hist": []
   },
   {
@@ -126,7 +126,7 @@
   },
   {
    "id": "vie",
-   "linia": "Promocje ex-Wiedeń / Berlin (LATAM, oneworld) – dla 1 osoby",
+   "linia": "Promocje ex-Wiedeń / Berlin (LATAM lub oneworld) – dla 1 osoby",
    "trasa": "VIE/BER–EZE lub MDZ (przez GRU/SCL/MAD)",
    "orient": "2 650–2 850 zł bez bagażu (wzorzec V–VI 2026 na XI 2026)",
    "uwagi": "wzorzec: ogłaszane w maju–czerwcu na listopad; w cenie serii doliczyć dojazd (300–600 zł), bagaż (250–450 zł/odcinek) i lot krajowy; liczy się tylko przy całości ≤ 4 000 zł/os. i 6–8 miejscach w jednej klasie",
@@ -173,7 +173,7 @@
    "kierunek": "wzrost",
    "waga": 1,
    "opis": "Flybondi w postępowaniu układowym, bez lotów od lipca 2026 – na Buenos Aires–Mendoza zostają Aerolíneas i JetSMART; listopad to najdroższy miesiąc na tej trasie.",
-   "url": "https://www.anbariloche.com.ar/noticias/2026/10/06/119181"
+   "url": "https://www.anbariloche.com.ar/noticias/2026/10/06/119181-el-colapso-de-flybondi-derivo-en-un-concurso-judicial-para-evitar-la-quiebra"
   },
   {
    "data": "2026-07-04",
