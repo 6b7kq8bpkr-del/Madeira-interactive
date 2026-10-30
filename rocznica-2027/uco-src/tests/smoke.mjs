@@ -222,9 +222,11 @@ async function withLoty(mutate, hash, fn) {
     M.historia = [{ data: X, zrodlo: X, najtansza: { cena: 4700, opis: X } }];
     if (M.wyprzedaze[0]) M.wyprzedaze[0].szansa = '"><b>x</b>';
     M.zaktualizowano = X;
+    M.rss.sprawdzono = '2020-01-01 08:00';
   }, '#loty', async () => {});
   const r = await pg.evaluate(() => ({ xss: window.__xss, teraz: (document.getElementById('teraz') || {}).innerText || '', podium: (document.querySelector('.podium .pp') || {}).textContent || '' }));
   if (r.xss) fail('dane agentów', 'HTML z loty.json wykonał skrypt');
+  if (!(await pg.evaluate(() => /nie był odświeżany/.test((document.querySelector('#radar .stale') || {}).textContent || '')))) fail('dane agentów', 'brak ostrzeżenia o nieaktualnym radarze');
   if (/niedostępny/.test(r.teraz) || !r.teraz) fail('dane agentów', 'panel „Co teraz” nie wyrenderował się przy niepełnym sygnale');
   if (r.podium.replace(/\D/g, '') !== '4700') fail('dane agentów', `aktualna cena to ${r.podium} zamiast najnowszej 4 700 zł`);
   if (errs.length) fail('dane agentów', 'błędy JS: ' + errs[0]);

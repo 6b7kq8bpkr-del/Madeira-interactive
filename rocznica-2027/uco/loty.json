@@ -238,6 +238,22 @@
    "waga": 1,
    "opis": "LATAM Mendoza–Madryt w obie strony od 923 USD (przez Limę, bagaż podręczny) wobec 945 USD z Buenos Aires z bagażem – bilet „przez” do Mendozy bywa w cenie biletu do Buenos Aires; zawsze wyceniać MDZ i SCL obok EZE.",
    "url": "https://promociones-aereas.com.ar/2026/10/vuelos-a-madrid-desde-mendoza-en-primavera-europea-latam-rt-p.html"
+  },
+  {
+   "data": "2026-10-29",
+   "typ": "Konkurencja",
+   "kierunek": "spadek",
+   "waga": 1,
+   "opis": "Plus Ultra nadal lata bezpośrednio Buenos Aires–Madryt i promuje bilety z bagażem 15 kg od ok. 1 055 USD (rynek argentyński, podróże XII 2026–VI 2027). Linia działa mimo kłopotów – utrzymuje presję na ceny Iberii i Air Europa, ale listopada 2027 jeszcze nie sprzedaje.",
+   "url": "https://promociones-aereas.com.ar/2026/10/para-sacar-ya-vuelos-directos-a-madrid-con-descuento-con-equipaje-y-desde-buenos-aires-plus-ultra-rt-p.html"
+  },
+  {
+   "data": "2026-10-24",
+   "typ": "Lotnisko",
+   "kierunek": "neutralnie",
+   "waga": 1,
+   "opis": "Ezeiza: pełna długość pasa wraca 11.11.2026 w południe; w czasie ograniczeń Aerolíneas lata do Madrytu i Rzymu z międzylądowaniem w Rio, Air Europa przez Montevideo. Dla listopada 2027 ważne, czy podobne prace nie wypadną jesienią 2027 – śledzić plan przebudowy.",
+   "url": "https://www.infobae.com/economia/2026/10/24/ezeiza-operara-con-restricciones-durante-18-dias-que-pasara-con-los-vuelos-y-que-deben-saber-los-pasajeros/"
   }
  ],
  "wyprzedaze": [
@@ -343,7 +359,7 @@
  ],
  "skrzynka": [],
  "rss": {
-  "sprawdzono": "2026-10-28 09:22",
+  "sprawdzono": "2026-10-30 15:38",
   "kanaly": [
    {
     "zrodlo": "Fly4free.pl",
@@ -387,12 +403,12 @@
    },
    {
     "zrodlo": "Wakacyjni Piraci",
-    "wpisy": 32,
+    "wpisy": 33,
     "ok": true
    },
    {
     "zrodlo": "HolidayPirates",
-    "wpisy": 51,
+    "wpisy": 68,
     "ok": true
    },
    {
@@ -402,9 +418,8 @@
    },
    {
     "zrodlo": "Infoviajera",
-    "wpisy": 0,
-    "ok": false,
-    "blad": "IncompleteRead(0 bytes read)"
+    "wpisy": 10,
+    "ok": true
    },
    {
     "zrodlo": "Promociones Aéreas",
@@ -424,7 +439,25 @@
   ],
   "trafienia": [
    {
-    "zrodlo": "Travel-dealz",
+    "zrodlo": "Promociones Aéreas",
+    "tytul": "¡Para sacar ya! 💥 Vuelos Directos a Madrid con Descuento de  AR$ 200.000 💃 🎄 con Equipaje y desde Buenos Aires",
+    "url": "https://promociones-aereas.com.ar/2026/10/para-sacar-ya-vuelos-directos-a-madrid-con-descuento-con-equipaje-y-desde-buenos-aires-plus-ultra-rt-p.html",
+    "data": "2026-10-29",
+    "opis": " Se consiguen Lindos Vuelos Directos a Madrid operados por Plus Ultra, con Equipaje Incluido (15 Kg), a partir de AR$ 1.646.884 ó U$D 1.055, ida y vuelta, pagando con MODO. […] \n La entrada  ¡Para sacar ya! 💥 Vuelos Directos a Madrid con Descuento de  AR$ 200.000 💃 🎄 con Equipaje y desde Buenos Aires  se publicó primero en  Promociones Aéreas . ",
+    "sila": "silne",
+    "tryb": "ar"
+   },
+   {
+    "zrodlo": "Fly4free.com",
+    "tytul": "Air France flights from Madrid to Buenos Aires, Argentina 💃 for €562",
+    "url": "https://www.fly4free.com/flight-deals/europe/flights-from-madrid-to-buenos-aires-e562/",
+    "data": "2026-10-28",
+    "opis": "Air France is currently offering attractive flights to Argentina from just €562 return. The ticket includes meals, checked luggage, and onboard entertainment, making it a comfortable and great-value option for a long-haul journey.",
+    "sila": "silne",
+    "tryb": "eu"
+   },
+   {
+    "zrodlo": "Travel-dealz · Argentyna",
     "tytul": "Buenos Aires: €562 Air France Flights from Madrid in June & September 2027",
     "url": "https://travel-dealz.com/ticker/127793/?utm_source=feed&utm_medium=rss&utm_campaign=rss-feed",
     "data": "2026-10-27",
