@@ -1,0 +1,187 @@
+// Testy dymne strony ../../uco: dane, kalendarz .ics i przeglądarka (Chromium przez Playwright).
+// Uruchomienie: npm install && npx playwright install chromium && node smoke.mjs
+// Zrzuty ekranu przy błędach trafiają do tests/out/.
+import { createRequire } from 'node:module';
+import http from 'node:http';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const require = createRequire(import.meta.url);
+const { chromium } = require('playwright');
+const HERE = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(HERE, '../../uco');
+const OUTDIR = path.join(HERE, 'out');
+const fails = [], notes = [];
+const fail = (where, what) => fails.push(`${where}: ${what}`);
+
+// ---------- dane bez przeglądarki ----------
+function readJSON(f) {
+  try { return JSON.parse(fs.readFileSync(path.join(ROOT, f), 'utf8')); } catch (e) { fail(f, 'nie da się wczytać: ' + e.message); return null; }
+}
+const loty = readJSON('loty.json');
+if (loty) {
+  if (typeof loty.prog !== 'number') fail('loty.json', 'brak liczbowego „prog”');
+  for (const k of ['serie', 'historia', 'sygnaly', 'skrzynka']) if (!Array.isArray(loty[k])) fail('loty.json', `„${k}” nie jest listą`);
+  (loty.serie || []).forEach((s, i) => (s.punkty || []).forEach(p => { if (p.cena != null && !(p.cena > 0)) fail('loty.json', `serie[${i}] ma cenę ${p.cena}`); }));
+}
+const promo = readJSON('promocje.json');
+if (promo && !Array.isArray(promo.wpisy)) fail('promocje.json', '„wpisy” nie jest listą');
+const ics = fs.readFileSync(path.join(ROOT, 'plan.ics'), 'utf8');
+{
+  const lines = ics.split('\r\n');
+  if (ics.replace(/\r\n/g, '').includes('\n')) fail('plan.ics', 'linie muszą kończyć się CRLF');
+  lines.forEach((l, i) => { if (Buffer.byteLength(l) > 75) fail('plan.ics', `linia ${i + 1} ma ${Buffer.byteLength(l)} bajtów (max 75)`); });
+  const b = (ics.match(/^BEGIN:VEVENT/gm) || []).length, e = (ics.match(/^END:VEVENT/gm) || []).length;
+  if (b !== e || b < 13) fail('plan.ics', `VEVENT: ${b} początków, ${e} końców (oczekiwane ≥ 13)`);
+}
+
+// ---------- serwer statyczny ----------
+const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.json': 'application/json; charset=utf-8', '.jpg': 'image/jpeg', '.png': 'image/png', '.svg': 'image/svg+xml', '.ics': 'text/calendar; charset=utf-8' };
+const srv = http.createServer((req, res) => {
+  const p = path.normalize(decodeURIComponent(req.url.split(/[?#]/)[0])).replace(/^(\.\.[/\\])+/, '');
+  const f = path.join(ROOT, p === '/' ? 'index.html' : p);
+  if (!f.startsWith(ROOT) || !fs.existsSync(f) || fs.statSync(f).isDirectory()) { res.writeHead(404); return res.end(); }
+  res.writeHead(200, { 'content-type': MIME[path.extname(f)] || 'application/octet-stream' });
+  fs.createReadStream(f).pipe(res);
+});
+await new Promise(r => srv.listen(0, '127.0.0.1', r));
+const BASE = `http://127.0.0.1:${srv.address().port}/`;
+
+// ---------- przeglądarka ----------
+const browser = await chromium.launch();
+async function open(width, scheme, hash = '') {
+  const pg = await browser.newPage({ viewport: { width, height: 900 }, colorScheme: scheme });
+  const log = { errs: [], bad: [] };
+  pg.on('pageerror', e => log.errs.push(e.message));
+  pg.on('response', r => { if (r.status() >= 400 && r.url().startsWith(BASE)) log.bad.push(r.status() + ' ' + r.url().slice(BASE.length)); });
+  await pg.goto(BASE + 'index.html' + hash, { waitUntil: 'load' });
+  await pg.waitForTimeout(1200);
+  return { pg, log };
+}
+async function shot(pg, name) {
+  fs.mkdirSync(OUTDIR, { recursive: true });
+  await pg.screenshot({ path: path.join(OUTDIR, name + '.png'), fullPage: false }).catch(() => {});
+}
+
+// kontrast WCAG liczony z kolorów obliczonych przez przeglądarkę; pomija tekst na zdjęciach i gradientach
+const CONTRAST = () => {
+  const rgba = c => {
+    let m = /rgba?\(([^)]+)\)/.exec(c), k = 1;
+    if (!m) { m = /color\(srgb ([^)]+)\)/.exec(c); k = 255; }
+    if (!m) return null;
+    const p = m[1].split(/[\s,/]+/).filter(Boolean).map(Number);
+    return [p[0] * k, p[1] * k, p[2] * k, p.length > 3 ? p[3] : 1];
+  };
+  const lum = c => { const f = v => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }; return 0.2126 * f(c[0]) + 0.7152 * f(c[1]) + 0.0722 * f(c[2]); };
+  const mix = (top, under) => [0, 1, 2].map(i => top[i] * top[3] + under[i] * (1 - top[3]));
+  const bg = el => {
+    const layers = [], r = el.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+    for (let e = el; e; e = e.parentElement) {
+      const cs = getComputedStyle(e), q = e.getBoundingClientRect();
+      if (e !== el && e !== document.body && e !== document.documentElement && (cx < q.left || cx > q.right || cy < q.top || cy > q.bottom)) continue; // tekst wystaje poza tło przodka
+      if (cs.backgroundImage !== 'none' || e.querySelector(':scope > img, :scope > picture')) return null;
+      const c = rgba(cs.backgroundColor);
+      if (c && c[3] > 0) { layers.push(c); if (c[3] >= 1) break; }
+    }
+    return layers.reverse().reduce((acc, c) => mix(c, acc), [255, 255, 255]);
+  };
+  const out = [];
+  for (const el of document.querySelectorAll('body *')) {
+    if (el.closest('svg, script, style, [hidden], [aria-hidden="true"], .leaflet-container, .past') || el.disabled) continue;
+    if (![...el.childNodes].some(n => n.nodeType === 3 && n.textContent.trim())) continue;
+    const r = el.getBoundingClientRect(), cs = getComputedStyle(el);
+    if (!r.width || !r.height || cs.visibility === 'hidden' || +cs.opacity === 0) continue;
+    const b = bg(el); if (!b) continue;
+    let op = 1; for (let e = el; e && e !== document.body; e = e.parentElement) op *= +getComputedStyle(e).opacity;
+    const c = rgba(cs.color), fg = mix([c[0], c[1], c[2], c[3] * op], b);
+    const L1 = lum(fg), L2 = lum(b), ratio = (Math.max(L1, L2) + 0.05) / (Math.min(L1, L2) + 0.05);
+    const px = parseFloat(cs.fontSize), large = px >= 24 || (px >= 18.66 && +cs.fontWeight >= 700);
+    if (ratio < (large ? 3 : 4.5)) out.push(`${ratio.toFixed(2)} ${el.tagName.toLowerCase()}.${String(el.className).split(' ')[0]} „${el.textContent.trim().slice(0, 30)}”`);
+  }
+  return [...new Set(out)];
+};
+
+const CONFIGS = [[320, 'light'], [375, 'dark'], [768, 'light'], [1024, 'dark'], [1440, 'light'], [1920, 'dark']];
+for (const [W, scheme] of CONFIGS) {
+  const where = `${W}px ${scheme}`;
+  const { pg, log } = await open(W, scheme);
+  const H = await pg.evaluate(() => document.documentElement.scrollHeight);
+  for (let y = 0; y < H; y += 800) { await pg.evaluate(y => scrollTo(0, y), y); await pg.waitForTimeout(40); }
+  await pg.evaluate(() => { document.querySelectorAll('.reveal').forEach(e => e.classList.add('in')); document.querySelectorAll('details').forEach(d => { d.open = true; }); });
+  await pg.waitForTimeout(400);
+  const tabs = await pg.$$eval('[data-lt]', b => b.map(x => x.dataset.lt));
+  if (!tabs.length) fail(where, 'brak zakładek pulpitu lotów');
+  const low = new Set(), checkContrast = W === 1024 || W === 1440;
+  for (const t of [...new Set(tabs)]) {
+    await pg.click(`[data-lt="${t}"]`); await pg.waitForTimeout(150);
+    if (checkContrast) (await pg.evaluate(CONTRAST)).forEach(x => low.add(x));
+    const ov = await pg.evaluate(() => { const vw = document.documentElement.clientWidth; return document.documentElement.scrollWidth > vw ? [...document.querySelectorAll('body *')].filter(e => { const r = e.getBoundingClientRect(); if (!r.width || r.right <= vw + 1 || getComputedStyle(e).position === 'fixed') return false; for (let p = e.parentElement; p && p !== document.body; p = p.parentElement) if (/auto|scroll|hidden|clip/.test(getComputedStyle(p).overflowX)) return false; return true; }).slice(0, 3).map(e => e.tagName.toLowerCase() + '.' + String(e.className).split(' ')[0]).concat(document.documentElement.scrollWidth + ' px > ' + vw + ' px') : null; });
+    if (ov) fail(where, `poziome przewijanie przy zakładce „${t}”: ${ov.join(', ')}`);
+  }
+  const info = await pg.evaluate(() => {
+    const ids = {}; document.querySelectorAll('[id]').forEach(e => { ids[e.id] = (ids[e.id] || 0) + 1; });
+    const vis = e => e.getClientRects().length && getComputedStyle(e).visibility !== 'hidden';
+    const small = [...document.querySelectorAll('body *')].filter(e => !e.closest('svg, .leaflet-container, [hidden]') && vis(e) && [...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim()) && parseFloat(getComputedStyle(e).fontSize) < 11)
+      .map(e => `${e.tagName.toLowerCase()}.${String(e.className).split(' ')[0]} ${getComputedStyle(e).fontSize}`);
+    const text = document.body.innerText;
+    return {
+      dup: Object.keys(ids).filter(k => ids[k] > 1),
+      anchors: [...new Set([...document.querySelectorAll('a[href^="#"]')].map(a => a.getAttribute('href').slice(1)).filter(h => h && !document.getElementById(h)))],
+      broken: [...document.images].filter(i => i.complete && i.getAttribute('src') && !i.naturalWidth).map(i => i.getAttribute('src')).slice(0, 5),
+      noalt: [...document.images].filter(i => !i.hasAttribute('alt')).length,
+      noname: [...document.querySelectorAll('button')].filter(b => !(b.textContent.trim() || b.getAttribute('aria-label') || b.title)).length,
+      small: [...new Set(small)].slice(0, 8),
+      orphans: (text.match(/(^|[\s(„"])[aiouwzAIOUWZ] /gm) || []).length,
+      h1: document.querySelectorAll('h1').length,
+    };
+  });
+  if (log.errs.length) fail(where, 'błędy JS: ' + log.errs.slice(0, 3).join(' | '));
+  if (log.bad.length) fail(where, 'brakujące pliki: ' + [...new Set(log.bad)].slice(0, 5).join(', '));
+  if (info.dup.length) fail(where, 'powtórzone id: ' + info.dup.join(', '));
+  if (info.anchors.length) fail(where, 'linki do nieistniejących kotwic: #' + info.anchors.join(', #'));
+  if (info.broken.length) fail(where, 'niewczytane zdjęcia: ' + info.broken.join(', '));
+  if (info.noalt) fail(where, `${info.noalt} zdjęć bez alt`);
+  if (info.noname) fail(where, `${info.noname} przycisków bez nazwy`);
+  if (info.h1 !== 1) fail(where, `${info.h1} nagłówków h1`);
+  if (info.small.length) fail(where, 'tekst mniejszy niż 11 px: ' + info.small.join(', '));
+  if (info.orphans > 5) fail(where, `${info.orphans} jednoliterowych słów na końcu linii (twarda spacja w build.py / nb() w szablonie)`);
+  if (low.size) fail(where, `kontrast poniżej WCAG AA (${low.size}): ` + [...low].slice(0, process.env.VERBOSE ? 999 : 8).join('; '));
+  notes.push(`${where}: zakładki ${tabs.length}, sierotki ${info.orphans}`);
+  if (fails.some(f => f.startsWith(where))) await shot(pg, `${W}-${scheme}`);
+  await pg.close();
+}
+
+// linki głębokie: sekcja ma być widoczna (rozwinięta) i przewinięta pod górę ekranu
+for (const h of ['plan', 'budzet', 'upgrade', 'hotele', 'loty', 'radar', 'kalendarz', 'poradnik', 'zadania', 'kalk']) {
+  const { pg, log } = await open(1300, 'light', '#' + h);
+  const r = await pg.evaluate(h => { const el = document.getElementById(h); if (!el) return null; const b = el.getBoundingClientRect(); return { shown: !!el.getClientRects().length, top: Math.round(b.top) }; }, h);
+  if (!r) fail('#' + h, 'brak elementu');
+  else if (!r.shown || r.top < -5 || r.top > 450) fail('#' + h, `po wejściu z linku sekcja ${r.shown ? 'jest na wysokości ' + r.top + ' px' : 'jest ukryta'}`);
+  if (log.errs.length) fail('#' + h, 'błędy JS: ' + log.errs[0]);
+  await pg.close();
+}
+
+// budżet: dwa upgrade'y podnoszą sumę dokładnie o swoje ceny, a odznaczenie przywraca plan bazowy
+{
+  const { pg, log } = await open(1300, 'light', '#budzet');
+  await pg.evaluate(() => { document.querySelectorAll('details').forEach(d => { d.open = true; }); });
+  const num = () => pg.evaluate(() => +document.querySelector('#bud .total b').textContent.replace(/\D/g, ''));
+  const [base, ups] = [await num(), await pg.evaluate(() => window.UCO.prog.upgrade.opcje.filter(u => u.zl).slice(0, 2).map(u => [u.id, u.zl]))];
+  const expected = await pg.evaluate(() => window.UCO.hotels[0].b.razem);
+  if (base !== expected) fail('budżet', `plan bazowy pokazuje ${base} zł, dane mówią ${expected} zł`);
+  for (const [id] of ups) await pg.check(`[data-up="${id}"]`);
+  const up = await num();
+  if (up !== base + ups[0][1] + ups[1][1]) fail('budżet', `po zaznaczeniu ${ups.map(u => u[0])} suma ${up} zamiast ${base + ups[0][1] + ups[1][1]}`);
+  for (const [id] of ups) await pg.uncheck(`[data-up="${id}"]`);
+  if (await num() !== base) fail('budżet', 'odznaczenie upgrade’ów nie przywraca planu bazowego');
+  if (base > 28000) fail('budżet', `plan bazowy ${base} zł przekracza sufit 28 000 zł`);
+  if (log.errs.length) fail('budżet', 'błędy JS: ' + log.errs[0]);
+  notes.push(`budżet: plan bazowy ${base} zł, z dwoma upgrade’ami ${up} zł`);
+  await pg.close();
+}
+
+await browser.close(); srv.close();
+console.log(notes.join('\n'));
+if (fails.length) { console.error(`\n${fails.length} problemów:\n- ` + fails.join('\n- ')); process.exit(1); }
+console.log('\nwszystko w porządku');

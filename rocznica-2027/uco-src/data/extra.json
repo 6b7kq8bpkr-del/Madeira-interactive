@@ -1,0 +1,44 @@
+{
+ "tz": -3,
+ "teaser": "Dwie bazy pod Andami i finał w Buenos Aires: Aconcagua, lunch przy ogniu w Lagarde, sztuka w Salentein, rocznica w Zuccardi Piedra Infinita, Manzano Histórico, a na koniec tango i Recoleta. Listopad to tu sucha, słoneczna wiosna.",
+ "wow": [
+  "Zuccardi Piedra Infinita: winnica z kamieni rzecznych, trzykrotnie najlepsza na świecie, i degustacja z widokiem prosto na Andy.",
+  "Laguna de Horcones: godzinny spacer na 2 950 m z widokiem na południową ścianę Aconcagui, najwyższej góry poza Azją.",
+  "Finał w Buenos Aires: tango na wyciągnięcie ręki w Palermo i kwitnące jacarandy Recolety po tygodniu pod Andami."
+ ],
+ "dish": "asado z chimichurri i empanadas mendocinas",
+ "word": [
+  "che",
+  "hej, ty – argentyńskie zawołanie do przyjaciela"
+ ],
+ "dayflow": [
+  [
+   "7:00",
+   "Kawa na tarasie, pierwsze słońce na śniegu Andów"
+  ],
+  [
+   "10:00",
+   "Jedna atrakcja: winnica, galeria albo krótki szlak"
+  ],
+  [
+   "13:00",
+   "Lekki lunch – w rocznicę piknik nad laguną"
+  ],
+  [
+   "16:00",
+   "Sjesta, basen albo spa"
+  ],
+  [
+   "19:40",
+   "Złota godzina, zachód ok. 20:12 – szampan na tarasie i lekka kolacja przy ogniu"
+  ]
+ ],
+ "flight": {
+  "direct": false,
+  "h": 23,
+  "label": "ok. 18–30 h zależnie od linii, przez Buenos Aires (nocny lot przez Atlantyk i 2 h lotu krajowego), potem 30–45 min busem do Chacras de Coria"
+ },
+ "temp": 27,
+ "rain": "sucho i słonecznie",
+ "reliable": true
+}
