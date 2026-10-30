@@ -231,6 +231,22 @@ async function withLoty(mutate, hash, fn) {
   await pg.close();
 }
 
+// karta wyjazdu na górze i skrócona galeria
+{
+  const { pg, log } = await open(1300, 'light');
+  const r = await pg.evaluate(() => ({ koszt: document.querySelector('.tcard [data-dyn="koszt"]')?.textContent || '', zapas: document.querySelector('.tcard [data-dyn="zapas"]')?.textContent || '', teraz: document.querySelector('.tnow')?.innerText || '', noclegi: document.querySelectorAll('.tst li').length, razem: window.UCO.hotels[0].b.razem }));
+  if (r.koszt.replace(/\D/g, '') !== String(Math.round(r.razem / 100) * 100)) fail('karta wyjazdu', `koszt „${r.koszt}” nie zgadza się z planem bazowym ${r.razem} zł`);
+  if (!/sufit/.test(r.zapas)) fail('karta wyjazdu', 'brak zapasu do sufitu');
+  if (r.noclegi !== 3) fail('karta wyjazdu', `${r.noclegi} noclegów zamiast 3`);
+  if (r.teraz.length < 30) fail('karta wyjazdu', 'pusta sekcja „Teraz”');
+  const g0 = await pg.evaluate(() => [...document.querySelectorAll('.gal figure')].filter(f => f.getClientRects().length).length);
+  await pg.click('[data-galall]');
+  const g1 = await pg.evaluate(() => [...document.querySelectorAll('.gal figure')].filter(f => f.getClientRects().length).length);
+  if (g0 !== 12 || g1 !== await pg.evaluate(() => window.UCO.gallery.length)) fail('galeria', `widoczne ${g0}, po „pokaż wszystkie” ${g1}`);
+  if (log.errs.length) fail('karta wyjazdu', 'błędy JS: ' + log.errs[0]);
+  await pg.close();
+}
+
 // ekran dotykowy: przyciski i rozwijane nagłówki co najmniej 44 px wysokości
 {
   const pg = await browser.newPage({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
