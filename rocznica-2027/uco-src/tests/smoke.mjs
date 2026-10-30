@@ -23,7 +23,10 @@ const loty = readJSON('loty.json');
 if (loty) {
   if (typeof loty.prog !== 'number') fail('loty.json', 'brak liczbowego „prog”');
   for (const k of ['serie', 'historia', 'sygnaly', 'skrzynka']) if (!Array.isArray(loty[k])) fail('loty.json', `„${k}” nie jest listą`);
-  (loty.serie || []).forEach((s, i) => (s.punkty || []).forEach(p => { if (p.cena != null && !(p.cena > 0)) fail('loty.json', `serie[${i}] ma cenę ${p.cena}`); }));
+  (loty.serie || []).forEach((s, i) => (s.hist || []).forEach(p => {
+    if (p.cena != null && !(p.cena > 0)) fail('loty.json', `serie[${i}] (${s.id}) ma cenę ${p.cena}`);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(p.data || '')) fail('loty.json', `serie[${i}] (${s.id}) ma datę „${p.data}” zamiast RRRR-MM-DD`);
+  }));
 }
 const promo = readJSON('promocje.json');
 if (promo && !Array.isArray(promo.wpisy)) fail('promocje.json', '„wpisy” nie jest listą');
@@ -175,9 +178,71 @@ for (const h of ['plan', 'budzet', 'upgrade', 'hotele', 'loty', 'radar', 'kalend
   if (up !== base + ups[0][1] + ups[1][1]) fail('budżet', `po zaznaczeniu ${ups.map(u => u[0])} suma ${up} zamiast ${base + ups[0][1] + ups[1][1]}`);
   for (const [id] of ups) await pg.uncheck(`[data-up="${id}"]`);
   if (await num() !== base) fail('budżet', 'odznaczenie upgrade’ów nie przywraca planu bazowego');
-  if (base > 28000) fail('budżet', `plan bazowy ${base} zł przekracza sufit 28 000 zł`);
+  const sufit = await pg.evaluate(() => window.UCO.prog.budzet.sufit);
+  if (base > sufit) fail('budżet', `plan bazowy ${base} zł przekracza sufit ${sufit} zł`);
   if (log.errs.length) fail('budżet', 'błędy JS: ' + log.errs[0]);
   notes.push(`budżet: plan bazowy ${base} zł, z dwoma upgrade’ami ${up} zł`);
+  await pg.close();
+}
+
+// kalkulator: polski zapis liczb i reguła osobnych biletów (≥ min_oszczednosc wobec najlepszego jednego biletu)
+async function withLoty(mutate, hash, fn) {
+  const M = JSON.parse(fs.readFileSync(path.join(ROOT, 'loty.json'), 'utf8')); mutate(M);
+  const pg = await browser.newPage({ viewport: { width: 1300, height: 900 } }); const errs = [];
+  pg.on('pageerror', e => errs.push(e.message));
+  await pg.route('**/loty.json', r => r.fulfill({ contentType: 'application/json', body: JSON.stringify(M) }));
+  await pg.goto(BASE + 'index.html' + hash, { waitUntil: 'load' }); await pg.waitForTimeout(1000);
+  await pg.evaluate(() => { document.querySelectorAll('details').forEach(d => { d.open = true; }); });
+  await fn(pg); return { pg, errs };
+}
+{
+  const { pg, errs } = await withLoty(M => { M.serie.find(s => s.id === 'calosc').hist = [{ data: '2026-12-01', cena: 5000 }]; }, '#kalk', async pg => {
+    const out = () => pg.evaluate(() => document.getElementById('k-out').innerText.replace(/\s+/g, ' '));
+    await pg.fill('#k-cena', '4 299,99');
+    let t = await out();
+    if (!/4\s?300\s?zł/.test(t)) fail('kalkulator', `„4 299,99” nie dało 4 300 zł: ${t.slice(0, 80)}`);
+    await pg.fill('#k-cena', '3850'); await pg.check('#k-kr'); await pg.fill('#k-krc', '650');
+    t = await out();
+    if (!/4\s?500\s?zł/.test(t)) fail('kalkulator', `3 850 + krajowy 650 nie dało 4 500 zł: ${t.slice(0, 80)}`);
+    if (!/Nie opłaca się/.test(t) || /Bardzo dobry/.test(t)) fail('kalkulator', 'osobne bilety bez 800 zł oszczędności dostają werdykt „kupować”');
+    await pg.fill('#k-cena', '3000'); t = await out();
+    if (/Nie opłaca się/.test(t)) fail('kalkulator', 'osobne bilety z oszczędnością ≥ 800 zł dostają werdykt „nie opłaca się”');
+  });
+  if (errs.length) fail('kalkulator', 'błędy JS: ' + errs[0]);
+  await pg.close();
+}
+
+// dane od agentów: historia nie po kolei, brakujące pola i próba wstrzyknięcia HTML nie psują strony
+{
+  const X = '<img src=x onerror="window.__xss=1">';
+  const { pg, errs } = await withLoty(M => {
+    M.serie.find(s => s.id === 'calosc').hist = [{ data: '2026-12-20', cena: 4700 }, { data: '2026-12-10', cena: 5200 }];
+    M.sygnaly.unshift({ data: '2099-01-01', kierunek: 'spadek', opis: X });
+    M.skrzynka = [{ data: X, zrodlo: X, trasa: 'WAW-MDZ', cena: 4500 }];
+    M.historia = [{ data: X, zrodlo: X, najtansza: { cena: 4700, opis: X } }];
+    if (M.wyprzedaze[0]) M.wyprzedaze[0].szansa = '"><b>x</b>';
+    M.zaktualizowano = X;
+  }, '#loty', async () => {});
+  const r = await pg.evaluate(() => ({ xss: window.__xss, teraz: (document.getElementById('teraz') || {}).innerText || '', podium: (document.querySelector('.podium .pp') || {}).textContent || '' }));
+  if (r.xss) fail('dane agentów', 'HTML z loty.json wykonał skrypt');
+  if (/niedostępny/.test(r.teraz) || !r.teraz) fail('dane agentów', 'panel „Co teraz” nie wyrenderował się przy niepełnym sygnale');
+  if (r.podium.replace(/\D/g, '') !== '4700') fail('dane agentów', `aktualna cena to ${r.podium} zamiast najnowszej 4 700 zł`);
+  if (errs.length) fail('dane agentów', 'błędy JS: ' + errs[0]);
+  await pg.close();
+}
+
+// ekran dotykowy: przyciski i rozwijane nagłówki co najmniej 44 px wysokości
+{
+  const pg = await browser.newPage({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
+  await pg.goto(BASE + 'index.html', { waitUntil: 'load' }); await pg.waitForTimeout(800);
+  await pg.evaluate(() => { document.querySelectorAll('details').forEach(d => { d.open = true; }); });
+  const low = await pg.evaluate(() => [...document.querySelectorAll('summary, button:not(.ks)')].filter(e => e.getClientRects().length && e.getBoundingClientRect().height < 43.5).map(e => `${e.tagName.toLowerCase()}.${String(e.className).split(' ')[0]} ${Math.round(e.getBoundingClientRect().height)}px`));
+  if (low.length) fail('dotyk 390px', `pola niższe niż 44 px (${low.length}): ` + [...new Set(low)].slice(0, 6).join(', '));
+  const im = await pg.evaluate(() => { const own = [...document.images].filter(i => /^img\//.test(i.getAttribute('src') || '')); return {
+    nodim: own.filter(i => !i.getAttribute('height')).length,
+    badset: own.filter(i => i.hasAttribute('srcset') && !/^img\/\S+ 720w, img\/\S+ 1800w$/.test(i.getAttribute('srcset'))).map(i => i.getAttribute('srcset').slice(0, 40)) }; });
+  if (im.nodim) fail('dotyk 390px', `${im.nodim} zdjęć bez wymiarów (treść przeskakuje przy ładowaniu)`);
+  if (im.badset.length) fail('dotyk 390px', `zepsuty srcset: ${im.badset[0]}`);
   await pg.close();
 }
 
