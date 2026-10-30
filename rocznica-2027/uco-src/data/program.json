@@ -9,10 +9,10 @@
     "nocleg": 8418,
     "loty": 9600,
     "auto_transfery": 2100,
-    "jedzenie": 3050,
+    "jedzenie": 3450,
     "wycieczki_bilety": 1420,
     "rezerwa": 1000,
-    "razem": 25588
+    "razem": 25988
    },
    "model": {
     "typ": "pokoje",
@@ -33,10 +33,10 @@
     "nocleg": 9816,
     "loty": 9600,
     "auto_transfery": 2100,
-    "jedzenie": 3050,
+    "jedzenie": 3450,
     "wycieczki_bilety": 1420,
     "rezerwa": 1000,
-    "razem": 26986
+    "razem": 27386
    },
    "model": {
     "typ": "pokoje",
@@ -57,10 +57,10 @@
     "nocleg": 11526,
     "loty": 9600,
     "auto_transfery": 2100,
-    "jedzenie": 3050,
+    "jedzenie": 3450,
     "wycieczki_bilety": 1420,
     "rezerwa": 1000,
-    "razem": 28696
+    "razem": 29096
    },
    "model": {
     "typ": "pokoje",
@@ -81,10 +81,10 @@
     "nocleg": 7774,
     "loty": 9600,
     "auto_transfery": 2100,
-    "jedzenie": 3050,
+    "jedzenie": 3450,
     "wycieczki_bilety": 1420,
     "rezerwa": 1000,
-    "razem": 24944
+    "razem": 25344
    },
    "model": {
     "typ": "pokoje",
@@ -220,11 +220,11 @@
   {
    "date": "12.11",
    "dow": "piątek",
-   "title": "Lot do Buenos Aires, wieczór w Palermo i tango",
-   "text": "Nocleg: Legado Mítico, Palermo Soho (wszystkie warianty). Śniadanie z widokiem na Andy, wymeldowanie i ok. 2 h busem na lotnisko w Mendozie (116–120 km z Los Chacayes) – wyjazd najpóźniej 3 h przed odlotem. Lot do Aeroparque (ok. 2 h, najpóźniej około południa, żeby opóźnienie nie zjadło wieczoru); z Aeroparque 15–20 minut Cabify do Palermo Soho. Popołudnie na spacer po Palermo Viejo: platanowe uliczki, murale, butiki, kawa w Plaza Serrano. Wieczorem ok. 20:00 kolacja z małych talerzy w Reliquii w Palermo Hollywood, 7 minut taksówką (Bib Gourmand, kuchnia warzywna, ok. 60 000 ARS/os.; rezerwa Anafe w Colegiales lub Mengano), a potem tango po argentyńsku: La Viruta 10 minut pieszo od hotelu – o 23:00 pokaz i godzina prawdziwej milongi (wejście ok. 10 000 ARS gotówką; klasa dla początkujących o 21:45), powrót pieszo o północy. Upgrade: Secreto Tango Society w Palermo Hollywood (Gorriti 5801) o 18:30, przed kolacją – 70 minut, tancerze na wyciągnięcie ręki, kieliszek wina, od 80 USD/os., sala na 20–30 osób (8 miejsc rezerwować mailem co najmniej 2 miesiące wcześniej).",
-   "cost": 390,
+   "title": "Lot do Buenos Aires, steki w Don Julio i tango",
+   "text": "Nocleg: Legado Mítico, Palermo Soho (wszystkie warianty). Śniadanie z widokiem na Andy, wymeldowanie i ok. 2 h busem na lotnisko w Mendozie (116–120 km z Los Chacayes) – wyjazd najpóźniej 3 h przed odlotem. Lot do Aeroparque (ok. 2 h, najpóźniej około południa, żeby opóźnienie nie zjadło wieczoru); z Aeroparque 15–20 minut Cabify do Palermo Soho. Popołudnie na spacer po Palermo Viejo: platanowe uliczki, murale, butiki, kawa w Plaza Serrano. Wieczorem ok. 20:00 steki w Don Julio (Guatemala 4691, róg Gurruchagi – 5 minut pieszo od hotelu): najsłynniejsza parrilla Buenos Aires z gwiazdką MICHELIN – bife de chorizo, ojo de bife, tira de asado z grilla na drewno i bardzo dobra karta win (malbec z Uco na zakończenie podróży); ok. 130 000–150 000 ARS/os. z winem i cubierto (X 2026, ok. 90–100 USD). Rezerwacja przez Meitre lub WhatsApp z wyprzedzeniem; gdy zabraknie stolika – La Cabrera albo El Preferido de Palermo, a bez mięsa Reliquia, a potem tango po argentyńsku: La Viruta 10 minut pieszo od hotelu – o 23:00 pokaz i godzina prawdziwej milongi (wejście ok. 10 000 ARS gotówką; klasa dla początkujących o 21:45), powrót pieszo o północy. Upgrade: Secreto Tango Society w Palermo Hollywood (Gorriti 5801) o 18:30, przed kolacją – 70 minut, tancerze na wyciągnięcie ręki, kieliszek wina, od 80 USD/os., sala na 20–30 osób (8 miejsc rezerwować mailem co najmniej 2 miesiące wcześniej).",
+   "cost": 790,
    "anniv": false,
-   "krotko": "Nocleg: Legado Mítico, Palermo Soho. Ok. 2 h busem na lotnisko w Mendozie i lot do Buenos Aires (Aeroparque). Popołudnie na spacer po Palermo Soho, ok. 20:00 kolacja w Reliquii (Bib Gourmand), potem tango po argentyńsku – milonga w La Viruta, 10 minut pieszo od hotelu."
+   "krotko": "Nocleg: Legado Mítico, Palermo Soho. Ok. 2 h busem na lotnisko w Mendozie i lot do Buenos Aires (Aeroparque). Popołudnie na spacer po Palermo Soho, ok. 20:00 steki w Don Julio (gwiazdka MICHELIN, 5 minut pieszo od hotelu), potem tango po argentyńsku – milonga w La Viruta, 10 minut pieszo od hotelu."
   },
   {
    "date": "13.11",
@@ -253,9 +253,14 @@
    "krotko": "Legado Mítico na 12.11 (pokoje od ogrodu, przechowalnia bagażu do 17:00) i bus z kierowcą na dni przejazdowe – 6, 7, 9 i 12.11 – u sprawdzonej firmy."
   },
   {
+   "when": "12.07–12.08.2027 (alerty w Kalendarzu Google)",
+   "what": "Don Julio na piątek 12.11 ok. 20:00 – stolik dla całej grupy. 12.07 sprawdzić w Meitre (donjulio.meitre.com), od kiedy przyjmują rezerwacje na listopad, i napisać na WhatsApp +54 9 11 5311-5668 o rezerwację grupową; najpóźniej 12.08 zarezerwować. Bez rezerwacji kolejka bywa do 2 h. Plan B: La Cabrera albo El Preferido de Palermo; bez mięsa – Reliquia.",
+   "krotko": "Steki w Don Julio 12.11 o 20:00: 12.07 sprawdzić, od kiedy rezerwacje, najpóźniej 12.08 zarezerwować stolik dla grupy (Meitre lub WhatsApp)."
+  },
+  {
    "when": "sierpień 2027 (ok. 90 dni przed – sloty w winiarniach znikają 2–3 miesiące wcześniej)",
    "what": "Zuccardi Valle de Uco: wizyta „Lugar y Gente” z degustacją 10.11 o 11:00 (zuccardi.meitre.com, reservas@zuccardiwines.com); upgrade: lunch 4 dania w Piedra Infinita Cocina o 12:30 (piedrainfinita.meitre.com) – stół dla całej grupy przy oknie, z informacją o rocznicy. W tym samym mailu do Casa de Uco: kosz piknikowy na lunch 10.11, butelka szampana na decku o zachodzie i wspólny stół na kolację à la carte, asado 11.11 (upgrade: prywatny piknik z sommelierem w Los Chañares, masaże, „Hiking in the Andes”). Upgrade: Catena w sobotę 6.11 o 15:00 (catenazapata.com, sloty online 60–90 dni przed), SuperUco 9.11 o zachodzie. Sprawdzić daty Fiesta de la Tradición San Carlos 2027. Buenos Aires 12.11: kolacja w Reliquii (Meitre + WhatsApp, stolik dla grupy; rezerwa Anafe w Colegiales lub Mengano) i La Viruta (WhatsApp); upgrade: Secreto Tango Society o 18:30 (8 miejsc mailem, hola@secretotangosociety.com, ≥ 2 miesiące przed).",
-   "krotko": "Winnice i kolacje: Zuccardi 10.11 o 11:00; w Casa de Uco kosz piknikowy, szampan na decku i kolacja 10.11 oraz asado 11.11; w Buenos Aires Reliquia i La Viruta 12.11."
+   "krotko": "Winnice i kolacje: Zuccardi 10.11 o 11:00; w Casa de Uco kosz piknikowy, szampan na decku i kolacja 10.11 oraz asado 11.11; w Buenos Aires Don Julio i La Viruta 12.11."
   },
   {
    "when": "październik 2027",
@@ -286,7 +291,7 @@
  ],
  "uwagi": [
   "Sufit: 28 000 zł na parę, loty liczone po 4 800 zł/os. za kompletną podróż (9 600 zł na parę). Hierarchia noclegów ustalona z agendy: dolina Uco (3 noce, ok. 26 h na jawie w hotelu, noc rocznicy) > baza pod Mendozą (3 noce, ok. 22 h) > Buenos Aires (ok. 2 h). Dlatego wszystkie warianty trzymają Laguna Suite w Casa de Uco i różnią się tylko bazą 1: polecany Lares / Casa Vita (ok. 25 590 zł), Finca Adalgisa z Andami o zachodzie (ok. 26 990 zł), Chozos (ok. 28 700 zł – ponad sufit, chyba że Chozos ≤ 390 USD i loty ≤ ok. 4 670 zł/os.). Wariant 4 (Lares + Cordón, ok. 24 940 zł) to wyłącznie rezerwa dostępności, gdyby zabrakło Laguna Suites – i tylko z gwarancją pokoju od strony gór. La Morada i tańsze lodge w Uco łamią hierarchię, więc zostały w alternatywach jako opcje awaryjne. Rezydencje La Amada/Paucho wracają przy ≤ 1 300 USD/noc. Scenariusze planistyczne: cen i dostępności na listopad 2027 nie potwierdzono; Chozos liczony ostrożnie po 450 USD. Kwoty dla trzech par bez upgrade’ów; tabela budżetu przelicza je po wyborze liczby par, ceny lotów i upgrade’ów.",
-  "Zasada oszczędzania: płacimy za standard (widoki, Klucze MICHELIN, Laguna Suite w noc rocznicy), nie za nadmiar atrakcji i jedzenia. Trzy dobre degustacje – Lagarde, Salentein i Zuccardi – i jedna atrakcja dziennie; posiłki skromnie: lunch à la carte w Fogón jako główny posiłek dnia, w Killce degustacja z przekąską, w rocznicę wizyta i degustacja u Zuccardiego, piknik nad laguną, toast na decku i kolacja à la carte, asado na pożegnanie, w Buenos Aires Reliquia i milonga w La Viruta, churros w Tortoni zamiast lunchu. Trzecia noc w Lares zamiast czwartej w Uco – ok. 1 200 zł mniej na parę przy tym samym standardzie. Pojedyncze upgrade’y (lunch w Piedra Infinita, Secreto Tango, czwarta noc w Uco, Catena, SuperUco, Siete Fuegos, masaże) są opcjami w sekcji Budżet. Robocze limity poza noclegami: loty 9 600 (próg 4 800 zł/os. za kompletną podróż), transport 2 100 (bus w dni przejazdowe, do czasu wycen), jedzenie 3 050, wycieczki i degustacje 1 420, rezerwa 1 000 – razem 17 170 zł.",
+  "Zasada oszczędzania: płacimy za standard (widoki, Klucze MICHELIN, Laguna Suite w noc rocznicy), nie za nadmiar atrakcji i jedzenia. Trzy dobre degustacje – Lagarde, Salentein i Zuccardi – i jedna atrakcja dziennie; posiłki skromnie: lunch à la carte w Fogón jako główny posiłek dnia, w Killce degustacja z przekąską, w rocznicę wizyta i degustacja u Zuccardiego, piknik nad laguną, toast na decku i kolacja à la carte, asado na pożegnanie, w Buenos Aires steki w Don Julio i milonga w La Viruta, churros w Tortoni zamiast lunchu. Trzecia noc w Lares zamiast czwartej w Uco – ok. 1 200 zł mniej na parę przy tym samym standardzie. Pojedyncze upgrade’y (lunch w Piedra Infinita, Secreto Tango, czwarta noc w Uco, Catena, SuperUco, Siete Fuegos, masaże) są opcjami w sekcji Budżet. Robocze limity poza noclegami: loty 9 600 (próg 4 800 zł/os. za kompletną podróż), transport 2 100 (bus w dni przejazdowe, do czasu wycen), jedzenie 3 450, wycieczki i degustacje 1 420, rezerwa 1 000 – razem 17 570 zł.",
   "Porównywać pełne ceny za całą grupę ze śniadaniami, podatkami, opłatami i zasadami anulowania. Nie zakładać automatycznego rabatu przy zmianie kategorii pokoju ani łączenia promocji. Nie wpisywać oszczędności na lotach z przesunięcia dat – brak porównywalnych ofert na cały termin. Hotele i restauracje płacić kartą zagraniczną (hotele bez 21% IVA).",
   "Trasa idzie z Chacras de Coria do Uco, a kończy się w Buenos Aires, bo i tak tam lądujecie: jedyna trzecia lokalizacja bez dodatkowego przejazdu. Kosztem jest leniwy dzień ze spa w Uco i termy Cacheuta; zyskiem zmiana rejestru na koniec. Lot z Mendozy 12.11 brać rano lub około południa.",
   "Ceny noclegów są szacunkowe (cenniki na listopad 2027 jeszcze nie istnieją), przeliczone po 3,70 zł za dolara; Argentyna ma wysoką inflację i zmienne kursy – kartą zagraniczną zwykle płaci się po korzystnym kursie, ale warto to sprawdzić przed wyjazdem.",
@@ -306,7 +311,7 @@
   "Kalendarz: 6–13.11.2027 bez świąt państwowych (Día de la Tradición 10.11 nie jest dniem wolnym; w departamencie San Carlos, gdzie leży Zuccardi, Fiesta de la Tradición wypadła w 2026 r. 6–8.11, a 10.11 wybierano „Flor de la Tradición” – sprawdzić daty 2027 i liczyć się z zamkniętymi ulicami w La Consulta), ewentualna II tura wyborów 21.11 – po wyjeździe. W Buenos Aires w listopadzie kwitną jacarandy: Av. 9 de Julio, Libertador, Figueroa Alcorta i Bosques de Palermo na fioletowo – to bonus finału.",
   "Loty – korekta z 25.10.2026: 7 800 zł na parę było o 25–35% za nisko. Ceny 4 150–4 500 zł/os. za sam bilet do Buenos Aires mają dziś tylko Ethiopian i Turkish albo bilety last minute na listopad; Iberia, ITA, Air France i Lufthansa z bagażem kosztują 4 700–5 800 zł, a lot krajowy z bagażem to kolejne 480–850 zł. Dlatego budżet liczy kompletną podróż Warszawa–Mendoza: główny próg zakupu 4 800 zł/os. (9 600 zł na parę); wariant polecany (Lares + Laguna Suite) mieści się w suficie do ok. 6 000 zł/os. (wariant 4 z pokojem Cordón del Plata do ok. 6 330, Adalgisa do ok. 5 300), a Chozos w bazie 1 wraca tylko przy biletach ≤ ok. 4 670 zł/os. i cenie ≤ 390 USD Decyzja hotelowa zapada po zakupie lotów (styczeń–maj 2027), nie przed.",
   "Kalendarz restauracji w Chacras: 6.11 sobota – Zappa (wt–sb 20:00–23:20, WhatsApp +54 261 245 6150) i Clos de Chacras (kolacje pt–sb 20:30–0:00) otwarte; 7.11 niedziela – Zappa tylko lunch, Clos zamknięte, więc kolacja w Lares Cocina de Hogar (codziennie, +54 9 261 373 8750) albo El Mercado de La Gloria. Catena Zapata (wizyty wt–sb) – tylko jako opcja w sobotę 6.11 o 15:00.",
-  "Buenos Aires po pogłębionym badaniu (27.10.2026): Legado Mítico zostaje jako adres (Tripadvisor 4,7 z 604 opinii, Soho, 12+), ale piątek kosztuje 250–280 USD – w budżecie 265; prosić o pokoje od ogrodu. Secreto Tango (upgrade) jest w Hollywood (Gorriti 5801), nie w Soho – 7 minut taksówką; obok Reliquia na kolację. Anafe przeniósł się do Colegiales. Cmentarz: bezpłatne wycieczki tylko po hiszpańsku. 8–16.11.2027 okno meczów FIFA (sprawdzić w październiku 2027 pod kątem korków w sobotę); ewentualna II tura wyborów 21.11 – po wyjeździe.",
+  "Buenos Aires po pogłębionym badaniu (27.10.2026): Legado Mítico zostaje jako adres (Tripadvisor 4,7 z 604 opinii, Soho, 12+), ale piątek kosztuje 250–280 USD – w budżecie 265; prosić o pokoje od ogrodu. Secreto Tango (upgrade) jest w Hollywood (Gorriti 5801), nie w Soho – 7 minut taksówką; steki w Don Julio 5 minut pieszo od hotelu. Anafe przeniósł się do Colegiales. Cmentarz: bezpłatne wycieczki tylko po hiszpańsku. 8–16.11.2027 okno meczów FIFA (sprawdzić w październiku 2027 pod kątem korków w sobotę); ewentualna II tura wyborów 21.11 – po wyjeździe.",
   "Agenda po pogłębionym badaniu (27.10.2026): porównanie z programami Awasi, Casa de Uco, The Vines, Kahuak i Trout & Wine (standard: 2 winiarnie + lunch dziennie, dzień górski w Horcones, asado, zachód z widokiem) oraz z opiniami 2025–26. Zmiany: Catena z poniedziałku na opcjonalną sobotę (zamknięta w pn), Lagarde/Fogón 8.11, wyjazd w Andy 7:30 i bilet Horcones online, piknik z szampanem na decku Los Chañares w wieczór rocznicy, Chorro de la Vieja opisany realnie (1 h w jedną stronę), SuperUco i El Firmamento jako opcje, kolacja Piedra Infinita możliwa tylko w czwartek. Nowe gwiazdki MICHELIN 2026 w zasięgu: La VidA (Chacras), Riccitelli Bistró (Las Compuertas) – oba za ciężkie jako domyślne.",
   "Radar 30 dni (30.10.2026): Zuccardi Valle de Uco skończyła 10 lat i buduje w dolinie dwie nowe bodegi – plan 10.11 bez zmian; Aerolíneas w sezonie letnim 2027 nie dodaje nowych tras z Mendozy (56 lotów tygodniowo Buenos Aires–Mendoza, nowe Mendoza–Bariloche); kampania Iberii 425 EUR za odcinek z Madrytu rusza 12.11.2026, ale nie podaje dat podróży – sprawdzić listopad 2027 pierwszego dnia sprzedaży. Kurs: w X 2026 karta zagraniczna ok. 1 465 ARS/USD, MEP ok. 1 540 – różnicę sprawdzić tuż przed wyjazdem."
  ],
@@ -742,6 +747,18 @@
   {
    "label": "Rio Times: pieniądze w Argentynie (X 2026)",
    "url": "https://www.riotimesonline.com/argentina-money-us-travelers/"
+  },
+  {
+   "label": "Don Julio – rezerwacje (Meitre)",
+   "url": "https://donjulio.meitre.com/"
+  },
+  {
+   "label": "iProfesional: ile kosztuje kolacja w Don Julio (2026)",
+   "url": "https://www.iprofesional.com/recreo/451501-cuanto-sale-comer-don-julio-la-parrilla-mas-famosa-carta-precios-abril-2026"
+  },
+  {
+   "label": "InfoNegocios: Don Julio – średni rachunek 130 000 ARS/os. (VII 2026)",
+   "url": "https://infonegocios.info/si-estas-por-buenos-aires/el-fenomeno-don-julio-cuanto-cuesta-hoy-comer-en-la-mejor-parrilla-de-buenos-aires-con-souvenir-incluido"
   }
  ],
  "mapa": [
@@ -862,7 +879,7 @@
   }
  ],
  "loty": {
-  "intro": "Z Warszawy do Mendozy, ok. 18–30 h w jedną stronę zależnie od linii; powrót z Buenos Aires po dniu w mieście. Rozkład i ceny na listopad 2027 linie otwierają ok. 330–360 dni wcześniej, czyli między 11.11 a 10.12.2026. Sprawdzone 25.10.2026: sam bilet Warszawa–Buenos Aires z bagażem kosztuje dziś 4 150–4 500 zł u Ethiopian i Turkish, 4 700–5 800 zł u linii europejskich, lot krajowy z bagażem 480–850 zł; średnia roczna trasy ok. 5 750 zł, a listopad jest najtańszym miesiącem. Budżet liczy kompletną podróż Warszawa–Mendoza na osobę: główny próg zakupu 4 800 zł (9 600 zł na parę) – przy nim wariant polecany zostawia ok. 2 400 zł zapasu na parę na upgrade’y; wariant polecany (Lares + Laguna Suite) mieści się do ok. 6 000 zł/os. (wariant 4 z pokojem Cordón del Plata do ok. 6 330 zł/os.). Kolejność szukania: najpierw cały bilet do Mendozy, równolegle Madryt–Mendoza jako chroniona podróż, osobne bilety dopiero przy oszczędności ≥ 800 zł/os.",
+  "intro": "Z Warszawy do Mendozy, ok. 18–30 h w jedną stronę zależnie od linii; powrót z Buenos Aires po dniu w mieście. Rozkład i ceny na listopad 2027 linie otwierają ok. 330–360 dni wcześniej, czyli między 11.11 a 10.12.2026. Sprawdzone 25.10.2026: sam bilet Warszawa–Buenos Aires z bagażem kosztuje dziś 4 150–4 500 zł u Ethiopian i Turkish, 4 700–5 800 zł u linii europejskich, lot krajowy z bagażem 480–850 zł; średnia roczna trasy ok. 5 750 zł, a listopad jest najtańszym miesiącem. Budżet liczy kompletną podróż Warszawa–Mendoza na osobę: główny próg zakupu 4 800 zł (9 600 zł na parę) – przy nim wariant polecany zostawia ok. 2 000 zł zapasu na parę na upgrade’y; wariant polecany (Lares + Laguna Suite) mieści się do ok. 6 000 zł/os. (wariant 4 z pokojem Cordón del Plata do ok. 6 330 zł/os.). Kolejność szukania: najpierw cały bilet do Mendozy, równolegle Madryt–Mendoza jako chroniona podróż, osobne bilety dopiero przy oszczędności ≥ 800 zł/os.",
   "opcje": [
    {
     "n": "Cały bilet Warszawa–Mendoza (jedna rezerwacja)",
@@ -1043,7 +1060,7 @@
    ],
    [
     "4 500–4 800 zł",
-    "Dobry zakup, szczególnie na jednym bilecie; w wariancie polecanym zostaje ok. 2 400 zł zapasu na parę na upgrade’y."
+    "Dobry zakup, szczególnie na jednym bilecie; w wariancie polecanym zostaje ok. 2 000 zł zapasu na parę na upgrade’y."
    ],
    [
     "4 800–5 000 zł",
@@ -1922,7 +1939,7 @@
    ],
    "za": [
     "11 pokoi tematycznych w trzech kategoriach (Míticas Clásicas / Superiores / De Lujo), salon z biblioteką, ogród, taras; poczwórne szyby od ulicy",
-    "adres idealny pod program: Plaza Serrano 5 min pieszo, La Viruta 10 min, Reliquia i Secreto Tango 7 min taksówką, cmentarz Recoleta 15–20 min",
+    "adres idealny pod program: Plaza Serrano 5 min pieszo, La Viruta 10 min, Don Julio 5 min pieszo, Secreto Tango 7 min taksówką, cmentarz Recoleta 15–20 min",
     "Tripadvisor 4,7 (604), Hotels.com 9,8, Kayak 9,2 (240); w przewodniku hoteli MICHELIN i na liście Time Out „21 najlepszych hoteli Buenos Aires” (wrzesień 2026)",
     "śniadanie 7:30–11:00 w cenie (własne pieczywo, medialunas, jajka na życzenie); goście od 12 lat – cicho"
    ],
@@ -1947,7 +1964,7 @@
     ],
     [
      "Lokalizacja",
-     "Gurruchaga 1848, Palermo Soho: z Aeroparque 10–20 minut Cabify (punkty odbioru oznakowane tuż za halą przylotów; UberX ok. 14 000 ARS w X 2026; dla 4–8 osób z walizkami dwa auta „Extra Equipaje”); Plaza Serrano 5 min pieszo, La Viruta (Armenia 1366) 10 min pieszo, Secreto Tango i Reliquia (Gorriti 5801 / Carranza 1601, Palermo Hollywood) 7 min taksówką lub 25 min pieszo; cmentarz Recoleta 15–20 min; Ezeiza 45–60 min (soboty bywają ruchliwe)."
+     "Gurruchaga 1848, Palermo Soho: z Aeroparque 10–20 minut Cabify (punkty odbioru oznakowane tuż za halą przylotów; UberX ok. 14 000 ARS w X 2026; dla 4–8 osób z walizkami dwa auta „Extra Equipaje”); Plaza Serrano i Don Julio (Guatemala 4691) 5 min pieszo, La Viruta (Armenia 1366) 10 min pieszo, Secreto Tango i Reliquia (Gorriti 5801 / Carranza 1601, Palermo Hollywood) 7 min taksówką lub 25 min pieszo; cmentarz Recoleta 15–20 min; Ezeiza 45–60 min (soboty bywają ruchliwe)."
     ],
     [
      "Dla kogo i ryzyka",
@@ -2018,7 +2035,7 @@
    {
     "d": "",
     "godz": "20:00",
-    "co": "Kolacja w Reliquii (Carranza 1601 – wejście obok): Bib Gourmand MICHELIN, kuchnia warzywno-sezonowa z małymi talerzami, ok. 60 000 ARS/os., wt–sb od 20:00; stolik dla całej grupy przez Meitre plus WhatsApp. Rezerwa: Anafe (od 2026 Virrey Avilés 3383, Colegiales, 8 min taksówką, grupy przez WhatsApp) albo Mengano (Cabrera 5172, 12–15 dań). Don Julio tylko dla fanów mięsa (rezerwacja „tygodnie, nie dni”, 150–300 tys. ARS/os.)."
+    "co": "Steki w Don Julio (Guatemala 4691, róg Gurruchagi – 5 minut pieszo od hotelu, 10 minut taksówką z Secreto Tango): parrilla z gwiazdką MICHELIN, grill na drewno, bife de chorizo i ojo de bife na środek stołu, duża karta win; ok. 130 000–150 000 ARS/os. z winem i cubierto (X 2026). Stolik dla całej grupy: Meitre (donjulio.meitre.com) lub WhatsApp +54 9 11 5311-5668, dla 6–8 osób 2–3 miesiące wcześniej; bez rezerwacji kolejka bywa do 2 h. Plan B: La Cabrera (porcje na dwie osoby) albo El Preferido de Palermo; bez mięsa – Reliquia (Bib Gourmand)."
    },
    {
     "d": "",
@@ -2104,7 +2121,7 @@
    "San Telmo ma słynny targ i tango na Plaza Dorrego tylko w niedzielę – w naszą sobotę jest tam ciszej; dlatego tango w piątek wieczorem, a sobota dla Recolety i centrum.",
    "12–13.11 to kampania przed ewentualną II turą wyborów (21.11): możliwe wiece na Plaza de Mayo i Avenida de Mayo; sprawdzić rano i w razie czego iść do Tortoni wcześniej.",
    "Słońce zachodzi ok. 19:30, zmrok szybki; ok. 24 °C w dzień, 15 °C w nocy – lekka kurtka na milongę.",
-   "Bilety i rezerwacje z wyprzedzeniem: Secreto Tango Society, jeśli upgrade (sesja 18:30, 8 miejsc – mail ≥ 2 miesiące przed), Reliquia (Meitre + WhatsApp, stolik dla grupy), cmentarz Recoleta (Entradas BA, tylko karta), Teatro Colón (Entradas BA ok. miesiąc przed, wycieczki po angielsku 11:00, 12:00, 13:00, 15:00), La Viruta (WhatsApp). Hotel: rezerwować wyłącznie przez oficjalny adres (zgłoszono fałszywe linki do płatności), potwierdzić pisemnie przechowalnię bagażu do 17:00 i śniadanie od 7:30.",
+   "Bilety i rezerwacje z wyprzedzeniem: Secreto Tango Society, jeśli upgrade (sesja 18:30, 8 miejsc – mail ≥ 2 miesiące przed), Don Julio (Meitre donjulio.meitre.com lub WhatsApp +54 9 11 5311-5668, stolik dla grupy 2–3 miesiące wcześniej), cmentarz Recoleta (Entradas BA, tylko karta), Teatro Colón (Entradas BA ok. miesiąc przed, wycieczki po angielsku 11:00, 12:00, 13:00, 15:00), La Viruta (WhatsApp). Hotel: rezerwować wyłącznie przez oficjalny adres (zgłoszono fałszywe linki do płatności), potwierdzić pisemnie przechowalnię bagażu do 17:00 i śniadanie od 7:30.",
    "Zachód słońca 12.11 o 19:32 (zmierzch do 20:00) – sesja tanga kończy się w złotej godzinie. Bezpłatne wycieczki po cmentarzu są tylko po hiszpańsku; po angielsku prywatny przewodnik lub GetYourGuide."
   ]
  },
@@ -2140,7 +2157,7 @@
      "p48",
      "4 800/os. · próg",
      9600,
-     "główny próg zakupu (9 600 zł na parę) – w wariancie polecanym zostaje ok. 2 400 zł zapasu na upgrade’y"
+     "główny próg zakupu (9 600 zł na parę) – w wariancie polecanym zostaje ok. 2 000 zł zapasu na upgrade’y"
     ],
     [
      "p50",
