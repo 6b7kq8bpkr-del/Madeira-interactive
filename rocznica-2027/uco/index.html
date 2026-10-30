@@ -122,6 +122,21 @@ section.blk { padding-block: clamp(44px, 7vw, 84px); }
 .limit { font-family: var(--f-mono); font-size: .85rem; color: var(--poplar); } .limit.over { color: var(--malbec); font-weight: 600; }
 .bud .note { color: var(--ink-2); margin: 14px 0 0; font-size: .95rem; }
 .c1 { background: var(--malbec); } .c2 { background: var(--adobe); } .c3 { background: var(--poplar); } .c4 { background: var(--malbec-2); } .c5 { background: var(--muted); } .c6 { background: var(--line); }
+.c7 { background: var(--ink-2); }
+.upg { margin-top: 22px; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 18px 20px; box-shadow: var(--shade); }
+.upg h3 { margin: 2px 0 6px; font-size: 1.35rem; }
+.upg > p { margin: 0 0 10px; color: var(--ink-2); font-size: .92rem; max-width: 80ch; }
+.upg ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 18px; }
+.upg li label { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; gap: 10px; align-items: start; padding: 8px 0; border-top: 1px solid var(--line); cursor: pointer; }
+.upg li.nq label { cursor: default; }
+.upg input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--malbec); }
+.upg .ucx { width: 18px; height: 18px; margin-top: 2px; border: 1px dashed var(--line); border-radius: 4px; }
+.upg .ut b { display: block; font-weight: 600; font-size: .92rem; line-height: 1.3; }
+.upg .ut small { display: block; color: var(--muted); font-size: .8rem; margin-top: 2px; }
+.upg .uz { font-family: var(--f-mono); font-size: .85rem; color: var(--malbec); white-space: nowrap; }
+.upg li.nq .uz { color: var(--muted); }
+.upg li label:has(input:checked) .ut b { color: var(--malbec); }
+@media (max-width: 760px) { .upg ul { grid-template-columns: minmax(0, 1fr); } }
 
 /* hotele */
 .hg { display: grid; gap: 22px; }
@@ -524,16 +539,17 @@ footer a { color: var(--ink-2); }
         (d.cost ? '<span class="cost">ok. ' + nf(d.cost) + ' zł na parę tego dnia</span>' : '') + '</div></li>';
     }).join('') + '</ol></div></section>';
   // hotele i budżet
-  var BL = [['nocleg', 'Noclegi (7 nocy)', 'c1'], ['loty', 'Loty', 'c2'], ['auto_transfery', 'Bus z kierowcą', 'c3'], ['jedzenie', 'Jedzenie', 'c4'], ['wycieczki_bilety', 'Wycieczki i degustacje', 'c5'], ['rezerwa', 'Rezerwa', 'c6']];
-  h += '<section class="blk" id="budzet"><div class="wrap"><div class="sh"><div><p class="eyebrow">Baza i koszty</p><h2>Wariant i budżet</h2><p>Zuccardi nie ma noclegów, więc śpimy w trzech miejscach: 2 noce pod Mendozą, 4 noce w dolinie Uco i noc w Buenos Aires. Plan dni jest ten sam w każdym z czterech wariantów; wszystkie trzymają Laguna Suite w Uco (hierarchia: Uco > baza 1 > Buenos Aires), różnią się bazą 1. Wybierzcie liczbę par, scenariusz zakupu lotów i wariant, a budżet przeliczy się na parę.</p></div></div>' +
+  var BL = [['nocleg', 'Noclegi (7 nocy)', 'c1'], ['loty', 'Loty', 'c2'], ['auto_transfery', 'Bus z kierowcą', 'c3'], ['jedzenie', 'Jedzenie', 'c4'], ['wycieczki_bilety', 'Wycieczki i degustacje', 'c5'], ['rezerwa', 'Rezerwa', 'c6'], ['upgrade', 'Wybrane upgrade’y', 'c7']];
+  h += '<section class="blk" id="budzet"><div class="wrap"><div class="sh"><div><p class="eyebrow">Baza i koszty</p><h2>Wariant i budżet</h2><p>Zuccardi nie ma noclegów, więc śpimy w trzech miejscach: 3 noce pod Mendozą, 3 noce w dolinie Uco i noc w Buenos Aires. Plan dni jest ten sam w każdym z czterech wariantów; wszystkie trzymają Laguna Suite w Uco (hierarchia: Uco > baza 1 > Buenos Aires), różnią się bazą 1. Wybierzcie liczbę par, scenariusz zakupu lotów, wariant i ewentualne upgrade’y (lista pod budżetem), a budżet przeliczy się na parę.</p></div></div>' +
     '<div class="grp"><span class="eyebrow">Ile par jedzie?</span><div class="seg" id="grp" role="group" aria-label="Liczba par"></div><span class="gnote" id="gnote"></span></div>' +
     '<div class="grp" id="lsw"><span class="eyebrow">Loty kupione</span><div class="seg" id="lsc" role="group" aria-label="Scenariusz lotów"></div><span class="gnote" id="lnote"></span></div>' +
     '<div class="hsel" role="group" aria-label="Hotel">' + D.hotels.map(function (o, i) {
       return '<button type="button" class="hc" data-h="' + i + '" aria-pressed="false"><span class="eyebrow">' + (o.h1 ? esc(o.h1) + ' · ' + esc(o.h2) : 'wariant trasy') + '</span><h3>' + esc(o.n.replace(/^Trasa: /, '').replace(/:.*$/, '')) + '</h3><span class="sum" data-sum="' + i + '"></span><p>' + esc(o.short || (o.note.length > 170 ? o.note.slice(0, 170) + '…' : o.note)) + '</p>' + (o.oc ? '<p style="font-size:.85rem;color:var(--muted)">' + esc(o.oc) + '</p>' : '') + '</button>';
-    }).join('') + '</div><div class="bud" id="bud" aria-live="polite"></div></div></section>';
+    }).join('') + '</div><div class="bud" id="bud" aria-live="polite"></div>' +
+    (P.upgrade ? '<div class="upg" id="upgrade"><p class="eyebrow">Opcje</p><h3>Pojedyncze upgrade’y</h3><p>' + esc(P.upgrade.intro) + '</p><ul>' + P.upgrade.opcje.map(function (u) { return '<li' + (u.zl ? '' : ' class="nq"') + '><label>' + (u.zl ? '<input type="checkbox" data-up="' + esc(u.id) + '">' : '<span class="ucx" aria-hidden="true"></span>') + '<span class="ut"><b>' + esc(u.co) + '</b><small>' + esc(u.kiedy) + (u.uwaga ? ' · ' + esc(u.uwaga) : '') + '</small></span><span class="uz">' + (u.zl ? '+' + nf(u.zl) + ' zł' : 'wycena') + '</span></label></li>'; }).join('') + '</ul><p class="note" id="upsum"></p></div>' : '') + '</div></section>';
   // hotele: karty z rolą w trasie, za/przeciw, oceną i linkiem
   if (D.hotele && D.hotele.length) {
-    h += band('hotele') + '<section class="blk" id="hotele"><div class="wrap"><div class="sh"><div><p class="eyebrow">Trzy bazy, trzy hotele</p><h2>Hotele</h2><div class="hswrow"><div class="seg" id="hsw" role="group" aria-label="Wariant"></div><p class="hseln" id="hselnote"></p></div><p>Hotele w stylu, który lubicie: butikowe, ciche, z widokiem i designem, wysoko oceniane. Hierarchia z agendy: dolina Uco (4 noce, noc rocznicy) > baza pod Mendozą (2 noce) > Buenos Aires (łóżko i adres). Dlatego wszystkie warianty trzymają Laguna Suite w Casa de Uco, a różnią się bazą 1: Lares de Chacras z własnym domem Casa Vita (polecany), Finca Adalgisa z Andami o zachodzie albo Chozos pod Andami; cztery warianty do wyboru w sekcji Budżet. Po pogłębionym badaniu z 27.10.2026 rekomendacja zmieniła się z Chozos + pokój Cordón na Lares + Laguna Suite: pokoje Cordón patrzą na wjazd, a Chozos w listopadzie kosztuje realnie 450–600 USD. Ceny to szacunki za pokój dla dwojga, z października 2026.</p></div></div><div class="hg">' +
+    h += band('hotele') + '<section class="blk" id="hotele"><div class="wrap"><div class="sh"><div><p class="eyebrow">Trzy bazy, trzy hotele</p><h2>Hotele</h2><div class="hswrow"><div class="seg" id="hsw" role="group" aria-label="Wariant"></div><p class="hseln" id="hselnote"></p></div><p>Hotele w stylu, który lubicie: butikowe, ciche, z widokiem i designem, wysoko oceniane. Hierarchia z agendy: dolina Uco (3 noce, noc rocznicy) > baza pod Mendozą (3 noce) > Buenos Aires (łóżko i adres). Dlatego wszystkie warianty trzymają Laguna Suite w Casa de Uco, a różnią się bazą 1: Lares de Chacras z własnym domem Casa Vita (polecany), Finca Adalgisa z Andami o zachodzie albo Chozos pod Andami; cztery warianty do wyboru w sekcji Budżet. Po pogłębionym badaniu z 27.10.2026 rekomendacja zmieniła się z Chozos + pokój Cordón na Lares + Laguna Suite: pokoje Cordón patrzą na wjazd, a Chozos w listopadzie kosztuje realnie 450–600 USD. Ceny to szacunki za pokój dla dwojga, z października 2026.</p></div></div><div class="hg">' +
       D.hotele.map(function (o, hi) {
         var pics = (o.gal && o.gal.length ? o.gal : (o.img ? [o.img] : []));
         var gal = pics.length ? '<div class="hgal n' + Math.min(pics.length, 4) + '">' + pics.map(function (g, j) { return '<figure class="ph">' + img(g, '', false, j ? '(max-width: 760px) 50vw, 280px' : '(max-width: 760px) 100vw, 560px') + '<figcaption>' + esc(g.cap) + cred(g) + '</figcaption></figure>'; }).join('') + '</div>' : '';
@@ -546,7 +562,7 @@ footer a { color: var(--ink-2); }
       }).join('') + '</div>' +
       (P.czas_w_hotelu ? '<div class="cwh"><p class="eyebrow">Ile czasu w hotelu</p><h3>Gdzie hotel naprawdę pracuje na swoją cenę</h3><p>' + esc(P.czas_w_hotelu.intro) + '</p><div class="ptw"><table class="pt"><thead><tr><th>Dzień</th><th>Baza</th><th>W hotelu na jawie</th><th>Co robimy</th><th>Waga</th></tr></thead><tbody>' + P.czas_w_hotelu.dni.map(function (r) { return '<tr><td><b>' + esc(r[0]) + '</b></td><td>' + esc(r[1]) + '</td><td><b>' + esc(r[2]) + '</b></td><td>' + esc(r[3]) + '</td><td>' + esc(r[4]) + '</td></tr>'; }).join('') + '</tbody></table></div><p class="cwhw">' + esc(P.czas_w_hotelu.wniosek) + '</p><p class="cwhw">' + esc(P.czas_w_hotelu.agenda) + '</p></div>' : '') +
       (D.alts && D.alts.length ? '<div class="alth"><p class="eyebrow">Alternatywy</p><h3>Gdyby trzeba było zmienić hotel</h3><p>Każdą bazę sprawdziliśmy w kilku wariantach. Poniżej te, które przeszły sito kryteriów (widok, design, butik, oceny), ale przegrały z wybranymi – z ceną, różnicą na parę i warunkiem, kiedy mają sens. Różnica liczona wobec wariantu polecanego: Lares de Chacras (170 USD), Laguna Suite w Casa de Uco (500 USD) i Legado Mítico (265 USD); ceny to migawki z 2026.</p></div>' +
-        [[1, 'Baza 1 · Mendoza i Agrelo · 2 noce'], [2, 'Baza 2 · dolina Uco · 4 noce'], [3, 'Baza 3 · Buenos Aires · 1 noc']].map(function (g) {
+        [[1, 'Baza 1 · Mendoza i Agrelo · 3 noce'], [2, 'Baza 2 · dolina Uco · 3 noce'], [3, 'Baza 3 · Buenos Aires · 1 noc']].map(function (g) {
           var L = D.alts.filter(function (a) { return a.baza === g[0]; }); if (!L.length) return '';
           return '<p class="altg">' + g[1] + '</p><div class="altgrid">' + L.map(function (a) {
             var r = a.roznica, rt = r === 0 ? 'ta sama cena' : (r > 0 ? '+' : '−') + nf(Math.abs(r)) + ' zł na parę';
@@ -828,6 +844,9 @@ footer a { color: var(--ink-2); }
   // wybór hotelu → budżet
   var G = P.grupa || { domyslnie: 3, opcje: [3], kurs: 3.7, transport_usd: { 3: 1700 }, transport_opis: {} }, np = load('p', G.domyslnie); if (G.opcje.indexOf(np) < 0) np = G.domyslnie;
   var LS = G.loty_scen || null, ls = LS ? load('l', LS.domyslnie) : null; if (LS && !LS.opcje.some(function (o) { return o[0] === ls; })) ls = LS.domyslnie;
+  // upgrade'y: pojedyncze opcje doliczane do budżetu pary
+  var UPG = (P.upgrade && P.upgrade.opcje) || [], UP = load('up', {});
+  function upSum() { return UPG.reduce(function (a, x) { return a + (UP[x.id] && x.zl ? x.zl : 0); }, 0); }
   function lsOpt() { return LS ? LS.opcje.filter(function (o) { return o[0] === ls; })[0] : null; }
   // budżet na parę zależny od liczby par: bus dzielony po równo, rezydencja (dom na 3 pary) + pokoje dla kolejnych par
   function calc(o) {
@@ -835,7 +854,8 @@ footer a { color: var(--ink-2); }
     if (m && m.typ === 'rezydencja') { var ekstra = Math.max(0, n - (m.pary_w_domu || 3)); b.nocleg = Math.round((m.usd_para_poza + (m.dom_usd_noc * m.noce + ekstra * m.pokoj_usd_noc * m.noce) / n) * k); b.rez = ekstra; }
     else if (m && m.usd_para) b.nocleg = Math.round(m.usd_para * k); else b.nocleg = o.b.nocleg;
     b.auto_transfery = G.transport_usd && G.transport_usd[n] ? Math.round(G.transport_usd[n] * k / n / 10) * 10 : o.b.auto_transfery;
-    b.razem = b.nocleg + b.loty + b.auto_transfery + b.jedzenie + b.wycieczki_bilety + b.rezerwa; return b;
+    var u = upSum(); b.upgrade = u || null;
+    b.razem = b.nocleg + b.loty + b.auto_transfery + b.jedzenie + b.wycieczki_bilety + b.rezerwa + u; return b;
   }
   var cur = Math.min(load('h', 0), D.hotels.length - 1), sk = Math.min(load('sk', 0), 2);
   function bud() {
@@ -845,6 +865,8 @@ footer a { color: var(--ink-2); }
     if (LS) { document.getElementById('lsc').innerHTML = LS.opcje.map(function (o) { return '<button type="button" data-ls="' + o[0] + '" aria-pressed="' + (o[0] === ls ? 'true' : 'false') + '">' + o[1] + ' · ' + nf(o[2]) + ' zł</button>'; }).join(''); document.getElementById('lnote').textContent = (lsOpt() ? lsOpt()[3] + '. ' : '') + (LS.uwaga || ''); } else { document.getElementById('lsw').hidden = true; }
     document.getElementById('gnote').textContent = (G.transport_opis && G.transport_opis[np] ? 'Bus: ' + G.transport_opis[np] + ', dzielony po równo. ' : '') + (G.uwaga || '');
     document.querySelectorAll('[data-sum]').forEach(function (el) { el.textContent = nf(calc(D.hotels[+el.dataset.sum]).razem) + ' zł na parę'; });
+    var us = document.getElementById('upsum'); if (us) { var nu = UPG.filter(function (x) { return UP[x.id] && x.zl; }).length; us.textContent = nu ? 'Wybrane: ' + nu + ' · +' + nf(upSum()) + ' zł na parę – wliczone w budżet powyżej.' : 'Nic nie wybrano – budżet powyżej to plan bazowy.'; }
+    document.querySelectorAll('[data-up]').forEach(function (c) { c.checked = !!UP[c.dataset.up]; });
     var st = document.querySelector('[data-dyn="koszt"]'); if (st) st.textContent = 'ok. ' + nf(calc(D.hotels[0]).razem) + ' zł';
     var hset = o.hotele || []; document.querySelectorAll('.hk[data-hn]').forEach(function (el) { el.classList.toggle('main', hset.indexOf(el.dataset.hn) >= 0); el.classList.toggle('dim', hset.length > 0 && hset.indexOf(el.dataset.hn) < 0); });
     var hn = document.getElementById('hselnote'); if (hn) hn.innerHTML = 'Podświetlone karty to hotele wariantu <b>' + esc(o.n.replace(/:.*$/, '')) + '</b>: ' + hset.map(esc).join(' · ') + '. Pełne liczby w sekcji <a href="#budzet">Budżet</a>.';
@@ -858,6 +880,7 @@ footer a { color: var(--ink-2); }
       (o.note ? '<p class="note">' + esc(o.note) + '</p>' : '') + (o.url ? '<p class="note"><a href="' + esc(o.url) + '" target="_blank" rel="noopener">Strona hotelu ↗</a></p>' : '');
   }
   document.querySelectorAll('.hc').forEach(function (el) { el.addEventListener('click', function () { cur = +el.dataset.h; save('h', cur); bud(); }); });
+  document.addEventListener('change', function (e) { var c = e.target.closest('[data-up]'); if (!c) return; UP[c.dataset.up] = c.checked; save('up', UP); bud(); });
   document.getElementById('bud').addEventListener('click', function (e) { var b = e.target.closest('[data-sk]'); if (b) { sk = +b.dataset.sk; save('sk', sk); bud(); } });
   document.getElementById('grp').addEventListener('click', function (e) { var b = e.target.closest('[data-np]'); if (b) { np = +b.dataset.np; save('p', np); bud(); } });
   document.getElementById('lsc').addEventListener('click', function (e) { var b = e.target.closest('[data-ls]'); if (b) { ls = b.dataset.ls; save('l', ls); bud(); } });
