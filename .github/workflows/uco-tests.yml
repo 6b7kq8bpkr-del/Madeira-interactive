@@ -1,0 +1,48 @@
+name: Valle de Uco – testy
+on:
+  pull_request:
+    paths:
+      - 'rocznica-2027/uco/**'
+      - 'rocznica-2027/uco-src/**'
+      - '.github/workflows/uco-tests.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'rocznica-2027/uco/**'
+      - 'rocznica-2027/uco-src/**'
+      - '.github/workflows/uco-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: uco-tests-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: rocznica-2027/uco-src
+    steps:
+      - uses: actions/checkout@v4
+      - name: Strona zgadza się ze źródłami
+        run: python3 -I build.py --check
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: rocznica-2027/uco-src/tests/package-lock.json
+      - name: Playwright i Chromium
+        working-directory: rocznica-2027/uco-src/tests
+        run: npm ci && npx playwright install --with-deps chromium
+      - name: Testy w przeglądarce
+        working-directory: rocznica-2027/uco-src/tests
+        run: node smoke.mjs
+      - name: Zrzuty ekranu z błędów
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: zrzuty
+          path: rocznica-2027/uco-src/tests/out/
+          if-no-files-found: ignore

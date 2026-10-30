@@ -1,0 +1,12 @@
+{
+  "name": "uco-tests",
+  "private": true,
+  "description": "Testy dymne strony Valle de Uco 2027 (../../uco)",
+  "type": "module",
+  "scripts": {
+    "test": "node smoke.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.56.1"
+  }
+}

@@ -1,0 +1,1038 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Valle de Uco 2027</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M9 3h14c0 8-2 13-7 13S9 11 9 3z' fill='%236d1f3a'/%3E%3Cpath d='M15 16h2v9h5v3H10v-3h5z' fill='%234f6a47'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Układ: dziennik podróży — duża fotografia Andów na otwarcie, potem oś dni jak kartki z winnicy; kolor wina malbec na szarości topól i kamienia rzecznego */
+:root {
+  --stone: #eceeea; --paper: #f8f8f5; --ink: #1d1a1f; --ink-2: #4a4550; --muted: #655e6b;
+  --malbec: #6d1f3a; --malbec-2: #a3405f; --poplar: #4f6a47; --adobe: #93561f; --line: #d6d8d1; --chip: #e2e5de;
+  --on-malbec: #ffffff; --shade: 0 1px 2px rgba(29,26,31,.06), 0 18px 40px -26px rgba(29,26,31,.45);
+  --f-display: "Gloock", "Georgia", serif; --f-body: "Figtree", "Helvetica Neue", Arial, sans-serif; --f-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --stone: #141116; --paper: #1d1920; --ink: #f1edf0; --ink-2: #c9c1c9; --muted: #958c97;
+  --malbec: #d6809b; --malbec-2: #cc7189; --poplar: #93b088; --adobe: #e0a46a; --line: #332c35; --chip: #29232c;
+  --on-malbec: #1d1a1f; --shade: 0 1px 2px rgba(0,0,0,.5), 0 18px 40px -26px rgba(0,0,0,.9); color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --stone: #141116; --paper: #1d1920; --ink: #f1edf0; --ink-2: #c9c1c9; --muted: #958c97;
+  --malbec: #d6809b; --malbec-2: #cc7189; --poplar: #93b088; --adobe: #e0a46a; --line: #332c35; --chip: #29232c;
+  --on-malbec: #1d1a1f; --shade: 0 1px 2px rgba(0,0,0,.5), 0 18px 40px -26px rgba(0,0,0,.9); color-scheme: dark; }
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+body { margin: 0; background: var(--stone); color: var(--ink); font-family: var(--f-body); font-size: 17px; line-height: 1.62; -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper); }
+@media (min-width: 1600px) { body { font-size: 19px; } }
+a { color: var(--malbec); }
+img { max-width: 100%; display: block; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 400; line-height: 1.08; margin: 0; text-wrap: balance; }
+:focus-visible { outline: 3px solid var(--adobe); outline-offset: 2px; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.eyebrow { font-family: var(--f-mono); font-size: .76rem; letter-spacing: .14em; text-transform: uppercase; color: var(--adobe); }
+
+/* nawigacja */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.nav .wrap { display: flex; align-items: center; gap: 14px; padding-block: 10px; }
+.nav b { font-family: var(--f-display); font-weight: 400; font-size: 1.25rem; white-space: nowrap; color: var(--malbec); }
+.nav ul { list-style: none; display: flex; gap: 4px; margin: 0 0 0 auto; padding: 0; overflow-x: auto; scrollbar-width: none; }
+.nav a { display: block; padding: 7px 12px; border-radius: 999px; color: var(--ink-2); text-decoration: none; font-weight: 600; font-size: .9rem; white-space: nowrap; }
+.nav a:hover, .nav a.on { background: var(--chip); color: var(--ink); }
+.ico { width: 38px; height: 38px; flex: none; border-radius: 999px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); cursor: pointer; font-size: 1rem; }
+@media (max-width: 720px) { .nav b { display: none; } .nav ul { margin-left: 0; } }
+
+/* otwarcie */
+.hero { position: relative; color: #fff; background: #2a2226; overflow: hidden; }
+.hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: kb 28s ease-in-out infinite alternate; transform-origin: 60% 40%; }
+@keyframes kb { from { transform: scale(1); } to { transform: scale(1.09); } }
+@media (prefers-reduced-motion: reduce) { .hero img { animation: none; } .reveal { opacity: 1 !important; transform: none !important; } }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,14,18,.1) 0%, rgba(20,14,18,.35) 50%, rgba(20,14,18,.88) 100%); }
+.hero .wrap { position: relative; z-index: 1; padding-block: clamp(160px, 38vh, 360px) 56px; text-shadow: 0 1px 14px rgba(0,0,0,.4); }
+.hero h1 { font-size: clamp(3.2rem, 11vw, 8.5rem); letter-spacing: -.01em; }
+.hero h1 em { font-style: normal; color: #e9b6c5; }
+.hero p { max-width: 52ch; font-size: clamp(1.05rem, 2vw, 1.3rem); margin: 14px 0 0; }
+.hero .eyebrow { color: #f0c59a; }
+.hero .cred { position: absolute; right: max(12px, env(safe-area-inset-right, 0px)); bottom: 8px; z-index: 1; font-size: .7rem; opacity: .75; }
+.hero .cred a { color: #fff; }
+.count { display: flex; flex-wrap: wrap; gap: 26px 40px; margin-top: 28px; }
+.count div { display: flex; flex-direction: column; }
+.count b { font-family: var(--f-display); font-weight: 400; font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1; }
+.count span { font-family: var(--f-mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; opacity: .85; margin-top: 4px; }
+
+/* sekcje */
+section.blk { padding-block: clamp(44px, 7vw, 84px); }
+.sh { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 10px 24px; margin-bottom: 26px; }
+.sh h2 { font-size: clamp(2.1rem, 5vw, 3.4rem); }
+.sh p { margin: 8px 0 0; color: var(--ink-2); max-width: 62ch; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr)); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.stats div { padding: 20px 18px; border-right: 1px solid var(--line); }
+.stats div:last-child { border-right: 0; }
+.stats b { display: block; font-family: var(--f-display); font-weight: 400; font-size: 2rem; color: var(--malbec); line-height: 1.1; }
+.stats span { font-size: .9rem; color: var(--ink-2); }
+@media (max-width: 600px) { .stats div { border-right: 0; border-bottom: 1px solid var(--line); } }
+.wow { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 18px; margin-top: 30px; }
+.wow p { margin: 0; padding-top: 14px; border-top: 2px solid var(--malbec); color: var(--ink-2); }
+
+/* dni */
+.days { display: flex; flex-direction: column; gap: 22px; }
+.day { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); background: var(--paper); border-radius: 6px; overflow: hidden; box-shadow: var(--shade); }
+.day:nth-child(even) .ph { order: 2; }
+.day .ph { position: relative; min-height: 260px; background: var(--chip); }
+.day .ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; }
+.day .ph figcaption { position: absolute; left: 10px; bottom: 8px; right: 10px; font-size: .7rem; color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,.7); }
+.day .bd { padding: 26px 28px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.day .dt { display: flex; align-items: baseline; gap: 10px; font-family: var(--f-mono); color: var(--muted); font-size: .85rem; }
+.day .dt b { font-family: var(--f-display); font-weight: 400; font-size: 2.4rem; color: var(--ink); line-height: 1; }
+.day h3 { font-size: 1.65rem; }
+.day p { margin: 0; color: var(--ink-2); }
+.day .cost { font-family: var(--f-mono); font-size: .82rem; color: var(--muted); margin-top: auto; }
+.day.anniv { outline: 2px solid var(--malbec); }
+.day.anniv .dt b, .day.anniv h3 { color: var(--malbec); }
+.tag { display: inline-block; padding: 2px 10px; border-radius: 999px; background: var(--malbec); color: var(--on-malbec); font-family: var(--f-body); font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+@media (max-width: 760px) { .day { grid-template-columns: minmax(0, 1fr); } .day:nth-child(even) .ph { order: 0; } .day .ph { min-height: 0; aspect-ratio: 16 / 10; } .day .bd { padding: 20px; } }
+.flow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 12px; }
+.flow li { padding: 14px; border-left: 2px solid var(--adobe); background: var(--paper); }
+.flow b { display: block; font-family: var(--f-mono); color: var(--adobe); font-weight: 500; }
+
+/* hotele i budżet */
+.hsel { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; }
+.hc { text-align: left; font: inherit; color: inherit; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 20px; cursor: pointer; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.hc[aria-pressed="true"] { border-color: var(--malbec); box-shadow: 0 0 0 2px var(--malbec) inset; }
+.hc h3 { font-size: 1.45rem; }
+.hc .sum { font-family: var(--f-mono); font-size: .95rem; color: var(--malbec); }
+.hc p { margin: 0; color: var(--ink-2); font-size: .95rem; }
+.bud { margin-top: 28px; background: var(--paper); border-radius: 6px; padding: 24px; box-shadow: var(--shade); }
+.bar { display: flex; height: 22px; border-radius: 4px; overflow: hidden; margin: 14px 0 18px; }
+.bar i { display: block; height: 100%; }
+.leg { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 8px 24px; }
+.leg li { display: flex; align-items: center; gap: 10px; font-size: .95rem; }
+.leg li s { width: 12px; height: 12px; border-radius: 3px; flex: none; }
+.leg li b { margin-left: auto; font-family: var(--f-mono); font-weight: 500; font-variant-numeric: tabular-nums; }
+.total { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: baseline; }
+.total b { font-family: var(--f-display); font-weight: 400; font-size: 2.4rem; }
+.limit { font-family: var(--f-mono); font-size: .85rem; color: var(--poplar); } .limit.over { color: var(--malbec); font-weight: 600; }
+.bud .note { color: var(--ink-2); margin: 14px 0 0; font-size: .95rem; }
+.c1 { background: var(--malbec); } .c2 { background: var(--adobe); } .c3 { background: var(--poplar); } .c4 { background: var(--malbec-2); } .c5 { background: var(--muted); } .c6 { background: var(--line); }
+.c7 { background: var(--ink-2); }
+.more2, .lfull { margin-top: 20px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); padding: 0 18px; }
+.more2 > summary, .lfull > summary { cursor: pointer; list-style: none; padding: 14px 0; font-weight: 600; color: var(--ink-2); }
+.more2 > summary::-webkit-details-marker, .lfull > summary::-webkit-details-marker, .dmore > summary::-webkit-details-marker { display: none; }
+.more2 > summary::before, .lfull > summary::before { content: "+ "; font-family: var(--f-mono); color: var(--malbec); }
+.more2[open] > summary::before, .lfull[open] > summary::before { content: "− "; }
+.more2[open], .lfull[open] { padding-bottom: 18px; }
+.lfull > summary { font-size: 1.05rem; color: var(--malbec); }
+.more2 .upg { margin-top: 0; border: 0; box-shadow: none; padding: 0; background: none; }
+.dmore { margin-top: 8px; }
+.dmore > summary { cursor: pointer; list-style: none; font-size: .85rem; font-weight: 600; color: var(--malbec); }
+.dmore > summary::before { content: "▸ "; } .dmore[open] > summary::before { content: "▾ "; }
+.dmore > p, .dmore > .note { margin: 8px 0 0; font-size: .9rem; color: var(--ink-2); }
+.zp.zp1 { grid-template-columns: minmax(0, 1fr); }
+.tl.rz li > div { min-width: 0; } .tl.rz .dmore p { overflow-wrap: anywhere; }
+.upg { margin-top: 22px; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 18px 20px; box-shadow: var(--shade); }
+.upg h3 { margin: 2px 0 6px; font-size: 1.35rem; }
+.upg > p { margin: 0 0 10px; color: var(--ink-2); font-size: .92rem; max-width: 80ch; }
+.upg ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 18px; }
+.upg li label { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; gap: 10px; align-items: start; padding: 8px 0; border-top: 1px solid var(--line); cursor: pointer; }
+.upg li.nq label { cursor: default; }
+.upg input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--malbec); }
+.upg .ucx { width: 18px; height: 18px; margin-top: 2px; border: 1px dashed var(--line); border-radius: 4px; }
+.upg .ut b { display: block; font-weight: 600; font-size: .92rem; line-height: 1.3; }
+.upg .ut small { display: block; color: var(--muted); font-size: .8rem; margin-top: 2px; }
+.upg .uz { font-family: var(--f-mono); font-size: .85rem; color: var(--malbec); white-space: nowrap; }
+.upg li.nq .uz { color: var(--muted); }
+.upg li label:has(input:checked) .ut b { color: var(--malbec); }
+@media (max-width: 760px) { .upg ul { grid-template-columns: minmax(0, 1fr); } }
+
+/* hotele */
+.hg { display: grid; gap: 22px; }
+.hk { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: start; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; min-width: 0; }
+.hk.main { border-color: var(--malbec); box-shadow: 0 0 0 2px var(--malbec) inset; } .hk.dim { opacity: .82; } .hk.dim:hover { opacity: 1; }
+.hk .selb { display: none; margin-left: 10px; padding: 2px 9px; border-radius: 999px; background: var(--malbec); color: var(--on-malbec); font-size: .7rem; letter-spacing: .05em; text-transform: uppercase; vertical-align: middle; } .hk.main .selb { display: inline-block; }
+.hseln { margin: 0 0 8px; font-size: .92rem; color: var(--ink-2); } .hseln b { color: var(--malbec); }
+.hswrow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin: 0 0 10px; } .hswrow .seg { margin: 0; } .hswrow .hseln { margin: 0; flex: 1 1 100%; }
+html { scroll-behavior: smooth; } section.blk, .hk, .alth, .stop, .prom, .more2 { scroll-margin-top: 72px; }
+.hk.flash { animation: hkflash 1.6s ease-out; } @keyframes hkflash { 0% { box-shadow: 0 0 0 4px var(--malbec) inset; } 100% { box-shadow: 0 0 0 2px var(--malbec) inset; } }
+.vh { margin-top: 18px; } .vh > .eyebrow { margin: 0 0 8px; } .vhg { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px; }
+.vhc { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 0 12px; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--bg); text-decoration: none; color: var(--ink); min-width: 0; } .vhc:hover { border-color: var(--malbec); }
+.vhc img { width: 96px; height: 100%; min-height: 110px; object-fit: cover; display: block; } .vhc .vhb { padding: 10px 12px 10px 0; display: flex; flex-direction: column; gap: 3px; min-width: 0; } .vhc .vhb .eyebrow { margin: 0; font-size: .7rem; } .vhc b { font-size: 1rem; line-height: 1.2; }
+.vhc .vhp { font-family: var(--f-mono); font-size: .8rem; color: var(--malbec); } .vhc .vhs { font-size: .82rem; color: var(--ink-2); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; } .vhc .vhl { font-size: .82rem; font-weight: 600; color: var(--malbec); margin-top: 2px; }
+.hk .ph { margin: 0; min-height: 260px; } .hk .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hk .hb { padding: 22px 24px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.hk h3 { font-size: 1.6rem; }
+.hk .kv { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: .9rem; color: var(--ink-2); align-items: center; } .hk .kv b { color: var(--ink); font-weight: 600; }
+.hk .tagw { padding: 2px 10px; border-radius: 999px; background: var(--chip); color: var(--ink); font-size: .8rem; }
+.hk .lead { margin: 0; font-weight: 500; } .hk .more { margin: 0; color: var(--ink-2); font-size: .92rem; }
+.zp { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 6px 20px; } .zp ul { margin: 0; padding: 0; list-style: none; font-size: .9rem; display: grid; gap: 4px; }
+.zp li::before { content: "+ "; color: var(--poplar); font-weight: 700; } .zp ul.m li::before { content: "− "; color: var(--malbec); }
+@media (max-width: 760px) { .hk { grid-template-columns: minmax(0, 1fr); } .hk .ph { min-height: 0; aspect-ratio: 16 / 10; } }
+.cwh { margin: 44px 0 0; } .cwh h3 { font-size: 1.6rem; margin: 2px 0 8px; } .cwh > p { margin: 0 0 12px; color: var(--ink-2); max-width: 70ch; } .cwh .ptw { margin: 0 0 14px; } .cwh .cwhw { max-width: 78ch; color: var(--ink); }
+.alth { margin: 44px 0 10px; max-width: 70ch; } .alth h3 { font-size: 1.6rem; margin: 2px 0 8px; } .alth p { margin: 0; color: var(--ink-2); }
+.altg { font-family: var(--f-mono); font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: var(--malbec); margin: 26px 0 10px; }
+.altgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: 16px; }
+.alt { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; min-width: 0; display: flex; flex-direction: column; }
+.alt .ph { margin: 0; position: relative; } .alt .ph img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; } .alt .ph figcaption { position: absolute; left: 8px; right: 8px; bottom: 6px; font-size: .7rem; color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,.8); }
+.alt .ab { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 6px; font-size: .9rem; } .alt h4 { margin: 0; font-size: 1.2rem; } .alt p { margin: 0; }
+.alt .kv { display: flex; flex-wrap: wrap; gap: 6px 14px; color: var(--ink-2); } .alt .kv b { color: var(--ink); } .alt .kv .up { color: var(--malbec); font-family: var(--f-mono); font-size: .82rem; } .alt .kv .down { color: var(--poplar); font-family: var(--f-mono); font-size: .82rem; }
+.alt .oc { color: var(--muted); font-size: .82rem; } .alt .hsek { grid-template-columns: 96px minmax(0, 1fr); font-size: .88rem; }
+.odrz { margin-top: 22px; } .odrz summary { cursor: pointer; font-weight: 600; color: var(--malbec); } .odrz ul { margin: 10px 0 0; padding-left: 20px; color: var(--ink-2); font-size: .92rem; display: grid; gap: 4px; }
+.hgal { display: grid; gap: 4px; min-width: 0; } .hgal .ph { margin: 0; position: relative; min-height: 0; } .hgal .ph img { width: 100%; height: 100%; object-fit: cover; display: block; aspect-ratio: 4 / 3; }
+.hgal .ph figcaption { position: absolute; left: 8px; right: 8px; bottom: 6px; font-size: .7rem; color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,.8); }
+.hgal.n2, .hgal.n3, .hgal.n4 { grid-template-columns: 1fr 1fr; } .hgal.n3 .ph:first-child, .hgal.n4 .ph:first-child { grid-column: 1 / -1; } .hgal.n3 .ph:first-child img, .hgal.n4 .ph:first-child img { aspect-ratio: 16 / 10; } .hgal.n4 .ph:nth-child(4) { display: none; }
+@media (min-width: 761px) { .hgal.n4 .ph:nth-child(4) { display: block; } .hgal.n4 { grid-template-columns: 1fr 1fr 1fr; } .hgal.n4 .ph:first-child { grid-column: 1 / -1; } }
+.hsek { margin: 6px 0 4px; display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 6px 14px; font-size: .92rem; } .hsek dt { font-family: var(--f-mono); font-size: .75rem; letter-spacing: .04em; text-transform: uppercase; color: var(--malbec); padding-top: 3px; } .hsek dd { margin: 0; color: var(--ink-2); }
+@media (max-width: 480px) { .hsek { grid-template-columns: minmax(0, 1fr); gap: 2px; } .hsek dd { margin-bottom: 8px; } }
+.hl { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 4px 0 0; font-size: .9rem; } .hl a { font-weight: 600; white-space: nowrap; }
+/* loty: tabela cen i trendów */
+.pt { width: 100%; border-collapse: collapse; font-size: .9rem; } .pt th, .pt td { text-align: left; padding: 8px 8px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+.pt th { font-family: var(--f-mono); font-weight: 500; font-size: .75rem; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
+.pt td.n { font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-space: nowrap; } .pt td.n b { color: var(--malbec); font-weight: 600; } .pt tr.ok td.n b { color: var(--poplar); }
+.pt .tr { font-family: var(--f-mono); font-size: .8rem; } .pt .up { color: var(--malbec); } .pt .dn { color: var(--poplar); } .pt .fl { color: var(--muted); }
+.pt .rt { color: var(--muted); font-family: var(--f-mono); font-size: .78rem; display: block; }
+.pt .sp { display: inline-flex; align-items: flex-end; gap: 2px; height: 22px; } .pt .sp i { width: 5px; background: var(--adobe); border-radius: 1px; display: block; } .pt .sp i.ok { background: var(--poplar); }
+.ptw { overflow-x: auto; margin: 10px 0 0; }
+.pt .or { color: var(--ink-2); white-space: nowrap; }
+/* loty */
+.fo { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px; }
+.fo article { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 20px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.fo article.rek { border-color: var(--malbec); box-shadow: 0 0 0 2px var(--malbec) inset; }
+.fo h3 { font-size: 1.35rem; } .fo .rt { font-family: var(--f-mono); font-size: .85rem; color: var(--malbec); }
+.fo .kv { display: flex; gap: 14px; flex-wrap: wrap; font-size: .9rem; color: var(--ink-2); } .fo .kv b { color: var(--ink); font-weight: 600; }
+.fo p { margin: 0; font-size: .95rem; color: var(--ink-2); } .fo .pm { display: grid; gap: 4px; } .fo .pm span::before { content: "+ "; color: var(--poplar); font-weight: 700; } .fo .pm span.m::before { content: "− "; color: var(--malbec); }
+.mon { margin-top: 28px; background: var(--paper); border-radius: 6px; padding: 24px; box-shadow: var(--shade); display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px 40px; } .mon .side { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px 40px; } .mon .side > div { min-width: 0; }
+.mon > div { min-width: 0; }
+@media (max-width: 760px) { .mon { grid-template-columns: minmax(0, 1fr); } }
+.stop { margin-top: 28px; background: var(--paper); border-radius: 6px; padding: 24px; box-shadow: var(--shade); border-left: 4px solid var(--malbec); display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 20px 40px; } .stop h3 { margin: 2px 0 8px; font-size: 1.5rem; } .stop h4 { margin: 14px 0 6px; font-size: 1.05rem; } .stop p { margin: 0 0 8px; } .stop .tl { margin-top: 10px; } .stop .tl li { grid-template-columns: 28px minmax(0, 1fr); gap: 10px; } .stop .al { margin-top: 4px; gap: 6px; } .stop .al a { font-weight: 500; font-size: .92rem; }
+@media (max-width: 760px) { .stop { grid-template-columns: minmax(0, 1fr); } }
+.por { margin-top: 28px; background: var(--paper); border-radius: 6px; padding: 24px; box-shadow: var(--shade); border-left: 4px solid var(--poplar); scroll-margin-top: 72px; } .por h3 { margin: 2px 0 8px; font-size: 1.5rem; } .por h4 { margin: 18px 0 8px; font-size: 1.05rem; } .por p { margin: 0 0 8px; } .por .tw { overflow-x: auto; margin: 10px 0 4px; } .por table.pt td { vertical-align: top; font-size: .88rem; } .por table.pt td:first-child { min-width: 150px; } .por table.pt tr.rek td { background: var(--chip); } .por table.pt td .tg2 { display: block; font-family: var(--f-mono); font-size: .72rem; color: var(--malbec); margin-top: 4px; }
+.por .g2 { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 20px 40px; margin-top: 10px; } .por .g2 > div { min-width: 0; } @media (max-width: 760px) { .por .g2 { grid-template-columns: minmax(0, 1fr); } }
+.por .tl li { grid-template-columns: 28px minmax(0, 1fr); gap: 8px; } .por .tl span { display: block; } .por .tl span small { display: block; color: var(--muted); font-family: var(--f-mono); font-size: .76rem; margin-top: 3px; } .por .tl span a { font-weight: 500; }
+.por details { border-top: 1px solid var(--line); padding: 8px 0; } .por details summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; align-items: center; } .por details summary::after { content: "+"; font-family: var(--f-mono); color: var(--muted); } .por details[open] summary::after { content: "−"; } .por details ul { margin: 8px 0 4px; padding-left: 20px; display: grid; gap: 6px; font-size: .92rem; color: var(--ink-2); } .por details ul li b { color: var(--ink); }
+.por .ck { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 6px; } .por .ck label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; font-size: .92rem; } .por .ck input { margin-top: 4px; accent-color: var(--poplar); width: 17px; height: 17px; flex: none; } .por .ck input:checked + span { color: var(--muted); text-decoration: line-through; }
+.por .wn { margin: 8px 0 0; padding-left: 20px; display: grid; gap: 6px; font-size: .95rem; } .por .wn li::marker { color: var(--poplar); font-weight: 700; }
+.kal { margin-top: 28px; background: var(--paper); border-radius: 6px; padding: 24px; box-shadow: var(--shade); border-left: 4px solid var(--malbec); scroll-margin-top: 72px; } .kal h3 { margin: 2px 0 8px; font-size: 1.5rem; } .kal p { margin: 0 0 8px; }
+.kal .lead2 { color: var(--ink-2); font-size: .95rem; }
+.kos { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 0 12px; margin: 20px 0 22px; }
+.kos-l, .kos-t { display: grid; grid-template-rows: 20px 76px 34px 46px 24px; }
+.kos-l span { display: flex; align-items: center; justify-content: flex-end; text-align: right; font-family: var(--f-mono); font-size: .7rem; line-height: 1.25; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.kos-t { position: relative; }
+.kmh, .kcw, .kbd, .kkm, .kau { position: relative; }
+.kmh span { position: absolute; top: 0; padding-left: 4px; font-family: var(--f-mono); font-size: .7rem; line-height: 1; color: var(--muted); white-space: nowrap; }
+.kmh span small { font-size: .7rem; margin-left: 3px; }
+.kmh span::before { content: ""; position: absolute; left: 0; top: 0; height: 200px; border-left: 1px solid var(--line); opacity: .75; }
+.kcw { color: var(--poplar); }
+.kcv { position: absolute; left: 0; top: 16px; width: 100%; height: calc(100% - 16px); display: block; overflow: visible; }
+.kca { position: absolute; top: 1px; transform: translateX(-50%); font-family: var(--f-mono); font-size: .7rem; letter-spacing: .04em; color: var(--poplar); white-space: nowrap; background: var(--paper); padding: 0 4px; border-radius: 3px; z-index: 3; }
+.ks { position: absolute; top: 3px; bottom: 3px; border: 0; padding: 0 5px; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 5px; overflow: hidden; font: 600 .72rem/1 var(--f-body); color: var(--on-malbec); background: var(--muted); transition: transform .15s, box-shadow .15s; z-index: 1; }
+.ks span { font-family: var(--f-mono); font-size: .7rem; }
+.ks b { display: none; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.ks.wd b { display: inline; }
+.ks:hover, .ks:focus-visible { transform: translateY(-2px); box-shadow: 0 8px 16px -10px var(--ink); }
+.ks:focus-visible { outline: 2px solid var(--ink); outline-offset: 1px; }
+.ks.t-sprawdz, .sw.t-sprawdz { background: var(--adobe); }
+.ks.t-kupuj, .sw.t-kupuj { background: color-mix(in srgb, var(--poplar) 45%, var(--paper)); }
+.ks.t-kupuj { color: var(--ink); }
+.ks.t-szczyt, .sw.t-szczyt { background: var(--poplar); }
+.ks.t-szczyt { top: 0; bottom: 0; box-shadow: 0 0 0 2px var(--paper), 0 0 0 3px var(--poplar); }
+.ks.t-termin, .sw.t-termin { background: var(--malbec-2); }
+.ks.t-po { background: var(--chip); color: var(--muted); box-shadow: inset 0 0 0 1px var(--line); }
+.ks.past { opacity: .4; }
+.ks.now { box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px var(--ink); }
+.ktrip { position: absolute; top: 0; bottom: 0; border-radius: 4px; background: var(--malbec); color: var(--on-malbec); display: grid; place-items: center; font: normal .72rem/1 var(--f-body); }
+.km { position: absolute; top: 5px; width: 0; }
+.km::before { content: ""; position: absolute; left: -5px; top: 0; width: 10px; height: 10px; border-radius: 2px; transform: rotate(45deg); background: var(--ink-2); }
+.km.k-decyzja::before { background: var(--adobe); } .km.k-termin::before, .km.k-wylot::before { background: var(--malbec); }
+.km em { position: absolute; left: 7px; top: 15px; font-style: normal; white-space: nowrap; font-size: .7rem; line-height: 1.1; color: var(--ink-2); background: var(--paper); padding: 0 2px; border-radius: 2px; z-index: 3; }
+.km em b { font-family: var(--f-mono); font-weight: 600; color: var(--ink); }
+.km.r2 em { top: 29px; }
+.km.r2 em::before { content: ""; position: absolute; left: -7px; top: -16px; height: 14px; border-left: 1px solid var(--line); }
+.km.rt em { left: auto; right: 9px; } .km.rt.r2 em::before { display: none; }
+.km.k-decyzja em b, .km.k-decyzja em span { color: var(--adobe); } .km.k-termin em b, .km.k-termin em span, .km.k-wylot em b, .km.k-wylot em span { color: var(--malbec); font-weight: 600; }
+.km.past { opacity: .45; }
+.krs { position: absolute; top: 11px; height: 2px; background: repeating-linear-gradient(90deg, var(--poplar) 0 3px, transparent 3px 6px); }
+.kt { position: absolute; top: 6px; width: 1px; height: 12px; background: var(--ink-2); opacity: .55; }
+.ka2 { position: absolute; top: 6px; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; z-index: 1; }
+.ka2.ag { background: var(--malbec); box-shadow: 0 0 0 2px var(--paper); }
+.ka2.pr { background: var(--paper); border: 2px solid var(--adobe); }
+.ka2.past, .kt.past { opacity: .3; }
+.kln { position: absolute; top: 20px; bottom: 0; width: 0; border-left: 1px dashed var(--malbec); pointer-events: none; z-index: 2; }
+.kln.k-decyzja { border-left-color: var(--adobe); }
+.kln.kdz { border-left: 2px solid var(--ink); margin-left: -1px; }
+.kln.kdz em { position: absolute; bottom: -17px; left: -2px; font: 600 .7rem/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--paper); background: var(--ink); padding: 3px 6px; border-radius: 99px; white-space: nowrap; }
+.klg { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: .76rem; color: var(--ink-2); }
+.klg span { display: inline-flex; align-items: center; gap: 6px; }
+.klg .sw { width: 16px; height: 10px; border-radius: 2px; }
+.klg .lg-ag, .klg .lg-pr { width: 10px; height: 10px; border-radius: 50%; background: var(--malbec); } .klg .lg-pr { background: none; border: 2px solid var(--adobe); }
+.klg .lg-kt { width: 1px; height: 12px; background: var(--ink-2); }
+.klg .lg-rs { width: 18px; height: 2px; background: repeating-linear-gradient(90deg, var(--poplar) 0 3px, transparent 3px 6px); }
+.kcap { margin: 8px 0 0; font-size: .78rem; color: var(--muted); max-width: 90ch; }
+.kst-hd { margin: 30px 0 4px; font: 400 1.25rem/1.2 var(--f-display); }
+.kst { list-style: none; margin: 0; padding: 0; }
+.kst > li { display: grid; grid-template-columns: 150px 34px minmax(0, 1fr); gap: 0 14px; }
+.kst-d { text-align: right; padding-top: 14px; }
+.kst-d b { display: block; font-family: var(--f-mono); font-size: .8rem; font-weight: 600; color: var(--malbec); }
+.kst-d small { display: block; margin-top: 3px; font-family: var(--f-mono); font-size: .7rem; color: var(--muted); }
+.kst-r { position: relative; display: flex; justify-content: center; }
+.kst-r::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; margin-left: -1px; background: var(--line); }
+.kst > li:first-child .kst-r::before { top: 24px; } .kst > li:last-child .kst-r::before { bottom: auto; height: 24px; }
+.kst-r i { position: relative; z-index: 1; margin-top: 9px; width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font: 600 .8rem/1 var(--f-mono); background: var(--paper); border: 2px solid var(--line); color: var(--ink-2); }
+.kst-i.t-sprawdz .kst-r i { border-color: var(--adobe); color: var(--adobe); }
+.kst-i.t-kupuj .kst-r i { border-color: var(--poplar); color: var(--poplar); }
+.kst-i.t-szczyt .kst-r i { border-color: var(--poplar); background: var(--poplar); color: var(--on-malbec); }
+.kst-i.t-termin .kst-r i { border-color: var(--malbec-2); color: var(--malbec-2); }
+.kst-i.past .kst-r i { background: var(--chip); border-color: var(--line); color: var(--muted); }
+.kst-i.past .kst-c, .kst-i.past .kst-d { opacity: .6; }
+.kst-c { min-width: 0; padding: 12px 14px 18px; margin-bottom: 4px; border-radius: 8px; }
+.kst-i.now .kst-c, .kst-i.next .kst-c { border: 1px solid var(--line); box-shadow: var(--shade); margin: 4px 0 12px; }
+.kst-i.now .kst-r i, .kst-i.next .kst-r i { box-shadow: 0 0 0 5px color-mix(in srgb, var(--poplar) 22%, transparent); }
+.kst-i.now .kst-r i { animation: kpulse 2.6s ease-in-out infinite; }
+@keyframes kpulse { 50% { box-shadow: 0 0 0 10px color-mix(in srgb, var(--poplar) 8%, transparent); } }
+.kst-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.kst-h h4 { margin: 0; font: 400 1.2rem/1.2 var(--f-display); }
+.kst-t { font-family: var(--f-mono); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; padding: 2px 8px; border-radius: 99px; background: var(--chip); color: var(--ink-2); }
+.kst-i.t-szczyt .kst-t { background: var(--poplar); color: var(--on-malbec); } .kst-i.t-termin .kst-t { background: var(--malbec-2); color: var(--on-malbec); } .kst-i.t-sprawdz .kst-t { color: var(--adobe); }
+.kst-s { margin-left: auto; font-family: var(--f-mono); font-size: .72rem; color: var(--muted); }
+.kst-i.now .kst-s { color: var(--poplar); font-weight: 600; }
+.kst-m { display: none; }
+.kst-p { height: 6px; margin-top: 10px; border-radius: 3px; background: var(--chip); overflow: hidden; } .kst-p i { display: block; height: 100%; background: var(--poplar); }
+.kst-z { margin: 10px 0 0; padding: 8px 12px; border-left: 3px solid var(--poplar); border-radius: 0 6px 6px 0; background: var(--chip); font-size: .9rem; max-width: 80ch; }
+.kst-z b, .kst-a b { display: block; margin-bottom: 2px; font-family: var(--f-mono); font-size: .7rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.kst-i.t-sprawdz .kst-z { border-left-color: var(--adobe); } .kst-i.t-termin .kst-z { border-left-color: var(--malbec-2); }
+.kst-c details { margin-top: 8px; }
+.kst-c summary { cursor: pointer; font-size: .82rem; font-weight: 600; color: var(--ink-2); }
+.kst-c summary:hover { color: var(--malbec); }
+.kst-c details p { margin: 6px 0 0; font-size: .88rem; color: var(--ink-2); max-width: 80ch; }
+.kst-a { font-family: var(--f-mono); font-size: .78rem !important; }
+.kst-x .kst-r i { width: 16px; height: 16px; margin-top: 12px; background: var(--ink); border: 3px solid var(--paper); box-shadow: 0 0 0 2px var(--ink); }
+.kst-x .kst-c { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; padding: 9px 0 12px; font-size: .86rem; color: var(--ink-2); }
+.kst-x .kst-c b { font-family: var(--f-mono); font-size: .7rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 3px 9px; border-radius: 99px; background: var(--ink); color: var(--paper); }
+.kst-w .kst-r i { background: var(--malbec); border-color: var(--malbec); color: var(--on-malbec); }
+.kst-w .kst-c p { margin: 6px 0 0; font-size: .9rem; color: var(--ink-2); }
+.kst-i.flash .kst-c { animation: kflash 1.6s ease; }
+@keyframes kflash { 0%, 35% { background: color-mix(in srgb, var(--adobe) 20%, transparent); } 100% { background: transparent; } }
+@media (max-width: 1180px) { .km em span { display: none; } }
+@media (max-width: 700px) { .kos { grid-template-columns: minmax(0, 1fr); } .kos-l { display: none; } .ks.wd b, .kmh small, .km em span { display: none; } .kmh span.ev { color: transparent; } .ks { padding: 0; } }
+@media (max-width: 640px) { .kst > li { grid-template-columns: 30px minmax(0, 1fr); gap: 0 10px; } .kst-d { display: none; } .kst-m { display: block; margin: 3px 0 0; font-family: var(--f-mono); font-size: .72rem; color: var(--malbec); } .kst-r i { width: 28px; height: 28px; font-size: .74rem; } .kst-s { margin-left: 0; flex-basis: 100%; } .kst-c { padding: 10px 12px 14px; } }
+@media (max-width: 560px) { .kal { padding: 18px 14px; } }
+.mon h4 { margin: 20px 0 8px; font-size: 1.05rem; } .mon .legend { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; } .mon .lg { font-family: var(--f-mono); font-size: .74rem; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--line); } .mon .lg.g { border-color: var(--poplar); color: var(--poplar); } .mon .lg.y { border-color: var(--adobe); color: var(--adobe); } .mon .lg.r { border-color: var(--malbec); color: var(--malbec); }
+.mon .podium { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr)); gap: 10px; margin: 4px 0 6px; } .mon .pd { position: relative; border: 1px solid var(--line); border-radius: 8px; padding: 14px 14px 12px 44px; display: grid; gap: 3px; min-width: 0; border-left-width: 5px; } .mon .pd.g { border-left-color: var(--poplar); } .mon .pd.y { border-left-color: var(--adobe); } .mon .pd.r { border-left-color: var(--malbec); } .mon .pn { position: absolute; left: 12px; top: 12px; font-family: var(--f-display); font-size: 1.6rem; color: var(--muted); } .mon .pp { font-family: var(--f-display); font-size: 1.7rem; line-height: 1; } .mon .pl { font-weight: 600; font-size: .9rem; } .mon .pm { font-family: var(--f-mono); font-size: .74rem; color: var(--muted); }
+.mon .bd { display: inline-block; font-family: var(--f-mono); font-size: .7rem; padding: 2px 7px; border-radius: 999px; margin-top: 4px; white-space: nowrap; background: var(--chip); } .mon .bd.b0, .mon .bd.b1 { color: var(--poplar); } .mon .bd.b2 { color: var(--adobe); } .mon .bd.b4 { color: var(--malbec); } .mon td.n .bd { display: inline-block; width: max-content; margin-top: 3px; }
+.mon .nopr { font-size: .92rem; color: var(--ink-2); margin: 0 0 6px; }
+.mon .chart { width: 100%; height: auto; display: block; background: var(--chip); border-radius: 6px; } .mon .chart .thr { stroke: var(--adobe); stroke-dasharray: 4 4; stroke-width: 1; } .mon .chart .thl, .mon .chart .ax { font-family: var(--f-mono); font-size: 13px; fill: var(--muted); } @media (max-width: 760px) { .mon .chart .thl, .mon .chart .ax { font-size: 17px; } } .mon .clg { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 6px; font-size: .8rem; color: var(--ink-2); } .mon .clg i { display: inline-block; width: 14px; height: 3px; vertical-align: middle; margin-right: 6px; border-radius: 2px; }
+.mon table.rk td.rk { font-family: var(--f-display); font-size: 1.2rem; color: var(--muted); width: 28px; } .mon table.rk tr.g td.rk { color: var(--poplar); } .mon table.rk tr.g td.n b { color: var(--poplar); } .mon table.rk tr.y td.n b { color: var(--adobe); } .mon table.rk tr.np td { color: var(--muted); } .mon table.rk tr.np td b { color: var(--ink-2); font-weight: 600; }
+.mon .krj { font-size: .88rem; color: var(--ink-2); margin: 10px 0 0; } .mon .dz { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; } .mon .dz li { display: grid; grid-template-columns: 92px 1fr; gap: 2px 12px; font-size: .88rem; border-top: 1px solid var(--line); padding-top: 6px; } .mon .dz .dd { font-family: var(--f-mono); font-size: .78rem; color: var(--malbec); } .mon .dz .ds { font-family: var(--f-mono); font-size: .74rem; color: var(--muted); grid-column: 2; order: -1; } .mon .dz .dt { grid-column: 2; }
+@media (max-width: 760px) { .mon .dz li { grid-template-columns: minmax(0, 1fr); } .mon .dz .ds { grid-column: 1; } .mon .dz .dt { grid-column: 1; } }
+.mon .radar { margin-top: 24px; border-top: 2px solid var(--line); padding-top: 14px; } .mon .radar .eyebrow { margin: 0; }
+.mon .sg { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; } .mon .sg li { display: grid; grid-template-columns: 84px 120px 1fr; gap: 4px 12px; font-size: .9rem; border-left: 3px solid var(--line); padding: 4px 0 4px 10px; } .mon .sg li.dn { border-left-color: var(--poplar); } .mon .sg li.up { border-left-color: var(--malbec); } .mon .sgd, .mon .sgk { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); } .mon .sg li.dn .sgk { color: var(--poplar); } .mon .sg li.up .sgk { color: var(--malbec); } .mon .sgt a { font-weight: 500; }
+.mon table.wy td.kd { font-family: var(--f-mono); font-size: .8rem; white-space: nowrap; color: var(--malbec); } .mon table.wy tr.now td { background: var(--chip); } .mon table.wy tr.past td { color: var(--muted); } .mon table.pt td.kd { font-family: var(--f-mono); font-size: .8rem; white-space: nowrap; }
+.mon .rs { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; font-size: .9rem; } .mon .rs li { border-top: 1px solid var(--line); padding-top: 5px; } .mon .rs li.s a { font-weight: 600; } .mon .rs .kd { font-family: var(--f-mono); font-size: .76rem; color: var(--malbec); }
+@media (max-width: 760px) { .mon .sg li { grid-template-columns: minmax(0, 1fr); } }
+.lead2 { max-width: 72ch; }
+details.ctx { border-top: 1px solid var(--line); padding: 8px 0; } details.ctx > summary { cursor: pointer; font-weight: 600; color: var(--ink-2); list-style: none; } details.ctx > summary::-webkit-details-marker { display: none; } details.ctx > summary::before { content: "+ "; font-family: var(--f-mono); color: var(--muted); } details.ctx[open] > summary::before { content: "− "; } details.ctx > p { margin: 8px 0 0; color: var(--ink-2); font-size: .95rem; max-width: 80ch; }
+.cockpit { margin-top: 22px; display: grid; gap: 12px; scroll-margin-top: 72px; }
+.ck4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; } @media (max-width: 1040px) { .ck4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } } @media (max-width: 560px) { .ck4 { grid-template-columns: minmax(0, 1fr); } }
+.cc { background: var(--paper); border: 1px solid var(--line); border-top: 4px solid var(--line); border-radius: 8px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; min-width: 0; box-shadow: var(--shade); }
+.cc .cl, .cnow .cl { font-family: var(--f-mono); font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.cc > b { font-family: var(--f-display); font-weight: 400; font-size: 1.45rem; line-height: 1.15; } .cc small { font-family: var(--f-mono); font-size: .75rem; color: var(--muted); } .cc p { margin: 4px 0 0; font-size: .88rem; color: var(--ink-2); } .cc > a { margin-top: auto; padding-top: 8px; font-size: .85rem; font-weight: 600; }
+.cphase { border-top-color: var(--malbec); } .cprice.g { border-top-color: var(--poplar); } .cprice.y { border-top-color: var(--adobe); } .cprice.r { border-top-color: var(--malbec); } .cprice.n { border-top-color: var(--line); } .cbaro { border-top-color: var(--adobe); } .cnext { border-top-color: var(--ink-2); }
+.cprice .bd { font-size: .78rem; margin-right: 4px; }
+.cnext ul { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 7px; font-size: .86rem; } .cnext .kd { font-family: var(--f-mono); color: var(--malbec); font-size: .76rem; margin-right: 2px; } .cnext small { font-size: .7rem; }
+.cnow { background: var(--chip); border-radius: 8px; padding: 12px 16px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; } .cnow ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: .9rem; flex: 1 1 380px; } .cnow li::before { content: "☐ "; color: var(--muted); } .cnow li.late b { color: var(--malbec); } .cnow small { color: var(--muted); font-family: var(--f-mono); font-size: .74rem; } .cnow > a { font-size: .85rem; font-weight: 600; } .cnow p { margin: 0; font-size: .9rem; }
+.cstat { padding-bottom: 0; } .cstat p { font-size: .9rem; }
+.bm { display: flex; height: 10px; border-radius: 99px; overflow: hidden; background: var(--line); } .bm i.dn { background: var(--poplar); } .bm i.up { background: var(--malbec); } .bm.small { height: 7px; margin: 6px 0 2px; }
+.ltabs { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 55px); z-index: 6; display: flex; gap: 6px; margin: 24px 0 0; padding: 8px 0; background: color-mix(in srgb, var(--paper) 94%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); overflow-x: auto; scrollbar-width: none; scroll-margin-top: 56px; }
+.ltabs button { flex: 0 0 auto; display: grid; text-align: left; gap: 1px; padding: 7px 14px; border-radius: 8px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); cursor: pointer; font: inherit; } .ltabs button b { font-size: .95rem; font-weight: 600; } .ltabs button small { font-size: .72rem; color: var(--muted); } .ltabs button[aria-selected="true"] { background: var(--malbec); border-color: var(--malbec); color: var(--on-malbec); } .ltabs button[aria-selected="true"] small { color: inherit; } .ltabs button:focus-visible { outline: 2px solid var(--adobe); outline-offset: 2px; }
+.lpane { padding-top: 18px; } .lpane [id] { scroll-margin-top: 130px; } .lpane > .kal:first-child, .lpane > .fo:first-child, .lpane > .radar:first-child, .lpane .mon { margin-top: 0; } .lpane .mon { margin-top: 18px; } .lpane .kal { margin-top: 0; }
+@media (max-width: 560px) { .ltabs button small { display: none; } .ltabs button { padding: 7px 11px; } }
+.kalk { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 18px 20px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 14px 28px; box-shadow: var(--shade); scroll-margin-top: 130px; }
+.kalk .kh { grid-column: 1 / -1; } .kalk .kh h3 { margin: 2px 0 4px; font-size: 1.5rem; } .kalk .kh p { margin: 0; color: var(--ink-2); font-size: .92rem; max-width: 78ch; }
+.kf { display: grid; gap: 10px; align-content: start; min-width: 0; } .kc { display: grid; gap: 4px; font-size: .84rem; color: var(--ink-2); } .kc input, .kc select { font: inherit; font-size: 1rem; padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); color: var(--ink); min-width: 0; } .kin { display: flex; gap: 6px; } .kin input { flex: 1 1 0; min-width: 0; width: 100%; font-family: var(--f-mono); font-size: 1.2rem; } .kin select { flex: 0 0 auto; } .kk { display: flex; gap: 8px; align-items: center; font-size: .92rem; cursor: pointer; } .kk input { accent-color: var(--malbec); width: 17px; height: 17px; flex: none; } .kx { padding-left: 25px; }
+.kout { min-width: 0; } .kempty { color: var(--muted); font-size: .92rem; margin: 0; padding: 16px; border: 1px dashed var(--line); border-radius: 8px; }
+.kv2 { display: grid; gap: 10px; } .kbig, .kver, .kbud { border-radius: 8px; padding: 12px 14px; background: var(--chip); display: grid; gap: 2px; min-width: 0; } .kbig > span, .kbud > span { font-family: var(--f-mono); font-size: .7rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); } .kbig b { font-family: var(--f-display); font-weight: 400; font-size: 2.2rem; line-height: 1.1; } .kbig small, .kbud small { color: var(--ink-2); font-size: .82rem; } .kver .bd { font-size: .9rem; justify-self: start; } .kver p { margin: 2px 0 0; font-size: .9rem; } .kver .kd { font-family: var(--f-mono); font-size: .82rem; color: var(--ink-2); } .kbud b { font-family: var(--f-display); font-weight: 400; font-size: 1.55rem; } .kbud b.ok { color: var(--poplar); } .kbud b.over { color: var(--malbec); }
+.kw { margin: 10px 0 0; font-size: .86rem; color: var(--ink-2); border-left: 3px solid var(--adobe); padding-left: 10px; }
+@media (max-width: 760px) { .kalk { grid-template-columns: minmax(0, 1fr); } }
+.mon .note { color: var(--ink-2); font-size: .88rem; margin: 12px 0 0; } .mon .empty { padding: 14px; border: 1px dashed var(--line); border-radius: 8px; color: var(--ink-2); font-size: .92rem; margin: 6px 0 4px; } .mon .orient { margin-top: 12px; } .mon .orient-t td { font-size: .85rem; } .mon .ph2 { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; } .mon .ph2 h3 { margin: 0; }
+.radar { background: var(--paper); border-radius: 6px; padding: 20px 22px; box-shadow: var(--shade); scroll-margin-top: 130px; }
+.rhead { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 12px 28px; align-items: end; } .rhead h3 { margin: 2px 0 0; font-size: 1.5rem; } @media (max-width: 760px) { .rhead { grid-template-columns: minmax(0, 1fr); } }
+.baro .bml { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 8px; font-family: var(--f-mono); font-size: .74rem; margin-top: 4px; } .baro .bml .dn { color: var(--poplar); } .baro .bml .up { color: var(--malbec); } .baro .bmv { margin: 4px 0 0; font-weight: 600; font-size: .92rem; } .baro .bmv small { font-weight: 400; color: var(--muted); }
+.rgrid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px 32px; margin-top: 20px; } .rgrid h4 { margin: 0 0 8px; font-size: 1.05rem; } .rgrid h4 small { font-weight: 400; } .rcol { min-width: 0; } @media (max-width: 900px) { .rgrid { grid-template-columns: minmax(0, 1fr); } }
+.radar .ph2 { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 12px; } .radar .ph2 h4 { margin: 0; } .sfl { display: flex; gap: 4px; margin-bottom: 8px; } .sfl button, .lnk { font: inherit; font-size: .78rem; padding: 3px 10px; border-radius: 99px; border: 1px solid var(--line); background: transparent; color: var(--ink-2); cursor: pointer; } .sfl button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); } .lnk { margin-top: 8px; }
+.radar .sg { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; } .radar .sg li { display: grid; grid-template-columns: 74px minmax(0, 1fr); gap: 2px 10px; font-size: .88rem; border-left: 3px solid var(--line); padding: 4px 0 4px 10px; } .radar .sg li.more { display: none; } .radar .sg.all li.more { display: grid; } .radar .sg li[hidden] { display: none !important; } .radar .sg li.dn { border-left-color: var(--poplar); } .radar .sg li.up { border-left-color: var(--malbec); }
+.radar .sgd { font-family: var(--f-mono); font-size: .74rem; color: var(--muted); grid-row: 1 / span 2; } .radar .sgk { font-family: var(--f-mono); font-size: .74rem; } .radar .sgk s { text-decoration: none; opacity: .25; } .radar .sg li.dn .sgk { color: var(--poplar); } .radar .sg li.up .sgk { color: var(--malbec); } .radar .sgt { grid-column: 2; } .radar .sgt a { font-weight: 500; }
+.tl2 { display: grid; } .tlr > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 10px; align-items: center; padding: 5px 0; border-top: 1px solid var(--line); } .tlr > summary::-webkit-details-marker { display: none; } .tlr.hdr { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 10px; }
+.tll { min-width: 0; } .tll b { font-size: .8rem; font-weight: 600; display: block; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .tll small { font-family: var(--f-mono); font-size: .7rem; color: var(--muted); }
+.tlt { position: relative; height: 18px; border-radius: 3px; background: linear-gradient(90deg, var(--chip), var(--chip)); } .tlt.tlm { height: 30px; background: none; }
+.tlm span { position: absolute; top: 0; font-family: var(--f-mono); font-size: .7rem; color: var(--muted); transform: translateX(1px); line-height: 1.1; } .tlm span small { display: block; font-size: .7rem; }
+.tlb { position: absolute; top: 3px; height: 12px; border-radius: 3px; background: var(--muted); opacity: .5; } .s-wysoka .tlb { background: var(--poplar); opacity: 1; } .s-srednia .tlb { background: var(--adobe); opacity: .95; } .tlr.past { opacity: .45; } .tlr.now .tlb { outline: 2px solid var(--ink); outline-offset: 1px; }
+.tln, .tlw { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--ink); opacity: .7; } .tlw { background: var(--malbec); opacity: 1; } .tln em, .tlw em { position: absolute; bottom: -1px; left: 4px; font-style: normal; font-family: var(--f-mono); font-size: .7rem; white-space: nowrap; color: var(--ink); } .tlw em { color: var(--malbec); left: auto; right: 4px; } .tlm .tln, .tlm .tlw { top: 16px; bottom: -2px; }
+.tlx { padding: 2px 0 10px 180px; font-size: .86rem; color: var(--ink-2); } .tlx p { margin: 2px 0; } .tlr > summary:hover .tll b { color: var(--malbec); } .tll2 { font-size: .76rem; color: var(--muted); margin: 10px 0 0; } .tll2 .s-wysoka { color: var(--poplar); } .tll2 .s-srednia { color: var(--adobe); } .tll2 .s-niska { color: var(--muted); }
+@media (max-width: 560px) { .tlr > summary, .tlr.hdr { grid-template-columns: minmax(0, 1fr); gap: 3px; } .tlr.hdr .tll { display: none; } .tlx { padding-left: 0; } }
+.radar .rs { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; font-size: .88rem; } .radar .rs li { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 0 8px; } .radar .rs .kd { font-family: var(--f-mono); font-size: .74rem; color: var(--malbec); } .radar .rs .rt { grid-column: 2; font-family: var(--f-mono); font-size: .72rem; color: var(--muted); } .radar .rs li.s a { font-weight: 600; } .radar .rs a { overflow-wrap: anywhere; } .radar td.kd { font-family: var(--f-mono); font-size: .78rem; white-space: nowrap; } .radar .pt .rt { display: block; font-family: var(--f-mono); font-size: .72rem; color: var(--muted); } .radar .nopr { color: var(--ink-2); font-size: .9rem; margin: 0; }
+.lpane .prom { margin-top: 18px; } .prom .plt { margin: 14px 0 6px; font-size: 1rem; } .prom .note { color: var(--ink-2); font-size: .9rem; }
+.todo .tdl { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 8px; } .todo .tdl li { border: 1px solid var(--line); border-left: 4px solid var(--line); border-radius: 6px; padding: 10px 12px; display: grid; gap: 4px; } .todo .tdl li.now { border-left-color: var(--adobe); } .todo .tdl li.late { border-left-color: var(--malbec); } .todo .tdl li.done { opacity: .55; } .todo .tdl li.done b { text-decoration: line-through; } .todo label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; } .todo input { margin-top: 3px; accent-color: var(--poplar); width: 18px; height: 18px; flex: none; } .todo label > span { display: grid; gap: 2px; min-width: 0; } .todo small { font-family: var(--f-mono); font-size: .74rem; color: var(--muted); } .todo em { font-style: normal; font-size: .88rem; color: var(--ink-2); } .todo .tdlink { font-size: .85rem; padding-left: 28px; overflow-wrap: anywhere; } .todo .note, .zcols .note { color: var(--ink-2); font-size: .88rem; margin: 4px 0 0; }
+.prom { margin-top: 20px; background: var(--paper); border-radius: 6px; padding: 24px; box-shadow: var(--shade); } .prom .ph2 { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; } .prom .ph2 h3 { margin: 0; } .prom .st { margin: 0; font-family: var(--f-mono); font-size: .8rem; color: var(--muted); }
+.pl { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 12px; } .pl li { padding: 12px 14px; border: 1px solid var(--line); border-radius: 6px; min-width: 0; } .pl .plh { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; font-family: var(--f-mono); font-size: .74rem; color: var(--muted); margin-bottom: 4px; } .pl a { font-weight: 600; overflow-wrap: anywhere; } .pl .plm { font-size: .88rem; color: var(--ink-2); margin-top: 4px; } .pl .plo { font-size: .86rem; color: var(--muted); margin-top: 4px; }
+.plb { padding: 1px 8px; border-radius: 999px; font-size: .7rem; letter-spacing: .04em; text-transform: uppercase; } .plb.ok { background: var(--poplar); color: #fff; } .plb.no { background: var(--chip); color: var(--ink-2); } .plb.mid { background: var(--sun, #d6a24a); color: #fff; }
+.mon h3 { font-size: 1.5rem; margin-bottom: 8px; } .mon .st { font-family: var(--f-mono); font-size: .85rem; color: var(--muted); margin: 0 0 10px; }
+.mon .status { padding: 12px 14px; border-left: 3px solid var(--adobe); background: var(--chip); font-size: .95rem; margin: 0 0 14px; }
+.hist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: .92rem; }
+.hist li { display: grid; grid-template-columns: 96px 90px minmax(0, 1fr); gap: 10px; align-items: baseline; border-bottom: 1px dashed var(--line); padding-bottom: 6px; }
+.hist b { font-family: var(--f-mono); font-weight: 500; color: var(--malbec); font-variant-numeric: tabular-nums; } .hist small { color: var(--muted); }
+.hist li.ok b { color: var(--poplar); }
+.al { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; } .al a { font-weight: 600; } .al .alb > span { display: block; color: var(--ink-2); font-size: .9rem; }
+.al .alg { font-family: var(--f-mono); font-size: .74rem; letter-spacing: .05em; text-transform: uppercase; color: var(--malbec); margin-top: 10px; } .al .alc label { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 10px; align-items: start; cursor: pointer; } .al .alc input { margin: 4px 0 0; accent-color: var(--malbec); } .al .done .alb a { text-decoration: line-through; opacity: .7; }
+.spark { display: flex; align-items: flex-end; gap: 4px; height: 70px; margin: 8px 0 4px; } .spark i { flex: 1; background: var(--adobe); border-radius: 2px 2px 0 0; min-width: 6px; } .spark i.ok { background: var(--poplar); }
+ /* buenos aires */
+.bastrip { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr)); gap: 8px; margin-bottom: 28px; } .bastrip figure { margin: 0; position: relative; } .bastrip img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; border-radius: 4px; }
+.bastrip figcaption { position: absolute; left: 8px; right: 8px; bottom: 6px; font-size: .7rem; color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,.8); }
+.bagrid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 28px 40px; } .bagrid > div { min-width: 0; } .bagrid h3 { font-size: 1.5rem; margin-bottom: 12px; }
+@media (max-width: 760px) { .bagrid { grid-template-columns: minmax(0, 1fr); } }
+.batl { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; } .batl li { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 4px 14px; border-left: 2px solid var(--adobe); padding-left: 14px; }
+.batl .bad { grid-column: 1 / -1; font-family: var(--f-mono); font-size: .78rem; color: var(--malbec); letter-spacing: .04em; text-transform: uppercase; margin-top: 8px; } .batl b { font-family: var(--f-mono); font-weight: 500; font-size: .85rem; color: var(--adobe); } .batl p { margin: 0; font-size: .95rem; color: var(--ink-2); }
+@media (max-width: 480px) { .batl li { grid-template-columns: minmax(0, 1fr); } }
+.tort { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 20px 22px; box-shadow: var(--shade); } .tort h3 { margin-bottom: 8px; } .tort p { margin: 0 0 6px; font-size: .95rem; color: var(--ink-2); } .tort ul { margin: 4px 0 0; padding-left: 20px; font-size: .92rem; display: grid; gap: 3px; }
+.btn { display: inline-block; font: inherit; font-size: .88rem; font-weight: 600; color: var(--malbec); background: var(--paper); border: 1px solid var(--malbec); border-radius: 999px; padding: 6px 14px; cursor: pointer; text-decoration: none; margin: 0 6px 6px 0; } .btn:hover { background: var(--chip); }
+.tools { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; margin-top: 6px; } .seg button { font: inherit; font-size: .78rem; padding: 4px 10px; border: 0; background: transparent; color: var(--ink-2); cursor: pointer; } .seg button[aria-pressed="true"] { background: var(--malbec); color: var(--on-malbec); }
+.grp { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin: 0 0 18px; } .grp .seg { margin-top: 0; } .grp .gnote { flex: 1 0 100%; width: 100%; font-size: .85rem; color: var(--ink-2); max-width: 70ch; } .note.gwarn { color: var(--malbec); }
+.total > div { min-width: 0; max-width: 100%; } .total > div:last-child { text-align: right; display: flex; flex-direction: column; align-items: flex-end; } .limit { white-space: normal; }
+@media (max-width: 560px) { .total { flex-direction: column; align-items: flex-start; } .total > div:last-child { text-align: left; align-items: flex-start; } }
+.tl.rz label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; min-width: 0; } .tl.rz span { min-width: 0; overflow-wrap: anywhere; } .tl.rz input { margin-top: 5px; accent-color: var(--malbec); width: 18px; height: 18px; flex: none; } .tl.rz input:checked + span { text-decoration: line-through; color: var(--muted); }
+@media print { .nav, .lmap, .leaflet-control-container, .tools, #theme, .lb, .hsel, .ptw, .al, .bastrip, .hgal .ph:not(:first-child), .gal { display: none !important; } .map > svg, .map.live > svg { display: block !important; } body { background: #fff; color: #000; } .blk { padding: 16px 0; break-inside: avoid; } .day, .hk, .tort { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; } .day .ph img { max-height: 220px; object-fit: cover; } a { color: inherit; text-decoration: none; } .hero { min-height: 0; } .hero img, .hero canvas { display: none; } .hero .wrap * { color: #000 !important; text-shadow: none !important; } }
+.mosaic { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; background: var(--paper); padding: 6px 0; } .mosaic figure { margin: 0; position: relative; overflow: hidden; } .mosaic img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; transition: transform .6s ease; cursor: zoom-in; } .mosaic figure:hover img { transform: scale(1.05); }
+.mosaic figcaption { position: absolute; left: 8px; right: 8px; bottom: 6px; font-size: .7rem; color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,.8); opacity: 0; transition: opacity .3s; } .mosaic figure:hover figcaption { opacity: 1; }
+@media (max-width: 760px) { .mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); } .mosaic figure:first-child { grid-column: 1 / -1; } .mosaic figure:first-child img { aspect-ratio: 16 / 9; } .mosaic figure:nth-child(n+4) { display: none; } }
+.band { position: relative; min-height: clamp(260px, 46vh, 520px); display: flex; align-items: flex-end; color: #fff; overflow: hidden; background: #2a2226; } .band img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; } .band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,14,18,.05) 30%, rgba(20,14,18,.72) 100%); }
+.band .wrap { position: relative; z-index: 1; width: 100%; padding-block: 34px; text-shadow: 0 1px 12px rgba(0,0,0,.5); } .band h2 { font-size: clamp(2rem, 5.5vw, 4rem); color: #fff; margin: 0; } .band p { margin: 8px 0 0; max-width: 56ch; font-size: 1.05rem; color: #f3e9ec; } .band .eyebrow { color: #f0c59a; }
+.band .cred { position: absolute; right: max(12px, env(safe-area-inset-right, 0px)); bottom: 8px; z-index: 1; font-size: .7rem; opacity: .85; color: #fff; } .band .cred a { color: #fff; }
+.day .ph img { transition: transform .7s ease; } .day:hover .ph img { transform: scale(1.04); }
+.day .ph2 { position: absolute; right: 12px; bottom: 34px; width: 34%; aspect-ratio: 4 / 3; border: 3px solid var(--paper); border-radius: 4px; overflow: hidden; box-shadow: 0 6px 18px rgba(0,0,0,.35); } .day .ph2 img { position: static; width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; }
+@media (max-width: 760px) { .day .ph2 { width: 38%; bottom: 30px; } }
+.day.anniv { position: relative; outline: 0; box-shadow: 0 0 0 2px var(--malbec), var(--shade); } .day.anniv .bd { background: linear-gradient(180deg, var(--paper), var(--chip)); }
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; } .reveal.in { opacity: 1; transform: none; }
+.gal { columns: auto; column-gap: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); grid-auto-rows: 180px; grid-auto-flow: dense; gap: 10px; } .gal figure { margin: 0; position: relative; overflow: hidden; border-radius: 4px; } .gal img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s ease; } .gal figure:hover img { transform: scale(1.05); }
+.gal figure.w { grid-column: span 2; } .gal figure.t { grid-row: span 2; } .gal figure.b { grid-column: span 2; grid-row: span 2; }
+.gal figcaption { position: absolute; left: 10px; right: 10px; bottom: 8px; font-size: .7rem; color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,.8); margin: 0; } .gal figcaption .cred, .gal figcaption a { color: #fff; }
+@media (max-width: 560px) { .gal { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 130px; } .gal figure.b { grid-column: span 2; grid-row: span 2; } }
+/* przygotowania */
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 28px 40px; }
+.cols h3 { font-size: 1.5rem; margin-bottom: 12px; }
+.tl { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+.tl li { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 12px; }
+.tl b { font-family: var(--f-mono); font-weight: 500; font-size: .85rem; color: var(--malbec); }
+.chk { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.chk label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; }
+.chk input { margin-top: 5px; accent-color: var(--malbec); width: 18px; height: 18px; flex: none; }
+.chk input:checked + span { text-decoration: line-through; color: var(--muted); }
+.ul { margin: 0; padding-left: 18px; color: var(--ink-2); } .ul li { margin: 6px 0; }
+.prose { color: var(--ink-2); max-width: 70ch; }
+
+.scn { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hero canvas.scn { z-index: 0; }
+/* trasa */
+.route { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+.map { background: var(--paper); border-radius: 6px; box-shadow: var(--shade); overflow: hidden; }
+.map > svg { display: block; width: 100%; height: auto; }
+.map .andes { fill: var(--chip); } .map .snow { fill: var(--line); }
+.map .rt { fill: none; stroke: var(--malbec); stroke-width: 3; stroke-dasharray: 7 6; }
+.map .pt { fill: var(--malbec); stroke: var(--paper); stroke-width: 3; }
+.map .pn { fill: var(--on-malbec); font: 700 13px var(--f-body); }
+.map .lab { fill: var(--ink); font: 600 13px var(--f-body); paint-order: stroke; stroke: var(--paper); stroke-width: 4px; }
+.map .sub { fill: var(--muted); font: 11px var(--f-mono); }
+.map .ap { fill: var(--adobe); }
+.stg { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+.stg li { display: grid; grid-template-columns: 38px minmax(0, 1fr); gap: 14px; }
+.stg .n { width: 34px; height: 34px; border-radius: 999px; background: var(--malbec); color: var(--on-malbec); display: grid; place-items: center; font-weight: 700; }
+.stg h3 { font-size: 1.35rem; }
+.stg p { margin: 4px 0 0; color: var(--ink-2); font-size: .95rem; }
+.stg .meta { font-family: var(--f-mono); font-size: .8rem; color: var(--muted); }
+@media (max-width: 820px) { .route { grid-template-columns: minmax(0, 1fr); } }
+/* galeria */
+.gal { columns: 3 260px; column-gap: 12px; }
+.gal figure { margin: 0 0 12px; break-inside: avoid; }
+.gal img { width: 100%; border-radius: 4px; cursor: zoom-in; }
+.cred { color: inherit; opacity: .8; font-size: max(.7rem, .92em); text-decoration: none; overflow-wrap: anywhere; }
+.cred:hover { text-decoration: underline; }
+.gal figcaption { font-size: .74rem; color: var(--muted); margin-top: 4px; }
+.lb { position: fixed; inset: 0; z-index: 50; background: rgba(12,9,11,.92); display: grid; place-items: center; padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.lb img { max-height: 84vh; width: auto; border-radius: 4px; }
+.lb p { color: #eee; font-size: .85rem; text-align: center; margin: 10px 0 0; }
+.lb button { position: absolute; top: max(14px, env(safe-area-inset-top, 0px)); right: max(14px, env(safe-area-inset-right, 0px)); width: 44px; height: 44px; border-radius: 999px; border: 0; background: #fff; color: #111; font-size: 1.4rem; cursor: pointer; }
+footer { padding-block: 40px 60px; color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line); }
+footer a { color: var(--ink-2); }
+</style>
+<style>.leaflet-image-layer,.leaflet-layer,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-pane,.leaflet-pane>canvas,.leaflet-pane>svg,.leaflet-tile,.leaflet-tile-container,.leaflet-zoom-box{position:absolute;left:0;top:0}.leaflet-container{overflow:hidden}.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-tile{-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-user-drag:none}.leaflet-tile::selection{background:0 0}.leaflet-safari .leaflet-tile{image-rendering:-webkit-optimize-contrast}.leaflet-safari .leaflet-tile-container{width:1600px;height:1600px;-webkit-transform-origin:0 0}.leaflet-marker-icon,.leaflet-marker-shadow{display:block}.leaflet-container .leaflet-overlay-pane svg{max-width:none!important;max-height:none!important}.leaflet-container .leaflet-marker-pane img,.leaflet-container .leaflet-shadow-pane img,.leaflet-container .leaflet-tile,.leaflet-container .leaflet-tile-pane img,.leaflet-container img.leaflet-image-layer{max-width:none!important;max-height:none!important;width:auto;padding:0}.leaflet-container img.leaflet-tile{mix-blend-mode:plus-lighter}.leaflet-container.leaflet-touch-zoom{-ms-touch-action:pan-x pan-y;touch-action:pan-x pan-y}.leaflet-container.leaflet-touch-drag{-ms-touch-action:pinch-zoom;touch-action:none;touch-action:pinch-zoom}.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom{-ms-touch-action:none;touch-action:none}.leaflet-container{-webkit-tap-highlight-color:transparent}.leaflet-container a{-webkit-tap-highlight-color:rgba(51,181,229,.4)}.leaflet-tile{filter:inherit;visibility:hidden}.leaflet-tile-loaded{visibility:inherit}.leaflet-zoom-box{width:0;height:0;-moz-box-sizing:border-box;box-sizing:border-box;z-index:800}.leaflet-overlay-pane svg{-moz-user-select:none}.leaflet-pane{z-index:400}.leaflet-tile-pane{z-index:200}.leaflet-overlay-pane{z-index:400}.leaflet-shadow-pane{z-index:500}.leaflet-marker-pane{z-index:600}.leaflet-tooltip-pane{z-index:650}.leaflet-popup-pane{z-index:700}.leaflet-map-pane canvas{z-index:100}.leaflet-map-pane svg{z-index:200}.leaflet-vml-shape{width:1px;height:1px}.lvml{behavior:url(#default#VML);display:inline-block;position:absolute}.leaflet-control{position:relative;z-index:800;pointer-events:visiblePainted;pointer-events:auto}.leaflet-bottom,.leaflet-top{position:absolute;z-index:1000;pointer-events:none}.leaflet-top{top:0}.leaflet-right{right:0}.leaflet-bottom{bottom:0}.leaflet-left{left:0}.leaflet-control{float:left;clear:both}.leaflet-right .leaflet-control{float:right}.leaflet-top .leaflet-control{margin-top:10px}.leaflet-bottom .leaflet-control{margin-bottom:10px}.leaflet-left .leaflet-control{margin-left:10px}.leaflet-right .leaflet-control{margin-right:10px}.leaflet-fade-anim .leaflet-popup{opacity:0;-webkit-transition:opacity .2s linear;-moz-transition:opacity .2s linear;transition:opacity .2s linear}.leaflet-fade-anim .leaflet-map-pane .leaflet-popup{opacity:1}.leaflet-zoom-animated{-webkit-transform-origin:0 0;-ms-transform-origin:0 0;transform-origin:0 0}svg.leaflet-zoom-animated{will-change:transform}.leaflet-zoom-anim .leaflet-zoom-animated{-webkit-transition:-webkit-transform .25s cubic-bezier(0,0,.25,1);-moz-transition:-moz-transform .25s cubic-bezier(0,0,.25,1);transition:transform .25s cubic-bezier(0,0,.25,1)}.leaflet-pan-anim .leaflet-tile,.leaflet-zoom-anim .leaflet-tile{-webkit-transition:none;-moz-transition:none;transition:none}.leaflet-zoom-anim .leaflet-zoom-hide{visibility:hidden}.leaflet-interactive{cursor:pointer}.leaflet-grab{cursor:-webkit-grab;cursor:-moz-grab;cursor:grab}.leaflet-crosshair,.leaflet-crosshair .leaflet-interactive{cursor:crosshair}.leaflet-control,.leaflet-popup-pane{cursor:auto}.leaflet-dragging .leaflet-grab,.leaflet-dragging .leaflet-grab .leaflet-interactive,.leaflet-dragging .leaflet-marker-draggable{cursor:move;cursor:-webkit-grabbing;cursor:-moz-grabbing;cursor:grabbing}.leaflet-image-layer,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-pane>svg path,.leaflet-tile-container{pointer-events:none}.leaflet-image-layer.leaflet-interactive,.leaflet-marker-icon.leaflet-interactive,.leaflet-pane>svg path.leaflet-interactive,svg.leaflet-image-layer.leaflet-interactive path{pointer-events:visiblePainted;pointer-events:auto}.leaflet-container{background:#ddd;outline-offset:1px}.leaflet-container a{color:#0078a8}.leaflet-zoom-box{border:2px dotted #38f;background:rgba(255,255,255,.5)}.leaflet-container{font-family:"Helvetica Neue",Arial,Helvetica,sans-serif;font-size:12px;font-size:.75rem;line-height:1.5}.leaflet-bar{box-shadow:0 1px 5px rgba(0,0,0,.65);border-radius:4px}.leaflet-bar a{background-color:#fff;border-bottom:1px solid #ccc;width:26px;height:26px;line-height:26px;display:block;text-align:center;text-decoration:none;color:#000}.leaflet-bar a,.leaflet-control-layers-toggle{background-position:50% 50%;background-repeat:no-repeat;display:block}.leaflet-bar a:focus,.leaflet-bar a:hover{background-color:#f4f4f4}.leaflet-bar a:first-child{border-top-left-radius:4px;border-top-right-radius:4px}.leaflet-bar a:last-child{border-bottom-left-radius:4px;border-bottom-right-radius:4px;border-bottom:none}.leaflet-bar a.leaflet-disabled{cursor:default;background-color:#f4f4f4;color:#bbb}.leaflet-touch .leaflet-bar a{width:30px;height:30px;line-height:30px}.leaflet-touch .leaflet-bar a:first-child{border-top-left-radius:2px;border-top-right-radius:2px}.leaflet-touch .leaflet-bar a:last-child{border-bottom-left-radius:2px;border-bottom-right-radius:2px}.leaflet-control-zoom-in,.leaflet-control-zoom-out{font:bold 18px 'Lucida Console',Monaco,monospace;text-indent:1px}.leaflet-touch .leaflet-control-zoom-in,.leaflet-touch .leaflet-control-zoom-out{font-size:22px}.leaflet-control-layers{box-shadow:0 1px 5px rgba(0,0,0,.4);background:#fff;border-radius:5px}.leaflet-control-layers-toggle{background-image:url(images/layers.png);width:36px;height:36px}.leaflet-retina .leaflet-control-layers-toggle{background-image:url(images/layers-2x.png);background-size:26px 26px}.leaflet-touch .leaflet-control-layers-toggle{width:44px;height:44px}.leaflet-control-layers .leaflet-control-layers-list,.leaflet-control-layers-expanded .leaflet-control-layers-toggle{display:none}.leaflet-control-layers-expanded .leaflet-control-layers-list{display:block;position:relative}.leaflet-control-layers-expanded{padding:6px 10px 6px 6px;color:#333;background:#fff}.leaflet-control-layers-scrollbar{overflow-y:scroll;overflow-x:hidden;padding-right:5px}.leaflet-control-layers-selector{margin-top:2px;position:relative;top:1px}.leaflet-control-layers label{display:block;font-size:13px;font-size:1.08333em}.leaflet-control-layers-separator{height:0;border-top:1px solid #ddd;margin:5px -10px 5px -6px}.leaflet-default-icon-path{background-image:url(images/marker-icon.png)}.leaflet-container .leaflet-control-attribution{background:#fff;background:rgba(255,255,255,.8);margin:0}.leaflet-control-attribution,.leaflet-control-scale-line{padding:0 5px;color:#333;line-height:1.4}.leaflet-control-attribution a{text-decoration:none}.leaflet-control-attribution a:focus,.leaflet-control-attribution a:hover{text-decoration:underline}.leaflet-attribution-flag{display:inline!important;vertical-align:baseline!important;width:1em;height:.6669em}.leaflet-left .leaflet-control-scale{margin-left:5px}.leaflet-bottom .leaflet-control-scale{margin-bottom:5px}.leaflet-control-scale-line{border:2px solid #777;border-top:none;line-height:1.1;padding:2px 5px 1px;white-space:nowrap;-moz-box-sizing:border-box;box-sizing:border-box;background:rgba(255,255,255,.8);text-shadow:1px 1px #fff}.leaflet-control-scale-line:not(:first-child){border-top:2px solid #777;border-bottom:none;margin-top:-2px}.leaflet-control-scale-line:not(:first-child):not(:last-child){border-bottom:2px solid #777}.leaflet-touch .leaflet-bar,.leaflet-touch .leaflet-control-attribution,.leaflet-touch .leaflet-control-layers{box-shadow:none}.leaflet-touch .leaflet-bar,.leaflet-touch .leaflet-control-layers{border:2px solid rgba(0,0,0,.2);background-clip:padding-box}.leaflet-popup{position:absolute;text-align:center;margin-bottom:20px}.leaflet-popup-content-wrapper{padding:1px;text-align:left;border-radius:12px}.leaflet-popup-content{margin:13px 24px 13px 20px;line-height:1.3;font-size:13px;font-size:1.08333em;min-height:1px}.leaflet-popup-content p{margin:17px 0;margin:1.3em 0}.leaflet-popup-tip-container{width:40px;height:20px;position:absolute;left:50%;margin-top:-1px;margin-left:-20px;overflow:hidden;pointer-events:none}.leaflet-popup-tip{width:17px;height:17px;padding:1px;margin:-10px auto 0;pointer-events:auto;-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#fff;color:#333;box-shadow:0 3px 14px rgba(0,0,0,.4)}.leaflet-container a.leaflet-popup-close-button{position:absolute;top:0;right:0;border:none;text-align:center;width:24px;height:24px;font:16px/24px Tahoma,Verdana,sans-serif;color:#757575;text-decoration:none;background:0 0}.leaflet-container a.leaflet-popup-close-button:focus,.leaflet-container a.leaflet-popup-close-button:hover{color:#585858}.leaflet-popup-scrolled{overflow:auto}.leaflet-oldie .leaflet-popup-content-wrapper{-ms-zoom:1}.leaflet-oldie .leaflet-popup-tip{width:24px;margin:0 auto}.leaflet-oldie .leaflet-control-layers,.leaflet-oldie .leaflet-control-zoom,.leaflet-oldie .leaflet-popup-content-wrapper,.leaflet-oldie .leaflet-popup-tip{border:1px solid #999}.leaflet-div-icon{background:#fff;border:1px solid #666}.leaflet-tooltip{position:absolute;padding:6px;background-color:#fff;border:1px solid #fff;border-radius:3px;color:#222;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,.4)}.leaflet-tooltip.leaflet-interactive{cursor:pointer;pointer-events:auto}.leaflet-tooltip-bottom:before,.leaflet-tooltip-left:before,.leaflet-tooltip-right:before,.leaflet-tooltip-top:before{position:absolute;pointer-events:none;border:6px solid transparent;background:0 0;content:""}.leaflet-tooltip-bottom{margin-top:6px}.leaflet-tooltip-top{margin-top:-6px}.leaflet-tooltip-bottom:before,.leaflet-tooltip-top:before{left:50%;margin-left:-6px}.leaflet-tooltip-top:before{bottom:0;margin-bottom:-12px;border-top-color:#fff}.leaflet-tooltip-bottom:before{top:0;margin-top:-12px;margin-left:-6px;border-bottom-color:#fff}.leaflet-tooltip-left{margin-left:-6px}.leaflet-tooltip-right{margin-left:6px}.leaflet-tooltip-left:before,.leaflet-tooltip-right:before{top:50%;margin-top:-6px}.leaflet-tooltip-left:before{right:0;margin-right:-12px;border-left-color:#fff}.leaflet-tooltip-right:before{left:0;margin-left:-12px;border-right-color:#fff}@media print{.leaflet-control{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style>
+<style>.lmap{height:460px;display:none}.map.live .lmap{display:block}.map.live>svg{display:none}.lmap .leaflet-popup-content{font:14px/1.4 var(--f-body)}.mk{background:var(--malbec);color:var(--on-malbec);border:3px solid var(--paper);border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font:700 12px var(--f-body);box-shadow:0 2px 6px rgba(0,0,0,.3)}.mk.base{background:var(--adobe);width:34px;height:34px;font-size:14px}.mk.anniv{background:#8a1538;width:34px;height:34px}.lmap a{color:var(--malbec)}.mapnote{font:12px var(--f-mono);color:var(--muted);margin:8px 0 0}</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+</head>
+<body>
+<nav class="nav" aria-label="Sekcje">
+  <div class="wrap">
+    <b>Valle de Uco</b>
+    <ul>
+      <li><a href="#trasa">Trasa</a></li>
+      <li><a href="#plan">Plan</a></li>
+      <li><a href="#budzet">Budżet</a></li>
+      <li><a href="#hotele">Hotele</a></li>
+      <li><a href="#loty">Loty</a></li>
+      <li><a href="#buenos">Buenos Aires</a></li>
+      <li><a href="#przygotowania">Przygotowania</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+    </ul>
+    <button type="button" class="ico" id="theme" aria-label="Przełącz motyw">◐</button>
+  </div>
+</nav>
+<main id="app"></main>
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Zdjęcie"><button type="button" id="lbx" aria-label="Zamknij">×</button><figure style="margin:0"><img id="lbi" alt=""><p id="lbc"></p></figure></div>
+<script src="data.js"></script>
+<script>
+(function () {
+  'use strict';
+  var D = window.UCO, X = D.x, P = D.prog, app = document.getElementById('app');
+  function cred(p) { return p && p.au ? ' <a class="cred" href="' + esc(p.page) + '" target="_blank" rel="noopener">fot. ' + esc(p.au) + (p.lic ? ', ' + esc(p.lic) : '') + '</a>' : ''; }
+  function band(k) { var B = D.bands && D.bands[k]; if (!B) return ''; return '<section class="band reveal" aria-label="' + esc(B.t) + '">' + img(B.img, '', false, '100vw') + '<div class="wrap"><p class="eyebrow">' + esc(B.s) + '</p><h2>' + esc(B.t) + '</h2></div><span class="cred">' + esc(B.img.cap) + cred(B.img) + '</span></section>'; }
+  // twarde spacje jak w build.py (nb) – dla tekstów z loty.json i promocje.json wczytywanych w przeglądarce
+  var NB1 = /(^|[\s(\[„"'«–—])([aiouwzAIOUWZ]) /g, NB2 = /(\d) (?=\d{3}(?!\d)|(?:zł|USD|EUR|km|m|h|min|os\.|°C|%|dni|noc[ey]?|par[ay]?)(?![\wąćęłńóśźż]))/g;
+  function nb(s) { return s.replace(NB1, '$1$2\u00a0').replace(NB1, '$1$2\u00a0').replace(NB2, '$1\u00a0'); }
+  function esc(s) { return nb(String(s == null ? '' : s)).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function nf(n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '\u00a0'); }
+  function load(k, d) { try { var v = localStorage.getItem('uco-' + k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }
+  function save(k, v) { try { localStorage.setItem('uco-' + k, JSON.stringify(v)); } catch (e) {} }
+  function img(o, cls, eager, sizes) {
+    if (!o) return '';
+    return '<img class="' + (cls || '') + '" src="' + o.s + '" srcset="' + o.s + ' 720w, ' + o.l + ' 1800w" sizes="' + (sizes || '(max-width: 760px) 100vw, 600px') + '" alt="' + esc(o.cap) + '" data-l="' + o.l + '" data-cap="' + esc(o.cap) + '"' + (eager ? ' fetchpriority="high"' : ' loading="lazy"') + ' decoding="async">';
+  }
+  var now = new Date(), dd = function (d) { return Math.max(0, Math.ceil((d - now) / 864e5)); };
+  var h = '';
+  // otwarcie
+  h += '<header class="hero" id="start">' + (D.hero ? img(D.hero, '', true, '100vw') : '<canvas class="scn" data-k="hero" data-seed="7" aria-hidden="true"></canvas>') + '<div class="wrap">' +
+    '<p class="eyebrow">20. rocznica · 6–13 listopada 2027 · dwie do czterech par · Mendoza i Buenos Aires</p>' +
+    '<h1>Valle de Uco<br><em>i Zuccardi</em></h1>' +
+    '<p>' + esc(P.tagline || X.teaser || '') + '</p>' +
+    '<div class="count"><div><b>' + dd(new Date(2027, 10, 5)) + '</b><span>dni do wylotu</span></div><div><b>' + dd(new Date(2027, 10, 10)) + '</b><span>dni do rocznicy</span></div><div><b>' + X.temp + ' °C</b><span>w listopadzie</span></div></div>' +
+    '</div>' + (D.hero ? '<span class="cred">' + esc(D.hero.cap) + (D.hero.au ? ' · <a href="' + esc(D.hero.page) + '" target="_blank" rel="noopener">fot. ' + esc(D.hero.au) + (D.hero.lic ? ', ' + esc(D.hero.lic) : '') + '</a>' : ' · <a href="' + esc(D.hero.page) + '" target="_blank" rel="noopener">Wikimedia Commons</a>') + '</span>' : '') + '</header>';
+  // fakty i „dlaczego”
+  h += '<section class="blk"><div class="wrap">' + (P.stats ? '<div class="stats">' + P.stats.map(function (s) { return '<div><b' + (s.dyn ? ' data-dyn="' + s.dyn + '"' : '') + '>' + esc(s.value) + '</b><span>' + esc(s.label) + '</span></div>'; }).join('') + '</div>' : '') +
+    (X.wow ? '<div class="wow">' + X.wow.map(function (w) { return '<p>' + esc(w) + '</p>'; }).join('') + '</div>' : '') + '</div></section>';
+  if (D.mosaic && D.mosaic.length) h += '<div class="mosaic" aria-label="Zdjęcia z trasy">' + D.mosaic.map(function (g) { return '<figure>' + img(g, '', false, '(max-width: 760px) 50vw, 20vw') + '<figcaption>' + esc(g.cap) + '</figcaption></figure>'; }).join('') + '</div>';
+  h += band('trasa');
+  // trasa objazdu: schematyczna mapa z punktami etapów (rzut z lat/lon)
+  var ETall = (P.etapy || []), ET = ETall.filter(function (e) { return e.lat != null && e.lon != null && !e.skipmap; });
+  if (ET.length) {
+    var MDZ = { lat: -32.83, lon: -68.79 }, all = ET.concat([MDZ]);
+    var la0 = Math.min.apply(null, all.map(function (e) { return e.lat; })) - .25, la1 = Math.max.apply(null, all.map(function (e) { return e.lat; })) + .25;
+    var lo0 = Math.min.apply(null, all.map(function (e) { return e.lon; })) - .45, lo1 = Math.max.apply(null, all.map(function (e) { return e.lon; })) + .45;
+    var VW = 520, VH = Math.round(VW * (la1 - la0) / ((lo1 - lo0) * Math.cos(33 * Math.PI / 180)));
+    VH = Math.max(300, Math.min(480, VH));
+    function xy(e) { return [((e.lon - lo0) / (lo1 - lo0) * VW), ((la1 - e.lat) / (la1 - la0) * VH)]; }
+    var pts = [xy(MDZ)].concat(ET.map(xy)).concat([xy(MDZ)]);
+    var andes = ''; for (var i = 0; i < 9; i++) { var yy = VH * i / 8, w = 60 + (i % 3) * 18; andes += (i ? 'L' : 'M') + (w).toFixed(0) + ' ' + yy.toFixed(0) + ' '; }
+    var peaks = ''; for (var i = 0; i < 7; i++) { var y = VH * (i + .5) / 7, x = 28 + (i % 2) * 14; peaks += '<path class="snow" d="M' + (x - 14) + ' ' + (y + 12) + ' L' + x + ' ' + (y - 10) + ' L' + (x + 14) + ' ' + (y + 12) + 'Z"/>'; }
+    var svg = '<svg viewBox="0 0 ' + VW + ' ' + VH + '" role="img" aria-label="Mapa trasy objazdu"><path class="andes" d="M0 0 ' + andes + 'L0 ' + VH + 'Z"/>' + peaks +
+      '<text class="sub" x="10" y="' + (VH - 10) + '">Andy · granica z Chile</text>' +
+      '<path class="rt" d="M' + pts.map(function (p) { return p[0].toFixed(1) + ' ' + p[1].toFixed(1); }).join(' L') + '"/>' +
+      '<circle class="ap" cx="' + pts[0][0] + '" cy="' + pts[0][1] + '" r="7"/><text class="lab" x="' + (pts[0][0] + 12) + '" y="' + (pts[0][1] + 4) + '">Mendoza · lotnisko</text>' +
+      ET.map(function (e, i) { var p = xy(e), left = p[0] > VW * .45; return '<circle class="pt" cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="15"/><text class="pn" x="' + p[0].toFixed(1) + '" y="' + (p[1] + 4.5).toFixed(1) + '" text-anchor="middle">' + (i + 1) + '</text>' +
+        '<text class="lab" x="' + (p[0] + (left ? -22 : 22)).toFixed(1) + '" y="' + (p[1] + 4).toFixed(1) + '" text-anchor="' + (left ? 'end' : 'start') + '">' + esc(e.nazwa) + '</text>'; }).join('') + '</svg>';
+    h += '<section class="blk" id="trasa"><div class="wrap"><div class="sh"><div><p class="eyebrow">Objazd busem z kierowcą · ' + ETall.reduce(function (a, e) { return a + (+e.noce || 0); }, 0) + ' nocy</p><h2>Trasa</h2><p>Spokojny objazd: baza pod Mendozą z wypadem w wysokie Andy, potem dolina Uco z Zuccardi, a na koniec lot do Buenos Aires na noc z tangiem. Poza dniem pod Aconcaguą żaden przejazd nie trwa dłużej niż ok. 2 godziny.</p></div></div>' +
+      '<div class="route"><div><div class="map" id="map"><div class="lmap" id="lmap"></div>' + svg + '</div><p class="mapnote" id="mapnote"></p></div><ol class="stg">' + ET.map(function (e, i) {
+        return '<li><span class="n">' + (i + 1) + '</span><div><h3>' + esc(e.nazwa) + '</h3><span class="meta">' + esc(e.noce) + ' ' + (+e.noce === 1 ? 'noc' : 'noce') + (e.rate ? ' · ok. ' + e.rate + ' ' + (e.cur || 'USD') + ' za noc' : '') + '</span>' +
+          '<p><b>' + (e.hotel_url ? '<a href="' + esc(e.hotel_url) + '" target="_blank" rel="noopener">' + esc(e.hotel) + '</a>' : esc(e.hotel || '')) + '</b>' + '</p>' +
+          (e.opis ? '<p>' + esc(e.opis) + '</p>' : '') + '</div></li>';
+      }).join('') + '</ol></div></div></section>';
+  }
+  // plan dnia
+  h += '<section class="blk" id="plan" style="background:var(--paper)"><div class="wrap"><div class="sh"><div><p class="eyebrow">Dzień po dniu</p><h2>Osiem dni: Andy, winnice i Buenos Aires</h2><p>Rano szlak albo winnica, w południe lekki lunch, wieczorem zachód słońca nad Andami; 10 listopada należy do Zuccardi, a finał do tanga.</p></div></div>' +
+    (X.dayflow ? '<ul class="flow" aria-label="Typowy dzień">' + X.dayflow.map(function (f) { return '<li><b>' + esc(f[0]) + '</b>' + esc(f[1]) + '</li>'; }).join('') + '</ul><div style="height:26px"></div>' : '') +
+    '<ol class="days" style="list-style:none;margin:0;padding:0">' + D.days.map(function (d) {
+      return '<li class="day reveal' + (d.anniv ? ' anniv' : '') + '">' + (d.img ? '<figure class="ph" style="margin:0">' + img(d.img) + (d.img2 ? '<span class="ph2">' + img(d.img2, '', false, '240px') + '</span>' : '') + '<figcaption>' + esc(d.img.cap) + cred(d.img) + '</figcaption></figure>' : '<div class="ph"><canvas class="scn" data-k="' + esc(d.k || 'gory') + '" data-seed="' + (D.days.indexOf(d) + 3) + '" data-anniv="' + (d.anniv ? 1 : 0) + '" aria-hidden="true"></canvas></div>') +
+        '<div class="bd"><div class="dt"><b>' + esc(d.date) + '</b><span>' + esc(d.dow || '') + '</span>' + (d.anniv ? ' <span class="tag">rocznica</span>' : '') + '</div><h3>' + esc(d.title) + '</h3><p>' + esc(d.krotko || d.text) + '</p>' + (d.krotko ? '<details class="dmore"><summary>Szczegóły dnia, alternatywy i upgrade’y</summary><p>' + esc(d.text) + '</p></details>' : '') +
+        (d.cost ? '<span class="cost">ok. ' + nf(d.cost) + '\u00a0zł na parę tego dnia</span>' : '') + '</div></li>';
+    }).join('') + '</ol></div></section>';
+  // hotele i budżet
+  var BL = [['nocleg', 'Noclegi (7 nocy)', 'c1'], ['loty', 'Loty', 'c2'], ['auto_transfery', 'Bus z kierowcą', 'c3'], ['jedzenie', 'Jedzenie', 'c4'], ['wycieczki_bilety', 'Wycieczki i degustacje', 'c5'], ['rezerwa', 'Rezerwa', 'c6'], ['upgrade', 'Wybrane upgrade’y', 'c7']];
+  h += '<section class="blk" id="budzet"><div class="wrap"><div class="sh"><div><p class="eyebrow">Plan bazowy · koszty</p><h2>Budżet</h2><p>Plan bazowy: 3 noce w Lares de Chacras, 3 noce w Casa de Uco w Laguna Suite (noc rocznicy) i noc w Legado Mítico w Buenos Aires; trzy degustacje – Lagarde, Salentein, Zuccardi – i skromne posiłki. Wybierzcie liczbę par i cenę lotów, a budżet przeliczy się na parę. Upgrade’y i inne warianty hoteli są niżej, zwinięte.</p></div></div>' +
+    '<div class="grp"><span class="eyebrow">Ile par jedzie?</span><div class="seg" id="grp" role="group" aria-label="Liczba par"></div><span class="gnote" id="gnote"></span></div>' +
+    '<div class="grp" id="lsw"><span class="eyebrow">Loty kupione</span><div class="seg" id="lsc" role="group" aria-label="Scenariusz lotów"></div><span class="gnote" id="lnote"></span></div>' +
+    '<div class="bud" id="bud" aria-live="polite"></div>' + (P.upgrade ? '<details class="more2" id="upgrade"><summary>Upgrade’y – opcje do dokupienia (' + P.upgrade.opcje.filter(function (u) { return u.zl; }).length + ' z ceną, ' + P.upgrade.opcje.filter(function (u) { return !u.zl; }).length + ' do wyceny)</summary><div class="upg"><p>' + esc(P.upgrade.intro) + '</p><ul>' + P.upgrade.opcje.map(function (u) { return '<li' + (u.zl ? '' : ' class="nq"') + '><label>' + (u.zl ? '<input type="checkbox" data-up="' + esc(u.id) + '">' : '<span class="ucx" aria-hidden="true"></span>') + '<span class="ut"><b>' + esc(u.co) + '</b><small>' + esc(u.kiedy) + (u.uwaga ? ' · ' + esc(u.uwaga) : '') + '</small></span><span class="uz">' + (u.zl ? '+' + nf(u.zl) + '\u00a0zł' : 'wycena') + '</span></label></li>'; }).join('') + '</ul><p class="note" id="upsum"></p></div></details>' : '') + '<details class="more2" id="warianty"><summary>Inne warianty hoteli (' + (D.hotels.length - 1) + ') – porównanie z planem bazowym</summary><div class="hsel" role="group" aria-label="Wariant hoteli">' + D.hotels.map(function (o, i) {
+      return '<button type="button" class="hc" data-h="' + i + '" aria-pressed="false"><span class="eyebrow">' + (o.h1 ? esc(o.h1) + ' · ' + esc(o.h2) : 'wariant trasy') + '</span><h3>' + esc(o.n.replace(/^Trasa: /, '').replace(/:.*$/, '')) + '</h3><span class="sum" data-sum="' + i + '"></span><p>' + esc(o.short || (o.note.length > 170 ? o.note.slice(0, 170) + '…' : o.note)) + '</p>' + (o.oc ? '<p style="font-size:.85rem;color:var(--muted)">' + esc(o.oc) + '</p>' : '') + '</button>';
+    }).join('') + '</div></details></div></section>';
+  // hotele: karty z rolą w trasie, za/przeciw, oceną i linkiem
+  if (D.hotele && D.hotele.length) {
+    var BASEH = (D.hotels[0] && D.hotels[0].hotele) || [];
+    function hcard(o, hi) {
+        var pics = (o.gal && o.gal.length ? o.gal : (o.img ? [o.img] : []));
+        var gal = pics.length ? '<div class="hgal n' + Math.min(pics.length, 4) + '">' + pics.map(function (g, j) { return '<figure class="ph">' + img(g, '', false, j ? '(max-width: 760px) 50vw, 280px' : '(max-width: 760px) 100vw, 560px') + '<figcaption>' + esc(g.cap) + cred(g) + '</figcaption></figure>'; }).join('') + '</div>' : '';
+        return '<article class="hk reveal' + (o.glowny ? ' main' : '') + '" id="hk-' + hi + '" data-hn="' + esc(o.n) + '">' + gal + '<div class="hb"><p class="eyebrow">' + esc(o.rola) + '<span class="selb">w wybranym wariancie</span></p><h3>' + esc(o.n) + '</h3>' +
+          '<div class="kv"><span>ok. <b>' + (o.rate || '?') + ' ' + esc(o.cur || 'USD') + '</b> za noc</span>' + (o.oc ? '<span>oceny <b>' + esc(o.oc) + '</b></span>' : '') + '<span class="tagw">' + esc(o.wariant) + '</span></div>' +
+          (o.short ? '<p class="lead">' + esc(o.short) + '</p>' : '') +
+          '<div class="zp zp1"><ul>' + o.za.map(function (z) { return '<li>' + esc(z) + '</li>'; }).join('') + '</ul></div>' + '<details class="dmore"><summary>Więcej: minusy, szczegóły, rezerwacja</summary><div class="zp zp1"><ul class="m">' + o.przeciw.map(function (z) { return '<li>' + esc(z) + '</li>'; }).join('') + '</ul></div>' + (o.sekcje && o.sekcje.length ? '<dl class="hsek">' + o.sekcje.map(function (s) { return '<dt>' + esc(s[0]) + '</dt><dd>' + esc(s[1]) + '</dd>'; }).join('') + '</dl>' : (o.desc ? '<p class="more">' + esc(o.desc) + '</p>' : '')) + '</details>' +
+          (o.linki && o.linki.length ? '<p class="hl">' + o.linki.map(function (l) { return '<a href="' + esc(l[1]) + '" target="_blank" rel="noopener">' + esc(l[0]) + ' ↗</a>'; }).join('') + '</p>' : (o.url ? '<p><a href="' + esc(o.url) + '" target="_blank" rel="noopener">Strona hotelu →</a></p>' : '')) + '</div></article>';
+    }
+    h += band('hotele') + '<section class="blk" id="hotele"><div class="wrap"><div class="sh"><div><p class="eyebrow">Trzy bazy, trzy hotele</p><h2>Hotele</h2><p>Plan bazowy to trzy hotele w stylu, który lubicie – butikowe, ciche, z widokiem i designem: Lares de Chacras z własnym domem Casa Vita (3 noce), Casa de Uco w Laguna Suite z tarasem na lagunę i Andy (3 noce, noc rocznicy) i Legado Mítico w Palermo Soho (1 noc). Inne hotele, alternatywy i analiza są niżej, zwinięte. Ceny to szacunki za pokój dla dwojga z października 2026.</p></div></div><div class="hg">' +
+      D.hotele.map(function (o, hi) { return BASEH.indexOf(o.n) >= 0 ? hcard(o, hi) : ''; }).join('') + '</div>' +
+      '<details class="more2"><summary>Inne hotele, alternatywy i analiza czasu w hotelu</summary><div class="hg">' + D.hotele.map(function (o, hi) { return BASEH.indexOf(o.n) < 0 ? hcard(o, hi) : ''; }).join('') + '</div>' +
+      (P.czas_w_hotelu ? '<div class="cwh"><p class="eyebrow">Ile czasu w hotelu</p><h3>Gdzie hotel naprawdę pracuje na swoją cenę</h3><p>' + esc(P.czas_w_hotelu.intro) + '</p><div class="ptw"><table class="pt"><thead><tr><th>Dzień</th><th>Baza</th><th>W hotelu na jawie</th><th>Co robimy</th><th>Waga</th></tr></thead><tbody>' + P.czas_w_hotelu.dni.map(function (r) { return '<tr><td><b>' + esc(r[0]) + '</b></td><td>' + esc(r[1]) + '</td><td><b>' + esc(r[2]) + '</b></td><td>' + esc(r[3]) + '</td><td>' + esc(r[4]) + '</td></tr>'; }).join('') + '</tbody></table></div><p class="cwhw">' + esc(P.czas_w_hotelu.wniosek) + '</p><p class="cwhw">' + esc(P.czas_w_hotelu.agenda) + '</p></div>' : '') +
+      (D.alts && D.alts.length ? '<div class="alth"><p class="eyebrow">Alternatywy</p><h3>Gdyby trzeba było zmienić hotel</h3><p>Każdą bazę sprawdziliśmy w kilku wariantach. Poniżej te, które przeszły sito kryteriów (widok, design, butik, oceny), ale przegrały z wybranymi – z ceną, różnicą na parę i warunkiem, kiedy mają sens. Różnica liczona wobec wariantu polecanego: Lares de Chacras (170 USD), Laguna Suite w Casa de Uco (500 USD) i Legado Mítico (265 USD); ceny to migawki z 2026.</p></div>' +
+        [[1, 'Baza 1 · Mendoza i Agrelo · 3 noce'], [2, 'Baza 2 · dolina Uco · 3 noce'], [3, 'Baza 3 · Buenos Aires · 1 noc']].map(function (g) {
+          var L = D.alts.filter(function (a) { return a.baza === g[0]; }); if (!L.length) return '';
+          return '<p class="altg">' + g[1] + '</p><div class="altgrid">' + L.map(function (a) {
+            var r = a.roznica, rt = r === 0 ? 'ta sama cena' : (r > 0 ? '+' : '−') + nf(Math.abs(r)) + '\u00a0zł na parę';
+            return '<article class="alt reveal">' + (a.img ? '<figure class="ph">' + img(a.img, '', false, '(max-width: 760px) 100vw, 400px') + '<figcaption>' + esc(a.img.cap) + cred(a.img) + '</figcaption></figure>' : '') +
+              '<div class="ab"><h4>' + esc(a.n) + '</h4><div class="kv"><span>ok. <b>' + a.cena + '\u00a0USD</b> za noc</span><span class="' + (r > 0 ? 'up' : 'down') + '">' + rt + '</span></div>' + (a.oc ? '<p class="oc">' + esc(a.oc) + '</p>' : '') +
+              '<p>' + esc(a.co) + '</p><dl class="hsek"><dt>Dlaczego nie</dt><dd>' + esc(a.dlaczego) + '</dd><dt>Kiedy tak</dt><dd>' + esc(a.kiedy) + '</dd></dl>' + (a.url ? '<p class="hl"><a href="' + esc(a.url) + '" target="_blank" rel="noopener">Strona hotelu ↗</a></p>' : '') + '</div></article>';
+          }).join('') + '</div>';
+        }).join('') : '') +
+      (D.odrzucone && D.odrzucone.length ? '<details class="odrz"><summary>Rozważone i odrzucone (' + D.odrzucone.length + ')</summary><ul>' + D.odrzucone.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></details>' : '') + '</details></div></section>';
+  }
+  // przygotowania
+  // loty: opcje, kalendarz zakupu, alerty i monitor cen (loty.json aktualizuje agent)
+  if (P.loty) {
+    var F = P.loty;
+    function dpl(x) { if (!x) return ''; var p = String(x).split('-'); return p.length === 3 ? p[2] + '.' + p[1] + '.' + p[0] : x; }
+    var LT = [['decyzja', 'Decyzja', 'ceny, kalkulator, progi'], ['radar', 'Radar', 'sygnały, wyprzedaże, promocje'], ['plan', 'Kalendarz', 'fazy zakupu'], ['szukaj', 'Jak szukać', 'scenariusze i narzędzia'], ['zadania', 'Alerty i zadania', 'co zrobić samemu']];
+    h += band('loty') + '<section class="blk" id="loty" style="background:var(--paper)"><div class="wrap"><div class="sh"><div><p class="eyebrow">Warszawa → Mendoza → Buenos Aires · wylot 4.11 (po 20:00) lub 5.11 · lądowanie najpóźniej 14.11.2027</p><h2>Loty</h2><p class="lead2">Pulpit zakupu biletów: co robić teraz, gdzie są ceny wobec progu 4 800 zł na osobę i co zapowiada rynek. Dane odświeżają agenci – codziennie radar promocji, w poniedziałki i czwartki skrzynka alertów z Gmaila, 1. i 15. pełny monitor cen.</p><details class="ctx"><summary>Kontekst cenowy z października 2026</summary><p>' + esc(F.intro) + '</p></details></div></div>' +
+      '<div class="cockpit" id="teraz"><p class="st">Ładowanie stanu…</p></div>' +
+      '<details class="lfull" id="pulpit"><summary>Pulpit zakupu: kalkulator, radar, kalendarz, poradnik, alerty i zadania</summary>' +
+      '<div class="ltabs" role="tablist" aria-label="Widoki sekcji Loty">' + LT.map(function (t) { return '<button type="button" role="tab" data-lt="' + t[0] + '" aria-selected="false"><b>' + t[1] + '</b><small>' + t[2] + '</small></button>'; }).join('') + '</div>' +
+      // DECYZJA
+      '<div class="lpane" data-pane="decyzja" role="tabpanel">' +
+        '<div class="kalk" id="kalk"><div class="kh"><p class="eyebrow">Kalkulator oferty</p><h3>Czy ta cena się opłaca?</h3><p>Wpisz cenę z wyszukiwarki, alertu albo promocji. Policzę kompletną podróż na osobę, porównam z progami i z budżetem 28 000 zł na parę dla wybranego wariantu hoteli.</p></div>' +
+          '<div class="kf">' +
+            '<label class="kc"><span>Cena biletu</span><span class="kin"><input type="number" inputmode="decimal" min="0" step="10" id="k-cena" placeholder="np. 4300"><select id="k-wal" aria-label="Waluta"><option value="1">zł</option><option value="4.3">EUR</option><option value="3.7">USD</option></select></span></label>' +
+            '<label class="kc"><span>Cena dotyczy</span><select id="k-za"><option value="1">1 osoby</option><option value="2">2 osób – dzielę na pół</option></select></label>' +
+            '<label class="kk"><input type="checkbox" id="k-bag" checked><span>Bagaż rejestrowany w cenie</span></label><label class="kc kx" data-for="k-bag" hidden><span>Dopłata za bagaż, obie strony, na os.</span><input type="number" min="0" step="10" id="k-bagc" value="700"></label>' +
+            '<label class="kk"><input type="checkbox" id="k-kr"><span>Lot krajowy Buenos Aires–Mendoza osobno</span></label><label class="kc kx" data-for="k-kr" hidden><span>Lot krajowy z bagażem, na os.</span><input type="number" min="0" step="10" id="k-krc" value="650"></label>' +
+            '<label class="kk"><input type="checkbox" id="k-dol"><span>Osobny dolot do huba (Madryt, Wiedeń)</span></label><label class="kc kx" data-for="k-dol" hidden><span>Dolot i nocleg buforowy, na os.</span><input type="number" min="0" step="10" id="k-dolc" value="850"></label>' +
+          '</div><div class="kout" id="k-out" aria-live="polite"></div></div>' +
+        '<div class="mon"><div class="ph2"><h3>Monitor cen</h3><p class="st" id="monst">Ładowanie…</p></div><div id="mon"></div><p class="note">Ceny to kompletna podróż Warszawa–Mendoza–Warszawa na osobę z bagażem. Zapisują je: pełny monitor 1. i 15. dnia miesiąca, od 10.12.2026 przebieg poniedziałkowy, w oknie 21.05–2.07.2027 także czwartkowy, oraz skrzynka alertów. To wskazówka, nie oferta – przed zakupem sprawdzić cenę u linii.</p></div>' +
+        (F.progi ? '<div class="cols" style="margin-top:24px"><div><h3>Progi zakupu</h3><div class="ptw"><table class="pt"><thead><tr><th>Kompletna podróż / os.</th><th>Decyzja</th></tr></thead><tbody>' + F.progi.map(function (r) { return '<tr><td><b>' + esc(r[0]) + '</b></td><td>' + esc(r[1]) + '</td></tr>'; }).join('') + '</tbody></table></div></div>' + (F.daty ? '<div><h3>Daty</h3><div class="ptw"><table class="pt"><thead><tr><th>Układ</th><th>Loty</th><th>Pobyt</th></tr></thead><tbody>' + F.daty.map(function (r) { return '<tr><td><b>' + esc(r[0]) + '</b></td><td>' + esc(r[1]) + '</td><td>' + esc(r[2]) + '</td></tr>'; }).join('') + '</tbody></table></div></div>' : '') + '</div>' : '') +
+      '</div>' +
+      // RADAR
+      '<div class="lpane" data-pane="radar" role="tabpanel" hidden><div class="radar" id="radar"><p class="st">Ładowanie radaru…</p></div>' +
+        '<div class="prom"><div class="ph2"><h3>Promocje znalezione przez agentów</h3><p class="st" id="promst">Ładowanie…</p></div><div id="prom"></div><p class="note">Codziennie radar RSS (15 kanałów), w środy i piątki głębszy przegląd stron linii, Secret Flying, Chollometro i hoteli. Powiadomienie push tylko wtedy, gdy promocja obejmuje listopad 2027 i mieści się w progach.</p></div>' +
+      '</div>' +
+      // KALENDARZ
+      '<div class="lpane" data-pane="plan" role="tabpanel" hidden>' +
+      (F.kalendarz ? (function (K) {
+        var t = new Date(), td = t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0');
+        var WYL = '2027-11-05', T0 = Date.parse('2026-10-01'), SP = Date.parse('2027-11-17') - T0;
+        function X(d) { return Math.max(0, Math.min(100, (Date.parse(d) - T0) / SP * 100)); }
+        function nx(d) { var x = new Date(Date.parse(d) + 864e5); return x.toISOString().slice(0, 10); }
+        function dd(a, b) { return Math.round((Date.parse(b) - Date.parse(a)) / 864e5); }
+        function ps(x) { var p = x.split('-'); return +p[2] + '.' + p[1]; }
+        function pl(x) { return ps(x) + '.' + x.slice(0, 4); }
+        function rng(a, b) { return a === b ? pl(a) : a.slice(0, 7) === b.slice(0, 7) ? +a.slice(8) + '–' + pl(b) : a.slice(0, 4) === b.slice(0, 4) ? ps(a) + '–' + pl(b) : pl(a) + ' – ' + pl(b); }
+        function tyg(d) { return Math.round(dd(d, WYL) / 7); }
+        var FZ = K.fazy, KM = K.kamienie || [], AU = K.automaty || [], cur = -1, nxt = -1;
+        FZ.forEach(function (f, i) { if (td >= f.od && td <= f.do) cur = i; else if (nxt < 0 && f.od > td) nxt = i; });
+        var foc = cur >= 0 ? cur : nxt, TON = { sprawdz: 'sprawdzamy', kupuj: 'kupujemy w progu', szczyt: 'najlepsze okno', termin: 'ostatni dzwonek', po: 'po zakupie' };
+        // miesiące
+        var MN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'], mh = '';
+        for (var y = 2026, m = 9; y < 2027 || m <= 10; ) { var ds = y + '-' + String(m + 1).padStart(2, '0') + '-01'; mh += '<span' + ((y * 12 + m) % 2 ? ' class="ev"' : '') + ' style="left:' + X(ds).toFixed(2) + '%">' + MN[m] + (m === 0 || (y === 2026 && m === 9) ? '<small>' + y + '</small>' : '') + '</span>'; m++; if (m > 11) { m = 0; y++; } }
+        // krzywa szansy (schemat)
+        var lv = function (s) { return 96 - s / 3 * 82; }, pts = [[0, 96], [X('2026-11-05') * 10, 96]];
+        FZ.forEach(function (f) { if (!f.szansa) return; pts.push([X(f.od) * 10, lv(f.szansa)], [X(nx(f.do)) * 10, lv(f.szansa)]); });
+        pts.push([X('2027-09-12') * 10, 96], [1000, 96]);
+        var cp = 'M' + pts[0].join(' ');
+        for (var i = 1; i < pts.length; i++) { var a = pts[i - 1], b = pts[i], mx = (a[0] + b[0]) / 2; cp += a[1] === b[1] ? ' L' + b[0].toFixed(1) + ' ' + b[1].toFixed(1) : ' C' + mx.toFixed(1) + ' ' + a[1].toFixed(1) + ' ' + mx.toFixed(1) + ' ' + b[1].toFixed(1) + ' ' + b[0].toFixed(1) + ' ' + b[1].toFixed(1); }
+        var curve = '<svg class="kcv" viewBox="0 0 1000 100" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="kcg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity=".42"/><stop offset="1" stop-color="currentColor" stop-opacity=".04"/></linearGradient></defs><path d="' + cp + ' L1000 100 L0 100 Z" fill="url(#kcg)"/><path d="' + cp + '" fill="none" stroke="currentColor" stroke-width="2" vector-effect="non-scaling-stroke"/></svg>';
+        var okn = FZ.filter(function (f) { return f.ton === 'szczyt'; }), ann = okn.map(function (f) { return '<span class="kca" style="left:' + ((X(f.od) + X(nx(f.do))) / 2).toFixed(2) + '%">' + (f.kr === 'Okno' ? 'statystycznie najtaniej' : esc(f.kr.toLowerCase())) + '</span>'; }).join('');
+        // pasmo faz
+        var band = FZ.map(function (f, i) { var l = X(f.od), w = Math.max(1.1, X(nx(f.do)) - l), st = td > f.do ? ' past' : i === cur ? ' now' : ''; return '<button type="button" class="ks t-' + esc(f.ton || 'po') + st + (w >= 7 ? ' wd' : '') + '" data-kgo="' + (i + 1) + '" style="left:' + l.toFixed(2) + '%;width:' + w.toFixed(2) + '%" title="' + esc((i + 1) + '. ' + f.faza + ' · ' + rng(f.od, f.do)) + '" aria-label="' + esc('Etap ' + (i + 1) + ': ' + f.faza + ', ' + rng(f.od, f.do)) + '"><span>' + (i + 1) + '</span><b>' + esc(f.kr || f.faza) + '</b></button>'; }).join('') +
+          '<i class="ktrip" style="left:' + X(WYL).toFixed(2) + '%;width:' + (X('2027-11-14') - X(WYL)).toFixed(2) + '%" title="Wyjazd 5–13.11.2027">✈</i>';
+        // kamienie
+        var kam = KM.map(function (k, i) { var x = X(k.d); return '<i class="km r' + (i % 2 + 1) + (k.typ ? ' k-' + esc(k.typ) : '') + (td > k.d ? ' past' : '') + (x > 86 ? ' rt' : '') + '" style="left:' + x.toFixed(2) + '%"><em><b>' + esc(ps(k.d)) + '</b><span> ' + esc(k.t) + '</span></em></i>'; }).join('') +
+          '<i class="km r' + (KM.length % 2 + 1) + ' k-wylot rt" style="left:' + X(WYL).toFixed(2) + '%"><em><b>5.11</b><span> wylot</span></em></i>';
+        // automaty
+        var ticks = '';
+        for (var yy = 2026, mm = 10; yy < 2027 || mm <= 7; ) { [1, 15].forEach(function (dn) { var s = yy + '-' + String(mm + 1).padStart(2, '0') + '-' + String(dn).padStart(2, '0'); if (s >= '2026-11-01' && s <= '2027-08-31') ticks += '<i class="kt' + (td > s ? ' past' : '') + '" style="left:' + X(s).toFixed(2) + '%"></i>'; }); mm++; if (mm > 11) { mm = 0; yy++; } }
+        var aut = '<i class="krs" style="left:' + X(td < '2026-10-28' ? '2026-10-28' : td).toFixed(2) + '%;width:' + Math.max(0, X('2027-08-31') - X(td < '2026-10-28' ? '2026-10-28' : td)).toFixed(2) + '%"></i>' + ticks +
+          AU.map(function (a) { return '<i class="ka2 ' + (a.typ === 'agent' ? 'ag' : 'pr') + (td > a.d ? ' past' : '') + '" style="left:' + X(a.d).toFixed(2) + '%" title="' + esc(pl(a.d) + ' · ' + a.t) + '"></i>'; }).join('');
+        var lines = '<i class="kln kdz" style="left:' + X(td).toFixed(2) + '%"><em>dziś</em></i>' + KM.filter(function (k) { return k.typ; }).map(function (k) { return '<i class="kln k-' + esc(k.typ) + '" style="left:' + X(k.d).toFixed(2) + '%"></i>'; }).join('') + '<i class="kln k-wylot" style="left:' + X(WYL).toFixed(2) + '%"></i>';
+        var os = '<div class="kos" role="img" aria-label="Oś zakupu biletów od października 2026 do wylotu 5 listopada 2027"><div class="kos-l" aria-hidden="true"><span class="h-m"></span><span class="h-c">Szansa na cenę w progu</span><span class="h-b">Etapy</span><span class="h-k">Kamienie</span><span class="h-a">Automaty</span></div>' +
+          '<div class="kos-t"><div class="kmh">' + mh + '</div><div class="kcw">' + curve + ann + '</div><div class="kbd">' + band + '</div><div class="kkm">' + kam + '</div><div class="kau">' + aut + '</div>' + lines + '</div></div>' +
+          '<div class="klg"><span><i class="sw t-sprawdz"></i>sprawdzamy</span><span><i class="sw t-kupuj"></i>kupujemy w progu</span><span><i class="sw t-szczyt"></i>najlepsze okno</span><span><i class="sw t-termin"></i>ostatni dzwonek</span><span><i class="lg-ag"></i>agent jednorazowy</span><span><i class="lg-pr"></i>przypomnienie w Kalendarzu Google</span><span><i class="lg-kt"></i>monitor cen 1. i 15.</span><span><i class="lg-rs"></i>radar RSS codziennie</span></div>' +
+          '<p class="kcap">Krzywa to schemat, nie prognoza ceny: im wyżej, tym większa szansa na kompletną podróż ≤ 4 800 zł/os. – według statystyk (najniższe ceny 18–24 tygodnie przed wylotem) i historii wyprzedaży z lat 2022–2026. Kliknij etap na osi, żeby przejść do szczegółów.</p>';
+        // etapy (pionowa oś)
+        var dzis = '<li class="kst-x"><div class="kst-d"></div><div class="kst-r"><i></i></div><div class="kst-c"><b>Dziś · ' + esc(pl(td)) + '</b><span>do wylotu ' + dd(td, WYL) + ' dni (' + tyg(td) + ' tyg.)' + (nxt >= 0 ? ' · następny etap: ' + esc(FZ[nxt].faza) + ' za ' + dd(td, FZ[nxt].od) + ' dni' : '') + '</span></div></li>';
+        var st = FZ.map(function (f, i) {
+          var past = td > f.do, now = i === cur, n = dd(f.od, f.do) + 1, ile = (n > 28 ? Math.round(n / 7) + ' tyg.' : n + ' dni') + ' · ' + tyg(f.od) + (tyg(f.do) !== tyg(f.od) ? '–' + tyg(f.do) : '') + ' tyg. przed wylotem', s = past ? 'zakończony' : now ? 'trwa · zostało ' + (dd(td, f.do) + 1) + ' dni' : 'start za ' + dd(td, f.od) + ' dni', pr = now ? Math.round((dd(f.od, td) + 1) / n * 100) : 0;
+          return (cur < 0 && i === nxt ? dzis : '') + '<li class="kst-i t-' + esc(f.ton || 'po') + (past ? ' past' : now ? ' now' : i === foc ? ' next' : '') + '" id="kf-' + (i + 1) + '">' +
+            '<div class="kst-d"><b>' + esc(rng(f.od, f.do)) + '</b><small>' + ile + '</small></div>' +
+            '<div class="kst-r"><i>' + (past ? '✓' : i + 1) + '</i></div>' +
+            '<div class="kst-c"><div class="kst-h"><h4>' + esc(f.faza) + '</h4><span class="kst-t">' + esc(TON[f.ton] || '') + '</span><span class="kst-s">' + esc(s) + '</span></div>' +
+            '<p class="kst-m">' + esc(rng(f.od, f.do)) + ' · ' + ile + '</p>' +
+            (now ? '<div class="kst-p" role="progressbar" aria-valuenow="' + pr + '" aria-valuemin="0" aria-valuemax="100"><i style="width:' + pr + '%"></i></div>' : '') +
+            '<p class="kst-z"><b>Decyzja</b>' + esc(f.decyzja) + '</p>' +
+            '<details' + (i === foc ? ' open' : '') + '><summary>Co robimy i co działa samo</summary><p>' + esc(f.co) + '</p><p class="kst-a"><b>Automat</b>' + esc(f.automat) + '</p></details></div></li>';
+        }).join('') + (cur < 0 && nxt < 0 && td < WYL ? dzis : '') +
+          '<li class="kst-i kst-w"><div class="kst-d"><b>5–13.11.2027</b><small>wyjazd</small></div><div class="kst-r"><i>✈</i></div><div class="kst-c"><div class="kst-h"><h4>Wylot do Mendozy</h4><span class="kst-s">za ' + Math.max(0, dd(td, WYL)) + ' dni</span></div><p>Wylot z Warszawy w piątek 5.11 (albo w czwartek 4.11 po 20:00), Mendoza → Buenos Aires 12.11, powrót z Buenos Aires 13.11 – lądowanie w Warszawie najpóźniej w niedzielę 14.11. 10.11 – dwudziesta rocznica.</p></div></li>';
+        return '<div class="kal" id="kalendarz"><p class="eyebrow">Oś zakupu · daty liczone od wylotu 5.11.2027</p><h3>' + esc(K.tytul) + '</h3><p class="lead2">' + esc(K.intro) + '</p>' + os + '<h4 class="kst-hd">Etapy krok po kroku</h4><ol class="kst">' + st + '</ol></div>';
+      })(F.kalendarz) : '') +
+        '<details class="ctx" style="margin-top:16px"><summary>Notatki o terminach i decyzji hotelowej</summary><ol class="tl">' + F.kiedy.map(function (k) { return '<li><b>' + esc(k[0]) + '</b><span>' + esc(k[1]) + '</span></li>'; }).join('') + '</ol></details>' +
+      '</div>' +
+      // JAK SZUKAĆ
+      '<div class="lpane" data-pane="szukaj" role="tabpanel" hidden>' +
+      '<div class="fo">' + F.opcje.map(function (o) { return '<article' + (o.rek ? ' class="rek"' : '') + '><span class="rt">' + esc(o.trasa) + (o.rek ? ' · polecane' : '') + '</span><h3>' + esc(o.n) + '</h3><div class="kv"><span>czas <b>' + esc(o.czas) + '</b></span><span>od osoby <b>' + esc(o.cena) + '</b></span></div><p>' + esc(o.linie) + '</p><div class="pm"><span>' + esc(o.plus) + '</span><span class="m">' + esc(o.minus) + '</span></div></article>'; }).join('') + '</div>' +
+      (F.poradnik ? (function (Q) { var sc = Q.scenariusze || [], kr = Q.kroki || [], nz = Q.narzedzia || [], ck = Q.checklista || [], bl = Q.bledy || [], wn = Q.wnioski || [];
+        return '<div class="por" id="poradnik"><p class="eyebrow">Poradnik szukania' + (Q.zaktualizowano ? ' · ' + esc(Q.zaktualizowano) : '') + '</p><h3>' + esc(Q.tytul) + '</h3><p>' + esc(Q.intro) + '</p>' +
+        (sc.length ? '<h4>Scenariusze – co porównujemy</h4><div class="tw"><table class="pt"><thead><tr><th>Scenariusz</th><th>Gdzie i jak szukać</th><th>Kiedy wygrywa</th><th>Ryzyka i koszty ukryte</th></tr></thead><tbody>' + sc.map(function (r) { return '<tr' + (r.rek ? ' class="rek"' : '') + '><td><b>' + esc(r.n) + '</b><span class="tg2">' + esc(r.trasa) + (r.rek ? ' · polecane' : '') + '</span></td><td>' + esc(r.jak) + '</td><td>' + esc(r.wygrywa) + '</td><td>' + esc(r.ryzyko) + '</td></tr>'; }).join('') + '</tbody></table></div>' : '') +
+        '<div class="g2"><div><h4>Kolejność szukania</h4><ol class="tl">' + kr.map(function (k, i) { return '<li><b>' + (i + 1) + '</b><span><strong>' + esc(k.t) + '</strong> ' + esc(k.opis) + (k.link ? ' <a href="' + esc(k.link[1]) + '" target="_blank" rel="noopener">' + esc(k.link[0]) + '</a>' : '') + (k.kiedy ? '<small>' + esc(k.kiedy) + '</small>' : '') + '</span></li>'; }).join('') + '</ol>' +
+        (wn.length ? '<h4>Wnioski z taryf i forów</h4><ol class="wn">' + wn.map(function (w) { return '<li>' + esc(w) + '</li>'; }).join('') + '</ol>' : '') + '</div>' +
+        '<div><h4>Narzędzia</h4>' + nz.map(function (n) { return '<details><summary>' + esc(n.n) + '</summary><ul>' + (n.p || []).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + (n.link ? '<li><a href="' + esc(n.link) + '" target="_blank" rel="noopener">' + esc(n.link.replace(/^https?:\/\//, '')) + '</a></li>' : '') + '</ul></details>'; }).join('') +
+        (ck.length ? '<h4>Checklista przed zakupem</h4><ul class="ck">' + ck.map(function (c, i) { return '<li><label><input type="checkbox" data-pc="' + i + '"><span>' + esc(c) + '</span></label></li>'; }).join('') + '</ul>' : '') +
+        (bl.length ? '<details style="margin-top:14px"><summary>Typowe błędy</summary><ul>' + bl.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></details>' : '') + '</div></div></div>'; })(F.poradnik) : '') +
+      (F.stopover ? '<div class="stop"><div><p class="eyebrow">Mechanizm</p><h3>' + esc(F.stopover.tytul) + '</h3><p>' + esc(F.stopover.intro) + '</p><ol class="tl">' + F.stopover.kroki.map(function (k, i) { return '<li><b>' + (i + 1) + '</b><span>' + esc(k) + '</span></li>'; }).join('') + '</ol></div><div><h4>Kiedy warto</h4><p>' + esc(F.stopover.kiedy_warto) + '</p><h4>Wyszukiwarki multi-city</h4><ul class="al">' + F.stopover.linki.map(function (l) { return '<li><a href="' + esc(l[1]) + '" target="_blank" rel="noopener">' + esc(l[0]) + '</a></li>'; }).join('') + '</ul><p class="note" style="color:var(--ink-2);font-size:.9rem;margin:12px 0 0">Agent cen liczy ten wariant jako osobną serię „stopover” i porównuje z biletem w obie strony.</p></div></div>' : '') +
+        '<details class="ctx" style="margin-top:20px"><summary>Zasady zakupu (' + F.zasady.length + ')</summary><ul class="chk" style="list-style:disc;padding-left:20px;gap:6px">' + F.zasady.map(function (z) { return '<li>' + esc(z) + '</li>'; }).join('') + '</ul></details>' +
+      '</div>' +
+      // ZADANIA I ALERTY
+      '<div class="lpane" data-pane="zadania" role="tabpanel" hidden><div class="cols zcols"><div class="todo" id="zadania"><h3>Twoje zadania</h3><p class="note">Rzeczy, których agenci nie zrobią za Ciebie. Odhaczenie zapamiętuje ta przeglądarka; czerwone – po terminie.</p><ul class="tdl">' +
+        (F.zadania || []).map(function (z) { return '<li data-od="' + esc(z.od || '') + '" data-do="' + esc(z.do || '') + '"><label><input type="checkbox" data-td="' + esc(z.id) + '"><span><b>' + esc(z.t) + '</b><small>' + (z.od ? 'od ' + dpl(z.od) + ' · ' : '') + 'do ' + dpl(z.do) + '</small>' + (z.opis ? '<em>' + esc(z.opis) + '</em>' : '') + '</span></label>' + (z.link ? '<a class="tdlink" href="' + esc(z.link[1]) + '" target="_blank" rel="noopener">' + esc(z.link[0]) + ' ↗</a>' : '') + '</li>'; }).join('') + '</ul></div>' +
+        '<div><h3>Alerty cenowe do ustawienia</h3>' + (F.alerty_intro ? '<p class="note">' + esc(F.alerty_intro) + '</p>' : '') + '<ul class="al">' + F.alerty.map(function (a, i) { return (a.g ? '<li class="alg">' + esc(a.g) + '</li>' : '') + '<li class="alc"><label><input type="checkbox" data-al="' + i + '"><span class="alb"><a href="' + esc(a.url) + '" target="_blank" rel="noopener">' + esc(a.n) + '</a><span>' + esc(a.opis) + '</span></span></label></li>'; }).join('') + '</ul></div></div>' +
+      '</div>' +
+      '</details></div></section>';
+  }
+  // Buenos Aires: plan na finał, Café Tortoni, praktyczne
+  if (P.ba) {
+    var BA = P.ba, bp = D.bapics || [];
+    h += band('buenos') + '<section class="blk" id="buenos"><div class="wrap"><div class="sh"><div><p class="eyebrow">Finał · 12–13 listopada</p><h2>Buenos Aires</h2><p>' + esc(BA.intro) + '</p></div></div>' +
+      (bp.length ? '<div class="bastrip">' + bp.slice(0, 6).map(function (g) { return '<figure>' + img(g, '', false, '(max-width: 760px) 50vw, 200px') + '<figcaption>' + esc(g.cap) + cred(g) + '</figcaption></figure>'; }).join('') + '</div>' : '') +
+      '<div class="bagrid"><div><h3>Plan godzina po godzinie</h3><ol class="batl">' + BA.plan.filter(function (s) { return !/^Upgrade/.test(s.co); }).map(function (s) { return '<li>' + (s.d ? '<span class="bad">' + esc(s.d) + '</span>' : '') + '<b>' + esc(s.godz) + '</b><p>' + esc(s.co) + '</p></li>'; }).join('') + '</ol>' + (BA.plan.some(function (s) { return /^Upgrade/.test(s.co); }) ? '<details class="dmore"><summary>Upgrade: kameralne tango przed kolacją</summary><ol class="batl">' + BA.plan.filter(function (s) { return /^Upgrade/.test(s.co); }).map(function (s) { return '<li><b>' + esc(s.godz) + '</b><p>' + esc(s.co) + '</p></li>'; }).join('') + '</ol></details>' : '') + '</div>' +
+      '<div><div class="tort"><p class="eyebrow">Od 1858 r. · Avenida de Mayo 825</p><h3>' + esc(BA.tortoni.n) + '</h3><p>' + esc(BA.tortoni.opis) + '</p><p class="eyebrow" style="margin-top:10px">Co zamówić</p><ul>' + BA.tortoni.zamowic.map(function (z) { return '<li>' + esc(z) + '</li>'; }).join('') + '</ul>' + (BA.tortoni.url ? '<p><a href="' + esc(BA.tortoni.url) + '" target="_blank" rel="noopener">Strona kawiarni ↗</a></p>' : '') + '</div>' +
+      '<details class="more2" style="margin-top:22px"><summary>Praktyczne (' + BA.praktyczne.length + ')</summary><ul class="chk" style="list-style:disc;padding-left:20px;gap:6px">' + BA.praktyczne.map(function (z) { return '<li>' + esc(z) + '</li>'; }).join('') + '</ul></details></div></div></div></section>';
+  }
+  h += '<section class="blk" id="przygotowania" style="background:var(--paper)"><div class="wrap"><div class="sh"><div><p class="eyebrow">Zanim polecimy</p><h2>Przygotowania</h2></div></div><div class="cols">' +
+    (P.dojazd ? '<div><h3>Dojazd</h3><details class="dmore"><summary>Loty, przesiadki i transport na miejscu</summary><p class="prose">' + esc(P.dojazd) + '</p></details></div>' : '') +
+    (P.pogoda ? '<div><h3>Pogoda w listopadzie</h3><p class="prose">' + esc(P.pogoda) + '</p></div>' : '') +
+    (P.rezerwacje ? '<div style="grid-column:1/-1"><h3>Co i kiedy rezerwować</h3><p class="prose" style="font-size:.9rem;color:var(--muted);margin:0 0 10px">Odhaczaj zrobione – zapisuje się w tej przeglądarce.</p><ol class="tl rz">' + P.rezerwacje.map(function (r, i) { return '<li><b>' + esc(r.when) + '</b><div><label><input type="checkbox" data-r="' + i + '"><span>' + esc(r.krotko || r.what) + '</span></label>' + (r.krotko ? '<details class="dmore"><summary>Szczegóły, kontakty i opcje</summary><p>' + esc(r.what) + '</p></details>' : '') + '</div></li>'; }).join('') + '</ol></div>' : '') +
+    (P.zabrac ? '<div><h3>Co zabrać</h3><ul class="chk">' + P.zabrac.map(function (z, i) { return '<li><label><input type="checkbox" id="z' + i + '" data-z="' + i + '"><span>' + esc(z) + '</span></label></li>'; }).join('') + '</ul></div>' : '') +
+    (P.uwagi ? '<div><h3>Warto wiedzieć</h3><details class="dmore"><summary>Notatki z researchu (' + P.uwagi.length + ')</summary><ul class="ul">' + P.uwagi.map(function (u) { return '<li>' + esc(u) + '</li>'; }).join('') + '</ul></details></div>' : '') +
+    '<div><h3>Smaki i słowa</h3><p class="prose">Danie: <b>' + esc(X.dish || '') + '</b>.' + (X.word ? ' Słowo: <b>' + esc(X.word[0]) + '</b>, czyli ' + esc(X.word[1]) + '.' : '') + '</p></div>' +
+    '</div></div></section>';
+  // galeria
+  if (D.gallery.length) h += band('galeria') + '<section class="blk" id="galeria"><div class="wrap"><div class="sh"><div><p class="eyebrow">Mendoza, Andy, malbec</p><h2>Galeria</h2></div></div><div class="gal">' +
+    D.gallery.map(function (g, i) { var c = i % 11 === 0 ? ' class="b"' : i % 7 === 3 ? ' class="w"' : (!g.land ? ' class="t"' : ''); return '<figure' + c + '>' + img(g, '', false, '(max-width: 760px) 50vw, 440px') + '<figcaption>' + esc(g.cap) + cred(g) + '</figcaption></figure>'; }).join('') + '</div></div></section>';
+  h += '<footer><div class="wrap"><p>Wersja publiczna (bez logowania, z prawdziwą mapą): <a href="https://6b7kq8bpkr-del.github.io/Madeira-interactive/rocznica-2027/uco/">6b7kq8bpkr-del.github.io/Madeira-interactive/rocznica-2027/uco</a></p><p>Ceny to szacunki na bazie 2026 r.; w Argentynie zmieniają się szybko, doliczcie 5–10%. Kurs: 1 USD = 3,70 zł.</p>' +
+    (P.zrodla ? '<details class="dmore"><summary>Źródła (' + P.zrodla.length + ')</summary><p>' + P.zrodla.map(function (z) { return '<a href="' + esc(z.url) + '" target="_blank" rel="noopener">' + esc(z.label) + '</a>'; }).join(' · ') + '</p></details>' : '') +
+    '<p>Zdjęcia: Flickr i Wikimedia Commons na wolnych licencjach (CC); autor i licencja pod każdym zdjęciem.' + (D.built ? ' Ostatnia aktualizacja planu: ' + esc(D.built) + '.' : '') + '</p><p class="tools"><button type="button" class="btn" id="copylink">Kopiuj link do planu</button> <a class="btn" href="plan.ics" download="rocznica-2027-mendoza.ics">Pobierz do kalendarza (.ics)</a> <button type="button" class="btn" id="printbtn">Drukuj / zapisz PDF</button><span id="copied" class="eyebrow" hidden>skopiowano</span></p></div></footer>';
+  app.innerHTML = h;
+  // animacja wejścia
+  if ('IntersectionObserver' in window) { var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -8% 0px' }); document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); }); } else document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+  // promocje z forów: promocje.json obok strony
+  (function () {
+    var box = document.getElementById('prom'), st = document.getElementById('promst'); if (!box) return;
+    fetch('promocje.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (M) {
+      st.textContent = 'Ostatnie sprawdzenie: ' + M.zaktualizowano + (M.nastepny ? ' · następne: ' + M.nastepny : '');
+      var W = (M.wpisy || []).slice().sort(function (a, b) { return (b.data || '').localeCompare(a.data || ''); });
+      var kl = { tak: ['pasuje', 'ok'], nie: ['nie obejmuje XI 2027', 'no'], sprawdzic: ['do sprawdzenia', 'mid'] };
+      function li(w) { var k = kl[w.pasuje] || kl.sprawdzic;
+        return '<li><div class="plh"><span class="pld">' + esc(w.data || '') + ' · ' + esc(w.zrodlo || '') + '</span><span class="plb ' + k[1] + '">' + k[0] + '</span></div><a href="' + esc(w.url || '#') + '" target="_blank" rel="noopener">' + esc(w.tytul || '') + '</a><div class="plm">' + [w.cena, w.trasa, w.terminy, w.bagaz ? 'bagaż: ' + w.bagaz : ''].filter(Boolean).map(esc).join(' · ') + '</div>' + (w.ocena ? '<div class="plo">' + esc(w.ocena) + '</div>' : '') + '</li>'; }
+      var hot = W.filter(function (w) { return w.pasuje === 'tak' || w.pasuje === 'sprawdzic'; }), old = W.filter(function (w) { return w.pasuje !== 'tak' && w.pasuje !== 'sprawdzic'; });
+      box.innerHTML = (M.status ? '<p class="status">' + esc(M.status) + '</p>' : '') +
+        (hot.length ? '<h4 class="plt">Pasujące i do sprawdzenia (' + hot.length + ')</h4><ul class="pl">' + hot.map(li).join('') + '</ul>' : '<p class="note">Żadna znaleziona promocja nie obejmuje jeszcze listopada 2027.</p>') +
+        (old.length ? '<details class="ctx"><summary>Wzorce z przeszłości – poza terminem (' + old.length + ')</summary><ul class="pl">' + old.map(li).join('') + '</ul></details>' : '');
+    }).catch(function () { st.textContent = 'Lista promocji niedostępna w tym podglądzie.'; });
+  })();
+  // monitor cen + radar + panel „Co teraz”: loty.json obok strony (aktualizują agenci)
+  (function () {
+    var box = document.getElementById('mon'), st = document.getElementById('monst'), RB = document.getElementById('radar'), CK = document.getElementById('teraz'); if (!box) return;
+    var LO = (D.prog && D.prog.loty) || {}, FZ = (LO.kalendarz || {}).fazy || [], ZD = LO.zadania || [];
+    var t0 = new Date(), td = t0.getFullYear() + '-' + String(t0.getMonth() + 1).padStart(2, '0') + '-' + String(t0.getDate()).padStart(2, '0');
+    function pl2(x) { if (!x) return ''; var p = String(x).split('-'); return p.length === 3 ? p[2] + '.' + p[1] + '.' + p[0] : x; }
+    function pl2s(x) { var p = String(x).split('-'); return p.length === 3 ? p[2] + '.' + p[1] : x; }
+    function days(a, b) { return Math.round((new Date(b) - new Date(a)) / 864e5); }
+    function tdDone() { try { return JSON.parse(localStorage.getItem('uco-td') || '{}'); } catch (e) { return {}; } }
+    function render(M) {
+      var prog = M.prog || 4800, ALL = M.serie || [], S = ALL.filter(function (s) { return s.id !== 'krajowy'; }), KR = ALL.filter(function (s) { return s.id === 'krajowy'; })[0];
+      var faza = FZ.filter(function (f) { return td >= f.od && td <= f.do; })[0], nextF = FZ.filter(function (f) { return f.od > td; })[0];
+      st.textContent = M.zaktualizowano ? 'Ostatni odczyt: ' + pl2(M.zaktualizowano) + (M.nastepny ? ' · następny: ' + pl2(M.nastepny) : '') : '';
+      function H(s) { return (s.hist || []).filter(function (x) { return x.cena; }); }
+      function last(s) { var h = H(s); return h.length ? h[h.length - 1] : null; }
+      function prev(s) { var h = H(s); return h.length > 1 ? h[h.length - 2] : null; }
+      function badge(c) { return c <= 4000 ? '<span class="bd b0">🟢🟢 okazja</span>' : c <= prog ? '<span class="bd b1">🟢 w progu</span>' : c <= 5000 ? '<span class="bd b2">🟡 blisko progu</span>' : c <= 5500 ? '<span class="bd b3">⚪ powyżej</span>' : '<span class="bd b4">🔴 drogo</span>'; }
+      function kl(c) { return c <= prog ? 'g' : c <= 5000 ? 'y' : 'r'; }
+      function dlt(l, p) { if (!l || !p) return '<span class="tr fl">pierwszy odczyt</span>'; var d = l.cena - p.cena; return d > 0 ? '<span class="tr up">▲ +' + nf(d) + '\u00a0zł</span>' : d < 0 ? '<span class="tr dn">▼ −' + nf(-d) + '\u00a0zł</span>' : '<span class="tr fl">= bez zmian</span>'; }
+      var priced = S.filter(last).sort(function (a, b) { return last(a).cena - last(b).cena; }), unpriced = S.filter(function (s) { return !last(s); });
+      var single = priced.filter(function (s) { return s.id === 'calosc' || s.id === 'stopover'; })[0]; window.__bestSingle = single ? last(single).cena : null; if (window.__kalkUpd) window.__kalkUpd();
+      // ---------- MONITOR ----------
+      var o = '';
+      if (priced.length) {
+        o += '<div class="podium">' + priced.slice(0, 3).map(function (s, i) { var l = last(s); return '<div class="pd ' + kl(l.cena) + '"><span class="pn">' + (i + 1) + '</span><span class="pp">' + nf(l.cena) + '\u00a0zł</span><span class="pl">' + esc(s.linia) + '</span><span class="pm">' + dlt(l, prev(s)) + ' · ' + esc(pl2(l.data)) + '</span>' + badge(l.cena) + '</div>'; }).join('') + '</div>';
+        var allPts = []; priced.forEach(function (s) { H(s).forEach(function (x) { allPts.push(x); }); });
+        var uniq = allPts.map(function (x) { return x.data; }).sort().filter(function (d, i, a) { return a.indexOf(d) === i; });
+        if (uniq.length >= 2) {
+          var W = 640, Hh = 230, px = 46, py = 16, ser = priced.slice(0, 5), cols = ['var(--malbec)', 'var(--poplar)', 'var(--adobe)', 'var(--ink-2)', 'var(--muted)'];
+          var vals = allPts.map(function (x) { return x.cena; }).concat([prog, 5000]), lo = Math.min.apply(null, vals) * 0.97, hi = Math.max.apply(null, vals) * 1.03;
+          var d0 = new Date(uniq[0]).getTime(), d1 = new Date(uniq[uniq.length - 1]).getTime();
+          var X = function (d) { return px + (W - px - 14) * ((new Date(d).getTime() - d0) / Math.max(1, d1 - d0)); }, Y = function (v) { return py + (Hh - py - 26) * (1 - (v - lo) / (hi - lo)); };
+          var g = '<svg class="chart" viewBox="0 0 ' + W + ' ' + Hh + '" role="img" aria-label="Trend cen kompletnej podróży">';
+          [[prog, 'próg ' + nf(prog)], [5000, '5 000']].forEach(function (L) { g += '<line x1="' + px + '" x2="' + (W - 14) + '" y1="' + Y(L[0]) + '" y2="' + Y(L[0]) + '" class="thr"/><text x="' + (W - 16) + '" y="' + (Y(L[0]) - 4) + '" class="thl" text-anchor="end">' + L[1] + '</text>'; });
+          for (var k = 0; k <= 4; k++) { var v = lo + (hi - lo) * k / 4; g += '<text x="' + (px - 6) + '" y="' + (Y(v) + 4) + '" class="ax" text-anchor="end">' + nf(Math.round(v / 100) * 100) + '</text>'; }
+          uniq.forEach(function (d, i) { if (uniq.length <= 8 || i % Math.ceil(uniq.length / 8) === 0 || i === uniq.length - 1) g += '<text x="' + X(d) + '" y="' + (Hh - 6) + '" class="ax" text-anchor="middle">' + pl2s(d) + '</text>'; });
+          ser.forEach(function (s, i) { var h = H(s); g += '<polyline fill="none" style="stroke:' + cols[i] + '" stroke-width="2.2" points="' + h.map(function (x) { return X(x.data) + ',' + Y(x.cena); }).join(' ') + '"/>' + h.map(function (x) { return '<circle cx="' + X(x.data) + '" cy="' + Y(x.cena) + '" r="3.2" style="fill:' + cols[i] + '"><title>' + esc(s.linia) + ' · ' + pl2(x.data) + ': ' + nf(x.cena) + '\u00a0zł</title></circle>'; }).join(''); });
+          g += '</svg><div class="clg">' + ser.map(function (s, i) { return '<span><i style="background:' + cols[i] + '"></i>' + esc(s.linia) + '</span>'; }).join('') + '</div>';
+          o += '<h4>Trend cen</h4>' + g;
+        }
+      } else {
+        o += '<div class="empty"><b>Jeszcze bez cen na nasze daty.</b> Linie otwierają sprzedaż na listopad 2027 między 11.11 a 10.12.2026; pierwsze prawdziwe odczyty pojawią się w fazie „Rozkład otwarty”. Do tego czasu niżej widełki orientacyjne z października 2026.</div>';
+      }
+      var mx = 0; priced.forEach(function (s) { H(s).forEach(function (x) { mx = Math.max(mx, x.cena); }); });
+      function row(s, i) { var l = last(s), p = prev(s), h = H(s), mn = h.length ? Math.min.apply(null, h.map(function (x) { return x.cena; })) : null;
+        var sp = h.length ? '<span class="sp">' + h.slice(-14).map(function (x) { return '<i class="' + (x.cena <= prog ? 'ok' : '') + '" style="height:' + Math.max(3, 22 * x.cena / mx) + 'px" title="' + pl2(x.data) + ': ' + nf(x.cena) + '\u00a0zł"></i>'; }).join('') + '</span>' : '';
+        return '<tr class="' + (l ? kl(l.cena) : 'np') + '"><td class="rk">' + (l ? i + 1 : '–') + '</td><td><b>' + esc(s.linia) + '</b><span class="rt">' + esc(s.trasa) + '</span>' + (l && l.uwagi ? '<span class="rt">' + esc(l.uwagi) + '</span>' : '') + '</td><td class="n">' + (l ? '<b>' + nf(l.cena) + '\u00a0zł</b>' + badge(l.cena) : '<span class="or">' + esc(s.orient || '—') + '</span>') + '</td><td>' + (l ? dlt(l, p) : '') + '</td><td class="n">' + (mn ? nf(mn) + '\u00a0zł' : '') + '</td><td class="n">' + (l ? esc(pl2(l.data)) + '<span class="rt">' + esc(l.zrodlo || '') + '</span>' : '') + '</td><td>' + sp + '</td></tr>'; }
+      var thead = '<thead><tr><th>#</th><th>Scenariusz · trasa</th><th>Teraz</th><th>Zmiana</th><th>Min</th><th>Odczyt</th><th>Historia</th></tr></thead>';
+      if (priced.length) o += '<h4>Ranking – od najtańszego</h4><div class="ptw"><table class="pt rk">' + thead + '<tbody>' + priced.map(row).join('') + '</tbody></table></div>';
+      if (unpriced.length) o += '<details class="ctx orient"' + (priced.length ? '' : ' open') + '><summary>Widełki orientacyjne – ' + unpriced.length + (unpriced.length === 1 ? ' scenariusz' : ' scenariuszy') + ' bez odczytu</summary><div class="ptw"><table class="pt rk orient-t"><thead><tr><th>Scenariusz · trasa</th><th>Widełki (X 2026)</th><th>Uwagi</th></tr></thead><tbody>' + unpriced.map(function (s) { return '<tr class="np"><td><b>' + esc(s.linia) + '</b><span class="rt">' + esc(s.trasa) + '</span></td><td class="n"><span class="or">' + esc(s.orient || '—') + '</span></td><td><span class="rt">' + esc(s.uwagi || '') + '</span></td></tr>'; }).join('') + '</tbody></table></div></details>';
+      if (KR) { var kl_ = last(KR); o += '<p class="krj">Składnik krajowy Buenos Aires–Mendoza z bagażem: <b>' + (kl_ ? nf(kl_.cena) + '\u00a0zł (' + esc(pl2(kl_.data)) + ')' : esc(KR.orient)) + '</b> – wliczony w scenariusze z osobnym lotem krajowym.</p>'; }
+      var hist = (M.historia || []).slice().sort(function (a, b) { return a.data < b.data ? 1 : -1; });
+      if (hist.length) { var li = function (e) { return '<li><span class="dd">' + esc(pl2(e.data)) + '</span><span class="ds">' + esc(e.zrodlo || '') + (e.faza ? ' · ' + esc(e.faza) : '') + '</span><span class="dt">' + (e.najtansza && e.najtansza.cena ? '<b>' + nf(e.najtansza.cena) + '\u00a0zł</b> · ' + esc(e.najtansza.opis || e.najtansza.id || '') : 'bez wyceny') + (e.uwaga ? ' – ' + esc(e.uwaga) : '') + '</span></li>'; };
+        o += '<h4>Dziennik przebiegów</h4><ul class="dz">' + hist.slice(0, 5).map(li).join('') + '</ul>' + (hist.length > 5 ? '<details class="ctx"><summary>Starsze przebiegi (' + (hist.length - 5) + ')</summary><ul class="dz">' + hist.slice(5, 40).map(li).join('') + '</ul></details>' : ''); }
+      box.innerHTML = o;
+      // ---------- RADAR ----------
+      var SG = (M.sygnaly || []).slice().sort(function (a, b) { return a.data < b.data ? 1 : -1; }), WY = (M.wyprzedaze || []).slice().sort(function (a, b) { return a.od < b.od ? -1 : 1; }), SK = (M.skrzynka || []).slice().sort(function (a, b) { return a.data < b.data ? 1 : -1; }), RS = M.rss || null;
+      var since = new Date(t0.getTime() - 90 * 864e5).toISOString().slice(0, 10), dn = 0, up = 0, ndn = 0, nup = 0;
+      SG.forEach(function (g) { if (g.data >= since) { if (g.kierunek === 'spadek') { dn += +g.waga || 1; ndn++; } else if (g.kierunek === 'wzrost') { up += +g.waga || 1; nup++; } } });
+      var bal = dn + up ? Math.round(dn / (dn + up) * 100) : 50, verdict = !(dn + up) ? 'brak sygnałów' : dn > up * 1.25 ? 'przewaga sygnałów spadku – opłaca się obserwować i polować' : up > dn * 1.25 ? 'przewaga sygnałów wzrostu – dobrą cenę brać od razu' : 'sygnały zrównoważone';
+      var baro = '<div class="baro"><div class="bm" role="img" aria-label="Barometr sygnałów: taniej ' + dn + ', drożej ' + up + '"><i class="dn" style="width:' + bal + '%"></i><i class="up" style="width:' + (100 - bal) + '%"></i></div><div class="bml"><span class="dn">▼ taniej · ' + ndn + ' sygn. (waga ' + dn + ')</span><span class="up">▲ drożej · ' + nup + ' sygn. (waga ' + up + ')</span></div><p class="bmv">' + verdict + ' <small>(ostatnie 90 dni, ważone 1–3)</small></p></div>';
+      var r = '<div class="rhead"><div><p class="eyebrow">Radar · antycypacja obniżek</p><h3>Co zapowiada rynek</h3></div>' + baro + '</div>';
+      r += '<div class="rgrid"><div class="rcol"><div class="ph2"><h4>Sygnały wyprzedzające</h4><div class="sfl" role="group" aria-label="Filtr sygnałów"><button type="button" data-sf="all" aria-pressed="true">wszystkie</button><button type="button" data-sf="dn" aria-pressed="false">▼ taniej</button><button type="button" data-sf="up" aria-pressed="false">▲ drożej</button></div></div>';
+      r += SG.length ? '<ul class="sg">' + SG.map(function (g, i) { var k = g.kierunek === 'spadek' ? 'dn' : g.kierunek === 'wzrost' ? 'up' : 'fl'; return '<li class="' + k + (i >= 6 ? ' more' : '') + '" data-k="' + k + '"><span class="sgd">' + esc(pl2(g.data)) + '</span><span class="sgk">' + (k === 'dn' ? '▼ taniej' : k === 'up' ? '▲ drożej' : '• neutralnie') + ' · ' + '●●●'.slice(0, +g.waga || 1) + '<s aria-hidden="true">' + '●●●'.slice(0, 3 - (+g.waga || 1)) + '</s></span><span class="sgt"><b>' + esc(g.typ || '') + '.</b> ' + esc(g.opis || '') + (g.url ? ' <a href="' + esc(g.url) + '" target="_blank" rel="noopener">źródło</a>' : '') + '</span></li>'; }).join('') + '</ul>' + (SG.length > 6 ? '<button type="button" class="lnk" data-sgmore>Pokaż wszystkie (' + SG.length + ')</button>' : '') : '<p class="nopr">Brak zapisanych sygnałów.</p>';
+      r += '</div><div class="rcol"><h4>Okna wyprzedaży do wylotu</h4>';
+      if (WY.length) {
+        var T0 = new Date('2026-11-01').getTime(), T1 = new Date('2027-11-06').getTime(), SP = T1 - T0, P = function (d) { return Math.max(0, Math.min(100, (new Date(d).getTime() - T0) / SP * 100)); };
+        var MN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'], mh = '';
+        for (var y = 2026, m = 10; y < 2027 || m <= 10; ) { var ds = y + '-' + String(m + 1).padStart(2, '0') + '-01'; mh += '<span style="left:' + P(ds) + '%">' + MN[m] + (m === 0 ? '<small>' + y + '</small>' : '') + '</span>'; m++; if (m > 11) { m = 0; y++; } }
+        var nowL = P(td), wyl = P('2027-11-05');
+        r += '<div class="tl2"><div class="tlr hdr"><div class="tll"></div><div class="tlt tlm">' + mh + '<i class="tln" style="left:' + nowL + '%"><em>dziś</em></i><i class="tlw" style="left:' + wyl + '%"><em>wylot</em></i></div></div>' +
+          WY.map(function (w) { var past = td > (w.do || w.od), now = !past && td >= w.od, sz = w.szansa || 'niska'; return '<details class="tlr s-' + sz + (past ? ' past' : now ? ' now' : '') + '"><summary><div class="tll"><b>' + esc(w.linia) + '</b><small>' + esc(pl2s(w.od)) + (w.do && w.do !== w.od ? '–' + esc(pl2s(w.do)) : '') + '</small></div><div class="tlt"><i class="tln" style="left:' + nowL + '%"></i><i class="tlb" style="left:' + P(w.od) + '%;width:' + Math.max(1.4, P(w.do || w.od) - P(w.od)) + '%"></i></div></summary><div class="tlx"><p><b>' + esc(w.nazwa || '') + '</b> · ' + ({ wysoka: 'szansa wysoka', srednia: 'szansa średnia', niska: 'szansa niska' })[sz] + '</p>' + (w.historia ? '<p>Historia: ' + esc(w.historia) + '</p>' : '') + (w.uwaga ? '<p>Co zrobić: ' + esc(w.uwaga) + '</p>' : '') + '</div></details>'; }).join('') +
+          '<p class="tll2"><span class="s-wysoka">■</span> wysoka szansa objęcia listopada 2027 · <span class="s-srednia">■</span> średnia · <span class="s-niska">■</span> niska. Kliknij wiersz, żeby zobaczyć historię i co zrobić.</p></div>';
+      } else r += '<p class="nopr">Brak prognozy okien.</p>';
+      r += '</div></div>';
+      r += '<div class="rgrid"><div class="rcol"><h4>Skrzynka alertów z Gmaila</h4>' + (SK.length ? '<div class="ptw"><table class="pt"><thead><tr><th>Data</th><th>Źródło · trasa</th><th>Cena / os.</th><th>Zmiana</th></tr></thead><tbody>' + SK.slice(0, 10).map(function (m) { var d = (m.cena && m.poprzednia) ? m.cena - m.poprzednia : null; return '<tr' + (m.cena && m.cena <= prog ? ' class="g"' : '') + '><td class="kd">' + esc(pl2(m.data)) + '</td><td>' + esc(m.zrodlo || '') + '<span class="rt">' + esc(m.trasa || '') + (m.uwaga ? ' · ' + esc(m.uwaga) : '') + '</span>' + (m.url ? '<a href="' + esc(m.url) + '" target="_blank" rel="noopener">otwórz</a>' : '') + '</td><td class="n"><b>' + (m.cena ? nf(m.cena) + '\u00a0zł' : '—') + '</b></td><td>' + (d === null ? '—' : d < 0 ? '<span class="tr dn">▼ −' + nf(-d) + '</span>' : d > 0 ? '<span class="tr up">▲ +' + nf(d) + '</span>' : '=') + '</td></tr>'; }).join('') + '</tbody></table></div>' : '<p class="nopr">Pusto. Alerty Google Flights, Kayaka, Skyscannera i ExpertFlyer trafią tu po ich ustawieniu (od ok. 10.12.2026) – patrz karta <a href="#zadania" data-lgo="zadania">Alerty i zadania</a>.</p>') + '</div>';
+      r += '<div class="rcol"><h4>Radar RSS' + (RS && RS.sprawdzono ? ' <small class="st">' + esc(RS.sprawdzono) + ' · ' + ((RS.kanaly || []).filter(function (k) { return k.ok; }).length) + '/' + ((RS.kanaly || []).length) + ' kanałów</small>' : '') + '</h4>' + (RS && (RS.trafienia || []).length ? '<ul class="rs">' + RS.trafienia.slice().sort(function (a, b) { return (a.data || '') < (b.data || '') ? 1 : -1; }).slice(0, 8).map(function (x) { return '<li class="' + (x.sila === 'silne' ? 's' : x.sila === 'dolot' ? 'dl' : '') + '"><span class="kd">' + esc(pl2s(x.data || '')) + '</span><a href="' + esc(x.url || '#') + '" target="_blank" rel="noopener">' + esc(x.tytul || '') + '</a><span class="rt">' + esc(x.zrodlo || '') + (x.sila === 'dolot' ? ' · dolot' : '') + '</span></li>'; }).join('') + '</ul>' : '<p class="nopr">Bez trafień w ostatnim skanie.</p>') + '</div></div>';
+      if (RB) RB.innerHTML = r;
+      // ---------- CO TERAZ ----------
+      var done = tdDone(), best = priced[0] ? last(priced[0]) : null;
+      var c = '<div class="ck4">';
+      c += '<div class="cc cphase"><span class="cl">Faza teraz</span>' + (faza ? '<b>' + esc(faza.faza) + '</b><small>' + pl2(faza.od) + ' – ' + pl2(faza.do) + '</small><p>' + esc(faza.decyzja) + '</p>' : nextF ? '<b>Przed startem</b><small>do ' + pl2(nextF.od) + ' (za ' + days(td, nextF.od) + ' dni)</small><p>Teraz tylko przygotowania z listy zadań – rozkład na listopad 2027 jeszcze nieotwarty. Następnie: ' + esc(nextF.faza) + ' (' + pl2(nextF.od) + ').</p>' : '<b>Po zakupie</b>') + '<a href="#kalendarz" data-lgo="plan">kalendarz →</a></div>';
+      c += '<div class="cc cprice ' + (best ? kl(best.cena) : 'n') + '"><span class="cl">Najlepsza kompletna podróż</span>' + (best ? '<b>' + nf(best.cena) + '\u00a0zł / os.</b><small>' + esc(priced[0].linia) + ' · ' + pl2(best.data) + '</small><p>' + badge(best.cena) + ' ' + (best.cena <= prog ? nf(prog - best.cena) + '\u00a0zł poniżej progu' : nf(best.cena - prog) + '\u00a0zł ponad próg') + '</p>' : '<b>brak wyceny</b><small>rozkład otwiera się ok. 10.12.2026</small><p>Próg zakupu 4 800 zł/os. Ofertę spoza monitora sprawdź w kalkulatorze.</p>') + '<a href="#kalk" data-lgo="decyzja">kalkulator i ranking →</a></div>';
+      c += '<div class="cc cbaro"><span class="cl">Barometr rynku</span><b>' + (!(dn + up) ? 'brak sygnałów' : dn > up * 1.25 ? '▼ raczej taniej' : up > dn * 1.25 ? '▲ raczej drożej' : '≈ równowaga') + '</b><div class="bm small"><i class="dn" style="width:' + bal + '%"></i><i class="up" style="width:' + (100 - bal) + '%"></i></div><small>taniej ' + dn + ' · drożej ' + up + ' (90 dni, ważone)</small>' + (SG[0] ? '<p>' + (up > dn * 1.25 ? 'Dobrą cenę brać od razu. ' : dn > up * 1.25 ? 'Warto polować i obserwować. ' : '') + 'Najnowszy: ' + esc(SG[0].typ.toLowerCase()) + ' – ' + esc((SG[0].opis || '').split(/[.–;]/)[0].trim()) + '.</p>' : '') + '<a href="#radar" data-lgo="radar">radar →</a></div>';
+      var ev = [];
+      FZ.forEach(function (f) { if (f.od > td) ev.push([f.od, 'Faza: ' + f.faza, '']); });
+      (M.wyprzedaze || []).forEach(function (w) { if (w.od > td && w.szansa !== 'niska') ev.push([w.od, w.linia + ' – ' + (w.nazwa || '').split(/[–,(]/)[0].trim(), 'szansa ' + (w.szansa === 'srednia' ? 'średnia' : w.szansa)]); });
+      ZD.forEach(function (z) { if (!done[z.id] && z.do >= td) ev.push([z.do, 'Termin: ' + z.t, '']); });
+      ev.sort(function (a, b) { return a[0] < b[0] ? -1 : 1; });
+      c += '<div class="cc cnext"><span class="cl">Najbliższe terminy</span><ul>' + ev.slice(0, 4).map(function (e) { return '<li><span class="kd">' + pl2s(e[0]) + '</span> ' + esc(e[1]) + (e[2] ? ' <small>' + esc(e[2]) + '</small>' : '') + '</li>'; }).join('') + '</ul></div>';
+      c += '</div>';
+      var soon = new Date(t0.getTime() + 30 * 864e5).toISOString().slice(0, 10), open = ZD.filter(function (z) { return !done[z.id] && (z.od || '0') <= soon; }).sort(function (a, b) { return a.do < b.do ? -1 : 1; });
+      c += '<div class="cnow"><span class="cl">Twoje zadania na najbliższe 30 dni</span>' + (open.length ? '<ul>' + open.slice(0, 4).map(function (z) { var late = z.do < td; return '<li class="' + (late ? 'late' : '') + '"><b>' + esc(z.t) + '</b> <small>' + (late ? 'po terminie ' : 'do ') + pl2(z.do) + '</small></li>'; }).join('') + '</ul>' : '<p>Nic pilnego – następne zadania pojawią się tu same.</p>') + '<a href="#zadania" data-lgo="zadania">wszystkie zadania →</a></div>';
+      if (M.status) c += '<details class="ctx cstat"><summary>Ostatni raport agenta' + (M.zaktualizowano ? ' · ' + pl2(M.zaktualizowano) : '') + '</summary><p>' + esc(M.status) + '</p></details>';
+      if (CK) CK.innerHTML = c;
+    }
+    fetch('loty.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (M) { window.__lotyM = M; render(M); }).catch(function () { st.textContent = 'Monitor niedostępny w tym podglądzie.'; if (CK) CK.innerHTML = '<p class="st">Stan monitora niedostępny w tym podglądzie – otwórz wersję na stronie.</p>'; });
+    window.__lotyRender = function () { if (window.__lotyM) render(window.__lotyM); };
+    document.addEventListener('click', function (e) {
+      var f = e.target.closest('[data-sf]'); if (f) { var k = f.dataset.sf; f.parentNode.querySelectorAll('[data-sf]').forEach(function (b) { b.setAttribute('aria-pressed', b === f ? 'true' : 'false'); }); RB.querySelectorAll('.sg li').forEach(function (li) { li.hidden = k !== 'all' && li.dataset.k !== k; }); RB.querySelector('.sg').classList.add('all'); var mb = RB.querySelector('[data-sgmore]'); if (mb) mb.hidden = true; }
+      var mm = e.target.closest('[data-sgmore]'); if (mm) { RB.querySelector('.sg').classList.add('all'); mm.hidden = true; }
+    });
+  })();
+  // prawdziwa mapa (OpenStreetMap przez Leaflet); gdy kafelki nie dochodzą (np. w podglądzie Claude), zostaje mapa schematyczna
+  (function () {
+    var pts = D.mapa, box = document.getElementById('map'), note = document.getElementById('mapnote'); var ptsIn = pts.filter(function (p) { return !p.poza; });
+    if (!pts || !pts.length || !window.L || !box) return;
+    var m = L.map('lmap', { scrollWheelZoom: false }), ok = false;
+    var tl = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', { subdomains: 'abc', maxZoom: 15, attribution: '© OpenStreetMap, SRTM · © OpenTopoMap (CC-BY-SA)' }).addTo(m);
+    tl.on('load', function () { if (!ok) { ok = true; box.classList.add('live'); m.invalidateSize(); m.fitBounds(bounds, { padding: [24, 24] }); note.textContent = 'Mapa topograficzna: OpenTopoMap. Kółka z numerem to kolejne miejsca planu, większe to noclegi i rocznica. Buenos Aires (12–13.11) leży 1 000 km na wschód – poza kadrem.'; } });
+    tl.on('tileerror', function () { if (!ok) { setTimeout(function () { if (!ok) { m.remove(); note.textContent = 'Prawdziwa mapa dostępna w wersji na stronie (link w stopce); tu mapa schematyczna.'; } }, 4000); } });
+    var bounds = L.latLngBounds(ptsIn.map(function (p) { return [p.lat, p.lon]; }));
+    pts.forEach(function (p, i) {
+      var cls = 'mk' + (p.baza ? ' base' : '') + (p.anniv ? ' anniv' : ''), lab = p.baza ? '🛏' : p.anniv ? '♥' : String(i + 1);
+      L.marker([p.lat, p.lon], { icon: L.divIcon({ className: '', html: '<div class="' + cls + '">' + lab + '</div>', iconSize: [34, 34], iconAnchor: [17, 17] }) }).addTo(m).bindPopup('<b>' + esc(p.n) + '</b><br>' + esc(p.d) + '<br><a href="https://www.google.com/maps/dir/?api=1&destination=' + p.lat + ',' + p.lon + '" target="_blank" rel="noopener">Nawiguj w Google Maps ↗</a>');
+    });
+    L.polyline(ptsIn.filter(function (p) { return !/opcja/.test(p.d); }).map(function (p) { return [p.lat, p.lon]; }), { color: '#6b1d3a', weight: 3, dashArray: '7 6' }).addTo(m);
+    m.fitBounds(bounds, { padding: [24, 24] });
+  })();
+
+  // wybór hotelu → budżet
+  var G = P.grupa || { domyslnie: 3, opcje: [3], kurs: 3.7, transport_usd: { 3: 1700 }, transport_opis: {} }, np = load('p', G.domyslnie); if (G.opcje.indexOf(np) < 0) np = G.domyslnie;
+  var LS = G.loty_scen || null, ls = LS ? load('l', LS.domyslnie) : null; if (LS && !LS.opcje.some(function (o) { return o[0] === ls; })) ls = LS.domyslnie;
+  // upgrade'y: pojedyncze opcje doliczane do budżetu pary
+  var UPG = (P.upgrade && P.upgrade.opcje) || [], UP = load('up', {});
+  function upSum() { return UPG.reduce(function (a, x) { return a + (UP[x.id] && x.zl ? x.zl : 0); }, 0); }
+  function lsOpt() { return LS ? LS.opcje.filter(function (o) { return o[0] === ls; })[0] : null; }
+  // budżet na parę zależny od liczby par: bus dzielony po równo, rezydencja (dom na 3 pary) + pokoje dla kolejnych par
+  function calc(o) {
+    var b = {}, m = o.model, k = G.kurs || 3.7, n = np; ['loty', 'jedzenie', 'wycieczki_bilety', 'rezerwa'].forEach(function (x) { b[x] = o.b[x] || 0; }); if (lsOpt()) b.loty = lsOpt()[2];
+    if (m && m.typ === 'rezydencja') { var ekstra = Math.max(0, n - (m.pary_w_domu || 3)); b.nocleg = Math.round((m.usd_para_poza + (m.dom_usd_noc * m.noce + ekstra * m.pokoj_usd_noc * m.noce) / n) * k); b.rez = ekstra; }
+    else if (m && m.usd_para) b.nocleg = Math.round(m.usd_para * k); else b.nocleg = o.b.nocleg;
+    b.auto_transfery = G.transport_usd && G.transport_usd[n] ? Math.round(G.transport_usd[n] * k / n / 10) * 10 : o.b.auto_transfery;
+    var u = upSum(); b.upgrade = u || null;
+    b.razem = b.nocleg + b.loty + b.auto_transfery + b.jedzenie + b.wycieczki_bilety + b.rezerwa + u; return b;
+  }
+  var cur = Math.min(load('hb', 0), D.hotels.length - 1), sk = Math.min(load('sk', 0), 2);
+  function bud() {
+    var SK = [[1, 'na parę', 'na parę'], [0.5, 'na osobę', 'na osobę'], [np, 'na całą grupę (' + np + ' pary)', np + ' pary']];
+    var o = D.hotels[cur], b = calc(o), t = b.razem;
+    document.getElementById('grp').innerHTML = G.opcje.map(function (n) { return '<button type="button" data-np="' + n + '" aria-pressed="' + (n === np ? 'true' : 'false') + '">' + n + ' pary · ' + (2 * n) + ' os.</button>'; }).join('');
+    if (LS) { document.getElementById('lsc').innerHTML = LS.opcje.map(function (o) { return '<button type="button" data-ls="' + o[0] + '" aria-pressed="' + (o[0] === ls ? 'true' : 'false') + '">' + o[1] + ' · ' + nf(o[2]) + '\u00a0zł</button>'; }).join(''); document.getElementById('lnote').textContent = (lsOpt() ? lsOpt()[3] + '. ' : '') + (LS.uwaga || ''); } else { document.getElementById('lsw').hidden = true; }
+    document.getElementById('gnote').textContent = (G.transport_opis && G.transport_opis[np] ? 'Bus: ' + G.transport_opis[np] + ', dzielony po równo. ' : '') + (G.uwaga || '');
+    document.querySelectorAll('[data-sum]').forEach(function (el) { el.textContent = nf(calc(D.hotels[+el.dataset.sum]).razem) + '\u00a0zł na parę'; });
+    var us = document.getElementById('upsum'); if (us) { var nu = UPG.filter(function (x) { return UP[x.id] && x.zl; }).length; us.textContent = nu ? 'Wybrane: ' + nu + ' · +' + nf(upSum()) + '\u00a0zł na parę – wliczone w budżet powyżej.' : 'Nic nie wybrano – budżet powyżej to plan bazowy.'; }
+    document.querySelectorAll('[data-up]').forEach(function (c) { c.checked = !!UP[c.dataset.up]; });
+    var st = document.querySelector('[data-dyn="koszt"]'); if (st) st.textContent = 'ok. ' + nf(calc(D.hotels[0]).razem) + '\u00a0zł';
+    var hset = o.hotele || []; document.querySelectorAll('.hk[data-hn]').forEach(function (el) { el.classList.toggle('main', hset.indexOf(el.dataset.hn) >= 0); el.classList.toggle('dim', hset.length > 0 && hset.indexOf(el.dataset.hn) < 0); });
+    var hn = document.getElementById('hselnote'); if (hn) hn.innerHTML = 'Podświetlone karty to hotele wariantu <b>' + esc(o.n.replace(/:.*$/, '')) + '</b>: ' + hset.map(esc).join(' · ') + '. Pełne liczby w sekcji <a href="#budzet">Budżet</a>.';
+    var sw = document.getElementById('hsw'); if (sw) sw.innerHTML = D.hotels.map(function (v, i) { return '<button type="button" data-hv="' + i + '" aria-pressed="' + (i === cur ? 'true' : 'false') + '">' + esc(v.n.replace(/[:(].*$/, '').trim()) + '</button>'; }).join('');
+    document.querySelectorAll('.hc').forEach(function (el) { el.setAttribute('aria-pressed', +el.dataset.h === cur ? 'true' : 'false'); });
+    document.getElementById('bud').innerHTML = (cur ? '<p class="note gwarn">Oglądacie inny wariant niż plan bazowy. <button type="button" class="lnk" data-hbase>Wróć do planu bazowego</button></p>' : '') + '<div class="total"><div><p class="eyebrow">Budżet ' + SK[sk][1] + ' · ' + esc(o.n.replace(/^Trasa: /, '')) + '</p><b>' + nf(t * SK[sk][0]) + '\u00a0zł</b></div><div><span class="limit' + (t <= 28000 ? '' : ' over') + '">' + (t <= 28000 ? 'zapas ' + nf((28000 - t) * SK[sk][0]) + '\u00a0zł do sufitu ' + nf(28000 * SK[sk][0]) + '\u00a0zł' : 'ponad sufit ' + nf(28000 * SK[sk][0]) + '\u00a0zł o ' + nf((t - 28000) * SK[sk][0]) + '\u00a0zł') + '</span><div class="seg" role="group" aria-label="Skala">' + SK.map(function (s, i) { return '<button type="button" data-sk="' + i + '" aria-pressed="' + (i === sk ? 'true' : 'false') + '">' + s[2] + '</button>'; }).join('') + '</div></div></div>' +
+      '<div class="bar" role="img" aria-label="Podział budżetu">' + BL.map(function (r) { return b[r[0]] ? '<i class="' + r[2] + '" style="width:' + (b[r[0]] / t * 100).toFixed(2) + '%" title="' + r[1] + '"></i>' : ''; }).join('') + '</div>' +
+      '<ul class="leg">' + BL.map(function (r) { return b[r[0]] != null ? '<li><s class="' + r[2] + '"></s>' + r[1] + '<b>' + nf(b[r[0]] * SK[sk][0]) + '\u00a0zł</b></li>' : ''; }).join('') + '</ul>' +
+      (o.model && o.model.typ === 'rezydencja' && np !== (o.model.pary_w_domu || 3) ? '<p class="note gwarn">' + (np < (o.model.pary_w_domu || 3) ? 'Przy ' + np + ' parach dom na trzy sypialnie dzieli się na mniej osób – ' + nf(Math.round(o.model.dom_usd_noc * (G.kurs || 3.7) / np)) + '\u00a0zł za parę za noc; ten wariant ma sens dopiero od trzech par.' : 'Przy ' + np + ' parach: rezydencja na trzy pary plus ' + b.rez + ' pokój Cordón del Plata obok; koszt całości dzielony po równo między pary.') + '</p>' : '') +
+      (o.hotele && o.hotele.length ? '<div class="vh"><p class="eyebrow">Hotele tego wariantu</p><div class="vhg">' + D.hotele.map(function (c, hi) { if (o.hotele.indexOf(c.n) < 0) return ''; var im = (c.gal && c.gal[0]) || c.img; return '<a class="vhc" href="#hk-' + hi + '" data-go="hk-' + hi + '">' + (im ? '<img src="' + esc(im.s) + '" alt="" loading="lazy">' : '') + '<span class="vhb"><span class="eyebrow">' + esc(c.rola) + '</span><b>' + esc(c.n) + '</b><span class="vhp">ok. ' + (c.rate || '?') + ' ' + esc(c.cur || 'USD') + ' za noc</span><span class="vhs">' + esc(c.short || '') + '</span><span class="vhl">Pełna karta hotelu ↓</span></span></a>'; }).join('') + '</div></div>' : '') +
+      (o.note ? '<details class="dmore"><summary>Uzasadnienie i szczegóły wariantu</summary><p class="note">' + esc(o.note) + '</p></details>' : '') + (o.url ? '<p class="note"><a href="' + esc(o.url) + '" target="_blank" rel="noopener">Strona hotelu ↗</a></p>' : '');
+  }
+  document.querySelectorAll('.hc').forEach(function (el) { el.addEventListener('click', function () { cur = +el.dataset.h; save('hb', cur); bud(); }); });
+  document.addEventListener('click', function (e) { if (e.target.closest('[data-hbase]')) { cur = 0; save('hb', 0); bud(); } });
+  document.addEventListener('change', function (e) { var c = e.target.closest('[data-up]'); if (!c) return; UP[c.dataset.up] = c.checked; save('up', UP); bud(); });
+  document.getElementById('bud').addEventListener('click', function (e) { var b = e.target.closest('[data-sk]'); if (b) { sk = +b.dataset.sk; save('sk', sk); bud(); } });
+  document.getElementById('grp').addEventListener('click', function (e) { var b = e.target.closest('[data-np]'); if (b) { np = +b.dataset.np; save('p', np); bud(); } });
+  document.getElementById('lsc').addEventListener('click', function (e) { var b = e.target.closest('[data-ls]'); if (b) { ls = b.dataset.ls; save('l', ls); bud(); } });
+  var hsw = document.getElementById('hsw'); if (hsw) hsw.addEventListener('click', function (e) { var b = e.target.closest('[data-hv]'); if (b) { cur = +b.dataset.hv; save('hb', cur); bud(); } });
+  document.addEventListener('click', function (e) { var a = e.target.closest('[data-go]'); if (!a) return; var t = document.getElementById(a.dataset.go); if (!t) return; e.preventDefault(); t.classList.add('in'); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); t.classList.remove('flash'); void t.offsetWidth; t.classList.add('flash'); history.replaceState(null, '', '#' + a.dataset.go); });
+  bud();
+  // Loty: karty widoków, kalkulator oferty, lista zadań
+  (function () {
+    var bar = document.querySelector('.ltabs'); if (!bar) return;
+    var tabs = bar.querySelectorAll('[data-lt]'), panes = document.querySelectorAll('.lpane'), keys = [].map.call(tabs, function (t) { return t.dataset.lt; });
+    function show(k, scroll) { if (keys.indexOf(k) < 0) k = 'decyzja'; tabs.forEach(function (t) { t.setAttribute('aria-selected', t.dataset.lt === k ? 'true' : 'false'); }); panes.forEach(function (p) { p.hidden = p.dataset.pane !== k; p.querySelectorAll('.reveal').forEach(function (r) { r.classList.add('in'); }); }); save('lt', k); if (scroll) bar.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    bar.addEventListener('click', function (e) { var b = e.target.closest('[data-lt]'); if (b) show(b.dataset.lt, true); });
+    bar.addEventListener('keydown', function (e) { if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return; var i = keys.indexOf(load('lt', 'decyzja')), n = (i + (e.key === 'ArrowRight' ? 1 : -1) + keys.length) % keys.length; show(keys[n], false); tabs[n].focus(); });
+    document.addEventListener('click', function (e) { var a = e.target.closest('[data-lgo]'); if (!a) return; e.preventDefault(); var dp = document.getElementById('pulpit'); if (dp) dp.open = true; var tgt = a.getAttribute('href') ? document.getElementById(a.getAttribute('href').slice(1)) : null; show(a.dataset.lgo, !tgt); if (tgt) setTimeout(function () { tgt.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 30); });
+    function fromHash() { var id = (location.hash || '').slice(1); if (!id) return false; var el = document.getElementById(id); if (!el) return false; for (var dd = el.closest('details'); dd; dd = dd.parentElement && dd.parentElement.closest('details')) dd.open = true; var p = el.closest('.lpane'); if (p) show(p.dataset.pane, false);
+      var stop = false, quit = function () { stop = true; }; ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function (ev) { window.addEventListener(ev, quit, { once: true, passive: true }); });
+      var go = function () { if (!stop) el.scrollIntoView({ block: 'start', behavior: 'instant' }); }; [60, 400, 1200, 2500].forEach(function (t) { setTimeout(go, t); }); return !!p || id === 'loty'; }
+    if (!fromHash()) show(load('lt', 'decyzja'), false);
+    window.addEventListener('hashchange', fromHash);
+  })();
+  document.addEventListener('click', function (e) { var b = e.target.closest('[data-kgo]'); if (!b) return; var el = document.getElementById('kf-' + b.dataset.kgo); if (!el) return; var dt = el.querySelector('details'); if (dt) dt.open = true; el.scrollIntoView({ behavior: 'smooth', block: 'center' }); el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); });
+  (function () {
+    var box = document.getElementById('kalk'); if (!box) return;
+    var $ = function (id) { return document.getElementById(id); };
+    function val(id) { var v = parseFloat(String($(id).value).replace(',', '.')); return isFinite(v) ? v : 0; }
+    function upd() {
+      box.querySelectorAll('.kx').forEach(function (x) { var c = $(x.dataset.for); x.hidden = x.dataset.for === 'k-bag' ? c.checked : !c.checked; });
+      var c = Math.round(val('k-cena') * (+$('k-wal').value) / (+$('k-za').value)), out = $('k-out');
+      try { localStorage.setItem('uco-kalk', JSON.stringify({ c: $('k-cena').value, w: $('k-wal').value, z: $('k-za').value, b: $('k-bag').checked, bc: $('k-bagc').value, k: $('k-kr').checked, kc: $('k-krc').value, d: $('k-dol').checked, dc: $('k-dolc').value })); } catch (e) {}
+      if (!c) { out.innerHTML = '<p class="kempty">Wpisz cenę, a pojawi się werdykt: kompletna podróż na osobę, odległość od progu 4 800 zł i wpływ na budżet pary.</p>'; return; }
+      var add = [], t = c;
+      if (!$('k-bag').checked) { t += val('k-bagc'); add.push('bagaż ' + nf(val('k-bagc'))); }
+      if ($('k-kr').checked) { t += val('k-krc'); add.push('lot krajowy ' + nf(val('k-krc'))); }
+      if ($('k-dol').checked) { t += val('k-dolc'); add.push('dolot i nocleg ' + nf(val('k-dolc'))); }
+      t = Math.round(t);
+      var prog = 4800, v = t <= 4000 ? ['b0', '🟢🟢 Wyjątkowa okazja', 'Kupować dziś, parami, u linii. W Iberii najpierw zatrzymać cenę na 72 h dla wszystkich par, potem sprawdzić miejsca dla 6.'] : t <= 4500 ? ['b1', '🟢 Bardzo dobry zakup', 'Kupować parami tego samego dnia, u linii, w walucie sprzedawcy.'] : t <= prog ? ['b1', '🟢 W progu', 'Dobry zakup, zwłaszcza na jednym bilecie – kupować parami tego samego dnia.'] : t <= 5000 ? ['b2', '🟡 Blisko progu', 'Akceptowalne. Przed lipcem porównać daty i trasy; od 3.07 (faza rezerwy) kupować.'] : t <= 5500 ? ['b3', '⚪ Powyżej progu', 'Czekać i polować; kupić dopiero w fazie rezerwy (3.07–31.08), jeśli nic lepszego.'] : ['b4', '🔴 Drogo', 'Czekać. Jeśli tak będzie 31.08, kupić i przeliczyć hotele na wariant 4.'];
+      var sep = $('k-kr').checked || $('k-dol').checked, o = D.hotels[cur], b = calc(o), para = b.razem - b.loty + 2 * t, lim = 28000, bs = window.__bestSingle;
+      out.innerHTML = '<div class="kv2"><div class="kbig"><span>Kompletna podróż na osobę</span><b>' + nf(t) + '\u00a0zł</b><small>' + (add.length ? 'bilet ' + nf(c) + ' + ' + add.join(' + ') : 'bilet z bagażem, bez dodatków') + '</small></div>' +
+        '<div class="kver"><span class="bd ' + v[0] + '">' + v[1] + '</span><p class="kd">' + (t <= prog ? nf(prog - t) + '\u00a0zł poniżej progu 4 800' : nf(t - prog) + '\u00a0zł ponad próg 4 800') + '</p><p>' + v[2] + '</p></div>' +
+        '<div class="kbud"><span>Budżet pary przy tej cenie</span><b class="' + (para <= lim ? 'ok' : 'over') + '">' + nf(para) + '\u00a0zł</b><small>' + (para <= lim ? 'zapas ' + nf(lim - para) + '\u00a0zł do sufitu 28 000' : nf(para - lim) + '\u00a0zł ponad sufit 28 000') + ' · ' + esc(o.n.replace(/[:(].*$/, '').trim()) + ', ' + np + ' pary · bilety dla ' + (2 * np) + ' os.: ' + nf(t * 2 * np) + '\u00a0zł</small></div></div>' +
+        (sep ? '<p class="kw">Osobne bilety opłacają się tylko przy oszczędności ≥ 800 zł/os. wobec najlepszego jednego biletu' + (bs ? ' (dziś ' + nf(bs) + '\u00a0zł – ten wariant ma sens poniżej ' + nf(bs - 800) + '\u00a0zł' + (t <= bs - 800 ? ', więc tu się opłaca' : ', więc tu się nie opłaca') + ')' : '') + '. Przy osobnych biletach min. 3 h przesiadki w Ezeizie i ubezpieczenie z klauzulą „missed connection”.</p>' : '');
+    }
+    try { var s = JSON.parse(localStorage.getItem('uco-kalk') || 'null'); if (s) { $('k-cena').value = s.c || ''; $('k-wal').value = s.w || '1'; $('k-za').value = s.z || '1'; $('k-bag').checked = s.b !== false; $('k-bagc').value = s.bc || 700; $('k-kr').checked = !!s.k; $('k-krc').value = s.kc || 650; $('k-dol').checked = !!s.d; $('k-dolc').value = s.dc || 850; } } catch (e) {}
+    box.addEventListener('input', upd); box.addEventListener('change', upd); upd(); window.__kalkUpd = upd;
+    var _bud = bud; bud = function () { _bud(); upd(); };
+  })();
+  (function () {
+    var L = document.querySelectorAll('[data-td]'); if (!L.length) return;
+    var t0 = new Date(), td = t0.getFullYear() + '-' + String(t0.getMonth() + 1).padStart(2, '0') + '-' + String(t0.getDate()).padStart(2, '0'), dn = load('td', {});
+    function paint() { L.forEach(function (c) { var li = c.closest('li'); c.checked = !!dn[c.dataset.td]; li.classList.toggle('done', c.checked); li.classList.toggle('late', !c.checked && li.dataset.do < td); li.classList.toggle('now', !c.checked && li.dataset.do >= td && (li.dataset.od || '0') <= td); }); }
+    L.forEach(function (c) { c.addEventListener('change', function () { dn[c.dataset.td] = c.checked; save('td', dn); paint(); if (window.__lotyRender) window.__lotyRender(); }); });
+    paint();
+  })();
+  // stopka: kopiowanie linku i druk
+  var cl = document.getElementById('copylink'), pb = document.getElementById('printbtn');
+  if (cl) cl.addEventListener('click', function () { var u = 'https://6b7kq8bpkr-del.github.io/Madeira-interactive/rocznica-2027/uco/'; function ok() { var c = document.getElementById('copied'); c.hidden = false; setTimeout(function () { c.hidden = true; }, 1800); } if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(u).then(ok, show); else show(); function show() { var c = document.getElementById('copied'); c.textContent = u; c.style.textTransform = 'none'; c.hidden = false; } });
+  if (pb) pb.addEventListener('click', function () { try { window.print(); } catch (e) {} });
+  // poza stroną publiczną: .ics ze strony publicznej w nowej karcie, bez druku (podgląd Claude blokuje pobieranie i druk)
+  if (!/github\.io$/.test(location.hostname)) { var ics = document.querySelector('a[href="plan.ics"]'); if (ics) { ics.href = 'https://6b7kq8bpkr-del.github.io/Madeira-interactive/rocznica-2027/uco/plan.ics'; ics.removeAttribute('download'); ics.target = '_blank'; ics.rel = 'noopener'; } if (pb) pb.remove(); }
+  // lista „co zabrać”
+  var z = load('z', {});
+  document.querySelectorAll('[data-z]').forEach(function (c) { c.checked = !!z[c.dataset.z]; c.addEventListener('change', function () { z[c.dataset.z] = c.checked; save('z', z); }); });
+  var al = load('al', {});
+  document.querySelectorAll('[data-al]').forEach(function (c) { c.checked = !!al[c.dataset.al]; c.closest('li').classList.toggle('done', c.checked); c.addEventListener('change', function () { al[c.dataset.al] = c.checked; save('al', al); c.closest('li').classList.toggle('done', c.checked); }); });
+  var pc = load('pc', {});
+  document.querySelectorAll('[data-pc]').forEach(function (c) { c.checked = !!pc[c.dataset.pc]; c.addEventListener('change', function () { pc[c.dataset.pc] = c.checked; save('pc', pc); }); });
+  var rz = load('rz', {});
+  document.querySelectorAll('[data-r]').forEach(function (c) { c.checked = !!rz[c.dataset.r]; c.addEventListener('change', function () { rz[c.dataset.r] = c.checked; save('rz', rz); }); });
+  // ilustracje: generowane pejzaże doliny Uco (Andy, winnice, topole), gdy brak zdjęcia
+  function rnd(seed) { var x = seed * 9301 + 49297; return function () { x = (x * 9301 + 49297) % 233280; return x / 233280; }; }
+  function paint(cv) {
+    var r = cv.getBoundingClientRect(), dpr = Math.min(2, window.devicePixelRatio || 1), W = Math.max(1, Math.round(r.width)), H = Math.max(1, Math.round(r.height));
+    cv.width = W * dpr; cv.height = H * dpr; var c = cv.getContext('2d'); c.scale(dpr, dpr);
+    var k = cv.dataset.k, R = rnd(+cv.dataset.seed || 1), ann = cv.dataset.anniv === '1';
+    var sky = { hero: ['#2c1b2e', '#a24d5c', '#f0b37a'], gory: ['#5f8fc1', '#a9c8e6', '#eef3f6'], wino: ['#4a2a4a', '#c1666b', '#f5c98b'], jedzenie: ['#2a2038', '#8a3f55', '#e89a5c'], miasto: ['#7aa6cf', '#c4dbe9', '#f3efe6'] }[ann ? 'wino' : k] || ['#5f8fc1', '#a9c8e6', '#eef3f6'];
+    var g = c.createLinearGradient(0, 0, 0, H); g.addColorStop(0, sky[0]); g.addColorStop(.55, sky[1]); g.addColorStop(1, sky[2]); c.fillStyle = g; c.fillRect(0, 0, W, H);
+    // słońce
+    var sx = W * (.2 + R() * .6), sy = H * (k === 'gory' || k === 'miasto' ? .22 : .5);
+    var sg = c.createRadialGradient(sx, sy, 0, sx, sy, H * .35); sg.addColorStop(0, 'rgba(255,236,200,.95)'); sg.addColorStop(.12, 'rgba(255,220,170,.8)'); sg.addColorStop(1, 'rgba(255,220,170,0)');
+    c.fillStyle = sg; c.fillRect(0, 0, W, H);
+    // pasma Andów: od najdalszego, z czapami śniegu
+    var layers = [['rgba(110,96,128,.55)', .30, .26], ['rgba(78,64,92,.75)', .42, .2], ['rgba(52,42,60,.92)', .55, .14]];
+    if (k === 'gory') layers = [['rgba(120,140,170,.6)', .26, .3], ['rgba(80,100,128,.8)', .40, .24], ['rgba(56,70,88,.95)', .56, .16]];
+    layers.forEach(function (L, li) {
+      var base = H * L[1], amp = H * L[2], pts = [], n = 7 + Math.round(R() * 5);
+      for (var i = 0; i <= n; i++) pts.push([W * i / n + (R() - .5) * W / n * .5, base - amp * (.35 + R() * .65)]);
+      c.beginPath(); c.moveTo(0, H); pts.forEach(function (p, i) { if (i === 0) c.lineTo(0, p[1]); c.lineTo(p[0], p[1]); }); c.lineTo(W, pts[pts.length - 1][1]); c.lineTo(W, H); c.closePath(); c.fillStyle = L[0]; c.fill();
+      if (li === 0) { c.fillStyle = 'rgba(255,255,255,.85)'; pts.forEach(function (p) { if (p[1] < base - amp * .7) { c.beginPath(); c.moveTo(p[0] - amp * .18, p[1] + amp * .16); c.lineTo(p[0], p[1]); c.lineTo(p[0] + amp * .18, p[1] + amp * .16); c.closePath(); c.fill(); } }); }
+    });
+    // ziemia
+    var gy = H * .62, gg = c.createLinearGradient(0, gy, 0, H); gg.addColorStop(0, k === 'gory' ? '#7d8a5c' : '#6f7a45'); gg.addColorStop(1, '#3d3a24'); c.fillStyle = gg; c.fillRect(0, gy, W, H - gy);
+    if (k === 'wino' || k === 'hero' || ann) {
+      // rzędy winorośli zbiegające się w perspektywie
+      var vx = W * (.35 + R() * .3); c.strokeStyle = 'rgba(36,52,24,.85)';
+      for (var i = -14; i <= 14; i++) { c.lineWidth = 2 + Math.abs(i) * .25; c.beginPath(); c.moveTo(vx + i * 4, gy); c.lineTo(vx + i * W * .11, H); c.stroke(); }
+    }
+    // topole — znak rozpoznawczy doliny
+    var np = k === 'miasto' ? 14 : 7;
+    for (var p = 0; p < np; p++) {
+      var px = R() * W, ph = H * (.14 + R() * .14), pw = ph * .14, py = gy + R() * H * .05;
+      c.fillStyle = 'rgba(34,48,26,.95)'; c.beginPath(); c.ellipse(px, py - ph / 2, pw, ph / 2, 0, 0, Math.PI * 2); c.fill();
+    }
+    if (ann) { c.fillStyle = 'rgba(255,240,225,.9)'; c.font = '600 ' + Math.round(H * .07) + 'px Gloock, Georgia, serif'; c.textAlign = 'right'; c.fillText('10.11', W - 14, H - 14); }
+  }
+  function paintAll() { document.querySelectorAll('canvas.scn').forEach(paint); }
+  paintAll(); addEventListener('resize', function () { clearTimeout(paintAll.t); paintAll.t = setTimeout(paintAll, 150); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(paintAll);
+  // podgląd zdjęć
+  var lb = document.getElementById('lb'), lbi = document.getElementById('lbi'), lbc = document.getElementById('lbc');
+  app.addEventListener('click', function (e) { var i = e.target.closest('.gal img, .day .ph img, .mosaic img, .hgal img, .alt .ph img, .bastrip img'); if (!i) return; lbi.src = i.dataset.l; lbi.alt = i.alt; lbc.textContent = i.dataset.cap || ''; lb.hidden = false; document.getElementById('lbx').focus(); });
+  function close() { lb.hidden = true; lbi.src = ''; }
+  document.getElementById('lbx').addEventListener('click', close);
+  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) close(); });
+  // motyw
+  var r = document.documentElement;
+  try { var th = localStorage.getItem('uco-theme'); if (th) r.setAttribute('data-theme', th); } catch (e) {}
+  document.getElementById('theme').addEventListener('click', function () {
+    var dark = r.getAttribute('data-theme') ? r.getAttribute('data-theme') === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    var t = dark ? 'light' : 'dark'; r.setAttribute('data-theme', t); try { localStorage.setItem('uco-theme', t); } catch (e) {}
+  });
+  // twarde spacje także w tekstach składanych w szablonie: każdy nowy węzeł tekstowy przechodzi przez nb()
+  function nbNode(n) { var v = nb(n.nodeValue); if (v !== n.nodeValue) n.nodeValue = v; }
+  function nbTree(root) { var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), n; while ((n = w.nextNode())) if (!/^(SCRIPT|STYLE|TEXTAREA)$/.test(n.parentNode.nodeName)) nbNode(n); }
+  nbTree(document.body);
+  new MutationObserver(function (ms) { ms.forEach(function (m) { if (m.type === 'characterData') nbNode(m.target); else m.addedNodes.forEach(function (x) { if (x.nodeType === 3) nbNode(x); else if (x.nodeType === 1 && !/^(SCRIPT|STYLE)$/.test(x.nodeName)) nbTree(x); }); }); }).observe(document.body, { childList: true, subtree: true, characterData: true });
+  // podświetlenie sekcji w nawigacji
+  var links = document.querySelectorAll('.nav a');
+  addEventListener('scroll', function () { var y = scrollY + 120, on = null; links.forEach(function (a) { var s = document.querySelector(a.getAttribute('href')); if (s && s.offsetTop <= y) on = a; }); links.forEach(function (a) { a.classList.toggle('on', a === on); }); }, { passive: true });
+})();
+</script>
+</body>
+</html>
