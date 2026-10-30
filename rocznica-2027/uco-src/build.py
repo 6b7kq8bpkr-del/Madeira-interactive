@@ -52,7 +52,7 @@ photos = []
 for f, m in META.items():
     p = pic(f, m["h"])
     if not p or p["w"] < 600: continue
-    land = p.pop("w") >= p.pop("hh")
+    p["h"] = p.pop("hh"); land = p["w"] >= p["h"]
     p.update(cap=m.get("cap") or m["file"].rsplit(".", 1)[0].replace("_", " "), page=m["page"], src=m["src"], land=land, au=m.get("author", ""), lic=m.get("lic", ""))
     photos.append(p)
 def take(keys, n=1, land=True):
@@ -129,13 +129,18 @@ alts = []
 for a in P.get("alternatywy", []):
     im = [q for q in photos if a["foto"].lower() in q["cap"].lower()][:1]
     alts.append(dict(a, img=im[0] if im else None))
-DATA = {"bands": bands, "mosaic": mosaic, "built": datetime.date.today().strftime("%d.%m.%Y"), "bapics": bapics, "hotele": hotele, "alts": alts, "odrzucone": P.get("odrzucone", []), "prog": {k: P.get(k) for k in ("tagline", "stats", "grupa", "czas_w_hotelu", "dojazd", "pogoda", "rezerwacje", "zabrac", "uwagi", "zrodla", "etapy", "loty", "ba", "upgrade")}, "mapa": P.get("mapa", []), "x": X,
+# zdjęcia dobierane są po fragmencie podpisu (hotele i alternatywy w Buenos Aires celowo bez zdjęć) – gdy podpis w zdjecia.json się zmieni, build ma się zatrzymać, a nie po cichu zgubić zdjęcie
+miss = [f"pas „{k}”" for k in BANDS if k not in bands] + [f"dzień {d['date']}" for d in days if not d["img"]]
+if not hero: miss.append("zdjęcie główne")
+if len(mosaic) < 5: miss.append(f"mozaika ({len(mosaic)} z 5)")
+if miss: sys.exit("Brak zdjęć dla: " + ", ".join(miss) + " – sprawdź podpisy w data/zdjecia.json i listy w build.py")
+DATA = {"bands": bands, "mosaic": mosaic, "built": datetime.date.today().strftime("%d.%m.%Y"), "bapics": bapics, "hotele": hotele, "alts": alts, "odrzucone": P.get("odrzucone", []), "prog": {k: P.get(k) for k in ("tagline", "stats", "grupa", "czas_w_hotelu", "dojazd", "pogoda", "rezerwacje", "zabrac", "uwagi", "zrodla", "etapy", "loty", "ba", "upgrade", "budzet")}, "mapa": P.get("mapa", []), "x": X,
         "days": days, "hotels": hotels, "hero": hero[0] if hero else None, "gallery": gallery}
 # kalendarz .ics: jedno wydarzenie całodniowe na dzień + noclegi
 def ics_esc(s): return s.replace("\\", "\\\\").replace(";", "\\;").replace(",", "\\,").replace("\n", "\\n")
 ev = []
 for d in P["days"]:
-    dd, mm = d["date"].split("."); start = f"2027{int(mm):02d}{int(dd):02d}"; end = f"2027{int(mm):02d}{int(dd)+1:02d}"
+    dd, mm = d["date"].split("."); day = datetime.date(2027, int(mm), int(dd)); start = day.strftime("%Y%m%d"); end = (day + datetime.timedelta(days=1)).strftime("%Y%m%d")
     ev.append(f"BEGIN:VEVENT\r\nUID:rocznica2027-{start}@uco\r\nDTSTAMP:20261025T120000Z\r\nDTSTART;VALUE=DATE:{start}\r\nDTEND;VALUE=DATE:{end}\r\nSUMMARY:{ics_esc(d['date'] + ' ' + d['title'])}\r\nDESCRIPTION:{ics_esc(d['text'])}\r\nEND:VEVENT")
 # noclegi wg wariantu polecanego (hotels[0])
 hot = [("20271106", "20271109", "Lares de Chacras, Chacras de Coria"), ("20271109", "20271112", "Casa de Uco – Laguna Suite, Los Chacayes"), ("20271112", "20271113", "Legado Mítico, Palermo Soho, Buenos Aires")]

@@ -2510,5 +2510,15 @@
     "uwaga": "przez concierge"
    }
   ]
+ },
+ "budzet": {
+  "sufit": 28000,
+  "prog": 4800,
+  "okazja": 4000,
+  "bardzo_dobry": 4500,
+  "blisko": 5000,
+  "drogo": 5500,
+  "min_oszczednosc": 800,
+  "_opis": "sufit na parę; progi kompletnej podróży zł/os. (okazja ≤ 4000, bardzo dobry ≤ 4500, próg ≤ 4800, blisko ≤ 5000, powyżej ≤ 5500, potem drogo); osobne bilety tylko przy oszczędności ≥ min_oszczednosc zł/os."
  }
 }

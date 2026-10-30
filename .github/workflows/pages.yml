@@ -18,6 +18,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - name: Dane monitora lotów to poprawny JSON
+        run: python3 -c "import json,sys; [json.load(open(f, encoding='utf-8')) for f in sys.argv[1:]]" rocznica-2027/uco/loty.json rocznica-2027/uco/promocje.json
       - uses: actions/configure-pages@v5
         with:
           enablement: true
