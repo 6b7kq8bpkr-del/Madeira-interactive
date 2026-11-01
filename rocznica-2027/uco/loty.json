@@ -1,7 +1,7 @@
 {
- "zaktualizowano": "2026-10-25",
- "status": "Rozkład na listopad 2027 jeszcze nieopublikowany – linie otwierają sprzedaż ok. 330–360 dni przed lotem; pierwsze pełne porównanie w połowie listopada 2026. Monitor liczy kompletną podróż Warszawa–Mendoza na osobę z bagażem (jeden bilet albo bilet do Buenos Aires plus lot krajowy). Weryfikacja z 25.10.2026: sam bilet do Buenos Aires 4 150–4 500 zł u Ethiopian i Turkish, 4 700–5 800 zł u linii europejskich, lot krajowy 480–850 zł, cały bilet do Mendozy „od” ok. 5 150 zł. Próg 4 800 zł za całość to główny cel zakupu; wariant polecany (Lares + Laguna Suite) mieści się w suficie 28 000 zł do ok. 6 000 zł, powyżej – wariant 4 z pokojem Cordón del Plata (do ok. 6 330 zł).",
- "nastepny": "2026-11-01",
+ "zaktualizowano": "2026-11-01",
+ "status": "Faza przed startem: rozkład na 5.11.2027 jeszcze nie jest otwarty (Flying Blue od ok. 11.11, Iberia od ok. 10.12.2026), więc monitor nie ma jeszcze cen – w tabeli są widełki orientacyjne z października 2026. 12.11 rusza kampania Iberia + Visit Argentina (od 425 EUR za odcinek Madryt–Buenos Aires, bez podanego okna podróży) – do sprawdzenia, czy obejmuje listopad 2027. Próg zakupu bez zmian: 4 800 zł/os. za kompletną podróż z bagażem. Następny odczyt 15.11, po otwarciu sprzedaży Flying Blue.",
+ "nastepny": "2026-11-15",
  "prog": 4800,
  "serie": [
   {
@@ -133,7 +133,19 @@
    "hist": []
   }
  ],
- "historia": [],
+ "historia": [
+  {
+   "data": "2026-11-01",
+   "zrodlo": "monitor (1./15.)",
+   "faza": "Przed startem (Start 12–16.11.2026)",
+   "najtansza": {
+    "id": null,
+    "cena": null,
+    "opis": "rozkład na 5.11.2027 jeszcze nieotwarty"
+   },
+   "uwaga": "Sprzedaż na listopad 2027 rusza 11.11 (Flying Blue, 359 dni) – 10.12.2026 (Iberia, ok. 330 dni); dziś żadna linia nie pokazuje 4–5.11.2027. Flying Blue Promo Rewards (XI 2026) i promocje Avios Iberii bez Buenos Aires/Santiago na nasze daty – brak sygnału „Mile”."
+  }
+ ],
  "sygnaly": [
   {
    "data": "2026-10-25",
