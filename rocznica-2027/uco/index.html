@@ -350,6 +350,11 @@ html { scroll-behavior: smooth; } section.blk, .hk, .alth, .stop, .prom, .more2 
 @media (max-width: 760px) { .mon .sg li { grid-template-columns: minmax(0, 1fr); } }
 .lead2 { max-width: 72ch; }
 details.ctx { border-top: 1px solid var(--line); padding: 8px 0; } details.ctx > summary { cursor: pointer; font-weight: 600; color: var(--ink-2); list-style: none; } details.ctx > summary::-webkit-details-marker { display: none; } details.ctx > summary::before { content: "+ "; font-family: var(--f-mono); color: var(--muted); } details.ctx[open] > summary::before { content: "− "; } details.ctx > p { margin: 8px 0 0; color: var(--ink-2); font-size: .95rem; max-width: 80ch; }
+.raport { margin-top: 22px; padding: 20px 22px; background: var(--stone); border-left: 4px solid var(--malbec); border-radius: 6px; }
+.raport h3 { margin: 4px 0 10px; font-size: 1.35rem; text-wrap: balance; }
+.raport .rpp { margin: 0; padding-left: 18px; display: grid; gap: 6px; } .raport .rpp b { font-weight: 600; }
+.raport .rpt { margin-top: 12px; } .raport .rpt ol { margin: 4px 0 0; padding-left: 20px; display: grid; gap: 4px; }
+.raport .cl { font-size: .78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 .cockpit { margin-top: 22px; display: grid; gap: 12px; scroll-margin-top: 72px; }
 .ck4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; } @media (max-width: 1040px) { .ck4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } } @media (max-width: 560px) { .ck4 { grid-template-columns: minmax(0, 1fr); } }
 .cc { background: var(--paper); border: 1px solid var(--line); border-top: 4px solid var(--line); border-radius: 8px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; min-width: 0; box-shadow: var(--shade); }
@@ -628,6 +633,7 @@ footer a { color: var(--ink-2); }
     function dpl(x) { if (!x) return ''; var p = String(x).split('-'); return p.length === 3 ? esc(p[2] + '.' + p[1] + '.' + p[0]) : esc(x); }
     var LT = [['decyzja', 'Decyzja', 'ceny, kalkulator, progi'], ['radar', 'Radar', 'sygnały, wyprzedaże, promocje'], ['plan', 'Kalendarz', 'fazy zakupu'], ['szukaj', 'Jak szukać', 'scenariusze i narzędzia'], ['zadania', 'Alerty i zadania', 'co zrobić samemu']];
     h += band('loty') + '<section class="blk" id="loty" style="background:var(--paper)"><div class="wrap"><div class="sh"><div><p class="eyebrow">Warszawa → Mendoza → Buenos Aires · wylot 4.11 (po 20:00) lub 5.11 · lądowanie najpóźniej 14.11.2027</p><h2>Loty</h2><p class="lead2">Pulpit zakupu biletów: co robić teraz, gdzie są ceny wobec progu 4 800 zł na osobę i co zapowiada rynek. Dane odświeżają agenci – codziennie radar promocji, w poniedziałki i czwartki skrzynka alertów z Gmaila, 1. i 15. pełny monitor cen.</p><details class="ctx"><summary>Kontekst cenowy z października 2026</summary><p>' + esc(F.intro) + '</p></details></div></div>' +
+      '<div class="raport" id="raport" hidden></div>' +
       '<div class="cockpit" id="teraz"><p class="st">Ładowanie stanu…</p></div>' +
       '<details class="lfull" id="pulpit"><summary>Pulpit zakupu: kalkulator, radar, kalendarz, poradnik, alerty i zadania</summary>' +
       '<div class="ltabs" role="tablist" aria-label="Widoki sekcji Loty">' + LT.map(function (t) { return '<button type="button" role="tab" data-lt="' + t[0] + '" aria-selected="false"><b>' + t[1] + '</b><small>' + t[2] + '</small></button>'; }).join('') + '</div>' +
@@ -869,6 +875,16 @@ footer a { color: var(--ink-2); }
       c += '<div class="cnow"><span class="cl">Twoje zadania na najbliższe 30 dni</span>' + (open.length ? '<ul>' + open.slice(0, 4).map(function (z) { var late = z.do < td; return '<li class="' + (late ? 'late' : '') + '"><b>' + esc(z.t) + '</b> <small>' + (late ? 'po terminie ' : 'do ') + pl2(z.do) + '</small></li>'; }).join('') + '</ul>' : '<p>Nic pilnego – następne zadania pojawią się tu same.</p>') + '<a href="#zadania" data-lgo="zadania">wszystkie zadania →</a></div>';
       if (M.status) c += '<details class="ctx cstat"><summary>Ostatni raport agenta' + (M.zaktualizowano ? ' · ' + pl2(M.zaktualizowano) : '') + '</summary><p>' + esc(M.status) + '</p></details>';
       if (CK) CK.innerHTML = c;
+      // raport lotów (loty.json „raport”) – przegląd rynku z datą i źródłami, na wierzchu sekcji
+      var RPB = document.getElementById('raport'), R = M.raport;
+      if (RPB && R && R.data) {
+        var rAgeD = days(R.data, td);
+        RPB.innerHTML = '<p class="eyebrow">Raport lotów · ' + pl2(R.data) + (rAgeD > 20 ? ' · ⚠ sprzed ' + rAgeD + ' dni' : '') + '</p><h3>' + esc(R.werdykt || '') + '</h3>' +
+          (R.punkty && R.punkty.length ? '<ul class="rpp">' + R.punkty.map(function (x) { return '<li><b>' + esc(x[0]) + '</b> ' + esc(x[1]) + '</li>'; }).join('') + '</ul>' : '') +
+          (R.teraz && R.teraz.length ? '<div class="rpt"><span class="cl">Co dalej</span><ol>' + R.teraz.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ol></div>' : '') +
+          (R.zrodla && R.zrodla.length ? '<details class="ctx"><summary>Źródła raportu (' + R.zrodla.length + ')</summary><p>' + R.zrodla.map(function (z) { return '<a href="' + esc(z.url) + '" target="_blank" rel="noopener">' + esc(z.label) + '</a>'; }).join(' · ') + '</p></details>' : '');
+        RPB.hidden = false;
+      }
     }
     fetch('loty.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (M) { window.__lotyM = M; render(M); }).catch(function () { st.textContent = 'Monitor niedostępny w tym podglądzie.'; if (CK) CK.innerHTML = '<p class="st">Stan monitora niedostępny w tym podglądzie – otwórz wersję na stronie.</p>'; });
     window.__lotyRender = function () { if (window.__lotyM) render(window.__lotyM); };
