@@ -532,5 +532,83 @@
     "tryb": "ar"
    }
   ]
+ },
+ "raport": {
+  "data": "2026-11-01",
+  "werdykt": "⚪ Jeszcze nie kupujemy – sprzedaż na 4–5.11.2027 rusza ok. 11.11 (Air France/KLM) i ok. 10.12 (Iberia)",
+  "punkty": [
+   [
+    "Rozkład:",
+    "linie sprzedają 330–359 dni naprzód, więc dziś da się kupić najdalej ok. 26.10.2027 – nasze daty jeszcze nie są w sprzedaży. Pierwsze prawdziwe ceny pojawią się przy Air France/KLM od ok. 11.11, przy Iberii i Air Europa ok. 10.12."
+   ],
+   [
+    "Ceny dziś (inne daty, punkt odniesienia):",
+    "Madryt–Buenos Aires w obie strony w promocjach 480–580 EUR (Plus Ultra 483–486 EUR z 15 kg, Air France 562 EUR na VI i IX 2027), poza promocjami 800–1 030 EUR (KLM XI 2026–I 2027, Air Europa od 943 EUR). Z Warszawy do Buenos Aires ok. 4 100–4 300 zł w obie strony (XI 2026)."
+   ],
+   [
+    "Co to znaczy dla nas:",
+    "taka promocja z Madrytu przeliczona na kompletną podróż (dolot do Madrytu, bagaż, lot krajowy do Mendozy) to ok. 3 900–4 500 zł/os. – poniżej progu 4 800 zł, gdyby powtórzyła się na listopad 2027. Cena z Warszawy na jednym bilecie jest dziś na granicy progu."
+   ],
+   [
+    "Presja na wzrost:",
+    "paliwo lotnicze średnio ok. 152 USD/bbl w 2026 r. (IATA, ok. +70% r/r); Aerolíneas dolicza 10–50 USD za odcinek, a bilety z Argentyny podrożały w 2026 r. nawet o 30%. Dobrą cenę lepiej brać od razu niż czekać na lepszą."
+   ],
+   [
+    "Ezeiza:",
+    "pełny pas wraca 11.11.2026 – Air France, KLM i Lufthansa wznawiają loty po 18 dniach ograniczeń; prace nie dotyczą listopada 2027."
+   ],
+   [
+    "Nowości:",
+    "Aerolíneas od 1.11.2026 sprzedaje klasę Economy Plus na A330 do Madrytu i Rzymu (opcja wygodniejszego powrotu); Plus Ultra nadal lata i promuje Madryt–Buenos Aires."
+   ]
+  ],
+  "teraz": [
+   "Do 11.11 nic nie kupować.",
+   "12.11: start kampanii Iberia + Visit Argentina (od 425 EUR za odcinek) – sprawdzić, czy obejmuje listopad 2027 (radar i przypomnienie w kalendarzu).",
+   "15.11: monitor cen – pierwszy odczyt Air France/KLM na 5.11.2027.",
+   "10.12: pełna wycena wszystkich scenariuszy po otwarciu sprzedaży Iberii; kupować parami przy ≤ 4 800 zł/os. za kompletną podróż."
+  ],
+  "zrodla": [
+   {
+    "label": "travel-dealz: Plus Ultra Madryt–Buenos Aires od 483 EUR",
+    "url": "https://travel-dealz.com/deal/plus-ultra-argentina/"
+   },
+   {
+    "label": "fly4free: Air France Madryt–Buenos Aires 562 EUR",
+    "url": "https://www.fly4free.com/flight-deals/europe/flights-from-madrid-to-buenos-aires-e562/"
+   },
+   {
+    "label": "KLM: ceny Madryt–Buenos Aires",
+    "url": "https://www.klm.es/en-es/flights-from-madrid-to-buenos-aires-bue"
+   },
+   {
+    "label": "Air Europa: oferty do Buenos Aires",
+    "url": "https://www.aireuropa.com/en-es/flight-deals-to-buenos-aires-1"
+   },
+   {
+    "label": "tanie-loty.com.pl: Warszawa–Buenos Aires XI 2026",
+    "url": "https://www.tanie-loty.com.pl/promocje/tanie-loty-z-warszawy-do-buenos-aires.html"
+   },
+   {
+    "label": "Infobae: bilety z Argentyny droższe do 30% (VI 2026)",
+    "url": "https://www.infobae.com/economia/2026/06/14/vuelos-mas-caros-por-el-aumento-del-jet-fuel-los-pasajes-desde-la-argentina-se-encarecieron-hasta-30-por-ciento/"
+   },
+   {
+    "label": "Infobae: dopłaty paliwowe Aerolíneas",
+    "url": "https://www.infobae.com/economia/2026/03/11/aerolineas-argentinas-se-suma-a-otras-empresas-y-aplica-un-recargo-por-la-suba-del-petroleo-cuanto-aumentaran-los-tickets/"
+   },
+   {
+    "label": "La Nación: Economy Plus Aerolíneas od 1.11.2026",
+    "url": "https://www.lanacion.com.ar/economia/economy-plus-aerolineas-argentinas-lanza-una-nueva-tarifa-en-vuelos-internacionales-nid09062026/"
+   },
+   {
+    "label": "Infobae: Ezeiza – ograniczenia do 11.11.2026",
+    "url": "https://www.infobae.com/economia/2026/10/24/ezeiza-operara-con-restricciones-durante-18-dias-que-pasara-con-los-vuelos-y-que-deben-saber-los-pasajeros/"
+   },
+   {
+    "label": "Info Viajera: Iberia + Visit Argentina od 425 EUR",
+    "url": "https://www.infoviajera.com/2026/10/iberia-y-visit-argentina-promocionan-vuelos-madrid-buenos-aires-desde-425-e-el-tramo/"
+   }
+  ]
  }
 }

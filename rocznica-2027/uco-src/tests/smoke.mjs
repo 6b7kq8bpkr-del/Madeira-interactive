@@ -241,6 +241,7 @@ async function withLoty(mutate, hash, fn) {
   if (!/sufit/.test(r.zapas)) fail('karta wyjazdu', 'brak zapasu do sufitu');
   if (r.noclegi !== 3) fail('karta wyjazdu', `${r.noclegi} noclegów zamiast 3`);
   if (r.teraz.length < 30) fail('karta wyjazdu', 'pusta sekcja „Teraz”');
+  if (await pg.evaluate(() => { const l = window.__lotyM; const el = document.getElementById('raport'); return l && l.raport && (!el || el.hidden || el.innerText.length < 80); })) fail('raport lotów', 'raport z loty.json nie wyświetlił się w sekcji Loty');
   const g0 = await pg.evaluate(() => [...document.querySelectorAll('.gal figure')].filter(f => f.getClientRects().length).length);
   await pg.click('[data-galall]');
   const g1 = await pg.evaluate(() => [...document.querySelectorAll('.gal figure')].filter(f => f.getClientRects().length).length);
