@@ -6,7 +6,7 @@ Pliki `../uco/data.js`, `../uco/index.html` i `../uco/plan.ics` są generowane �
 | Plik | Zawartość |
 |---|---|
 | `template.html` | szablon strony: HTML, CSS i JS (kopiowany do `../uco/index.html`) |
-| `data/program.json` | program dnia po dniu, warianty hoteli, budżet, upgrade’y, loty, Buenos Aires, przygotowania; `budzet` – sufit na parę i progi oceny cen lotów (próg zakupu nadpisuje `prog` w `loty.json`) |
+| `data/program.json` | program dnia po dniu, warianty hoteli, budżet, upgrade’y, loty, Buenos Aires, przygotowania; `budzet` – sufit na parę, cel (`cel`, 4 000 zł/os.) i progi oceny cen lotów (cel i próg nadpisują `cel` i `prog` w `loty.json`); `loty.skala` – skala cen z decyzjami na stronie |
 | `data/extra.json` | rytm dnia, „wow”, etykiety dojazdu |
 | `data/hotele.json` | karty hoteli z badania (ceny, oceny, linki, współrzędne) |
 | `data/zdjecia.json` | zdjęcia z wolnymi licencjami: podpis, autor, licencja, źródło i nazwa gotowych plików w `../uco/img/` |

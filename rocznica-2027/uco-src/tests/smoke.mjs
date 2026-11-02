@@ -212,6 +212,20 @@ async function withLoty(mutate, hash, fn) {
   await pg.close();
 }
 
+// skala cen z celem 4 000 zł: pasek, sześć progów, marker najlepszej ceny i werdykt kalkulatora
+{
+  const { pg, errs } = await withLoty(M => { M.serie.find(s => s.id === 'calosc').hist = [{ data: '2026-12-01', cena: 4600 }]; }, '#skala', async pg => {
+    await pg.fill('#k-cena', '3900');
+  });
+  const r = await pg.evaluate(() => ({ seg: document.querySelectorAll('#skala .sks').length, li: document.querySelectorAll('#skala .skl li').length, mk: !document.getElementById('skm').hidden, left: parseFloat(document.getElementById('skm').style.left), note: document.getElementById('skn').innerText, kalk: document.getElementById('k-out').innerText }));
+  if (r.seg !== 6 || r.li !== 6) fail('skala cen', `segmenty ${r.seg}, progi ${r.li} zamiast 6`);
+  if (!r.mk || Math.abs(r.left - 41.67) > 0.1) fail('skala cen', `marker 4 600 zł w złym miejscu (${r.left}%)`);
+  if (!/600\s?zł do celu/.test(r.note)) fail('skala cen', `opis najlepszej ceny: ${r.note}`);
+  if (!/Cel osiągnięty/.test(r.kalk)) fail('skala cen', 'kalkulator nie uznał 3 900 zł za cel');
+  if (errs.length) fail('skala cen', 'błędy JS: ' + errs[0]);
+  await pg.close();
+}
+
 // dane od agentów: historia nie po kolei, brakujące pola i próba wstrzyknięcia HTML nie psują strony
 {
   const X = '<img src=x onerror="window.__xss=1">';
