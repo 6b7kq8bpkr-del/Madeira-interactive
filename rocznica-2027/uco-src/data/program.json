@@ -879,14 +879,14 @@
   }
  ],
  "loty": {
-  "intro": "Z Warszawy do Mendozy, ok. 18–30 h w jedną stronę zależnie od linii; powrót z Buenos Aires po dniu w mieście. Rozkład i ceny na listopad 2027 linie otwierają ok. 330–360 dni wcześniej, czyli między 11.11 a 10.12.2026. Sprawdzone 25.10.2026: sam bilet Warszawa–Buenos Aires z bagażem kosztuje dziś 4 150–4 500 zł u Ethiopian i Turkish, 4 700–5 800 zł u linii europejskich, lot krajowy z bagażem 480–850 zł; średnia roczna trasy ok. 5 750 zł, a listopad jest najtańszym miesiącem. Budżet liczy kompletną podróż Warszawa–Mendoza na osobę: główny próg zakupu 4 800 zł (9 600 zł na parę) – przy nim wariant polecany zostawia ok. 2 000 zł zapasu na parę na upgrade’y; wariant polecany (Lares + Laguna Suite) mieści się do ok. 6 000 zł/os. (wariant 4 z pokojem Cordón del Plata do ok. 6 330 zł/os.). Kolejność szukania: najpierw cały bilet do Mendozy, równolegle Madryt–Mendoza jako chroniona podróż, osobne bilety dopiero przy oszczędności ≥ 800 zł/os.",
+  "intro": "Z Warszawy do Mendozy, ok. 18–30 h w jedną stronę zależnie od linii; powrót z Buenos Aires po dniu w mieście. Rozkład i ceny na listopad 2027 linie otwierają ok. 330–360 dni wcześniej, czyli między 11.11 a 10.12.2026. Sprawdzone 25.10.2026: sam bilet Warszawa–Buenos Aires z bagażem kosztuje dziś 4 150–4 500 zł u Ethiopian i Turkish, 4 700–5 800 zł u linii europejskich, lot krajowy z bagażem 480–850 zł; średnia roczna trasy ok. 5 750 zł, a listopad jest najtańszym miesiącem. Budżet liczy kompletną podróż Warszawa–Mendoza na osobę: cel 4 000 zł (kupujemy od razu), główny próg zakupu 4 800 zł (9 600 zł na parę) – przy nim wariant polecany zostawia ok. 2 000 zł zapasu na parę na upgrade’y; wariant polecany (Lares + Laguna Suite) mieści się do ok. 6 000 zł/os. (wariant 4 z pokojem Cordón del Plata do ok. 6 330 zł/os.). Kolejność szukania: najpierw cały bilet do Mendozy, równolegle Madryt–Mendoza jako chroniona podróż, osobne bilety dopiero przy oszczędności ≥ 800 zł/os.",
   "opcje": [
    {
     "n": "Cały bilet Warszawa–Mendoza (jedna rezerwacja)",
     "trasa": "WAW → EZE / SCL / GRU → MDZ · MDZ → BUE → WAW",
     "linie": "Iberia + Aerolíneas lub LATAM przez Madryt i Buenos Aires; LATAM przez São Paulo (GRU) lub Santiago (SCL); Air Europa / ITA z partnerami. Maks. dwie przesiadki, bez zmiany lotniska w jednym mieście (w Buenos Aires przylot i dalszy lot z EZE).",
     "czas": "ok. 20–26 h",
-    "cena": "dziś „od” ok. 5 150 zł (Momondo); cel ≤ 4 800 zł",
+    "cena": "dziś „od” ok. 5 150 zł (Momondo); cel ≤ 4 000 zł, próg 4 800 zł",
     "plus": "Przesiadki chronione przez przewoźnika, bagaż nadany do celu, jedna rezerwacja na parę; cena całej trasy bywa niższa niż suma odcinków.",
     "minus": "Mniej kombinacji niż przy dwóch biletach; rozkład partnerów pojawia się później niż główny.",
     "rek": true
@@ -917,7 +917,7 @@
    ],
    [
     "styczeń–maj 2027",
-    "Polowanie na progi: dobrą cenę (≤ 4 800 zł/os. za całość) kupować bez czekania na „idealny miesiąc”. Pierwsze okno: styczniowe rebajas Iberii (w 2026 r. zakup 5–26.01, podróże do 10.12 przy sprzedaży w Hiszpanii, do 30.11 w Argentynie – jedyna kampania obejmująca listopad). Statystycznie najniżej 18–24 tygodnie przed lotem (maj–lipiec 2027), ale grupa 6–8 osób zużywa tanie klasy, więc rozsądna cena wcześniej jest lepsza niż czekanie. Nie opierać wyjazdu kilku par na promocji last minute ani na Black Friday (obejmuje podróże do maja)."
+    "Polowanie na cel: cenę ≤ 4 000 zł/os. za całość kupować od razu, bez czekania na „idealny miesiąc”; 4 000–4 800 zł zapisywać i kupować najpóźniej w oknie statystycznym (od 21.05.2027). Pierwsze okno: styczniowe rebajas Iberii (w 2026 r. zakup 5–26.01, podróże do 10.12 przy sprzedaży w Hiszpanii, do 30.11 w Argentynie – jedyna kampania obejmująca listopad). Statystycznie najniżej 18–24 tygodnie przed lotem (maj–lipiec 2027), ale grupa 6–8 osób zużywa tanie klasy, więc rozsądna cena wcześniej jest lepsza niż czekanie. Nie opierać wyjazdu kilku par na promocji last minute ani na Black Friday (obejmuje podróże do maja)."
    ],
    [
     "po zakupie lotów",
@@ -1048,28 +1048,6 @@
     "url": "https://www.turkishairlines.com/pl-pl/oferty-lotow/",
     "opis": "Bagaż 2×23 kg w cenie; promocje early bird w styczniu."
    }
-  ],
-  "progi": [
-   [
-    "do 4 000 zł",
-    "Wyjątkowa okazja – szybko sprawdzić warunki i dostępność miejsc dla całej grupy."
-   ],
-   [
-    "4 000–4 500 zł",
-    "Bardzo dobry zakup przy rozsądnych przesiadkach."
-   ],
-   [
-    "4 500–4 800 zł",
-    "Dobry zakup, szczególnie na jednym bilecie; w wariancie polecanym zostaje ok. 2 000 zł zapasu na parę na upgrade’y."
-   ],
-   [
-    "4 800–5 000 zł",
-    "Akceptowalne – wariant polecany nadal mieści się w suficie (do ok. 6 000 zł/os.), ale zapas na upgrade’y maleje."
-   ],
-   [
-    "powyżej 5 000 zł",
-    "Ponownie porównać daty i trasy przed zakupem."
-   ]
   ],
   "daty": [
    [
@@ -1244,7 +1222,7 @@
     },
     {
      "t": "Zakup parami tego samego dnia.",
-     "opis": "Gdy kompletna podróż kosztuje ≤ 4 800 zł/os. (progi niżej), kupować wszystkie pary w ciągu jednego dnia, u linii, w walucie sprzedawcy (bez przewalutowania DCC), osobna rezerwacja na parę, imiona jak w paszporcie, zrzut reguł taryfy. Lot krajowy – jeśli potrzebny – dopiero potem (lipiec–sierpień 2027).",
+     "opis": "Gdy kompletna podróż kosztuje ≤ 4 000 zł/os. (cel; od 21.05.2027 także do 4 800 zł – skala cen niżej), kupować wszystkie pary w ciągu jednego dnia, u linii, w walucie sprzedawcy (bez przewalutowania DCC), osobna rezerwacja na parę, imiona jak w paszporcie, zrzut reguł taryfy. Lot krajowy – jeśli potrzebny – dopiero potem (lipiec–sierpień 2027).",
      "kiedy": "styczeń–lipiec 2027, bez czekania na „idealny miesiąc”"
     }
    ],
@@ -1318,7 +1296,7 @@
     "Osobna rezerwacja na każdą parę, imiona dokładnie jak w paszporcie, paszporty ważne w listopadzie 2027; po zakupie prośba o powiązanie rezerwacji i miejsca obok siebie.",
     "EU261 obejmuje każdy wylot z UE i lot do UE tylko linią z UE – powrót Aerolíneas na osobnym bilecie jest poza nim (w Argentynie dekret 809/2024: posiłki i hotel przy opóźnieniu > 4 h).",
     "Przed zakupem na listopad 2027 sprawdzić komunikaty o pracach na lotnisku Ezeiza (25.10–11.11.2026 remont pasa zawiesił loty Iberii, ITA, Lufthansy i Air France/KLM) i czy ruszył zapowiadany bezpośredni lot Air Europa Madryt–Mendoza (w 2026 r. w negocjacjach).",
-    "Po zakupie: wpisać cenę do monitora (próg 4 800), odwołać alerty, zarezerwować lot krajowy tylko jeśli scenariusz tego wymaga."
+    "Po zakupie: wpisać cenę do monitora (cel 4 000, próg 4 800), odwołać alerty, zarezerwować lot krajowy tylko jeśli scenariusz tego wymaga."
    ],
    "bledy": [
     "Płacenie w pesos na stronach argentyńskich (iberia.com/ar, aerolineas.com.ar) – 30 % podatku „percepción”, odrzucenia zagranicznych kart i ryzyko anulowania; strona argentyńska tylko do porównania (w ITA Matrix opcja „sales city”).",
@@ -1360,7 +1338,7 @@
      "faza": "Start",
      "co": "Sprawdzić, czy kampania Iberia + Visit Argentina (sprzedaż 12.11.2026–31.05.2027, od 425 EUR za odcinek, tylko bezpośrednio Madryt–Buenos Aires; według zapowiedzi z X 2026 bez podanego okna podróży, przykłady na I–II 2027, taryfa Básica bez bagażu rejestrowanego) dopuszcza podróże w listopadzie 2027 – liczyć z dolotem do Madrytu i bagażem; wycenić taryfę Star Alliance/United open-jaw Europa → Buenos Aires → Berlin/Wiedeń (23 kg, reguły obejmują 1.09–9.12.2027); założyć pierwsze alerty tam, gdzie loty na 5.11.2027 są już widoczne (WAW–MDZ, WAW–EZE, WAW–SCL, dla 1 osoby VIE–EZE i BER–EZE); komplet po otwarciu Iberii 10–20.12.",
      "automat": "Agent 13.11 rano · przypomnienie w kalendarzu 16.11",
-     "decyzja": "Kupić tylko, gdy któraś z tych dwóch taryf daje ≤ 4 800 zł/os. z bagażem na nasze daty.",
+     "decyzja": "Kupić od razu tylko wtedy, gdy któraś z tych dwóch taryf daje ≤ 4 000 zł/os. (cel) z bagażem na nasze daty; droższe ceny zapisać.",
      "ton": "sprawdz",
      "szansa": 0.8,
      "kr": "Start"
@@ -1371,7 +1349,7 @@
      "faza": "Black Friday",
      "co": "Tylko sprawdzić, czy którakolwiek linia (Iberia, Air Europa, LATAM, ITA, TAP, Turkish, Aerolíneas) wyjątkowo rozszerzyła okres podróży na listopad 2027. W latach 2022–2025 żadna nie objęła listopada następnego roku.",
      "automat": "Przypomnienie 27.11 · monitor promocji (śr, pt)",
-     "decyzja": "Bez oczekiwań. Nie kupować niczego „bo promocja”, jeśli nie mieści się w progu.",
+     "decyzja": "Bez oczekiwań. Nie kupować niczego „bo promocja”, jeśli nie schodzi do celu 4 000 zł.",
      "ton": "sprawdz",
      "szansa": 0.5,
      "kr": "BF"
@@ -1382,7 +1360,7 @@
      "faza": "Rozkład otwarty",
      "co": "Iberia otwiera sprzedaż ok. 330 dni przed (10.12.2026), Flying Blue 359 dni (11.11). Pierwsza pełna wycena wszystkich 6 scenariuszy wg poradnika (Google Flights → ITA Matrix → strony linii PL/ES/AR), test miejsc dla 1/2/4/6 osób, zapis cen do monitora.",
      "automat": "Agent 10.12 · monitor 15.12 i 1.01",
-     "decyzja": "≤ 4 800 zł – kupować; 4 800–5 000 – czekać na styczeń; nie ustawiać alertów na daty późniejsze niż 5.11.",
+     "decyzja": "≤ 4 000 zł – kupować od razu; 4 000–4 500 – tylko gdy tania klasa się kończy; drożej – czekać na styczeń; nie ustawiać alertów na daty późniejsze niż 5.11.",
      "ton": "kupuj",
      "szansa": 1.5,
      "kr": "Rozkład"
@@ -1393,7 +1371,7 @@
      "faza": "Rebajas Iberii i FITUR",
      "co": "Styczniowa wyprzedaż Iberii: w 2026 r. przedsprzedaż dla Iberia Club 5.01, ogólna 8–26.01, podróże 10.01–10.12.2026 – jedyna duża kampania, która objęła cały listopad. Wcześniej założyć darmowe konto Iberia Club (przedsprzedaż). Wycenić WAW–MDZ przez Madryt i EZE, multi-city ze stopoverem i Madryt–Mendoza (scenariusz 4); równolegle FITUR (ok. 20–25.01): promocje Aerolíneas z Madrytu i Rzymu oraz zapowiedzi pojemności na zimę 2027.",
      "automat": "Agent 5.01 (przedsprzedaż) i 22.01 (FITUR) · monitor 15.01 · skrzynka pn/czw",
-     "decyzja": "Najbardziej prawdopodobne pierwsze okno zakupu. Kupować przy ≤ 4 800 zł/os. tego samego dnia, parami – paliwo drożeje (+111 % r/r), więc czekanie na maj ma koszt.",
+     "decyzja": "Najbardziej prawdopodobne okno na cel. Kupować przy ≤ 4 000 zł/os. tego samego dnia, parami; 4 000–4 500 – gdy tania klasa się kończy. Paliwo drożeje (+111 % r/r), więc czekanie na maj ma koszt.",
      "ton": "szczyt",
      "szansa": 2.6,
      "kr": "Rebajas"
@@ -1402,9 +1380,9 @@
      "od": "2027-01-27",
      "do": "2027-05-20",
      "faza": "Polowanie",
-     "co": "Monitor cen 1. i 15. dnia miesiąca, alert co poniedziałek, promocje w środy i piątki. Przy każdej cenie ≤ 4 800 zł: ITA Matrix (reguły taryfy), test miejsc, zakup parami tego samego dnia. Po zakupie: potwierdzić Casa de Uco i Lares, zwolnić drugi hotel bazy 1.",
+     "co": "Monitor cen 1. i 15. dnia miesiąca, alert co poniedziałek, promocje w środy i piątki. Przy każdej cenie ≤ 4 000 zł (od 21.05.2027: ≤ 4 800 zł): ITA Matrix (reguły taryfy), test miejsc, zakup parami tego samego dnia. Po zakupie: potwierdzić Casa de Uco i Lares, zwolnić drugi hotel bazy 1.",
      "automat": "Monitor 1. i 15. · alert poniedziałki · promocje śr/pt · przypomnienie 8.03 (półmetek)",
-     "decyzja": "Dobra cena teraz jest lepsza niż statystyka: grupa 6–8 osób zużywa tanie klasy. 8.03: jeśli nadal > 5 000 zł, trzymać kurs na okno majowe.",
+     "decyzja": "Polujemy na ≤ 4 000 zł – cel kupować od razu, bo grupa 6–8 osób zużywa tanie klasy. 8.03: jeśli nadal > 5 000 zł, trzymać kurs na okno majowe.",
      "ton": "kupuj",
      "szansa": 1.9,
      "kr": "Polowanie"
@@ -1415,7 +1393,7 @@
      "faza": "Okno statystyczne",
      "co": "18–24 tygodnie przed wylotem – historycznie najniższe ceny na Europa–Argentyna; w maju–czerwcu 2024–26 pojawiały się promocje LATAM z Wiednia na listopad (2 650–2 850 zł, bagaż podręczny) i oneworld ze Skandynawii (23 kg). Alert co poniedziałek + wyceny po każdej promocji; scenariusz 6 tylko przy całości ≤ 4 000 zł/os. Od 1.06 pełny monitor sprawdza też Flying Blue Promo Rewards (−25 % mil, okno ok. 5–6 miesięcy obejmuje listopad).",
      "automat": "Agent 21.05 (start okna) · alert poniedziałki · monitor 1.06, 15.06, 1.07",
-     "decyzja": "Do 2.07 kupić najlepszą dostępną opcję ≤ 5 000 zł/os. na jednym bilecie z bagażem – nawet jeśli nie jest „idealna”.",
+     "decyzja": "Cel nadal kupujemy od razu; od 21.05 także 4 000–4 800 zł. Do 2.07 kupić najlepszą dostępną opcję ≤ 5 000 zł/os. na jednym bilecie z bagażem – nawet jeśli nie jest „idealna”.",
      "ton": "szczyt",
      "szansa": 3,
      "kr": "Okno"
@@ -1604,7 +1582,7 @@
    },
    {
     "id": "rebajas",
-    "t": "Rebajas Iberii: wycenić i przy ≤ 4 800 zł/os. kupić",
+    "t": "Rebajas Iberii: wycenić i przy ≤ 4 000 zł/os. kupić",
     "od": "2027-01-05",
     "do": "2027-01-26",
     "opis": "Najpierw zatrzymać cenę na 72 h dla wszystkich par (ok. 10 EUR/os.), potem kupić parami tego samego dnia."
@@ -1637,7 +1615,55 @@
     "do": "2027-09-30",
     "opis": "Miejsca obok siebie, lewa strona na odcinku do Mendozy, bagaż na każdym odcinku, ubezpieczenie przy osobnych biletach."
    }
-  ]
+  ],
+  "skala": {
+   "tytul": "Celujemy w 4 000 zł na osobę",
+   "opis": "Cena kompletnej podróży Warszawa → Mendoza → Buenos Aires → Warszawa na osobę, z bagażem rejestrowanym i lotem krajowym. Cel 4 000 zł kupujemy od razu; próg 4 800 zł to granica, przy której plan zostawia ok. 2 000 zł zapasu na parę. Sam lot z Europy jest w celu przy ok. 3 200–3 500 zł w obie strony z bagażem.",
+   "progi": [
+    {
+     "do": 4000,
+     "zakres": "do 4 000 zł",
+     "ikona": "🎯",
+     "nazwa": "Cel",
+     "decyzja": "Kupujemy od razu, tego samego dnia, wszystkie pary – u linii, w walucie sprzedawcy. W Iberii najpierw zatrzymać cenę na 72 h dla wszystkich par."
+    },
+    {
+     "do": 4500,
+     "zakres": "4 000–4 500 zł",
+     "ikona": "🟢",
+     "nazwa": "Bardzo dobrze",
+     "decyzja": "Do 20.05.2027 kupić tylko, gdy tania klasa się kończy (mniej miejsc niż osób w grupie); od 21.05 kupujemy."
+    },
+    {
+     "do": 4800,
+     "zakres": "4 500–4 800 zł",
+     "ikona": "🟢",
+     "nazwa": "Próg",
+     "decyzja": "Zapisać i polować dalej na cel; kupujemy od okna statystycznego (21.05.2027). W wariancie polecanym zostaje ok. 2 000 zł zapasu na parę."
+    },
+    {
+     "do": 5000,
+     "zakres": "4 800–5 000 zł",
+     "ikona": "🟡",
+     "nazwa": "Blisko progu",
+     "decyzja": "Od 21.05.2027 kupić, jeśli to jeden bilet z bagażem – plan nadal mieści się w suficie 28 000 zł, ale zapas maleje."
+    },
+    {
+     "do": 5500,
+     "zakres": "5 000–5 500 zł",
+     "ikona": "⚪",
+     "nazwa": "Powyżej progu",
+     "decyzja": "Czekać i porównać inne daty i trasy (Madryt, Santiago, São Paulo); w fazie rezerwy (3.07–31.08.2027) kupić, jeśli nic lepszego."
+    },
+    {
+     "do": null,
+     "zakres": "powyżej 5 500 zł",
+     "ikona": "🔴",
+     "nazwa": "Drogo",
+     "decyzja": "Czekać; najpóźniej 31.08.2027 kupić (wyjątek: wrześniowe Real Deal Days i rabat Avios, do 25.09) i przeliczyć hotele na tańszy wariant."
+    }
+   ]
+  }
  },
  "hotele_karty": [
   {
@@ -2148,6 +2174,12 @@
    "domyslnie": "p48",
    "opcje": [
     [
+     "p40",
+     "4 000/os. · cel",
+     8000,
+     "cel polowania – kupujemy od razu (8 000 zł na parę, ok. 1 600 zł więcej zapasu niż przy progu)"
+    ],
+    [
      "p45",
      "4 500/os.",
      9000,
@@ -2555,12 +2587,13 @@
  },
  "budzet": {
   "sufit": 28000,
+  "cel": 4000,
   "prog": 4800,
   "okazja": 4000,
   "bardzo_dobry": 4500,
   "blisko": 5000,
   "drogo": 5500,
   "min_oszczednosc": 800,
-  "_opis": "sufit na parę; progi kompletnej podróży zł/os. (okazja ≤ 4000, bardzo dobry ≤ 4500, próg ≤ 4800, blisko ≤ 5000, powyżej ≤ 5500, potem drogo); osobne bilety tylko przy oszczędności ≥ min_oszczednosc zł/os."
+  "_opis": "sufit na parę; cel 4000 zł/os. (kupujemy od razu); progi kompletnej podróży zł/os. (okazja = cel ≤ 4000, bardzo dobry ≤ 4500, próg ≤ 4800, blisko ≤ 5000, powyżej ≤ 5500, potem drogo); osobne bilety tylko przy oszczędności ≥ min_oszczednosc zł/os."
  }
 }
