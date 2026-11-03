@@ -149,6 +149,14 @@
  ],
  "sygnaly": [
   {
+   "data": "2026-11-03",
+   "typ": "Nowa trasa",
+   "kierunek": "spadek",
+   "waga": 1,
+   "opis": "LATAM Brasil uruchamia od 28.03.2027 lot São Paulo–Genewa (3× w tygodniu, 787-9) – więcej miejsc Europa–Ameryka Płd. w LATAM; połączenie przez GRU do Mendozy to wariant dla dolotu z Genewy, sam w sobie dla Warszawy drugorzędny.",
+   "url": "https://www.aeroroutes.com/eng/261103-lans27gva"
+  },
+  {
    "data": "2026-10-25",
    "typ": "Lotnisko",
    "kierunek": "wzrost",
@@ -372,7 +380,7 @@
  ],
  "skrzynka": [],
  "rss": {
-  "sprawdzono": "2026-11-02 10:49",
+  "sprawdzono": "2026-11-03 10:48",
   "kanaly": [
    {
     "zrodlo": "Fly4free.pl",
@@ -401,12 +409,12 @@
    },
    {
     "zrodlo": "Travel-dealz · Argentyna",
-    "wpisy": 13,
+    "wpisy": 11,
     "ok": true
    },
    {
     "zrodlo": "Travel-dealz · Chile",
-    "wpisy": 7,
+    "wpisy": 5,
     "ok": true
    },
    {
@@ -416,12 +424,12 @@
    },
    {
     "zrodlo": "Wakacyjni Piraci",
-    "wpisy": 27,
+    "wpisy": 28,
     "ok": true
    },
    {
     "zrodlo": "HolidayPirates",
-    "wpisy": 8,
+    "wpisy": 46,
     "ok": true
    },
    {
@@ -451,6 +459,24 @@
    }
   ],
   "trafienia": [
+   {
+    "zrodlo": "Aeroroutes",
+    "tytul": "LATAM Brasil Adds Sao Paulo – Geneva in NS27",
+    "url": "https://www.aeroroutes.com/eng/261103-lans27gva",
+    "data": "2026-11-03",
+    "opis": "  Published at 0000PCT / 0700GMT 03NOV26   LATAM Airlines Brasil last week opened reservations for  Sao Paulo Guarulhos – Geneva  route, with nonstop flight scheduled from 28MAR27. Boeing 787-9 to serve this route 3 times weekly.  LA8080 GRU1805 – 0955+1GVA 789 247 LA8081 GVA1205 – 1855GRU 789 135  Swissair previously operated 1-stop flight between the two airports in 1992, with 1 weekly Zurich – ",
+    "sila": "silne",
+    "tryb": "routes"
+   },
+   {
+    "zrodlo": "Sir Chandler",
+    "tytul": "Ojo con el saiver de Plus Ultra",
+    "url": "https://www.sirchandler.com.ar/2026/11/ojo-con-el-saiver-de-plus-ultra/",
+    "data": "2026-11-02",
+    "opis": " Después de las grandes cancelaciones y pocas respuestas a muchos pasajeros de Plus Ultra y donde varios vuelos salieron en este tiempo no totalmente llenos, hoy Plus Ultra envió mailing con la promoción dentro del «Cyber» de pasajes a Madrid. Lo que indica la imagen es que se consiguen desde USD 799   Pero un... \n La entrada  Ojo con el saiver de Plus Ultra  se publicó primero en  Sir Chandler . ",
+    "sila": "silne",
+    "tryb": "ar"
+   },
    {
     "zrodlo": "Promociones Aéreas",
     "tytul": "¡Para sacar ya! 💥 Vuelos Directos a Madrid con Descuento de  AR$ 200.000 💃 🎄 con Equipaje y desde Buenos Aires",
