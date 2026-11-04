@@ -1,7 +1,7 @@
 {
- "zaktualizowano": "2026-10-28",
- "nastepny": "2026-10-30",
- "status": "Odczyt 28.10.2026: brak nowych promocji z ostatnich 7 dni (fly4free.pl, wyszukiwania PL/EN/ES, hotele); żadna nie obejmuje listopada 2027. Mr & Mrs Smith dla Casa de Uco: oferta −15% od 3 nocy (nr 70273) obejmuje pobyty do 20.12.2027, czyli także 8–12.11.2027 (sprawdzone 28.10.2026); oferty early booking 10–15% – tylko na pobyty do 28.02.2027. Trend bez zmian: dobre ceny z Wiednia/Niemiec (ok. 2 650–2 850 zł) dotyczą sezonu 2026/27; oferty na listopad 2027 spodziewane najwcześniej w V–VI 2027.",
+ "zaktualizowano": "2026-11-04",
+ "nastepny": "2026-11-06",
+ "status": "Odczyt 4.11.2026: brak promocji obejmujących listopad 2027. Kampania Iberia + Visit Argentina (od 425 EUR za odcinek, bez bagażu) po doliczeniu bagażu, dolotu do Madrytu i lotu krajowego daje ok. 5 500–5 700 zł/os. – daleko od celu 4 000 zł, nawet jeśli obejmie nasze daty. Casa de Uco: oferta Mr & Mrs Smith −15% od 3 nocy nadal aktualna; Black Friday (27.11) nie obejmuje listopada 2027.",
  "zrodla": [
   "fly4free.pl (tag argentyna, Ameryka Południowa)",
   "forum fly4free.pl",
@@ -15,6 +15,18 @@
   "hotele: Mr & Mrs Smith (Casa de Uco), Chozos, Lares de Chacras, La Morada, Legado Mítico"
  ],
  "wpisy": [
+  {
+   "data": "2026-11-04",
+   "zrodlo": "Info Viajera",
+   "tytul": "Iberia + Visit Argentina: Madryt–Buenos Aires od 425 EUR za odcinek",
+   "url": "https://www.infoviajera.com/2026/10/iberia-y-visit-argentina-promocionan-vuelos-madrid-buenos-aires-desde-425-e-el-tramo/",
+   "cena": "od 425 EUR za odcinek (850 EUR w obie strony), Turista Básica",
+   "trasa": "MAD–EZE",
+   "terminy": "sprzedaż 12.11.2026–31.05.2027; okres podróży niepodany, wyłączone 26.12–19.01, 18–21.03 i 27–29.03.2027",
+   "bagaz": "bez bagażu rejestrowanego",
+   "pasuje": "nie",
+   "ocena": "Nawet jeśli obejmie listopad 2027, kompletna podróż wyjdzie ok. 5 500–5 700 zł/os. (850 EUR ≈ 3 650 zł + bagaż ok. 500 zł + dolot WAW–MAD z noclegiem ok. 850 zł + lot krajowy ok. 650 zł) – ok. 1 500 zł ponad cel 4 000 zł. Okres podróży sprawdzi jednorazowe zadanie 13.11."
+  },
   {
    "data": "2026-09-06",
    "zrodlo": "Fly4free",
