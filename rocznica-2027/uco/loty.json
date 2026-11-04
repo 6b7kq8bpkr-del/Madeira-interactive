@@ -1,6 +1,6 @@
 {
  "zaktualizowano": "2026-11-01",
- "status": "Faza przed startem: rozkład na 5.11.2027 jeszcze nie jest otwarty (Flying Blue od ok. 11.11, Iberia od ok. 10.12.2026), więc monitor nie ma jeszcze cen – w tabeli są widełki orientacyjne z października 2026. 12.11 rusza kampania Iberia + Visit Argentina (od 425 EUR za odcinek Madryt–Buenos Aires, bez podanego okna podróży) – do sprawdzenia, czy obejmuje listopad 2027. Cel: 4 000 zł/os. za kompletną podróż z bagażem – taką cenę kupujemy od razu; 4 000–4 800 zł zapisujemy i kupujemy najpóźniej w oknie statystycznym (od 21.05.2027). Następny odczyt 15.11, po otwarciu sprzedaży Flying Blue.",
+ "status": "Faza przed startem: rozkład na 5.11.2027 jeszcze nie jest otwarty (Flying Blue od ok. 11.11, Iberia od ok. 10.12.2026), więc monitor nie ma jeszcze cen – w tabeli są widełki orientacyjne z października 2026. 12.11 rusza kampania Iberia + Visit Argentina (od 425 EUR za odcinek Madryt–Buenos Aires, bez bagażu) – nawet jeśli obejmie listopad 2027, kompletna podróż wyjdzie ok. 5 500–5 700 zł/os., więc to nie jest droga do celu. Cel: 4 000 zł/os. za kompletną podróż z bagażem – taką cenę kupujemy od razu; 4 000–4 800 zł zapisujemy i kupujemy najpóźniej w oknie statystycznym (od 21.05.2027). Następny odczyt 15.11, po otwarciu sprzedaży Flying Blue.",
  "nastepny": "2026-11-15",
  "prog": 4800,
  "cel": 4000,
@@ -185,7 +185,7 @@
    "typ": "Kampania",
    "kierunek": "spadek",
    "waga": 2,
-   "opis": "Iberia + Visit Argentina: sprzedaż 12.11.2026–31.05.2027, od 425 EUR za odcinek (Básica bez bagażu). Kluczowe: czy daty podróży obejmą listopad 2027.",
+   "opis": "Iberia + Visit Argentina: sprzedaż 12.11.2026–31.05.2027, od 425 EUR za odcinek (Básica bez bagażu); okres podróży niepodany, wyłączenia w XII–I i III 2027. Nawet z listopadem 2027 kompletna podróż wyjdzie ok. 5 500–5 700 zł/os. – za drogo wobec celu 4 000 zł.",
    "url": "https://www.infoviajera.com/?p=178259"
   },
   {
