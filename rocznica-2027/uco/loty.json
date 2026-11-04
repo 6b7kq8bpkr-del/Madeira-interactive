@@ -380,7 +380,7 @@
  ],
  "skrzynka": [],
  "rss": {
-  "sprawdzono": "2026-11-03 10:48",
+  "sprawdzono": "2026-11-04 10:49",
   "kanaly": [
    {
     "zrodlo": "Fly4free.pl",
@@ -424,12 +424,12 @@
    },
    {
     "zrodlo": "Wakacyjni Piraci",
-    "wpisy": 28,
+    "wpisy": 31,
     "ok": true
    },
    {
     "zrodlo": "HolidayPirates",
-    "wpisy": 46,
+    "wpisy": 73,
     "ok": true
    },
    {
@@ -459,6 +459,33 @@
    }
   ],
   "trafienia": [
+   {
+    "zrodlo": "Fly4free.com",
+    "tytul": "Argentinian Summer ☀️💃 Full-service direct flights from Madrid to Buenos Aires for €585",
+    "url": "https://www.fly4free.com/flight-deals/europe/direct-flights-from-madrid-to-buenos-aires-e585/",
+    "data": "2026-11-03",
+    "opis": "Discover the passionate tango scene, vibrant neighbourhoods, incredible steak restaurants and buzzing nightlife of Argentina's capital — all during the South American summer! Plus Ultra is currently offering attractive direct flights from just €585 return.",
+    "sila": "silne",
+    "tryb": "eu"
+   },
+   {
+    "zrodlo": "Sir Chandler",
+    "tytul": "Visita del papa León XIV: restricciones de vuelos en Aeroparque, Córdoba y Ezeiza",
+    "url": "https://www.sirchandler.com.ar/2026/11/visita-del-papa-leon-xiv-restricciones-de-vuelos-en-aeroparque-cordoba-y-ezeiza/",
+    "data": "2026-11-03",
+    "opis": " Por la visita del papa León XIV habrá seguro en estos días reprogramaciones de vuelos porque no se podrá operar en algunas franjas horarias según lo que publicó ANAC El Suplemento AIP A 255/2026, fechado el 1 de noviembre de 2026, establece restricciones temporales a las operaciones aéreas entre el 8 y el 11 de... \n La entrada  Visita del papa León XIV: restricciones de vuelos en Aeroparque, Córd",
+    "sila": "silne",
+    "tryb": "ar"
+   },
+   {
+    "zrodlo": "Sir Chandler",
+    "tytul": "Level arrima para el Cyber",
+    "url": "https://www.sirchandler.com.ar/2026/11/level-arrima-para-el-cyber/",
+    "data": "2026-11-03",
+    "opis": " Level envió ayer mail promoviendo sus precios a Barcelona directos, pero también conexiones a Madrid, Roma y París. «Cyber days» le pusieron, lo cual no está tan mal Esos 519 son por IDA nada más a Barcelona Pero para el post hice una busqueda a París, como el viaje que yo hice hace algunas semanas... \n La entrada  Level arrima para el Cyber  se publicó primero en  Sir Chandler . ",
+    "sila": "silne",
+    "tryb": "ar"
+   },
    {
     "zrodlo": "Aeroroutes",
     "tytul": "LATAM Brasil Adds Sao Paulo – Geneva in NS27",
