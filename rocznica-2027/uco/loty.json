@@ -149,6 +149,22 @@
  ],
  "sygnaly": [
   {
+   "data": "2026-11-04",
+   "typ": "Dolot",
+   "kierunek": "spadek",
+   "waga": 1,
+   "opis": "Wizz Air otworzył bazę w Madrycie (5 samolotów w Hiszpanii) – więcej tanich połączeń do Madrytu, co może obniżyć koszt osobnego dolotu WAW–MAD w wariancie z biletem ex-Madryt.",
+   "url": "https://www.sirchandler.com.ar/2026/11/wizz-air-abrio-una-base-en-madrid-y-tendra-cinco-aviones-en-espana/"
+  },
+  {
+   "data": "2026-11-03",
+   "typ": "Rynek",
+   "kierunek": "wzrost",
+   "waga": 1,
+   "opis": "Ryanair ostrzega, że bilety w Europie mogą w 2027 r. mocno podrożeć – dotyczy tylko osobnego dolotu do huba; jeden bilet z Warszawy to omija.",
+   "url": "https://www.sirchandler.com.ar/2026/11/ryanair-advierte-que-los-pasajes-en-europa-podrian-aumentar-fuertemente-durante-2027/"
+  },
+  {
    "data": "2026-11-03",
    "typ": "Nowa trasa",
    "kierunek": "spadek",
@@ -157,12 +173,44 @@
    "url": "https://www.aeroroutes.com/eng/261103-lans27gva"
   },
   {
+   "data": "2026-10-29",
+   "typ": "Konkurencja",
+   "kierunek": "spadek",
+   "waga": 1,
+   "opis": "Plus Ultra nadal lata bezpośrednio Buenos Aires–Madryt i promuje bilety z bagażem 15 kg od ok. 1 055 USD (rynek argentyński, podróże XII 2026–VI 2027). Linia działa mimo kłopotów – utrzymuje presję na ceny Iberii i Air Europa, ale listopada 2027 jeszcze nie sprzedaje.",
+   "url": "https://promociones-aereas.com.ar/2026/10/para-sacar-ya-vuelos-directos-a-madrid-con-descuento-con-equipaje-y-desde-buenos-aires-plus-ultra-rt-p.html"
+  },
+  {
+   "data": "2026-10-27",
+   "typ": "Paliwo",
+   "kierunek": "wzrost",
+   "waga": 3,
+   "opis": "Paliwo lotnicze 190 USD/bbl (+111 % r/r wg IATA); Lufthansa podwoiła dopłaty paliwowe na Frankfurt–Buenos Aires, Air France ma zabezpieczone tylko 33 % paliwa na 2027. Argument, by dobrą cenę brać od razu, a nie czekać.",
+   "url": "https://travel-dealz.com/news/lufthansa-surcharges-october-2026"
+  },
+  {
+   "data": "2026-10-27",
+   "typ": "Taryfa",
+   "kierunek": "spadek",
+   "waga": 1,
+   "opis": "Air France z Madrytu do Buenos Aires od 562 EUR na czerwiec i wrzesień 2027 (taryfa Light) – pierwsze promocyjne taryfy na 2027 już w systemach; przy listopadzie sprawdzać, czy reguły sezonu obejmą nasze daty.",
+   "url": "https://travel-dealz.com/ticker/127793/"
+  },
+  {
    "data": "2026-10-25",
    "typ": "Lotnisko",
    "kierunek": "wzrost",
    "waga": 2,
    "opis": "Ezeiza: skrócony pas i 18 dni ograniczeń (25.10–11.11.2026); Iberia, ITA, Lufthansa, Air France/KLM zawiesiły loty. Jeśli remont wróci jesienią 2027, nasze daty mogą stracić tańsze linie europejskie.",
    "url": "https://www.infoviajera.com/2026/10/si-bien-ezeiza-sigue-abierto-desde-hoy-comienzan-las-restricciones-por-18-dias-que-aerolineas-vuelan-y-cuales-suspenden-sus-operaciones/"
+  },
+  {
+   "data": "2026-10-24",
+   "typ": "Lotnisko",
+   "kierunek": "neutralnie",
+   "waga": 1,
+   "opis": "Ezeiza: pełna długość pasa wraca 11.11.2026 w południe; w czasie ograniczeń Aerolíneas lata do Madrytu i Rzymu z międzylądowaniem w Rio, Air Europa przez Montevideo. Dla listopada 2027 ważne, czy podobne prace nie wypadną jesienią 2027 – śledzić plan przebudowy.",
+   "url": "https://www.infobae.com/economia/2026/10/24/ezeiza-operara-con-restricciones-durante-18-dias-que-pasara-con-los-vuelos-y-que-deben-saber-los-pasajeros/"
   },
   {
    "data": "2026-10-22",
@@ -189,12 +237,28 @@
    "url": "https://www.infoviajera.com/?p=178259"
   },
   {
+   "data": "2026-10-10",
+   "typ": "Lotnisko",
+   "kierunek": "wzrost",
+   "waga": 2,
+   "opis": "Plan przebudowy Ezeizy (760 mln USD): główny pas do repavimentacji w 2027 r. Jeśli prace wypadną jesienią 2027, linie europejskie mogą znów ciąć loty – śledzić harmonogram robót.",
+   "url": "https://www.sirchandler.com.ar/2026/10/la-nueva-gran-reforma-de-ezeiza-ahora-si/"
+  },
+  {
    "data": "2026-10-06",
    "typ": "Rynek krajowy",
    "kierunek": "wzrost",
    "waga": 1,
    "opis": "Flybondi w postępowaniu układowym, bez lotów od lipca 2026 – na Buenos Aires–Mendoza zostają Aerolíneas i JetSMART; listopad to najdroższy miesiąc na tej trasie.",
    "url": "https://www.anbariloche.com.ar/noticias/2026/10/06/119181-el-colapso-de-flybondi-derivo-en-un-concurso-judicial-para-evitar-la-quiebra"
+  },
+  {
+   "data": "2026-10-05",
+   "typ": "Taryfa",
+   "kierunek": "spadek",
+   "waga": 1,
+   "opis": "LATAM Mendoza–Madryt w obie strony od 923 USD (przez Limę, bagaż podręczny) wobec 945 USD z Buenos Aires z bagażem – bilet „przez” do Mendozy bywa w cenie biletu do Buenos Aires; zawsze wyceniać MDZ i SCL obok EZE.",
+   "url": "https://promociones-aereas.com.ar/2026/10/vuelos-a-madrid-desde-mendoza-en-primavera-europea-latam-rt-p.html"
   },
   {
    "data": "2026-07-04",
@@ -213,22 +277,6 @@
    "url": "https://ulysse.com/news/latam-expansion-europe-bruxelles-rome-2026"
   },
   {
-   "data": "2026-10-27",
-   "typ": "Paliwo",
-   "kierunek": "wzrost",
-   "waga": 3,
-   "opis": "Paliwo lotnicze 190 USD/bbl (+111 % r/r wg IATA); Lufthansa podwoiła dopłaty paliwowe na Frankfurt–Buenos Aires, Air France ma zabezpieczone tylko 33 % paliwa na 2027. Argument, by dobrą cenę brać od razu, a nie czekać.",
-   "url": "https://travel-dealz.com/news/lufthansa-surcharges-october-2026"
-  },
-  {
-   "data": "2026-10-10",
-   "typ": "Lotnisko",
-   "kierunek": "wzrost",
-   "waga": 2,
-   "opis": "Plan przebudowy Ezeizy (760 mln USD): główny pas do repavimentacji w 2027 r. Jeśli prace wypadną jesienią 2027, linie europejskie mogą znów ciąć loty – śledzić harmonogram robót.",
-   "url": "https://www.sirchandler.com.ar/2026/10/la-nueva-gran-reforma-de-ezeiza-ahora-si/"
-  },
-  {
    "data": "2026-02-11",
    "typ": "Pojemność",
    "kierunek": "spadek",
@@ -243,38 +291,6 @@
    "waga": 3,
    "opis": "Rebajas Iberii 2026 (przedsprzedaż Iberia Club 5.01, ogólna 8–26.01) obejmowały podróże 10.01–10.12.2026 – jeśli wzór się powtórzy, styczeń 2027 to najlepsze okno na listopad 2027.",
    "url": "https://www.madridinforma.es/?p=46688"
-  },
-  {
-   "data": "2026-10-27",
-   "typ": "Taryfa",
-   "kierunek": "spadek",
-   "waga": 1,
-   "opis": "Air France z Madrytu do Buenos Aires od 562 EUR na czerwiec i wrzesień 2027 (taryfa Light) – pierwsze promocyjne taryfy na 2027 już w systemach; przy listopadzie sprawdzać, czy reguły sezonu obejmą nasze daty.",
-   "url": "https://travel-dealz.com/ticker/127793/"
-  },
-  {
-   "data": "2026-10-05",
-   "typ": "Taryfa",
-   "kierunek": "spadek",
-   "waga": 1,
-   "opis": "LATAM Mendoza–Madryt w obie strony od 923 USD (przez Limę, bagaż podręczny) wobec 945 USD z Buenos Aires z bagażem – bilet „przez” do Mendozy bywa w cenie biletu do Buenos Aires; zawsze wyceniać MDZ i SCL obok EZE.",
-   "url": "https://promociones-aereas.com.ar/2026/10/vuelos-a-madrid-desde-mendoza-en-primavera-europea-latam-rt-p.html"
-  },
-  {
-   "data": "2026-10-29",
-   "typ": "Konkurencja",
-   "kierunek": "spadek",
-   "waga": 1,
-   "opis": "Plus Ultra nadal lata bezpośrednio Buenos Aires–Madryt i promuje bilety z bagażem 15 kg od ok. 1 055 USD (rynek argentyński, podróże XII 2026–VI 2027). Linia działa mimo kłopotów – utrzymuje presję na ceny Iberii i Air Europa, ale listopada 2027 jeszcze nie sprzedaje.",
-   "url": "https://promociones-aereas.com.ar/2026/10/para-sacar-ya-vuelos-directos-a-madrid-con-descuento-con-equipaje-y-desde-buenos-aires-plus-ultra-rt-p.html"
-  },
-  {
-   "data": "2026-10-24",
-   "typ": "Lotnisko",
-   "kierunek": "neutralnie",
-   "waga": 1,
-   "opis": "Ezeiza: pełna długość pasa wraca 11.11.2026 w południe; w czasie ograniczeń Aerolíneas lata do Madrytu i Rzymu z międzylądowaniem w Rio, Air Europa przez Montevideo. Dla listopada 2027 ważne, czy podobne prace nie wypadną jesienią 2027 – śledzić plan przebudowy.",
-   "url": "https://www.infobae.com/economia/2026/10/24/ezeiza-operara-con-restricciones-durante-18-dias-que-pasara-con-los-vuelos-y-que-deben-saber-los-pasajeros/"
   }
  ],
  "wyprzedaze": [
@@ -380,7 +396,7 @@
  ],
  "skrzynka": [],
  "rss": {
-  "sprawdzono": "2026-11-04 10:49",
+  "sprawdzono": "2026-11-05 10:49",
   "kanaly": [
    {
     "zrodlo": "Fly4free.pl",
@@ -424,12 +440,12 @@
    },
    {
     "zrodlo": "Wakacyjni Piraci",
-    "wpisy": 31,
+    "wpisy": 29,
     "ok": true
    },
    {
     "zrodlo": "HolidayPirates",
-    "wpisy": 73,
+    "wpisy": 56,
     "ok": true
    },
    {
@@ -459,6 +475,15 @@
    }
   ],
   "trafienia": [
+   {
+    "zrodlo": "Aeroroutes",
+    "tytul": "GOL Northern winter 2026/27 season Network Changes – 01NOV26",
+    "url": "https://www.aeroroutes.com/eng/261104-g3nw26",
+    "data": "2026-11-05",
+    "opis": "  Published at 1900PCT 04NOV26 / 0200GMT 05NOV26   Brasilian carrier GOL in recent schedule update filed changes to its operational network, with 24  regional and domestic  routes to be discontinued from 01FEB27, including selected routes that are seeing shortened operation for Northern winter 2026/27 season.  Cancelled routes include the following: Brasilia – Buenos Aires Aeroparque Brasilia – Go",
+    "sila": "silne",
+    "tryb": "routes"
+   },
    {
     "zrodlo": "Fly4free.com",
     "tytul": "Argentinian Summer ☀️💃 Full-service direct flights from Madrid to Buenos Aires for €585",
