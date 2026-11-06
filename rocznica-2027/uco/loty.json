@@ -396,7 +396,7 @@
  ],
  "skrzynka": [],
  "rss": {
-  "sprawdzono": "2026-11-05 10:49",
+  "sprawdzono": "2026-11-06 10:48",
   "kanaly": [
    {
     "zrodlo": "Fly4free.pl",
@@ -440,12 +440,12 @@
    },
    {
     "zrodlo": "Wakacyjni Piraci",
-    "wpisy": 29,
+    "wpisy": 28,
     "ok": true
    },
    {
     "zrodlo": "HolidayPirates",
-    "wpisy": 56,
+    "wpisy": 66,
     "ok": true
    },
    {
@@ -476,6 +476,15 @@
   ],
   "trafienia": [
    {
+    "zrodlo": "Promociones Aéreas",
+    "tytul": "Cyber Monday: Vuelos a Madrid desde Mendoza 🍷 a partir de U$D 901 🔥 con Carry On 🧳y en Cuotas",
+    "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-vuelos-a-madrid-desde-mendoza-con-carry-on-cuotas-latam-rt-p.html",
+    "data": "2026-11-05",
+    "opis": " Hay Lindos Vuelos a Madrid desde Mendoza a partir de U$D 901, ida y vuelta. Los viajes son operados por Latam, incluyen Carry On y tienen una conexión en San […] \n La entrada  Cyber Monday: Vuelos a Madrid desde Mendoza 🍷 a partir de U$D 901 🔥 con Carry On 🧳y en Cuotas  se publicó primero en  Promociones Aéreas . ",
+    "sila": "silne",
+    "tryb": "ar"
+   },
+   {
     "zrodlo": "Aeroroutes",
     "tytul": "GOL Northern winter 2026/27 season Network Changes – 01NOV26",
     "url": "https://www.aeroroutes.com/eng/261104-g3nw26",
@@ -483,6 +492,15 @@
     "opis": "  Published at 1900PCT 04NOV26 / 0200GMT 05NOV26   Brasilian carrier GOL in recent schedule update filed changes to its operational network, with 24  regional and domestic  routes to be discontinued from 01FEB27, including selected routes that are seeing shortened operation for Northern winter 2026/27 season.  Cancelled routes include the following: Brasilia – Buenos Aires Aeroparque Brasilia – Go",
     "sila": "silne",
     "tryb": "routes"
+   },
+   {
+    "zrodlo": "Infoviajera",
+    "tytul": "Restricciones en Aeroparque, Ezeiza y otros aeropuertos del país por la visita del Papa León XIV",
+    "url": "https://www.infoviajera.com/2026/11/restricciones-en-aeroparque-ezeiza-y-otros-aeropuertos-del-pais-por-la-visita-del-papa-leon-xiv/",
+    "data": "2026-11-04",
+    "opis": " Entre el 8 y el 11 de noviembre de 2026 se implementarán restricciones temporales en el espacio aéreo de Buenos Aires y Córdoba por motivos de seguridad durante la visita del Papa León XIV. Las medidas incluyen interrupciones de operaciones en aeropuertos, restricciones en aeródromos y helipuertos, y la prohibición de determinadas actividades aéreas. La Administración Nacional de Aviación Civil (",
+    "sila": "silne",
+    "tryb": "ar"
    },
    {
     "zrodlo": "Fly4free.com",
