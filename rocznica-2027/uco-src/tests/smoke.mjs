@@ -156,7 +156,7 @@ for (const [W, scheme] of CONFIGS) {
 }
 
 // linki głębokie: sekcja ma być widoczna (rozwinięta) i przewinięta pod górę ekranu
-for (const h of ['plan', 'budzet', 'upgrade', 'hotele', 'loty', 'radar', 'kalendarz', 'poradnik', 'zadania', 'kalk']) {
+for (const h of ['decyzje', 'plan', 'd10-11', 'budzet', 'upgrade', 'hotele', 'loty', 'radar', 'kalendarz', 'poradnik', 'zadania', 'kalk', 'rezerwacje']) {
   const { pg, log } = await open(1300, 'light', '#' + h);
   const r = await pg.evaluate(h => { const el = document.getElementById(h); if (!el) return null; const b = el.getBoundingClientRect(); return { shown: !!el.getClientRects().length, top: Math.round(b.top) }; }, h);
   if (!r) fail('#' + h, 'brak elementu');
@@ -210,6 +210,42 @@ async function withLoty(mutate, hash, fn) {
   });
   if (errs.length) fail('kalkulator', 'błędy JS: ' + errs[0]);
   await pg.close();
+}
+
+// decyzje i terminy: karty, oś czasu z filtrem i odhaczaniem, podsumowanie dla par, plan w pigułce, uwagi w grupach
+{
+  const { pg, log } = await open(1300, 'light', '#decyzje');
+  const r = await pg.evaluate(() => ({
+    open: document.querySelectorAll('#dgrid .dc').length, closed: document.querySelectorAll('.dclosed .dc').length, rek: document.querySelectorAll('#dgrid .dop li.rek').length,
+    next: document.querySelectorAll('#dnext .dn').length, nextP: document.querySelectorAll('#dnext .dn li').length, kam: document.querySelectorAll('#dnext .dn li a[href="#kalendarz"]').length, today: !!document.querySelector('#os .ostoday'), vis: document.querySelectorAll('#os li.osi:not([hidden])').length, all: document.querySelectorAll('#os li.osi').length,
+    tnext: document.querySelector('[data-tnext]').textContent, pig: document.querySelectorAll('.pigt tbody tr').length, pigLinks: [...document.querySelectorAll('.pigt tbody a')].every(a => document.getElementById(a.getAttribute('href').slice(1))),
+    ug: document.querySelectorAll('#przygotowania .ug').length, ugN: [...document.querySelectorAll('#przygotowania .ug summary')].reduce((a, s) => a + +(s.textContent.match(/\((\d+)\)/) || [0, 0])[1], 0), uw: window.UCO.prog.uwagi.length,
+  }));
+  if (r.open < 4 || r.closed < 2 || r.rek < r.open) fail('decyzje', `karty: otwarte ${r.open}, zamknięte ${r.closed}, polecane opcje ${r.rek}`);
+  if (r.next !== 2 || r.nextP < 4 || r.kam || !r.today || !/Najbliżej: do \d+\.\d+\.\d{4} – .+/.test(r.tnext)) fail('decyzje', `pasek terminów: grup ${r.next}, pozycji ${r.nextP}, kamieni ${r.kam}, dziś ${r.today}, karta „Teraz”: ${r.tnext}`);
+  if (!(r.vis > 3 && r.vis < r.all)) fail('oś czasu', `domyślny filtr pokazuje ${r.vis} z ${r.all}`);
+  await pg.click('[data-os="all"]');
+  const all = await pg.evaluate(() => document.querySelectorAll('#os li.osi:not([hidden])').length);
+  if (all !== r.all) fail('oś czasu', `„Wszystko” pokazuje ${all} z ${r.all}`);
+  await pg.click('#os input[data-r="0"]');
+  const sync = await pg.evaluate(() => [...document.querySelectorAll('input[data-r="0"]')].map(c => c.checked));
+  if (sync.length < 2 || !sync.every(Boolean)) fail('oś czasu', `odhaczenie rezerwacji nie zsynchronizowało się: ${sync}`);
+  await pg.click('#dcopy');
+  const t = await pg.evaluate(() => document.getElementById('dtxt').value);
+  if (!/Koszt: ok\. 26\s000 zł na parę przy 3 parach/.test(t) || !/celujemy w 4\s000 – wtedy ok\. 24\s400 zł/.test(t) || !/Co potrzebujemy od Was:\n• do 31\.12 – /.test(t) || !/github\.io/.test(t) || t.split('\n').some(l => l.length > 400)) fail('podsumowanie', 'brak kosztu, celu, listy dla par albo linku: ' + t.slice(0, 160));
+  // trwająca faza zostaje widoczna na osi w domyślnym zakresie (zegar w środku fazy „Rozkład otwarty”)
+  await pg.close();
+  const p2 = await browser.newPage({ viewport: { width: 390, height: 800 } }); const e2 = []; p2.on('pageerror', e => e2.push(e.message));
+  await p2.addInitScript(() => { const RD = Date; const fixed = new RD(2026, 11, 15, 12, 0, 0).getTime(); class FD extends RD { constructor(...a) { super(...(a.length ? a : [fixed])); } static now() { return fixed; } } globalThis.Date = FD; });
+  await p2.goto(BASE + 'index.html#decyzje', { waitUntil: 'load' }); await p2.waitForTimeout(800);
+  const f = await p2.evaluate(() => { const li = [...document.querySelectorAll('#os li.osi.k-faza')].find(l => /Rozkład otwarty/.test(l.textContent)); return li ? { hidden: li.hidden, run: li.classList.contains('run'), past: li.classList.contains('past'), lone: [...document.querySelectorAll('#os li.osm:not([hidden])')].every(h => { let n = h.nextElementSibling; while (n && !n.classList.contains('osm')) { if (!n.hidden && n.classList.contains('osi')) return true; n = n.nextElementSibling; } return false; }), w: document.documentElement.scrollWidth, pigCost: document.querySelector('.pigt tbody td.n').getBoundingClientRect().right } : null; });
+  if (!f || f.hidden || !f.run || f.past) fail('oś czasu', `trwająca faza: ${JSON.stringify(f)}`);
+  if (f && (!f.lone || f.w > 390 || f.pigCost > 390)) fail('oś czasu / plan w pigułce (390px)', `pusty nagłówek miesiąca ${!f.lone}, szerokość ${f.w}, prawa krawędź kosztu ${Math.round(f.pigCost)}`);
+  if (e2.length) fail('oś czasu', 'błędy JS: ' + e2[0]);
+  await p2.close();
+  if (r.pig !== 8 || !r.pigLinks) fail('plan w pigułce', `wierszy ${r.pig}, linki do dni ${r.pigLinks}`);
+  if (r.ug < 5 || r.ugN !== r.uw) fail('warto wiedzieć', `grup ${r.ug}, notatek w grupach ${r.ugN} z ${r.uw}`);
+  if (log.errs.length) fail('decyzje', 'błędy JS: ' + log.errs[0]);
 }
 
 // skala cen z celem 4 000 zł: pasek, sześć progów, marker najlepszej ceny i werdykt kalkulatora
