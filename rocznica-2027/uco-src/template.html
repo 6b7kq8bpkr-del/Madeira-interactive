@@ -60,7 +60,7 @@ h1, h2, h3 { font-family: var(--f-display); font-weight: 400; line-height: 1.08;
 @keyframes kb { from { transform: scale(1); } to { transform: scale(1.09); } }
 @media (prefers-reduced-motion: reduce) { .hero img { animation: none; } .reveal { opacity: 1 !important; transform: none !important; } }
 .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,14,18,.1) 0%, rgba(20,14,18,.35) 50%, rgba(20,14,18,.88) 100%); }
-.hero .wrap { position: relative; z-index: 1; padding-block: clamp(160px, 38vh, 360px) 56px; text-shadow: 0 1px 14px rgba(0,0,0,.4); }
+.hero .wrap { position: relative; z-index: 1; padding-block: clamp(120px, 28vh, 260px) 48px; text-shadow: 0 1px 14px rgba(0,0,0,.4); }
 .hero h1 { font-size: clamp(3.2rem, 11vw, 8.5rem); letter-spacing: -.01em; }
 .hero h1 em { font-style: normal; color: #e9b6c5; }
 .hero p { max-width: 52ch; font-size: clamp(1.05rem, 2vw, 1.3rem); margin: 14px 0 0; }
@@ -364,6 +364,38 @@ details.ctx { border-top: 1px solid var(--line); padding: 8px 0; } details.ctx >
 .skl li { display: grid; grid-template-columns: 12px minmax(0, 1fr); column-gap: 10px; align-content: start; padding: 8px 0; border-top: 1px solid var(--line); min-width: 0; }
 .skl li.s0 { border-top: 2px solid var(--poplar); } .skd { width: 12px; height: 12px; border-radius: 3px; grid-row: 1 / span 3; margin-top: 4px; }
 .skl b { font-family: var(--f-mono); font-size: .86rem; font-weight: 600; } .skz { font-size: .86rem; color: var(--ink-2); } .skl p { margin: 2px 0 0; font-size: .9rem; }
+#decyzje { padding-block: 44px 52px; }
+.dnext { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 14px; margin: 0 0 22px; }
+.dn { background: color-mix(in srgb, var(--poplar) 10%, var(--paper)); border-radius: 8px; padding: 14px 16px; } .dn.late { background: color-mix(in srgb, var(--malbec) 10%, var(--paper)); }
+.dn .cl { display: block; font-family: var(--f-mono); font-size: .76rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.dn ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; } .dn li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: baseline; font-size: .95rem; } .dn li a { font-weight: 600; } .dn li small { font-family: var(--f-mono); font-size: .76rem; color: var(--ink-2); white-space: nowrap; } .dn p { margin: 0; color: var(--ink-2); font-size: .92rem; }
+.dgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+.dc { background: var(--paper); border-radius: 10px; border-top: 4px solid var(--malbec); box-shadow: var(--shade); padding: 16px 18px 14px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.dc.closed { border-top-color: var(--line); box-shadow: none; border: 1px solid var(--line); border-top-width: 4px; } .dc.done { border-top-color: var(--poplar); } .dc.done h3::before { content: "✓ "; color: var(--poplar); }
+.dh { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; font-family: var(--f-mono); font-size: .74rem; color: var(--ink-2); } .dh .dd { font-weight: 600; color: var(--adobe); } .dh .dd.late { color: var(--malbec); } .dh .dk::before { content: "· "; }
+.dc h3 { margin: 0; font-size: 1.3rem; text-wrap: balance; } .dh .drun { background: var(--poplar); color: var(--on-malbec); padding: 1px 8px; border-radius: 999px; font-weight: 600; } .dres { margin: 0; font-size: .92rem; color: var(--poplar); font-weight: 600; }
+.dop { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; } .dop li { padding: 7px 10px; border-radius: 6px; background: var(--chip); font-size: .9rem; display: grid; gap: 2px; } .dop li b { font-weight: 600; } .dop li span { color: var(--ink-2); font-size: .86rem; }
+.dop li.rek { background: color-mix(in srgb, var(--poplar) 14%, var(--paper)); box-shadow: inset 3px 0 0 var(--poplar); } .dop li.rek b::after { content: " · polecane"; font-weight: 500; font-size: .78rem; color: var(--poplar); font-family: var(--f-mono); }
+.drek { margin: 2px 0 0; font-size: .92rem; } .dw { margin: 0; font-size: .86rem; color: var(--ink-2); } .dw b { color: var(--ink); font-weight: 600; }
+.df { margin-top: auto; padding-top: 6px; display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: .88rem; } .dok { display: inline-flex; gap: 8px; align-items: center; cursor: pointer; color: var(--ink-2); } .dok input { accent-color: var(--poplar); width: 18px; height: 18px; } .df a { font-weight: 600; }
+.dclosed { margin-top: 18px; } .dclosed > .dgrid { margin-top: 12px; }
+.osh { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 10px 20px; margin: 38px 0 12px; } .osh h3 { margin: 0 0 4px; font-size: 1.5rem; } .osh .note { margin: 0; font-size: .9rem; color: var(--ink-2); max-width: 60ch; } .osh .seg { margin: 0; }
+.os { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
+.os .osm { font-family: var(--f-mono); font-size: .76rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding: 14px 0 6px 18px; }
+.os .ostoday { padding: 6px 0 6px 18px; position: relative; } .os .ostoday span { display: inline-block; background: var(--malbec); color: var(--on-malbec); font-family: var(--f-mono); font-size: .76rem; letter-spacing: .06em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; } .os .ostoday::before { content: ""; position: absolute; left: -7px; top: 50%; width: 12px; height: 12px; margin-top: -6px; border-radius: 50%; background: var(--malbec); }
+.os .osi { display: grid; grid-template-columns: 92px 92px minmax(0, 1fr); gap: 4px 12px; padding: 7px 0 7px 18px; font-size: .92rem; position: relative; align-items: baseline; }
+.os .osi::before { content: ""; position: absolute; left: -5px; top: 14px; width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
+.os .osd { font-family: var(--f-mono); font-size: .8rem; color: var(--ink); white-space: nowrap; } .os .osk { font-family: var(--f-mono); font-size: .76rem; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); } .os .run .osk::after { content: " · w toku"; color: var(--poplar); } .os .osl { font-weight: 600; }
+.os .ost { min-width: 0; } .os .ost b { font-weight: 600; } .os .ost small { display: block; color: var(--ink-2); font-size: .84rem; margin-top: 2px; } .os .ost label { display: inline-flex; gap: 8px; align-items: flex-start; cursor: pointer; } .os .ost input { margin-top: 3px; accent-color: var(--poplar); width: 17px; height: 17px; flex: none; } .os .ost a { margin-left: 4px; }
+.os .k-decyzja::before, .os .k-wyjazd::before { background: var(--malbec); } .os .k-rezerwacja::before { background: var(--adobe); } .os .k-zadanie::before { background: var(--poplar); } .os .k-faza .osk { color: var(--adobe); }
+.os .past { color: var(--muted); } .os .past .osd { color: var(--muted); } .os .done .ost label span { text-decoration: line-through; color: var(--muted); } .os .late { background: color-mix(in srgb, var(--malbec) 8%, transparent); } .os .late .osd { color: var(--malbec); font-weight: 600; }
+.os .osmore { padding: 10px 0 0 18px; }
+.dshare { margin-top: 36px; padding: 18px 20px; background: var(--paper); border-radius: 10px; border: 1px dashed var(--line); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px 24px; align-items: center; } .dshare h3 { margin: 0 0 4px; font-size: 1.25rem; } .dshare .note { margin: 0; font-size: .9rem; color: var(--ink-2); max-width: 60ch; } .dsb { display: flex; align-items: center; gap: 10px; } .dsb .btn { margin: 0; } .copied { font-family: var(--f-mono); font-size: .78rem; color: var(--poplar); }
+.dtxt { grid-column: 1 / -1; width: 100%; box-sizing: border-box; font: inherit; font-size: .88rem; line-height: 1.45; padding: 10px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--chip); color: var(--ink); resize: vertical; }
+.pig { margin: 0 0 26px; } .pig .ptw { margin: 0; } .pigt caption { text-align: left; padding: 0 0 8px; } .pigt td a { font-weight: 600; } .pigt tr.anniv td { background: color-mix(in srgb, var(--malbec) 7%, transparent); } .pigt tfoot td { color: var(--ink-2); font-size: .84rem; border-bottom: 0; } .pigt .tag { margin-left: 6px; vertical-align: middle; }
+.day { scroll-margin-top: 72px; } .ug { margin-top: 10px; }
+.pigt .ncm { display: none; } .tnow .tnext, .tnow .tlate { display: block; margin-top: 6px; } .tnow .tlate { color: var(--malbec); font-weight: 600; }
+@media (max-width: 760px) { .os .osi { display: block; padding-left: 16px; } .os .osd, .os .osk { display: inline; } .os .osk::before { content: " · "; letter-spacing: 0; } .os .ost { display: block; margin-top: 2px; } .dshare { grid-template-columns: minmax(0, 1fr); } .pigt .nc, .pigt .rt { display: none; } .pigt .ncm { display: block; color: var(--muted); font-size: .8rem; font-weight: 400; } .pigt td { padding: 8px 6px; } .tcard .tnow { order: -1; } }
 .raport { margin-top: 22px; padding: 20px 22px; background: var(--stone); border-left: 4px solid var(--malbec); border-radius: 6px; }
 .raport h3 { margin: 4px 0 10px; font-size: 1.35rem; text-wrap: balance; }
 .raport .rpp { margin: 0; padding-left: 18px; display: grid; gap: 6px; } .raport .rpp b { font-weight: 600; }
@@ -437,7 +469,7 @@ details.ctx { border-top: 1px solid var(--line); padding: 8px 0; } details.ctx >
 .total > div { min-width: 0; max-width: 100%; } .total > div:last-child { text-align: right; display: flex; flex-direction: column; align-items: flex-end; } .limit { white-space: normal; }
 @media (max-width: 560px) { .total { flex-direction: column; align-items: flex-start; } .total > div:last-child { text-align: left; align-items: flex-start; } }
 .tl.rz label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; min-width: 0; } .tl.rz span { min-width: 0; overflow-wrap: anywhere; } .tl.rz input { margin-top: 5px; accent-color: var(--malbec); width: 18px; height: 18px; flex: none; } .tl.rz input:checked + span { text-decoration: line-through; color: var(--muted); }
-@media print { .nav, .lmap, .leaflet-control-container, .tools, #theme, .lb, .hsel, .ptw, .al, .bastrip, .hgal .ph:not(:first-child), .gal { display: none !important; } .map > svg, .map.live > svg { display: block !important; } body { background: #fff; color: #000; } .blk { padding: 16px 0; break-inside: avoid; } .day, .hk, .tort { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; } .day .ph img { max-height: 220px; object-fit: cover; } a { color: inherit; text-decoration: none; } .hero { min-height: 0; } .hero img, .hero canvas { display: none; } .hero .wrap * { color: #000 !important; text-shadow: none !important; } }
+@media print { .dshare, .osh .seg, .os .osmore, .os li[hidden] { display: none !important; } .nav, .lmap, .leaflet-control-container, .tools, #theme, .lb, .hsel, .ptw:not(.pigw), .al, .bastrip, .hgal .ph:not(:first-child), .gal { display: none !important; } .map > svg, .map.live > svg { display: block !important; } body { background: #fff; color: #000; } .blk { padding: 16px 0; break-inside: avoid; } .day, .hk, .tort { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; } .day .ph img { max-height: 220px; object-fit: cover; } a { color: inherit; text-decoration: none; } .hero { min-height: 0; } .hero img, .hero canvas { display: none; } .hero .wrap * { color: #000 !important; text-shadow: none !important; } }
 .mosaic { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; background: var(--paper); padding: 6px 0; } .mosaic figure { margin: 0; position: relative; overflow: hidden; } .mosaic img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; transition: transform .6s ease; cursor: zoom-in; } .mosaic figure:hover img { transform: scale(1.05); }
 .mosaic figcaption { position: absolute; left: 8px; right: 8px; bottom: 6px; font-size: .7rem; color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,.8); opacity: 0; transition: opacity .3s; } .mosaic figure:hover figcaption { opacity: 1; }
 @media (max-width: 760px) { .mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); } .mosaic figure:first-child { grid-column: 1 / -1; } .mosaic figure:first-child img { aspect-ratio: 16 / 9; } .mosaic figure:nth-child(n+4) { display: none; } }
@@ -510,6 +542,7 @@ footer a { color: var(--ink-2); }
   <div class="wrap">
     <b>Valle de Uco</b>
     <ul>
+      <li><a href="#decyzje">Decyzje</a></li>
       <li><a href="#trasa">Trasa</a></li>
       <li><a href="#plan">Plan</a></li>
       <li><a href="#budzet">Budżet</a></li>
@@ -567,6 +600,20 @@ footer a { color: var(--ink-2); }
     '<p>' + esc(P.tagline || X.teaser || '') + '</p>' +
     '<div class="count"><div><b>' + dd(new Date(2027, 10, 5)) + '</b><span>dni do wylotu</span></div><div><b>' + dd(new Date(2027, 10, 10)) + '</b><span>dni do rocznicy</span></div><div><b>' + X.temp + ' °C</b><span>w listopadzie</span></div></div>' +
     '</div>' + (D.hero ? '<span class="cred">' + esc(D.hero.cap) + (D.hero.au ? ' · <a href="' + esc(D.hero.page) + '" target="_blank" rel="noopener">fot. ' + esc(D.hero.au) + (D.hero.lic ? ', ' + esc(D.hero.lic) : '') + '</a>' : ' · <a href="' + esc(D.hero.page) + '" target="_blank" rel="noopener">Wikimedia Commons</a>') + '</span>' : '') + '</header>';
+  // oś czasu planowania: jedna lista terminów z faz zakupu biletów, kamieni milowych, rezerwacji, zadań i otwartych decyzji
+  var TD = (function () { var t = new Date(); return t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0'); })();
+  var DEC = P.decyzje || [], RZL = P.rezerwacje || [], LK = (P.loty || {}).kalendarz || {}, ZDL = (P.loty || {}).zadania || [];
+  function dpl2(x) { var q = String(x).split('-'); return q.length === 3 ? +q[2] + '.' + q[1] + '.' + q[0] : String(x); }
+  function dsh(x) { var q = String(x).split('-'); return q.length === 3 ? +q[2] + '.' + q[1] : String(x); }
+  var EV = [];
+  (LK.fazy || []).forEach(function (f) { EV.push({ d: f.od, od: f.od, do: f.do, t: 'Faza: ' + f.faza, k: 'faza', s: '#kalendarz', opis: f.decyzja }); });
+  var EVD = {}; (LK.fazy || []).forEach(function (f) { EVD[f.od] = EVD[f.do] = 1; }); ZDL.forEach(function (z) { EVD[z.do] = 1; });
+  (LK.kamienie || []).forEach(function (k) { if (!EVD[k.d]) EV.push({ d: k.d, t: k.t, k: 'kamień', s: '#kalendarz' }); });
+  RZL.forEach(function (r, i) { if (r.do) EV.push({ d: r.do, od: r.od, t: r.k || r.krotko || r.what, k: 'rezerwacja', chk: 'r', id: String(i), s: '#rezerwacje' }); });
+  ZDL.forEach(function (z) { if (z.do) EV.push({ d: z.do, od: z.od, t: z.t, k: 'zadanie', chk: 'td', id: z.id, s: '#zadania', kto: z.kto }); });
+  DEC.forEach(function (x) { if (x.stan !== 'zamknieta') EV.push({ d: x.do, t: x.t, k: 'decyzja', chk: 'dec', id: x.id, s: '#dec-' + x.id, kto: /par/.test(x.kto || '') ? 'pary' : 'my' }); });
+  EV.push({ d: '2027-11-04', t: 'Wylot z Warszawy (4.11 po 20:00 albo 5.11)', k: 'wyjazd', s: '#plan' }, { d: '2027-11-10', t: '20. rocznica ślubu – dzień Zuccardi', k: 'wyjazd', s: '#plan' });
+  EV.sort(function (a, b) { return a.d < b.d ? -1 : a.d > b.d ? 1 : 0; });
   // karta wyjazdu: kiedy, gdzie śpimy, ile kosztuje i co teraz zrobić – w jednym miejscu, zanim zacznie się reszta strony
   (function () {
     var FZ = ((P.loty || {}).kalendarz || {}).fazy || [], t = new Date(), td = t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0');
@@ -579,8 +626,43 @@ footer a { color: var(--ink-2); }
       '<div class="tc"><span class="tl">Kiedy</span><b>5–14 listopada 2027</b><small>wylot z Warszawy 4.11 po 20:00 albo 5.11 · powrót najpóźniej w niedzielę 14.11 · rocznica w środę 10.11</small></div>' +
       '<div class="tc"><span class="tl">Gdzie śpimy</span><ol class="tst">' + (P.etapy || []).map(function (e) { return '<li><i>' + e.noce + '</i><span><b>' + esc(e.hotel) + '</b><small>' + esc(e.nazwa) + '</small></span></li>'; }).join('') + '</ol></div>' +
       '<div class="tc"><span class="tl">Koszt na parę</span><b data-dyn="koszt">–</b><small data-dyn="zapas"></small><a href="#budzet">budżet i upgrade’y →</a></div>' +
-      '<div class="tc tnow"><span class="tl">Teraz</span>' + teraz + '<a href="#kalendarz">kalendarz kupowania →</a></div>' +
+      '<div class="tc tnow"><span class="tl">Teraz</span>' + teraz + '<small class="tnext" data-tnext></small><small class="tlate" data-tlate hidden></small><a href="#decyzje">decyzje i terminy →</a></div>' +
       '</div></div></section>';
+  })();
+  // decyzje i terminy: otwarte decyzje z opcjami i rekomendacją, oś czasu do wylotu, podsumowanie dla pozostałych par
+  (function () {
+    if (!DEC.length && !EV.length) return;
+    function card(x) {
+      var open = x.stan !== 'zamknieta', late = open && x.do < TD, run = open && x.id === 'loty' && (LK.fazy || []).some(function (f) { return f.od <= TD && TD <= f.do; });
+      return '<article class="dc' + (open ? '' : ' closed') + '" id="dec-' + esc(x.id) + '" data-dec-card="' + esc(x.id) + '"><div class="dh"><span class="dd' + (late ? ' late' : '') + '">' + (open ? (late ? 'po terminie · ' : 'do ') + dpl2(x.do) : 'zamknięte ' + dpl2(x.do)) + '</span>' + (x.kto ? '<span class="dk">' + esc(x.kto) + '</span>' : '') + (run ? '<span class="drun">trwa teraz</span>' : '') + '</div><h3>' + esc(x.t) + '</h3>' +
+        (x.wynik ? '<p class="dres">Ustalono: ' + esc(x.wynik) + '</p>' : '') +
+        '<ul class="dop">' + (x.opcje || []).map(function (o) { return '<li' + (o[2] ? ' class="rek"' : '') + '><b>' + esc(o[0]) + '</b>' + (o[1] ? '<span>' + esc(o[1]) + '</span>' : '') + '</li>'; }).join('') + '</ul>' + (x.uwaga ? '<p class="dw">' + esc(x.uwaga) + '</p>' : '') +
+        (x.rek ? '<p class="drek">' + esc(x.rek) + '</p>' : '') + (x.wplyw ? '<p class="dw"><b>Wpływ:</b> ' + esc(x.wplyw) + '</p>' : '') +
+        '<div class="df">' + (open ? '<label class="dok"><input type="checkbox" data-dec="' + esc(x.id) + '"><span>ustalone</span></label>' : '') + (x.sekcja ? '<a href="' + esc(x.sekcja) + '">szczegóły →</a>' : '') + '</div></article>';
+    }
+    function grp(x) { return /wszystkie/.test(x.kto || '') ? 0 : /par/.test(x.kto || '') ? 1 : 2; }
+    var open = DEC.filter(function (x) { return x.stan !== 'zamknieta'; }).sort(function (a, b) { return grp(a) - grp(b) || (a.do < b.do ? -1 : a.do > b.do ? 1 : 0); }), closed = DEC.filter(function (x) { return x.stan === 'zamknieta'; });
+    var months = ['stycznia', 'lutego', 'marca', 'kwietnia', 'maja', 'czerwca', 'lipca', 'sierpnia', 'września', 'października', 'listopada', 'grudnia'];
+    function mlabel(d) { var q = d.split('-'); return ['styczeń', 'luty', 'marzec', 'kwiecień', 'maj', 'czerwiec', 'lipiec', 'sierpień', 'wrzesień', 'październik', 'listopad', 'grudzień'][+q[1] - 1] + ' ' + q[0]; }
+    var os = '', lastM = '', todayDone = false;
+    EV.forEach(function (e) {
+      var m = e.d.slice(0, 7);
+      if (!todayDone && e.d >= TD) { os += '<li class="ostoday" data-d="' + TD + '"><span>dziś · ' + dpl2(TD) + '</span></li>'; todayDone = true; }
+      if (m !== lastM) { os += '<li class="osm" data-m="' + m + '">' + mlabel(e.d) + '</li>'; lastM = m; }
+      var past = (e.do || e.d) < TD;
+      os += '<li class="osi k-' + e.k + (past ? ' past' : '') + '" data-d="' + e.d + '" data-m="' + m + '"' + (e.od ? ' data-od="' + e.od + '"' : '') + (e.do ? ' data-do="' + e.do + '"' : (e.chk === 'td' ? ' data-do="' + e.d + '"' : '')) + '>' +
+        '<span class="osd">' + dsh(e.d) + (e.do ? '–' + dsh(e.do) : '') + '</span><span class="osk">' + e.k + '</span>' +
+        '<span class="ost">' + (e.chk ? '<label><input type="checkbox" data-' + (e.chk === 'dec' ? 'dec' : e.chk === 'td' ? 'td' : 'r') + '="' + esc(e.id) + '"><span>' + esc(e.t) + (e.s ? ' <a href="' + esc(e.s) + '" aria-label="Szczegóły">→</a>' : '') + '</span></label>' : (e.s ? '<a class="osl" href="' + esc(e.s) + '">' + esc(e.t) + '</a>' : '<b>' + esc(e.t) + '</b>')) + (e.opis ? '<small>' + esc(e.opis) + '</small>' : '') + '</span></li>';
+    });
+    if (!todayDone) os += '<li class="ostoday" data-d="' + TD + '"><span>dziś · ' + dpl2(TD) + '</span></li>';
+    h += '<section class="blk" id="decyzje"><div class="wrap"><div class="sh"><div><p class="eyebrow">Planowanie</p><h2>Decyzje i terminy</h2><p>Co trzeba ustalić, do kiedy i co z tego wynika dla budżetu. Niżej jedna oś czasu wszystkich terminów do wylotu: zakup biletów, rezerwacje, zadania. Odhaczone rzeczy zapisują się w tej przeglądarce.</p></div></div>' +
+      '<div class="dnext" id="dnext" aria-live="polite"></div>' +
+      '<div class="dgrid" id="dgrid">' + open.map(card).join('') + '</div>' +
+      (closed.length ? '<details class="dmore dclosed"><summary>Rozstrzygnięte (' + closed.length + ')</summary><div class="dgrid">' + closed.map(card).join('') + '</div></details>' : '') +
+      '<div class="osh"><div><h3>Oś czasu do wylotu</h3><p class="note">Fazy zakupu biletów, kamienie milowe, rezerwacje i zadania w jednym porządku. Przeterminowane są podświetlone.</p></div><div class="seg" role="group" aria-label="Zakres osi czasu"><button type="button" data-os="90" aria-pressed="true">Najbliższe 90 dni</button><button type="button" data-os="all" aria-pressed="false">Wszystko do wylotu</button></div></div>' +
+      '<ol class="os" id="os">' + os + '</ol>' +
+      '<div class="dshare"><div><h3>Dla pozostałych par</h3><p class="note">Krótkie podsumowanie planu z aktualnym budżetem, otwartymi decyzjami i najbliższymi terminami – do wklejenia w WhatsApp albo mail. Liczy się dla liczby par i lotów wybranych w sekcji Budżet.</p></div><div class="dsb"><button type="button" class="btn" id="dcopy">Skopiuj podsumowanie</button><span class="copied" id="dcopied" hidden>Skopiowano</span></div><textarea id="dtxt" class="dtxt" hidden readonly rows="12" aria-label="Podsumowanie planu"></textarea></div>' +
+      '</div></section>';
   })();
   if (D.mosaic && D.mosaic.length) h += '<div class="mosaic" aria-label="Zdjęcia z trasy">' + D.mosaic.map(function (g) { return '<figure>' + img(g, '', false, '(max-width: 760px) 50vw, 20vw') + '<figcaption>' + esc(g.cap) + '</figcaption></figure>'; }).join('') + '</div>';
   h += band('trasa');
@@ -611,9 +693,10 @@ footer a { color: var(--ink-2); }
   }
   // plan dnia
   h += '<section class="blk" id="plan" style="background:var(--paper)"><div class="wrap"><div class="sh"><div><p class="eyebrow">Dzień po dniu</p><h2>Osiem dni: Andy, winnice i Buenos Aires</h2><p>Rano szlak albo winnica, w południe lekki lunch, wieczorem zachód słońca nad Andami; 10 listopada należy do Zuccardi, a finał do tanga.</p></div></div>' +
+    '<div class="pig"><div class="ptw pigw"><table class="pt pigt"><caption class="eyebrow">Plan w pigułce</caption><thead><tr><th>Dzień</th><th class="nc">Nocleg</th><th>Co najważniejsze</th><th class="n">Na parę</th></tr></thead><tbody>' + D.days.map(function (d) { return '<tr' + (d.anniv ? ' class="anniv"' : '') + '><td><b>' + esc(d.date) + '</b><span class="rt">' + esc(d.dow || '') + '</span></td><td class="nc">' + esc(d.noc || '') + '</td><td><a href="#d' + d.date.replace('.', '-') + '">' + esc(d.title) + '</a>' + (d.anniv ? ' <span class="tag">rocznica</span>' : '') + '<small class="ncm">' + esc(d.noc || '') + '</small></td><td class="n">' + (d.cost ? nf(d.cost) + '\u00a0zł' : '–') + '</td></tr>'; }).join('') + '</tbody><tfoot><tr><td colspan="3" class="pigf">Razem koszty dni (jedzenie, degustacje, bilety, taksówki) – w budżecie jako „jedzenie” i „wycieczki”</td><td class="n"><b>' + nf(D.days.reduce(function (a, d) { return a + (d.cost || 0); }, 0)) + '\u00a0zł</b></td></tr></tfoot></table></div></div>' +
     (X.dayflow ? '<ul class="flow" aria-label="Typowy dzień">' + X.dayflow.map(function (f) { return '<li><b>' + esc(f[0]) + '</b>' + esc(f[1]) + '</li>'; }).join('') + '</ul><div style="height:26px"></div>' : '') +
     '<ol class="days" style="list-style:none;margin:0;padding:0">' + D.days.map(function (d) {
-      return '<li class="day reveal' + (d.anniv ? ' anniv' : '') + '">' + (d.img ? '<figure class="ph" style="margin:0">' + img(d.img) + (d.img2 ? '<span class="ph2">' + img(d.img2, '', false, '240px') + '</span>' : '') + '<figcaption>' + esc(d.img.cap) + cred(d.img) + '</figcaption></figure>' : '<div class="ph"><canvas class="scn" data-k="' + esc(d.k || 'gory') + '" data-seed="' + (D.days.indexOf(d) + 3) + '" data-anniv="' + (d.anniv ? 1 : 0) + '" aria-hidden="true"></canvas></div>') +
+      return '<li class="day reveal' + (d.anniv ? ' anniv' : '') + '" id="d' + d.date.replace('.', '-') + '">' + (d.img ? '<figure class="ph" style="margin:0">' + img(d.img) + (d.img2 ? '<span class="ph2">' + img(d.img2, '', false, '240px') + '</span>' : '') + '<figcaption>' + esc(d.img.cap) + cred(d.img) + '</figcaption></figure>' : '<div class="ph"><canvas class="scn" data-k="' + esc(d.k || 'gory') + '" data-seed="' + (D.days.indexOf(d) + 3) + '" data-anniv="' + (d.anniv ? 1 : 0) + '" aria-hidden="true"></canvas></div>') +
         '<div class="bd"><div class="dt"><b>' + esc(d.date) + '</b><span>' + esc(d.dow || '') + '</span>' + (d.anniv ? ' <span class="tag">rocznica</span>' : '') + '</div><h3>' + esc(d.title) + '</h3><p>' + esc(d.krotko || d.text) + '</p>' + (d.krotko ? '<details class="dmore"><summary>Szczegóły dnia, alternatywy i upgrade’y</summary><p>' + esc(d.text) + '</p></details>' : '') +
         (d.cost ? '<span class="cost">ok. ' + nf(d.cost) + '\u00a0zł na parę tego dnia</span>' : '') + '</div></li>';
     }).join('') + '</ol></div></section>';
@@ -775,9 +858,9 @@ footer a { color: var(--ink-2); }
   h += '<section class="blk" id="przygotowania" style="background:var(--paper)"><div class="wrap"><div class="sh"><div><p class="eyebrow">Zanim polecimy</p><h2>Przygotowania</h2></div></div><div class="cols">' +
     (P.dojazd ? '<div><h3>Dojazd</h3><details class="dmore"><summary>Loty, przesiadki i transport na miejscu</summary><p class="prose">' + esc(P.dojazd) + '</p></details></div>' : '') +
     (P.pogoda ? '<div><h3>Pogoda w listopadzie</h3><p class="prose">' + esc(P.pogoda) + '</p></div>' : '') +
-    (P.rezerwacje ? '<div style="grid-column:1/-1"><h3>Co i kiedy rezerwować</h3><p class="prose" style="font-size:.9rem;color:var(--muted);margin:0 0 10px">Odhaczaj zrobione – zapisuje się w tej przeglądarce.</p><ol class="tl rz">' + P.rezerwacje.map(function (r, i) { return '<li><b>' + esc(r.when) + '</b><div><label><input type="checkbox" data-r="' + i + '"><span>' + esc(r.krotko || r.what) + '</span></label>' + (r.krotko ? '<details class="dmore"><summary>Szczegóły, kontakty i opcje</summary><p>' + esc(r.what) + '</p></details>' : '') + '</div></li>'; }).join('') + '</ol></div>' : '') +
+    (P.rezerwacje ? '<div style="grid-column:1/-1" id="rezerwacje"><h3>Co i kiedy rezerwować</h3><p class="prose" style="font-size:.9rem;color:var(--muted);margin:0 0 10px">Odhaczaj zrobione – zapisuje się w tej przeglądarce.</p><ol class="tl rz">' + P.rezerwacje.map(function (r, i) { return '<li><b>' + esc(r.when) + '</b><div><label><input type="checkbox" data-r="' + i + '"><span>' + esc(r.krotko || r.what) + '</span></label>' + (r.krotko ? '<details class="dmore"><summary>Szczegóły, kontakty i opcje</summary><p>' + esc(r.what) + '</p></details>' : '') + '</div></li>'; }).join('') + '</ol></div>' : '') +
     (P.zabrac ? '<div><h3>Co zabrać</h3><ul class="chk">' + P.zabrac.map(function (z, i) { return '<li><label><input type="checkbox" id="z' + i + '" data-z="' + i + '"><span>' + esc(z) + '</span></label></li>'; }).join('') + '</ul></div>' : '') +
-    (P.uwagi ? '<div><h3>Warto wiedzieć</h3><details class="dmore"><summary>Notatki z researchu (' + P.uwagi.length + ')</summary><ul class="ul">' + P.uwagi.map(function (u) { return '<li>' + esc(u) + '</li>'; }).join('') + '</ul></details></div>' : '') +
+    (P.uwagi ? (function () { var G = [], M = {}; P.uwagi.forEach(function (u) { var k = (u && u.kat) || 'Inne', t = u && u.t != null ? u.t : u; if (!M[k]) { M[k] = []; G.push(k); } M[k].push(t); }); return '<div><h3>Warto wiedzieć</h3><p class="note" style="margin:0 0 8px">Notatki z researchu (' + P.uwagi.length + ') w grupach tematycznych.</p>' + G.map(function (k) { return '<details class="dmore ug"><summary>' + esc(k) + ' (' + M[k].length + ')</summary><ul class="ul">' + M[k].map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul></details>'; }).join('') + '</div>'; })() : '') +
     '<div><h3>Smaki i słowa</h3><p class="prose">Danie: <b>' + esc(X.dish || '') + '</b>.' + (X.word ? ' Słowo: <b>' + esc(X.word[0]) + '</b>, czyli ' + esc(X.word[1]) + '.' : '') + '</p></div>' +
     '</div></div></section>';
   // galeria
@@ -977,6 +1060,7 @@ footer a { color: var(--ink-2); }
       (o.hotele && o.hotele.length ? '<div class="vh"><p class="eyebrow">Hotele tego wariantu</p><div class="vhg">' + D.hotele.map(function (c, hi) { if (o.hotele.indexOf(c.n) < 0) return ''; var im = (c.gal && c.gal[0]) || c.img; return '<a class="vhc" href="#hk-' + hi + '" data-go="hk-' + hi + '">' + (im ? '<img src="' + esc(im.s) + '"' + (im.w ? ' width="' + im.w + '" height="' + im.h + '"' : '') + ' alt="" loading="lazy">' : '') + '<span class="vhb"><span class="eyebrow">' + esc(c.rola) + '</span><b>' + esc(c.n) + '</b><span class="vhp">ok. ' + (c.rate || '?') + ' ' + esc(c.cur || 'USD') + ' za noc</span><span class="vhs">' + esc(c.short || '') + '</span><span class="vhl">Pełna karta hotelu ↓</span></span></a>'; }).join('') + '</div></div>' : '') +
       (o.note ? '<details class="dmore"><summary>Uzasadnienie i szczegóły wariantu</summary><p class="note">' + esc(o.note) + '</p></details>' : '') + (o.url ? '<p class="note"><a href="' + esc(o.url) + '" target="_blank" rel="noopener">Strona hotelu ↗</a></p>' : '');
   }
+  window.__bud = function () { var o = D.hotels[cur]; return { np: np, o: o, b: calc(o), lotyOs: lsOpt() ? lsOpt()[2] / 2 : null, ups: UPG.filter(function (x) { return UP[x.id]; }).map(function (x) { return x.co + (x.zl ? ' (+' + nf(x.zl) + ' zł)' : ''); }) }; };
   document.querySelectorAll('.hc').forEach(function (el) { el.addEventListener('click', function () { cur = +el.dataset.h; save('hbn', D.hotels[cur].n); bud(); }); });
   document.addEventListener('click', function (e) { if (e.target.closest('[data-hbase]')) { cur = 0; save('hbn', D.hotels[0].n); bud(); } });
   document.addEventListener('change', function (e) { var c = e.target.closest('[data-up]'); if (!c) return; UP[c.dataset.up] = c.checked; save('up', UP); bud(); });
@@ -1035,7 +1119,7 @@ footer a { color: var(--ink-2); }
     var L = document.querySelectorAll('[data-td]'); if (!L.length) return;
     var t0 = new Date(), td = t0.getFullYear() + '-' + String(t0.getMonth() + 1).padStart(2, '0') + '-' + String(t0.getDate()).padStart(2, '0'), dn = load('td', {});
     function paint() { L.forEach(function (c) { var li = c.closest('li'); c.checked = !!dn[c.dataset.td]; li.classList.toggle('done', c.checked); li.classList.toggle('late', !c.checked && li.dataset.do < td); li.classList.toggle('now', !c.checked && li.dataset.do >= td && (li.dataset.od || '0') <= td); }); }
-    L.forEach(function (c) { c.addEventListener('change', function () { dn[c.dataset.td] = c.checked; save('td', dn); paint(); if (window.__lotyRender) window.__lotyRender(); }); });
+    L.forEach(function (c) { c.addEventListener('change', function () { dn[c.dataset.td] = c.checked; save('td', dn); paint(); if (window.__lotyRender) window.__lotyRender(); if (window.__osPaint) window.__osPaint(); }); });
     paint();
   })();
   // stopka: kopiowanie linku i druk
@@ -1052,7 +1136,63 @@ footer a { color: var(--ink-2); }
   var pc = load('pc', {});
   document.querySelectorAll('[data-pc]').forEach(function (c) { c.checked = !!pc[c.dataset.pc]; c.addEventListener('change', function () { pc[c.dataset.pc] = c.checked; save('pc', pc); }); });
   var rz = load('rz', {});
-  document.querySelectorAll('[data-r]').forEach(function (c) { c.checked = !!rz[c.dataset.r]; c.addEventListener('change', function () { rz[c.dataset.r] = c.checked; save('rz', rz); }); });
+  document.querySelectorAll('[data-r]').forEach(function (c) { c.checked = !!rz[c.dataset.r]; c.addEventListener('change', function () { rz[c.dataset.r] = c.checked; save('rz', rz); document.querySelectorAll('[data-r="' + c.dataset.r + '"]').forEach(function (o) { o.checked = c.checked; }); if (window.__osPaint) window.__osPaint(); }); });
+  // decyzje: „ustalone” zapisuje się lokalnie; oś czasu: filtr zakresu, stan odhaczeń, pasek najbliższych terminów; podsumowanie dla par
+  (function () {
+    var osEl = document.getElementById('os'), dn = document.getElementById('dnext'); if (!osEl) return;
+    var dec = load('dec', {}), range = load('os', '90');
+    function lim() { var q = TD.split('-'), t = new Date(+q[0], +q[1] - 1, +q[2] + 90); return t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0'); }
+    function paint() {
+      var done = { r: load('rz', {}), td: load('td', {}), dec: dec }, L = lim();
+      document.querySelectorAll('[data-dec]').forEach(function (c) { c.checked = !!dec[c.dataset.dec]; });
+      document.querySelectorAll('[data-dec-card]').forEach(function (a) { a.classList.toggle('done', !!dec[a.dataset.decCard]); });
+      var vis = {};
+      osEl.querySelectorAll('li.osi').forEach(function (li) {
+        var c = li.querySelector('input'), isDone = c ? c.checked : false, past = (li.dataset.do || li.dataset.d) < TD, run = !past && li.dataset.d < TD;
+        li.classList.toggle('done', isDone); li.classList.toggle('late', !isDone && past && !!c); li.classList.toggle('run', run && !isDone);
+        var show = range === 'all' || (li.dataset.d <= L && (!past || (!isDone && !!c)));
+        li.hidden = !show; if (show) vis[li.dataset.m] = true;
+      });
+      osEl.querySelectorAll('li.osm').forEach(function (li) { li.hidden = !vis[li.dataset.m]; });
+      var hiddenN = osEl.querySelectorAll('li.osi[hidden]').length, more = osEl.querySelector('.osmore');
+      if (more) more.remove(); if (hiddenN && range !== 'all') osEl.insertAdjacentHTML('beforeend', '<li class="osmore"><button type="button" class="lnk" data-os="all">Pokaż wszystko do wylotu (jeszcze ' + hiddenN + ')</button></li>');
+      document.querySelectorAll('[data-os]').forEach(function (b) { if (b.hasAttribute('aria-pressed')) b.setAttribute('aria-pressed', b.dataset.os === range ? 'true' : 'false'); });
+      var act = EV.filter(function (e) { return e.d >= TD && e.chk && !done[e.chk][e.id]; }), late = EV.filter(function (e) { return e.d < TD && e.chk && !done[e.chk][e.id]; });
+      var nxP = act.filter(function (e) { return e.kto === 'pary'; }).slice(0, 3), nxM = act.filter(function (e) { return e.kto !== 'pary'; }).slice(0, 3);
+      function row(e) { var dd = Math.ceil((new Date(e.d) - new Date(TD)) / 864e5); return '<li><a href="' + esc(e.s || '#os') + '">' + esc(e.t) + '</a><small>' + dpl2(e.d) + ' · ' + (dd === 0 ? 'dziś' : 'za ' + dd + (dd === 1 ? ' dzień' : ' dni')) + '</small></li>'; }
+      if (dn) dn.innerHTML = (late.length ? '<div class="dn late"><span class="cl">Po terminie (' + late.length + ')</span><ul>' + late.map(function (e) { return '<li><a href="' + esc(e.s || '#os') + '">' + esc(e.t) + '</a><small>' + dpl2(e.d) + '</small></li>'; }).join('') + '</ul></div>' : '') +
+        '<div class="dn"><span class="cl">Dla wszystkich par</span>' + (nxP.length ? '<ul>' + nxP.map(row).join('') + '</ul>' : '<p>Nic do zrobienia – wszystko ustalone.</p>') + '</div>' +
+        '<div class="dn"><span class="cl">Dla nas i agenta</span>' + (nxM.length ? '<ul>' + nxM.map(row).join('') + '</ul>' : '<p>Nic pilnego.</p>') + '</div>';
+      var tn = document.querySelector('[data-tnext]'), tl = document.querySelector('[data-tlate]'), n0 = nxP[0] || act[0];
+      if (tn) tn.textContent = n0 ? 'Najbliżej: do ' + dpl2(n0.d) + ' – ' + n0.t : '';
+      if (tl) { tl.hidden = !late.length; tl.textContent = late.length ? late.length + (late.length === 1 ? ' rzecz po terminie' : late.length < 5 ? ' rzeczy po terminie' : ' rzeczy po terminie') : ''; }
+    }
+    document.addEventListener('change', function (e) { var c = e.target.closest('[data-dec]'); if (!c) return; dec[c.dataset.dec] = c.checked; save('dec', dec); paint(); });
+    document.addEventListener('click', function (e) { var b = e.target.closest('[data-os]'); if (!b) return; range = b.dataset.os; save('os', range); paint(); });
+    window.__osPaint = paint; paint();
+    function sumText() {
+      var B = window.__bud ? window.__bud() : null, lines = [], cel = CFG.cel || 4000, sh = function (n) { return n.replace(/ Vineyards & Wine Resort| – Casa Vita/, ''); };
+      lines.push('🍷 Mendoza i Buenos Aires, 5–14.11.2027 – 20. rocznica ślubu (10.11)');
+      lines.push('Trasa: ' + (P.etapy || []).map(function (e) { return e.noce + (e.noce === 1 ? ' noc ' : ' noce ') + sh(e.hotel) + ' (' + e.nazwa.replace(/\s*\(.*\)$/, '') + ')'; }).join(' → ') + '. Bus z kierowcą, trzy winnice, dzień w wysokich Andach, na finał tango.');
+      lines.push('Wylot z Warszawy 4.11 wieczorem albo 5.11, lądowanie w Warszawie najpóźniej w niedzielę 14.11.');
+      if (B) { var r = B.b.razem, lo = B.lotyOs, atCel = lo && lo > cel ? r - 2 * (lo - cel) : null; lines.push('Koszt: ok. ' + nf(Math.round(r / 100) * 100) + ' zł na parę przy ' + B.np + ' parach' + (lo ? ', z lotami liczonymi po ' + nf(lo) + ' zł/os.' + (atCel ? ' (celujemy w ' + nf(cel) + ' – wtedy ok. ' + nf(Math.round(atCel / 100) * 100) + ' zł)' : '') : '') + '. Sufit ' + nf(CFG.sufit) + ' zł na parę.' + (B.ups.length ? ' Wybrane upgrade’y: ' + B.ups.join('; ') + '.' : ' Upgrade’y (np. lunch rocznicowy w Piedra Infinita +590 zł) każda para wybiera sama.')); }
+      var done = { r: load('rz', {}), td: load('td', {}), dec: dec }, act = EV.filter(function (e) { return e.chk && !done[e.chk][e.id] && e.kto === 'pary'; }), late = act.filter(function (e) { return e.d < TD; }), nxt = act.filter(function (e) { return e.d >= TD; }).slice(0, 5);
+      if (late.length) lines.push('Po terminie: ' + late.map(function (e) { return e.t + ' (' + dpl2(e.d) + ')'; }).join('; ') + '.');
+      if (nxt.length) { lines.push('Co potrzebujemy od Was:'); nxt.forEach(function (e) { lines.push('• do ' + dsh(e.d) + (e.d.slice(0, 4) !== TD.slice(0, 4) ? '.' + e.d.slice(0, 4) : '') + ' – ' + e.t); }); }
+      var fz = (LK.fazy || []).filter(function (f) { return f.do >= TD; })[0];
+      lines.push('Bilety: ' + (fz && fz.od <= TD ? 'trwa faza „' + fz.faza + '” (do ' + dsh(fz.do) + '): ' + fz.decyzja : 'nic nie kupujemy przed otwarciem sprzedaży na nasze daty (ok. 11.11 Air France/KLM, ok. 10.12 Iberia). Damy znać, gdy cena zejdzie do celu – wtedy kupujemy wszyscy tego samego dnia.'));
+      lines.push('Szczegóły, budżet i zdjęcia: https://6b7kq8bpkr-del.github.io/Madeira-interactive/rocznica-2027/uco/');
+      return lines.join('\n');
+    }
+    var cb = document.getElementById('dcopy'), ta = document.getElementById('dtxt'), ok = document.getElementById('dcopied');
+    if (cb) cb.addEventListener('click', function () {
+      var t = sumText(); ta.value = t; ta.hidden = false;
+      function show() { ok.hidden = false; setTimeout(function () { ok.hidden = true; }, 1800); }
+      function fb() { ok.textContent = 'Zaznacz tekst i skopiuj'; ok.hidden = false; try { ta.focus(); ta.select(); } catch (e) {} }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(show, fb); else fb();
+    });
+    window.__sumText = sumText;
+  })();
   // ilustracje: generowane pejzaże doliny Uco (Andy, winnice, topole), gdy brak zdjęcia
   function rnd(seed) { var x = seed * 9301 + 49297; return function () { x = (x * 9301 + 49297) % 233280; return x / 233280; }; }
   function paint(cv) {
