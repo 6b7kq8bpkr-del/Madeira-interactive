@@ -245,6 +245,30 @@ async function withLoty(mutate, hash, fn) {
   await p2.close();
   if (r.pig !== 8 || !r.pigLinks) fail('plan w pigułce', `wierszy ${r.pig}, linki do dni ${r.pigLinks}`);
   if (r.ug < 5 || r.ugN !== r.uw) fail('warto wiedzieć', `grup ${r.ug}, notatek w grupach ${r.ugN} z ${r.uw}`);
+  // wybór na karcie decyzji przestawia budżet i odwrotnie; macierz, postęp i płatności liczą się z budżetu; zadanie „pary” nie dubluje decyzji na osi
+  const p4 = await browser.newPage({ viewport: { width: 1300, height: 900 } }); const e4 = []; p4.on('pageerror', e => e4.push(e.message));
+  await p4.goto(BASE + 'index.html#decyzje', { waitUntil: 'load' }); await p4.waitForTimeout(1000);
+  const q0 = await p4.evaluate(() => ({ mx: document.querySelectorAll('#mx td.n').length, sel: document.querySelector('#mx td.sel button')?.textContent.replace(/\D/g, ''), pay: document.querySelectorAll('#payl li').length, prog: document.getElementById('dprog').innerText.replace(/\s+/g, ' '), tprog: document.querySelector('[data-tprog]').textContent, paryRows: [...document.querySelectorAll('#os li.osi')].filter(l => /Ustalić liczbę par/.test(l.textContent)).length, dupDec: [...document.querySelectorAll('#os li.osi')].filter(l => /Ile par jedzie/.test(l.textContent)).length }));
+  if (q0.mx !== 15 || q0.sel !== '25988' || q0.pay !== 5 || !/Decyzje \d \/ 7/i.test(q0.prog) || !/Decyzje \d\/7 · zadania/.test(q0.tprog) || q0.paryRows !== 0 || q0.dupDec !== 1) fail('decyzje – budżet', JSON.stringify(q0));
+  await p4.click('input[data-dsel="pary"][value="2"]'); await p4.waitForTimeout(150);
+  const q1 = await p4.evaluate(() => ({ np: document.querySelector('#grp [aria-pressed="true"]')?.dataset.np, dsf: document.querySelector('[data-dsf="pary"]').textContent, koszt: document.querySelector('[data-dyn="koszt"]').textContent, sel: document.querySelector('#mx td.sel button')?.dataset.mx, done: document.querySelector('[data-dec-card="pary"]').classList.contains('done') }));
+  if (q1.np !== '2' || !/Wybrano: 2\spary/.test(q1.dsf) || q1.sel !== '2|p48' || !q1.done) fail('decyzje – wybór par', JSON.stringify(q1));
+  await p4.click('#grp [data-np="4"]'); await p4.waitForTimeout(150);
+  const q2 = await p4.evaluate(() => ({ checked: document.querySelector('input[data-dsel="pary"][value="4"]').checked, dsf: document.querySelector('[data-dsf="pary"]').textContent, sel: document.querySelector('#mx td.sel button')?.dataset.mx }));
+  if (!q2.checked || !/Wybrano: 4\spary/.test(q2.dsf) || q2.sel !== '4|p48') fail('decyzje – budżet → karta', JSON.stringify(q2));
+  await p4.click('#mx button[data-mx="3|p40"]'); await p4.waitForTimeout(150);
+  const q3 = await p4.evaluate(() => ({ np: document.querySelector('#grp [aria-pressed="true"]')?.dataset.np, ls: document.querySelector('#lsc [aria-pressed="true"]')?.dataset.ls, sel: document.querySelector('#mx td.sel button')?.textContent.replace(/\D/g, ''), sum: document.querySelector('#payl li.sum b').textContent.replace(/\D/g, ''), txt: (document.getElementById('dcopy').click(), document.getElementById('dtxt').value) }));
+  if (q3.np !== '3' || q3.ls !== 'p40' || q3.sel !== '24388' || q3.sum !== '24388' || !/Ustalone: Ile par jedzie → 3\spary/.test(q3.txt)) fail('decyzje – macierz', JSON.stringify(q3));
+  await p4.click('[data-dclr="pary"]'); await p4.waitForTimeout(100);
+  const q4 = await p4.evaluate(() => ({ done: document.querySelector('[data-dec-card="pary"]').classList.contains('done'), any: [...document.querySelectorAll('input[data-dsel="pary"]')].some(c => c.checked) }));
+  if (q4.done || q4.any) fail('decyzje – zmień', JSON.stringify(q4));
+  // stare/niespójne dane w pamięci przeglądarki: znacznik „ustalone” sprzed wyboru opcji, nieznana wartość, rozjazd z budżetem, „null”
+  await p4.evaluate(() => { localStorage.setItem('uco-dec', JSON.stringify({ pary: true, loty: true })); localStorage.setItem('uco-dsel', JSON.stringify({ hotele: '9', wylot: '5' })); localStorage.setItem('uco-p', '2'); localStorage.setItem('uco-td', 'null'); });
+  await p4.reload({ waitUntil: 'load' }); await p4.waitForTimeout(900);
+  const q5 = await p4.evaluate(() => ({ pary: document.querySelector('[data-dec-card="pary"]').classList.contains('done'), hot: document.querySelector('[data-dec-card="hotele"]').classList.contains('done'), wyl: document.querySelector('[data-dsf="wylot"]').textContent, loty: document.querySelector('[data-dec-card="loty"]').classList.contains('done'), np: document.querySelector('#grp [aria-pressed="true"]')?.dataset.np, prog: document.getElementById('dprog').innerText.replace(/\s+/g, ' '), os: document.querySelectorAll('#os li.osi').length }));
+  if (q5.pary || q5.hot || !/Wybrano: Piątek 5\.11/.test(q5.wyl) || !q5.loty || q5.np !== '2' || !/Decyzje 2 \/ 7/i.test(q5.prog) || q5.os < 20) fail('decyzje – stare dane', JSON.stringify(q5));
+  if (e4.length) fail('decyzje – budżet', 'błędy JS: ' + e4[0]);
+  await p4.close();
   if (log.errs.length) fail('decyzje', 'błędy JS: ' + log.errs[0]);
 }
 
