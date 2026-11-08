@@ -134,7 +134,7 @@ miss = [f"pas „{k}”" for k in BANDS if k not in bands] + [f"dzień {d['date'
 if not hero: miss.append("zdjęcie główne")
 if len(mosaic) < 5: miss.append(f"mozaika ({len(mosaic)} z 5)")
 if miss: sys.exit("Brak zdjęć dla: " + ", ".join(miss) + " – sprawdź podpisy w data/zdjecia.json i listy w build.py")
-DATA = {"bands": bands, "mosaic": mosaic, "built": datetime.date.today().strftime("%d.%m.%Y"), "bapics": bapics, "hotele": hotele, "alts": alts, "odrzucone": P.get("odrzucone", []), "prog": {k: P.get(k) for k in ("tagline", "stats", "grupa", "czas_w_hotelu", "dojazd", "pogoda", "rezerwacje", "zabrac", "uwagi", "decyzje", "zrodla", "etapy", "loty", "ba", "upgrade", "budzet")}, "mapa": P.get("mapa", []), "x": X,
+DATA = {"bands": bands, "mosaic": mosaic, "built": datetime.date.today().strftime("%d.%m.%Y"), "bapics": bapics, "hotele": hotele, "alts": alts, "odrzucone": P.get("odrzucone", []), "prog": {k: P.get(k) for k in ("tagline", "stats", "grupa", "czas_w_hotelu", "dojazd", "pogoda", "rezerwacje", "zabrac", "uwagi", "decyzje", "platnosci", "zrodla", "etapy", "loty", "ba", "upgrade", "budzet")}, "mapa": P.get("mapa", []), "x": X,
         "days": days, "hotels": hotels, "hero": hero[0] if hero else None, "gallery": gallery}
 # kalendarz .ics: jedno wydarzenie całodniowe na dzień + noclegi
 def ics_esc(s): return s.replace("\\", "\\\\").replace(";", "\\;").replace(",", "\\,").replace("\n", "\\n")

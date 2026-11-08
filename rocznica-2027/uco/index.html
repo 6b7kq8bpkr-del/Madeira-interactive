@@ -376,6 +376,13 @@ details.ctx { border-top: 1px solid var(--line); padding: 8px 0; } details.ctx >
 .dc h3 { margin: 0; font-size: 1.3rem; text-wrap: balance; } .dh .drun { background: var(--poplar); color: var(--on-malbec); padding: 1px 8px; border-radius: 999px; font-weight: 600; } .dres { margin: 0; font-size: .92rem; color: var(--poplar); font-weight: 600; }
 .dop { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; } .dop li { padding: 7px 10px; border-radius: 6px; background: var(--chip); font-size: .9rem; display: grid; gap: 2px; } .dop li b { font-weight: 600; } .dop li span { color: var(--ink-2); font-size: .86rem; }
 .dop li.rek { background: color-mix(in srgb, var(--poplar) 14%, var(--paper)); box-shadow: inset 3px 0 0 var(--poplar); } .dop li.rek b::after { content: " · polecane"; font-weight: 500; font-size: .78rem; color: var(--poplar); font-family: var(--f-mono); }
+.dop.dsel li { padding: 0; } .dop.dsel label { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 10px; align-items: start; padding: 7px 10px; cursor: pointer; } .dop.dsel input { position: absolute; opacity: 0; width: 1px; height: 1px; } .dop.dsel i { width: 16px; height: 16px; margin-top: 2px; border-radius: 50%; border: 2px solid var(--muted); background: var(--paper); } .dop.dsel input:checked + i { border-color: var(--poplar); box-shadow: inset 0 0 0 4px var(--poplar); } .dop.dsel input:focus-visible + i { outline: 2px solid var(--malbec); outline-offset: 2px; } .dop.dsel .dsb { display: grid; gap: 2px; min-width: 0; } .dop.dsel li:has(input:checked) { box-shadow: inset 3px 0 0 var(--poplar), 0 0 0 1px var(--poplar); }
+.dsf { font-size: .86rem; color: var(--ink-2); } .dsf b { color: var(--poplar); } .dsf .lnk { margin-left: 6px; }
+.dprog { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 10px; margin: 0 0 14px; } .pm { display: grid; gap: 2px; padding: 10px 12px; border-radius: 8px; background: var(--paper); border: 1px solid var(--line); text-decoration: none; color: var(--ink); } .pm .pl { font-family: var(--f-mono); font-size: .74rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); } .pm b { font-family: var(--f-display); font-weight: 400; font-size: 1.6rem; line-height: 1.1; } .pm b small { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); } .pm i { display: block; height: 4px; border-radius: 2px; background: var(--chip); margin-top: 4px; } .pm i s { display: block; height: 100%; border-radius: 2px; background: var(--poplar); text-decoration: none; } .pm.pd i s { background: var(--malbec); }
+.dmx { margin-top: 36px; } .dmx .osh { margin: 0 0 10px; } .mx th:first-child { white-space: nowrap; } .mx tbody th { font-family: var(--f-mono); font-weight: 500; font-size: .8rem; color: var(--ink-2); text-align: left; } .mx td.n { padding: 4px; } .mx td.n button { font: inherit; font-family: var(--f-mono); font-variant-numeric: tabular-nums; font-size: .9rem; width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); color: var(--ink); cursor: pointer; text-align: right; } .mx td.over button { color: var(--malbec); border-color: color-mix(in srgb, var(--malbec) 40%, var(--line)); background: color-mix(in srgb, var(--malbec) 8%, var(--paper)); } .mx td.sel button { background: var(--poplar); color: var(--on-malbec); border-color: var(--poplar); font-weight: 600; } .mx th.n { text-align: right; }
+.dpay { margin-top: 30px; } .dpay .osh { margin: 0 0 8px; } .payl { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; } .payl li { display: grid; grid-template-columns: minmax(120px, 160px) minmax(0, 1fr); gap: 12px; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--line); } .payl li b { font-family: var(--f-mono); font-variant-numeric: tabular-nums; font-weight: 600; text-align: right; white-space: nowrap; } .payl strong { font-weight: 600; } .payl small { display: block; color: var(--ink-2); font-size: .84rem; } .payl li.sum { border-bottom: 0; border-top: 2px solid var(--ink); } .payl li.sum b { color: var(--malbec); font-size: 1.05rem; }
+.tnow .tprog { display: block; margin-top: 4px; color: var(--muted); font-family: var(--f-mono); font-size: .76rem; }
+@media (max-width: 760px) { .payl li { grid-template-columns: 96px minmax(0, 1fr); gap: 8px; } }
 .drek { margin: 2px 0 0; font-size: .92rem; } .dw { margin: 0; font-size: .86rem; color: var(--ink-2); } .dw b { color: var(--ink); font-weight: 600; }
 .df { margin-top: auto; padding-top: 6px; display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: .88rem; } .dok { display: inline-flex; gap: 8px; align-items: center; cursor: pointer; color: var(--ink-2); } .dok input { accent-color: var(--poplar); width: 18px; height: 18px; } .df a { font-weight: 600; }
 .dclosed { margin-top: 18px; } .dclosed > .dgrid { margin-top: 12px; }
@@ -585,7 +592,7 @@ footer a { color: var(--ink-2); }
   function nb(s) { return s.replace(NB1, '$1$2\u00a0').replace(NB1, '$1$2\u00a0').replace(NB2, '$1\u00a0'); }
   function esc(s) { return nb(String(s == null ? '' : s)).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function nf(n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '\u00a0'); }
-  function load(k, d) { try { var v = localStorage.getItem('uco-' + k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }
+  function load(k, d) { try { var v = localStorage.getItem('uco-' + k), x = v ? JSON.parse(v) : null; return x == null ? d : x; } catch (e) { return d; } }
   function save(k, v) { try { localStorage.setItem('uco-' + k, JSON.stringify(v)); } catch (e) {} }
   function img(o, cls, eager, sizes) {
     if (!o) return '';
@@ -610,7 +617,8 @@ footer a { color: var(--ink-2); }
   var EVD = {}; (LK.fazy || []).forEach(function (f) { EVD[f.od] = EVD[f.do] = 1; }); ZDL.forEach(function (z) { EVD[z.do] = 1; });
   (LK.kamienie || []).forEach(function (k) { if (!EVD[k.d]) EV.push({ d: k.d, t: k.t, k: 'kamień', s: '#kalendarz' }); });
   RZL.forEach(function (r, i) { if (r.do) EV.push({ d: r.do, od: r.od, t: r.k || r.krotko || r.what, k: 'rezerwacja', chk: 'r', id: String(i), s: '#rezerwacje' }); });
-  ZDL.forEach(function (z) { if (z.do) EV.push({ d: z.do, od: z.od, t: z.t, k: 'zadanie', chk: 'td', id: z.id, s: '#zadania', kto: z.kto }); });
+  var DOPEN = {}; DEC.forEach(function (x) { if (x.stan !== 'zamknieta') DOPEN[x.id] = 1; });
+  ZDL.forEach(function (z) { if (z.dec && DOPEN[z.dec]) return; if (z.do) EV.push({ d: z.do, od: z.od, t: z.t, k: 'zadanie', chk: 'td', id: z.id, s: '#zadania', kto: z.kto }); });
   DEC.forEach(function (x) { if (x.stan !== 'zamknieta') EV.push({ d: x.do, t: x.t, k: 'decyzja', chk: 'dec', id: x.id, s: '#dec-' + x.id, kto: /par/.test(x.kto || '') ? 'pary' : 'my' }); });
   EV.push({ d: '2027-11-04', t: 'Wylot z Warszawy (4.11 po 20:00 albo 5.11)', k: 'wyjazd', s: '#plan' }, { d: '2027-11-10', t: '20. rocznica ślubu – dzień Zuccardi', k: 'wyjazd', s: '#plan' });
   EV.sort(function (a, b) { return a.d < b.d ? -1 : a.d > b.d ? 1 : 0; });
@@ -626,7 +634,7 @@ footer a { color: var(--ink-2); }
       '<div class="tc"><span class="tl">Kiedy</span><b>5–14 listopada 2027</b><small>wylot z Warszawy 4.11 po 20:00 albo 5.11 · powrót najpóźniej w niedzielę 14.11 · rocznica w środę 10.11</small></div>' +
       '<div class="tc"><span class="tl">Gdzie śpimy</span><ol class="tst">' + (P.etapy || []).map(function (e) { return '<li><i>' + e.noce + '</i><span><b>' + esc(e.hotel) + '</b><small>' + esc(e.nazwa) + '</small></span></li>'; }).join('') + '</ol></div>' +
       '<div class="tc"><span class="tl">Koszt na parę</span><b data-dyn="koszt">–</b><small data-dyn="zapas"></small><a href="#budzet">budżet i upgrade’y →</a></div>' +
-      '<div class="tc tnow"><span class="tl">Teraz</span>' + teraz + '<small class="tnext" data-tnext></small><small class="tlate" data-tlate hidden></small><a href="#decyzje">decyzje i terminy →</a></div>' +
+      '<div class="tc tnow"><span class="tl">Teraz</span>' + teraz + '<small class="tnext" data-tnext></small><small class="tlate" data-tlate hidden></small><small class="tprog" data-tprog></small><a href="#decyzje">decyzje i terminy →</a></div>' +
       '</div></div></section>';
   })();
   // decyzje i terminy: otwarte decyzje z opcjami i rekomendacją, oś czasu do wylotu, podsumowanie dla pozostałych par
@@ -636,9 +644,9 @@ footer a { color: var(--ink-2); }
       var open = x.stan !== 'zamknieta', late = open && x.do < TD, run = open && x.id === 'loty' && (LK.fazy || []).some(function (f) { return f.od <= TD && TD <= f.do; });
       return '<article class="dc' + (open ? '' : ' closed') + '" id="dec-' + esc(x.id) + '" data-dec-card="' + esc(x.id) + '"><div class="dh"><span class="dd' + (late ? ' late' : '') + '">' + (open ? (late ? 'po terminie · ' : 'do ') + dpl2(x.do) : 'zamknięte ' + dpl2(x.do)) + '</span>' + (x.kto ? '<span class="dk">' + esc(x.kto) + '</span>' : '') + (run ? '<span class="drun">trwa teraz</span>' : '') + '</div><h3>' + esc(x.t) + '</h3>' +
         (x.wynik ? '<p class="dres">Ustalono: ' + esc(x.wynik) + '</p>' : '') +
-        '<ul class="dop">' + (x.opcje || []).map(function (o) { return '<li' + (o[2] ? ' class="rek"' : '') + '><b>' + esc(o[0]) + '</b>' + (o[1] ? '<span>' + esc(o[1]) + '</span>' : '') + '</li>'; }).join('') + '</ul>' + (x.uwaga ? '<p class="dw">' + esc(x.uwaga) + '</p>' : '') +
+        '<ul class="dop' + (open && x.wybor !== false ? ' dsel' : '') + '">' + (x.opcje || []).map(function (o) { var inner = '<b>' + esc(o[0]) + '</b>' + (o[1] ? '<span>' + esc(o[1]) + '</span>' : ''); return '<li' + (o[2] ? ' class="rek"' : '') + '>' + (open && x.wybor !== false && o[3] != null ? '<label><input type="radio" name="dsel-' + esc(x.id) + '" data-dsel="' + esc(x.id) + '" value="' + esc(o[3]) + '"><i></i><span class="dsb">' + inner + '</span></label>' : inner) + '</li>'; }).join('') + '</ul>' + (x.uwaga ? '<p class="dw">' + esc(x.uwaga) + '</p>' : '') +
         (x.rek ? '<p class="drek">' + esc(x.rek) + '</p>' : '') + (x.wplyw ? '<p class="dw"><b>Wpływ:</b> ' + esc(x.wplyw) + '</p>' : '') +
-        '<div class="df">' + (open ? '<label class="dok"><input type="checkbox" data-dec="' + esc(x.id) + '"><span>ustalone</span></label>' : '') + (x.sekcja ? '<a href="' + esc(x.sekcja) + '">szczegóły →</a>' : '') + '</div></article>';
+        '<div class="df">' + (open ? (x.wybor !== false ? '<span class="dsf" data-dsf="' + esc(x.id) + '">Kliknijcie opcję, gdy ustalicie.</span>' : '<label class="dok"><input type="checkbox" data-dec="' + esc(x.id) + '"><span>ustalone</span></label>') : '') + (x.sekcja ? '<a href="' + esc(x.sekcja) + '">szczegóły →</a>' : '') + '</div></article>';
     }
     function grp(x) { return /wszystkie/.test(x.kto || '') ? 0 : /par/.test(x.kto || '') ? 1 : 2; }
     var open = DEC.filter(function (x) { return x.stan !== 'zamknieta'; }).sort(function (a, b) { return grp(a) - grp(b) || (a.do < b.do ? -1 : a.do > b.do ? 1 : 0); }), closed = DEC.filter(function (x) { return x.stan === 'zamknieta'; });
@@ -656,9 +664,11 @@ footer a { color: var(--ink-2); }
     });
     if (!todayDone) os += '<li class="ostoday" data-d="' + TD + '"><span>dziś · ' + dpl2(TD) + '</span></li>';
     h += '<section class="blk" id="decyzje"><div class="wrap"><div class="sh"><div><p class="eyebrow">Planowanie</p><h2>Decyzje i terminy</h2><p>Co trzeba ustalić, do kiedy i co z tego wynika dla budżetu. Niżej jedna oś czasu wszystkich terminów do wylotu: zakup biletów, rezerwacje, zadania. Odhaczone rzeczy zapisują się w tej przeglądarce.</p></div></div>' +
-      '<div class="dnext" id="dnext" aria-live="polite"></div>' +
+      '<div class="dprog" id="dprog"></div><div class="dnext" id="dnext" aria-live="polite"></div>' +
       '<div class="dgrid" id="dgrid">' + open.map(card).join('') + '</div>' +
       (closed.length ? '<details class="dmore dclosed"><summary>Rozstrzygnięte (' + closed.length + ')</summary><div class="dgrid">' + closed.map(card).join('') + '</div></details>' : '') +
+      '<div class="dmx"><div class="osh"><div><h3>Ile to kosztuje na parę: liczba par × cena biletów</h3><p class="note">Kompletna podróż na parę w aktualnym wariancie hoteli (z zaznaczonymi upgrade’ami). Kliknięcie pola przestawia budżet; czerwone pola są ponad sufitem ' + nf(CFG.sufit) + '\u00a0zł.</p></div></div><div class="ptw"><table class="pt mx" id="mx"></table></div></div>' +
+      (P.platnosci ? '<div class="dpay"><div class="osh"><div><h3>Kiedy płacimy</h3><p class="note">' + esc(P.platnosci.intro) + '</p></div></div><ol class="payl" id="payl"></ol></div>' : '') +
       '<div class="osh"><div><h3>Oś czasu do wylotu</h3><p class="note">Fazy zakupu biletów, kamienie milowe, rezerwacje i zadania w jednym porządku. Przeterminowane są podświetlone.</p></div><div class="seg" role="group" aria-label="Zakres osi czasu"><button type="button" data-os="90" aria-pressed="true">Najbliższe 90 dni</button><button type="button" data-os="all" aria-pressed="false">Wszystko do wylotu</button></div></div>' +
       '<ol class="os" id="os">' + os + '</ol>' +
       '<div class="dshare"><div><h3>Dla pozostałych par</h3><p class="note">Krótkie podsumowanie planu z aktualnym budżetem, otwartymi decyzjami i najbliższymi terminami – do wklejenia w WhatsApp albo mail. Liczy się dla liczby par i lotów wybranych w sekcji Budżet.</p></div><div class="dsb"><button type="button" class="btn" id="dcopy">Skopiuj podsumowanie</button><span class="copied" id="dcopied" hidden>Skopiowano</span></div><textarea id="dtxt" class="dtxt" hidden readonly rows="12" aria-label="Podsumowanie planu"></textarea></div>' +
@@ -1031,8 +1041,8 @@ footer a { color: var(--ink-2); }
   function upSum() { return UPG.reduce(function (a, x) { return a + (UP[x.id] && x.zl ? x.zl : 0); }, 0); }
   function lsOpt() { return LS ? LS.opcje.filter(function (o) { return o[0] === ls; })[0] : null; }
   // budżet na parę zależny od liczby par: bus dzielony po równo, rezydencja (dom na 3 pary) + pokoje dla kolejnych par
-  function calc(o) {
-    var b = {}, m = o.model, k = G.kurs || 3.7, n = np; ['loty', 'jedzenie', 'wycieczki_bilety', 'rezerwa'].forEach(function (x) { b[x] = o.b[x] || 0; }); if (lsOpt()) b.loty = lsOpt()[2];
+  function calc(o, n2, lp) {
+    var b = {}, m = o.model, k = G.kurs || 3.7, n = n2 || np; ['loty', 'jedzenie', 'wycieczki_bilety', 'rezerwa'].forEach(function (x) { b[x] = o.b[x] || 0; }); if (lp != null) b.loty = lp; else if (lsOpt()) b.loty = lsOpt()[2];
     if (m && m.typ === 'rezydencja') { var ekstra = Math.max(0, n - (m.pary_w_domu || 3)); b.nocleg = Math.round((m.usd_para_poza + (m.dom_usd_noc * m.noce + ekstra * m.pokoj_usd_noc * m.noce) / n) * k); b.rez = ekstra; }
     else if (m && m.usd_para) b.nocleg = Math.round(m.usd_para * k); else b.nocleg = o.b.nocleg;
     b.auto_transfery = G.transport_usd && G.transport_usd[n] ? Math.round(G.transport_usd[n] * k / n / 10) * 10 : o.b.auto_transfery;
@@ -1053,6 +1063,7 @@ footer a { color: var(--ink-2); }
     var zp = document.querySelector('[data-dyn="zapas"]'); if (zp) zp.textContent = (r0 <= CFG.sufit ? 'zapas ' + nf(CFG.sufit - r0) + '\u00a0zł do sufitu ' : 'ponad sufit ') + nf(CFG.sufit) + '\u00a0zł · przy ' + np + ' parach';
     var hset = o.hotele || []; document.querySelectorAll('.hk[data-hn]').forEach(function (el) { el.classList.toggle('main', hset.indexOf(el.dataset.hn) >= 0); el.classList.toggle('dim', hset.length > 0 && hset.indexOf(el.dataset.hn) < 0); });
     document.querySelectorAll('.hc').forEach(function (el) { el.setAttribute('aria-pressed', +el.dataset.h === cur ? 'true' : 'false'); });
+    if (window.__decSync) window.__decSync();
     document.getElementById('bud').innerHTML = (cur ? '<p class="note gwarn">Oglądacie inny wariant niż plan bazowy. <button type="button" class="lnk" data-hbase>Wróć do planu bazowego</button></p>' : '') + '<div class="total"><div><p class="eyebrow">Budżet ' + SK[sk][1] + ' · ' + esc(o.n.replace(/^Trasa: /, '')) + '</p><b>' + nf(t * SK[sk][0]) + '\u00a0zł</b></div><div><span class="limit' + (t <= CFG.sufit ? '' : ' over') + '">' + (t <= CFG.sufit ? 'zapas ' + nf((CFG.sufit - t) * SK[sk][0]) + '\u00a0zł do sufitu ' + nf(CFG.sufit * SK[sk][0]) + '\u00a0zł' : 'ponad sufit ' + nf(CFG.sufit * SK[sk][0]) + '\u00a0zł o ' + nf((t - CFG.sufit) * SK[sk][0]) + '\u00a0zł') + '</span><div class="seg" role="group" aria-label="Skala">' + SK.map(function (s, i) { return '<button type="button" data-sk="' + i + '" aria-pressed="' + (i === sk ? 'true' : 'false') + '">' + s[2] + '</button>'; }).join('') + '</div></div></div>' +
       '<div class="bar" role="img" aria-label="Podział budżetu">' + BL.map(function (r) { return b[r[0]] ? '<i class="' + r[2] + '" style="width:' + (b[r[0]] / t * 100).toFixed(2) + '%" title="' + r[1] + '"></i>' : ''; }).join('') + '</div>' +
       '<ul class="leg">' + BL.map(function (r) { return b[r[0]] != null ? '<li><s class="' + r[2] + '"></s>' + r[1] + '<b>' + nf(b[r[0]] * SK[sk][0]) + '\u00a0zł</b></li>' : ''; }).join('') + '</ul>' +
@@ -1060,7 +1071,11 @@ footer a { color: var(--ink-2); }
       (o.hotele && o.hotele.length ? '<div class="vh"><p class="eyebrow">Hotele tego wariantu</p><div class="vhg">' + D.hotele.map(function (c, hi) { if (o.hotele.indexOf(c.n) < 0) return ''; var im = (c.gal && c.gal[0]) || c.img; return '<a class="vhc" href="#hk-' + hi + '" data-go="hk-' + hi + '">' + (im ? '<img src="' + esc(im.s) + '"' + (im.w ? ' width="' + im.w + '" height="' + im.h + '"' : '') + ' alt="" loading="lazy">' : '') + '<span class="vhb"><span class="eyebrow">' + esc(c.rola) + '</span><b>' + esc(c.n) + '</b><span class="vhp">ok. ' + (c.rate || '?') + ' ' + esc(c.cur || 'USD') + ' za noc</span><span class="vhs">' + esc(c.short || '') + '</span><span class="vhl">Pełna karta hotelu ↓</span></span></a>'; }).join('') + '</div></div>' : '') +
       (o.note ? '<details class="dmore"><summary>Uzasadnienie i szczegóły wariantu</summary><p class="note">' + esc(o.note) + '</p></details>' : '') + (o.url ? '<p class="note"><a href="' + esc(o.url) + '" target="_blank" rel="noopener">Strona hotelu ↗</a></p>' : '');
   }
-  window.__bud = function () { var o = D.hotels[cur]; return { np: np, o: o, b: calc(o), lotyOs: lsOpt() ? lsOpt()[2] / 2 : null, ups: UPG.filter(function (x) { return UP[x.id]; }).map(function (x) { return x.co + (x.zl ? ' (+' + nf(x.zl) + ' zł)' : ''); }) }; };
+  window.__calcFor = function (n, lp) { return calc(D.hotels[cur], n, lp); };
+  window.__setNp = function (n) { if (G.opcje.indexOf(n) < 0) return; np = n; save('p', np); bud(); };
+  window.__setLs = function (k) { if (!LS || !LS.opcje.some(function (o) { return o[0] === k; })) return; ls = k; save('l', ls); bud(); };
+  window.__setVariant = function (i) { if (!D.hotels[i]) return; cur = i; save('hbn', D.hotels[cur].n); bud(); };
+  window.__bud = function () { var o = D.hotels[cur]; return { np: np, cur: cur, ls: ls, o: o, b: calc(o), lotyOs: lsOpt() ? lsOpt()[2] / 2 : null, ups: UPG.filter(function (x) { return UP[x.id]; }).map(function (x) { return x.co + (x.zl ? ' (+' + nf(x.zl) + ' zł)' : ''); }) }; };
   document.querySelectorAll('.hc').forEach(function (el) { el.addEventListener('click', function () { cur = +el.dataset.h; save('hbn', D.hotels[cur].n); bud(); }); });
   document.addEventListener('click', function (e) { if (e.target.closest('[data-hbase]')) { cur = 0; save('hbn', D.hotels[0].n); bud(); } });
   document.addEventListener('change', function (e) { var c = e.target.closest('[data-up]'); if (!c) return; UP[c.dataset.up] = c.checked; save('up', UP); bud(); });
@@ -1140,12 +1155,37 @@ footer a { color: var(--ink-2); }
   // decyzje: „ustalone” zapisuje się lokalnie; oś czasu: filtr zakresu, stan odhaczeń, pasek najbliższych terminów; podsumowanie dla par
   (function () {
     var osEl = document.getElementById('os'), dn = document.getElementById('dnext'); if (!osEl) return;
-    var dec = load('dec', {}), range = load('os', '90');
+    var dec = load('dec', {}), dsel = load('dsel', {}), range = load('os', '90');
+    function optName(id, v) { var x = DEC.filter(function (y) { return y.id === id; })[0], o = x && (x.opcje || []).filter(function (o) { return String(o[3]) === String(v); })[0]; return o ? o[0] : ''; }
+    function hasSel(x) { return x.stan !== 'zamknieta' && x.wybor !== false; }
+    function isDone(id) { var x = DEC.filter(function (y) { return y.id === id; })[0]; if (!x) return false; return hasSel(x) ? !!optName(id, dsel[id]) : !!dec[id]; }
+    // porządek po starszych wersjach strony: karty z wyborem nie używają już znacznika „ustalone”, nieznane wartości wyboru odpadają
+    DEC.forEach(function (x) { if (hasSel(x) && dec[x.id]) delete dec[x.id]; }); save('dec', dec);
+    Object.keys(dsel).forEach(function (id) { if (!optName(id, dsel[id])) delete dsel[id]; }); save('dsel', dsel);
+    function syncBudget(id, v) { if (!window.__bud) return; var B = window.__bud(); if (id === 'pary' && +v !== B.np) window.__setNp(+v); if (id === 'hotele' && +v !== B.cur) window.__setVariant(+v); }
+    window.__decSync = function () { var B = window.__bud ? window.__bud() : null; if (!B) return; var ch = false; if (dsel.pary != null && +dsel.pary !== B.np) { dsel.pary = String(B.np); ch = true; } if (dsel.hotele != null && +dsel.hotele !== B.cur) { dsel.hotele = String(B.cur); ch = true; } if (ch) save('dsel', dsel); paint(); };
     function lim() { var q = TD.split('-'), t = new Date(+q[0], +q[1] - 1, +q[2] + 90); return t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0'); }
     function paint() {
-      var done = { r: load('rz', {}), td: load('td', {}), dec: dec }, L = lim();
+      var decAll = {}; DEC.forEach(function (x) { if (x.stan !== 'zamknieta') decAll[x.id] = isDone(x.id); });
+      var done = { r: load('rz', {}), td: load('td', {}), dec: decAll }, L = lim();
       document.querySelectorAll('[data-dec]').forEach(function (c) { c.checked = !!dec[c.dataset.dec]; });
-      document.querySelectorAll('[data-dec-card]').forEach(function (a) { a.classList.toggle('done', !!dec[a.dataset.decCard]); });
+      document.querySelectorAll('[data-dsel]').forEach(function (c) { c.checked = dsel[c.dataset.dsel] != null && String(dsel[c.dataset.dsel]) === c.value; });
+      document.querySelectorAll('[data-dsf]').forEach(function (el) { var id = el.dataset.dsf; el.innerHTML = optName(id, dsel[id]) ? '<b>Wybrano:</b> ' + esc(optName(id, dsel[id])) + ' <button type="button" class="lnk" data-dclr="' + esc(id) + '">zmień</button>' : 'Kliknijcie opcję, gdy ustalicie.'; });
+      document.querySelectorAll('[data-dec-card]').forEach(function (a) { a.classList.toggle('done', isDone(a.dataset.decCard)); });
+      var nD = Object.keys(decAll).length, dD = Object.keys(decAll).filter(function (k) { return decAll[k]; }).length, nZ = ZDL.length, dZ = ZDL.filter(function (z) { return done.td[z.id]; }).length, nR = RZL.length, dR = RZL.filter(function (r, i) { return done.r[String(i)]; }).length, toGo = Math.ceil((new Date('2027-11-05') - new Date(TD)) / 864e5);
+      var pr = document.getElementById('dprog'); if (pr) pr.innerHTML = [['Decyzje', dD, nD, '#dgrid'], ['Zadania', dZ, nZ, '#zadania'], ['Rezerwacje', dR, nR, '#rezerwacje']].map(function (m) { return '<a class="pm" href="' + m[3] + '"><span class="pl">' + m[0] + '</span><b>' + m[1] + '<small> / ' + m[2] + '</small></b><i><s style="width:' + (m[2] ? Math.round(m[1] / m[2] * 100) : 0) + '%"></s></i></a>'; }).join('') + '<div class="pm pd"><span class="pl">Do wylotu</span><b>' + toGo + '<small> dni</small></b><i><s style="width:' + Math.max(2, Math.min(100, Math.round(100 - toGo / 365 * 100))) + '%"></s></i></div>';
+      var tp = document.querySelector('[data-tprog]'); if (tp) tp.textContent = 'Decyzje ' + dD + '/' + nD + ' · zadania ' + dZ + '/' + nZ + ' · rezerwacje ' + dR + '/' + nR;
+      // macierz: liczba par × cena biletów
+      var mx = document.getElementById('mx'), B = window.__bud ? window.__bud() : null, LSo = ((P.grupa || {}).loty_scen || {}).opcje || [], NPs = (P.grupa || {}).opcje || [];
+      if (mx && B && LSo.length) {
+        mx.innerHTML = '<thead><tr><th>Pary \\ bilety na osobę</th>' + LSo.map(function (o) { return '<th class="n">' + esc(o[1]) + '</th>'; }).join('') + '</tr></thead><tbody>' + NPs.map(function (n) { return '<tr><th>' + n + ' pary</th>' + LSo.map(function (o) { var r = window.__calcFor(n, o[2]).razem, cls = (r > CFG.sufit ? ' over' : '') + (n === B.np && o[0] === B.ls ? ' sel' : ''); return '<td class="n' + cls + '"><button type="button" data-mx="' + n + '|' + esc(o[0]) + '" aria-pressed="' + (n === B.np && o[0] === B.ls ? 'true' : 'false') + '" title="' + n + ' pary, bilety ' + esc(o[1]) + '">' + nf(r) + '</button></td>'; }).join('') + '</tr>'; }).join('') + '</tbody>';
+      }
+      // kiedy płacimy
+      var pl = document.getElementById('payl'); if (pl && B && P.platnosci) {
+        var b = B.b, zal = [Math.round(b.nocleg * 0.3 / 100) * 100, Math.round(b.nocleg * 0.5 / 100) * 100], miejsce = [b.nocleg - zal[1] + b.auto_transfery + b.jedzenie + b.wycieczki_bilety + (b.upgrade || 0), b.nocleg - zal[0] + b.auto_transfery + b.jedzenie + b.wycieczki_bilety + (b.upgrade || 0)];
+        var val = { loty: nf(b.loty) + '\u00a0zł', zaliczki: nf(zal[0]) + '–' + nf(zal[1]) + '\u00a0zł', miejsce: nf(Math.round(miejsce[0] / 100) * 100) + '–' + nf(Math.round(miejsce[1] / 100) * 100) + '\u00a0zł', rezerwa: nf(b.rezerwa) + '\u00a0zł' };
+        pl.innerHTML = P.platnosci.pozycje.map(function (x) { return '<li><b>' + (val[x[2]] || '–') + '</b><span><strong>' + esc(x[0]) + '</strong><small>' + esc(x[1]) + '</small></span></li>'; }).join('') + '<li class="sum"><b>' + nf(b.razem) + '\u00a0zł</b><span><strong>Razem na parę</strong><small>' + B.np + ' pary, bilety po ' + nf(B.lotyOs || b.loty / 2) + '\u00a0zł/os., ' + esc(B.o.n.replace(/^Trasa: /, '').split(':')[0].toLowerCase()) + ' wariant hoteli</small></span></li>';
+      }
       var vis = {};
       osEl.querySelectorAll('li.osi').forEach(function (li) {
         var c = li.querySelector('input'), isDone = c ? c.checked : false, past = (li.dataset.do || li.dataset.d) < TD, run = !past && li.dataset.d < TD;
@@ -1167,16 +1207,19 @@ footer a { color: var(--ink-2); }
       if (tn) tn.textContent = n0 ? 'Najbliżej: do ' + dpl2(n0.d) + ' – ' + n0.t : '';
       if (tl) { tl.hidden = !late.length; tl.textContent = late.length ? late.length + (late.length === 1 ? ' rzecz po terminie' : late.length < 5 ? ' rzeczy po terminie' : ' rzeczy po terminie') : ''; }
     }
-    document.addEventListener('change', function (e) { var c = e.target.closest('[data-dec]'); if (!c) return; dec[c.dataset.dec] = c.checked; save('dec', dec); paint(); });
+    document.addEventListener('change', function (e) { var c = e.target.closest('[data-dec]'); if (c) { dec[c.dataset.dec] = c.checked; save('dec', dec); paint(); return; } var r = e.target.closest('[data-dsel]'); if (r && r.checked) { dsel[r.dataset.dsel] = r.value; save('dsel', dsel); syncBudget(r.dataset.dsel, r.value); paint(); } });
+    document.addEventListener('click', function (e) { var x = e.target.closest('[data-dclr]'); if (x) { delete dsel[x.dataset.dclr]; save('dsel', dsel); paint(); return; } var m = e.target.closest('[data-mx]'); if (m) { var q = m.dataset.mx.split('|'); if (window.__setNp) { window.__setNp(+q[0]); window.__setLs(q[1]); } } });
     document.addEventListener('click', function (e) { var b = e.target.closest('[data-os]'); if (!b) return; range = b.dataset.os; save('os', range); paint(); });
-    window.__osPaint = paint; paint();
+    window.__osPaint = paint; window.__decSync();
     function sumText() {
       var B = window.__bud ? window.__bud() : null, lines = [], cel = CFG.cel || 4000, sh = function (n) { return n.replace(/ Vineyards & Wine Resort| – Casa Vita/, ''); };
       lines.push('🍷 Mendoza i Buenos Aires, 5–14.11.2027 – 20. rocznica ślubu (10.11)');
       lines.push('Trasa: ' + (P.etapy || []).map(function (e) { return e.noce + (e.noce === 1 ? ' noc ' : ' noce ') + sh(e.hotel) + ' (' + e.nazwa.replace(/\s*\(.*\)$/, '') + ')'; }).join(' → ') + '. Bus z kierowcą, trzy winnice, dzień w wysokich Andach, na finał tango.');
       lines.push('Wylot z Warszawy 4.11 wieczorem albo 5.11, lądowanie w Warszawie najpóźniej w niedzielę 14.11.');
-      if (B) { var r = B.b.razem, lo = B.lotyOs, atCel = lo && lo > cel ? r - 2 * (lo - cel) : null; lines.push('Koszt: ok. ' + nf(Math.round(r / 100) * 100) + ' zł na parę przy ' + B.np + ' parach' + (lo ? ', z lotami liczonymi po ' + nf(lo) + ' zł/os.' + (atCel ? ' (celujemy w ' + nf(cel) + ' – wtedy ok. ' + nf(Math.round(atCel / 100) * 100) + ' zł)' : '') : '') + '. Sufit ' + nf(CFG.sufit) + ' zł na parę.' + (B.ups.length ? ' Wybrane upgrade’y: ' + B.ups.join('; ') + '.' : ' Upgrade’y (np. lunch rocznicowy w Piedra Infinita +590 zł) każda para wybiera sama.')); }
-      var done = { r: load('rz', {}), td: load('td', {}), dec: dec }, act = EV.filter(function (e) { return e.chk && !done[e.chk][e.id] && e.kto === 'pary'; }), late = act.filter(function (e) { return e.d < TD; }), nxt = act.filter(function (e) { return e.d >= TD; }).slice(0, 5);
+      if (B) { var r = B.b.razem, lo = B.lotyOs, atCel = lo && lo > cel ? r - 2 * (lo - cel) : null; lines.push('Koszt: ok. ' + nf(Math.round(r / 100) * 100) + ' zł na parę przy ' + B.np + ' parach' + (lo ? ', z lotami liczonymi po ' + nf(lo) + ' zł/os.' + (atCel ? ' (celujemy w ' + nf(cel) + ' – wtedy ok. ' + nf(Math.round(atCel / 100) * 100) + ' zł).' : '') : '.') + ' Sufit ' + nf(CFG.sufit) + ' zł na parę.' + (B.ups.length ? ' Wybrane upgrade’y: ' + B.ups.join('; ') + '.' : ' Upgrade’y (np. lunch rocznicowy w Piedra Infinita +590 zł) każda para wybiera sama.')); }
+      var decAll = {}; DEC.forEach(function (x) { if (x.stan !== 'zamknieta') decAll[x.id] = isDone(x.id); });
+      var st = DEC.filter(function (x) { return x.stan !== 'zamknieta' && dsel[x.id] != null; }); if (st.length) lines.push('Ustalone: ' + st.map(function (x) { return x.t.replace(/\?$/, '') + ' → ' + optName(x.id, dsel[x.id]); }).join('; ') + '.');
+      var done = { r: load('rz', {}), td: load('td', {}), dec: decAll }, act = EV.filter(function (e) { return e.chk && !done[e.chk][e.id] && e.kto === 'pary'; }), late = act.filter(function (e) { return e.d < TD; }), nxt = act.filter(function (e) { return e.d >= TD; }).slice(0, 5);
       if (late.length) lines.push('Po terminie: ' + late.map(function (e) { return e.t + ' (' + dpl2(e.d) + ')'; }).join('; ') + '.');
       if (nxt.length) { lines.push('Co potrzebujemy od Was:'); nxt.forEach(function (e) { lines.push('• do ' + dsh(e.d) + (e.d.slice(0, 4) !== TD.slice(0, 4) ? '.' + e.d.slice(0, 4) : '') + ' – ' + e.t); }); }
       var fz = (LK.fazy || []).filter(function (f) { return f.do >= TD; })[0];

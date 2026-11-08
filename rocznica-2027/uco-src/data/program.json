@@ -1653,7 +1653,8 @@
     "od": "2026-11-01",
     "do": "2026-12-31",
     "opis": "Imiona dokładnie jak w paszporcie, paszporty ważne w listopadzie 2027 – bez tego nie da się kupić w dniu okazji.",
-    "kto": "pary"
+    "kto": "pary",
+    "dec": "pary"
    },
    {
     "id": "karta",
@@ -2727,17 +2728,20 @@
     [
      "2 pary",
      "bus ok. 2 680 zł na parę; dom na trzy sypialnie w Lares dzieli się na mniej osób",
-     false
+     false,
+     "2"
     ],
     [
      "3 pary",
      "bus ok. 2 100 zł na parę; cała Casa Vita w Lares dla grupy – najlepszy układ",
-     true
+     true,
+     "3"
     ],
     [
      "4 pary",
      "bus (Sprinter) ok. 1 900 zł na parę; w Lares czwarta para w pokoju obok, w Casa de Uco 4 z 6 Laguna Suites",
-     false
+     false,
+     "4"
     ]
    ],
    "rek": "Do końca roku potwierdzić, kto leci. Bez liczby osób nie da się zapytać hoteli o cenę grupową ani kupić biletów w dniu okazji (imiona z paszportów).",
@@ -2754,22 +2758,26 @@
     [
      "Polecany: Lares + Casa de Uco (Laguna Suite) + Legado",
      "25 988 zł na parę – Klucz MICHELIN, widok w noc rocznicy, dom w Chacras",
-     true
+     true,
+     "0"
     ],
     [
      "Finca Adalgisa zamiast Lares",
      "27 386 zł – Andy o zachodzie w bazie 1",
-     false
+     false,
+     "1"
     ],
     [
      "Chozos zamiast Lares",
      "29 096 zł – ponad sufit, nierówny serwis",
-     false
+     false,
+     "2"
     ],
     [
      "Rezerwowy (pokój Cordón del Plata w Uco)",
      "25 344 zł – tylko gdy zabraknie Laguna Suites",
-     false
+     false,
+     "3"
     ]
    ],
    "rek": "Zostać przy polecanym. Decyzja przed zapytaniem grupowym do Casa de Uco w styczniu, bo odpowiedź hotelu zamyka temat.",
@@ -2801,7 +2809,8 @@
    ],
    "rek": "Celujemy w 4 000 zł; radar i monitor same dadzą znać. Sprzedaż na nasze daty rusza ok. 11.11 (Air France/KLM) i ok. 10.12 (Iberia).",
    "wplyw": "9 600 zł na parę przy progu, 8 000 zł przy celu",
-   "sekcja": "#skala"
+   "sekcja": "#skala",
+   "wybor": false
   },
   {
    "id": "upgrade",
@@ -2829,7 +2838,8 @@
    "rek": "Dwa polecane upgrade’y mieszczą się w zapasie przy lotach po 4 800 zł (zostaje ok. 830 zł); przy lotach w celu zapas rośnie o 1 600 zł.",
    "wplyw": "od +590 do ok. +4 000 zł na parę",
    "sekcja": "#budzet",
-   "uwaga": "Pozostałe 10 opcji z ceną jest w sekcji Budżet – zaznaczcie, a przeliczy się na parę."
+   "uwaga": "Pozostałe 10 opcji z ceną jest w sekcji Budżet – zaznaczcie, a przeliczy się na parę.",
+   "wybor": false
   },
   {
    "id": "kolacja",
@@ -2841,12 +2851,14 @@
     [
      "Don Julio (plan)",
      "parrilla z gwiazdką MICHELIN, 130–150 tys. ARS/os.; rezerwacja grupowa 12.07–12.08",
-     true
+     true,
+     "donjulio"
     ],
     [
      "La Cabrera albo El Preferido",
      "plan B bez rezerwacji z wyprzedzeniem",
-     false
+     false,
+     "planb"
     ]
    ],
    "rek": "12.07 sprawdzić w Meitre, od kiedy przyjmują listopad; stolik dla grupy najpóźniej 12.08 (alerty są w Kalendarzu Google).",
@@ -2863,12 +2875,14 @@
     [
      "Czwartek 4.11 po 20:00",
      "bez urlopu w czwartek, przylot do Mendozy 6.11 rano; nocny lot od razu po pracy",
-     false
+     false,
+     "4"
     ],
     [
      "Piątek 5.11",
      "dzień urlopu w piątek, przylot 6.11 ok. południa; wybór zależy od rozkładu i ceny",
-     true
+     true,
+     "5"
     ]
    ],
    "rek": "Ustalić, zanim zaczniemy kupować (od otwarcia rozkładu). Alerty cenowe są ustawione na oba dni; przy równej cenie bierzemy ten z lądowaniem w Mendozie przed 13:00.",
@@ -2885,12 +2899,14 @@
     [
      "Każda para płaci swoje",
      "hotele rezerwowane na pary (osobne rezerwacje), bilety parami u linii; bus, degustacje i wspólne rachunki rozliczamy po wyjeździe",
-     true
+     true,
+     "kazda"
     ],
     [
      "Jedna para płaci zaliczki za grupę",
      "prościej dla hoteli, ale jedna para kredytuje resztę przez pół roku",
-     false
+     false,
+     "jedna"
     ]
    ],
    "rek": "Zasada rezygnacji: do zakupu biletów bez kosztów (hotele z bezpłatną anulacją), potem para rezygnująca pokrywa swoją część niezwracalnych kosztów. Ubezpieczenie od rezygnacji każda para kupuje sama po biletach.",
@@ -2960,5 +2976,30 @@
    "sekcja": "#kalk",
    "wynik": "jeden bilet do Mendozy; osobne tylko przy oszczędności ≥ 800 zł/os."
   }
- ]
+ ],
+ "platnosci": {
+  "intro": "Orientacyjnie, kiedy pieniądze wychodzą z konta pary – liczone z aktualnego budżetu. Warunki zaliczek hoteli poznamy w styczniu z odpowiedzi na zapytania; argentyńskie hotele butikowe zwykle biorą 30–50 % przy rezerwacji, resztę przy wymeldowaniu.",
+  "pozycje": [
+   [
+    "Przy zakupie biletów",
+    "między otwarciem sprzedaży a 31.08.2027, kartą bez prowizji w walucie sprzedawcy",
+    "loty"
+   ],
+   [
+    "Zaliczki hoteli",
+    "styczeń–marzec 2027, zwykle 30–50 % noclegów",
+    "zaliczki"
+   ],
+   [
+    "Na miejscu w listopadzie",
+    "reszta hoteli, bus, jedzenie, degustacje, bilety i wybrane upgrade’y",
+    "miejsce"
+   ],
+   [
+    "Rezerwa",
+    "na kurs, napiwki i niespodzianki – nie wydajemy z góry",
+    "rezerwa"
+   ]
+  ]
+ }
 }
