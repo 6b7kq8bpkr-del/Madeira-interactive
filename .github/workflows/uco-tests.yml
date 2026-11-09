@@ -19,7 +19,8 @@ concurrency:
   cancel-in-progress: true
 jobs:
   test:
-    runs-on: ubuntu-latest
+    # Playwright 1.56 nie obsługuje Ubuntu 26.04 (ubuntu-latest od XI 2026) – przypięty obraz 24.04
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     defaults:
       run:
