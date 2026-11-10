@@ -403,6 +403,16 @@ details.ctx { border-top: 1px solid var(--line); padding: 8px 0; } details.ctx >
 .day { scroll-margin-top: 72px; } .ug { margin-top: 10px; }
 .pigt .ncm { display: none; } .tnow .tnext, .tnow .tlate { display: block; margin-top: 6px; } .tnow .tlate { color: var(--malbec); font-weight: 600; }
 @media (max-width: 760px) { .os .osi { display: block; padding-left: 16px; } .os .osd, .os .osk { display: inline; } .os .osk::before { content: " · "; letter-spacing: 0; } .os .ost { display: block; margin-top: 2px; } .dshare { grid-template-columns: minmax(0, 1fr); } .pigt .nc, .pigt .rt { display: none; } .pigt .ncm { display: block; color: var(--muted); font-size: .8rem; font-weight: 400; } .pigt td { padding: 8px 6px; } .tcard .tnow { order: -1; } }
+.wyz, .okna { background: var(--paper); border: 1px solid var(--line); border-left: 4px solid var(--malbec); border-radius: 6px; padding: 20px 22px; margin: 0 0 24px; scroll-margin-top: 72px; }
+.wyz h3, .okna h3 { margin: 4px 0 8px; font-size: 1.5rem; text-wrap: balance; } .wyz > p, .okna > p { margin: 0 0 12px; max-width: 72ch; color: var(--ink-2); } .wyz .note, .okna .note { font-size: .86rem; margin: 12px 0 0; }
+.wyl { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.wyl li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 20px; align-items: center; padding: 10px 0; border-top: 1px solid var(--line); } .wyl li.rek { background: color-mix(in srgb, var(--poplar) 8%, transparent); margin: 0 -10px; padding: 10px; border-radius: 6px; border-top-color: transparent; }
+.wyc { min-width: 0; display: grid; gap: 2px; } .wyc b { font-weight: 600; } .wyc small { color: var(--ink-2); font-size: .84rem; } .wyc .wyd { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); }
+.wyn { display: grid; grid-template-columns: repeat(2, minmax(104px, auto)); gap: 8px; text-align: right; font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-space: nowrap; } .wyn span { display: grid; gap: 1px; padding: 6px 10px; border-radius: 6px; background: var(--chip); font-size: .95rem; } .wyn i { font-style: normal; font-family: var(--f-body); font-size: .72rem; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-2); font-weight: 500; } .wyn .wc { background: color-mix(in srgb, var(--poplar) 18%, var(--paper)); font-weight: 600; }
+.okm { list-style: none; margin: 0 0 14px; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 12px; } .okm li { padding: 12px 14px; border-radius: 8px; background: var(--chip); display: grid; gap: 2px; } .okm li.part { background: color-mix(in srgb, var(--adobe) 14%, var(--paper)); } .okm li.ok { background: color-mix(in srgb, var(--poplar) 16%, var(--paper)); }
+.okm .ol { font-family: var(--f-mono); font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); } .okm b { font-family: var(--f-display); font-weight: 400; font-size: 1.5rem; line-height: 1.15; } .okm small { color: var(--ink-2); font-size: .86rem; }
+.okt td.n { white-space: nowrap; } .okt .ok { color: var(--poplar); font-weight: 600; } .skq { display: flex; flex-wrap: wrap; gap: 6px 18px; } .skq a { font-weight: 600; }
+@media (max-width: 760px) { .wyl li { grid-template-columns: minmax(0, 1fr); } .wyn { grid-template-columns: repeat(2, minmax(0, 1fr)); text-align: left; } .okt th:nth-child(2), .okt td:nth-child(2) { display: none; } }
 .raport { margin-top: 22px; padding: 20px 22px; background: var(--stone); border-left: 4px solid var(--malbec); border-radius: 6px; }
 .raport h3 { margin: 4px 0 10px; font-size: 1.35rem; text-wrap: balance; }
 .raport .rpp { margin: 0; padding-left: 18px; display: grid; gap: 6px; } .raport .rpp b { font-weight: 600; }
@@ -571,6 +581,31 @@ footer a { color: var(--ink-2); }
   var D = window.UCO, X = D.x, P = D.prog, app = document.getElementById('app');
   // progi i sufit z program.json (budzet); próg zakupu nadpisuje loty.json (prog), gdy agent go zmieni
   var CFG = P.budzet || { sufit: 28000, cel: 4000, prog: 4800, okazja: 4000, bardzo_dobry: 4500, blisko: 5000, drogo: 5500, min_oszczednosc: 800 };
+  var KUR = (CFG.kursy && CFG.kursy.EUR && CFG.kursy.USD) ? CFG.kursy : { EUR: 4.3, USD: 3.7 };
+  function kurTxt() { return '1\u00a0EUR = ' + String(KUR.EUR).replace('.', ',') + '\u00a0zł, 1\u00a0USD = ' + String(KUR.USD).replace('.', ',') + '\u00a0zł' + (KUR.data ? ' (NBP, ' + dpl2(KUR.data) + ')' : ''); }
+  // ceny-wyzwalacze: przy jakiej cenie w wyszukiwarce kompletna podróż trafia w cel i w próg
+  function wyzw(W) {
+    if (!W || !W.wiersze) return '';
+    function lim(x, base) { var sum = (x.dodatki || []).reduce(function (a, d) { return a + d[1]; }, 0), v = base - sum, k = x.wal === 'EUR' ? KUR.EUR : x.wal === 'USD' ? KUR.USD : 1; v = Math.floor(v / k / 10) * 10; return v > 0 ? '≤\u00a0' + nf(v) + '\u00a0' + (x.wal === 'PLN' ? 'zł' : x.wal) : '–'; }
+    return '<div class="wyz" id="wyzwalacze"><p class="eyebrow">Ceny-wyzwalacze · ' + kurTxt() + '</p><h3>' + esc(W.tytul) + '</h3><p>' + esc(W.intro) + '</p>' +
+      '<ul class="wyl">' + W.wiersze.map(function (x) { return '<li' + (x.rek ? ' class="rek"' : '') + '><div class="wyc"><b>' + esc(x.co) + '</b><small>' + esc(x.gdzie) + '</small><small class="wyd">' + ((x.dodatki || []).length ? 'doliczamy: ' + x.dodatki.map(function (d) { return esc(d[0]) + ' ' + nf(d[1]) + '\u00a0zł'; }).join(' + ') : 'bez dodatków – to już kompletna podróż') + (x.osobne ? ' · osobne bilety' : '') + '</small></div>' +
+        '<div class="wyn"><span class="wc"><i>🎯 cel</i>' + lim(x, CFG.cel || 4000) + '</span><span class="wp"><i>próg</i>' + lim(x, CFG.prog || 4800) + '</span></div></li>'; }).join('') + '</ul>' +
+      (W.uwaga ? '<p class="note">' + esc(W.uwaga) + ' <a href="#kalk">Kalkulator →</a></p>' : '') + '</div>';
+  }
+  // okna sprzedaży: od kiedy każda linia sprzedaje nasz wylot i powrót (data lotu minus liczba dni kalendarza linii)
+  function okna(O) {
+    if (!O || !O.linie) return '';
+    function open(d, n) { var q = d.split('-'), t = new Date(+q[0], +q[1] - 1, +q[2] - n); return t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0'); }
+    function days(a, b) { return Math.round((Date.parse(b) - Date.parse(a)) / 864e5); }
+    function za(n) { return 'za ' + n + (n === 1 ? ' dzień' : ' dni'); }
+    var L = O.linie.map(function (l) { return { l: l, w: open(O.wylot, l.dni), p: open(O.powrot, l.dni) }; });
+    var eze = L.filter(function (x) { return x.l.eze; }).map(function (x) { return x.p; }).sort(), mdz = L.filter(function (x) { return x.l.mdz; }).map(function (x) { return x.p; }).sort();
+    function ms(lab, a, b, opis) { var done = b <= TD, part = a <= TD; return '<li class="' + (done ? 'ok' : part ? 'part' : '') + '"><span class="ol">' + lab + '</span><b>' + (a === b ? dsh(a) : dsh(a) + '–' + dsh(b)) + '.' + b.slice(0, 4) + '</b><small>' + (done ? 'już w sprzedaży' : part ? 'trwa – pierwsze linie już sprzedają' : za(days(TD, a))) + ' · ' + opis + '</small></li>'; }
+    return '<div class="okna" id="okna"><p class="eyebrow">Otwarcie sprzedaży · wylot ' + dsh(O.wylot) + ', powrót ' + dsh(O.powrot) + '.' + O.powrot.slice(0, 4) + '</p><h3>' + esc(O.tytul) + '</h3><p>' + esc(O.intro) + '</p>' +
+      '<ol class="okm">' + (eze.length ? ms('Ceny w obie strony do Buenos Aires', eze[0], eze[Math.min(eze.length - 1, 3)], 'Air Europa, Iberia, Lufthansa, Air France/KLM; Turkish ' + dsh(eze[eze.length - 1])) : '') + (mdz.length ? ms('Cały bilet do Mendozy i lot krajowy', open('2027-11-12', 330), mdz[mdz.length - 1], 'Aerolíneas i LATAM otwierają 12–13.11.2027') : '') + '</ol>' +
+      '<div class="ptw"><table class="pt okt"><thead><tr><th>Linia</th><th>Wylot ' + dsh(O.wylot) + ' od</th><th>Powrót ' + dsh(O.powrot) + ' od</th><th>Stan na dziś</th></tr></thead><tbody>' + L.map(function (x) { var st = x.p <= TD ? '<span class="ok">✔ w obie strony</span>' : x.w <= TD ? 'wylot jest, powrót ' + za(days(TD, x.p)) : za(days(TD, x.w)); return '<tr><td><b>' + esc(x.l.n) + '</b><span class="rt">' + x.l.dni + ' dni naprzód · ' + esc(x.l.rola) + '</span></td><td class="n">' + dsh(x.w) + '</td><td class="n">' + dsh(x.p) + '</td><td>' + st + '</td></tr>'; }).join('') + '</tbody></table></div>' +
+      (O.zrodlo ? '<p class="note">' + esc(O.zrodlo) + '</p>' : '') + '</div>';
+  }
   function celNow() { return (window.__lotyM && +window.__lotyM.cel) || CFG.cel || CFG.okazja; }
   // skala cen (loty.skala w program.json): pasek z celem i progami + lista decyzji; marker najlepszej ceny dorysowuje monitor
   var SKL = 3600, SKH = 6000, SKP = function (v) { return Math.max(0, Math.min(100, (v - SKL) / (SKH - SKL) * 100)); };
@@ -581,7 +616,8 @@ footer a { color: var(--ink-2); }
     var ticks = S.progi.filter(function (t) { return t.do != null; }).map(function (t, i) { return '<span class="skt' + (i % 2 ? ' lo' : '') + (i === 0 ? ' cel' : '') + '" style="left:' + SKP(t.do).toFixed(2) + '%">' + (i === 0 ? '🎯 ' : '') + nf(t.do) + '</span>'; }).join('');
     return '<div class="skala" id="skala"><div class="skh"><p class="eyebrow">Skala cen · kompletna podróż na osobę</p><h3>' + esc(S.tytul) + '</h3><p>' + esc(S.opis) + '</p></div>' +
       '<div class="skw"><div class="skb" role="img" aria-label="Skala cen od 3 600 do 6 000 zł na osobę; cel 4 000 zł, próg 4 800 zł">' + seg + '<i class="skm" id="skm" hidden></i></div>' + ticks + '</div>' +
-      '<p class="skn" id="skn">Jeszcze bez cen na nasze daty – pierwsze odczyty po otwarciu sprzedaży (ok. 11.11 Air France/KLM, ok. 10.12.2026 Iberia).</p>' +
+      '<p class="skn" id="skn">Jeszcze bez cen na nasze daty – pierwsze ceny w obie strony do Buenos Aires ok. 17–19.11.2026, cały bilet do Mendozy ok. 17–18.12.2026.</p>' +
+      '<p class="skn skq"><a href="#wyzwalacze">Jaka cena w wyszukiwarce oznacza cel? →</a> <a href="#okna">Kiedy pojawią się ceny na nasze daty? →</a></p>' +
       '<ol class="skl">' + S.progi.map(function (t, i) { return '<li class="s' + i + '"><i class="skd s' + i + '"></i><b>' + esc(t.zakres) + '</b><span class="skz">' + t.ikona + ' ' + esc(t.nazwa) + '</span><p>' + esc(t.decyzja) + '</p></li>'; }).join('') + '</ol></div>';
   }
   function progNow() { return (window.__lotyM && +window.__lotyM.prog) || CFG.prog; }
@@ -762,7 +798,7 @@ footer a { color: var(--ink-2); }
       '<div class="lpane" data-pane="decyzja" role="tabpanel">' +
         '<div class="kalk" id="kalk"><div class="kh"><p class="eyebrow">Kalkulator oferty</p><h3>Czy ta cena się opłaca?</h3><p>Wpisz cenę z wyszukiwarki, alertu albo promocji. Policzę kompletną podróż na osobę, porównam z progami i z budżetem 28 000 zł na parę dla wybranego wariantu hoteli.</p></div>' +
           '<div class="kf">' +
-            '<label class="kc"><span>Cena biletu</span><span class="kin"><input type="text" inputmode="decimal" id="k-cena" placeholder="np. 4300"><select id="k-wal" aria-label="Waluta"><option value="1">zł</option><option value="4.3">EUR</option><option value="3.7">USD</option></select></span></label>' +
+            '<label class="kc"><span>Cena biletu</span><span class="kin"><input type="text" inputmode="decimal" id="k-cena" placeholder="np. 4300"><select id="k-wal" aria-label="Waluta"><option value="PLN">zł</option><option value="EUR">EUR</option><option value="USD">USD</option></select></span></label>' +
             '<label class="kc"><span>Cena dotyczy</span><select id="k-za"><option value="1">1 osoby</option><option value="2">2 osób – dzielę na pół</option></select></label>' +
             '<label class="kk"><input type="checkbox" id="k-bag" checked><span>Bagaż rejestrowany w cenie</span></label><label class="kc kx" data-for="k-bag" hidden><span>Dopłata za bagaż, obie strony, na os.</span><input type="text" inputmode="decimal" id="k-bagc" value="700"></label>' +
             '<label class="kk"><input type="checkbox" id="k-kr"><span>Lot krajowy Buenos Aires–Mendoza osobno</span></label><label class="kc kx" data-for="k-kr" hidden><span>Lot krajowy z bagażem, na os.</span><input type="text" inputmode="decimal" id="k-krc" value="650"></label>' +
@@ -776,7 +812,7 @@ footer a { color: var(--ink-2); }
         '<div class="prom"><div class="ph2"><h3>Promocje znalezione przez agentów</h3><p class="st" id="promst">Ładowanie…</p></div><div id="prom"></div><p class="note">Codziennie radar RSS (15 kanałów), w środy i piątki głębszy przegląd stron linii, Secret Flying, Chollometro i hoteli. Powiadomienie push tylko wtedy, gdy promocja obejmuje listopad 2027 i mieści się w progach.</p></div>' +
       '</div>' +
       // KALENDARZ
-      '<div class="lpane" data-pane="plan" role="tabpanel" hidden>' +
+      '<div class="lpane" data-pane="plan" role="tabpanel" hidden>' + okna(F.okna) +
       (F.kalendarz ? (function (K) {
         var t = new Date(), td = t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0');
         var WYL = '2027-11-05', T0 = Date.parse('2026-10-01'), SP = Date.parse('2027-11-17') - T0;
@@ -836,7 +872,7 @@ footer a { color: var(--ink-2); }
         '<details class="ctx" style="margin-top:16px"><summary>Notatki o terminach i decyzji hotelowej</summary><ol class="tl">' + F.kiedy.map(function (k) { return '<li><b>' + esc(k[0]) + '</b><span>' + esc(k[1]) + '</span></li>'; }).join('') + '</ol></details>' +
       '</div>' +
       // JAK SZUKAĆ
-      '<div class="lpane" data-pane="szukaj" role="tabpanel" hidden>' +
+      '<div class="lpane" data-pane="szukaj" role="tabpanel" hidden>' + wyzw(F.wyzwalacze) +
       '<div class="fo">' + F.opcje.map(function (o) { return '<article' + (o.rek ? ' class="rek"' : '') + '><span class="rt">' + esc(o.trasa) + (o.rek ? ' · polecane' : '') + '</span><h3>' + esc(o.n) + '</h3><div class="kv"><span>czas <b>' + esc(o.czas) + '</b></span><span>od osoby <b>' + esc(o.cena) + '</b></span></div><p>' + esc(o.linie) + '</p><div class="pm"><span>' + esc(o.plus) + '</span><span class="m">' + esc(o.minus) + '</span></div></article>'; }).join('') + '</div>' +
       (F.poradnik ? (function (Q) { var sc = Q.scenariusze || [], kr = Q.kroki || [], nz = Q.narzedzia || [], ck = Q.checklista || [], bl = Q.bledy || [], wn = Q.wnioski || [];
         return '<div class="por" id="poradnik"><p class="eyebrow">Poradnik szukania' + (Q.zaktualizowano ? ' · ' + esc(Q.zaktualizowano) : '') + '</p><h3>' + esc(Q.tytul) + '</h3><p>' + esc(Q.intro) + '</p>' +
@@ -939,7 +975,7 @@ footer a { color: var(--ink-2); }
           o += '<h4>Trend cen</h4>' + g;
         }
       } else {
-        o += '<div class="empty"><b>Jeszcze bez cen na nasze daty.</b> Linie otwierają sprzedaż na listopad 2027 między 11.11 a 10.12.2026; pierwsze prawdziwe odczyty pojawią się w fazie „Rozkład otwarty”. Do tego czasu niżej widełki orientacyjne z października 2026.</div>';
+        o += '<div class="empty"><b>Jeszcze bez cen na nasze daty.</b> Linie sprzedają 330–361 dni naprzód: pierwsze ceny w obie strony do Buenos Aires pojawią się ok. 17–19.11.2026, cały bilet do Mendozy ok. 17–18.12.2026 (<a href="#okna">kalendarz otwarcia sprzedaży</a>). Do tego czasu niżej widełki orientacyjne z października 2026.</div>';
       }
       var mx = 0; priced.forEach(function (s) { H(s).forEach(function (x) { mx = Math.max(mx, x.cena); }); });
       function row(s, i) { var l = last(s), p = prev(s), h = H(s), mn = h.length ? Math.min.apply(null, h.map(function (x) { return x.cena; })) : null;
@@ -984,7 +1020,7 @@ footer a { color: var(--ink-2); }
       var skm = document.getElementById('skm'), skn = document.getElementById('skn');
       if (skm && best) { var cl = celNow(); skm.hidden = false; skm.style.left = SKP(best.cena).toFixed(2) + '%'; skm.title = nf(best.cena) + '\u00a0zł'; skn.innerHTML = 'Najlepsza kompletna podróż teraz: <b>' + nf(best.cena) + '\u00a0zł / os.</b> (' + esc(priced[0].linia) + ', ' + pl2(best.data) + ') – ' + (best.cena <= cl ? 'w celu' : nf(best.cena - cl) + '\u00a0zł do celu ' + nf(cl)) + '.'; }
       var c = '<div class="ck4">';
-      c += '<div class="cc cphase"><span class="cl">Faza teraz</span>' + (faza ? '<b>' + esc(faza.faza) + '</b><small>' + pl2(faza.od) + ' – ' + pl2(faza.do) + '</small><p>' + esc(faza.decyzja) + '</p>' : nextF ? '<b>Przed startem</b><small>do ' + pl2(nextF.od) + ' (za ' + days(td, nextF.od) + ' dni)</small><p>Teraz tylko przygotowania z listy zadań – rozkład na listopad 2027 jeszcze nieotwarty. Następnie: ' + esc(nextF.faza) + ' (' + pl2(nextF.od) + ').</p>' : '<b>Po zakupie</b>') + '<a href="#kalendarz" data-lgo="plan">kalendarz →</a></div>';
+      c += '<div class="cc cphase"><span class="cl">Faza teraz</span>' + (faza ? '<b>' + esc(faza.faza) + '</b><small>' + pl2(faza.od) + ' – ' + pl2(faza.do) + '</small><p>' + esc(faza.decyzja) + '</p>' : nextF ? '<b>Przed startem</b><small>do ' + pl2(nextF.od) + ' (za ' + days(td, nextF.od) + ' dni)</small><p>Teraz tylko przygotowania z listy zadań – powrót 13.11.2027 nie jest jeszcze w sprzedaży, więc cen podróży nie ma. Następnie: ' + esc(nextF.faza) + ' (' + pl2(nextF.od) + ').</p>' : '<b>Po zakupie</b>') + '<a href="#kalendarz" data-lgo="plan">kalendarz →</a></div>';
       c += '<div class="cc cprice ' + (best ? kl(best.cena) : 'n') + '"><span class="cl">Najlepsza kompletna podróż</span>' + (best ? '<b>' + nf(best.cena) + '\u00a0zł / os.</b><small>' + esc(priced[0].linia) + ' · ' + pl2(best.data) + '</small><p>' + badge(best.cena) + ' ' + (best.cena <= prog ? nf(prog - best.cena) + '\u00a0zł poniżej progu' : nf(best.cena - prog) + '\u00a0zł ponad próg') + '</p>' : '<b>brak wyceny</b><small>rozkład otwiera się ok. 10.12.2026</small><p>Próg zakupu 4 800 zł/os. Ofertę spoza monitora sprawdź w kalkulatorze.</p>') + '<a href="#kalk" data-lgo="decyzja">kalkulator i ranking →</a></div>';
       c += '<div class="cc cbaro"><span class="cl">Barometr rynku</span><b>' + (!(dn + up) ? 'brak sygnałów' : dn > up * 1.25 ? '▼ raczej taniej' : up > dn * 1.25 ? '▲ raczej drożej' : '≈ równowaga') + '</b><div class="bm small"><i class="dn" style="width:' + bal + '%"></i><i class="up" style="width:' + (100 - bal) + '%"></i></div><small>taniej ' + dn + ' · drożej ' + up + ' (90 dni, ważone)</small>' + (SG[0] ? '<p>' + (up > dn * 1.25 ? 'Dobrą cenę brać od razu. ' : dn > up * 1.25 ? 'Warto polować i obserwować. ' : '') + 'Najnowszy: ' + esc(String(SG[0].typ || 'sygnał').toLowerCase()) + ' – ' + esc((SG[0].opis || '').split(/[.–;]/)[0].trim()) + '.</p>' : '') + '<a href="#radar" data-lgo="radar">radar →</a></div>';
       var ev = [];
@@ -1109,7 +1145,7 @@ footer a { color: var(--ink-2); }
     function val(id) { var x = String($(id).value).replace(/[\s\u00a0]|zł|pln|eur|usd|€|\$/gi, ''); if (x.indexOf(',') >= 0) x = x.replace(/\./g, '').replace(',', '.'); var v = parseFloat(x); return isFinite(v) && v > 0 ? v : 0; }
     function upd() {
       box.querySelectorAll('.kx').forEach(function (x) { var c = $(x.dataset.for); x.hidden = x.dataset.for === 'k-bag' ? c.checked : !c.checked; });
-      var c = Math.round(val('k-cena') * (+$('k-wal').value) / (+$('k-za').value)), out = $('k-out');
+      var wal = $('k-wal').value, c = Math.round(val('k-cena') * (wal === 'EUR' ? KUR.EUR : wal === 'USD' ? KUR.USD : 1) / (+$('k-za').value)), out = $('k-out');
       try { localStorage.setItem('uco-kalk', JSON.stringify({ c: $('k-cena').value, w: $('k-wal').value, z: $('k-za').value, b: $('k-bag').checked, bc: $('k-bagc').value, k: $('k-kr').checked, kc: $('k-krc').value, d: $('k-dol').checked, dc: $('k-dolc').value })); } catch (e) {}
       if (!c) { out.innerHTML = '<p class="kempty">Wpisz cenę, a pojawi się werdykt: kompletna podróż na osobę, odległość od celu ' + nf(celNow()) + '\u00a0zł i progu ' + nf(progNow()) + '\u00a0zł i wpływ na budżet pary.</p>'; return; }
       var add = [], t = c;
@@ -1121,12 +1157,12 @@ footer a { color: var(--ink-2); }
       var sep = $('k-kr').checked || $('k-dol').checked, o = D.hotels[cur], b = calc(o), para = b.razem - b.loty + 2 * t, lim = CFG.sufit, bs = window.__bestSingle, mo = CFG.min_oszczednosc;
       // osobne bilety bez wymaganej oszczędności wobec najlepszego jednego biletu: werdykt nie może mówić „kupować”
       if (sep && bs && t > bs - mo) v = ['b3', '⚪ Nie opłaca się wobec jednego biletu', 'Osobne bilety dają tu mniej niż ' + nf(mo) + '\u00a0zł/os. oszczędności wobec najlepszego jednego biletu (' + nf(bs) + '\u00a0zł) – kupować jeden bilet.'];
-      out.innerHTML = '<div class="kv2"><div class="kbig"><span>Kompletna podróż na osobę</span><b>' + nf(t) + '\u00a0zł</b><small>' + (add.length ? 'bilet ' + nf(c) + ' + ' + add.join(' + ') : 'bilet z bagażem, bez dodatków') + '</small></div>' +
+      out.innerHTML = '<div class="kv2"><div class="kbig"><span>Kompletna podróż na osobę</span><b>' + nf(t) + '\u00a0zł</b><small>' + (add.length ? 'bilet ' + nf(c) + ' + ' + add.join(' + ') : 'bilet z bagażem, bez dodatków') + (wal !== 'PLN' ? ' · po kursie ' + String(KUR[wal]).replace('.', ',') + '\u00a0zł' : '') + '</small></div>' +
         '<div class="kver"><span class="bd ' + v[0] + '">' + v[1] + '</span><p class="kd">' + (t <= cel ? nf(cel - t) + '\u00a0zł poniżej celu ' + nf(cel) : nf(t - cel) + '\u00a0zł do celu ' + nf(cel) + ' · ' + (t <= prog ? nf(prog - t) + '\u00a0zł poniżej progu ' + nf(prog) : nf(t - prog) + '\u00a0zł ponad próg ' + nf(prog))) + '</p><p>' + v[2] + '</p></div>' +
         '<div class="kbud"><span>Budżet pary przy tej cenie</span><b class="' + (para <= lim ? 'ok' : 'over') + '">' + nf(para) + '\u00a0zł</b><small>' + (para <= lim ? 'zapas ' + nf(lim - para) + '\u00a0zł do sufitu ' + nf(lim) : nf(para - lim) + '\u00a0zł ponad sufit ' + nf(lim)) + ' · ' + esc(o.n.replace(/[:(].*$/, '').trim()) + ', ' + np + ' pary · bilety dla ' + (2 * np) + ' os.: ' + nf(t * 2 * np) + '\u00a0zł</small></div></div>' +
         (sep ? '<p class="kw">Osobne bilety opłacają się tylko przy oszczędności ≥ ' + nf(mo) + '\u00a0zł/os. wobec najlepszego jednego biletu' + (bs ? ' (dziś ' + nf(bs) + '\u00a0zł – ten wariant ma sens poniżej ' + nf(bs - mo) + '\u00a0zł' + (t <= bs - mo ? ', więc tu się opłaca' : ', więc tu się nie opłaca') + ')' : '') + '. Przy osobnych biletach min. 3 h przesiadki w Ezeizie i ubezpieczenie z klauzulą „missed connection”.</p>' : '');
     }
-    try { var s = JSON.parse(localStorage.getItem('uco-kalk') || 'null'); if (s) { $('k-cena').value = s.c || ''; $('k-wal').value = s.w || '1'; $('k-za').value = s.z || '1'; $('k-bag').checked = s.b !== false; $('k-bagc').value = s.bc || 700; $('k-kr').checked = !!s.k; $('k-krc').value = s.kc || 650; $('k-dol').checked = !!s.d; $('k-dolc').value = s.dc || 850; } } catch (e) {}
+    try { var s = JSON.parse(localStorage.getItem('uco-kalk') || 'null'); if (s) { $('k-cena').value = s.c || ''; $('k-wal').value = { '4.3': 'EUR', '3.7': 'USD', EUR: 'EUR', USD: 'USD' }[s.w] || 'PLN'; $('k-za').value = s.z || '1'; $('k-bag').checked = s.b !== false; $('k-bagc').value = s.bc || 700; $('k-kr').checked = !!s.k; $('k-krc').value = s.kc || 650; $('k-dol').checked = !!s.d; $('k-dolc').value = s.dc || 850; } } catch (e) {}
     box.addEventListener('input', upd); box.addEventListener('change', upd); upd(); window.__kalkUpd = upd;
     var _bud = bud; bud = function () { _bud(); upd(); };
   })();
@@ -1223,7 +1259,7 @@ footer a { color: var(--ink-2); }
       if (late.length) lines.push('Po terminie: ' + late.map(function (e) { return e.t + ' (' + dpl2(e.d) + ')'; }).join('; ') + '.');
       if (nxt.length) { lines.push('Co potrzebujemy od Was:'); nxt.forEach(function (e) { lines.push('• do ' + dsh(e.d) + (e.d.slice(0, 4) !== TD.slice(0, 4) ? '.' + e.d.slice(0, 4) : '') + ' – ' + e.t); }); }
       var fz = (LK.fazy || []).filter(function (f) { return f.do >= TD; })[0];
-      lines.push('Bilety: ' + (fz && fz.od <= TD ? 'trwa faza „' + fz.faza + '” (do ' + dsh(fz.do) + '): ' + fz.decyzja : 'nic nie kupujemy przed otwarciem sprzedaży na nasze daty (ok. 11.11 Air France/KLM, ok. 10.12 Iberia). Damy znać, gdy cena zejdzie do celu – wtedy kupujemy wszyscy tego samego dnia.'));
+      lines.push('Bilety: ' + (fz && fz.od <= TD ? 'trwa faza „' + fz.faza + '” (do ' + dsh(fz.do) + '): ' + fz.decyzja : 'nic nie kupujemy, dopóki linie nie sprzedają powrotu 13.11.2027 (do Buenos Aires od ok. 19.11, cały bilet do Mendozy od ok. 18.12). Damy znać, gdy cena zejdzie do celu – wtedy kupujemy wszyscy tego samego dnia.'));
       lines.push('Szczegóły, budżet i zdjęcia: https://6b7kq8bpkr-del.github.io/Madeira-interactive/rocznica-2027/uco/');
       return lines.join('\n');
     }
