@@ -156,7 +156,7 @@ for (const [W, scheme] of CONFIGS) {
 }
 
 // linki głębokie: sekcja ma być widoczna (rozwinięta) i przewinięta pod górę ekranu
-for (const h of ['decyzje', 'plan', 'd10-11', 'budzet', 'upgrade', 'hotele', 'loty', 'radar', 'kalendarz', 'poradnik', 'zadania', 'kalk', 'rezerwacje']) {
+for (const h of ['decyzje', 'plan', 'd10-11', 'budzet', 'upgrade', 'hotele', 'loty', 'radar', 'kalendarz', 'poradnik', 'zadania', 'kalk', 'rezerwacje', 'wyzwalacze', 'okna']) {
   const { pg, log } = await open(1300, 'light', '#' + h);
   const r = await pg.evaluate(h => { const el = document.getElementById(h); if (!el) return null; const b = el.getBoundingClientRect(); return { shown: !!el.getClientRects().length, top: Math.round(b.top) }; }, h);
   if (!r) fail('#' + h, 'brak elementu');
@@ -270,6 +270,28 @@ async function withLoty(mutate, hash, fn) {
   if (e4.length) fail('decyzje – budżet', 'błędy JS: ' + e4[0]);
   await p4.close();
   if (log.errs.length) fail('decyzje', 'błędy JS: ' + log.errs[0]);
+}
+
+// ceny-wyzwalacze i okna sprzedaży: progi liczą się z celu, dodatków i kursów; daty otwarcia z liczby dni kalendarza linii
+{
+  const { pg, log } = await open(1300, 'light', '#wyzwalacze');
+  const r = await pg.evaluate(() => {
+    const B = window.UCO.prog.budzet, W = window.UCO.prog.loty.wyzwalacze.wiersze, num = s => +s.replace(/[^0-9]/g, '');
+    const rows = [...document.querySelectorAll('#wyzwalacze .wyl li')].map(li => ({ c: li.querySelector('.wc').textContent, p: li.querySelector('.wp').textContent }));
+    const exp = W.map(x => { const sum = (x.dodatki || []).reduce((a, d) => a + d[1], 0), k = x.wal === 'EUR' ? B.kursy.EUR : 1; return [Math.floor((B.cel - sum) / k / 10) * 10, Math.floor((B.prog - sum) / k / 10) * 10]; });
+    const O = window.UCO.prog.loty.okna, okt = [...document.querySelectorAll('#okna .okt tbody tr')].map(tr => [tr.cells[0].querySelector('b').textContent, tr.cells[1].textContent, tr.cells[2].textContent]);
+    return { n: rows.length, ok: rows.every((x, i) => num(x.c) === exp[i][0] && num(x.p) === exp[i][1]), first: rows[0], eur: rows.filter(x => /EUR/.test(x.c)).length, kurs: document.querySelector('#wyzwalacze .eyebrow').textContent, okt, okm: document.querySelectorAll('#okna .okm li').length, lines: O.linie.length };
+  });
+  if (r.n < 6 || !r.ok || !/4\s000\szł/.test(r.first.c) || !/4\s800\szł/.test(r.first.p) || r.eur < 2 || !/4,39/.test(r.kurs)) fail('ceny-wyzwalacze', JSON.stringify({ n: r.n, ok: r.ok, first: r.first, eur: r.eur, kurs: r.kurs }));
+  const ib = r.okt.find(x => x[0] === 'Iberia'), ar = r.okt.find(x => /Aerolíneas/.test(x[0]));
+  if (r.okt.length !== r.lines || r.okm !== 2 || !ib || ib[1] !== '10.11' || ib[2] !== '18.11' || !ar || ar[1] !== '10.12' || ar[2] !== '18.12') fail('okna sprzedaży', JSON.stringify({ rows: r.okt.length, okm: r.okm, ib, ar }));
+  // kalkulator liczy EUR po kursie z danych, także gdy w pamięci został stary zapis waluty
+  await pg.evaluate(() => { localStorage.setItem('uco-kalk', JSON.stringify({ c: '585', w: '4.3', z: '1', b: true })); });
+  await pg.reload({ waitUntil: 'load' }); await pg.waitForTimeout(900);
+  const k = await pg.evaluate(() => ({ wal: document.getElementById('k-wal').value, out: document.getElementById('k-out').innerText.replace(/\s+/g, ' ') }));
+  if (k.wal !== 'EUR' || !/2\s?568\s?zł/.test(k.out)) fail('kalkulator – kurs', JSON.stringify(k));
+  if (log.errs.length) fail('ceny-wyzwalacze', 'błędy JS: ' + log.errs[0]);
+  await pg.close();
 }
 
 // skala cen z celem 4 000 zł: pasek, sześć progów, marker najlepszej ceny i werdykt kalkulatora

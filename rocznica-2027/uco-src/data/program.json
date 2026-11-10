@@ -254,9 +254,9 @@
    "k": "Casa de Uco i Lares – zapytania grupowe"
   },
   {
-   "when": "od otwarcia rozkładu (11.11–10.12.2026) do 31.08.2027",
-   "what": "Loty: od połowy listopada 2026 założyć alerty (Google Flights, Kayak – gotowe linki w zakładce Loty), komplet po otwarciu rozkładu Iberii ok. 10.12. Daty: wylot 4.11 (najwcześniej o 20:00) lub 5.11, powrót z Buenos Aires 12.11 lub 13.11 – lądowanie w Warszawie najpóźniej w niedzielę 14.11. Kupować od otwarcia rozkładu (pierwsze realne okno: styczniowe rebajas Iberii), najpóźniej do 31.08.2027, parami (2 osoby na rezerwację); najpierw jeden bilet do Mendozy, Ethiopian/Turkish + lot krajowy tylko przy oszczędności ≥ 800 zł/os.; próg 4 800 zł/os. za kompletną podróż. Lot krajowy – tylko gdy bilet go nie obejmuje – w lipcu–sierpniu 2027 (Aerolíneas lub JetSMART, taryfa z bagażem); między osobnymi biletami min. 3 h przy EZE → EZE, 4–5 h przy zmianie na Aeroparque.",
-   "krotko": "Loty: alerty od połowy listopada 2026 (gotowe linki w sekcji Loty), zakup od otwarcia rozkładu do 31.08.2027, parami. Wylot 4.11 (od 20:00) lub 5.11, lądowanie w Warszawie najpóźniej 14.11; próg 4 800 zł/os. za kompletną podróż.",
+   "when": "od otwarcia sprzedaży (XI–XII 2026) do 31.08.2027",
+   "what": "Loty: od połowy listopada 2026 założyć alerty (Google Flights, Kayak – gotowe linki w zakładce Loty), najpierw na Buenos Aires (od ok. 19.11), komplet z Mendozą i lotem krajowym od ok. 18.12. Daty: wylot 4.11 (najwcześniej o 20:00) lub 5.11, powrót z Buenos Aires 12.11 lub 13.11 – lądowanie w Warszawie najpóźniej w niedzielę 14.11. Kupować od otwarcia rozkładu (pierwsze realne okno: styczniowe rebajas Iberii), najpóźniej do 31.08.2027, parami (2 osoby na rezerwację); najpierw jeden bilet do Mendozy, Ethiopian/Turkish + lot krajowy tylko przy oszczędności ≥ 800 zł/os.; cel 4 000 zł/os. za kompletną podróż (próg 4 800 zł). Lot krajowy – tylko gdy bilet go nie obejmuje – w lipcu–sierpniu 2027 (Aerolíneas lub JetSMART, taryfa z bagażem); między osobnymi biletami min. 3 h przy EZE → EZE, 4–5 h przy zmianie na Aeroparque.",
+   "krotko": "Loty: alerty od połowy listopada 2026 (gotowe linki w sekcji Loty), zakup od otwarcia rozkładu do 31.08.2027, parami. Wylot 4.11 (od 20:00) lub 5.11, lądowanie w Warszawie najpóźniej 14.11; cel 4 000 zł/os. za kompletną podróż (próg 4 800 zł).",
    "od": "2026-11-11",
    "do": "2027-08-31",
    "k": "Loty – alerty, potem zakup"
@@ -980,7 +980,7 @@
   }
  ],
  "loty": {
-  "intro": "Z Warszawy do Mendozy, ok. 18–30 h w jedną stronę zależnie od linii; powrót z Buenos Aires po dniu w mieście. Rozkład i ceny na listopad 2027 linie otwierają ok. 330–360 dni wcześniej, czyli między 11.11 a 10.12.2026. Sprawdzone 25.10.2026: sam bilet Warszawa–Buenos Aires z bagażem kosztuje dziś 4 150–4 500 zł u Ethiopian i Turkish, 4 700–5 800 zł u linii europejskich, lot krajowy z bagażem 480–850 zł; średnia roczna trasy ok. 5 750 zł, a listopad jest najtańszym miesiącem. Budżet liczy kompletną podróż Warszawa–Mendoza na osobę: cel 4 000 zł (kupujemy od razu), główny próg zakupu 4 800 zł (9 600 zł na parę) – przy nim wariant polecany zostawia ok. 2 000 zł zapasu na parę na upgrade’y; wariant polecany (Lares + Laguna Suite) mieści się do ok. 6 000 zł/os. (wariant 4 z pokojem Cordón del Plata do ok. 6 330 zł/os.). Kolejność szukania: najpierw cały bilet do Mendozy, równolegle Madryt–Mendoza jako chroniona podróż, osobne bilety dopiero przy oszczędności ≥ 800 zł/os.",
+  "intro": "Z Warszawy do Mendozy, ok. 18–30 h w jedną stronę zależnie od linii; powrót z Buenos Aires po dniu w mieście. Linie sprzedają bilety 330–361 dni naprzód: pierwsze ceny w obie strony do Buenos Aires na nasze daty pojawią się ok. 17–19.11.2026, a cały bilet do Mendozy da się wycenić ok. 17–18.12.2026 (tabela w zakładce Kalendarz). Sprawdzone 25.10.2026: sam bilet Warszawa–Buenos Aires z bagażem kosztuje dziś 4 150–4 500 zł u Ethiopian i Turkish, 4 700–5 800 zł u linii europejskich, lot krajowy z bagażem 480–850 zł; średnia roczna trasy ok. 5 750 zł, a listopad jest najtańszym miesiącem. Budżet liczy kompletną podróż Warszawa–Mendoza na osobę: cel 4 000 zł (kupujemy od razu), główny próg zakupu 4 800 zł (9 600 zł na parę) – przy nim wariant polecany zostawia ok. 2 000 zł zapasu na parę na upgrade’y; wariant polecany (Lares + Laguna Suite) mieści się do ok. 6 000 zł/os. (wariant 4 z pokojem Cordón del Plata do ok. 6 330 zł/os.). Kolejność szukania: najpierw cały bilet do Mendozy, równolegle Madryt–Mendoza jako chroniona podróż, osobne bilety dopiero przy oszczędności ≥ 800 zł/os.",
   "opcje": [
    {
     "n": "Cały bilet Warszawa–Mendoza (jedna rezerwacja)",
@@ -995,9 +995,9 @@
    {
     "n": "Dolot do Madrytu + Madryt–Mendoza jako jedna chroniona podróż",
     "trasa": "WAW → MAD (osobno) · MAD → EZE/SCL → MDZ (jeden bilet)",
-    "linie": "LOT / Iberia / Ryanair do Madrytu; Iberia z LATAM lub Aerolíneas z Madrytu do Mendozy na jednym bilecie. Publiczny wynik Google Flights: Iberia/LATAM Madryt–Mendoza 998 USD w obie strony (ok. 3 690 zł) na 23.01–8.02.2027.",
+    "linie": "LOT / Iberia / Ryanair do Madrytu; Iberia z LATAM lub Aerolíneas z Madrytu do Mendozy na jednym bilecie. Publiczny wynik Google Flights: Iberia/LATAM Madryt–Mendoza 998 USD w obie strony (ok. 3 910 zł po kursie z XI 2026) na 23.01–8.02.2027.",
     "czas": "ok. 22–28 h + bufor",
-    "cena": "ok. 3 700 zł + dolot 500–900 zł + bagaż + nocleg buforowy",
+    "cena": "ok. 3 900 zł + dolot 500–900 zł + bagaż + nocleg buforowy",
     "plus": "Przesiadki od Madrytu chronione; potencjał poniżej progu, jeśli dolot i bagaż wyjdą tanio.",
     "minus": "Osobny bilet do Madrytu to własne ryzyko – przed drogim lotem przez Atlantyk nocleg buforowy w Madrycie (koszt i dzień urlopu albo jedna noc mniej w Mendozie). Opłaca się dopiero przy oszczędności ≥ 800 zł/os. po wszystkich dodatkach."
    },
@@ -1014,7 +1014,7 @@
   "kiedy": [
    [
     "połowa listopada 2026",
-    "Pierwsze pełne porównania: cały bilet Warszawa–Mendoza przez Buenos Aires, Santiago i São Paulo oraz Madryt–Mendoza; kolejne po pojawieniu się rozkładów partnerów (grudzień–styczeń). Black Friday Iberii i Air Europy obejmuje zwykle podróże tylko do maja–czerwca. Rozkład na 5.11.2027 otworzy się między 11.11 a 10.12.2026. Już w listopadzie 2026 sprawdzić dwie rzeczy: czy kampania Iberia + Visit Argentina (sprzedaż 12.11.2026–31.05.2027, od 425 EUR za odcinek, taryfa Básica bez bagażu) dopuszcza podróże w listopadzie 2027, oraz wycenić taryfę Star Alliance/United open-jaw Europa → Buenos Aires → Berlin/Wiedeń (23 kg), której reguły z 21.10.2026 obejmują 1.09–9.12.2027."
+    "Pierwsze pełne porównania: cały bilet Warszawa–Mendoza przez Buenos Aires, Santiago i São Paulo oraz Madryt–Mendoza; kolejne po pojawieniu się rozkładów partnerów (grudzień–styczeń). Black Friday Iberii i Air Europy obejmuje zwykle podróże tylko do maja–czerwca. Pierwsze ceny w obie strony do Buenos Aires na nasze daty ok. 17–19.11.2026, cały bilet do Mendozy ok. 17–18.12.2026. Już w listopadzie 2026 sprawdzić dwie rzeczy: czy kampania Iberia + Visit Argentina (sprzedaż 12.11.2026–31.05.2027, od 425 EUR za odcinek, taryfa Básica bez bagażu) dopuszcza podróże w listopadzie 2027, oraz wycenić taryfę Star Alliance/United open-jaw Europa → Buenos Aires → Berlin/Wiedeń (23 kg), której reguły z 21.10.2026 obejmują 1.09–9.12.2027."
    ],
    [
     "styczeń–maj 2027",
@@ -1030,6 +1030,8 @@
    ]
   ],
   "zasady": [
+   "Każdą cenę z wyszukiwarki przeliczać na kompletną podróż (tabela „Ceny-wyzwalacze” wyżej): cel 4 000 zł za całość to np. Warszawa–Buenos Aires z bagażem za ok. 3 350 zł albo Madryt–Buenos Aires z bagażem za ok. 560 EUR.",
+   "Nie wyceniać przed otwarciem sprzedaży powrotu: linie sprzedają 330–361 dni naprzód, więc cena w obie strony do Buenos Aires istnieje od ok. 17–19.11.2026, a cały bilet do Mendozy od ok. 17–18.12.2026. Cena w jedną stronę nie jest połową ceny podróży.",
    "Najpierw szukać całego biletu Warszawa–Mendoza: sprzedają go Iberia, Air Europa, ITA i Air France/KLM (odcinek do Mendozy na Aerolíneas przez Buenos Aires) oraz LATAM przez São Paulo lub Santiago – porównać wszystkie huby, bo cena całej trasy bywa korzystniejsza niż suma odcinków. Maks. dwie przesiadki, bez zmiany lotniska w jednym mieście. Turkish, Ethiopian i Lufthansa dowożą tylko do Buenos Aires.",
    "Równolegle sprawdzać osobny dolot do Madrytu i Madryt–Mendoza jako jedną chronioną podróż (przykład Iberia/LATAM 998 USD w obie strony, 23.01–8.02.2027; Kayak 28.10.2026: MAD–MDZ od 825 EUR) – ale doliczyć Warszawę, bagaż i nocleg buforowy; zwykła różnica ex-Madryt to tylko 100–200 EUR, więc scenariusz ma sens głównie przy promocji ex-Hiszpania.",
    "Osobne bilety wybierać dopiero przy oszczędności minimum 800 zł/os. po wszystkich dodatkach – to próg opłacalności dodatkowego ryzyka. Przed drogim lotem międzykontynentalnym nocleg buforowy; jeśli wymaga to skrócenia siedmiu nocy albo dodatkowego dnia urlopu, policzyć ten kompromis.",
@@ -1214,8 +1216,8 @@
   },
   "poradnik": {
    "tytul": "Jak szukać i kiedy kupić bilety do Mendozy",
-   "zaktualizowano": "28.10.2026",
-   "intro": "Wnioski z pogłębionego badania taryf, forów i narzędzi (28.10.2026). Najważniejsze: jeden bilet Warszawa–Mendoza sprzedają tylko linie z partnerem w Buenos Aires lub Santiago – Iberia, Air Europa, ITA, Air France/KLM (odcinek do Mendozy na Aerolíneas) i LATAM (przez São Paulo lub Santiago, z pominięciem Buenos Aires). Turkish, Ethiopian i Lufthansa dowożą tylko do Buenos Aires. Odcinek krajowy doliczony do biletu kosztuje u Aerolíneas 50–100 EUR – mniej niż osobny lot (ok. 125–150 USD) i z chronioną przesiadką. Daty 5–14.11 to u linii sezon niski; rozkład na 5.11.2027 otworzy się między 11.11 a 10.12.2026, a najniższe ceny statystycznie 18–24 tygodnie przed lotem, czyli w maju–lipcu 2027. Żadna promocja Black Friday z ostatnich lat nie obejmowała listopada następnego roku; jedyna kampania, która to robiła, to styczniowe „rebajas” Iberii (w 2026 r. podróże do 10.12; w sprzedaży z Argentyny do 30.11).",
+   "zaktualizowano": "10.11.2026",
+   "intro": "Wnioski z pogłębionego badania taryf, forów i narzędzi (28.10.2026), uzupełnione 10.11.2026 o terminy otwarcia sprzedaży i ceny-wyzwalacze. Najważniejsze: jeden bilet Warszawa–Mendoza sprzedają tylko linie z partnerem w Buenos Aires lub Santiago – Iberia, Air Europa, ITA, Air France/KLM (odcinek do Mendozy na Aerolíneas) i LATAM (przez São Paulo lub Santiago, z pominięciem Buenos Aires). Turkish, Ethiopian i Lufthansa dowożą tylko do Buenos Aires. Odcinek krajowy doliczony do biletu kosztuje u Aerolíneas 50–100 EUR – mniej niż osobny lot (ok. 125–150 USD) i z chronioną przesiadką. Daty 5–14.11 to u linii sezon niski; pierwsze ceny w obie strony do Buenos Aires pojawią się ok. 17–19.11.2026, cały bilet do Mendozy ok. 17–18.12.2026, a najniższe ceny statystycznie 18–24 tygodnie przed lotem, czyli w maju–lipcu 2027. Żadna promocja Black Friday z ostatnich lat nie obejmowała listopada następnego roku; jedyna kampania, która to robiła, to styczniowe „rebajas” Iberii (w 2026 r. podróże do 10.12; w sprzedaży z Argentyny do 30.11).",
    "scenariusze": [
     {
      "n": "1 · Jeden bilet WAW–MDZ w obie strony",
@@ -1272,6 +1274,11 @@
      "kiedy": "raz, teraz"
     },
     {
+     "t": "Sprawdzić, czy nasze daty są już w sprzedaży.",
+     "opis": "Linie sprzedają 330–361 dni naprzód (tabela w zakładce Kalendarz). Dopóki powrót 13.11.2027 nie jest otwarty, wyszukiwarka pokaże pusty wynik albo cenę w jedną stronę – to nie błąd i nie cena podróży. Do Buenos Aires w obie strony od ok. 17–19.11.2026, cały bilet do Mendozy od ok. 17–18.12.2026.",
+     "kiedy": "przed każdym przeglądem do połowy grudnia 2026"
+    },
+    {
      "t": "Cztery przeglądy w Google Flights dla 2 osób.",
      "opis": "Round trip WAW–MDZ; multi-city WAW→MDZ / MDZ→EZE 12.11 / EZE→WAW 13.11; round trip WAW–EZE; multi-city open-jaw WAW→MDZ / EZE→WAW. Filtry: „Bags: 1 checked bag”, wyłączyć „Separate tickets”, przesiadki maks. 2, „Connecting airports” z maksymalnym czasem przesiadki 4 h, „Godziny”: wylot z Warszawy w czwartek po 20:00 (w piątek bez ograniczeń), przylot powrotny najpóźniej w niedzielę 14.11. Zapisać trzy najtańsze kombinacje z każdej wyszukiwarki (zrzut ekranu z datą).",
      "link": [
@@ -1288,6 +1295,11 @@
       "https://matrix.itasoftware.com"
      ],
      "kiedy": "przy każdej obiecującej cenie"
+    },
+    {
+     "t": "Przeliczyć wynik na kompletną podróż.",
+     "opis": "Każdą cenę porównać z tabelą „Ceny-wyzwalacze” albo wpisać do kalkulatora: do biletu bez bagażu doliczyć bagaż, do biletu do Buenos Aires lot krajowy, do biletu z Madrytu dolot i nocleg. Dopiero ta suma idzie na skalę cen (cel 4 000 zł, próg 4 800 zł).",
+     "kiedy": "przy każdej cenie, która wygląda na okazję"
     },
     {
      "t": "Kontrola w Kayak, Momondo i Skyscanner.",
@@ -1400,6 +1412,8 @@
     "Po zakupie: wpisać cenę do monitora (cel 4 000, próg 4 800), odwołać alerty, zarezerwować lot krajowy tylko jeśli scenariusz tego wymaga."
    ],
    "bledy": [
+    "Branie ceny w jedną stronę za połowę ceny podróży, gdy powrót 13.11.2027 nie jest jeszcze w sprzedaży – taryfy w jedną stronę przez Atlantyk są zwykle droższe niż połowa biletu w obie strony.",
+    "Ocenianie ceny biletu do Buenos Aires albo z Madrytu progiem dla kompletnej podróży – Warszawa–Buenos Aires z bagażem to cel dopiero przy ok. 3 350 zł, Madryt–Buenos Aires z bagażem przy ok. 560 EUR.",
     "Płacenie w pesos na stronach argentyńskich (iberia.com/ar, aerolineas.com.ar) – 30 % podatku „percepción”, odrzucenia zagranicznych kart i ryzyko anulowania; strona argentyńska tylko do porównania (w ITA Matrix opcja „sales city”).",
     "Pomylenie lotnisk: AEP i EZE w Buenos Aires, CGH i GRU w São Paulo – multi-city ze zmianą lotniska bez zaplanowanego transferu.",
     "„+1 dzień”: lot WAW–MAD–EZE ląduje następnego dnia; powrót z Buenos Aires 13.11 wieczorem to lądowanie w Warszawie 14.11 – w niedzielę, w którą trzeba być w domu, więc tylko połączenia z przylotem tego dnia (najlepiej do ok. 18:00, z zapasowym lotem do Warszawy).",
@@ -1418,7 +1432,7 @@
     "Odcinek krajowy w jednym bilecie kosztuje u Aerolíneas +50–100 EUR, mniej niż osobny lot (ok. 125–150 USD) – i chroni przesiadkę oraz bagaż. U Iberii/AF/KLM porównać WAW–MDZ z WAW–EZE w tym samym oknie: różnica powinna być ≤ 100 EUR.",
     "Open-jaw (do Mendozy, powrót z Buenos Aires) wycenia się jako sumę połówek – zwykle bez dopłaty. Stopover > 24 h w Buenos Aires w taryfach eko Iberii i AF/KLM bywa zakazany; wtedy system doliczy odcinek krajowy osobno – nadal na jednym bilecie.",
     "Ex-Madryt oszczędza zwykle 100–200 EUR/os.; dolot i nocleg buforowy to zjadają. Sens tylko przy promocji ex-Hiszpania (styczeń) albo promocji Aerolíneas „desde Europa”.",
-    "Rozkład na 5.11.2027 otworzy się między 11.11 (Flying Blue, 359 dni) a 10.12.2026 (Iberia, ok. 330 dni). Najniższe ceny statystycznie 18–24 tygodnie przed, czyli maj–lipiec 2027; grupa 6–8 osób zużywa tanie klasy, więc dobra cena wcześniej jest lepsza niż statystyka.",
+    "Linie sprzedają 330–361 dni naprzód: Air Europa i LOT 361, Iberia i Lufthansa 360, Air France/KLM 359, Turkish 354, Ethiopian 331, Aerolíneas, LATAM i ITA 330 (korekta z 10.11.2026 – Iberia to 360 dni, nie 330). Cena w obie strony istnieje dopiero, gdy w sprzedaży jest też powrót 13.11.2027: do Buenos Aires od 17–19.11.2026, cały bilet do Mendozy od 17–18.12.2026. Najniższe ceny statystycznie 18–24 tygodnie przed, czyli maj–lipiec 2027; grupa 6–8 osób zużywa tanie klasy, więc dobra cena wcześniej jest lepsza niż statystyka.",
     "5–14.11 to sezon niski/przejściowy (blackouty Iberii zaczynają się w styczniu; agregatory wskazują listopad jako najtańszy miesiąc do Buenos Aires).",
     "Black Friday (Iberia, Air Europa, TAP, LATAM, ITA) obejmował podróże do maja następnego roku – nie liczyć na BF 2026 ani 2027. Jedyna kampania z listopadem: styczniowe rebajas Iberii (2026: podróże do 10.12, w sprzedaży z Argentyny do 30.11) – obserwować 5–26 stycznia 2027.",
     "Kupować parami (2+2+2): wycena dla 6 osób skacze, gdy w najtańszej klasie zostały 2–4 miejsca; taryfy grupowe zaczynają się od 10 osób.",
@@ -1431,15 +1445,15 @@
   },
   "kalendarz": {
    "tytul": "Kalendarz kupowania",
-   "intro": "Daty liczone od wylotu 5.11.2027: linie otwierają sprzedaż 330–359 dni przed (11.11–10.12.2026), najniższe ceny statystycznie 18–24 tygodnie przed (21.05–2.07.2027), lot krajowy ok. 14 tygodni przed (koniec lipca). Zasada nadrzędna w każdej fazie: kompletna podróż ≤ 4 800 zł/os. na jednym bilecie z bagażem – kupujemy od razu, parami, tego samego dnia. Bieżąca faza jest podświetlona. Codziennie działa radar promocji (RSS), w poniedziałki i czwartki skrzynka alertów z Gmaila.",
+   "intro": "Daty liczone od wylotu 5.11.2027: linie otwierają sprzedaż 330–361 dni przed lotem (tabela wyżej pokazuje, kiedy która linia sprzedaje nasz wylot i powrót), najniższe ceny statystycznie 18–24 tygodnie przed (21.05–2.07.2027), lot krajowy ok. 14 tygodni przed (koniec lipca). Zasada nadrzędna w każdej fazie: kompletna podróż ≤ 4 000 zł/os. (cel) na jednym bilecie z bagażem – kupujemy od razu, parami, tego samego dnia; 4 000–4 800 zł kupujemy od 21.05.2027. Bieżąca faza jest podświetlona. Codziennie działa radar promocji (RSS), w poniedziałki i czwartki skrzynka alertów z Gmaila.",
    "fazy": [
     {
      "od": "2026-11-12",
-     "do": "2026-11-16",
+     "do": "2026-11-26",
      "faza": "Otwarcie sprzedaży",
-     "co": "Sprawdzić, czy kampania Iberia + Visit Argentina (sprzedaż 12.11.2026–31.05.2027, od 425 EUR za odcinek, tylko bezpośrednio Madryt–Buenos Aires; według zapowiedzi z X 2026 bez podanego okna podróży, przykłady na I–II 2027, taryfa Básica bez bagażu rejestrowanego) dopuszcza podróże w listopadzie 2027 – liczyć z dolotem do Madrytu i bagażem; wycenić taryfę Star Alliance/United open-jaw Europa → Buenos Aires → Berlin/Wiedeń (23 kg, reguły obejmują 1.09–9.12.2027); założyć pierwsze alerty tam, gdzie loty na 5.11.2027 są już widoczne (WAW–MDZ, WAW–EZE, WAW–SCL, dla 1 osoby VIE–EZE i BER–EZE); komplet po otwarciu Iberii 10–20.12.",
-     "automat": "Agent 13.11 rano · przypomnienie w kalendarzu 16.11",
-     "decyzja": "Kupić od razu tylko wtedy, gdy kampania Iberii z Visit Argentina albo taryfa Star Alliance (open-jaw z 23 kg) daje ≤ 4 000 zł/os. (cel) z bagażem na nasze daty; droższe ceny zapisać.",
+     "co": "Linie z 359–361-dniowym kalendarzem (Air Europa, Iberia, Lufthansa, Air France/KLM) otwierają powrót 13.11.2027 między 17 a 19.11, Turkish 24.11 – od tego dnia istnieją pierwsze ceny w obie strony Warszawa–Buenos Aires i Madryt–Buenos Aires. Zapisać je jako punkt odniesienia i ustawić alerty Google Flights na te dwie trasy. Równolegle sprawdzić, czy kampania Iberia + Visit Argentina (sprzedaż 12.11.2026–31.05.2027, od 425 EUR za odcinek Madryt–Buenos Aires, Básica bez bagażu; opublikowano tylko daty wyłączone) dopuszcza podróże w listopadzie 2027, i wycenić taryfę Star Alliance/United open-jaw Europa → Buenos Aires → Berlin/Wiedeń (23 kg, reguły obejmują 1.09–9.12.2027). Cały bilet do Mendozy jeszcze się nie wyceni – Aerolíneas i LATAM sprzedają 330 dni naprzód.",
+     "automat": "Agent 13.11 i 20.11 · monitor 15.11",
+     "decyzja": "Kupić od razu tylko przy ≤ 4 000 zł/os. za kompletną podróż z bagażem (np. Warszawa–Buenos Aires z bagażem ≤ ok. 3 350 zł); droższe ceny zapisać jako punkt odniesienia. Nie brać ceny w jedną stronę za cenę podróży.",
      "ton": "sprawdz",
      "szansa": 0.8,
      "kr": "Start"
@@ -1459,8 +1473,8 @@
      "od": "2026-12-10",
      "do": "2027-01-04",
      "faza": "Rozkład otwarty",
-     "co": "Iberia otwiera sprzedaż ok. 330 dni przed (10.12.2026), Flying Blue 359 dni (11.11). Pierwsza pełna wycena wszystkich 6 scenariuszy wg poradnika (Google Flights → ITA Matrix → strony linii PL/ES/AR), test miejsc dla 1/2/4/6 osób, zapis cen do monitora.",
-     "automat": "Agent 10.12 · monitor 15.12 i 1.01",
+     "co": "Od ok. 17–18.12 w sprzedaży są też odcinki Aerolíneas, LATAM, ITA i Ethiopian na 12–13.11.2027 – dopiero wtedy da się wycenić cały bilet Warszawa–Mendoza i lot krajowy. Pierwsza pełna wycena wszystkich 6 scenariuszy wg poradnika (Google Flights → ITA Matrix → strony linii PL/ES/AR), test miejsc dla 1/2/4/6 osób, zapis cen do monitora, alerty na WAW–MDZ i multi-city.",
+     "automat": "Agent 18.12 · monitor 15.12 i 1.01",
      "decyzja": "≤ 4 000 zł – kupować od razu; 4 000–4 500 – tylko gdy tania klasa się kończy; drożej – czekać na styczeń; nie ustawiać alertów na daty późniejsze niż 5.11.",
      "ton": "kupuj",
      "szansa": 1.5,
@@ -1566,19 +1580,24 @@
      "t": "Przypomnienie: alerty cenowe"
     },
     {
+     "d": "2026-11-20",
+     "typ": "agent",
+     "t": "Agent: pierwsze ceny w obie strony do Buenos Aires"
+    },
+    {
      "d": "2026-11-27",
      "typ": "przyp",
      "t": "Przypomnienie: Black Friday"
     },
     {
-     "d": "2026-12-10",
-     "typ": "agent",
-     "t": "Agent: pierwsza pełna wycena 6 scenariuszy"
-    },
-    {
      "d": "2026-12-14",
      "typ": "przyp",
      "t": "Przypomnienie: konta i alerty po otwarciu rozkładu"
+    },
+    {
+     "d": "2026-12-18",
+     "typ": "agent",
+     "t": "Agent: pierwsza pełna wycena 6 scenariuszy (z Mendozą)"
     },
     {
      "d": "2027-01-05",
@@ -1637,10 +1656,10 @@
    },
    {
     "id": "gf",
-    "t": "Google Flights: „Śledź ceny” dla 5 tras z listy obok",
-    "od": "2026-12-10",
+    "t": "Google Flights: „Śledź ceny” – najpierw Buenos Aires, potem Mendoza",
+    "od": "2026-11-20",
     "do": "2026-12-20",
-    "opis": "Dopiero gdy rozkład na 5.11.2027 jest otwarty (ok. 10.12). Alerty idą na Gmail, agent przenosi je na stronę.",
+    "opis": "Od ok. 19.11 da się śledzić WAW–EZE i MAD–EZE na 5→13.11.2027; WAW–MDZ, multi-city ze stopoverem i lot krajowy dopiero od ok. 18.12, gdy sprzedaż otworzą Aerolíneas i LATAM. Linki są na liście obok. Alerty idą na Gmail, agent przenosi je na stronę.",
     "link": [
      "Google Flights",
      "https://www.google.com/travel/flights"
@@ -1679,7 +1698,7 @@
    {
     "id": "ef",
     "t": "Opcjonalnie: ExpertFlyer Premium i alerty klas O/Q/N",
-    "od": "2026-12-10",
+    "od": "2026-11-20",
     "do": "2027-01-04",
     "opis": "12,99 USD/mies.; Iberia Madryt–EZE i Madryt–Santiago, Air Europa Madryt–EZE na 5–6.11 i 12–13.11.2027, liczba miejsc 2. Maile czyta agent.",
     "link": [
@@ -1784,6 +1803,193 @@
      "decyzja": "Czekać; najpóźniej 31.08.2027 kupić (wyjątek: wrześniowe Real Deal Days i rabat Avios, do 25.09) i przeliczyć hotele na tańszy wariant."
     }
    ]
+  },
+  "okna": {
+   "tytul": "Kiedy da się wycenić nasze daty",
+   "intro": "Linie nie sprzedają biletów dalej niż 330–361 dni naprzód. Cena w obie strony istnieje dopiero wtedy, gdy w sprzedaży jest także powrót 13.11.2027, a cały bilet do Mendozy – gdy swoje odcinki otworzy Aerolíneas albo LATAM. Wcześniej wyszukiwarka pokaże pusty wynik albo cenę w jedną stronę, która nie jest ceną podróży.",
+   "wylot": "2027-11-05",
+   "powrot": "2027-11-13",
+   "linie": [
+    {
+     "n": "Air Europa",
+     "dni": 361,
+     "rola": "do Buenos Aires; do Mendozy z Aerolíneas",
+     "eze": true
+    },
+    {
+     "n": "LOT",
+     "dni": 361,
+     "rola": "tylko dolot do Madrytu, Rzymu, Paryża"
+    },
+    {
+     "n": "Iberia",
+     "dni": 360,
+     "rola": "do Buenos Aires; do Mendozy z Aerolíneas lub LATAM",
+     "eze": true
+    },
+    {
+     "n": "Lufthansa / Swiss",
+     "dni": 360,
+     "rola": "tylko do Buenos Aires",
+     "eze": true
+    },
+    {
+     "n": "Air France / KLM",
+     "dni": 359,
+     "rola": "do Buenos Aires; do Mendozy z Aerolíneas",
+     "eze": true
+    },
+    {
+     "n": "Turkish Airlines",
+     "dni": 354,
+     "rola": "tylko do Buenos Aires",
+     "eze": true
+    },
+    {
+     "n": "Ethiopian",
+     "dni": 331,
+     "rola": "tylko do Buenos Aires"
+    },
+    {
+     "n": "ITA Airways",
+     "dni": 330,
+     "rola": "do Buenos Aires; do Mendozy z Aerolíneas"
+    },
+    {
+     "n": "LATAM",
+     "dni": 330,
+     "rola": "do Mendozy przez São Paulo lub Santiago",
+     "mdz": true
+    },
+    {
+     "n": "Aerolíneas Argentinas",
+     "dni": 330,
+     "rola": "lot krajowy i odcinek do Mendozy na biletach Iberii, Air Europy, AF/KLM, ITA",
+     "mdz": true
+    }
+   ],
+   "zrodlo": "Liczba dni według kalendarzy linii (AwardFares, lipiec 2026; Thrifty Traveler) – przy sprzedaży gotówkowej może się różnić o kilka dni, dla LATAM przyjęte typowe 330. Monitor potwierdzi to przy odczytach 15.11, 20.11 i 18.12."
+  },
+  "wyzwalacze": {
+   "tytul": "Jaka cena w wyszukiwarce oznacza cel?",
+   "intro": "Cel i próg dotyczą kompletnej podróży Warszawa–Mendoza–Buenos Aires–Warszawa z bagażem. Wyszukiwarki pokazują zwykle tylko jej część, więc każdy scenariusz ma własną cenę, przy której warto reagować. Dodatki liczone jak w kalkulatorze: bagaż w obie strony 700 zł, lot krajowy z bagażem 650 zł, dolot do Madrytu z noclegiem 850 zł.",
+   "wiersze": [
+    {
+     "co": "Cały bilet Warszawa–Mendoza, z bagażem",
+     "gdzie": "Google Flights WAW–MDZ, filtr „1 bagaż rejestrowany”; także multi-city ze stopoverem w Buenos Aires",
+     "wal": "PLN",
+     "dodatki": [],
+     "rek": true
+    },
+    {
+     "co": "Cały bilet Warszawa–Mendoza w taryfie bez bagażu",
+     "gdzie": "Light / Básica / Lite – najtańsza cena na liście wyników",
+     "wal": "PLN",
+     "dodatki": [
+      [
+       "bagaż",
+       700
+      ]
+     ]
+    },
+    {
+     "co": "Warszawa–Buenos Aires, z bagażem",
+     "gdzie": "Turkish, Ethiopian, Lufthansa, KLM; lot krajowy osobno",
+     "wal": "PLN",
+     "dodatki": [
+      [
+       "lot krajowy",
+       650
+      ]
+     ],
+     "osobne": true
+    },
+    {
+     "co": "Warszawa–Buenos Aires w taryfie bez bagażu",
+     "gdzie": "linie europejskie w taryfie Light",
+     "wal": "PLN",
+     "dodatki": [
+      [
+       "bagaż",
+       700
+      ],
+      [
+       "lot krajowy",
+       650
+      ]
+     ],
+     "osobne": true
+    },
+    {
+     "co": "Madryt–Mendoza, z bagażem",
+     "gdzie": "Iberia, Air Europa, LATAM z miastem sprzedaży Madryt; dolot osobno",
+     "wal": "EUR",
+     "dodatki": [
+      [
+       "dolot i nocleg",
+       850
+      ]
+     ],
+     "osobne": true
+    },
+    {
+     "co": "Madryt–Buenos Aires, z bagażem",
+     "gdzie": "Plus Ultra, Air Europa Standard, Iberia Óptima, Aerolíneas",
+     "wal": "EUR",
+     "dodatki": [
+      [
+       "dolot i nocleg",
+       850
+      ],
+      [
+       "lot krajowy",
+       650
+      ]
+     ],
+     "osobne": true
+    },
+    {
+     "co": "Madryt–Buenos Aires w taryfie bez bagażu",
+     "gdzie": "Iberia Básica, Air France Light – tak wyglądają kampanie „od 425 EUR za odcinek”",
+     "wal": "EUR",
+     "dodatki": [
+      [
+       "dolot i nocleg",
+       850
+      ],
+      [
+       "lot krajowy",
+       650
+      ],
+      [
+       "bagaż",
+       700
+      ]
+     ],
+     "osobne": true
+    },
+    {
+     "co": "Wiedeń lub Berlin–Buenos Aires bez bagażu",
+     "gdzie": "promocje LATAM i oneworld z Fly4free, Travel-dealz, Secret Flying",
+     "wal": "PLN",
+     "dodatki": [
+      [
+       "dojazd",
+       450
+      ],
+      [
+       "bagaż",
+       700
+      ],
+      [
+       "lot krajowy",
+       650
+      ]
+     ],
+     "osobne": true
+    }
+   ],
+   "uwaga": "Przy osobnych biletach obowiązuje dodatkowa zasada: bierzemy je tylko wtedy, gdy są tańsze od najlepszego jednego biletu o co najmniej 800 zł na osobę. Dokładne przeliczenie konkretnej oferty robi kalkulator w zakładce Decyzja."
   }
  },
  "hotele_karty": [
@@ -2715,7 +2921,13 @@
   "blisko": 5000,
   "drogo": 5500,
   "min_oszczednosc": 800,
-  "_opis": "sufit na parę; cel 4000 zł/os. (kupujemy od razu); progi kompletnej podróży zł/os. (okazja = cel ≤ 4000, bardzo dobry ≤ 4500, próg ≤ 4800, blisko ≤ 5000, powyżej ≤ 5500, potem drogo); osobne bilety tylko przy oszczędności ≥ min_oszczednosc zł/os."
+  "_opis": "sufit na parę; cel 4000 zł/os. (kupujemy od razu); progi kompletnej podróży zł/os. (okazja = cel ≤ 4000, bardzo dobry ≤ 4500, próg ≤ 4800, blisko ≤ 5000, powyżej ≤ 5500, potem drogo); osobne bilety tylko przy oszczędności ≥ min_oszczednosc zł/os.",
+  "kursy": {
+   "EUR": 4.39,
+   "USD": 3.92,
+   "data": "2026-11-09",
+   "zrodlo": "NBP, tabela 218/A/NBP/2026"
+  }
  },
  "decyzje": [
   {
@@ -2807,7 +3019,7 @@
      false
     ]
    ],
-   "rek": "Celujemy w 4 000 zł; radar i monitor same dadzą znać. Sprzedaż na nasze daty rusza ok. 11.11 (Air France/KLM) i ok. 10.12 (Iberia).",
+   "rek": "Celujemy w 4 000 zł; radar i monitor same dadzą znać. Pierwsze ceny w obie strony do Buenos Aires ok. 17–19.11, cały bilet do Mendozy ok. 17–18.12.2026.",
    "wplyw": "9 600 zł na parę przy progu, 8 000 zł przy celu",
    "sekcja": "#skala",
    "wybor": false
