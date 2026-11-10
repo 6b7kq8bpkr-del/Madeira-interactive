@@ -34,7 +34,7 @@
    "linia": "Iberia",
    "trasa": "WAW–MAD–EZE (bilet A)",
    "orient": "5 300–6 300 zł",
-   "uwagi": "Iberia WAW–MAD–EZE 4 800–5 500 + lot krajowy z bagażem 480–850 zł; sprawdzić też cały bilet Iberia/LATAM do MDZ",
+   "uwagi": "Iberia WAW–MAD–EZE 4 800–5 500 + lot krajowy z bagażem 510–900 zł; sprawdzić też cały bilet Iberia/LATAM do MDZ",
    "hist": []
   },
   {
@@ -42,7 +42,7 @@
    "linia": "Aerolíneas Argentinas (z MAD lub FCO)",
    "trasa": "WAW–MAD/FCO–EZE (bilet A)",
    "orient": "4 800–5 800 zł",
-   "uwagi": "Aerolíneas WAW–MAD/FCO–EZE 4 300–5 000 + lot krajowy z bagażem 480–850 zł albo bilet z dolotem do MDZ w cenie (promocje 930–1 035 EUR)",
+   "uwagi": "Aerolíneas WAW–MAD/FCO–EZE 4 300–5 000 + lot krajowy z bagażem 510–900 zł albo bilet z dolotem do MDZ w cenie (promocje 930–1 035 EUR)",
    "hist": []
   },
   {
@@ -50,7 +50,7 @@
    "linia": "Ethiopian Airlines",
    "trasa": "WAW–ADD–EZE (bilet A)",
    "orient": "4 500–5 300 zł",
-   "uwagi": "Ethiopian WAW–ADD–EZE 4 000–4 500 (bagaż w cenie) + lot krajowy z bagażem 480–850 zł. Sprawdzić datę lądowania w Warszawie: przy wylocie z Buenos Aires 13.11 musi być niedziela 14.11 (dłuższe przesiadki w Addis Abebie/Stambule mogą dać poniedziałek).",
+   "uwagi": "Ethiopian WAW–ADD–EZE 4 000–4 500 (bagaż w cenie) + lot krajowy z bagażem 510–900 zł. Sprawdzić datę lądowania w Warszawie: przy wylocie z Buenos Aires 13.11 musi być niedziela 14.11 (dłuższe przesiadki w Addis Abebie/Stambule mogą dać poniedziałek).",
    "hist": []
   },
   {
@@ -58,7 +58,7 @@
    "linia": "Air Europa",
    "trasa": "WAW–MAD–EZE (bilet A)",
    "orient": "5 100–6 000 zł",
-   "uwagi": "Air Europa 4 600–5 200 + lot krajowy z bagażem 480–850 zł",
+   "uwagi": "Air Europa 4 600–5 200 + lot krajowy z bagażem 510–900 zł",
    "hist": []
   },
   {
@@ -66,7 +66,7 @@
    "linia": "ITA Airways",
    "trasa": "WAW–FCO–EZE (bilet A)",
    "orient": "5 400–6 100 zł",
-   "uwagi": "ITA 4 900–5 300 + lot krajowy z bagażem 480–850 zł; Economy Light bez bagażu",
+   "uwagi": "ITA 4 900–5 300 + lot krajowy z bagażem 510–900 zł; Economy Light bez bagażu",
    "hist": []
   },
   {
@@ -74,7 +74,7 @@
    "linia": "Air France / KLM",
    "trasa": "WAW–CDG/AMS–EZE (bilet A)",
    "orient": "5 800–6 600 zł",
-   "uwagi": "Air France/KLM 5 300–5 800 + lot krajowy z bagażem 480–850 zł",
+   "uwagi": "Air France/KLM 5 300–5 800 + lot krajowy z bagażem 510–900 zł",
    "hist": []
   },
   {
@@ -82,7 +82,7 @@
    "linia": "Lufthansa / Swiss",
    "trasa": "WAW–FRA/ZRH–EZE (bilet A)",
    "orient": "5 200–6 000 zł",
-   "uwagi": "Lufthansa/Swiss 4 700–5 200 + lot krajowy z bagażem 480–850 zł; Light bez bagażu",
+   "uwagi": "Lufthansa/Swiss 4 700–5 200 + lot krajowy z bagażem 510–900 zł; Light bez bagażu",
    "hist": []
   },
   {
@@ -90,7 +90,7 @@
    "linia": "Turkish Airlines",
    "trasa": "WAW–IST–EZE (bilet A)",
    "orient": "4 800–5 500 zł",
-   "uwagi": "Turkish 4 300–4 700 (2×23 kg w cenie) + lot krajowy z bagażem 480–850 zł. Sprawdzić datę lądowania w Warszawie: przy wylocie z Buenos Aires 13.11 musi być niedziela 14.11 (dłuższe przesiadki w Addis Abebie/Stambule mogą dać poniedziałek).",
+   "uwagi": "Turkish 4 300–4 700 (2×23 kg w cenie) + lot krajowy z bagażem 510–900 zł. Sprawdzić datę lądowania w Warszawie: przy wylocie z Buenos Aires 13.11 musi być niedziela 14.11 (dłuższe przesiadki w Addis Abebie/Stambule mogą dać poniedziałek).",
    "hist": []
   },
   {
@@ -105,7 +105,7 @@
    "id": "krajowy",
    "linia": "Aerolíneas / JetSMART",
    "trasa": "BUE–MDZ 6.11 + MDZ–AEP 12.11 (bilet B)",
-   "orient": "480–850 zł (130–230 USD)",
+   "orient": "510–900 zł (130–230 USD)",
    "uwagi": "składnik krajowy przy dwóch biletach: Aerolíneas / JetSMART, listopad najdroższy (mediana 150 USD RT), bagaż i opłata 9 USD osobno",
    "hist": []
   },
@@ -164,7 +164,7 @@
    "typ": "Kurs",
    "kierunek": "wzrost",
    "waga": 2,
-   "opis": "Kursy NBP z 9.11.2026: USD 3,92 zł, EUR 4,39 zł – dolar ok. 6% powyżej 3,70 zł przyjętych w budżecie. Bilety wyceniane w EUR/USD i hotele w USD są odpowiednio droższe w złotych; kalkulator i ceny-wyzwalacze liczą już po nowych kursach.",
+   "opis": "Kursy NBP z 10.11.2026: USD 3,91 zł, EUR 4,39 zł – dolar ok. 6% powyżej 3,70 zł przyjętych w październiku. Budżet przeliczony 10.11: wariant polecany przy trzech parach i lotach po 4 800 zł/os. to 26 845 zł na parę (było 25 988), zapas do sufitu 1 155 zł. Każde 10 gr na dolarze to ok. 420 zł na parę.",
    "url": "https://nbp.pl/statystyka-i-sprawozdawczosc/kursy/tabela-a/"
   },
   {
@@ -235,8 +235,8 @@
    "data": "2026-10-25",
    "typ": "Lotnisko",
    "kierunek": "wzrost",
-   "waga": 2,
-   "opis": "Ezeiza: skrócony pas i 18 dni ograniczeń (25.10–11.11.2026); Iberia, ITA, Lufthansa, Air France/KLM zawiesiły loty. Jeśli remont wróci jesienią 2027, nasze daty mogą stracić tańsze linie europejskie.",
+   "waga": 1,
+   "opis": "Ezeiza: skrócony pas i 18 dni ograniczeń (25.10–11.11.2026); Iberia, ITA, Lufthansa, Air France/KLM zawiesiły loty. Ograniczenia zakończone 11.11.2026; gdyby remont wrócił jesienią 2027, nasze daty mogłyby stracić tańsze linie europejskie.",
    "url": "https://www.infoviajera.com/2026/10/si-bien-ezeiza-sigue-abierto-desde-hoy-comienzan-las-restricciones-por-18-dias-que-aerolineas-vuelan-y-cuales-suspenden-sus-operaciones/"
   },
   {
@@ -259,8 +259,8 @@
    "data": "2026-10-21",
    "typ": "Taryfa",
    "kierunek": "spadek",
-   "waga": 2,
-   "opis": "Star Alliance/United open-jaw Europa → Buenos Aires/São Paulo → Berlin z 23 kg (z Madrytu 497 EUR); reguły taryfy obejmują 1.09–9.12.2027, czyli nasze daty.",
+   "waga": 1,
+   "opis": "Star Alliance/United open-jaw Europa → Buenos Aires/São Paulo → Berlin z 23 kg (z Madrytu 497 EUR); reguły taryfy obejmują 1.09–9.12.2027, czyli nasze daty – ale powrót przez USA przy wylocie 13.11 ląduje w Warszawie w poniedziałek, więc liczy się tylko wylot z Buenos Aires 12.11.",
    "url": "https://travel-dealz.com/deal/united-multicity-latin-america/"
   },
   {
@@ -268,15 +268,15 @@
    "typ": "Kampania",
    "kierunek": "spadek",
    "waga": 2,
-   "opis": "Iberia + Visit Argentina: sprzedaż 12.11.2026–31.05.2027, od 425 EUR za odcinek (Básica bez bagażu); okres podróży niepodany, wyłączenia w XII–I i III 2027. Nawet z listopadem 2027 kompletna podróż wyjdzie ok. 5 500–5 700 zł/os. – za drogo wobec celu 4 000 zł.",
+   "opis": "Iberia + Visit Argentina: sprzedaż 12.11.2026–31.05.2027, od 425 EUR za odcinek (Básica bez bagażu); okres podróży niepodany, wyłączenia w XII–I i III 2027. Nawet z listopadem 2027 kompletna podróż wyjdzie ok. 5 900 zł/os. – za drogo wobec celu 4 000 zł.",
    "url": "https://www.infoviajera.com/?p=178259"
   },
   {
    "data": "2026-10-10",
    "typ": "Lotnisko",
-   "kierunek": "wzrost",
+   "kierunek": "neutralnie",
    "waga": 2,
-   "opis": "Plan przebudowy Ezeizy (760 mln USD): główny pas do repavimentacji w 2027 r. Jeśli prace wypadną jesienią 2027, linie europejskie mogą znów ciąć loty – śledzić harmonogram robót.",
+   "opis": "Plan przebudowy Ezeizy (760 mln USD): główny pas do repavimentacji w 2027 r. Według komunikatu z 9.11.2026 kolejne etapy mają iść bez przerywania lotów – ryzyko dla naszych dat mniejsze; śledzić harmonogram robót.",
    "url": "https://www.sirchandler.com.ar/2026/10/la-nueva-gran-reforma-de-ezeiza-ahora-si/"
   },
   {
@@ -372,7 +372,7 @@
    "nazwa": "Rebajas de enero – przedsprzedaż Iberia Club 5.01, ogólna ok. 8–26.01",
    "szansa": "wysoka",
    "historia": "2026: podróże 10.01–10.12.2026 (cały listopad), São Paulo od 299 EUR w jedną stronę",
-   "uwaga": "Najlepsze okno. Założyć darmowe konto Iberia Club przed 5.01 (przedsprzedaż). Wycenić WAW–MDZ przez MAD i EZE oraz multi-city ze stopoverem; kupić przy ≤ 4 800 zł/os."
+   "uwaga": "Najlepsze okno. Założyć darmowe konto Iberia Club przed 5.01 (przedsprzedaż). Wycenić WAW–MDZ przez MAD i EZE oraz multi-city ze stopoverem; kupić przy ≤ 4 000 zł/os. (4 000–4 500 zł tylko, gdy tania klasa się kończy)."
   },
   {
    "od": "2027-01-13",
@@ -692,11 +692,11 @@
    ],
    [
     "Kursy:",
-    "NBP 9.11.2026: 1 EUR = 4,39 zł, 1 USD = 3,92 zł. Dolar jest o ok. 6% droższy niż 3,70 zł przyjęte w październiku. Kalkulator i ceny-wyzwalacze liczą już po nowych kursach; budżet hoteli i busa nadal jest liczony po 3,70 – po dzisiejszym kursie byłby wyższy o ok. 620 zł na parę."
+    "NBP 10.11.2026: 1 EUR = 4,39 zł, 1 USD = 3,91 zł. Dolar jest o ok. 6% droższy niż 3,70 zł przyjęte w październiku, więc 10.11 cały budżet został przeliczony: wariant polecany przy trzech parach i lotach po 4 800 zł/os. kosztuje 26 845 zł na parę (zapas 1 155 zł do sufitu), a przy lotach w celu 4 000 zł/os. – 25 245 zł. Finca Adalgisa mieści się w suficie tylko przy lotach do ok. 4 630 zł/os.; dwa polecane upgrade’y – przy lotach do ok. 4 750 zł/os."
    ],
    [
     "Kampanie:",
-    "Iberia + Visit Argentina rusza 12.11 (od 425 EUR za odcinek Madryt–Buenos Aires, Básica bez bagażu). Opublikowano tylko daty wyłączone (XII–I i III 2027), okna podróży nadal nie ma – sprawdzenie 13.11. Z bagażem i dojazdami to ok. 5 500–5 700 zł, a cel wymagałby ok. 410 EUR w obie strony. Black Friday 27.11 nie obejmuje listopada 2027."
+    "Iberia + Visit Argentina rusza 12.11 (od 425 EUR za odcinek Madryt–Buenos Aires, Básica bez bagażu). Opublikowano tylko daty wyłączone (XII–I i III 2027), okna podróży nadal nie ma – sprawdzenie 13.11. Z bagażem i dojazdami to ok. 5 900 zł, a cel wymagałby ok. 410 EUR w obie strony. Black Friday 27.11 nie obejmuje listopada 2027."
    ],
    [
     "Ezeiza:",
