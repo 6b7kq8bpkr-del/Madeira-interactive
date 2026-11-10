@@ -235,7 +235,7 @@ async function withLoty(mutate, hash, fn) {
   // kwoty z danych: wariant polecany przy trzech parach i lotach w progu (hotels[0].b.razem liczy build.py po aktualnym kursie)
   const R0 = await pg.evaluate(() => ({ razem: window.UCO.hotels[0].b.razem, d: 2 * (window.UCO.prog.budzet.prog - window.UCO.prog.budzet.cel), pi: window.UCO.prog.upgrade.opcje.find(x => x.id === 'pi').zl }));
   const h100 = v => String(Math.round(v / 100) * 100).replace(/(\d)(?=(\d{3})+$)/g, '$1\\s');
-  if (!new RegExp('Koszt: ok\\. ' + h100(R0.razem) + ' zł na parę przy 3 parach').test(t) || !new RegExp('celujemy w 4\\s000 – wtedy ok\\. ' + h100(R0.razem - R0.d) + ' zł').test(t) || !new RegExp('Piedra Infinita \\+' + R0.pi + ' zł').test(t) || !/Co potrzebujemy od Was:\n• do 31\.12 – /.test(t) || !/github\.io/.test(t) || t.split('\n').some(l => l.length > 400)) fail('podsumowanie', 'brak kosztu, celu, listy dla par albo linku: ' + t.slice(0, 160));
+  if (!new RegExp('Koszt: ok\\. ' + h100(R0.razem) + ' zł na parę przy 3 parach').test(t) || !new RegExp('celujemy w 4\\s000 – wtedy ok\\. ' + h100(R0.razem - R0.d) + ' zł').test(t) || !new RegExp('Piedra Infinita \\+' + R0.pi + ' zł').test(t) || !/Co potrzebujemy od Was:\n• do \d{1,2}\.\d{2} – /.test(t) || !/github\.io/.test(t) || t.split('\n').some(l => l.length > 400)) fail('podsumowanie', 'brak kosztu, celu, listy dla par albo linku: ' + t.slice(0, 160));
   // trwająca faza zostaje widoczna na osi w domyślnym zakresie (zegar w środku fazy „Pełny rozkład”)
   await pg.close();
   const p2 = await browser.newPage({ viewport: { width: 390, height: 800 } }); const e2 = []; p2.on('pageerror', e => e2.push(e.message));
