@@ -164,7 +164,7 @@
    "typ": "Kurs",
    "kierunek": "wzrost",
    "waga": 2,
-   "opis": "Kursy NBP z 9.11.2026: USD 3,92 zł, EUR 4,39 zł – dolar ok. 6% powyżej 3,70 zł przyjętych w budżecie. Bilety wyceniane w EUR/USD i hotele w USD są odpowiednio droższe w złotych; kalkulator i ceny-wyzwalacze liczą już po nowych kursach.",
+   "opis": "Kursy NBP z 10.11.2026: USD 3,91 zł, EUR 4,39 zł – dolar ok. 6% powyżej 3,70 zł przyjętych w październiku. Budżet przeliczony 10.11: wariant polecany przy trzech parach i lotach po 4 800 zł/os. to 26 845 zł na parę (było 25 988), zapas do sufitu 1 155 zł. Każde 10 gr na dolarze to ok. 420 zł na parę.",
    "url": "https://nbp.pl/statystyka-i-sprawozdawczosc/kursy/tabela-a/"
   },
   {
@@ -692,7 +692,7 @@
    ],
    [
     "Kursy:",
-    "NBP 9.11.2026: 1 EUR = 4,39 zł, 1 USD = 3,92 zł. Dolar jest o ok. 6% droższy niż 3,70 zł przyjęte w październiku. Kalkulator i ceny-wyzwalacze liczą już po nowych kursach; budżet hoteli i busa nadal jest liczony po 3,70 – po dzisiejszym kursie byłby wyższy o ok. 620 zł na parę."
+    "NBP 10.11.2026: 1 EUR = 4,39 zł, 1 USD = 3,91 zł. Dolar jest o ok. 6% droższy niż 3,70 zł przyjęte w październiku, więc 10.11 cały budżet został przeliczony: wariant polecany przy trzech parach i lotach po 4 800 zł/os. kosztuje 26 845 zł na parę (zapas 1 155 zł do sufitu), a przy lotach w celu 4 000 zł/os. – 25 245 zł. Finca Adalgisa mieści się w suficie tylko przy lotach do ok. 4 630 zł/os.; dwa polecane upgrade’y – przy lotach do ok. 4 750 zł/os."
    ],
    [
     "Kampanie:",

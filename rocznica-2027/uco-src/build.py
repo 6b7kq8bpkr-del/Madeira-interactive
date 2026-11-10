@@ -1,7 +1,7 @@
 # Strona „Valle de Uco 2027”: data/program.json + data/extra.json + data/hotele.json + data/zdjecia.json -> ../uco/
 # python3 -I build.py          buduje ../uco/data.js, ../uco/index.html i ../uco/plan.ics
 # python3 -I build.py --check  nic nie zapisuje; kończy się błędem, gdy ../uco/ różni się od tego, co dałyby źródła
-import json, os, re, sys, subprocess, html, datetime
+import json, os, re, sys, subprocess, html, datetime, math
 HERE = os.path.dirname(os.path.abspath(__file__)); os.chdir(HERE)
 CHECK = "--check" in sys.argv
 E = html.escape
@@ -10,6 +10,76 @@ X = json.load(open("data/extra.json", encoding="utf-8"))
 HOT = {h["n"]: h for h in json.load(open("data/hotele.json", encoding="utf-8"))}
 META = json.load(open("data/zdjecia.json", encoding="utf-8"))
 OUT = os.path.normpath(os.path.join(HERE, "..", "uco"))
+
+# ── kurs dolara: jedno źródło (budzet.kursy.USD) ──
+# Noclegi i bus są w danych w USD. Koszty na miejscu (days[].cost, jedzenie, wycieczki, upgrade'y) są zapisane w zł po kursie
+# budzet.kursy.baza_kosztow i tutaj skalują się do aktualnego kursu. Kwoty w opisach to znaczniki {…} liczone tym samym wzorem
+# co tabela budżetu na stronie (calc() w template.html) – dzięki temu opis nie rozjeżdża się z tabelą po zmianie kursu.
+KU = P["budzet"]["kursy"]; USD = KU["USD"]; FX = USD / KU.get("baza_kosztow", USD)
+def hup(v): return int(math.floor(v + 0.5))                      # jak Math.round w JS
+def r10(v): return hup(v / 10.0) * 10
+def zl(v): return f"{int(v):,}".replace(",", " ")
+_koszty0 = sum(d["cost"] for d in P["days"])
+for d in P["days"]: d["cost"] = r10(d["cost"] * FX)
+KOSZTY = sum(d["cost"] for d in P["days"])
+SUFIT, PROG, GR = P["budzet"]["sufit"], P["budzet"]["prog"], P["grupa"]
+GR["kurs"] = USD
+def bus(n): return r10(GR["transport_usd"][str(n)] * USD / n)
+def nocleg(h, n=3, dusd=0):
+    m = h.get("model") or {}
+    if m.get("typ") == "rezydencja":
+        ek = max(0, n - m.get("pary_w_domu", 3))
+        return hup((m["usd_para_poza"] + (m["dom_usd_noc"] * m["noce"] + ek * m["pokoj_usd_noc"] * m["noce"]) / n + dusd) * USD)
+    return hup((m["usd_para"] + dusd) * USD) if m.get("usd_para") else h["budget"]["nocleg"]
+def poza(h, n=3): b = h["budget"]; return bus(n) + b["jedzenie"] + b["wycieczki_bilety"] + b["rezerwa"]
+def razem(i, lot=None, n=3, dusd=0): h = P["hotels"][int(i)]; return nocleg(h, n, dusd) + 2 * int(lot or PROG) + poza(h, n)
+for h in P["hotels"]:
+    b = h["budget"]
+    if b["jedzenie"] + b["wycieczki_bilety"] != _koszty0: sys.exit("budżet: jedzenie + wycieczki ≠ suma kosztów dni w wariancie " + h["name"])
+    b["wycieczki_bilety"] = r10(b["wycieczki_bilety"] * FX); b["jedzenie"] = KOSZTY - b["wycieczki_bilety"]
+    b["nocleg"] = nocleg(h); b["auto_transfery"] = bus(3); b["razem"] = b["nocleg"] + b["loty"] + poza(h)
+UPZ = {}
+for u in P["upgrade"]["opcje"]:
+    if u.get("zl"): u["zl"] = r10(u["zl"] * FX)
+    UPZ[u["id"]] = u.get("zl") or 0
+for a in P.get("alternatywy", []): a["roznica"] = r10((a["cena"] - a["vs"]) * a["noce"] * USD)
+def bilans(i, lot=None):
+    z = SUFIT - razem(i, lot)
+    return f"zapas ok. {zl(r10(z))} zł" if z >= 0 else f"ok. {zl(r10(-z))} zł ponad sufit"
+def zapas(i, lot=None):
+    z = SUFIT - razem(i, lot)
+    if z < 0: sys.exit(f"znacznik {{zapas:{i}}}: wariant jest ponad sufitem – użyj {{bilans:…}} i popraw zdanie")
+    return zl(r10(z))
+def poup(i, lot, *ids):
+    z = SUFIT - razem(i, lot) - sum(UPZ[x] for x in ids)
+    return f"zostaje ok. {zl(r10(z))} zł zapasu" if z >= 0 else f"brakuje ok. {zl(r10(-z))} zł do sufitu"
+B0 = P["hotels"][0]["budget"]
+ZN = {"kurs": lambda: f"{USD:.2f}".replace(".", ","),
+      "kurs_data": lambda: ".".join(reversed(KU["data"].split("-"))),
+      "nocleg": lambda i: zl(r10(nocleg(P["hotels"][int(i)]))),
+      "razem": lambda i, lot=None: zl(razem(i, lot)),
+      "suma": lambda i, lot=None: zl(r10(razem(i, lot))),
+      "zapas": zapas, "bilans": bilans, "poup": poup,
+      "maxlot": lambda i, dusd=0: zl(math.floor((SUFIT - razem(i, None, 3, int(dusd)) + 2 * PROG) / 2 / 10) * 10),   # najwyższa cena lotu na osobę, przy której wariant mieści się w suficie
+      "diff": lambda i, j: zl(r10(abs(razem(i) - razem(j)))),
+      "bus": lambda n: zl(bus(int(n))),
+      "busdiff": lambda a, b: zl(abs(bus(int(a)) - bus(int(b)))),
+      "up": lambda x: zl(UPZ[x]), "upsum": lambda *ids: zl(sum(UPZ[x] for x in ids)),
+      "usd": lambda v: zl(r10(float(v) * USD)),
+      "koszty": lambda: zl(KOSZTY), "jedzenie": lambda: zl(B0["jedzenie"]), "wycieczki": lambda: zl(B0["wycieczki_bilety"]),
+      "poza": lambda: zl(2 * PROG + poza(P["hotels"][0]))}
+ZNRE = re.compile(r"\{([a-z_0-9]+)((?::[A-Za-z0-9_.-]+)*)\}")
+def znaczniki(o):
+    if isinstance(o, dict): return {k: znaczniki(v) for k, v in o.items()}
+    if isinstance(o, list): return [znaczniki(v) for v in o]
+    if not isinstance(o, str): return o
+    def f(m):
+        if m.group(1) not in ZN: sys.exit("nieznany znacznik w danych: " + m.group(0))
+        return ZN[m.group(1)](*[a for a in m.group(2).split(":") if a])
+    s = ZNRE.sub(f, o)
+    if "{" in s or "}" in s: sys.exit("niezamknięty znacznik w danych: " + s[max(0, s.find("{") - 40):s.find("{") + 40])
+    return s
+P = znaczniki(P)
 
 # twarde spacje: jednoliterowe w, z, i, a, o, u nie zostają na końcu linii, a liczba nie odrywa się od tysięcy i jednostki
 NB1 = re.compile(r"(?<![^\s(\[„\"'«–—])([aiouwzAIOUWZ]) ")

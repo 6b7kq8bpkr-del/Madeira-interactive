@@ -232,7 +232,10 @@ async function withLoty(mutate, hash, fn) {
   if (sync.length < 2 || !sync.every(Boolean)) fail('oś czasu', `odhaczenie rezerwacji nie zsynchronizowało się: ${sync}`);
   await pg.click('#dcopy');
   const t = await pg.evaluate(() => document.getElementById('dtxt').value);
-  if (!/Koszt: ok\. 26\s000 zł na parę przy 3 parach/.test(t) || !/celujemy w 4\s000 – wtedy ok\. 24\s400 zł/.test(t) || !/Co potrzebujemy od Was:\n• do 31\.12 – /.test(t) || !/github\.io/.test(t) || t.split('\n').some(l => l.length > 400)) fail('podsumowanie', 'brak kosztu, celu, listy dla par albo linku: ' + t.slice(0, 160));
+  // kwoty z danych: wariant polecany przy trzech parach i lotach w progu (hotels[0].b.razem liczy build.py po aktualnym kursie)
+  const R0 = await pg.evaluate(() => ({ razem: window.UCO.hotels[0].b.razem, d: 2 * (window.UCO.prog.budzet.prog - window.UCO.prog.budzet.cel), pi: window.UCO.prog.upgrade.opcje.find(x => x.id === 'pi').zl }));
+  const h100 = v => String(Math.round(v / 100) * 100).replace(/(\d)(?=(\d{3})+$)/g, '$1\\s');
+  if (!new RegExp('Koszt: ok\\. ' + h100(R0.razem) + ' zł na parę przy 3 parach').test(t) || !new RegExp('celujemy w 4\\s000 – wtedy ok\\. ' + h100(R0.razem - R0.d) + ' zł').test(t) || !new RegExp('Piedra Infinita \\+' + R0.pi + ' zł').test(t) || !/Co potrzebujemy od Was:\n• do 31\.12 – /.test(t) || !/github\.io/.test(t) || t.split('\n').some(l => l.length > 400)) fail('podsumowanie', 'brak kosztu, celu, listy dla par albo linku: ' + t.slice(0, 160));
   // trwająca faza zostaje widoczna na osi w domyślnym zakresie (zegar w środku fazy „Rozkład otwarty”)
   await pg.close();
   const p2 = await browser.newPage({ viewport: { width: 390, height: 800 } }); const e2 = []; p2.on('pageerror', e => e2.push(e.message));
@@ -249,7 +252,10 @@ async function withLoty(mutate, hash, fn) {
   const p4 = await browser.newPage({ viewport: { width: 1300, height: 900 } }); const e4 = []; p4.on('pageerror', e => e4.push(e.message));
   await p4.goto(BASE + 'index.html#decyzje', { waitUntil: 'load' }); await p4.waitForTimeout(1000);
   const q0 = await p4.evaluate(() => ({ mx: document.querySelectorAll('#mx td.n').length, sel: document.querySelector('#mx td.sel button')?.textContent.replace(/\D/g, ''), pay: document.querySelectorAll('#payl li').length, prog: document.getElementById('dprog').innerText.replace(/\s+/g, ' '), tprog: document.querySelector('[data-tprog]').textContent, paryRows: [...document.querySelectorAll('#os li.osi')].filter(l => /Ustalić liczbę par/.test(l.textContent)).length, dupDec: [...document.querySelectorAll('#os li.osi')].filter(l => /Ile par jedzie/.test(l.textContent)).length }));
-  if (q0.mx !== 15 || q0.sel !== '25988' || q0.pay !== 5 || !/Decyzje \d \/ 7/i.test(q0.prog) || !/Decyzje \d\/7 · zadania/.test(q0.tprog) || q0.paryRows !== 0 || q0.dupDec !== 1) fail('decyzje – budżet', JSON.stringify(q0));
+  if (q0.mx !== 15 || q0.sel !== String(R0.razem) || q0.pay !== 5 || !/Decyzje \d \/ 7/i.test(q0.prog) || !/Decyzje \d\/7 · zadania/.test(q0.tprog) || q0.paryRows !== 0 || q0.dupDec !== 1) fail('decyzje – budżet', JSON.stringify(q0));
+  // kurs dolara: jedno źródło – opis wariantu (znaczniki z build.py) zgadza się z tabelą budżetu (calc() na stronie), notka o kursie pokazuje kurs z danych
+  const fx = await p4.evaluate(() => { const U = window.UCO, k = U.prog.budzet.kursy, c = window.__calcFor(3, 2 * U.prog.budzet.prog), nf = v => String(v).replace(/(\d)(?=(\d{3})+$)/g, '$1\u00a0'), r10 = v => Math.round(v / 10) * 10; return { build: U.hotels[0].b.razem, calc: c.razem, nocleg: c.nocleg === Math.round(U.hotels[0].model.usd_para * k.USD), note: U.hotels[0].note.includes('ok. ' + nf(r10(c.razem)) + '\u00a0zł') && U.hotels[0].note.includes('Nocleg ok. ' + nf(r10(c.nocleg)) + '\u00a0zł'), dni: U.days.reduce((a, d) => a + d.cost, 0) === c.jedzenie + c.wycieczki_bilety, kursn: document.getElementById('kursn')?.textContent || '', kurs: String(k.USD.toFixed(2)).replace('.', ','), braces: /\{[a-z_]+[:}]/.test(JSON.stringify(U)) }; });
+  if (fx.build !== fx.calc || !fx.nocleg || !fx.note || !fx.dni || !fx.kursn.includes(fx.kurs) || !/10\sgr na dolarze/.test(fx.kursn) || fx.braces) fail('budżet – kurs dolara', JSON.stringify(fx));
   await p4.click('input[data-dsel="pary"][value="2"]'); await p4.waitForTimeout(150);
   const q1 = await p4.evaluate(() => ({ np: document.querySelector('#grp [aria-pressed="true"]')?.dataset.np, dsf: document.querySelector('[data-dsf="pary"]').textContent, koszt: document.querySelector('[data-dyn="koszt"]').textContent, sel: document.querySelector('#mx td.sel button')?.dataset.mx, done: document.querySelector('[data-dec-card="pary"]').classList.contains('done') }));
   if (q1.np !== '2' || !/Wybrano: 2\spary/.test(q1.dsf) || q1.sel !== '2|p48' || !q1.done) fail('decyzje – wybór par', JSON.stringify(q1));
@@ -258,7 +264,7 @@ async function withLoty(mutate, hash, fn) {
   if (!q2.checked || !/Wybrano: 4\spary/.test(q2.dsf) || q2.sel !== '4|p48') fail('decyzje – budżet → karta', JSON.stringify(q2));
   await p4.click('#mx button[data-mx="3|p40"]'); await p4.waitForTimeout(150);
   const q3 = await p4.evaluate(() => ({ np: document.querySelector('#grp [aria-pressed="true"]')?.dataset.np, ls: document.querySelector('#lsc [aria-pressed="true"]')?.dataset.ls, sel: document.querySelector('#mx td.sel button')?.textContent.replace(/\D/g, ''), sum: document.querySelector('#payl li.sum b').textContent.replace(/\D/g, ''), txt: (document.getElementById('dcopy').click(), document.getElementById('dtxt').value) }));
-  if (q3.np !== '3' || q3.ls !== 'p40' || q3.sel !== '24388' || q3.sum !== '24388' || !/Ustalone: Ile par jedzie → 3\spary/.test(q3.txt)) fail('decyzje – macierz', JSON.stringify(q3));
+  if (q3.np !== '3' || q3.ls !== 'p40' || q3.sel !== String(R0.razem - R0.d) || q3.sum !== String(R0.razem - R0.d) || !/Ustalone: Ile par jedzie → 3\spary/.test(q3.txt)) fail('decyzje – macierz', JSON.stringify(q3));
   await p4.click('[data-dclr="pary"]'); await p4.waitForTimeout(100);
   const q4 = await p4.evaluate(() => ({ done: document.querySelector('[data-dec-card="pary"]').classList.contains('done'), any: [...document.querySelectorAll('input[data-dsel="pary"]')].some(c => c.checked) }));
   if (q4.done || q4.any) fail('decyzje – zmień', JSON.stringify(q4));

@@ -24,6 +24,14 @@ python3 -I build.py --check   # nic nie zapisuje; błąd, gdy ../uco/ nie zgadza
 
 Wystarczy sam Python 3. `build.py` kończy się błędem, gdy nie znajdzie zdjęcia dla dnia, pasa, mozaiki albo zdjęcia głównego (dobierane po fragmencie podpisu). Nowe zdjęcie: oryginał do `zdjecia/` (poza gitem), wpis w `data/zdjecia.json` – wtedy `build.py` potrzebuje ImageMagicka (`convert`), żeby zrobić wersje 720 i 1800 px.
 
+### Kurs dolara – jedno źródło
+
+Budżet liczy się z `budzet.kursy.USD` w `data/program.json` (kurs średni NBP; `data` i `zrodlo` pokazują się na stronie). Żeby przeliczyć budżet po nowym kursie, wystarczy zmienić `USD` (i `EUR` dla lotów), `data`, `zrodlo` i uruchomić `build.py`:
+
+- noclegi i bus są w danych w USD (`hotels[].model`, `grupa.transport_usd`) – strona mnoży je przez kurs;
+- koszty na miejscu zapisane w zł (`days[].cost`, `hotels[].budget.jedzenie` i `wycieczki_bilety`, `upgrade.opcje[].zl`) są po kursie `budzet.kursy.baza_kosztow` – `build.py` skaluje je do aktualnego kursu (zaokrąglenie do 10 zł); tych kwot **nie** zmieniaj przy zmianie kursu;
+- kwoty w opisach to znaczniki liczone przez `build.py` tym samym wzorem co tabela budżetu, np. `{suma:0}` (suma wariantu 0 przy trzech parach i lotach w progu, do 10 zł), `{suma:0:4000}` (przy lotach po 4 000 zł/os.), `{razem:0}` (dokładnie), `{nocleg:0}`, `{bilans:0}` („zapas ok. … zł” albo „ok. … zł ponad sufit”), `{zapas:0}`, `{maxlot:0}` (najwyższa cena lotu na osobę mieszcząca się w suficie; `{maxlot:2:-180}` – przy noclegu tańszym o 180 USD), `{bus:3}`, `{busdiff:2:3}`, `{up:pi}`, `{upsum:pi:st}`, `{poup:0:4800:pi:st}`, `{diff:2:0}`, `{usd:660}`, `{koszty}`, `{jedzenie}`, `{wycieczki}`, `{poza}`, `{kurs}`, `{kurs_data}`. Nieznany znacznik zatrzymuje build.
+
 Przy budowaniu wszystkie teksty dostają twarde spacje po jednoliterowych słowach (w, z, i, a, o, u) oraz między liczbą a tysiącami i jednostką. To samo robi `nb()` w szablonie dla tekstów składanych w przeglądarce.
 
 ## Testy

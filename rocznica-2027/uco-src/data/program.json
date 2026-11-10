@@ -23,7 +23,7 @@
     "Casa de Uco Vineyards & Wine Resort",
     "Legado Mítico"
    ],
-   "variant_note": "Rekomendacja po pogłębionym badaniu (27.10.2026), od 30.10.2026 w układzie 3 + 3 + 1: trzecia noc w Lares zamiast czwartej w Uco – ten sam standard, ok. 1 200 zł mniej na parę. 3 noce (6–8.11) w Lares de Chacras – Klucz MICHELIN 2026, Tripadvisor 4,9 z 1 814 opinii (nr 2 w Chacras), Kayak 9,6; przy 3–4 parach prosić o Casa Vita: osobny dom z 6 pokojami, własnym basenem i salonem z kominkiem – cały dla Was; restauracja Lares Cocina de Hogar codziennie wieczorem (ważne: 7.11 to niedziela, Zappa i Clos de Chacras nie serwują wtedy kolacji); 29 minut z lotniska, 34 do Catena; ok. 170 USD/noc (migawki 110–300). 3 noce (9–11.11) w Casa de Uco w Laguna Suite (42 m², taras z meblami i widokiem 180° na lagunę i Andy, 6 suit) zamiast pokoju Cordón del Plata – bo według opinii ze stycznia 2026 pokoje Cordón patrzą na wjazd i parking i mają balkon bez mebli; cena planistyczna 500 USD/noc z rabatem Mr & Mrs Smith −15% (Kayak „King” 575 USD w X 2026; oferta 70273 potwierdzona, ważna do 20.12.2027). 1 noc w Legado Mítico (ok. 265 USD za piątek – migawki 175–285, w budżecie ostrożnie). Nocleg ok. 8 420 zł; suma przy trzech parach i lotach 4 800 zł/os. ok. 25 590 zł – zapas ok. 2 410 zł na parę na upgrade’y (mieści się przy lotach do ok. 6 000 zł/os.); przy 5 500 zł/os. ok. 26 990. Czego nie ma: Andów z tarasu w pierwsze trzy dni – za to oba hotele mają Klucz, widok w noc rocznicy jest gwarantowany kategorią, a grupa ma własny dom w Chacras."
+   "variant_note": "Rekomendacja po pogłębionym badaniu (27.10.2026), od 30.10.2026 w układzie 3 + 3 + 1: trzecia noc w Lares zamiast czwartej w Uco – ten sam standard, ok. {up:n4} zł mniej na parę. 3 noce (6–8.11) w Lares de Chacras – Klucz MICHELIN 2026, Tripadvisor 4,9 z 1 814 opinii (nr 2 w Chacras), Kayak 9,6; przy 3–4 parach prosić o Casa Vita: osobny dom z 6 pokojami, własnym basenem i salonem z kominkiem – cały dla Was; restauracja Lares Cocina de Hogar codziennie wieczorem (ważne: 7.11 to niedziela, Zappa i Clos de Chacras nie serwują wtedy kolacji); 29 minut z lotniska, 34 do Catena; ok. 170 USD/noc (migawki 110–300). 3 noce (9–11.11) w Casa de Uco w Laguna Suite (42 m², taras z meblami i widokiem 180° na lagunę i Andy, 6 suit) zamiast pokoju Cordón del Plata – bo według opinii ze stycznia 2026 pokoje Cordón patrzą na wjazd i parking i mają balkon bez mebli; cena planistyczna 500 USD/noc z rabatem Mr & Mrs Smith −15% (Kayak „King” 575 USD w X 2026; oferta 70273 potwierdzona, ważna do 20.12.2027). 1 noc w Legado Mítico (ok. 265 USD za piątek – migawki 175–285, w budżecie ostrożnie). Nocleg ok. {nocleg:0} zł; suma przy trzech parach i lotach 4 800 zł/os. ok. {suma:0} zł – {bilans:0} na parę (na upgrade’y); mieści się w suficie przy lotach do ok. {maxlot:0} zł/os., a przy lotach w celu 4 000 zł/os. wychodzi ok. {suma:0:4000} zł. Czego nie ma: Andów z tarasu w pierwsze trzy dni – za to oba hotele mają Klucz, widok w noc rocznicy jest gwarantowany kategorią, a grupa ma własny dom w Chacras."
   },
   {
    "name": "Baza 1 z Andami o zachodzie: Finca Adalgisa + Casa de Uco Laguna Suite + Buenos Aires",
@@ -47,7 +47,7 @@
     "Casa de Uco Vineyards & Wine Resort",
     "Legado Mítico"
    ],
-   "variant_note": "Ta sama hierarchia (Laguna Suite w Uco nietknięta), ale baza 1 z Andami o zachodzie słońca bez ceny Chozos: Finca Adalgisa w Chacras de Coria – 100-letnia finca z własną winnicą malbeca w środku miasteczka, 13 pokoi (7 suit), basen, bar tapas, z części pokoi Andy o zachodzie; Tripadvisor 4,7 (606), Booking 9,6 (35); od 296 USD przez Mr & Mrs Smith (minimum 2 noce – pasuje). Nocleg ok. 9 820 zł (3 noce w Adalgisie, 3 w Laguna Suite); suma przy trzech parach ok. 26 990 zł przy lotach 4 800 zł/os. – zapas ok. 1 010 zł (mieści się przy lotach do ok. 5 300 zł/os.). Dzika karta w tej samej roli: Viamonte Winery Lodge (nowy 2025, 7 suit z tarasami na Andy, 268–351 USD) – za mało opinii, by był wariantem, ale warto zapytać. Minus Adalgisy: bez pełnej restauracji (tapas 18–23), więc kolacje 6.11 w Zappie, 7.11 w Lares Cocina de Hogar lub tapas na miejscu."
+   "variant_note": "Ta sama hierarchia (Laguna Suite w Uco nietknięta), ale baza 1 z Andami o zachodzie słońca bez ceny Chozos: Finca Adalgisa w Chacras de Coria – 100-letnia finca z własną winnicą malbeca w środku miasteczka, 13 pokoi (7 suit), basen, bar tapas, z części pokoi Andy o zachodzie; Tripadvisor 4,7 (606), Booking 9,6 (35); od 296 USD przez Mr & Mrs Smith (minimum 2 noce – pasuje). Nocleg ok. {nocleg:1} zł (3 noce w Adalgisie, 3 w Laguna Suite); suma przy trzech parach ok. {suma:1} zł przy lotach 4 800 zł/os. – {bilans:1}; mieści się w suficie przy lotach do ok. {maxlot:1} zł/os. Dzika karta w tej samej roli: Viamonte Winery Lodge (nowy 2025, 7 suit z tarasami na Andy, 268–351 USD) – za mało opinii, by był wariantem, ale warto zapytać. Minus Adalgisy: bez pełnej restauracji (tapas 18–23), więc kolacje 6.11 w Zappie, 7.11 w Lares Cocina de Hogar lub tapas na miejscu."
   },
   {
    "name": "Baza 1 Chozos (ponad sufit, warunkowo): Chozos + Casa de Uco Laguna Suite + Buenos Aires",
@@ -71,7 +71,7 @@
     "Casa de Uco Vineyards & Wine Resort",
     "Legado Mítico"
    ],
-   "variant_note": "Maksimum widoku przy zachowanej hierarchii (Laguna Suite w Uco): 3 noce w Chozos (One-Bedroom Villa 90 m² z basenikiem i tarasem na Kordylierę, Klucz 2025 i 2026) i 3 noce w Laguna Suite. Cena planistyczna Chozos podniesiona do 450 USD – 390 USD to migawka z lipca, listopad według agregatorów to 450–600 USD. Nocleg ok. 11 530 zł; suma przy trzech parach ok. 28 700 zł przy lotach 4 800 zł/os., czyli ok. 700 zł ponad sufit; mieści się przy lotach do ok. 4 450 zł/os. albo gdy Chozos potwierdzi ≤ 390 USD i bilety wyjdą ≤ ok. 4 670 zł/os. Ryzyka z opinii 2026: nierówny serwis (dwie oceny 2/10 w czerwcu 2026), śniadanie dopiero od 8:00 (kolizja z wyjazdem w Andy 7:30 – prosić o box), 3,6 km szutru, możliwa rozbudowa resortu."
+   "variant_note": "Maksimum widoku przy zachowanej hierarchii (Laguna Suite w Uco): 3 noce w Chozos (One-Bedroom Villa 90 m² z basenikiem i tarasem na Kordylierę, Klucz 2025 i 2026) i 3 noce w Laguna Suite. Cena planistyczna Chozos podniesiona do 450 USD – 390 USD to migawka z lipca, listopad według agregatorów to 450–600 USD. Nocleg ok. {nocleg:2} zł; suma przy trzech parach ok. {suma:2} zł przy lotach 4 800 zł/os. – {bilans:2}; mieści się dopiero przy lotach do ok. {maxlot:2} zł/os. albo – gdy Chozos potwierdzi ≤ 390 USD – do ok. {maxlot:2:-180} zł/os. Ryzyka z opinii 2026: nierówny serwis (dwie oceny 2/10 w czerwcu 2026), śniadanie dopiero od 8:00 (kolizja z wyjazdem w Andy 7:30 – prosić o box), 3,6 km szutru, możliwa rozbudowa resortu."
   },
   {
    "name": "Rezerwowy, gdy Laguna Suite niedostępna: Lares + Casa de Uco Cordón del Plata + Buenos Aires",
@@ -95,7 +95,7 @@
     "Casa de Uco Vineyards & Wine Resort",
     "Legado Mítico"
    ],
-   "variant_note": "Nie wybór, lecz rezerwa dostępności: Casa de Uco ma tylko 6 Laguna Suites – jeśli na 9–12.11.2027 zabraknie ich dla wszystkich par, zostaje ta sama Casa de Uco w pokojach Cordón del Plata (30 m², 442 USD ze Smith), ale wyłącznie z pisemną gwarancją pokoi od strony winnic i gór na górnym piętrze (zapytać o 1202/1204) – kategoria domyślnie patrzy na wjazd i parking. Baza 1 bez zmian: Lares / Casa Vita. Nocleg ok. 7 770 zł; suma przy trzech parach ok. 24 940 zł, zapas ok. 3 060 zł (mieści się przy lotach do ok. 6 330 zł/os.) – nadwyżkę warto wtedy wydać na upgrade’y z listy, nie na tańszy hotel w Uco. Hierarchia: Uco > baza 1 > Buenos Aires – żaden wariant nie oszczędza na nocy rocznicy."
+   "variant_note": "Nie wybór, lecz rezerwa dostępności: Casa de Uco ma tylko 6 Laguna Suites – jeśli na 9–12.11.2027 zabraknie ich dla wszystkich par, zostaje ta sama Casa de Uco w pokojach Cordón del Plata (30 m², 442 USD ze Smith), ale wyłącznie z pisemną gwarancją pokoi od strony winnic i gór na górnym piętrze (zapytać o 1202/1204) – kategoria domyślnie patrzy na wjazd i parking. Baza 1 bez zmian: Lares / Casa Vita. Nocleg ok. {nocleg:3} zł; suma przy trzech parach ok. {suma:3} zł – {bilans:3} (mieści się przy lotach do ok. {maxlot:3} zł/os.) – nadwyżkę warto wtedy wydać na upgrade’y z listy, nie na tańszy hotel w Uco. Hierarchia: Uco > baza 1 > Buenos Aires – żaden wariant nie oszczędza na nocy rocznicy."
   }
  ],
  "tagline": "Osiem dni pod Andami: Aconcagua, lunch przy ogniu w Lagarde, sztuka w Salentein, rocznica w kamiennej winnicy Zuccardi, wędrówka w Manzano, a na finał tango i Recoleta w Buenos Aires.",
@@ -321,11 +321,11 @@
  "uwagi": [
   {
    "kat": "Budżet i zasady",
-   "t": "Sufit: 28 000 zł na parę, loty liczone po 4 800 zł/os. za kompletną podróż (9 600 zł na parę). Hierarchia noclegów ustalona z agendy: dolina Uco (3 noce, ok. 26 h na jawie w hotelu, noc rocznicy) > baza pod Mendozą (3 noce, ok. 22 h) > Buenos Aires (ok. 2 h). Dlatego wszystkie warianty trzymają Laguna Suite w Casa de Uco i różnią się tylko bazą 1: polecany Lares / Casa Vita (ok. 25 590 zł), Finca Adalgisa z Andami o zachodzie (ok. 26 990 zł), Chozos (ok. 28 700 zł – ponad sufit, chyba że Chozos ≤ 390 USD i loty ≤ ok. 4 670 zł/os.). Wariant 4 (Lares + Cordón, ok. 24 940 zł) to wyłącznie rezerwa dostępności, gdyby zabrakło Laguna Suites – i tylko z gwarancją pokoju od strony gór. La Morada i tańsze lodge w Uco łamią hierarchię, więc zostały w alternatywach jako opcje awaryjne. Rezydencje La Amada/Paucho wracają przy ≤ 1 300 USD/noc. Scenariusze planistyczne: cen i dostępności na listopad 2027 nie potwierdzono; Chozos liczony ostrożnie po 450 USD. Kwoty dla trzech par bez upgrade’ów; tabela budżetu przelicza je po wyborze liczby par, ceny lotów i upgrade’ów."
+   "t": "Sufit: 28 000 zł na parę, loty liczone po 4 800 zł/os. za kompletną podróż (9 600 zł na parę). Hierarchia noclegów ustalona z agendy: dolina Uco (3 noce, ok. 26 h na jawie w hotelu, noc rocznicy) > baza pod Mendozą (3 noce, ok. 22 h) > Buenos Aires (ok. 2 h). Dlatego wszystkie warianty trzymają Laguna Suite w Casa de Uco i różnią się tylko bazą 1: polecany Lares / Casa Vita (ok. {suma:0} zł, {bilans:0}), Finca Adalgisa z Andami o zachodzie (ok. {suma:1} zł, {bilans:1}), Chozos (ok. {suma:2} zł, {bilans:2} – chyba że Chozos ≤ 390 USD i loty ≤ ok. {maxlot:2:-180} zł/os.). Wariant 4 (Lares + Cordón, ok. {suma:3} zł) to wyłącznie rezerwa dostępności, gdyby zabrakło Laguna Suites – i tylko z gwarancją pokoju od strony gór. La Morada i tańsze lodge w Uco łamią hierarchię, więc zostały w alternatywach jako opcje awaryjne. Rezydencje La Amada/Paucho wracają przy ≤ 1 300 USD/noc. Scenariusze planistyczne: cen i dostępności na listopad 2027 nie potwierdzono; Chozos liczony ostrożnie po 450 USD. Kwoty dla trzech par, przy lotach po 4 800 zł/os. i kursie {kurs} zł za dolara, bez upgrade’ów; tabela budżetu przelicza je po wyborze liczby par, ceny lotów i upgrade’ów."
   },
   {
    "kat": "Budżet i zasady",
-   "t": "Zasada oszczędzania: płacimy za standard (widoki, Klucze MICHELIN, Laguna Suite w noc rocznicy), nie za nadmiar atrakcji i jedzenia. Trzy dobre degustacje – Lagarde, Salentein i Zuccardi – i jedna atrakcja dziennie; posiłki skromnie: lunch à la carte w Fogón jako główny posiłek dnia, w Killce degustacja z przekąską, w rocznicę wizyta i degustacja u Zuccardiego, piknik nad laguną, toast na decku i kolacja à la carte, asado na pożegnanie, w Buenos Aires steki w Don Julio i milonga w La Viruta, churros w Tortoni zamiast lunchu. Trzecia noc w Lares zamiast czwartej w Uco – ok. 1 200 zł mniej na parę przy tym samym standardzie. Pojedyncze upgrade’y (lunch w Piedra Infinita, Secreto Tango, czwarta noc w Uco, Catena, SuperUco, Siete Fuegos, masaże) są opcjami w sekcji Budżet. Robocze limity poza noclegami: loty 9 600 (próg 4 800 zł/os. za kompletną podróż), transport 2 100 (bus w dni przejazdowe, do czasu wycen), jedzenie 3 450, wycieczki i degustacje 1 420, rezerwa 1 000 – razem 17 570 zł."
+   "t": "Zasada oszczędzania: płacimy za standard (widoki, Klucze MICHELIN, Laguna Suite w noc rocznicy), nie za nadmiar atrakcji i jedzenia. Trzy dobre degustacje – Lagarde, Salentein i Zuccardi – i jedna atrakcja dziennie; posiłki skromnie: lunch à la carte w Fogón jako główny posiłek dnia, w Killce degustacja z przekąską, w rocznicę wizyta i degustacja u Zuccardiego, piknik nad laguną, toast na decku i kolacja à la carte, asado na pożegnanie, w Buenos Aires steki w Don Julio i milonga w La Viruta, churros w Tortoni zamiast lunchu. Trzecia noc w Lares zamiast czwartej w Uco – ok. {up:n4} zł mniej na parę przy tym samym standardzie. Pojedyncze upgrade’y (lunch w Piedra Infinita, Secreto Tango, czwarta noc w Uco, Catena, SuperUco, Siete Fuegos, masaże) są opcjami w sekcji Budżet. Robocze limity poza noclegami: loty 9 600 (próg 4 800 zł/os. za kompletną podróż), transport {bus:3} (bus w dni przejazdowe, do czasu wycen), jedzenie {jedzenie}, wycieczki i degustacje {wycieczki}, rezerwa 1 000 – razem {poza} zł (przy trzech parach i kursie {kurs} zł za dolara)."
   },
   {
    "kat": "Budżet i zasady",
@@ -337,7 +337,7 @@
   },
   {
    "kat": "Budżet i zasady",
-   "t": "Ceny noclegów są szacunkowe (cenniki na listopad 2027 jeszcze nie istnieją), przeliczone po 3,70 zł za dolara; Argentyna ma wysoką inflację i zmienne kursy – kartą zagraniczną zwykle płaci się po korzystnym kursie, ale warto to sprawdzić przed wyjazdem."
+   "t": "Ceny noclegów są szacunkowe (cenniki na listopad 2027 jeszcze nie istnieją), przeliczone po {kurs} zł za dolara (kurs średni NBP z {kurs_data}; bank przy płatności kartą zwykle dolicza 1–3%, na to jest rezerwa); Argentyna ma wysoką inflację i zmienne kursy – kartą zagraniczną zwykle płaci się po korzystnym kursie, ale warto to sprawdzić przed wyjazdem."
   },
   {
    "kat": "Winnice i restauracje",
@@ -369,7 +369,7 @@
   },
   {
    "kat": "Budżet i zasady",
-   "t": "Koszty dni (razem ok. 4 870 zł na parę w planie bazowym z 1.11.2026, z kolacją w Don Julio – według cen z opisów dni; upgrade’y doliczają się osobno w sekcji Budżet) to jedzenie, degustacje, bilety i taksówki – sumują się do pozycji „jedzenie” i „wycieczki i degustacje” w budżecie; nie obejmują noclegu, lotów ani busa (koszt całej grupy dzielony po równo między pary)."
+   "t": "Koszty dni (razem ok. {koszty} zł na parę w planie bazowym z 1.11.2026, z kolacją w Don Julio – według cen z opisów dni, przeliczonych po {kurs} zł za dolara; upgrade’y doliczają się osobno w sekcji Budżet) to jedzenie, degustacje, bilety i taksówki – sumują się do pozycji „jedzenie” i „wycieczki i degustacje” w budżecie; nie obejmują noclegu, lotów ani busa (koszt całej grupy dzielony po równo między pary)."
   },
   {
    "kat": "Hotele i podatki",
@@ -397,7 +397,7 @@
   },
   {
    "kat": "Budżet i zasady",
-   "t": "Loty – korekta z 25.10.2026: 7 800 zł na parę było o 25–35% za nisko. Ceny 4 150–4 500 zł/os. za sam bilet do Buenos Aires mają dziś tylko Ethiopian i Turkish albo bilety last minute na listopad; Iberia, ITA, Air France i Lufthansa z bagażem kosztują 4 700–5 800 zł, a lot krajowy z bagażem to kolejne 480–850 zł. Dlatego budżet liczy kompletną podróż Warszawa–Mendoza: główny próg zakupu 4 800 zł/os. (9 600 zł na parę); wariant polecany (Lares + Laguna Suite) mieści się w suficie do ok. 6 000 zł/os. (wariant 4 z pokojem Cordón del Plata do ok. 6 330, Adalgisa do ok. 5 300), a Chozos w bazie 1 wraca tylko przy biletach ≤ ok. 4 670 zł/os. i cenie ≤ 390 USD Decyzja hotelowa zapada po zakupie lotów (styczeń–maj 2027), nie przed."
+   "t": "Loty – korekta z 25.10.2026: 7 800 zł na parę było o 25–35% za nisko. Ceny 4 150–4 500 zł/os. za sam bilet do Buenos Aires mają dziś tylko Ethiopian i Turkish albo bilety last minute na listopad; Iberia, ITA, Air France i Lufthansa z bagażem kosztują 4 700–5 800 zł, a lot krajowy z bagażem to kolejne 480–850 zł. Dlatego budżet liczy kompletną podróż Warszawa–Mendoza: główny próg zakupu 4 800 zł/os. (9 600 zł na parę); wariant polecany (Lares + Laguna Suite) mieści się w suficie do ok. {maxlot:0} zł/os. (wariant 4 z pokojem Cordón del Plata do ok. {maxlot:3}, Adalgisa do ok. {maxlot:1}), a Chozos w bazie 1 wraca tylko przy biletach ≤ ok. {maxlot:2:-180} zł/os. i cenie ≤ 390 USD. Decyzja hotelowa zapada po zakupie lotów (styczeń–maj 2027), nie przed."
   },
   {
    "kat": "Winnice i restauracje",
@@ -980,7 +980,7 @@
   }
  ],
  "loty": {
-  "intro": "Z Warszawy do Mendozy, ok. 18–30 h w jedną stronę zależnie od linii; powrót z Buenos Aires po dniu w mieście. Linie sprzedają bilety 330–361 dni naprzód: pierwsze ceny w obie strony do Buenos Aires na nasze daty pojawią się ok. 17–19.11.2026, a cały bilet do Mendozy da się wycenić ok. 17–18.12.2026 (tabela w zakładce Kalendarz). Sprawdzone 25.10.2026: sam bilet Warszawa–Buenos Aires z bagażem kosztuje dziś 4 150–4 500 zł u Ethiopian i Turkish, 4 700–5 800 zł u linii europejskich, lot krajowy z bagażem 480–850 zł; średnia roczna trasy ok. 5 750 zł, a listopad jest najtańszym miesiącem. Budżet liczy kompletną podróż Warszawa–Mendoza na osobę: cel 4 000 zł (kupujemy od razu), główny próg zakupu 4 800 zł (9 600 zł na parę) – przy nim wariant polecany zostawia ok. 2 000 zł zapasu na parę na upgrade’y; wariant polecany (Lares + Laguna Suite) mieści się do ok. 6 000 zł/os. (wariant 4 z pokojem Cordón del Plata do ok. 6 330 zł/os.). Kolejność szukania: najpierw cały bilet do Mendozy, równolegle Madryt–Mendoza jako chroniona podróż, osobne bilety dopiero przy oszczędności ≥ 800 zł/os.",
+  "intro": "Z Warszawy do Mendozy, ok. 18–30 h w jedną stronę zależnie od linii; powrót z Buenos Aires po dniu w mieście. Linie sprzedają bilety 330–361 dni naprzód: pierwsze ceny w obie strony do Buenos Aires na nasze daty pojawią się ok. 17–19.11.2026, a cały bilet do Mendozy da się wycenić ok. 17–18.12.2026 (tabela w zakładce Kalendarz). Sprawdzone 25.10.2026: sam bilet Warszawa–Buenos Aires z bagażem kosztuje dziś 4 150–4 500 zł u Ethiopian i Turkish, 4 700–5 800 zł u linii europejskich, lot krajowy z bagażem 480–850 zł; średnia roczna trasy ok. 5 750 zł, a listopad jest najtańszym miesiącem. Budżet liczy kompletną podróż Warszawa–Mendoza na osobę: cel 4 000 zł (kupujemy od razu), główny próg zakupu 4 800 zł (9 600 zł na parę) – przy nim wariant polecany zostawia ok. {zapas:0} zł zapasu na parę na upgrade’y; wariant polecany (Lares + Laguna Suite) mieści się w suficie do ok. {maxlot:0} zł/os. (wariant 4 z pokojem Cordón del Plata do ok. {maxlot:3} zł/os.). Kolejność szukania: najpierw cały bilet do Mendozy, równolegle Madryt–Mendoza jako chroniona podróż, osobne bilety dopiero przy oszczędności ≥ 800 zł/os.",
   "opcje": [
    {
     "n": "Cały bilet Warszawa–Mendoza (jedna rezerwacja)",
@@ -995,7 +995,7 @@
    {
     "n": "Dolot do Madrytu + Madryt–Mendoza jako jedna chroniona podróż",
     "trasa": "WAW → MAD (osobno) · MAD → EZE/SCL → MDZ (jeden bilet)",
-    "linie": "LOT / Iberia / Ryanair do Madrytu; Iberia z LATAM lub Aerolíneas z Madrytu do Mendozy na jednym bilecie. Publiczny wynik Google Flights: Iberia/LATAM Madryt–Mendoza 998 USD w obie strony (ok. 3 910 zł po kursie z XI 2026) na 23.01–8.02.2027.",
+    "linie": "LOT / Iberia / Ryanair do Madrytu; Iberia z LATAM lub Aerolíneas z Madrytu do Mendozy na jednym bilecie. Publiczny wynik Google Flights: Iberia/LATAM Madryt–Mendoza 998 USD w obie strony (ok. {usd:998} zł po kursie {kurs} zł za dolara) na 23.01–8.02.2027.",
     "czas": "ok. 22–28 h + bufor",
     "cena": "ok. 3 900 zł + dolot 500–900 zł + bagaż + nocleg buforowy",
     "plus": "Przesiadki od Madrytu chronione; potencjał poniżej progu, jeśli dolot i bagaż wyjdą tanio.",
@@ -1022,7 +1022,7 @@
    ],
    [
     "po zakupie lotów",
-    "Decyzja hotelowa: polecany Lares (Casa Vita) + Laguna Suite mieści się w suficie 28 000 zł do ok. 6 000 zł/os. za loty – przy progu 4 800 zł zostaje ok. 2 400 zł na parę na upgrade’y; wariant 4 z pokojem Cordón del Plata do ok. 6 330 zł/os. Na wariant z Chozos przejść tylko, gdy bilety wyjdą ≤ ok. 4 670 zł/os. i Chozos potwierdzi ≤ 390 USD. Potwierdzić Casa de Uco i zwolnić rezerwację drugiego hotelu bazy 1."
+    "Decyzja hotelowa: polecany Lares (Casa Vita) + Laguna Suite mieści się w suficie 28 000 zł do ok. {maxlot:0} zł/os. za loty – przy progu 4 800 zł zostaje ok. {zapas:0} zł na parę na upgrade’y; wariant 4 z pokojem Cordón del Plata do ok. {maxlot:3} zł/os. Na wariant z Chozos przejść tylko, gdy bilety wyjdą ≤ ok. {maxlot:2:-180} zł/os. i Chozos potwierdzi ≤ 390 USD. Potwierdzić Casa de Uco i zwolnić rezerwację drugiego hotelu bazy 1."
    ],
    [
     "lipiec–sierpień 2027",
@@ -1517,7 +1517,7 @@
      "od": "2027-07-03",
      "do": "2027-08-31",
      "faza": "Bezpieczna rezerwa",
-     "co": "Jeśli bilety wciąż niekupione: wybrać najtańszy jednobiletowy wariant z 23 kg (Iberia, Air Europa, ITA, AF/KLM, LATAM) niezależnie od statystyk; przy > 6 000 zł/os. wariant 4 hoteli (Cordón del Plata, w suficie do ok. 6 330 zł/os.). Lot krajowy – tylko w scenariuszach 3 i 5 – kupić ok. 30.07 (14 tygodni przed), Aerolíneas lub JetSMART z bagażem.",
+     "co": "Jeśli bilety wciąż niekupione: wybrać najtańszy jednobiletowy wariant z 23 kg (Iberia, Air Europa, ITA, AF/KLM, LATAM) niezależnie od statystyk; przy > {maxlot:0} zł/os. wariant 4 hoteli (Cordón del Plata, w suficie do ok. {maxlot:3} zł/os.). Lot krajowy – tylko w scenariuszach 3 i 5 – kupić ok. 30.07 (14 tygodni przed), Aerolíneas lub JetSMART z bagażem.",
      "automat": "Agent 2.07 (decyzja) · przypomnienie 30.07 (lot krajowy) · agent 31.08 (ostateczny termin)",
      "decyzja": "31.08.2027 to twardy termin zakupu biletu międzykontynentalnego. Wyjątek tylko przy cenach > 5 500 zł/os.: można poczekać na wrześniowe Real Deal Days Air France/KLM i rabat Avios Iberii (ok. 1–25.09), ostatecznie do 25.09.",
      "ton": "termin",
@@ -1736,7 +1736,7 @@
     "t": "Twardy termin zakupu biletu międzykontynentalnego",
     "od": "2027-07-03",
     "do": "2027-08-31",
-    "opis": "Najtańszy jednobiletowy wariant z 23 kg niezależnie od statystyk; przy > 6 000 zł/os. wariant 4 hoteli (Cordón del Plata, w suficie do ok. 6 330 zł/os.).",
+    "opis": "Najtańszy jednobiletowy wariant z 23 kg niezależnie od statystyk; przy > {maxlot:0} zł/os. wariant 4 hoteli (Cordón del Plata, w suficie do ok. {maxlot:3} zł/os.).",
     "kto": "my"
    },
    {
@@ -1745,7 +1745,7 @@
     "od": "2027-01-05",
     "do": "2027-09-15",
     "kto": "my",
-    "opis": "Koszty podróży i rezygnacja z podróży na sumę ok. 26 000 zł na parę, kupione do 2–7 dni od biletów (warunek wielu polis); przy osobnych biletach klauzula „missed connection”."
+    "opis": "Koszty podróży i rezygnacja z podróży na sumę ok. {suma:0} zł na parę (cały budżet pary), kupione do 2–7 dni od biletów (warunek wielu polis); przy osobnych biletach klauzula „missed connection”."
    },
    {
     "id": "ezeiza",
@@ -1758,7 +1758,7 @@
   ],
   "skala": {
    "tytul": "Celujemy w 4 000 zł na osobę",
-   "opis": "Cena kompletnej podróży Warszawa → Mendoza → Buenos Aires → Warszawa na osobę, z bagażem rejestrowanym i lotem krajowym. Cel 4 000 zł kupujemy od razu; próg 4 800 zł to granica, przy której plan zostawia ok. 2 000 zł zapasu na parę. Sam lot z Europy jest w celu przy ok. 3 200–3 500 zł w obie strony z bagażem.",
+   "opis": "Cena kompletnej podróży Warszawa → Mendoza → Buenos Aires → Warszawa na osobę, z bagażem rejestrowanym i lotem krajowym. Cel 4 000 zł kupujemy od razu; próg 4 800 zł to granica, przy której plan zostawia ok. {zapas:0} zł zapasu na parę. Sam lot z Europy jest w celu przy ok. 3 200–3 500 zł w obie strony z bagażem.",
    "progi": [
     {
      "do": 4000,
@@ -1779,7 +1779,7 @@
      "zakres": "4 500–4 800 zł",
      "ikona": "🟢",
      "nazwa": "Próg",
-     "decyzja": "Zapisać i polować dalej na cel; kupujemy od okna statystycznego (21.05.2027). W wariancie polecanym zostaje ok. 2 000 zł zapasu na parę."
+     "decyzja": "Zapisać i polować dalej na cel; kupujemy od okna statystycznego (21.05.2027). W wariancie polecanym zostaje ok. {zapas:0} zł zapasu na parę."
     },
     {
      "do": 5000,
@@ -2383,7 +2383,7 @@
    {
     "d": "",
     "godz": "18:30–19:40",
-    "co": "Upgrade (ok. +590 zł na parę): Secreto Tango Society – Tango Session: 70 minut, tancerze na wyciągnięcie ręki, kieliszek wina, od 80 USD/os. (u resellerów 65–129), sala na 20–30 osób – 8 miejsc rezerwować mailem bezpośrednio co najmniej 2 miesiące wcześniej (hola@secretotangosociety.com). Koniec w porze zachodu słońca (19:32)."
+    "co": "Upgrade (ok. +{up:st} zł na parę): Secreto Tango Society – Tango Session: 70 minut, tancerze na wyciągnięcie ręki, kieliszek wina, od 80 USD/os. (u resellerów 65–129), sala na 20–30 osób – 8 miejsc rezerwować mailem bezpośrednio co najmniej 2 miesiące wcześniej (hola@secretotangosociety.com). Koniec w porze zachodu słońca (19:32)."
    },
    {
     "d": "",
@@ -2485,7 +2485,6 @@
    3,
    4
   ],
-  "kurs": 3.7,
   "transport_usd": {
    "2": 1450,
    "3": 1700,
@@ -2516,19 +2515,19 @@
      "p48",
      "4 800/os. · próg",
      9600,
-     "główny próg zakupu (9 600 zł na parę) – w wariancie polecanym zostaje ok. 2 000 zł zapasu na upgrade’y"
+     "główny próg zakupu (9 600 zł na parę) – w wariancie polecanym zostaje ok. {zapas:0} zł zapasu na upgrade’y"
     ],
     [
      "p50",
      "5 000/os.",
      10000,
-     "akceptowalne, ale blisko granicy budżetu całego wyjazdu (10 000 zł na parę)"
+     "akceptowalne, ale blisko granicy budżetu całego wyjazdu (10 000 zł na parę); wariant polecany: {bilans:0:5000}"
     ],
     [
      "p55",
      "5 500/os.",
      11000,
-     "dzisiejsze ceny linii europejskich z bagażem plus lot krajowy – gdyby polowanie się nie udało (11 000 zł na parę)"
+     "dzisiejsze ceny linii europejskich z bagażem plus lot krajowy – gdyby polowanie się nie udało (11 000 zł na parę); wariant polecany: {bilans:0:5500}"
     ]
    ],
    "uwaga": "Cena za kompletną podróż Warszawa–Mendoza i z powrotem na osobę, z bagażem i lotem krajowym (jeden bilet albo suma biletów). Sprawdzone 25.10.2026: realne ceny to dziś 4 650–6 000 zł, więc próg 4 800 wymaga polowania w styczniu–maju 2027. Przełącznik pokazuje, jak cena biletów przesuwa całość względem sufitu 28 000 zł."
@@ -2587,7 +2586,7 @@
    "foto": "Winiarnia pod ośnieżonymi Andami",
    "co": "Designerski hotel w Luján de Cuyo (Preferred Hotels): minimalistyczne apartamenty wśród winnic z widokiem na Andy, hammam ze spa, własna winnica; do Catena 10–25 min.",
    "dlaczego": "Ikona designu, ale oceny nierówne (uwagi o komunikacji), bez Klucza, a słynny zawieszony Loft Suite jest jeden – nie dla kilku par.",
-   "kiedy": "Gdy priorytetem jest spa i hammam; ok. 2 400 zł więcej na parę niż Lares za dwie noce.",
+   "kiedy": "Gdy priorytetem jest spa i hammam; ok. {usd:660} zł więcej na parę niż Lares za dwie noce.",
    "url": "https://www.entrecielos.com/",
    "roznica": 3660
   },
@@ -2813,11 +2812,11 @@
     "niski – hotel to łóżko i adres"
    ]
   ],
-  "wniosek": "Baza 2 to ok. 26 godzin na jawie w hotelu przez trzy dni (9.11 od 15:00, 10.11 i 11.11 po 9–10 h, w tym noc rocznicy) – tu płacimy za Laguna Suite z tarasem. Baza 1 to ok. 22 godziny przez trzy dni: zmęczone popołudnie po przylocie, wieczór po Andach i spokojne popołudnie po Lagarde – Lares z Kluczem i Casa Vita z basenem daje tu najwięcej za najmniej. Buenos Aires to ok. 2 godziny – Legado Mítico ma być cichy i blisko Palermo i Recolety, nie luksusowy. Koszt noclegu za godzinę na jawie w hotelu (3 pary): Laguna Suite ok. 58 USD/h, Chozos ok. 61 USD/h, Lares ok. 23 USD/h, Legado ok. 130 USD/h (265 USD za piątek; tańsze adresy w Soho są głośniejsze lub słabiej oceniane). Dlatego trzecia noc wypada w Lares, a nie czwarta w Uco: ten sam standard, ok. 1 200 zł mniej na parę; noc rocznicy i dwa pełne dni zostają w Uco, a czwarta noc w Uco jest upgrade’em.",
+  "wniosek": "Baza 2 to ok. 26 godzin na jawie w hotelu przez trzy dni (9.11 od 15:00, 10.11 i 11.11 po 9–10 h, w tym noc rocznicy) – tu płacimy za Laguna Suite z tarasem. Baza 1 to ok. 22 godziny przez trzy dni: zmęczone popołudnie po przylocie, wieczór po Andach i spokojne popołudnie po Lagarde – Lares z Kluczem i Casa Vita z basenem daje tu najwięcej za najmniej. Buenos Aires to ok. 2 godziny – Legado Mítico ma być cichy i blisko Palermo i Recolety, nie luksusowy. Koszt noclegu za godzinę na jawie w hotelu (3 pary): Laguna Suite ok. 58 USD/h, Chozos ok. 61 USD/h, Lares ok. 23 USD/h, Legado ok. 130 USD/h (265 USD za piątek; tańsze adresy w Soho są głośniejsze lub słabiej oceniane). Dlatego trzecia noc wypada w Lares, a nie czwarta w Uco: ten sam standard, ok. {up:n4} zł mniej na parę; noc rocznicy i dwa pełne dni zostają w Uco, a czwarta noc w Uco jest upgrade’em.",
   "agenda": "Agendy nie warto przestawiać pod hotele: dni w Uco już są ułożone z jedną atrakcją przed południem i popołudniem w hotelu, a dzień w Andach i degustacja w Lagarde mają stałe godziny. Jedyna sensowna korekta: 7.11 wrócić z gór nie później niż 17:30, żeby złota godzina (od 19:45) zastała Was na tarasie – w Chozos z Andami, w Lares w ogrodzie Casa Vita."
  },
  "upgrade": {
-  "intro": "Plan bazowy trzyma standard – widoki, Klucze MICHELIN, Laguna Suite w noc rocznicy – i trzy dobre degustacje (Lagarde, Salentein, Zuccardi); jedzenie skromnie. Poniżej pojedyncze upgrade’y: zaznaczcie, a budżet wyżej doliczy dopłatę na parę. Ceny z X 2026, kwoty w ARS przeliczone po ok. 1 450 ARS/USD.",
+  "intro": "Plan bazowy trzyma standard – widoki, Klucze MICHELIN, Laguna Suite w noc rocznicy – i trzy dobre degustacje (Lagarde, Salentein, Zuccardi); jedzenie skromnie. Poniżej pojedyncze upgrade’y: zaznaczcie, a budżet wyżej doliczy dopłatę na parę. Ceny z X 2026, kwoty w ARS przeliczone po ok. 1 450 ARS/USD i {kurs} zł za dolara.",
   "opcje": [
    {
     "id": "pi",
@@ -2924,9 +2923,11 @@
   "_opis": "sufit na parę; cel 4000 zł/os. (kupujemy od razu); progi kompletnej podróży zł/os. (okazja = cel ≤ 4000, bardzo dobry ≤ 4500, próg ≤ 4800, blisko ≤ 5000, powyżej ≤ 5500, potem drogo); osobne bilety tylko przy oszczędności ≥ min_oszczednosc zł/os.",
   "kursy": {
    "EUR": 4.39,
-   "USD": 3.92,
-   "data": "2026-11-09",
-   "zrodlo": "NBP, tabela 218/A/NBP/2026"
+   "USD": 3.91,
+   "data": "2026-11-10",
+   "zrodlo": "NBP, tabela 219/A/NBP/2026",
+   "baza_kosztow": 3.7,
+   "_opis": "USD to jedyne źródło kursu dla budżetu: noclegi i bus (ceny w USD) oraz koszty na miejscu. Kwoty zł w days[].cost, hotels[].budget.jedzenie/wycieczki_bilety i upgrade.opcje[].zl są zapisane po kursie baza_kosztow – build.py przelicza je na USD przy budowaniu; kwoty w opisach to znaczniki w nawiasach klamrowych (lista w build.py)."
   }
  },
  "decyzje": [
@@ -2939,25 +2940,25 @@
    "opcje": [
     [
      "2 pary",
-     "bus ok. 2 680 zł na parę; dom na trzy sypialnie w Lares dzieli się na mniej osób",
+     "bus ok. {bus:2} zł na parę; dom na trzy sypialnie w Lares dzieli się na mniej osób",
      false,
      "2"
     ],
     [
      "3 pary",
-     "bus ok. 2 100 zł na parę; cała Casa Vita w Lares dla grupy – najlepszy układ",
+     "bus ok. {bus:3} zł na parę; cała Casa Vita w Lares dla grupy – najlepszy układ",
      true,
      "3"
     ],
     [
      "4 pary",
-     "bus (Sprinter) ok. 1 900 zł na parę; w Lares czwarta para w pokoju obok, w Casa de Uco 4 z 6 Laguna Suites",
+     "bus (Sprinter) ok. {bus:4} zł na parę; w Lares czwarta para w pokoju obok, w Casa de Uco 4 z 6 Laguna Suites",
      false,
      "4"
     ]
    ],
    "rek": "Do końca roku potwierdzić, kto leci. Bez liczby osób nie da się zapytać hoteli o cenę grupową ani kupić biletów w dniu okazji (imiona z paszportów).",
-   "wplyw": "budżet pary ±800 zł (bus), dom w Lares, liczba Laguna Suites",
+   "wplyw": "bus od {bus:4} do {bus:2} zł na parę, dom w Lares, liczba Laguna Suites",
    "sekcja": "#budzet"
   },
   {
@@ -2969,31 +2970,31 @@
    "opcje": [
     [
      "Polecany: Lares + Casa de Uco (Laguna Suite) + Legado",
-     "25 988 zł na parę – Klucz MICHELIN, widok w noc rocznicy, dom w Chacras",
+     "{razem:0} zł na parę – Klucz MICHELIN, widok w noc rocznicy, dom w Chacras",
      true,
      "0"
     ],
     [
      "Finca Adalgisa zamiast Lares",
-     "27 386 zł – Andy o zachodzie w bazie 1",
+     "{razem:1} zł ({bilans:1}) – Andy o zachodzie w bazie 1",
      false,
      "1"
     ],
     [
      "Chozos zamiast Lares",
-     "29 096 zł – ponad sufit, nierówny serwis",
+     "{razem:2} zł ({bilans:2}) – nierówny serwis",
      false,
      "2"
     ],
     [
      "Rezerwowy (pokój Cordón del Plata w Uco)",
-     "25 344 zł – tylko gdy zabraknie Laguna Suites",
+     "{razem:3} zł – tylko gdy zabraknie Laguna Suites",
      false,
      "3"
     ]
    ],
    "rek": "Zostać przy polecanym. Decyzja przed zapytaniem grupowym do Casa de Uco w styczniu, bo odpowiedź hotelu zamyka temat.",
-   "wplyw": "od −640 do +3 100 zł na parę",
+   "wplyw": "od −{diff:0:3} do +{diff:2:0} zł na parę",
    "sekcja": "#budzet"
   },
   {
@@ -3032,23 +3033,23 @@
    "kto": "każda para osobno",
    "opcje": [
     [
-     "Lunch rocznicowy w Piedra Infinita (+590 zł)",
+     "Lunch rocznicowy w Piedra Infinita (+{up:pi} zł)",
      "Zielona Gwiazdka MICHELIN zamiast pikniku – najbardziej polecany",
      true
     ],
     [
-     "Secreto Tango Society (+590 zł)",
+     "Secreto Tango Society (+{up:st} zł)",
      "kameralny pokaz zamiast milongi; rezerwacja co najmniej 2 miesiące wcześniej",
      true
     ],
     [
-     "Czwarta noc w Casa de Uco (+1 220 zł)",
+     "Czwarta noc w Casa de Uco (+{up:n4} zł)",
      "zamiast trzeciej w Lares; razem z dwoma polecanymi przekracza zapas",
      false
     ]
    ],
-   "rek": "Dwa polecane upgrade’y mieszczą się w zapasie przy lotach po 4 800 zł (zostaje ok. 830 zł); przy lotach w celu zapas rośnie o 1 600 zł.",
-   "wplyw": "od +590 do ok. +4 000 zł na parę",
+   "rek": "Dwa polecane upgrade’y to razem {upsum:pi:st} zł na parę: przy lotach po 4 800 zł/os. {poup:0:4800:pi:st}, przy lotach w celu 4 000 zł/os. {poup:0:4000:pi:st}.",
+   "wplyw": "od +{up:pi} do ok. +4 200 zł na parę",
    "sekcja": "#budzet",
    "uwaga": "Pozostałe 10 opcji z ceną jest w sekcji Budżet – zaznaczcie, a przeliczy się na parę.",
    "wybor": false
@@ -3122,7 +3123,7 @@
     ]
    ],
    "rek": "Zasada rezygnacji: do zakupu biletów bez kosztów (hotele z bezpłatną anulacją), potem para rezygnująca pokrywa swoją część niezwracalnych kosztów. Ubezpieczenie od rezygnacji każda para kupuje sama po biletach.",
-   "wplyw": "przy 3 parach ubytek jednej pary podnosi bus o ok. 580 zł na parę i zmienia dom w Lares",
+   "wplyw": "przy 3 parach ubytek jednej pary podnosi bus o ok. {busdiff:2:3} zł na parę i zmienia dom w Lares",
    "sekcja": "#budzet"
   },
   {

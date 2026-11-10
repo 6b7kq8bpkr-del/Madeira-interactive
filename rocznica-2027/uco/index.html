@@ -581,7 +581,7 @@ footer a { color: var(--ink-2); }
   var D = window.UCO, X = D.x, P = D.prog, app = document.getElementById('app');
   // progi i sufit z program.json (budzet); próg zakupu nadpisuje loty.json (prog), gdy agent go zmieni
   var CFG = P.budzet || { sufit: 28000, cel: 4000, prog: 4800, okazja: 4000, bardzo_dobry: 4500, blisko: 5000, drogo: 5500, min_oszczednosc: 800 };
-  var KUR = (CFG.kursy && CFG.kursy.EUR && CFG.kursy.USD) ? CFG.kursy : { EUR: 4.3, USD: 3.7 };
+  var KUR = (CFG.kursy && CFG.kursy.EUR && CFG.kursy.USD) ? CFG.kursy : { EUR: 4.39, USD: 3.91 };
   function kurTxt() { return '1\u00a0EUR = ' + String(KUR.EUR).replace('.', ',') + '\u00a0zł, 1\u00a0USD = ' + String(KUR.USD).replace('.', ',') + '\u00a0zł' + (KUR.data ? ' (NBP, ' + dpl2(KUR.data) + ')' : ''); }
   // ceny-wyzwalacze: przy jakiej cenie w wyszukiwarce kompletna podróż trafia w cel i w próg
   function wyzw(W) {
@@ -1070,7 +1070,7 @@ footer a { color: var(--ink-2); }
   })();
 
   // wybór hotelu → budżet
-  var G = P.grupa || { domyslnie: 3, opcje: [3], kurs: 3.7, transport_usd: { 3: 1700 }, transport_opis: {} }, np = load('p', G.domyslnie); if (G.opcje.indexOf(np) < 0) np = G.domyslnie;
+  var G = P.grupa || { domyslnie: 3, opcje: [3], transport_usd: { 3: 1700 }, transport_opis: {} }, np = load('p', G.domyslnie); if (G.opcje.indexOf(np) < 0) np = G.domyslnie;
   var LS = G.loty_scen || null, ls = LS ? load('l', LS.domyslnie) : null; if (LS && !LS.opcje.some(function (o) { return o[0] === ls; })) ls = LS.domyslnie;
   // upgrade'y: pojedyncze opcje doliczane do budżetu pary
   var UPG = (P.upgrade && P.upgrade.opcje) || [], UP = load('up', {});
@@ -1078,11 +1078,11 @@ footer a { color: var(--ink-2); }
   function lsOpt() { return LS ? LS.opcje.filter(function (o) { return o[0] === ls; })[0] : null; }
   // budżet na parę zależny od liczby par: bus dzielony po równo, rezydencja (dom na 3 pary) + pokoje dla kolejnych par
   function calc(o, n2, lp) {
-    var b = {}, m = o.model, k = G.kurs || 3.7, n = n2 || np; ['loty', 'jedzenie', 'wycieczki_bilety', 'rezerwa'].forEach(function (x) { b[x] = o.b[x] || 0; }); if (lp != null) b.loty = lp; else if (lsOpt()) b.loty = lsOpt()[2];
+    var b = {}, m = o.model, k = KUR.USD, n = n2 || np; ['loty', 'jedzenie', 'wycieczki_bilety', 'rezerwa'].forEach(function (x) { b[x] = o.b[x] || 0; }); if (lp != null) b.loty = lp; else if (lsOpt()) b.loty = lsOpt()[2];
     if (m && m.typ === 'rezydencja') { var ekstra = Math.max(0, n - (m.pary_w_domu || 3)); b.nocleg = Math.round((m.usd_para_poza + (m.dom_usd_noc * m.noce + ekstra * m.pokoj_usd_noc * m.noce) / n) * k); b.rez = ekstra; }
     else if (m && m.usd_para) b.nocleg = Math.round(m.usd_para * k); else b.nocleg = o.b.nocleg;
     b.auto_transfery = G.transport_usd && G.transport_usd[n] ? Math.round(G.transport_usd[n] * k / n / 10) * 10 : o.b.auto_transfery;
-    var u = upSum(); b.upgrade = u || null;
+    var u = upSum(); b.upgrade = u || null; b.usd = Math.round((b.nocleg + b.auto_transfery + b.jedzenie + b.wycieczki_bilety + u) / k);
     b.razem = b.nocleg + b.loty + b.auto_transfery + b.jedzenie + b.wycieczki_bilety + b.rezerwa + u; return b;
   }
   var cur = Math.max(0, D.hotels.map(function (o) { return o.n; }).indexOf(load('hbn', ''))), sk = Math.min(load('sk', 0), 2);
@@ -1103,7 +1103,8 @@ footer a { color: var(--ink-2); }
     document.getElementById('bud').innerHTML = (cur ? '<p class="note gwarn">Oglądacie inny wariant niż plan bazowy. <button type="button" class="lnk" data-hbase>Wróć do planu bazowego</button></p>' : '') + '<div class="total"><div><p class="eyebrow">Budżet ' + SK[sk][1] + ' · ' + esc(o.n.replace(/^Trasa: /, '')) + '</p><b>' + nf(t * SK[sk][0]) + '\u00a0zł</b></div><div><span class="limit' + (t <= CFG.sufit ? '' : ' over') + '">' + (t <= CFG.sufit ? 'zapas ' + nf((CFG.sufit - t) * SK[sk][0]) + '\u00a0zł do sufitu ' + nf(CFG.sufit * SK[sk][0]) + '\u00a0zł' : 'ponad sufit ' + nf(CFG.sufit * SK[sk][0]) + '\u00a0zł o ' + nf((t - CFG.sufit) * SK[sk][0]) + '\u00a0zł') + '</span><div class="seg" role="group" aria-label="Skala">' + SK.map(function (s, i) { return '<button type="button" data-sk="' + i + '" aria-pressed="' + (i === sk ? 'true' : 'false') + '">' + s[2] + '</button>'; }).join('') + '</div></div></div>' +
       '<div class="bar" role="img" aria-label="Podział budżetu">' + BL.map(function (r) { return b[r[0]] ? '<i class="' + r[2] + '" style="width:' + (b[r[0]] / t * 100).toFixed(2) + '%" title="' + r[1] + '"></i>' : ''; }).join('') + '</div>' +
       '<ul class="leg">' + BL.map(function (r) { return b[r[0]] != null ? '<li><s class="' + r[2] + '"></s>' + r[1] + '<b>' + nf(b[r[0]] * SK[sk][0]) + '\u00a0zł</b></li>' : ''; }).join('') + '</ul>' +
-      (o.model && o.model.typ === 'rezydencja' && np !== (o.model.pary_w_domu || 3) ? '<p class="note gwarn">' + (np < (o.model.pary_w_domu || 3) ? 'Przy ' + np + ' parach dom na trzy sypialnie dzieli się na mniej osób – ' + nf(Math.round(o.model.dom_usd_noc * (G.kurs || 3.7) / np)) + '\u00a0zł za parę za noc; ten wariant ma sens dopiero od trzech par.' : 'Przy ' + np + ' parach: rezydencja na trzy pary plus ' + b.rez + ' pokój Cordón del Plata obok; koszt całości dzielony po równo między pary.') + '</p>' : '') +
+      '<p class="note kursn" id="kursn">Kurs: 1\u00a0USD = ' + String(KUR.USD.toFixed(2)).replace('.', ',') + '\u00a0zł' + (KUR.data ? ' (średni NBP z\u00a0' + dpl2(KUR.data) + ')' : '') + '. W\u00a0dolarach płacimy hotele, bus i\u00a0wydatki na miejscu – ok. ' + nf(b.usd) + '\u00a0USD na parę, czyli ' + Math.round(b.usd * KUR.USD / t * 100) + '% budżetu. Każde 10\u00a0gr na dolarze zmienia budżet o\u00a0ok. ' + nf(Math.round(b.usd * 0.1 / 10) * 10) + '\u00a0zł na parę; loty liczymy w\u00a0złotych.</p>' +
+      (o.model && o.model.typ === 'rezydencja' && np !== (o.model.pary_w_domu || 3) ? '<p class="note gwarn">' + (np < (o.model.pary_w_domu || 3) ? 'Przy ' + np + ' parach dom na trzy sypialnie dzieli się na mniej osób – ' + nf(Math.round(o.model.dom_usd_noc * KUR.USD / np)) + '\u00a0zł za parę za noc; ten wariant ma sens dopiero od trzech par.' : 'Przy ' + np + ' parach: rezydencja na trzy pary plus ' + b.rez + ' pokój Cordón del Plata obok; koszt całości dzielony po równo między pary.') + '</p>' : '') +
       (o.hotele && o.hotele.length ? '<div class="vh"><p class="eyebrow">Hotele tego wariantu</p><div class="vhg">' + D.hotele.map(function (c, hi) { if (o.hotele.indexOf(c.n) < 0) return ''; var im = (c.gal && c.gal[0]) || c.img; return '<a class="vhc" href="#hk-' + hi + '" data-go="hk-' + hi + '">' + (im ? '<img src="' + esc(im.s) + '"' + (im.w ? ' width="' + im.w + '" height="' + im.h + '"' : '') + ' alt="" loading="lazy">' : '') + '<span class="vhb"><span class="eyebrow">' + esc(c.rola) + '</span><b>' + esc(c.n) + '</b><span class="vhp">ok. ' + (c.rate || '?') + ' ' + esc(c.cur || 'USD') + ' za noc</span><span class="vhs">' + esc(c.short || '') + '</span><span class="vhl">Pełna karta hotelu ↓</span></span></a>'; }).join('') + '</div></div>' : '') +
       (o.note ? '<details class="dmore"><summary>Uzasadnienie i szczegóły wariantu</summary><p class="note">' + esc(o.note) + '</p></details>' : '') + (o.url ? '<p class="note"><a href="' + esc(o.url) + '" target="_blank" rel="noopener">Strona hotelu ↗</a></p>' : '');
   }
@@ -1252,7 +1253,7 @@ footer a { color: var(--ink-2); }
       lines.push('🍷 Mendoza i Buenos Aires, 5–14.11.2027 – 20. rocznica ślubu (10.11)');
       lines.push('Trasa: ' + (P.etapy || []).map(function (e) { return e.noce + (e.noce === 1 ? ' noc ' : ' noce ') + sh(e.hotel) + ' (' + e.nazwa.replace(/\s*\(.*\)$/, '') + ')'; }).join(' → ') + '. Bus z kierowcą, trzy winnice, dzień w wysokich Andach, na finał tango.');
       lines.push('Wylot z Warszawy 4.11 wieczorem albo 5.11, lądowanie w Warszawie najpóźniej w niedzielę 14.11.');
-      if (B) { var r = B.b.razem, lo = B.lotyOs, atCel = lo && lo > cel ? r - 2 * (lo - cel) : null; lines.push('Koszt: ok. ' + nf(Math.round(r / 100) * 100) + ' zł na parę przy ' + B.np + ' parach' + (lo ? ', z lotami liczonymi po ' + nf(lo) + ' zł/os.' + (atCel ? ' (celujemy w ' + nf(cel) + ' – wtedy ok. ' + nf(Math.round(atCel / 100) * 100) + ' zł).' : '') : '.') + ' Sufit ' + nf(CFG.sufit) + ' zł na parę.' + (B.ups.length ? ' Wybrane upgrade’y: ' + B.ups.join('; ') + '.' : ' Upgrade’y (np. lunch rocznicowy w Piedra Infinita +590 zł) każda para wybiera sama.')); }
+      if (B) { var r = B.b.razem, lo = B.lotyOs, atCel = lo && lo > cel ? r - 2 * (lo - cel) : null; lines.push('Koszt: ok. ' + nf(Math.round(r / 100) * 100) + ' zł na parę przy ' + B.np + ' parach' + (lo ? ', z lotami liczonymi po ' + nf(lo) + ' zł/os.' + (atCel ? ' (celujemy w ' + nf(cel) + ' – wtedy ok. ' + nf(Math.round(atCel / 100) * 100) + ' zł).' : '') : '.') + ' Sufit ' + nf(CFG.sufit) + ' zł na parę.' + (B.ups.length ? ' Wybrane upgrade’y: ' + B.ups.join('; ') + '.' : ' Upgrade’y (np. lunch rocznicowy w Piedra Infinita' + (function () { var u = ((P.upgrade && P.upgrade.opcje) || []).filter(function (x) { return x.id === 'pi' && x.zl; })[0]; return u ? ' +' + nf(u.zl) + ' zł' : ''; })() + ') każda para wybiera sama.')); }
       var decAll = {}; DEC.forEach(function (x) { if (x.stan !== 'zamknieta') decAll[x.id] = isDone(x.id); });
       var st = DEC.filter(function (x) { return x.stan !== 'zamknieta' && dsel[x.id] != null; }); if (st.length) lines.push('Ustalone: ' + st.map(function (x) { return x.t.replace(/\?$/, '') + ' → ' + optName(x.id, dsel[x.id]); }).join('; ') + '.');
       var done = { r: load('rz', {}), td: load('td', {}), dec: decAll }, act = EV.filter(function (e) { return e.chk && !done[e.chk][e.id] && e.kto === 'pary'; }), late = act.filter(function (e) { return e.d < TD; }), nxt = act.filter(function (e) { return e.d >= TD; }).slice(0, 5);
