@@ -1453,7 +1453,7 @@
      "faza": "Otwarcie sprzedaży",
      "co": "Linie z 359–361-dniowym kalendarzem (Air Europa, Iberia, Lufthansa, Air France/KLM) otwierają powrót 13.11.2027 między 17 a 19.11, Turkish 24.11 – od tego dnia istnieją pierwsze ceny w obie strony Warszawa–Buenos Aires i Madryt–Buenos Aires. Zapisać je jako punkt odniesienia i ustawić alerty Google Flights na te dwie trasy. Równolegle sprawdzić, czy kampania Iberia + Visit Argentina (sprzedaż 12.11.2026–31.05.2027, od 425 EUR za odcinek Madryt–Buenos Aires, Básica bez bagażu; opublikowano tylko daty wyłączone) dopuszcza podróże w listopadzie 2027, i wycenić taryfę Star Alliance/United open-jaw Europa → Buenos Aires → Berlin/Wiedeń (23 kg, reguły obejmują 1.09–9.12.2027; liczy się tylko wariant z wylotem z Buenos Aires 12.11). Cały bilet do Mendozy jeszcze się nie wyceni – Aerolíneas i LATAM sprzedają 330 dni naprzód.",
      "automat": "Agent 13.11 i 20.11 · monitor 15.11",
-     "decyzja": "Kupić od razu tylko przy ≤ 4 000 zł/os. za kompletną podróż z bagażem (np. Warszawa–Buenos Aires z bagażem ≤ ok. 3 350 zł); droższe ceny zapisać jako punkt odniesienia. Nie brać ceny w jedną stronę za cenę podróży.",
+     "decyzja": "Do 17–19.11 nie ma jeszcze czego kupować – linie nie sprzedają powrotu 13.11.2027. Potem kupić od razu tylko przy ≤ 4 000 zł/os. za kompletną podróż z bagażem (np. Warszawa–Buenos Aires z bagażem ≤ ok. 3 350 zł); droższe ceny zapisać jako punkt odniesienia. Nie brać ceny w jedną stronę za cenę podróży.",
      "ton": "sprawdz",
      "szansa": 0.8,
      "kr": "Start"
@@ -1674,7 +1674,7 @@
     "id": "pary",
     "t": "Ustalić liczbę par i zebrać dane z paszportów",
     "od": "2026-11-01",
-    "do": "2026-12-31",
+    "do": "2026-12-17",
     "opis": "Imiona dokładnie jak w paszporcie, paszporty ważne w listopadzie 2027 – bez tego nie da się kupić w dniu okazji.",
     "kto": "pary",
     "dec": "pary"
@@ -1683,7 +1683,7 @@
     "id": "karta",
     "t": "Karta bez prowizji walutowej dla każdej pary",
     "od": "2026-11-01",
-    "do": "2026-12-31",
+    "do": "2026-12-17",
     "opis": "Płacić w walucie sprzedawcy (EUR/USD), bez przewalutowania DCC; nigdy w pesos.",
     "kto": "pary"
    },
@@ -2939,7 +2939,7 @@
    "id": "pary",
    "stan": "otwarta",
    "t": "Ile par jedzie?",
-   "do": "2026-12-31",
+   "do": "2026-12-17",
    "kto": "wszystkie pary",
    "opcje": [
     [
@@ -2961,7 +2961,7 @@
      "4"
     ]
    ],
-   "rek": "Do końca roku potwierdzić, kto leci. Bez liczby osób nie da się zapytać hoteli o cenę grupową ani kupić biletów w dniu okazji (imiona z paszportów).",
+   "rek": "Do 17.12 potwierdzić, kto leci – 18.12 jest pierwsza pełna wycena, a cenę w celu kupujemy od razu. Bez liczby osób nie da się zapytać hoteli o cenę grupową ani kupić biletów w dniu okazji (imiona z paszportów).",
    "wplyw": "bus od {bus:4} do {bus:2} zł na parę, dom w Lares, liczba Laguna Suites",
    "sekcja": "#budzet"
   },
