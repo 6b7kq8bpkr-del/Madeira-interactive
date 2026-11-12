@@ -431,7 +431,7 @@
  ],
  "skrzynka": [],
  "rss": {
-  "sprawdzono": "2026-11-11 10:53",
+  "sprawdzono": "2026-11-12 10:48",
   "kanaly": [
    {
     "zrodlo": "Fly4free.pl",
@@ -475,12 +475,12 @@
    },
    {
     "zrodlo": "Wakacyjni Piraci",
-    "wpisy": 40,
+    "wpisy": 26,
     "ok": true
    },
    {
     "zrodlo": "HolidayPirates",
-    "wpisy": 47,
+    "wpisy": 53,
     "ok": true
    },
    {
@@ -510,6 +510,15 @@
    }
   ],
   "trafienia": [
+   {
+    "zrodlo": "Aeroroutes",
+    "tytul": "Sichuan Airlines Expands Turkish Airlines Codeshare From Nov 2026",
+    "url": "https://www.aeroroutes.com/eng/261111-3utkcodeshare",
+    "data": "2026-11-11",
+    "opis": "  Published at 0900PCT / 1600GMT 11NOV26   Sichuan Airlines starting today (11NOV26) expands codeshare partnership with Turkish Airlines, including the latter’s new service to Chengdu. Planned new codeshare routes include the following.   Sichuan Airlines operated by Turkish Airlines  Istanbul – Bucharest Istanbul – Chengdu Tianfu Istanbul – Sao Paulo Guarulhos Istanbul – Sofia  Istanbul – Zurich ",
+    "sila": "silne",
+    "tryb": "routes"
+   },
    {
     "zrodlo": "Sir Chandler",
     "tytul": "Las aerolíneas de vuelos largos listas para operar de nuevo en Ezeiza",
