@@ -447,7 +447,7 @@
  ],
  "skrzynka": [],
  "rss": {
-  "sprawdzono": "2026-11-12 10:48",
+  "sprawdzono": "2026-11-13 10:54",
   "kanaly": [
    {
     "zrodlo": "Fly4free.pl",
@@ -491,12 +491,12 @@
    },
    {
     "zrodlo": "Wakacyjni Piraci",
-    "wpisy": 26,
+    "wpisy": 29,
     "ok": true
    },
    {
     "zrodlo": "HolidayPirates",
-    "wpisy": 53,
+    "wpisy": 63,
     "ok": true
    },
    {
@@ -526,6 +526,15 @@
    }
   ],
   "trafienia": [
+   {
+    "zrodlo": "Sir Chandler",
+    "tytul": "La pista principal de Ezeiza volvió a estar operativa",
+    "url": "https://www.sirchandler.com.ar/2026/11/la-pista-principal-de-ezeiza-volvio-a-estar-operativa/",
+    "data": "2026-11-11",
+    "opis": " Esta madrugada volvió a estar 100% operativa la pista principal de Ezeiza, según confirmaron fuentes confiables. Esto fue a las 4am supuestamente. Viendo como llegó un Boeing 737 de Copa, que previamente se había desviado a Montevideo, ahí no se si por problemas de visibilidad, se puede notar que pasó el cruce que se tuvo... \n La entrada  La pista principal de Ezeiza volvió a estar operativa  se ",
+    "sila": "silne",
+    "tryb": "ar"
+   },
    {
     "zrodlo": "Aeroroutes",
     "tytul": "Sichuan Airlines Expands Turkish Airlines Codeshare From Nov 2026",
