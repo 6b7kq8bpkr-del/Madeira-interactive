@@ -237,7 +237,7 @@
    "date": "13.11",
    "dow": "sobota",
    "title": "Recoleta, El Ateneo i wieczorny lot do Europy",
-   "text": "Nocleg: w samolocie (nocny lot Buenos Aires–Europa). Spokojny poranek w Recolecie: o 9:00 cmentarz tuż po otwarciu (bilet kupiony online, bez kolejki) z grobem Evity i aleje jacarand (w listopadzie kwitną na fioletowo), kawa w La Biela naprzeciw cmentarza, sobotni targ na Plaza Francia i księgarnia El Ateneo Grand Splendid w dawnym teatrze. O 13:00 zwiedzanie Teatro Colón po angielsku (50 minut, bilet online) – w sobotę to najlepsza rzecz w centrum, bo Microcentro bez urzędników jest ciche. Potem Avenida de Mayo i Café Tortoni na churros z czekoladą zamiast lunchu (kolejka to część rytuału) oraz opcjonalnie Plaza de Mayo z Casa Rosada. Walizki w hotelu do popołudnia. Ok. 16:15 taksówką po walizki do hotelu (albo van, który zabierze bagaż z hotelu i odbierze Was przy Plaza de Mayo), 17:00 na Ezeizę (dla całej grupy wycenić van z miejscem na bagaż; planistycznie 60–90 minut i 40–60 USD za zwykłe auto, do potwierdzenia; przy locie o 23:00 wyjazd najpóźniej 18:30, wcześniej przy dużym ruchu; cel: na lotnisku 3 h przed odlotem) i wieczorny lot do Madrytu lub Rzymu, dalej do Warszawy – lądowanie w niedzielę 14.11 po południu. Program podstawowy: Recoleta, El Ateneo, Colón i Tortoni. Plaza de Mayo oraz muzea tylko przy zapasie czasu. Godzinę końca zwiedzania ustalić od godziny lotu, z buforem na korki i odprawę.",
+   "text": "Nocleg: w samolocie (nocny lot Buenos Aires–Europa). Spokojny poranek w Recolecie: o 9:00 cmentarz tuż po otwarciu (bilet kupiony online, bez kolejki) z grobem Evity i aleje jacarand (w listopadzie kwitną na fioletowo), kawa w La Biela naprzeciw cmentarza, sobotni targ na Plaza Francia i księgarnia El Ateneo Grand Splendid w dawnym teatrze. O 13:00 zwiedzanie Teatro Colón po angielsku (50 minut, bilet online) – w sobotę to najlepsza rzecz w centrum, bo Microcentro bez urzędników jest ciche. Potem Avenida de Mayo i Café Tortoni na churros z czekoladą zamiast lunchu (kolejka to część rytuału) oraz opcjonalnie Plaza de Mayo z Casa Rosada. Walizki w hotelu do popołudnia. Po walizki wrócić odpowiednio wcześniej (albo zamówić van, który odbierze bagaż z hotelu). {regula:transfer_eze} {regula:wylot_eze} Potem transfer i wieczorny lot do Madrytu lub Rzymu, dalej do Warszawy – lądowanie w niedzielę 14.11 po południu. Program podstawowy: Recoleta, El Ateneo, Colón i Tortoni. Plaza de Mayo oraz muzea tylko przy zapasie czasu. Godzinę końca zwiedzania ustalić od godziny lotu, z buforem na korki i odprawę.",
    "cost": 440,
    "anniv": false,
    "krotko": "Nocleg: w samolocie. Recoleta, El Ateneo, Teatro Colón i Café Tortoni. Plaza de Mayo tylko przy zapasie czasu. Odbiór bagaży i transfer na Ezeizę według faktycznej godziny lotu, z celem odprawy 3 h przed odlotem. Wylot 13.11, lądowanie w Warszawie 14.11.",
@@ -1520,8 +1520,8 @@
      "od": "2027-07-03",
      "do": "2027-08-31",
      "faza": "Bezpieczna rezerwa",
-     "co": "Jeśli bilety wciąż niekupione: wybrać najtańszy jednobiletowy wariant z 23 kg (Iberia, Air Europa, ITA, AF/KLM, LATAM) niezależnie od statystyk; przy > {maxlot:0} zł/os. wariant 4 hoteli (Cordón del Plata, w suficie do ok. {maxlot:3} zł/os.). Lot krajowy – tylko w scenariuszach 3 i 5 – kupić ok. 30.07 (14 tygodni przed), Aerolíneas lub JetSMART z bagażem.",
-     "automat": "Agent 2.07 (decyzja) · przypomnienie 30.07 (lot krajowy) · agent 31.08 (ostateczny termin)",
+     "co": "Jeśli bilety wciąż niekupione: wybrać najtańszy jednobiletowy wariant z 23 kg (Iberia, Air Europa, ITA, AF/KLM, LATAM) niezależnie od statystyk; przy > {maxlot:0} zł/os. wariant 4 hoteli (Cordón del Plata, w suficie do ok. {maxlot:3} zł/os.). {regula:lot_krajowy}",
+     "automat": "Agent 2.07 (decyzja) · wycena lotów krajowych przed zakupem biletu międzykontynentalnego · agent 31.08 (ostateczny termin)",
      "decyzja": "31.08.2027 to twardy termin zakupu biletu międzykontynentalnego. Przy cenie ponad próg potrzebna osobna decyzja budżetowa; termin 31.08 pozostaje bez zmian.",
      "ton": "termin",
      "szansa": 1.3,
@@ -1546,7 +1546,7 @@
     },
     {
      "d": "2026-12-18",
-     "t": "cały bilet do Mendozy"
+     "t": "wycena całej podróży"
     },
     {
      "d": "2027-01-05",
@@ -1564,10 +1564,6 @@
      "d": "2027-07-02",
      "t": "decyzja ≤ 5 000 zł",
      "typ": "decyzja"
-    },
-    {
-     "d": "2027-07-30",
-     "t": "lot krajowy"
     },
     {
      "d": "2027-08-31",
@@ -1607,6 +1603,11 @@
      "t": "Agent: pierwsza pełna wycena 6 scenariuszy (z Mendozą)"
     },
     {
+     "d": "2026-12-18",
+     "typ": "przyp",
+     "t": "Przypomnienie: pierwsza wycena lotów krajowych; aktualizacja przed zakupem podróży"
+    },
+    {
      "d": "2027-01-05",
      "typ": "agent",
      "t": "Agent: rebajas Iberii (przedsprzedaż Iberia Club)"
@@ -1630,11 +1631,6 @@
      "d": "2027-07-02",
      "typ": "agent",
      "t": "Agent: decyzja na koniec okna"
-    },
-    {
-     "d": "2027-07-30",
-     "typ": "przyp",
-     "t": "Przypomnienie: lot krajowy (scenariusze 3 i 5)"
     },
     {
      "d": "2027-08-31",
@@ -1735,7 +1731,7 @@
     "t": "Wycenić loty krajowe przed zakupem całej podróży",
     "od": "2026-12-18",
     "do": "2026-12-18",
-    "opis": "Pierwsza wycena po otwarciu sprzedaży, potem aktualizacja przed każdym zakupem lotu międzykontynentalnego. Zakup po uzgodnieniu wszystkich odcinków, bez sztywnego terminu lipcowego. Uwzględnić 23 kg. {regula:lotniska}",
+    "opis": "{regula:lot_krajowy} {regula:lotniska}",
     "kto": "my"
    },
    {
@@ -2324,7 +2320,7 @@
     ],
     [
      "Lokalizacja",
-     "Gurruchaga 1848, Palermo Soho: z Aeroparque 10–20 minut Cabify (punkty odbioru oznakowane tuż za halą przylotów; UberX ok. 14 000 ARS w X 2026; dla 4–8 osób z walizkami dwa auta „Extra Equipaje”); Plaza Serrano i Don Julio (Guatemala 4691) 5 min pieszo, La Viruta (Armenia 1366) 10 min pieszo, Secreto Tango (Gorriti 5801, Palermo Hollywood) 7 min taksówką lub 25 min pieszo; cmentarz Recoleta 15–20 min; Ezeiza 45–60 min (soboty bywają ruchliwe)."
+     "Gurruchaga 1848, Palermo Soho: z Aeroparque planistycznie 20–40 min i 20–35 USD za auto; dla 6–8 osób z walizkami wycenić van. Plaza Serrano i Don Julio (Guatemala 4691) 5 min pieszo, La Viruta (Armenia 1366) 10 min pieszo, Secreto Tango (Gorriti 5801, Palermo Hollywood) 7 min taksówką lub 25 min pieszo; cmentarz Recoleta 15–20 min. {regula:transfer_eze}"
     ],
     [
      "Dla kogo i ryzyka",
@@ -2450,17 +2446,17 @@
    {
     "d": "",
     "godz": "15:30–16:10",
-    "co": "Opcjonalnie, zależnie od energii i czasu do transferu: Plaza de Mayo (700 m): katedra z grobem San Martína, Cabildo, Museo Casa Rosada (śr–nd 11–18, wejście do 17:30, bezpłatne; zwiedzanie pałacu dla indywidualnych zawieszone)."
+    "co": "Opcjonalnie, zależnie od energii i czasu do transferu: Plaza de Mayo (700 m): katedra z grobem San Martína, Cabildo, Museo Casa Rosada (śr–nd 11–18, wejście do 17:30, bezpłatne; zwiedzanie pałacu dla indywidualnych zawieszone). Przy locie o 21:00 pominąć ten punkt, aby zdążyć po bagaże i na transfer."
    },
    {
     "d": "",
-    "godz": "16:15",
-    "co": "Taksówką 25 minut do hotelu po walizki – albo umówić van, który zabierze bagaż z hotelu i odbierze grupę przy Plaza de Mayo."
+    "godz": "przed transferem",
+    "co": "Powrót taksówką do hotelu po walizki: zarezerwować czas na przejazd, ruch i odbiór bagażu. Przy locie o 21:00 opuścić centrum najpóźniej ok. 15:30, aby wyjechać z Palermo do 16:30. Alternatywnie umówić van, który zabierze bagaż z hotelu i odbierze grupę w centrum; czas przejazdu ustalić z kierowcą."
    },
    {
     "d": "",
-    "godz": "17:00",
-    "co": "Na Ezeizę: dwa Cabify/Uber (20–35 USD za auto, 45–60 minut, soboty bywają ruchliwe) albo van dla 7–9 osób z bagażami (Tienda León remís Hyundai H1 – wycena mailem; Transfeero van ok. 142 USD). Na lotnisku 18:00–18:30 przy locie o 21:00; przy locie o 23:00 wyjazd 18:30–19:00. Uwaga: 8–16.11.2027 to okno meczów FIFA (możliwy mecz Argentyny w mieście) – sprawdzić w październiku 2027; ewentualna II tura wyborów dopiero 21.11."
+    "godz": "wg godziny lotu",
+    "co": "{regula:transfer_eze} {regula:wylot_eze} Uwaga: 8–16.11.2027 to okno meczów FIFA (możliwy mecz Argentyny w mieście) - sprawdzić w październiku 2027; ewentualna II tura wyborów dopiero 21.11."
    }
   ],
   "tortoni": {
@@ -2475,7 +2471,7 @@
    "url": "https://www.cafetortoni.com.ar/"
   },
   "praktyczne": [
-   "Taksówki: Cabify, Uber lub Didi (oznakowane punkty odbioru na Aeroparque i Ezeizie), albo radio-taxi z hotelu – nie łapać taksówek z ulicy ani z postoju (podmiana banknotów). Z Aeroparque do Palermo UberX ok. 14 000 ARS (X 2026), na Ezeizę 20–35 USD (Cabify) lub 40–45 USD (taxi) za auto; przy 6–8 osobach z bagażami dwa auta „Extra Equipaje” albo van (Tienda León remís, Transfeero).",
+   "Taksówki: Cabify, Uber lub Didi (oznakowane punkty odbioru na Aeroparque i Ezeizie), albo radio-taxi z hotelu - nie łapać taksówek z ulicy ani z postoju (podmiana banknotów). Z Aeroparque do Palermo planistycznie 20–40 min i 20–35 USD za auto. {regula:transfer_eze}",
    "Płatność kartą prawie wszędzie: w 2026 r. różnica między kursem oficjalnym a blue/MEP spadła do 1–3%, więc karta zagraniczna jest po prostu wygodna, a Western Union zbędny. Terminal musi przyjść do stolika (prawo od 2024 r.). Trochę gotówki w peso na milongę i targ; napiwek 10% w restauracjach gotówką (nie dolicza się do karty); sprawdzać banknoty 500 i 1 000 ARS.",
    "Bezpieczeństwo jak w każdej metropolii: telefon schowany na ulicy i z dala od krawężnika (motochorros), drogie zegarki zostają w domu, w San Telmo i centrum uwaga na kieszonkowców i „mustard scam” (ktoś oblewa Was czymś i „pomaga” – odejść). Palermo i Recoleta wieczorem spokojne. Caminito w La Boce pomijamy – przy półtora dnia to park rozrywki dla autokarów.",
    "San Telmo ma słynny targ i tango na Plaza Dorrego tylko w niedzielę – w naszą sobotę jest tam ciszej; dlatego tango w piątek wieczorem, a sobota dla Recolety i centrum.",
@@ -3213,6 +3209,9 @@
  "zasady_podrozy": {
   "noclegi": "Noclegi: Chacras 6–9.11 (3 noce), Uco 9–12.11 (3 noce), Buenos Aires 12–13.11 (1 noc). Wylot z Buenos Aires 13.11, przylot do Warszawy 14.11. Wylot z Warszawy 4.11 po 20:00 lub 5.11 tylko z przylotem do Mendozy 6.11.",
   "przesiadki": "Przy osobnych biletach planować 4–5 h na EZE lub co najmniej 6 h przy zmianie EZE–AEP. To bufory planistyczne, bez ochrony osobnych rezerwacji; sprawdzić zakres polisy.",
-  "lotniska": "12.11 preferowany MDZ–AEP: transfer do Palermo orientacyjnie 20–40 min, 20–35 USD za auto. MDZ–EZE jest alternatywą: 60–90 min i 40–60 USD za auto. To założenia do wyceny, z zapasem na ruch i liczbę walizek. Przy 6–8 osobach wycenić van. Cały transport liczyć raz, w limicie transportu."
+  "lotniska": "12.11 preferowany MDZ–AEP: transfer do Palermo orientacyjnie 20–40 min, 20–35 USD za auto. MDZ–EZE jest alternatywą: 60–90 min i 40–60 USD za auto. To założenia do wyceny, z zapasem na ruch i liczbę walizek. Przy 6–8 osobach wycenić van. Cały transport liczyć raz, w limicie transportu.",
+  "lot_krajowy": "Loty krajowe wycenić po otwarciu sprzedaży (orientacyjnie od 18.12.2026), a wycenę z bagażem 23 kg odświeżyć przed każdym zakupem biletu międzykontynentalnego. Zakup po uzgodnieniu wszystkich odcinków, bez sztywnego terminu lipcowego.",
+  "transfer_eze": "Transfer między Palermo a EZE: planistycznie 60–90 min i 40–60 USD za zwykłe auto, do potwierdzenia przed rezerwacją. Dla 6–8 osób z bagażami wycenić van. Koszt ująć tylko raz w limicie transportu.",
+  "wylot_eze": "Na EZE być 3 h przed odlotem. Przy 90 min przejazdu wyjechać z Palermo najpóźniej o 16:30 dla lotu o 21:00 albo o 18:30 dla lotu o 23:00; przy dużym ruchu odpowiednio wcześniej. Odbiór walizek zaplanować przed tą godziną."
  }
 }
