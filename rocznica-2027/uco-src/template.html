@@ -512,7 +512,7 @@ details.ctx { border-top: 1px solid var(--line); padding: 8px 0; } details.ctx >
 .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 28px 40px; }
 .cols h3 { font-size: 1.5rem; margin-bottom: 12px; }
 .tl { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
-.tl li { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 12px; }
+.tl li { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 12px; } .tl li > span { min-width: 0; overflow-wrap: anywhere; } @media (max-width: 480px) { .tl li { grid-template-columns: minmax(0, 1fr); gap: 2px; } }
 .tl b { font-family: var(--f-mono); font-weight: 500; font-size: .85rem; color: var(--malbec); }
 .chk { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
 .chk label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; }
