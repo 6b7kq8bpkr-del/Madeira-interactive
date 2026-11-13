@@ -11,11 +11,12 @@ on:
       - 'rocznica-2027/uco/**'
       - 'rocznica-2027/uco-src/**'
       - '.github/workflows/uco-tests.yml'
+  workflow_call:
   workflow_dispatch:
 permissions:
   contents: read
 concurrency:
-  group: uco-tests-${{ github.ref }}
+  group: uco-tests-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
   test:

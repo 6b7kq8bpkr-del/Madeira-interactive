@@ -51,3 +51,11 @@ pola do kliknięcia ≥ 44 px na ekranie dotykowym i wymiary zdjęć.
 Przy błędzie zrzuty ekranu trafiają do `tests/out/`.
 
 GitHub Actions (`.github/workflows/uco-tests.yml`) uruchamia `build.py --check` i testy przy każdym PR i każdym commicie na `main`, który dotyka strony.
+
+## Reguły podróży i własne wyceny
+
+`zasady_podrozy` w `data/program.json` zawiera wspólne daty 3+3+1, bufory przesiadek i warianty AEP/EZE. W opisach używaj `{regula:noclegi}`, `{regula:przesiadki}` i `{regula:lotniska}`.
+
+Własne wyceny noclegów i transportu zastępują całe pozycje budżetu; dodatkowe koszty są doliczane. Kwoty w PLN zapisują się lokalnie osobno dla wariantu hotelowego i liczby par; puste pole przywraca szacunek. Jedna funkcja `calc()` zasila budżet, kalkulator lotów i harmonogram płatności. Kwoty własne w PLN są wyłączone z wrażliwości na USD.
+
+Testy obejmują też własne wyceny, zapis ustawień, ręczną cenę porównawczą, galerię sterowaną klawiaturą, brak JavaScript, brak danych strony i awarię monitora. Publikacja GitHub Pages zależy od pomyślnego wykonania tego samego workflow testów.

@@ -54,7 +54,7 @@ def poup(i, lot, *ids):
     z = SUFIT - razem(i, lot) - sum(UPZ[x] for x in ids)
     return f"zostaje ok. {zl(r10(z))} zł zapasu" if z >= 0 else f"brakuje ok. {zl(r10(-z))} zł do sufitu"
 B0 = P["hotels"][0]["budget"]
-ZN = {"kurs": lambda: f"{USD:.2f}".replace(".", ","),
+ZN = {"regula": lambda key: P["zasady_podrozy"][key],"kurs": lambda: f"{USD:.2f}".replace(".", ","),
       "kurs_data": lambda: ".".join(reversed(KU["data"].split("-"))),
       "nocleg": lambda i: zl(r10(nocleg(P["hotels"][int(i)]))),
       "razem": lambda i, lot=None: zl(razem(i, lot)),
@@ -204,7 +204,7 @@ miss = [f"pas „{k}”" for k in BANDS if k not in bands] + [f"dzień {d['date'
 if not hero: miss.append("zdjęcie główne")
 if len(mosaic) < 5: miss.append(f"mozaika ({len(mosaic)} z 5)")
 if miss: sys.exit("Brak zdjęć dla: " + ", ".join(miss) + " – sprawdź podpisy w data/zdjecia.json i listy w build.py")
-DATA = {"bands": bands, "mosaic": mosaic, "built": datetime.date.today().strftime("%d.%m.%Y"), "bapics": bapics, "hotele": hotele, "alts": alts, "odrzucone": P.get("odrzucone", []), "prog": {k: P.get(k) for k in ("tagline", "stats", "grupa", "czas_w_hotelu", "dojazd", "pogoda", "rezerwacje", "zabrac", "uwagi", "decyzje", "platnosci", "zrodla", "etapy", "loty", "ba", "upgrade", "budzet")}, "mapa": P.get("mapa", []), "x": X,
+DATA = {"bands": bands, "mosaic": mosaic, "built": datetime.date.today().strftime("%d.%m.%Y"), "bapics": bapics, "hotele": hotele, "alts": alts, "odrzucone": P.get("odrzucone", []), "prog": {k: P.get(k) for k in ("zasady_podrozy", "tagline", "stats", "grupa", "czas_w_hotelu", "dojazd", "pogoda", "rezerwacje", "zabrac", "uwagi", "decyzje", "platnosci", "zrodla", "etapy", "loty", "ba", "upgrade", "budzet")}, "mapa": P.get("mapa", []), "x": X,
         "days": days, "hotels": hotels, "hero": hero[0] if hero else None, "gallery": gallery}
 # kalendarz .ics: jedno wydarzenie całodniowe na dzień + noclegi
 def ics_esc(s): return s.replace("\\", "\\\\").replace(";", "\\;").replace(",", "\\,").replace("\n", "\\n")
@@ -229,6 +229,7 @@ body = "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//rocznica 2027//uco//PL\r\nCA
 files = {"data.js": "window.UCO=" + json.dumps(nbx(DATA), ensure_ascii=False, separators=(",", ":")) + ";\n",
          "plan.ics": "\r\n".join(fold(l) for l in body.split("\r\n")) + "\r\n",
          "index.html": nb_html(open("template.html", encoding="utf-8").read())}
+files["index.html"] = files["index.html"].replace("<!--FALLBACK_DAYS-->", "<ol>" + "".join("<li><strong>" + html.escape(d["date"] + " " + d["title"]) + "</strong><p>" + html.escape(d.get("krotko", d["text"])) + "</p></li>" for d in P["days"]) + "</ol>")
 BUILT = re.compile(r'"built":"[^"]*"')
 import hashlib
 # Wersja zależy od treści, nie od daty uruchomienia builda.

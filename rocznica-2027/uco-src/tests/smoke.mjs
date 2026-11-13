@@ -206,6 +206,65 @@ for (const h of ['decyzje', 'plan', 'd10-11', 'budzet', 'upgrade', 'hotele', 'lo
   await pg.close();
 }
 
+// Pełny audyt: własne wyceny, porównanie osobnych biletów, dostępność i awarie.
+{
+  const { pg } = await open(1300, 'light', '#kalk');
+  await pg.locator('#own-costs summary').click();
+  const base = await pg.evaluate(() => window.__bud().b);
+  await pg.fill('#own-wlasne', '1 200,50');
+  await pg.fill('#own-nocleg', '9000');
+  await pg.fill('#own-auto_transfery', '2500');
+  const expected = base.razem - base.nocleg - base.auto_transfery + 9000 + 2500 + 1200.5;
+  let got = await pg.evaluate(() => window.__bud().b.razem);
+  if (got !== expected) fail('własne koszty', `${got} zamiast ${expected}`);
+  await pg.fill('#k-cena', '4800');
+  if (!(await pg.locator('#k-out').innerText()).replace(/\s/g, '').includes(Math.round(expected).toLocaleString('pl-PL').replace(/\s/g, ''))) fail('własne koszty', 'kalkulator nie uwzględnia wyceny');
+  await pg.reload();
+  if (await pg.evaluate(() => window.__bud().b.razem) !== expected) fail('własne koszty', 'brak zapisu po przeładowaniu');
+  await pg.evaluate(() => window.__setNp(2));
+  if (await pg.evaluate(() => window.__bud().b.wlasne) !== 0) fail('własne koszty', 'wycena przechodzi do innej liczby par');
+  await pg.evaluate(() => window.__setNp(3));
+  await pg.locator('#own-costs summary').click();
+  for (const key of ['wlasne', 'nocleg', 'auto_transfery']) await pg.fill('#own-' + key, '');
+  if (await pg.evaluate(() => window.__bud().b.razem) !== base.razem) fail('własne koszty', 'puste pola nie przywracają planu bazowego');
+  await pg.fill('#own-wlasne', '-200');
+  if (!(await pg.locator('#own-error').innerText()).includes('nieujemną')) fail('własne koszty', 'brak walidacji kwoty ujemnej');
+  await pg.fill('#own-wlasne', '');
+  await pg.fill('#k-cena', '3350'); await pg.check('#k-kr');
+  await pg.evaluate(() => { window.__bestSingle = null; window.__kalkUpd(); });
+  if (!(await pg.locator('#k-out').innerText()).includes('Opłacalność niepotwierdzona')) fail('osobne bilety', 'brak blokady bez ceny porównawczej');
+  await pg.fill('#k-single', '4500');
+  if (!(await pg.locator('#k-out').innerText()).includes('Nie opłaca się')) fail('osobne bilety', 'ręczne porównanie nie blokuje zbyt małej oszczędności');
+  await pg.fill('#k-single', '5000');
+  if ((await pg.locator('#k-out').innerText()).includes('Nie opłaca się')) fail('osobne bilety', 'błędna odmowa przy oszczędności 1000 zł');
+  await pg.fill('#k-cena', '4800'); await pg.uncheck('#k-kr');
+  await pg.evaluate(() => window.__setNp(2));
+  if (/940/.test(await pg.locator('#k-out .kver').innerText())) fail('werdykt', 'pozostał bazowy zapas 940 zł');
+  const photo = pg.locator('.gal img').first(); await photo.focus(); await photo.press('Enter');
+  if (!(await pg.locator('#lb').isVisible())) fail('galeria', 'Enter nie otwiera zdjęcia');
+  await pg.keyboard.press('Tab');
+  if (!(await pg.evaluate(() => document.getElementById('lb').contains(document.activeElement)))) fail('galeria', 'fokus opuszcza dialog');
+  await pg.keyboard.press('Escape');
+  if (!(await photo.evaluate(e => e === document.activeElement))) fail('galeria', 'brak powrotu fokusu');
+  await pg.close();
+}
+{
+  const pg = await browser.newPage({ javaScriptEnabled: false });
+  await pg.goto(BASE);
+  if (!(await pg.locator('#app').innerText()).replace(/\s+/g, ' ').includes('3 noce') || await pg.locator('#app li').count() !== 8) fail('tryb awaryjny', 'brak statycznych ośmiu dni');
+  await pg.close();
+  const broken = await browser.newPage();
+  await broken.route('**/data.js*', r => r.abort()); await broken.goto(BASE);
+  if (!(await broken.locator('#app').innerText()).includes('Spróbuj ponownie')) fail('tryb awaryjny', 'brak planu po awarii danych');
+  await broken.close();
+  const feed = await browser.newPage();
+  await feed.route('**/loty.json', r => r.fulfill({ status: 503, body: '' }));
+  await feed.goto(BASE + '#kalk');
+  await feed.waitForFunction(() => document.getElementById('monst')?.textContent.includes('Nie udało'));
+  if (!(await feed.locator('#monst a').innerText()).includes('Spróbuj ponownie')) fail('monitor', 'brak ponowienia po awarii');
+  await feed.close();
+}
+
 // kalkulator: polski zapis liczb i reguła osobnych biletów (≥ min_oszczednosc wobec najlepszego jednego biletu)
 async function withLoty(mutate, hash, fn) {
   const M = JSON.parse(fs.readFileSync(path.join(ROOT, 'loty.json'), 'utf8')); mutate(M);
