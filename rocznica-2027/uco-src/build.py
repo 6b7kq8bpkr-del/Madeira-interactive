@@ -230,6 +230,10 @@ files = {"data.js": "window.UCO=" + json.dumps(nbx(DATA), ensure_ascii=False, se
          "plan.ics": "\r\n".join(fold(l) for l in body.split("\r\n")) + "\r\n",
          "index.html": nb_html(open("template.html", encoding="utf-8").read())}
 BUILT = re.compile(r'"built":"[^"]*"')
+import hashlib
+# Wersja zależy od treści, nie od daty uruchomienia builda.
+version = hashlib.sha256(BUILT.sub("", files["data.js"]).encode("utf-8")).hexdigest()[:12]
+files["index.html"] = files["index.html"].replace('src="data.js"', f'src="data.js?v={version}"')
 bad = []
 for name, txt in files.items():
     path = f"{OUT}/{name}"
