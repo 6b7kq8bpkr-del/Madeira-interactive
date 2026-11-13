@@ -185,6 +185,27 @@ for (const h of ['decyzje', 'plan', 'd10-11', 'budzet', 'upgrade', 'hotele', 'lo
   await pg.close();
 }
 
+// Regresja audytu: alternatywne lunche i stary wybór czwartej nocy.
+{
+  const { pg } = await open(1300, 'light', '#budzet');
+  await pg.evaluate(() => { localStorage.setItem('uco-up', JSON.stringify({ n4: true, ri: true, fg: true })); });
+  await pg.reload();
+  await pg.evaluate(() => { document.querySelectorAll('details').forEach(d => { d.open = true; }); });
+  const state = () => pg.evaluate(() => ({ ri: document.querySelector('[data-up="ri"]').checked, fg: document.querySelector('[data-up="fg"]').checked, n4: !!document.querySelector('[data-up="n4"]'), b: window.__bud().b, note: document.getElementById('lnote').textContent, limit: window.UCO.prog.budzet.sufit }));
+  let r = await state();
+  if (!r.ri || r.fg || r.n4) fail('audyt - stare wybory', JSON.stringify(r));
+  await pg.check('[data-up="fg"]'); r = await state();
+  if (r.ri || !r.fg) fail('audyt - alternatywne lunche', JSON.stringify(r));
+  for (const n of [2, 3, 4]) {
+    await pg.evaluate(n => window.__setNp(n), n); r = await state();
+    const balance = Math.abs(r.limit - r.b.razem).toLocaleString('pl-PL').replace(/\s/g, '');
+    if (!r.note.replace(/\s/g, '').includes(balance)) fail('audyt - aktualny zapas', 'Nieaktualny zapas dla ' + n + ' par');
+  }
+  await pg.check('[data-up="ri"]'); r = await state();
+  if (!r.ri || r.fg) fail('audyt - odwrotny wybór lunchu', JSON.stringify(r));
+  await pg.close();
+}
+
 // kalkulator: polski zapis liczb i reguła osobnych biletów (≥ min_oszczednosc wobec najlepszego jednego biletu)
 async function withLoty(mutate, hash, fn) {
   const M = JSON.parse(fs.readFileSync(path.join(ROOT, 'loty.json'), 'utf8')); mutate(M);

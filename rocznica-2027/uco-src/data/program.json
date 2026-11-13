@@ -9,10 +9,10 @@
     "nocleg": 8418,
     "loty": 9600,
     "auto_transfery": 2100,
-    "jedzenie": 3450,
+    "jedzenie": 3650,
     "wycieczki_bilety": 1420,
     "rezerwa": 1000,
-    "razem": 25988
+    "razem": 26188
    },
    "model": {
     "typ": "pokoje",
@@ -23,7 +23,7 @@
     "Casa de Uco Vineyards & Wine Resort",
     "Legado Mítico"
    ],
-   "variant_note": "Rekomendacja po pogłębionym badaniu (27.10.2026), od 30.10.2026 w układzie 3 + 3 + 1: trzecia noc w Lares zamiast czwartej w Uco – ten sam standard, ok. {up:n4} zł mniej na parę. 3 noce (6–8.11) w Lares de Chacras – Klucz MICHELIN 2026, Tripadvisor 4,9 z 1 814 opinii (nr 2 w Chacras), Kayak 9,6; przy 3–4 parach prosić o Casa Vita: osobny dom z 6 pokojami, własnym basenem i salonem z kominkiem – cały dla Was; restauracja Lares Cocina de Hogar codziennie wieczorem (ważne: 7.11 to niedziela, Zappa i Clos de Chacras nie serwują wtedy kolacji); 29 minut z lotniska, 34 do Catena; ok. 170 USD/noc (migawki 110–300). 3 noce (9–11.11) w Casa de Uco w Laguna Suite (42 m², taras z meblami i widokiem 180° na lagunę i Andy, 6 suit) zamiast pokoju Cordón del Plata – bo według opinii ze stycznia 2026 pokoje Cordón patrzą na wjazd i parking i mają balkon bez mebli; cena planistyczna 500 USD/noc z rabatem Mr & Mrs Smith −15% (Kayak „King” 575 USD w X 2026; oferta 70273 potwierdzona, ważna do 20.12.2027). 1 noc w Legado Mítico (ok. 265 USD za piątek – migawki 175–285, w budżecie ostrożnie). Nocleg ok. {nocleg:0} zł; suma przy trzech parach i lotach 4 800 zł/os. ok. {suma:0} zł – {bilans:0} na parę (na upgrade’y); mieści się w suficie przy lotach do ok. {maxlot:0} zł/os., a przy lotach w celu 4 000 zł/os. wychodzi ok. {suma:0:4000} zł. Czego nie ma: Andów z tarasu w pierwsze trzy dni – za to oba hotele mają Klucz, widok w noc rocznicy jest gwarantowany kategorią, a grupa ma własny dom w Chacras."
+   "variant_note": "Rekomendacja po pogłębionym badaniu (27.10.2026), od 30.10.2026 w układzie 3 + 3 + 1: 3 noce (6–8.11) w Lares de Chacras – Klucz MICHELIN 2026, Tripadvisor 4,9 z 1 814 opinii (nr 2 w Chacras), Kayak 9,6; przy 3–4 parach prosić o Casa Vita: osobny dom z 6 pokojami, własnym basenem i salonem z kominkiem – wyłączność do osobnego potwierdzenia; restauracja Lares Cocina de Hogar codziennie wieczorem (ważne: 7.11 to niedziela, Zappa i Clos de Chacras nie serwują wtedy kolacji); 29 minut z lotniska, 34 do Catena; ok. 170 USD/noc (migawki 110–300). 3 noce (9–11.11) w Casa de Uco w Laguna Suite (42 m², taras z meblami i widokiem 180° na lagunę i Andy, 6 suit) zamiast pokoju Cordón del Plata – widok i wyposażenie konkretnego pokoju wymagają pisemnego potwierdzenia; cena planistyczna 500 USD/noc z rabatem Mr & Mrs Smith −15% (Kayak „King” 575 USD w X 2026; oferta 70273 potwierdzona, ważna do 20.12.2027). 1 noc w Legado Mítico (ok. 265 USD za piątek – migawki 175–285, w budżecie ostrożnie). Nocleg ok. {nocleg:0} zł; suma przy trzech parach i lotach 4 800 zł/os. ok. {suma:0} zł – {bilans:0} na parę (przed niepotwierdzonymi kosztami); mieści się w suficie przy lotach do ok. {maxlot:0} zł/os., a przy lotach w celu 4 000 zł/os. wychodzi ok. {suma:0:4000} zł. Czego nie ma: Andów z tarasu w pierwsze trzy dni – za to oba hotele mają Klucz, widok w noc rocznicy należy potwierdzić z hotelem, a pokoje w Casa Vita i wyłączność domu wymagają oddzielnego potwierdzenia. Cena 500 USD za Laguna Suite jest założeniem budżetowym, nie ofertą na 2027. Rabat Smith nie potwierdza ceny ani dostępności tej kategorii; oznaczenie King nie dowodzi, że to Laguna Suite. Przed rezerwacją uzyskać cenę końcową, warunki anulacji i potwierdzenie kategorii."
   },
   {
    "name": "Baza 1 z Andami o zachodzie: Finca Adalgisa + Casa de Uco Laguna Suite + Buenos Aires",
@@ -33,10 +33,10 @@
     "nocleg": 9816,
     "loty": 9600,
     "auto_transfery": 2100,
-    "jedzenie": 3450,
+    "jedzenie": 3650,
     "wycieczki_bilety": 1420,
     "rezerwa": 1000,
-    "razem": 27386
+    "razem": 27586
    },
    "model": {
     "typ": "pokoje",
@@ -57,10 +57,10 @@
     "nocleg": 11526,
     "loty": 9600,
     "auto_transfery": 2100,
-    "jedzenie": 3450,
+    "jedzenie": 3650,
     "wycieczki_bilety": 1420,
     "rezerwa": 1000,
-    "razem": 29096
+    "razem": 29296
    },
    "model": {
     "typ": "pokoje",
@@ -81,10 +81,10 @@
     "nocleg": 7774,
     "loty": 9600,
     "auto_transfery": 2100,
-    "jedzenie": 3450,
+    "jedzenie": 3650,
     "wycieczki_bilety": 1420,
     "rezerwa": 1000,
-    "razem": 25344
+    "razem": 25544
    },
    "model": {
     "typ": "pokoje",
@@ -95,7 +95,7 @@
     "Casa de Uco Vineyards & Wine Resort",
     "Legado Mítico"
    ],
-   "variant_note": "Nie wybór, lecz rezerwa dostępności: Casa de Uco ma tylko 6 Laguna Suites – jeśli na 9–12.11.2027 zabraknie ich dla wszystkich par, zostaje ta sama Casa de Uco w pokojach Cordón del Plata (30 m², 442 USD ze Smith), ale wyłącznie z pisemną gwarancją pokoi od strony winnic i gór na górnym piętrze (zapytać o 1202/1204) – kategoria domyślnie patrzy na wjazd i parking. Baza 1 bez zmian: Lares / Casa Vita. Nocleg ok. {nocleg:3} zł; suma przy trzech parach ok. {suma:3} zł – {bilans:3} (mieści się przy lotach do ok. {maxlot:3} zł/os.) – nadwyżkę warto wtedy wydać na upgrade’y z listy, nie na tańszy hotel w Uco. Hierarchia: Uco > baza 1 > Buenos Aires – żaden wariant nie oszczędza na nocy rocznicy."
+   "variant_note": "Nie wybór, lecz rezerwa dostępności: Casa de Uco ma tylko 6 Laguna Suites – jeśli na 9–12.11.2027 zabraknie ich dla wszystkich par, zostaje ta sama Casa de Uco w pokojach Cordón del Plata (30 m², 442 USD ze Smith), ale wyłącznie z pisemną gwarancją pokoi od strony winnic i gór na górnym piętrze (zapytać o 1202/1204) – opisy widoków różnią się między źródłami; nie zakładać widoku konkretnego pokoju. Baza 1 bez zmian: Lares / Casa Vita. Nocleg ok. {nocleg:3} zł; suma przy trzech parach ok. {suma:3} zł – {bilans:3} (mieści się przy lotach do ok. {maxlot:3} zł/os.) – nadwyżkę warto wtedy wydać na upgrade’y z listy, nie na tańszy hotel w Uco. Hierarchia: Uco > baza 1 > Buenos Aires – żaden wariant nie oszczędza na nocy rocznicy."
   }
  ],
  "tagline": "Osiem dni pod Andami: Aconcagua, lunch przy ogniu w Lagarde, sztuka w Salentein, rocznica w kamiennej winnicy Zuccardi, wędrówka w Manzano, a na finał tango i Recoleta w Buenos Aires.",
@@ -130,7 +130,7 @@
    "alt_url": "https://chozosresort.com/",
    "lat": -32.985,
    "lon": -68.88,
-   "opis": "6–8.11: lądowanie w Mendozie, własny dom z basenem w Chacras; 7.11 wysokie Andy – Puente del Inca i Laguna de Horcones pod Aconcaguą; 8.11 degustacja w Lagarde i lunch przy ogniu w Fogón, 15 minut od Chacras."
+   "opis": "6–8.11: lądowanie w Mendozie, pokoje w Casa Vita w Chacras, z dostępem do basenu; 7.11 wysokie Andy – Puente del Inca i Laguna de Horcones pod Aconcaguą; 8.11 degustacja w Lagarde i lunch przy ogniu w Fogón, 15 minut od Chacras."
   },
   {
    "nazwa": "Valle de Uco (Los Chacayes)",
@@ -160,14 +160,14 @@
    "opis": "12–13.11: przed południem lot z Mendozy (2 h), wieczór w Palermo i kameralne tango w Palermo Hollywood; 13.11 Recoleta, El Ateneo i Café Tortoni, wieczorem lot z Ezeizy do Europy."
   }
  ],
- "dojazd": "Z Warszawy do Mendozy przez Buenos Aires: wieczorny lot z Warszawy do Madrytu lub Rzymu, nocny przelot do Buenos Aires (Ezeiza, ok. 12,5 h; Iberia, ITA, Aerolíneas, Air Europa, Turkish przez Stambuł) i dwugodzinny lot krajowy do Mendozy (najlepiej Aerolíneas bezpośrednio z Ezeizy – w 2026 r. ok. 90% punktualności wobec ok. 54–68% u JetSMART; Flybondi nie lata). Powrót 13.11 wieczorem z Ezeizy po dniu w Buenos Aires; lądowanie w Warszawie 14.11. Najtaniej wychodzą dwa osobne bilety: Warszawa–Buenos Aires w obie strony (ok. 4 150–4 700 zł/os. z bagażem u Ethiopian i Turkish, migawki X–XI 2026) plus Buenos Aires–Mendoza w obie strony (ok. {usd:130}–{usd:230} zł z bagażem); bierzemy je tylko przy oszczędności ≥ 800 zł/os. wobec jednego biletu do Mendozy – wtedy między lotami zostawić min. 3 h przy EZE → EZE i 4–5 h przy zmianie lotniska, a 6.11 liczyć się ze zmianą lotniska (Ezeiza → Aeroparque, ok. 1 h). Linie sprzedają 330–361 dni naprzód: ceny w obie strony do Buenos Aires pojawią się ok. 17–19.11.2026, cały bilet do Mendozy ok. 17–18.12.2026; statystycznie najtaniej jest 18–24 tygodnie przed wylotem (21.05–2.07.2027). Mendoza i Buenos Aires są 4 h za Polską (UTC−3). Z doliny Uco (Los Chacayes) na lotnisko w Mendozie jest ok. 2 h (116–120 km). Na miejscu bus z kierowcą tylko w dni przejazdowe (6, 7, 9 i 12.11; 8.11 do Lagarde taksówką), w dolinie Uco remís (ok. 30 USD za auto do Zuccardi; przy większej grupie dwa auta). Polacy wjeżdżają do Argentyny bez wizy (do 90 dni).",
+ "dojazd": "Z Warszawy do Mendozy przez Buenos Aires: wieczorny lot z Warszawy do Madrytu lub Rzymu, nocny przelot do Buenos Aires (Ezeiza, ok. 12,5 h; Iberia, ITA, Aerolíneas, Air Europa, Turkish przez Stambuł) i dwugodzinny lot krajowy do Mendozy (najlepiej Aerolíneas bezpośrednio z Ezeizy – w 2026 r. ok. 90% punktualności wobec ok. 54–68% u JetSMART; Flybondi nie lata). Powrót 13.11 wieczorem z Ezeizy po dniu w Buenos Aires; lądowanie w Warszawie 14.11. Najtaniej wychodzą dwa osobne bilety: Warszawa–Buenos Aires w obie strony (ok. 4 150–4 700 zł/os. z bagażem u Ethiopian i Turkish, migawki X–XI 2026) plus Buenos Aires–Mendoza w obie strony (ok. {usd:130}–{usd:230} zł z bagażem); bierzemy je tylko przy oszczędności ≥ 800 zł/os. wobec jednego biletu do Mendozy – wtedy między lotami zostawić roboczo 4–5 h przy EZE → EZE, zależnie od rejsów i co najmniej 6 h przy zmianie lotniska, a 6.11 liczyć się ze zmianą lotniska (Ezeiza → Aeroparque, ok. 1 h). Linie sprzedają 330–361 dni naprzód: ceny w obie strony do Buenos Aires pojawią się ok. 17–19.11.2026, cały bilet do Mendozy ok. 17–18.12.2026; robocze okno obserwacji to 18–24 tygodnie przed wylotem, bez gwarancji najniższej ceny (21.05–2.07.2027). Mendoza i Buenos Aires są 4 h za Polską (UTC−3). Z doliny Uco (Los Chacayes) na lotnisko w Mendozie jest ok. 2 h (116–120 km). Na miejscu bus z kierowcą tylko w dni przejazdowe (6, 7, 9 i 12.11; 8.11 do Lagarde taksówką), w dolinie Uco remís (ok. 30 USD za auto do Zuccardi; przy większej grupie dwa auta). Polacy wjeżdżają do Argentyny bez wizy (do 90 dni).",
  "pogoda": "W listopadzie jest tu późna wiosna. W Luján de Cuyo (ok. 900–1 000 m) zwykle 27–29 °C w dzień i 12–14 °C w nocy, w dolinie Uco (1 000–1 300 m) ok. 25–28 °C i chłodne noce 8–10 °C; ok. 3 dni z deszczem w miesiącu, dużo słońca i bardzo suche powietrze. Wieczorem na tarasie przyda się polar. Czasem wieje zonda, gorący i suchy wiatr z Andów (sezon maj–listopad; przy alercie zamiast szlaku dzień w hotelu). W górach powyżej 2 500 m bywa chłodno i leży jeszcze śnieg; drogę do pomnika Cristo Redentor odśnieżają dopiero w grudniu, a Laguna del Diamante otwiera się w połowie stycznia. Indeks UV w listopadzie sięga 9–12 – filtr 50 codziennie, nie tylko w górach. Słońce wschodzi ok. 6:30; 10.11 w Tunuyán zachodzi ok. 20:12 (zmierzch cywilny ok. 20:39), a złota godzina zaczyna się ok. 19:40 – za grzbietem Andów na zachodzie gaśnie nieco wcześniej.",
  "days": [
   {
    "date": "6.11",
    "dow": "sobota",
    "title": "Przez Atlantyk i Andy do Mendozy",
-   "text": "Nocleg: baza 1 – Lares de Chacras / Casa Vita w Chacras de Coria (warianty 1 i 4), Finca Adalgisa w Chacras (wariant 2) albo Chozos Resort w Alto Agrelo (wariant 3). Wylot z Warszawy już w piątek 5.11 po południu: lot do Madrytu lub Rzymu, a wieczorem nocny przelot do Buenos Aires (ok. 12,5 h). W sobotę rano przesiadka na Ezeizie na dwugodzinny lot do Mendozy (przy jednym bilecie z tego samego lotniska; przy osobnych biletach min. 3 h, a przy zmianie na Aeroparque taksówka ok. 1 h i 4–5 h zapasu) – przy dobrej pogodzie z lewej strony Andy z Aconcaguą (6 961 m). W Mendozie jest 4 h wcześniej niż w Polsce. Ok. południa kierowca czeka z busem na lotnisku El Plumerillo i tylko ok. 30–45 minut do hotelu. Popołudnie domyślnie bez planu: w Lares ogród i basen Casa Vita, w Adalgisie basen wśród winorośli, w Chozos własny basenik na tarasie z widokiem na Andy, i drzemka. Jedna opcja (upgrade) dla tych, którzy po locie mają jeszcze siłę: Catena Zapata – piramida Majów w Agrelo, ok. 35 minut z Chacras – przyjmuje tylko od wtorku do soboty, więc sobota 6.11 o 15:00 to jedyna szansa na standardową wizytę z degustacją (ok. 1 h 15; Blending Games – 2 h, do 10 osób, ok. 112 000 ARS/os. w cenniku X–XII 2026 – ma własne, niepublikowane terminy, zapytać przy rezerwacji; sloty znikają ok. 3 miesiące wcześniej). Nie jest to warunek udanego tygodnia: w planie są już Lagarde, Salentein i Zuccardi. Wieczorem: z Lares 5 minut spacerem na plac Chacras – sobota to jedyny wieczór, gdy Zappa (Google 4,9; wt–sb 20:00–23:20, rezerwacja WhatsApp) i Clos de Chacras (kolacje pt–sb) są otwarte; kto chce gwiazdki od pierwszego dnia, ma w Chacras La VidA Susany Balbo (gwiazdka MICHELIN 2026, codziennie 19–23) – ale to menu 7 albo 14 dań, za dużo po 20 h podróży. W budżecie jest lekka kolacja (ok. 30 USD/os.) – w Lares Cocina de Hogar albo przy placu; Zappa, Clos i La VidA to upgrade. Z Chozos kolacja w Barro Cocina na miejscu (od 19:00) – nie jeździć szutrem po ciemku dwa razy. Wcześnie spać.",
+   "text": "Nocleg: baza 1 – Lares de Chacras / Casa Vita w Chacras de Coria (warianty 1 i 4), Finca Adalgisa w Chacras (wariant 2) albo Chozos Resort w Alto Agrelo (wariant 3). Wylot z Warszawy już w piątek 5.11 po południu: lot do Madrytu lub Rzymu, a wieczorem nocny przelot do Buenos Aires (ok. 12,5 h). W sobotę rano przesiadka na Ezeizie na dwugodzinny lot do Mendozy (przy jednym bilecie z tego samego lotniska; przy osobnych biletach roboczo 4–5 h na EZE, przy zmianie na Aeroparque co najmniej 6 h; bufory nie zapewniają ochrony osobnych biletów) – przy dobrej pogodzie z lewej strony Andy z Aconcaguą (6 961 m). W Mendozie jest 4 h wcześniej niż w Polsce. Ok. południa kierowca czeka z busem na lotnisku El Plumerillo i tylko ok. 30–45 minut do hotelu. Popołudnie domyślnie bez planu: w Lares ogród i basen Casa Vita, w Adalgisie basen wśród winorośli, w Chozos własny basenik na tarasie z widokiem na Andy, i drzemka. Jedna opcja (upgrade) dla tych, którzy po locie mają jeszcze siłę: Catena Zapata – piramida Majów w Agrelo, ok. 35 minut z Chacras – według publikowanego harmonogramu przyjmuje od wtorku do soboty; potwierdzić termin 2027, więc sobota 6.11 o 15:00 to jedyna szansa na standardową wizytę z degustacją (ok. 1 h 15; Blending Games – 2 h, do 10 osób, ok. 112 000 ARS/os. w cenniku X–XII 2026 – ma własne, niepublikowane terminy, zapytać przy rezerwacji; sloty znikają ok. 3 miesiące wcześniej). Nie jest to warunek udanego tygodnia: w planie są już Lagarde, Salentein i Zuccardi. Wieczorem: z Lares 5 minut spacerem na plac Chacras – sobota to jedyny wieczór, gdy Zappa (Google 4,9; wt–sb 20:00–23:20, rezerwacja WhatsApp) i Clos de Chacras (kolacje pt–sb) są otwarte; kto chce gwiazdki od pierwszego dnia, ma w Chacras La VidA Susany Balbo (gwiazdka MICHELIN 2026, codziennie 19–23) – ale to menu 7 albo 14 dań, za dużo po 20 h podróży. W budżecie jest lekka kolacja (ok. 30 USD/os.) – w Lares Cocina de Hogar albo przy placu; Zappa, Clos i La VidA to upgrade. Z Chozos kolacja w Barro Cocina na miejscu (od 19:00) – nie jeździć szutrem po ciemku dwa razy. Wcześnie spać. Catena tylko po poznaniu rozkładu i przy elastycznej anulacji; po locie priorytetem jest odpoczynek. Dostęp do basenu przed zameldowaniem potwierdzić.",
    "cost": 220,
    "anniv": false,
    "krotko": "Nocleg: Lares de Chacras (Casa Vita). Nocny lot z Europy do Buenos Aires i przesiadka na dwugodzinny lot do Mendozy; ok. południa kierowca czeka na lotnisku i w 30 minut jesteście w Lares. Popołudnie bez planu: basen Casa Vita i drzemka. Wieczorem lekka kolacja w Lares Cocina de Hogar albo przy placu Chacras, 5 minut spacerem. Wcześnie spać.",
@@ -177,7 +177,7 @@
    "date": "7.11",
    "dow": "niedziela",
    "title": "Alta Montaña: Puente del Inca i Aconcagua",
-   "text": "Nocleg: baza 1 – Lares de Chacras / Casa Vita w Chacras de Coria (warianty 1 i 4), Finca Adalgisa w Chacras (wariant 2) albo Chozos Resort w Alto Agrelo (wariant 3). Jedyny dzień w wysokich Andach i jedyny, którego nie da się „zrobić kiedy indziej”. Po locie na zachód i tak obudzicie się wcześnie: śniadanie 7:00 (w Lares poprosić o wcześniejszy serwis; w Chozos śniadanie zaczyna się dopiero o 8:00 – zamówić box), wyjazd 7:30 busem drogą RN7 w górę doliny rzeki Mendoza – lokalni radzą „andá temprano”: rano Aconcagua jest najczęściej odsłonięta, po południu zasnuwa ją chmura i wzmaga się wiatr. Rano kierowca sprawdza komunikat Vialidad Nacional o stanie RN7 i alertach zonda. Zalew Potrerillos tylko jako fotostop (przy niskim stanie wody rozczarowuje), dalej dolina Uspallaty z Cerro Siete Colores (oglądany z drogi – 10 km szutru i 2–4 h marszu to za dużo na ten dzień) i skalne iglice Penitentes. Ok. 10:15 Puente del Inca: naturalny most z żółto-pomarańczowych osadów nad Río de las Cuevas (2 720 m) i ruiny dawnego uzdrowiska – oglądany z platformy (na most nie wolno wchodzić; mirador bezpłatny), bez infrastruktury (planowana przebudowa, w 2027 możliwe roboty), więc prowiant bierzemy z hotelu. Kwadrans dalej Centro de Visitantes Horcones Parku Prowincjonalnego Aconcagua: sezon rusza 1.11, a wstęp do Quebrada de Horcones (w sezonie 2025/26 ok. 10 000 ARS od osoby) obejmuje właśnie nasz cel – płaski, godzinny spacer do Laguna de Horcones (2 950 m) z widokiem na południową ścianę Aconcagui (6 961 m), najwyższej góry poza Azją. Uwaga: bilet wyłącznie online (system Aconpass), na bramie nie ma sprzedaży – kupić dzień wcześniej, a dla cudzoziemców na trekkingach wymagane jest ubezpieczenie ewakuacyjne (dla pętli do laguny doprecyzować przy zakupie). Dłuższe trekkingi (Confluencia) ruszają dopiero 15.11, a droga do pomnika Cristo Redentor (3 832 m) jest odśnieżana dopiero w grudniu – nie liczymy na nią. Na 2 950 m: powoli, dużo wody, bez alkoholu rano. Domyślnie piknik z koszem z hotelu z widokiem na lagunę (w budżecie); lunch ok. 14:00 w Gran Hotel Potrerillos w drodze powrotnej (klasyczna, elegancka kuchnia nad zalewem) to upgrade (wariant z krzesłem). W busie drzemka; w hotelu ok. 17:00, basen i złota godzina. Kolacja: uwaga, to niedziela – Zappa serwuje tylko lunch, a Clos de Chacras kolacje tylko w piątki i soboty, więc jemy w Lares Cocina de Hogar (codziennie, menu 2–3 dania z winami domu) albo w La Gloria Cantina (Tripadvisor 4,9 z ok. 1 800 opinii, lekkie talerze); po drodze niedzielny targ rękodzieła na placu Chacras. Z Chozos – w Barro Cocina. Razem ok. 9–10 h, ale 7 z nich siedząc z widokiem. Plan B przy alercie zonda, śniegu lub gdyby park otwierał spacer do laguny dopiero 15.11 (do potwierdzenia w październiku 2027): TermaSpa w Cacheucie – strefa tylko dla dorosłych; w niedzielę przyjeżdża całe miasto, więc rezerwować wcześniej pakiet „Tarde” (3 h, od X 2026 ok. 80 000 ARS/os.) jako ubezpieczenie, albo zostać na lunch w Potrerillos i spa w hotelu. Aconcaguę da się przenieść na poniedziałek 8.11 tylko kosztem degustacji w Lagarde (pn/śr/pt o 10:30 – w niedzielę zostaje sam lunch w Fogón); we wtorek jedziemy już na południe do Uco. Zabrać kurtkę, czapkę, okulary i krem z filtrem 50 – na 3 000 m jest 5–12 °C, a indeks UV w listopadzie sięga 9–12.",
+   "text": "Nocleg: baza 1 – Lares de Chacras / Casa Vita w Chacras de Coria (warianty 1 i 4), Finca Adalgisa w Chacras (wariant 2) albo Chozos Resort w Alto Agrelo (wariant 3). Jedyny dzień w wysokich Andach i jedyny, którego nie da się „zrobić kiedy indziej”. Po locie na zachód i tak obudzicie się wcześnie: śniadanie 7:00 (w Lares poprosić o wcześniejszy serwis; w Chozos śniadanie zaczyna się dopiero o 8:00 – zamówić box), wyjazd 7:30 busem drogą RN7 w górę doliny rzeki Mendoza – lokalni radzą „andá temprano”: rano Aconcagua jest najczęściej odsłonięta, po południu zasnuwa ją chmura i wzmaga się wiatr. Rano kierowca sprawdza komunikat Vialidad Nacional o stanie RN7 i alertach zonda. Zalew Potrerillos tylko jako fotostop (przy niskim stanie wody rozczarowuje), dalej dolina Uspallaty z Cerro Siete Colores (oglądany z drogi – 10 km szutru i 2–4 h marszu to za dużo na ten dzień) i skalne iglice Penitentes. Ok. 10:15 Puente del Inca: naturalny most z żółto-pomarańczowych osadów nad Río de las Cuevas (2 720 m) i ruiny dawnego uzdrowiska – oglądany z platformy (na most nie wolno wchodzić; mirador bezpłatny), bez infrastruktury (planowana przebudowa, w 2027 możliwe roboty), więc prowiant bierzemy z hotelu. Kwadrans dalej Centro de Visitantes Horcones Parku Prowincjonalnego Aconcagua: sezon rusza 1.11, a wstęp do Quebrada de Horcones (w sezonie 2025/26 ok. 10 000 ARS od osoby) obejmuje właśnie nasz cel – płaski, godzinny spacer do Laguna de Horcones (2 950 m) z widokiem na południową ścianę Aconcagui (6 961 m), najwyższej góry poza Azją. Uwaga: bilet wyłącznie online (system Aconpass), na bramie nie ma sprzedaży – kupić dzień wcześniej, a dla cudzoziemców na trekkingach wymagane jest ubezpieczenie ewakuacyjne (dla pętli do laguny doprecyzować przy zakupie). Dłuższe trekkingi (Confluencia) ruszają dopiero 15.11, a droga do pomnika Cristo Redentor (3 832 m) jest odśnieżana dopiero w grudniu – nie liczymy na nią. Na 2 950 m: powoli, dużo wody, bez alkoholu rano. Domyślnie piknik z koszem z hotelu z widokiem na lagunę (w budżecie); lunch ok. 14:00 w Gran Hotel Potrerillos w drodze powrotnej (klasyczna, elegancka kuchnia nad zalewem) to upgrade (wariant z krzesłem). W busie drzemka; w hotelu ok. 17:00, basen i złota godzina. Kolacja: uwaga, to niedziela – Zappa serwuje tylko lunch, a Clos de Chacras kolacje tylko w piątki i soboty, więc jemy w Lares Cocina de Hogar (codziennie, menu 2–3 dania z winami domu) albo w La Gloria Cantina (Tripadvisor 4,9 z ok. 1 800 opinii, lekkie talerze); po drodze niedzielny targ rękodzieła na placu Chacras. Z Chozos – w Barro Cocina. Razem ok. 9–10 h, ale 7 z nich siedząc z widokiem. Plan B przy alercie zonda, śniegu lub gdyby park otwierał spacer do laguny dopiero 15.11 (do potwierdzenia w październiku 2027): TermaSpa w Cacheucie – strefa tylko dla dorosłych; w niedzielę przyjeżdża całe miasto, więc rezerwować wcześniej pakiet „Tarde” (3 h, od X 2026 ok. 80 000 ARS/os.) jako ubezpieczenie, albo zostać na lunch w Potrerillos i spa w hotelu. Aconcaguę da się przenieść na poniedziałek 8.11 tylko kosztem degustacji w Lagarde (pn/śr/pt o 16:00 – w niedzielę zostaje sam lunch w Fogón); we wtorek jedziemy już na południe do Uco. Zabrać kurtkę, czapkę, okulary i krem z filtrem 50 – na 3 000 m jest 5–12 °C, a indeks UV w listopadzie sięga 9–12.",
    "cost": 390,
    "anniv": false,
    "krotko": "Nocleg: Lares de Chacras. Jedyny dzień w wysokich Andach: o 7:30 busem drogą RN7 przez Potrerillos i dolinę Uspallaty, ok. 10:15 Puente del Inca, potem godzinny, płaski spacer do Laguna de Horcones (2 950 m) z widokiem na Aconcaguę – bilet tylko online (Aconpass). Piknik z koszem z hotelu nad laguną, ok. 17:00 powrót i basen o złotej godzinie. Kolacja w Lares Cocina de Hogar – w niedzielę większość restauracji w Chacras jest zamknięta. Kurtka, czapka i krem z filtrem 50.",
@@ -187,17 +187,17 @@
    "date": "8.11",
    "dow": "poniedziałek",
    "title": "Lagarde przy ogniu – dzień w Chacras",
-   "text": "Nocleg: baza 1 – Lares de Chacras / Casa Vita w Chacras de Coria (warianty 1 i 4), Finca Adalgisa w Chacras (wariant 2) albo Chozos Resort w Alto Agrelo (wariant 3) – trzecia noc, bez przeprowadzki. Catena Zapata nie przyjmuje w poniedziałki (wizyty wt–sb), więc winiarnią dnia jest Bodega Lagarde w Mayor Drummond (Luján de Cuyo) – 15 minut taksówką z Chacras. O 10:30 degustacja (poniedziałki, środy i piątki o 10:30: „Making History”, „Fincas Selection” albo kameralne „Winemaker’s Choice” z winiarzami; winnica z 1897 r., jedna z najstarszych w Mendozie, nr 95 na World’s Best Vineyards 2025). O 12:30 lunch w Fogón Cocina de Viñedo tuż obok (codziennie 12:30–18:00; rekomendacja przewodnika MICHELIN, Tripadvisor 4,8 z ok. 3 800 opinii): stół pod drzewami w ogrodzie z widokiem na winnicę i Andy, kuchnia z ognia, w budżecie à la carte – ok. 40 USD/os. jako główny posiłek dnia (upgrade: 3 dania z 3 winami, 60–80 USD/os.); gwiazdkowa Zonda w tym samym ogrodzie jest w poniedziałek zamknięta. Dla łowców gwiazdek upgrade 10 minut dalej: Riccitelli Bistró w Las Compuertas (gwiazdka MICHELIN 2026, pn–sb tylko o 12:30, menu 6 dań ok. 218 000 ARS/os. w cenniku IX–XI 2026, ok. 3 h). Ok. 15:00 powrót do Chacras: basen Casa Vita, drzemka, spacer po placu i targu. Wieczorem lekka kolacja (ok. 25 USD/os.) – w poniedziałek Zappa i Clos de Chacras są zamknięte, więc Lares Cocina de Hogar albo La Gloria. Jedna główna atrakcja dziennie: dziś Lagarde, nic więcej.",
+   "text": "Nocleg: Lares de Chacras. Spokojny poranek w Chacras, o 12:30 lunch w Fogón, następnie degustacja Lagarde o 16:00. Godzinę i język potwierdzić na 8.11.2027. Wieczorem lekka kolacja. Oficjalny harmonogram Lagarde podaje w poniedziałki degustacje o 16:00. Zwiedzanie po angielsku o 12:15 to osobna usługa. Poranny termin wyłącznie po indywidualnym potwierdzeniu. Riccitelli i Fogón to alternatywne lunche, nie dwa posiłki do połączenia.",
    "cost": 700,
    "anniv": false,
-   "krotko": "Nocleg: Lares de Chacras. Bez przeprowadzki: 15 minut taksówką do Bodegi Lagarde (winnica z 1897 r.) na degustację o 10:30, o 12:30 lunch à la carte przy ogniu w Fogón z widokiem na winnicę i Andy – główny posiłek dnia. Po południu basen i spacer po Chacras, wieczorem lekka kolacja w Lares albo w La Glorii.",
+   "krotko": "Nocleg: Lares de Chacras. Spokojny poranek w Chacras, o 12:30 lunch w Fogón, następnie degustacja Lagarde o 16:00. Godzinę i język potwierdzić na 8.11.2027. Wieczorem lekka kolacja.",
    "noc": "Lares de Chacras"
   },
   {
    "date": "9.11",
    "dow": "wtorek",
    "title": "Sztuka w Salentein i przeprowadzka do Uco",
-   "text": "Nocleg: baza 2 – Casa de Uco, Los Chacayes, Laguna Suite z tarasem 180° we wszystkich wariantach (w rezerwowym wariancie 4 pokój Cordón del Plata tylko z gwarancją strony gór); trzy noce w tej samej kategorii. Przeprowadzka na południe połączona z winnicą dnia: wymeldowanie ok. 9:00 i ok. 1 h 40 min busem drogą RN40 do Bodegi Salentein w Los Árboles (wizyty wt–nd, po angielsku o 11:00 i 15:00, rezerwacja mailem; Killka i winiarnia są zamknięte w poniedziałki – 9.11 to wtorek, a dni powszednie są tu najspokojniejsze; nr 12 na World’s Best Vineyards 2025). Dziś nie wielka degustacja, tylko sztuka i architektura Bórmidy i Yanzóna: galeria Killka z malarstwem argentyńskim i holenderskim, kaplica Gratitud na wzgórzu i piwnica w kształcie krzyża z fortepianem, w której czasem grają koncerty. Krótka degustacja z przekąską w Killce zamiast 3-daniowego lunchu (ok. 25 USD/os.; recenzenci i tak chwalą miejsce, nie kuchnię). Po drodze opcjonalnie Mirador del Cristo Rey nad Tupungato (wstęp bezpłatny, ale rezerwacja online w oknach 9, 12 i 15, dojazd szutrem, ok. 40 minut objazdu): winnice i cały Cordón del Plata w jednym kadrze, bez chodzenia. Ok. 14:30 jeszcze ok. 35 minut do Casa de Uco; zameldowanie w Laguna Suite, popołudnie przy basenie nad laguną, rower między winnicami albo spa, pierwszy zachód słońca za Andami ok. 19:45 z decku. Kolacja lekka w hotelu (ok. 30 USD/os.). Upgrade na zachód słońca, 10 minut od hotelu: SuperUco w Los Chacayes – okrągła, „gniazdowa” winiarnia braci Michelini, degustacja „Michelini & Sammartino” na tarasie z Andami (1 h 50, ok. 80 000 ARS/os.; dni i godziny potwierdzić). Po kolacji teleskop w lounge – Casa de Uco nie ma obserwatorium („bodega telescópica” to tylko nazwa budynku winiarni); upgrade: prywatna sesja El Firmamento (astronom Walter García, rezerwacja przez Instagram lub concierge), a gmina Tupungato organizuje też bezpłatne noce astro przy Cristo Rey (19:30–23:00, terminy ogłaszane na bieżąco). Uwaga: 9–11.11.2027 Księżyc jest w 80–95% oświetlony (pełnia 14.11), więc Drogi Mlecznej nie zobaczycie – za to przez teleskop Księżyc, Saturn i Jowisz.",
+   "text": "Nocleg: baza 2 – Casa de Uco, Los Chacayes, Laguna Suite z tarasem 180° we wszystkich wariantach (w rezerwowym wariancie 4 pokój Cordón del Plata tylko z gwarancją strony gór); trzy noce w tej samej kategorii. Przeprowadzka na południe połączona z winnicą dnia: wymeldowanie ok. 9:00 i ok. 1 h 40 min busem drogą RN40 do Bodegi Salentein w Los Árboles (wizyty wt–nd, po angielsku o 11:00 i 15:00, rezerwacja mailem; Killka i winiarnia są zamknięte w poniedziałki – 9.11 to wtorek, a dni powszednie są tu najspokojniejsze; nr 12 na World’s Best Vineyards 2025). Dziś nie wielka degustacja, tylko sztuka i architektura Bórmidy i Yanzóna: galeria Killka z malarstwem argentyńskim i holenderskim, kaplica Gratitud na wzgórzu i piwnica w kształcie krzyża z fortepianem, w której czasem grają koncerty. Krótka degustacja z przekąską w Killce zamiast 3-daniowego lunchu (ok. 25 USD/os.; recenzenci i tak chwalą miejsce, nie kuchnię). Po drodze opcjonalnie Mirador del Cristo Rey nad Tupungato (wstęp bezpłatny, ale rezerwacja online w oknach 9, 12 i 15, dojazd szutrem, ok. 40 minut objazdu): winnice i cały Cordón del Plata w jednym kadrze, bez chodzenia. Ok. 14:30 jeszcze ok. 35 minut do Casa de Uco; zameldowanie w Laguna Suite, popołudnie przy basenie nad laguną, rower między winnicami albo spa, pierwszy zachód słońca za Andami ok. 19:45 z decku. Kolacja lekka w hotelu (ok. 30 USD/os.). Upgrade na zachód słońca, 10 minut od hotelu: SuperUco w Los Chacayes – okrągła, „gniazdowa” winiarnia braci Michelini, degustacja „Michelini & Sammartino” na tarasie z Andami (1 h 50, ok. 80 000 ARS/os.; dni i godziny potwierdzić). Po kolacji teleskop w lounge – Casa de Uco nie ma obserwatorium („bodega telescópica” to tylko nazwa budynku winiarni); upgrade: prywatna sesja El Firmamento (astronom Walter García, rezerwacja przez Instagram lub concierge), a gmina Tupungato organizuje też bezpłatne noce astro przy Cristo Rey (19:30–23:00, terminy ogłaszane na bieżąco). Uwaga: 9–11.11.2027 Księżyc jest w 80–95% oświetlony (pełnia 14.11), więc Drogi Mlecznej nie zobaczycie – za to przez teleskop Księżyc, Saturn i Jowisz. Godziny Salentein wymagają potwierdzenia: podstrony operatora podają różne harmonogramy (11:00 i 11:30). Potwierdzić konkretną wizytę, język, galerię i przekąskę. Cristo Rey pomijamy, jeśli opóźni przyjazd do hotelu około 15:00.",
    "cost": 590,
    "anniv": false,
    "krotko": "Nocleg: Casa de Uco – Laguna Suite (trzy noce). O 9:00 wymeldowanie i ok. 1 h 40 min busem na południe do Bodegi Salentein: galeria Killka, kaplica na wzgórzu i piwnica z fortepianem, krótka degustacja z przekąską. Ok. 15:00 zameldowanie w Laguna Suite z tarasem na lagunę i Andy, basen, pierwszy zachód słońca z decku i lekka kolacja w hotelu.",
@@ -217,45 +217,45 @@
    "date": "11.11",
    "dow": "czwartek",
    "title": "Manzano Histórico – spacer, a dla chętnych długi szlak",
-   "text": "Nocleg: baza 2 – Casa de Uco, Los Chacayes, Laguna Suite z tarasem 180° we wszystkich wariantach (w rezerwowym wariancie 4 pokój Cordón del Plata tylko z gwarancją strony gór); jedna kategoria przez cały pobyt. Ok. 9:00 (ok. 30 minut autem) do Manzano Histórico, gdzie w 1823 r. odpoczywał generał San Martín – chwila przy pomniku Retorno a la Patria, potem spacer do Chorro de la Vieja: 10 km szutrem za Manzano (ostatni odcinek kierowca jedzie powoli), a dalej 3 km łagodnie pod górę do 40-metrowego wodospadu na ok. 2 500 m – recenzenci (Tripadvisor 4,5+) opisują go jako „łatwy i zachwycający”: ok. 1 h w jedną stronę, kilka przejść przez strumień i końcówka ze stalowymi stopniami i liną (buty z dobrą podeszwą), kondory nad głową; wejście 9:00–16:00, bezpłatne. Kto woli bez wysiłku, zostaje przy krótkich ścieżkach i strumieniach rezerwatu Manzano – Portillo de Piuquenes. Alternatywa „jak u najlepszych”: Casa de Uco ma własny program „Hiking in the Andes” z przewodnikiem hotelu, dopasowany do grupy (przedgórze i rezerwat Los Chañares) – poprosić concierge o wycenę i wybrać jedno z dwóch (przewodnik – upgrade). Lunch w Manzano (pstrąg z lokalnych hodowli, ok. 25 USD/os.). Tylko dla chętnych: dłuższa wędrówka z przewodnikiem w stronę Cordón del Portillo (12–15 km, 5–6 h, 500–700 m podejścia; wyżej mogą leżeć płaty śniegu) – kierowca obsłuży obie grupy. Woda, krem z filtrem. Laguna del Diamante jest w tym terminie zamknięta (sezon otwierają dopiero w połowie stycznia). Po powrocie korzystanie z hotelu: basen, spa, rower po winnicach. Przy alercie wiatru zonda szlak odpada i cały dzień jest hotelowy. Wieczór – wybrać jedno: domyślnie pożegnalne asado w Casa de Uco (jako kolacja, nie warsztat; ok. 55 USD/os.): wołowina, chorizo i morcilla z grilla, chimichurri i ogień w palenisku; albo – jako upgrade – „rocznica +1”: kolacja w Piedra Infinita Cocina u Zuccardiego, która działa tylko czw–sb od 20:00 (menu 4–9 dań, 180–400 USD/os., 45 minut jazdy w jedną stronę z kierowcą) – sens tylko wtedy, gdy w środę zabrakło Wam Zuccardiego, bo to drugi raz ta sama kuchnia.",
+   "text": "Nocleg: Casa de Uco – Laguna Suite. Rano łatwe ścieżki przy Manzano Histórico, lunch i powrót do hotelu. Chorro de la Vieja to fakultatywny trekking średniej trudności: strumienie, strome fragmenty i skały. Najlepiej z przewodnikiem, po potwierdzeniu warunków i czasu. Wieczorem asado w hotelu. Nie traktować wodospadu jako godzinnego łatwego spaceru. Przewodnik i transport wymagają wyceny. Przy podziale grup ustalić osobne odbiory. Długi trekking wyklucza gwarantowane popołudnie w spa. Przy alercie zonda dzień w hotelu.",
    "cost": 630,
    "anniv": false,
-   "krotko": "Nocleg: Casa de Uco – Laguna Suite. Ok. 9:00 do Manzano Histórico (30 minut) i spacer do wodospadu Chorro de la Vieja – ok. 1 h w jedną stronę, łagodnie pod górę, kondory nad głową; kto woli, zostaje przy krótkich ścieżkach. Lunch: pstrąg w Manzano. Po południu basen, spa albo rower między winnicami, wieczorem pożegnalne asado w hotelu.",
+   "krotko": "Nocleg: Casa de Uco – Laguna Suite. Rano łatwe ścieżki przy Manzano Histórico, lunch i powrót do hotelu. Chorro de la Vieja to fakultatywny trekking średniej trudności: strumienie, strome fragmenty i skały. Najlepiej z przewodnikiem, po potwierdzeniu warunków i czasu. Wieczorem asado w hotelu.",
    "noc": "Casa de Uco"
   },
   {
    "date": "12.11",
    "dow": "piątek",
    "title": "Lot do Buenos Aires, steki w Don Julio i tango",
-   "text": "Nocleg: Legado Mítico, Palermo Soho (wszystkie warianty). Śniadanie z widokiem na Andy, wymeldowanie i ok. 2 h busem na lotnisko w Mendozie (116–120 km z Los Chacayes) – wyjazd najpóźniej 3 h przed odlotem. Lot do Aeroparque (ok. 2 h, najpóźniej około południa, żeby opóźnienie nie zjadło wieczoru); z Aeroparque 15–20 minut Cabify do Palermo Soho. Popołudnie na spacer po Palermo Viejo: platanowe uliczki, murale, butiki, kawa w Plaza Serrano. Wieczorem ok. 20:00 steki w Don Julio (Guatemala 4691, róg Gurruchagi – 5 minut pieszo od hotelu): najsłynniejsza parrilla Buenos Aires z gwiazdką MICHELIN – bife de chorizo, ojo de bife, tira de asado z grilla na drewno i bardzo dobra karta win (malbec z Uco na zakończenie podróży); ok. 130 000–150 000 ARS/os. z winem i cubierto (X 2026, ok. 90–100 USD). Rezerwacja przez Meitre lub WhatsApp z wyprzedzeniem; gdy zabraknie stolika – La Cabrera albo El Preferido de Palermo (bez mięsa – Reliquia). Potem tango po argentyńsku: La Viruta 10 minut pieszo od hotelu – o 23:00 pokaz i godzina prawdziwej milongi (wejście ok. 10 000 ARS gotówką; klasa dla początkujących o 21:45), powrót pieszo o północy. Upgrade: Secreto Tango Society w Palermo Hollywood (Gorriti 5801) o 18:30, przed kolacją – 70 minut, tancerze na wyciągnięcie ręki, kieliszek wina, od 80 USD/os., sala na 20–30 osób (8 miejsc rezerwować mailem co najmniej 2 miesiące wcześniej).",
-   "cost": 790,
+   "text": "Nocleg: Legado Mítico, Palermo Soho (wszystkie warianty). Śniadanie z widokiem na Andy, wymeldowanie i ok. 2 h busem na lotnisko w Mendozie (116–120 km z Los Chacayes) – wyjazd 4–4,5 h przed odlotem; godzinę potwierdzić po zakupie lotu. Lot do Aeroparque (ok. 2 h, najpóźniej około południa, żeby opóźnienie nie zjadło wieczoru); z Aeroparque 15–20 minut Cabify do Palermo Soho. Popołudnie na spacer po Palermo Viejo: platanowe uliczki, murale, butiki, kawa w Plaza Serrano. Wieczorem ok. 20:00 steki w Don Julio (Guatemala 4691, róg Gurruchagi – 5 minut pieszo od hotelu): najsłynniejsza parrilla Buenos Aires z gwiazdką MICHELIN – bife de chorizo, ojo de bife, tira de asado z grilla na drewno i bardzo dobra karta win (malbec z Uco na zakończenie podróży); ok. 130 000–150 000 ARS/os. z winem i cubierto (X 2026, ok. 90–100 USD). Rezerwacja przez Meitre lub WhatsApp z wyprzedzeniem; gdy zabraknie stolika – La Cabrera albo El Preferido de Palermo (bez mięsa – Reliquia). Opcjonalnie, jeśli wystarczy energii: La Viruta 10 minut pieszo od hotelu – o 23:00 pokaz i godzina prawdziwej milongi (wejście ok. 10 000 ARS gotówką; klasa dla początkujących o 21:45), powrót pieszo o północy. Upgrade: Secreto Tango Society w Palermo Hollywood (Gorriti 5801) o 18:30, przed kolacją – 60 minut, tancerze na wyciągnięcie ręki, kieliszek wina, od 80 USD/os., sala na 20–30 osób (8 miejsc rezerwować mailem co najmniej 2 miesiące wcześniej). Limit dnia powiększono o {usd:54} zł na parę na prosty lunch, napoje i napiwki poza Don Julio. To rezerwa planistyczna, do sprawdzenia po publikacji menu 2027.",
+   "cost": 990,
    "anniv": false,
-   "krotko": "Nocleg: Legado Mítico, Palermo Soho. Ok. 2 h busem na lotnisko w Mendozie i lot do Buenos Aires (Aeroparque). Popołudnie na spacer po Palermo Soho, ok. 20:00 steki w Don Julio (gwiazdka MICHELIN, 5 minut pieszo od hotelu), potem tango po argentyńsku – milonga w La Viruta, 10 minut pieszo od hotelu.",
+   "krotko": "Nocleg: Legado Mítico, Palermo Soho. Ok. 2 h busem na lotnisko w Mendozie i lot do Buenos Aires (Aeroparque). Popołudnie na spacer po Palermo Soho, ok. 20:00 steki w Don Julio (gwiazdka MICHELIN, 5 minut pieszo od hotelu), opcjonalnie tango po argentyńsku - milonga w La Viruta, 10 minut pieszo od hotelu.",
    "noc": "Legado Mítico"
   },
   {
    "date": "13.11",
    "dow": "sobota",
    "title": "Recoleta, El Ateneo i wieczorny lot do Europy",
-   "text": "Nocleg: w samolocie (nocny lot Buenos Aires–Europa). Spokojny poranek w Recolecie: o 9:00 cmentarz tuż po otwarciu (bilet kupiony online, bez kolejki) z grobem Evity i aleje jacarand (w listopadzie kwitną na fioletowo), kawa w La Biela naprzeciw cmentarza, sobotni targ na Plaza Francia i księgarnia El Ateneo Grand Splendid w dawnym teatrze. O 13:00 zwiedzanie Teatro Colón po angielsku (50 minut, bilet online) – w sobotę to najlepsza rzecz w centrum, bo Microcentro bez urzędników jest ciche. Potem Avenida de Mayo i Café Tortoni na churros z czekoladą zamiast lunchu (kolejka to część rytuału) oraz Plaza de Mayo z Casa Rosada. Walizki w hotelu do popołudnia. Ok. 16:15 taksówką po walizki do hotelu (albo van, który zabierze bagaż z hotelu i odbierze Was przy Plaza de Mayo), 17:00 na Ezeizę (dwa Cabify po 20–35 USD albo van dla 7–9 osób; 45–60 minut, soboty bywają ruchliwe; przy locie o 23:00 wyjazd 18:30; na lotnisku 2,5–3 h przed odlotem) i wieczorny lot do Madrytu lub Rzymu, dalej do Warszawy – lądowanie w niedzielę 14.11 po południu.",
+   "text": "Nocleg: w samolocie (nocny lot Buenos Aires–Europa). Spokojny poranek w Recolecie: o 9:00 cmentarz tuż po otwarciu (bilet kupiony online, bez kolejki) z grobem Evity i aleje jacarand (w listopadzie kwitną na fioletowo), kawa w La Biela naprzeciw cmentarza, sobotni targ na Plaza Francia i księgarnia El Ateneo Grand Splendid w dawnym teatrze. O 13:00 zwiedzanie Teatro Colón po angielsku (50 minut, bilet online) – w sobotę to najlepsza rzecz w centrum, bo Microcentro bez urzędników jest ciche. Potem Avenida de Mayo i Café Tortoni na churros z czekoladą zamiast lunchu (kolejka to część rytuału) oraz opcjonalnie Plaza de Mayo z Casa Rosada. Walizki w hotelu do popołudnia. Ok. 16:15 taksówką po walizki do hotelu (albo van, który zabierze bagaż z hotelu i odbierze Was przy Plaza de Mayo), 17:00 na Ezeizę (dwa Cabify po 20–35 USD albo van dla 7–9 osób; 45–60 minut, soboty bywają ruchliwe; przy locie o 23:00 wyjazd 18:30; na lotnisku 2,5–3 h przed odlotem) i wieczorny lot do Madrytu lub Rzymu, dalej do Warszawy – lądowanie w niedzielę 14.11 po południu. Program podstawowy: Recoleta, El Ateneo, Colón i Tortoni. Plaza de Mayo oraz muzea tylko przy zapasie czasu. Godzinę końca zwiedzania ustalić od godziny lotu, z buforem na korki i odprawę.",
    "cost": 440,
    "anniv": false,
-   "krotko": "Nocleg: w samolocie. O 9:00 cmentarz Recoleta, kawa w La Biela, targ na Plaza Francia i księgarnia El Ateneo; o 13:00 zwiedzanie Teatro Colón, potem churros w Café Tortoni i Plaza de Mayo. Ok. 17:00 na Ezeizę i nocny lot do Europy – lądowanie w Warszawie w niedzielę 14.11.",
+   "krotko": "Nocleg: w samolocie. Recoleta, El Ateneo, Teatro Colón i Café Tortoni. Plaza de Mayo tylko przy zapasie czasu. Odbiór bagaży i transfer na Ezeizę według faktycznej godziny lotu, z celem odprawy 3 h przed odlotem. Wylot 13.11, lądowanie w Warszawie 14.11.",
    "noc": "w samolocie"
   }
  ],
  "rezerwacje": [
   {
    "when": "styczeń–marzec 2027",
-   "what": "Casa de Uco na 9–12.11 (3 noce): zapytanie grupowe o Laguna Suite dla każdej pary (górne piętro od laguny, z wanną jeśli dostępna) z pełną ceną za grupę ze śniadaniem, podatkami i warunkami anulowania; równolegle oferta Mr & Mrs Smith −15% od 3 nocy (nr 70273, ważna do 20.12.2027 – sprawdzić, czy 9–12.11 nie jest black-out i czy taryfa jest zwrotna). Pokój Cordón del Plata tylko z pisemną gwarancją strony winnic i gór na górnym piętrze (zapytać o 1202/1204). Informacyjnie: rezydencje La Amada/Paucho (sens przy ≤ 1 300 USD/noc). Baza 1 na 6–9.11 (3 noce): Lares de Chacras – przy 3–4 parach cała Casa Vita (6 pokoi, basen), śniadanie o 7:00 w niedzielę 7.11, kolacja 7.11 w Lares Cocina de Hogar, rezerwacja w Zappie na sobotę 6.11; dla porównania Chozos (One-Bedroom Villa, chozos obok siebie z markizą, box śniadaniowy, czy w 2027 trwa rozbudowa) – obie z bezpłatną anulacją do zakupu lotów; dzika karta: Viamonte Winery Lodge. Finca Adalgisa (wariant 2): suity od strony winnicy przez Mr & Mrs Smith, potwierdzić sezon 2027. Liczbę par podać, gdy będzie znana. Jedna kategoria na cały pobyt. W każdym zapytaniu cena bez 21% IVA dla turystów zagranicznych płacących kartą wydaną za granicą.",
-   "krotko": "Noclegi planu bazowego: Casa de Uco na 9–12.11 – Laguna Suite dla każdej pary (zapytanie grupowe i równolegle oferta Mr & Mrs Smith −15% od 3 nocy) oraz Lares de Chacras na 6–9.11 – przy 3–4 parach cała Casa Vita. Obie z bezpłatną anulacją do zakupu lotów.",
+   "what": "Casa de Uco na 9–12.11 (3 noce): zapytanie grupowe o Laguna Suite dla każdej pary (górne piętro od laguny, z wanną jeśli dostępna) z pełną ceną za grupę ze śniadaniem, podatkami i warunkami anulowania; równolegle oferta Mr & Mrs Smith −15% od 3 nocy (nr 70273, ważna do 20.12.2027 – sprawdzić, czy 9–12.11 nie jest black-out i czy taryfa jest zwrotna). Pokój Cordón del Plata tylko z pisemną gwarancją strony winnic i gór na górnym piętrze (zapytać o 1202/1204). Informacyjnie: rezydencje La Amada/Paucho (sens przy ≤ 1 300 USD/noc). Baza 1 na 6–9.11 (3 noce): Lares de Chacras – przy 3–4 parach pokoje w Casa Vita (wyłączność osobno do wyceny) (6 pokoi, basen), śniadanie o 7:00 w niedzielę 7.11, kolacja 7.11 w Lares Cocina de Hogar, rezerwacja w Zappie na sobotę 6.11; dla porównania Chozos (One-Bedroom Villa, chozos obok siebie z markizą, box śniadaniowy, czy w 2027 trwa rozbudowa) – obie z bezpłatną anulacją do zakupu lotów; dzika karta: Viamonte Winery Lodge. Finca Adalgisa (wariant 2): suity od strony winnicy przez Mr & Mrs Smith, potwierdzić sezon 2027. Liczbę par podać, gdy będzie znana. Jedna kategoria na cały pobyt. W każdym zapytaniu cena bez 21% IVA dla turystów zagranicznych płacących kartą wydaną za granicą.",
+   "krotko": "Noclegi planu bazowego: Casa de Uco na 9–12.11 – Laguna Suite dla każdej pary (zapytanie grupowe i równolegle oferta Mr & Mrs Smith −15% od 3 nocy) oraz Lares de Chacras na 6–9.11 – przy 3–4 parach pokoje w Casa Vita (wyłączność osobno do wyceny). Obie z bezpłatną anulacją do zakupu lotów.",
    "od": "2027-01-05",
    "do": "2027-03-31",
    "k": "Casa de Uco i Lares – zapytania grupowe"
   },
   {
    "when": "od otwarcia sprzedaży (XI–XII 2026) do 31.08.2027",
-   "what": "Loty: od połowy listopada 2026 założyć alerty (Google Flights, Kayak – gotowe linki w zakładce Loty), najpierw na Buenos Aires (od ok. 19.11), komplet z Mendozą i lotem krajowym od ok. 18.12. Daty: wylot 4.11 (najwcześniej o 20:00) lub 5.11, powrót z Buenos Aires 12.11 lub 13.11 – lądowanie w Warszawie najpóźniej w niedzielę 14.11. Kupować od otwarcia rozkładu (pierwsze realne okno: styczniowe rebajas Iberii), najpóźniej do 31.08.2027, parami (2 osoby na rezerwację); najpierw jeden bilet do Mendozy, Ethiopian/Turkish + lot krajowy tylko przy oszczędności ≥ 800 zł/os.; cel 4 000 zł/os. za kompletną podróż (próg 4 800 zł). Lot krajowy – tylko gdy bilet go nie obejmuje – w lipcu–sierpniu 2027 (Aerolíneas lub JetSMART, taryfa z bagażem); między osobnymi biletami min. 3 h przy EZE → EZE, 4–5 h przy zmianie na Aeroparque.",
+   "what": "Loty: od połowy listopada 2026 założyć alerty (Google Flights, Kayak – gotowe linki w zakładce Loty), najpierw na Buenos Aires (od ok. 19.11), komplet z Mendozą i lotem krajowym od ok. 18.12. Daty: wylot 4.11 (najwcześniej o 20:00) lub 5.11, powrót z Buenos Aires 13.11 – lądowanie w Warszawie najpóźniej w niedzielę 14.11. Kupować od otwarcia rozkładu (pierwsze realne okno: styczniowe rebajas Iberii), najpóźniej do 31.08.2027, parami (2 osoby na rezerwację); najpierw jeden bilet do Mendozy, Ethiopian/Turkish + lot krajowy tylko przy oszczędności ≥ 800 zł/os.; cel 4 000 zł/os. za kompletną podróż (próg 4 800 zł). Lot krajowy – tylko gdy bilet go nie obejmuje – wycenić przed zakupem całości (Aerolíneas lub JetSMART, bagaż 23 kg i ewentualna dopłata); między osobnymi biletami roboczo 4–5 h przy EZE → EZE, zależnie od rejsów, co najmniej 6 h przy zmianie na Aeroparque (bufor planistyczny, bez ochrony osobnych biletów).",
    "krotko": "Loty: alerty od połowy listopada 2026 (gotowe linki w sekcji Loty), zakup od otwarcia rozkładu do 31.08.2027, parami. Wylot 4.11 (od 20:00) lub 5.11, lądowanie w Warszawie najpóźniej 14.11; cel 4 000 zł/os. za kompletną podróż (próg 4 800 zł).",
    "od": "2026-11-11",
    "do": "2027-08-31",
@@ -287,7 +287,7 @@
   },
   {
    "when": "październik 2027",
-   "what": "Park Aconcagua na 7.11: po ogłoszeniu regulaminu sezonu 2027/28 (koniec października) kupić wstęp do Quebrada de Horcones online w Aconpass (na bramie nie ma sprzedaży; sprawdzić wymóg ubezpieczenia) i równolegle zarezerwować TermaSpa „Tarde” w Cacheucie jako plan B; Lagarde 8.11: degustacja 10:30 (turismo@lagarde.com.ar) i stół w Fogón 12:30 (wokiapp lub fogon@lagarde.com.ar; rezerwa: Riccitelli Bistró 12:30); Killka/Salentein 9.11 (wizyta po angielsku 11:00 mailem, krótka degustacja z przekąską); SuperUco o zachodzie słońca 9.11 i Cristo Rey (okno 15:00) opcjonalnie; bilety online na cmentarz Recoleta (Entradas BA) i Teatro Colón (wycieczka po angielsku 13:00) na 13.11; opcjonalnie przewodnik na Chorro de la Vieja albo „Hiking in the Andes” z Casa de Uco 11.11 i sesja astro El Firmamento 9.11.",
+   "what": "Park Aconcagua na 7.11: po ogłoszeniu regulaminu sezonu 2027/28 (koniec października) kupić wstęp do Quebrada de Horcones online w Aconpass (na bramie nie ma sprzedaży; sprawdzić wymóg ubezpieczenia) i równolegle zarezerwować TermaSpa „Tarde” w Cacheucie jako plan B; Lagarde 8.11: degustacja 16:00 (turismo@lagarde.com.ar) i stół w Fogón 12:30 (wokiapp lub fogon@lagarde.com.ar; rezerwa: Riccitelli Bistró 12:30); Killka/Salentein 9.11 (wizyta po angielsku 11:00 mailem, krótka degustacja z przekąską); SuperUco o zachodzie słońca 9.11 i Cristo Rey (okno 15:00) opcjonalnie; bilety online na cmentarz Recoleta (Entradas BA) i Teatro Colón (wycieczka po angielsku 13:00) na 13.11; opcjonalnie przewodnik na Chorro de la Vieja albo „Hiking in the Andes” z Casa de Uco 11.11 i sesja astro El Firmamento 9.11.",
    "krotko": "Bilety i degustacje: wstęp do Horcones (Aconpass) na 7.11, Lagarde i Fogón 8.11, Salentein 9.11, cmentarz Recoleta i Teatro Colón na 13.11.",
    "od": "2027-10-01",
    "do": "2027-11-04",
@@ -310,22 +310,27 @@
   "stroje kąpielowe do term, basenów i spa",
   "gotówka w peso lub dolarach na drobne wydatki",
   "coś eleganckiego na rocznicowy wieczór (i na lunch w Piedra Infinita, jeśli wybierzecie upgrade)",
-  "rękawy ochronne na butelki – do UE bez cła 4 l wina na osobę (plus 2 l musującego) w bagażu rejestrowanym; bez dulce de leche i alfajores z dulce: produkty mleczne spoza UE są na granicy konfiskowane",
+  "rękawy ochronne na butelki – do UE bez cła 4 l wina na osobę (plus 2 l musującego) w bagażu rejestrowanym; przed zakupem żywności sprawdzić zasady przywozu: sam dulce de leche i ciastka z nadzieniem podlegają różnym kategoriom",
   "ciepła kurtka i czapka na dzień w wysokich Andach (3 000 m)",
   "adapter do gniazdek typu I (argentyńskie, trzy płaskie bolce; typ C często też pasuje), 220 V",
   "karta bez prowizji walutowej (różnica kursów oficjalny/blue w 2026 r. to 1–3%) i 100–200 USD w drobnych na napiwki (10% gotówką) oraz na zawodne terminale w winiarniach",
   "wiatrówka na Horcones i wieczory w Uco; zapas ibuprofenu, krople do oczu i leki na astmę na dzień z zondą i na 2 950 m",
   "eSIM Claro lub Personal kupiona przed wylotem, mapy i potwierdzenia pobrane offline – na RN7 do Horcones i w górnej dolinie Uco zasięg znika; rezerwacje w Argentynie załatwia się przez WhatsApp",
-  "wydruk lub PDF „comprobante de entrada” z Migraciones i paszporty wszystkich przy zameldowaniu – do zwolnienia noclegu z 21% IVA"
+  "wydruk lub PDF „comprobante de entrada” z Migraciones i paszporty wszystkich przy zameldowaniu – do zwolnienia noclegu z 21% IVA",
+  "polisa medyczna na cały pobyt, ratownictwo i trekking w odpowiednim zakresie, numer assistance oraz dokumenty offline"
  ],
  "uwagi": [
+  {
+   "kat": "Budżet i zasady",
+   "t": "Audyt 13.11.2026: obowiązuje 3+3+1 nocy. Kwoty są szacunkami, nie ofertami. Budżet nie potwierdza wyłączności Casa Vita ani ceny Laguna Suite. Osobno wycenić ubezpieczenie medyczne i ratownictwo, eSIM, miejsca w samolocie, dojazd do Warszawy oraz transport lokalny. Przy trzech parach wzrost kosztów lokalnych o 10% to około 1 646 zł. Rezerwy nie przeznaczać z góry na dodatki."
+  },
   {
    "kat": "Budżet i zasady",
    "t": "Sufit: 28 000 zł na parę, loty liczone po 4 800 zł/os. za kompletną podróż (9 600 zł na parę). Hierarchia noclegów ustalona z agendy: dolina Uco (3 noce, ok. 26 h na jawie w hotelu, noc rocznicy) > baza pod Mendozą (3 noce, ok. 22 h) > Buenos Aires (ok. 2 h). Dlatego wszystkie warianty trzymają Laguna Suite w Casa de Uco i różnią się tylko bazą 1: polecany Lares / Casa Vita (ok. {suma:0} zł, {bilans:0}), Finca Adalgisa z Andami o zachodzie (ok. {suma:1} zł, {bilans:1}), Chozos (ok. {suma:2} zł, {bilans:2} – chyba że Chozos ≤ 390 USD i loty ≤ ok. {maxlot:2:-180} zł/os.). Wariant 4 (Lares + Cordón, ok. {suma:3} zł) to wyłącznie rezerwa dostępności, gdyby zabrakło Laguna Suites – i tylko z gwarancją pokoju od strony gór. La Morada i tańsze lodge w Uco łamią hierarchię, więc zostały w alternatywach jako opcje awaryjne. Rezydencje La Amada/Paucho wracają przy ≤ 1 300 USD/noc. Scenariusze planistyczne: cen i dostępności na listopad 2027 nie potwierdzono; Chozos liczony ostrożnie po 450 USD. Kwoty dla trzech par, przy lotach po 4 800 zł/os. i kursie {kurs} zł za dolara, bez upgrade’ów; tabela budżetu przelicza je po wyborze liczby par, ceny lotów i upgrade’ów."
   },
   {
    "kat": "Budżet i zasady",
-   "t": "Zasada oszczędzania: płacimy za standard (widoki, Klucze MICHELIN, Laguna Suite w noc rocznicy), nie za nadmiar atrakcji i jedzenia. Trzy dobre degustacje – Lagarde, Salentein i Zuccardi – i jedna atrakcja dziennie; posiłki skromnie: lunch à la carte w Fogón jako główny posiłek dnia, w Killce degustacja z przekąską, w rocznicę wizyta i degustacja u Zuccardiego, piknik nad laguną, toast na decku i kolacja à la carte, asado na pożegnanie, w Buenos Aires steki w Don Julio i milonga w La Viruta, churros w Tortoni zamiast lunchu. Trzecia noc w Lares zamiast czwartej w Uco – ok. {up:n4} zł mniej na parę przy tym samym standardzie. Pojedyncze upgrade’y (lunch w Piedra Infinita, Secreto Tango, czwarta noc w Uco, Catena, SuperUco, Siete Fuegos, masaże) są opcjami w sekcji Budżet. Robocze limity poza noclegami: loty 9 600 (próg 4 800 zł/os. za kompletną podróż), transport {bus:3} (bus w dni przejazdowe, do czasu wycen), jedzenie {jedzenie}, wycieczki i degustacje {wycieczki}, rezerwa 1 000 – razem {poza} zł (przy trzech parach i kursie {kurs} zł za dolara)."
+   "t": "Zasada oszczędzania: płacimy za standard (widoki, Klucze MICHELIN, Laguna Suite w noc rocznicy), nie za nadmiar atrakcji i jedzenia. Trzy dobre degustacje – Lagarde, Salentein i Zuccardi – i jedna atrakcja dziennie; posiłki skromnie: lunch à la carte w Fogón jako główny posiłek dnia, w Killce degustacja z przekąską, w rocznicę wizyta i degustacja u Zuccardiego, piknik nad laguną, toast na decku i kolacja à la carte, asado na pożegnanie, w Buenos Aires steki w Don Julio i milonga w La Viruta, churros w Tortoni zamiast lunchu. Układ noclegów pozostaje 3+3+1. Robocze limity poza noclegami: loty 9 600 (próg 4 800 zł/os. za kompletną podróż), transport {bus:3} (bus w dni przejazdowe, do czasu wycen), jedzenie {jedzenie}, wycieczki i degustacje {wycieczki}, rezerwa 1 000 – razem {poza} zł (przy trzech parach i kursie {kurs} zł za dolara)."
   },
   {
    "kat": "Budżet i zasady",
@@ -341,7 +346,7 @@
   },
   {
    "kat": "Winnice i restauracje",
-   "t": "Dni tygodnia zweryfikowane 27.10.2026: Catena Zapata przyjmuje tylko wt–sb (poniedziałek 8.11 odpada – stąd Lagarde, które degustuje w pn/śr/pt o 10:30, a Fogón serwuje lunch codziennie; Catena opcjonalnie w sobotę 6.11 o 15:00). Salentein i Killka: wt–nd (9.11 to wtorek). Zuccardi: wizyty i lunch codziennie, kolacje tylko czw–sb od 20:00. Riccitelli Bistró pn–sb 12:30; Casa Vigil śr–nd; Zonda (Lagarde) i Crux Cocina mają własne dni zamknięcia (pn, śr). Przy przesunięciu dat o dobę sprawdzić wszystko od nowa."
+   "t": "Dni tygodnia zweryfikowane 27.10.2026: Catena Zapata przyjmuje tylko wt–sb (poniedziałek 8.11 odpada – stąd Lagarde, które degustuje w pn/śr/pt o 16:00, a Fogón serwuje lunch codziennie; Catena opcjonalnie w sobotę 6.11 o 15:00). Salentein i Killka: wt–nd (9.11 to wtorek). Zuccardi: wizyty i lunch codziennie, kolacje tylko czw–sb od 20:00. Riccitelli Bistró pn–sb 12:30; Casa Vigil śr–nd; Zonda (Lagarde) i Crux Cocina mają własne dni zamknięcia (pn, śr). Przy przesunięciu dat o dobę sprawdzić wszystko od nowa."
   },
   {
    "kat": "Trasa, drogi i lot krajowy",
@@ -377,7 +382,7 @@
   },
   {
    "kat": "Trasa, drogi i lot krajowy",
-   "t": "Lot krajowy 6.11: najlepiej Aerolíneas Argentinas bezpośrednio z Ezeizy (punktualność ok. 90% w 2026 r.; JetSMART wyraźnie niżej, Flybondi nie lata), w taryfie z bagażem rejestrowanym – taryfa Base to tylko mały bagaż pod fotel, walizka dokupiona online ok. 42 000–45 000 ARS, na lotnisku o 30% drożej. Po przylocie z Europy bagaż trzeba odebrać, oclić i nadać ponownie, stąd min. 3 h przerwy przy EZE → EZE i 4–5 h przy zmianie na Aeroparque."
+   "t": "Lot krajowy 6.11: najlepiej Aerolíneas Argentinas bezpośrednio z Ezeizy (punktualność ok. 90% w 2026 r.; JetSMART wyraźnie niżej, Flybondi nie lata), w taryfie z bagażem rejestrowanym – taryfa Base to tylko mały bagaż pod fotel, walizka dokupiona online ok. 42 000–45 000 ARS, na lotnisku o 30% drożej. Po przylocie z Europy bagaż trzeba odebrać, oclić i nadać ponownie, stąd roboczo 4–5 h przerwy przy EZE → EZE i co najmniej 6 h przy zmianie na Aeroparque (bufor planistyczny, bez ochrony osobnych biletów)."
   },
   {
    "kat": "Zdrowie i bezpieczeństwo",
@@ -389,7 +394,7 @@
   },
   {
    "kat": "Hotele i podatki",
-   "t": "Chozos (wariant 3): 3,6 km szutru, śniadanie dopiero od 8:00 (w dzień Andów prosić o box), część tarasów bez markizy, nierówny serwis w 2026 i planowana rozbudowa resortu – prosić o chozos obok siebie od strony Kordyliery i bezpłatną anulację. Lares (polecany): przy 3–4 parach cała Casa Vita (6 pokoi, własny basen); psy w sąsiedztwie nocą. Casa de Uco: pokoje Cordón patrzą na wjazd – stąd Laguna Suite; restauracja poniżej poziomu hotelu (TA 4,2) – kolacje lekko à la carte, Siete Fuegos lub Hornero w pobliżu; obserwatorium nie istnieje; z lotniska ok. 2 h."
+   "t": "Chozos (wariant 3): 3,6 km szutru, śniadanie dopiero od 8:00 (w dzień Andów prosić o box), część tarasów bez markizy, nierówny serwis w 2026 i planowana rozbudowa resortu – prosić o chozos obok siebie od strony Kordyliery i bezpłatną anulację. Lares (polecany): przy 3–4 parach pokoje w Casa Vita (wyłączność osobno do wyceny) (6 pokoi, własny basen); psy w sąsiedztwie nocą. Casa de Uco: pokoje Cordón patrzą na wjazd – stąd Laguna Suite; restauracja poniżej poziomu hotelu (TA 4,2) – kolacje lekko à la carte, Siete Fuegos lub Hornero w pobliżu; obserwatorium nie istnieje; z lotniska ok. 2 h."
   },
   {
    "kat": "Argentyna: kalendarz i pieniądze",
@@ -414,6 +419,10 @@
   {
    "kat": "Po badaniach i radarze",
    "t": "Radar 30 dni (30.10.2026): Zuccardi Valle de Uco skończyła 10 lat i buduje w dolinie dwie nowe bodegi – plan 10.11 bez zmian; Aerolíneas w sezonie letnim 2027 nie dodaje nowych tras z Mendozy (56 lotów tygodniowo Buenos Aires–Mendoza, nowe Mendoza–Bariloche); kampania Iberii 425 EUR za odcinek z Madrytu rusza 12.11.2026, ale nie podaje dat podróży – sprawdzić listopad 2027 pierwszego dnia sprzedaży. Kurs: w X 2026 karta zagraniczna ok. 1 465 ARS/USD, MEP ok. 1 540 – różnicę sprawdzić tuż przed wyjazdem."
+  },
+  {
+   "kat": "Zdrowie i bezpieczeństwo",
+   "t": "Przed podróżą wykupić ubezpieczenie medyczne na cały pobyt, z zakresem właściwym dla trekkingu i ratownictwa; sprawdzić aktualne wymagania wjazdowe. Nocleg nisko zmniejsza obciążenie wysokością, ale nie wyklucza objawów. Przy pogorszeniu przerwać podejście i zjechać niżej; nasilone objawy wymagają pomocy medycznej."
   }
  ],
  "zrodla": [
@@ -666,7 +675,7 @@
    "url": "https://lagarde.com.ar/en/fogon-fire-terroir/"
   },
   {
-   "label": "Bodega Lagarde – degustacje pn/śr/pt 10:30",
+   "label": "Bodega Lagarde – degustacje pn/śr/pt 16:00",
    "url": "https://lagarde.com.ar/en/visits-tastings/"
   },
   {
@@ -860,6 +869,18 @@
   {
    "label": "InfoNegocios: Don Julio – średni rachunek 130 000 ARS/os. (VII 2026)",
    "url": "https://infonegocios.info/si-estas-por-buenos-aires/el-fenomeno-don-julio-cuanto-cuesta-hoy-comer-en-la-mejor-parrilla-de-buenos-aires-con-souvenir-incluido"
+  },
+  {
+   "label": "Lagarde – harmonogram degustacji",
+   "url": "https://lagarde.com.ar/visitas-degustaciones/"
+  },
+  {
+   "label": "Chorro de la Vieja – opis operatora",
+   "url": "https://trekking-travel.com.ar/trekking-por-el-dia/"
+  },
+  {
+   "label": "Casa Vita – oficjalny opis",
+   "url": "https://www.laresdechacras.com/en/vita-small-hotel"
   }
  ],
  "mapa": [
@@ -918,7 +939,7 @@
    "n": "Bodega Lagarde i Fogón, Mayor Drummond",
    "lat": -33.03,
    "lon": -68.885,
-   "d": "8.11 – degustacja 10:30 i lunch w Fogón, 15 minut od Chacras"
+   "d": "8.11 – lunch w Fogón 12:30, potem degustacja 16:00, 15 minut od Chacras"
   },
   {
    "n": "Catena Zapata i Angélica",
@@ -1008,25 +1029,25 @@
     "czas": "ok. 20–30 h",
     "cena": "4 650–6 500 zł razem",
     "plus": "Najwięcej kombinacji; Ethiopian i Turkish mają bagaż w cenie.",
-    "minus": "Walizki trzeba odebrać, oclić i nadać ponownie (LATAM i inni nie nadają do celu przy osobnych rezerwacjach); min. 3 h między lotami przy EZE → EZE, 4–5 h przy zmianie na Aeroparque. Tylko przy oszczędności ≥ 800 zł/os. wobec jednego biletu."
+    "minus": "Walizki trzeba odebrać, oclić i nadać ponownie (LATAM i inni nie nadają do celu przy osobnych rezerwacjach); roboczo 4–5 h między lotami przy EZE → EZE, co najmniej 6 h przy zmianie na Aeroparque (bufor planistyczny, bez ochrony osobnych biletów). Tylko przy oszczędności ≥ 800 zł/os. wobec jednego biletu."
    }
   ],
   "kiedy": [
    [
     "połowa listopada 2026",
-    "Pierwsze ceny w obie strony: Warszawa–Buenos Aires i Madryt–Buenos Aires ok. 17–19.11.2026 (Turkish 24.11). Cały bilet Warszawa–Mendoza (przez Buenos Aires, Santiago, São Paulo) i Madryt–Mendoza dopiero ok. 17–18.12.2026, gdy sprzedaż otworzą Aerolíneas i LATAM. Black Friday Iberii i Air Europy obejmuje zwykle podróże tylko do maja–czerwca. Już w listopadzie 2026 sprawdzić dwie rzeczy: czy kampania Iberia + Visit Argentina (sprzedaż 12.11.2026–31.05.2027, od 425 EUR za odcinek, taryfa Básica bez bagażu) dopuszcza podróże w listopadzie 2027, oraz wycenić taryfę Star Alliance/United open-jaw Europa → Buenos Aires → Berlin/Wiedeń (23 kg), której reguły z 21.10.2026 obejmują 1.09–9.12.2027 (liczy się tylko wariant z wylotem z Buenos Aires 12.11 – przy 13.11 lądowanie w Warszawie wypada w poniedziałek)."
+    "Pierwsze ceny w obie strony: Warszawa–Buenos Aires i Madryt–Buenos Aires ok. 17–19.11.2026 (Turkish 24.11). Cały bilet Warszawa–Mendoza (przez Buenos Aires, Santiago, São Paulo) i Madryt–Mendoza dopiero ok. 17–18.12.2026, gdy sprzedaż otworzą Aerolíneas i LATAM. Black Friday Iberii i Air Europy obejmuje zwykle podróże tylko do maja–czerwca. Już w listopadzie 2026 sprawdzić dwie rzeczy: czy kampania Iberia + Visit Argentina (sprzedaż 12.11.2026–31.05.2027, od 425 EUR za odcinek, taryfa Básica bez bagażu) dopuszcza podróże w listopadzie 2027, oraz wycenić taryfę Star Alliance/United open-jaw Europa → Buenos Aires → Berlin/Wiedeń (23 kg), której reguły z 21.10.2026 obejmują 1.09–9.12.2027 (odrzucić wariant wymagający wylotu z Buenos Aires 12.11 lub powrotu do Warszawy po 14.11)."
    ],
    [
     "styczeń–maj 2027",
-    "Polowanie na cel: cenę ≤ 4 000 zł/os. za całość kupować od razu, bez czekania na „idealny miesiąc”; 4 000–4 500 zł przed 21.05.2027 kupić tylko, gdy tania klasa się kończy; 4 500–4 800 zł zapisać i polować dalej; od 21.05.2027 kupujemy do 4 800 zł. Pierwsze okno: styczniowe rebajas Iberii (w 2026 r. zakup 5–26.01, podróże do 10.12 przy sprzedaży w Hiszpanii, do 30.11 w Argentynie – jedyna kampania obejmująca listopad). Statystycznie najniżej 18–24 tygodnie przed lotem (maj–lipiec 2027), ale grupa 6–8 osób zużywa tanie klasy, więc rozsądna cena wcześniej jest lepsza niż czekanie. Nie opierać wyjazdu kilku par na promocji last minute ani na Black Friday (obejmuje podróże do maja)."
+    "Polowanie na cel: cenę ≤ 4 000 zł/os. za całość kupować od razu, bez czekania na „idealny miesiąc”; 4 000–4 500 zł przed 21.05.2027 kupić tylko, gdy tania klasa się kończy; 4 500–4 800 zł zapisać i polować dalej; od 21.05.2027 kupujemy do 4 800 zł. Pierwsze okno: styczniowe rebajas Iberii (w 2026 r. zakup 5–26.01, podróże do 10.12 przy sprzedaży w Hiszpanii, do 30.11 w Argentynie – jedyna kampania obejmująca listopad). Robocze okno obserwacji, bez gwarancji najniższej ceny: 18–24 tygodnie przed lotem (maj–lipiec 2027), ale grupa 6–8 osób zużywa tanie klasy, więc rozsądna cena wcześniej jest lepsza niż czekanie. Nie opierać wyjazdu kilku par na promocji last minute ani na Black Friday (obejmuje podróże do maja)."
    ],
    [
     "po zakupie lotów",
-    "Decyzja hotelowa: polecany Lares (Casa Vita) + Laguna Suite mieści się w suficie 28 000 zł do ok. {maxlot:0} zł/os. za loty – przy progu 4 800 zł zostaje ok. {zapas:0} zł na parę na upgrade’y; wariant 4 z pokojem Cordón del Plata do ok. {maxlot:3} zł/os. Na wariant z Chozos przejść tylko, gdy bilety wyjdą ≤ ok. {maxlot:2:-180} zł/os. i Chozos potwierdzi ≤ 390 USD. Potwierdzić Casa de Uco i zwolnić rezerwację drugiego hotelu bazy 1."
+    "Decyzja hotelowa: polecany Lares (Casa Vita) + Laguna Suite mieści się w suficie 28 000 zł do ok. {maxlot:0} zł/os. za loty – przy progu 4 800 zł zostaje ok. {zapas:0} zł na parę przed niepotwierdzonymi kosztami; wariant 4 z pokojem Cordón del Plata do ok. {maxlot:3} zł/os. Na wariant z Chozos przejść tylko, gdy bilety wyjdą ≤ ok. {maxlot:2:-180} zł/os. i Chozos potwierdzi ≤ 390 USD. Potwierdzić Casa de Uco i zwolnić rezerwację drugiego hotelu bazy 1."
    ],
    [
-    "lipiec–sierpień 2027",
-    "Jeśli lot krajowy kupowany osobno: optimum ok. 14 tygodni przed (Kayak: −48% wobec last minute); listopad to najdroższy miesiąc na Buenos Aires–Mendoza, zostały Aerolíneas i JetSMART."
+    "przed zakupem całości",
+    "Wycenić odcinki krajowe z 23 kg i właściwymi lotniskami. Kupować po uzgodnieniu wszystkich odcinków, bez czekania na arbitralny miesiąc."
    ]
   ],
   "zasady": [
@@ -1034,7 +1055,7 @@
    "Nie wyceniać przed otwarciem sprzedaży powrotu: linie sprzedają 330–361 dni naprzód, więc cena w obie strony do Buenos Aires istnieje od ok. 17–19.11.2026, a cały bilet do Mendozy od ok. 17–18.12.2026. Cena w jedną stronę nie jest połową ceny podróży.",
    "Najpierw szukać całego biletu Warszawa–Mendoza: sprzedają go Iberia, Air Europa, ITA i Air France/KLM (odcinek do Mendozy na Aerolíneas przez Buenos Aires) oraz LATAM przez São Paulo lub Santiago – porównać wszystkie huby, bo cena całej trasy bywa korzystniejsza niż suma odcinków. Maks. dwie przesiadki, bez zmiany lotniska w jednym mieście. Turkish, Ethiopian i Lufthansa dowożą tylko do Buenos Aires.",
    "Równolegle sprawdzać osobny dolot do Madrytu i Madryt–Mendoza jako jedną chronioną podróż (przykład Iberia/LATAM 998 USD w obie strony, 23.01–8.02.2027; Kayak 28.10.2026: MAD–MDZ od 825 EUR) – ale doliczyć Warszawę, bagaż i nocleg buforowy; zwykła różnica ex-Madryt to tylko 100–200 EUR, więc scenariusz ma sens głównie przy promocji ex-Hiszpania.",
-   "Osobne bilety wybierać dopiero przy oszczędności minimum 800 zł/os. po wszystkich dodatkach – to próg opłacalności dodatkowego ryzyka. Przed drogim lotem międzykontynentalnym nocleg buforowy; jeśli wymaga to skrócenia siedmiu nocy albo dodatkowego dnia urlopu, policzyć ten kompromis.",
+   "Osobne bilety wybierać dopiero przy oszczędności minimum 800 zł/os. po wszystkich dodatkach – to próg opłacalności dodatkowego ryzyka. Przed drogim lotem międzykontynentalnym nocleg buforowy; wariant musi zachować siedem nocy w układzie 3+3+1 i powrót do Warszawy 14.11.",
    "Stopover w Buenos Aires na jednym bilecie: szukać multi-city (WAW→MDZ 5.11, MDZ→EZE 12.11, EZE→WAW 13.11) i brać, gdy dopłata wobec zwykłego biletu w obie strony jest ≤ 300 zł/os. – to taniej niż osobny lot krajowy i z chronioną przesiadką. Szczegóły w ramce „Stopover w Buenos Aires”.",
    "Lotniska: w Buenos Aires preferować przylot i dalszy wylot z EZE (nie EZE → AEP), w São Paulo pilnować GRU. Przy osobnych rezerwacjach nie zakładać nadania walizki do celu – LATAM i inni wymagają odbioru i ponownego nadania bagażu.",
    "Szukać dla dwóch osób, potem sprawdzić miejsca dla całej grupy; nie mnożyć najniższej ceny jednostkowej przez liczbę osób bez potwierdzenia. Zakup 2 + 2 + 2 porównać, ale oszczędność musi wynikać z rzeczywistych cen pozostałych miejsc.",
@@ -1081,7 +1102,7 @@
    {
     "n": "EZE → MDZ 6.11 i MDZ → AEP 12.11.2027 – lot krajowy",
     "url": "https://www.google.com/travel/flights?q=Flights%20from%20EZE%20to%20MDZ%20on%202027-11-06%20and%20from%20MDZ%20to%20AEP%20on%202027-11-12%20for%202%20adults",
-    "opis": "Aerolíneas lub JetSMART, taryfa z bagażem; kupować w lipcu–sierpniu 2027."
+    "opis": "Aerolíneas lub JetSMART, taryfa z bagażem; wycenić z bagażem 23 kg przed zakupem lotów międzykontynentalnych; kupić po uzgodnieniu całości."
    },
    {
     "g": "Kayak (konto, „Śledź ceny” / Price alert)",
@@ -1159,24 +1180,9 @@
     "Mendoza 6–12.11, Buenos Aires 12–13.11, rocznica 10.11 w Uco. Wylot z Ezeizy 13.11 – tylko połączenie, które ląduje w Warszawie w niedzielę (liczy się data przylotu, nie wylotu)."
    ],
    [
-    "Czwartek + noc więcej",
-    "wylot czw 4.11 od 20:00 · lądowanie nd 14.11",
-    "Jeśli połączenie dowiezie do Mendozy 5.11: dodatkowa noc w bazie 1 – ok. +900 zł na parę (nocleg ok. 630 zł + jedzenie). Jeśli wymaga nocy w hubie (Madryt, Paryż), przylot i tak 6.11 – wtedy czwartek liczy się tylko ceną."
-   ],
-   [
-    "Dzień wcześniej",
-    "wylot czw 4.11 od 20:00 · lądowanie sob 13.11",
-    "Wszystko o dobę wcześniej: Mendoza 5–11.11, Buenos Aires 11–12.11, niedziela wolna z zapasem. Plan dni do przestawienia: 7.11 to niedziela – Catena zamknięta, w Lagarde tylko lunch w Fogón (degustacje pn/śr/pt), Zuccardi codziennie; Salentein i Killka zamknięte w poniedziałek 8.11 – zamienić z Lagarde (pn/śr/pt) albo z Manzano."
-   ],
-   [
-    "Krócej",
-    "wylot pt 5.11 · lądowanie sob 13.11",
-    "Tylko przy wyraźnie lepszym połączeniu: wylot z Buenos Aires 12.11 wieczorem, lot z Mendozy rano – Buenos Aires skraca się do jednego popołudnia."
-   ],
-   [
-    "Odpada",
-    "wylot przed czw 20:00 · lądowanie w poniedziałek 15.11",
-    "W niedzielę 14.11 trzeba być w domu – nie bierzemy powrotów przez USA z długą przesiadką ani połączeń z przylotem w poniedziałek. Wylot w czwartek najwcześniej o 20:00."
+    "Alternatywny wylot",
+    "4.11 po 20:00",
+    "Tylko gdy przylot do Mendozy wypada 6.11. Noclegi bez zmian: 6–9.11 Chacras, 9–12.11 Uco, 12–13.11 Buenos Aires. Koszt nocy w hubie doliczyć."
    ]
   ],
   "alerty_intro": "Alertów na kontach Google, Kayak i Skyscanner nie da się założyć zdalnie – trzeba kliknąć zalogowanym. Każdy link otwiera gotowe wyszukiwanie dla 2 osób (daty powrotu to dzień wylotu z Argentyny – lądowanie w Warszawie dzień później, najpóźniej w niedzielę 14.11; jeśli alert był już ustawiony na powrót 14.11, zmienić na 13.11); w wynikach włączyć „Śledź ceny” (Google), „Price alerts” (Kayak, Skyscanner), „Alert cenowy” (eSky). Odhaczaj założone – zapisuje się w tej przeglądarce. Po naszej stronie działają automaty: codziennie radar promocji (RSS), w poniedziałki i czwartki skrzynka alertów z Gmaila, w środy i piątki przegląd promocji, a 1. i 15. dnia miesiąca pełny monitor cen z zapisem do tabeli trendów.",
@@ -1217,14 +1223,14 @@
   "poradnik": {
    "tytul": "Jak szukać i kiedy kupić bilety do Mendozy",
    "zaktualizowano": "10.11.2026",
-   "intro": "Wnioski z pogłębionego badania taryf, forów i narzędzi (28.10.2026), uzupełnione 10.11.2026 o terminy otwarcia sprzedaży i ceny-wyzwalacze. Najważniejsze: jeden bilet Warszawa–Mendoza sprzedają tylko linie z partnerem w Buenos Aires lub Santiago – Iberia, Air Europa, ITA, Air France/KLM (odcinek do Mendozy na Aerolíneas) i LATAM (przez São Paulo lub Santiago, z pominięciem Buenos Aires). Turkish, Ethiopian i Lufthansa dowożą tylko do Buenos Aires. Odcinek krajowy doliczony do biletu kosztuje u Aerolíneas 50–100 EUR – mniej niż osobny lot (ok. 125–150 USD) i z chronioną przesiadką. Daty 5–14.11 to u linii sezon niski; pierwsze ceny w obie strony do Buenos Aires pojawią się ok. 17–19.11.2026, cały bilet do Mendozy ok. 17–18.12.2026, a najniższe ceny statystycznie 18–24 tygodnie przed lotem, czyli w maju–lipcu 2027. Żadna promocja Black Friday z ostatnich lat nie obejmowała listopada następnego roku; jedyna kampania, która to robiła, to styczniowe „rebajas” Iberii (w 2026 r. podróże do 10.12; w sprzedaży z Argentyny do 30.11).",
+   "intro": "Wnioski z pogłębionego badania taryf, forów i narzędzi (28.10.2026), uzupełnione 10.11.2026 o terminy otwarcia sprzedaży i ceny-wyzwalacze. Najważniejsze: jeden bilet Warszawa–Mendoza sprzedają tylko linie z partnerem w Buenos Aires lub Santiago – Iberia, Air Europa, ITA, Air France/KLM (odcinek do Mendozy na Aerolíneas) i LATAM (przez São Paulo lub Santiago, z pominięciem Buenos Aires). Turkish, Ethiopian i Lufthansa dowożą tylko do Buenos Aires. Odcinek krajowy doliczony do biletu kosztuje u Aerolíneas 50–100 EUR – mniej niż osobny lot (ok. 125–150 USD) i z chronioną przesiadką. Daty 5–14.11 to u linii sezon niski; pierwsze ceny w obie strony do Buenos Aires pojawią się ok. 17–19.11.2026, cały bilet do Mendozy ok. 17–18.12.2026, a robocze okno obserwacji to 18–24 tygodnie przed lotem, bez gwarancji najniższej ceny, czyli w maju–lipcu 2027. Żadna promocja Black Friday z ostatnich lat nie obejmowała listopada następnego roku; jedyna kampania, która to robiła, to styczniowe „rebajas” Iberii (w 2026 r. podróże do 10.12; w sprzedaży z Argentyny do 30.11).",
    "scenariusze": [
     {
      "n": "1 · Jeden bilet WAW–MDZ w obie strony",
      "trasa": "WAW → MAD/FCO/CDG/AMS → EZE → MDZ (Iberia, Air Europa, ITA, AF/KLM) albo WAW → MAD/FRA → GRU/SCL → MDZ (LATAM)",
      "rek": true,
      "jak": "Google Flights „Round trip” WAW–MDZ, filtr „Bags: 1 checked”, wyłączyć „Separate tickets”, „Connecting airports” ograniczyć do MAD, FCO, CDG, AMS, GRU, SCL + EZE. Potem ITA Matrix z routingiem „X? X?” i podglądem reguł taryfy. Wycenić dla 2 osób, potem 4 i 6.",
-     "wygrywa": "Zawsze, gdy cena za kompletną podróż jest ≤ 4 800 zł/os. – a przy przesiadkach chronionych i bagażu nadanym do Mendozy także do 5 000 zł. To punkt odniesienia dla wszystkich innych scenariuszy.",
+     "wygrywa": "Od 21.05.2027, gdy cena za kompletną podróż jest ≤ 4 800 zł/os. – a przy przesiadkach chronionych i bagażu nadanym do Mendozy także do 5 000 zł. To punkt odniesienia dla wszystkich innych scenariuszy.",
      "ryzyko": "Sprawdzić, czy odcinek do Mendozy startuje z EZE (Aerolíneas lata z EZE i z AEP; zmiana lotniska w jednym bilecie to bus 45–75 minut). Dwie przesiadki = dłuższa podróż (20–26 h)."
     },
     {
@@ -1237,9 +1243,9 @@
     {
      "n": "3 · Bilet do Buenos Aires + osobny lot krajowy",
      "trasa": "WAW ⇄ EZE (Turkish, Ethiopian, Lufthansa, KLM…) · EZE ⇄ MDZ (Aerolíneas, JetSMART)",
-     "jak": "Google Flights / Kayak WAW–EZE dla 2 osób; krajowy na stronach aerolineas.com.ar i jetsmart.com (porównać wersję argentyńską i międzynarodową, zawsze w taryfie z bagażem). Lot krajowy kupować dopiero po zakupie międzykontynentalnego, w lipcu–sierpniu 2027.",
+     "jak": "Google Flights / Kayak WAW–EZE dla 2 osób; krajowy na stronach aerolineas.com.ar i jetsmart.com (porównać wersję argentyńską i międzynarodową, zawsze w taryfie z bagażem). Lot krajowy wycenić z 23 kg przed zakupem międzykontynentalnego, następnie kupić po potwierdzeniu całości.",
      "wygrywa": "Tylko przy oszczędności ≥ 800 zł/os. wobec scenariusza 1 po doliczeniu bagażu krajowego i czasu – realnie wtedy, gdy Turkish lub Ethiopian zejdą poniżej 4 000 zł z bagażem.",
-     "ryzyko": "Osobne rezerwacje: walizki odbieramy, przechodzimy imigrację i nadajemy ponownie; w EZE min. 3 h (do AEP 4–5 h). Opóźnienie pierwszej linii nie obliguje drugiej. Przez Stambuł lub Addis Abebę 3 odcinki i 28–30 h. Flybondi wypadł z rynku w 2026 r. – zostają Aerolíneas i JetSMART."
+     "ryzyko": "Osobne rezerwacje: walizki odbieramy, przechodzimy imigrację i nadajemy ponownie; w EZE roboczo 4–5 h (do AEP co najmniej 6 h). Opóźnienie pierwszej linii nie obliguje drugiej. Przez Stambuł lub Addis Abebę 3 odcinki i 28–30 h. Flybondi wypadł z rynku w 2026 r. – zostają Aerolíneas i JetSMART."
     },
     {
      "n": "4 · Dolot do Madrytu + bilet Madryt–Mendoza",
@@ -1335,7 +1341,7 @@
     },
     {
      "t": "Zakup parami tego samego dnia.",
-     "opis": "Gdy kompletna podróż kosztuje ≤ 4 000 zł/os. (cel; od 21.05.2027 także do 4 800 zł – skala cen niżej), kupować wszystkie pary w ciągu jednego dnia, u linii, w walucie sprzedawcy (bez przewalutowania DCC), osobna rezerwacja na parę, imiona jak w paszporcie, zrzut reguł taryfy. Lot krajowy – jeśli potrzebny – dopiero potem (lipiec–sierpień 2027).",
+     "opis": "Gdy kompletna podróż kosztuje ≤ 4 000 zł/os. (cel; od 21.05.2027 także do 4 800 zł – skala cen niżej), kupować wszystkie pary w ciągu jednego dnia, u linii, w walucie sprzedawcy (bez przewalutowania DCC), osobna rezerwacja na parę, imiona jak w paszporcie, zrzut reguł taryfy. Lot krajowy wycenić przed zakupem całości i kupić po bilecie międzykontynentalnym.",
      "kiedy": "od otwarcia sprzedaży do 31.08.2027, bez czekania na „idealny miesiąc”"
     }
    ],
@@ -1402,7 +1408,7 @@
     "Daty i godziny: wylot z Warszawy w czwartek 4.11 nie wcześniej niż 20:00 (albo w piątek 5.11), lądowanie w Warszawie najpóźniej w niedzielę 14.11 – sprawdzić datę przylotu ostatniego odcinka, a przy przesiadce w Europie, czy tego dnia jest jeszcze późniejszy lot do Warszawy na wypadek opóźnienia.",
     "Bilet WAW ⇄ MDZ w obie strony pasuje tylko przy wylocie z Mendozy 13.11 (bez nocy w Buenos Aires). Przy nocy 12→13.11 – wyłącznie multi-city ze stopoverem, open-jaw WAW → MDZ / EZE → WAW + lot krajowy 12.11 albo WAW ⇄ EZE + loty krajowe. Nigdy nie pomijać odcinka biletu: niewykorzystany lot (no-show) anuluje resztę rezerwacji.",
     "To samo lotnisko na przesiadce: w Buenos Aires EZE → EZE (nie AEP), w São Paulo GRU (nie CGH); w Madrycie między T4 i T4S min. 90 minut (paszporty spoza Schengen w T4S).",
-    "Przy osobnych biletach w Buenos Aires: imigracja + odbiór bagażu + nowa odprawa = min. 3 h w EZE, 4–5 h przy zmianie na AEP; ubezpieczenie z klauzulą „missed connection”.",
+    "Przy osobnych biletach w Buenos Aires: imigracja + odbiór bagażu + nowa odprawa = roboczo 4–5 h w EZE, co najmniej 6 h przy zmianie na AEP; ubezpieczenie z klauzulą „missed connection”.",
     "Reguły taryfy zapisane (zrzut ekranu): zmiany, zwrot, sezon, klasa. W UE i w Hiszpanii nie ma 24-godzinnego bezpłatnego anulowania (to przepis amerykański); Iberia oferuje tylko „hold”.",
     "Płatność w walucie sprzedawcy, bez przewalutowania DCC; karta bez prowizji za walutę.",
     "Zakup u linii, nie u pośrednika (eSky, Fru, Kiwi, Trip.com) – przy zmianie rozkładu pośrednik tylko przekazuje maile.",
@@ -1432,7 +1438,7 @@
     "Odcinek krajowy w jednym bilecie kosztuje u Aerolíneas +50–100 EUR, mniej niż osobny lot (ok. 125–150 USD) – i chroni przesiadkę oraz bagaż. U Iberii/AF/KLM porównać WAW–MDZ z WAW–EZE w tym samym oknie: różnica powinna być ≤ 100 EUR.",
     "Open-jaw (do Mendozy, powrót z Buenos Aires) wycenia się jako sumę połówek – zwykle bez dopłaty. Stopover > 24 h w Buenos Aires w taryfach eko Iberii i AF/KLM bywa zakazany; wtedy system doliczy odcinek krajowy osobno – nadal na jednym bilecie.",
     "Ex-Madryt oszczędza zwykle 100–200 EUR/os.; dolot i nocleg buforowy to zjadają. Sens tylko przy promocji ex-Hiszpania (styczeń) albo promocji Aerolíneas „desde Europa”.",
-    "Linie sprzedają 330–361 dni naprzód: Air Europa i LOT 361, Iberia i Lufthansa 360, Air France/KLM 359, Turkish 354, Ethiopian 331, Aerolíneas, LATAM i ITA 330 (korekta z 10.11.2026 – Iberia to 360 dni, nie 330). Cena w obie strony istnieje dopiero, gdy w sprzedaży jest też powrót 13.11.2027: do Buenos Aires od 17–19.11.2026, cały bilet do Mendozy od 17–18.12.2026. Najniższe ceny statystycznie 18–24 tygodnie przed, czyli maj–lipiec 2027; grupa 6–8 osób zużywa tanie klasy, więc dobra cena wcześniej jest lepsza niż statystyka.",
+    "Linie sprzedają 330–361 dni naprzód: Air Europa i LOT 361, Iberia i Lufthansa 360, Air France/KLM 359, Turkish 354, Ethiopian 331, Aerolíneas, LATAM i ITA 330 (korekta z 10.11.2026 – Iberia to 360 dni, nie 330). Cena w obie strony istnieje dopiero, gdy w sprzedaży jest też powrót 13.11.2027: do Buenos Aires od 17–19.11.2026, cały bilet do Mendozy od 17–18.12.2026. Robocze okno obserwacji, bez gwarancji najniższej ceny: 18–24 tygodnie przed, czyli maj–lipiec 2027; grupa 6–8 osób zużywa tanie klasy, więc dobra cena wcześniej jest lepsza niż statystyka.",
     "5–14.11 to sezon niski/przejściowy (blackouty Iberii zaczynają się w styczniu; agregatory wskazują listopad jako najtańszy miesiąc do Buenos Aires).",
     "Black Friday (Iberia, Air Europa, TAP, LATAM, ITA) obejmował podróże do maja następnego roku – nie liczyć na BF 2026 ani 2027. Jedyna kampania z listopadem: styczniowe rebajas Iberii (2026: podróże do 10.12, w sprzedaży z Argentyny do 30.11) – obserwować 5–26 stycznia 2027.",
     "Kupować parami (2+2+2): wycena dla 6 osób skacze, gdy w najtańszej klasie zostały 2–4 miejsca; taryfy grupowe zaczynają się od 10 osób.",
@@ -1519,7 +1525,7 @@
      "faza": "Bezpieczna rezerwa",
      "co": "Jeśli bilety wciąż niekupione: wybrać najtańszy jednobiletowy wariant z 23 kg (Iberia, Air Europa, ITA, AF/KLM, LATAM) niezależnie od statystyk; przy > {maxlot:0} zł/os. wariant 4 hoteli (Cordón del Plata, w suficie do ok. {maxlot:3} zł/os.). Lot krajowy – tylko w scenariuszach 3 i 5 – kupić ok. 30.07 (14 tygodni przed), Aerolíneas lub JetSMART z bagażem.",
      "automat": "Agent 2.07 (decyzja) · przypomnienie 30.07 (lot krajowy) · agent 31.08 (ostateczny termin)",
-     "decyzja": "31.08.2027 to twardy termin zakupu biletu międzykontynentalnego. Wyjątek tylko przy cenach > 5 500 zł/os.: można poczekać na wrześniowe Real Deal Days Air France/KLM i rabat Avios Iberii (ok. 1–25.09), ostatecznie do 25.09.",
+     "decyzja": "31.08.2027 to twardy termin zakupu biletu międzykontynentalnego. Przy cenie ponad próg potrzebna osobna decyzja budżetowa; termin 31.08 pozostaje bez zmian.",
      "ton": "termin",
      "szansa": 1.3,
      "kr": "Rezerwa"
@@ -1650,7 +1656,7 @@
     "id": "news",
     "t": "Newslettery na Gmail: Travel-dealz (alert „Buenos Aires”), Fly4free, Iberia, Air Europa, LATAM",
     "od": "2026-11-01",
-    "do": "2026-12-14",
+    "do": "2026-11-14",
     "opis": "Agent czyta skrzynkę w poniedziałki i czwartki i przenosi ceny na stronę.",
     "link": [
      "Travel-dealz – newsletter",
@@ -1662,7 +1668,7 @@
     "id": "gf",
     "t": "Google Flights: „Śledź ceny” – najpierw Buenos Aires, potem Mendoza",
     "od": "2026-11-20",
-    "do": "2026-12-20",
+    "do": "2026-11-20",
     "opis": "Od ok. 19.11 da się śledzić WAW–EZE i MAD–EZE na 5→13.11.2027; WAW–MDZ, multi-city ze stopoverem i lot krajowy dopiero od ok. 18.12, gdy sprzedaż otworzą Aerolíneas i LATAM. Linki są na liście obok. Alerty idą na Gmail, agent przenosi je na stronę.",
     "link": [
      "Google Flights",
@@ -1674,7 +1680,7 @@
     "id": "pary",
     "t": "Ustalić liczbę par i zebrać dane z paszportów",
     "od": "2026-11-01",
-    "do": "2026-12-17",
+    "do": "2026-11-17",
     "opis": "Imiona dokładnie jak w paszporcie, paszporty ważne w listopadzie 2027 – bez tego nie da się kupić w dniu okazji.",
     "kto": "pary",
     "dec": "pary"
@@ -1683,7 +1689,7 @@
     "id": "karta",
     "t": "Karta bez prowizji walutowej dla każdej pary",
     "od": "2026-11-01",
-    "do": "2026-12-17",
+    "do": "2026-11-17",
     "opis": "Płacić w walucie sprzedawcy (EUR/USD), bez przewalutowania DCC; nigdy w pesos.",
     "kto": "pary"
    },
@@ -1804,7 +1810,7 @@
      "zakres": "powyżej 5 500 zł",
      "ikona": "🔴",
      "nazwa": "Drogo",
-     "decyzja": "Czekać; najpóźniej 31.08.2027 kupić (wyjątek: wrześniowe Real Deal Days i rabat Avios, do 25.09) i przeliczyć hotele na tańszy wariant."
+     "decyzja": "Czekać; najpóźniej 31.08.2027 kupić i przeliczyć hotele na tańszy wariant."
     }
    ]
   },
@@ -2011,7 +2017,7 @@
    ],
    "za": [
     "Klucz MICHELIN 2026 i najwyższe oceny w okolicy Mendozy: Tripadvisor 4,9 z 1 814 opinii (nr 2 w Chacras), Kayak 9,6 (403)",
-    "Casa Vita: osobny dom z 6 pokojami, własnym basenem, ogrodem i salonem z kominkiem – przy 3–4 parach cały dom dla Was",
+    "Casa Vita: osobny dom z 6 pokojami, własnym basenem, ogrodem i salonem z kominkiem – przy 3–4 parach wyłączność domu tylko po pisemnym potwierdzeniu i osobnej wycenie",
     "restauracja Lares Cocina de Hogar codziennie wieczorem (menu 2–3 dania, własne wina) – rozwiązuje niedzielną kolację 7.11",
     "29 minut z lotniska, 34 do Catena Zapata, 2 h 30 do Puente del Inca; ok. 170 USD/noc (migawki 110–300)"
    ],
@@ -2039,7 +2045,7 @@
     ],
     [
      "Dla kogo i ryzyka",
-     "Dla tych, którzy wolą Klucz, najwyższe oceny i własny dom dla grupy niż widok z tarasu przez trzy dni – Andy i tak widać 7.11 z bliska w Horcones, a od 9.11 codziennie z Laguna Suite. Ryzyko: mało pokoi, bywa wyprzedany – rezerwować wcześnie; psy w sąsiedztwie nocą."
+     "Dla tych, którzy wolą Klucz, najwyższe oceny i pokoje blisko siebie dla grupy niż widok z tarasu przez trzy dni – Andy i tak widać 7.11 z bliska w Horcones, a od 9.11 codziennie z Laguna Suite. Ryzyko: mało pokoi, bywa wyprzedany – rezerwować wcześnie; psy w sąsiedztwie nocą."
     ],
     [
      "Opinie gości",
@@ -2174,7 +2180,7 @@
     ],
     [
      "Lokalizacja",
-     "Ruta 86, Alto Agrelo (Luján de Cuyo), Dragonback Estate (820 ha); ostatnie 3,6 km to droga szutrowa. 5,6 km do Catena Zapata, ok. 45 minut do placu Chacras, 41–49 km (50–70 minut) na lotnisko (shuttle hotelu 90 USD za auto), do Puente del Inca ok. 175 km (2 h 45)."
+     "Ruta 86, Alto Agrelo (Luján de Cuyo), Dragonback Estate (820 ha); ostatnie 3,6 km to droga szutrowa. 5,6 km do Catena Zapata, ok. 45 minut do placu Chacras, 41–49 km (50–60 minut) na lotnisko (shuttle hotelu 90 USD za auto), do Puente del Inca ok. 175 km (2 h 45)."
     ],
     [
      "Dla kogo i ryzyka",
@@ -2214,13 +2220,13 @@
    "rola": "Baza 2 · Los Chacayes · 9–11.11 (3 noce)",
    "wariant": "plan bazowy · 3 noce w Laguna Suite",
    "za": [
-    "Laguna Suite (42 m², 6 suit): taras z meblami i widokiem 180° na lagunę i Andy, osobna sypialnia i salon, w trzech wanna przed łazienką – rekomendowana kategoria, ok. 500 USD ze Smith (szacunek z Kayak „King” 575)",
+    "Laguna Suite (42 m², 6 suit): taras z meblami i widokiem 180° na lagunę i Andy, osobna sypialnia i salon, w trzech wanna przed łazienką – rekomendowana kategoria, 500 USD to założenie budżetowe, do potwierdzenia dla Laguna Suite; „King” w agregatorze nie potwierdza kategorii",
     "Klucz MICHELIN 2026 (potwierdzony wrzesień 2026), Kayak 9,5 (646), Tripadvisor 4,6 (479), Booking 9,5; dzieci dopiero od 10 lat – cicho",
     "oferta Mr & Mrs Smith −15% od 3 nocy (nr 70273) potwierdzona 27.10.2026, ważna do 20.12.2027, plus degustacja z sommelierem",
     "Private Residence Casa La Amada / Casa Paucho (3 sypialnie, czyli trzy pary): własny basen, grill, piec – „od” 2 000–2 300 USD za dom; w suficie tylko przy ≤ 1 300 USD"
    ],
    "przeciw": [
-    "pokój Cordón del Plata (30 m², 7 pokoi): według gości ze stycznia 2026 patrzy na wjazd i parking, balkon bez mebli – hotel opisuje je jako „od strony wejścia”; brać tylko z pisemną gwarancją strony gór",
+    "Cordón del Plata (30 m²): potwierdzić pisemnie stronę, piętro, widok i wyposażenie balkonu konkretnego pokoju; źródła nie uzasadniają oceny całej kategorii jako pokoi na parking.",
     "restauracja: Tripadvisor 4,2 (161), „overpriced” (sierpień 2026), ograniczone menu; menu degustacyjne ok. 100–120 USD/os.; produktu „prywatna kolacja” i fogónu nie ma w ofercie – do wynegocjowania",
     "obserwatorium nie istnieje („bodega telescópica” to nazwa budynku winiarni); spa bez cennika; lotnisko ok. 2 h, nie 1,5",
     "oferty Smith bywają bezzwrotne – warunki anulacji sprawdzić przed wpłatą; jedna kategoria na cały pobyt"
@@ -2252,7 +2258,7 @@
     ],
     [
      "Dla kogo i ryzyka",
-     "Dla pary rocznicowej i grupy, która chce szkła, laguny i Andów z własnego tarasu – pod warunkiem Laguna Suite. Ryzyka: Cordón bez widoku, restauracja poniżej poziomu hotelu, brak publicznych cenników spa, transferu i remísów, bezzwrotne oferty Smith. Nic nowego w dolinie nie bije Casa de Uco: The Vines kosztuje ok. 1 000 USD plus 45 USD opłaty dziennie, a w 2026 skarży się na rotację personelu; nowe hotele (Casa Origen Marriott 2028, SB Mountain Lodge, Andes de Uco Preserve) nie zdążą na listopad 2027."
+     "Dla pary rocznicowej i grupy, która chce szkła, laguny i Andów z własnego tarasu – pod warunkiem Laguna Suite. Ryzyka: widok konkretnego pokoju niepotwierdzony, restauracja poniżej poziomu hotelu, brak publicznych cenników spa, transferu i remísów, bezzwrotne oferty Smith. Nic nowego w dolinie nie bije Casa de Uco: The Vines kosztuje ok. 1 000 USD plus 45 USD opłaty dziennie, a w 2026 skarży się na rotację personelu; nowe hotele (Casa Origen Marriott 2028, SB Mountain Lodge, Andes de Uco Preserve) nie zdążą na listopad 2027."
     ],
     [
      "Opinie gości",
@@ -2367,7 +2373,7 @@
   "Hotele rozważone jako alternatywy (Viamonte Winery Lodge, La María Hotel Boutique, Rosell Boher Lodge, Entre Cielos Wine & Wellness, Susana Balbo Winemaker's House, Awasi Mendoza, La Morada Lodge, Andeluna Winery Lodge, Posada Salentein, Alpasión Lodge, The Vines Resort & Spa, Magnolia Hotel Boutique, Mine Hotel Boutique, Fierro Hotel, Home Hotel Buenos Aires, Duque Hotel Boutique & Spa) opisane są wyżej z ceną, różnicą na parę i warunkiem, kiedy mają sens."
  ],
  "ba": {
-  "intro": "Półtora dnia na finał: po tygodniu pod Andami miasto z europejskimi bulwarami, tangiem i kawiarniami z 1858 roku. W listopadzie jest ok. 24 °C, a aleje Recolety i Palermo kwitną fioletowo od jacarand. Plan jest luźny – trzy punkty obowiązkowe (Palermo wieczorem, tango, Café Tortoni), reszta według nastroju. Po przeglądzie forów, przewodników i pogłębionym badaniu (27.10.2026): steki w Don Julio i milonga w La Viruta (upgrade: kameralne tango o 18:30 w Palermo Hollywood), cmentarz i Teatro Colón z biletami online, Tortoni po lunchu, a nie w porze lunchu. Baza w Palermo wygrywa z Recoletą: piątek cały pieszo lub 7 minut taksówką, sobota rano jeden kurs do cmentarza.",
+  "intro": "Półtora dnia na finał: po tygodniu pod Andami miasto z europejskimi bulwarami, tangiem i kawiarniami z 1858 roku. W listopadzie jest ok. 24 °C, a aleje Recolety i Palermo kwitną fioletowo od jacarand. Plan jest luźny – spacer po Palermo, Recoleta, El Ateneo, Colón i Tortoni; tango i dodatkowe muzea są opcjonalne, reszta według nastroju. Po przeglądzie forów, przewodników i pogłębionym badaniu (27.10.2026): steki w Don Julio i milonga w La Viruta (upgrade: kameralne tango o 18:30 w Palermo Hollywood), cmentarz i Teatro Colón z biletami online, Tortoni po lunchu, a nie w porze lunchu. Baza w Palermo wygrywa z Recoletą: piątek cały pieszo lub 7 minut taksówką, sobota rano jeden kurs do cmentarza.",
   "plan": [
    {
     "d": "12.11 (piątek)",
@@ -2386,8 +2392,8 @@
    },
    {
     "d": "",
-    "godz": "18:30–19:40",
-    "co": "Upgrade (ok. +{up:st} zł na parę): Secreto Tango Society – Tango Session: 70 minut, tancerze na wyciągnięcie ręki, kieliszek wina, od 80 USD/os. (u resellerów 65–129), sala na 20–30 osób – 8 miejsc rezerwować mailem bezpośrednio co najmniej 2 miesiące wcześniej (hola@secretotangosociety.com). Koniec w porze zachodu słońca (19:32)."
+    "godz": "18:30–19:30",
+    "co": "Upgrade (ok. +{up:st} zł na parę): Secreto Tango Society – Tango Session: 60 minut, tancerze na wyciągnięcie ręki, kieliszek wina, od 80 USD/os. (u resellerów 65–129), sala na 20–30 osób – 8 miejsc rezerwować mailem bezpośrednio co najmniej 2 miesiące wcześniej (hola@secretotangosociety.com). Koniec w porze zachodu słońca (19:32)."
    },
    {
     "d": "",
@@ -2397,7 +2403,7 @@
    {
     "d": "",
     "godz": "22:15",
-    "co": "Taksówką do La Viruta (Armenia 1366, 10 minut pieszo od hotelu): w piątek 21:45 klasa tanga, 23:00 pokaz, potem milonga do rana; wejście gotówką (ostatnio ok. 10 000 ARS), rezerwacja WhatsApp. Godzina oglądania i powrót pieszo o północy – sobota zaczyna się o 7:30."
+    "co": "Opcjonalnie, zależnie od energii i czasu do transferu: Taksówką do La Viruta (Armenia 1366, 10 minut pieszo od hotelu): w piątek 21:45 klasa tanga, 23:00 pokaz, potem milonga do rana; wejście gotówką (ostatnio ok. 10 000 ARS), rezerwacja WhatsApp. Godzina oglądania i powrót pieszo o północy – sobota zaczyna się o 7:30."
    },
    {
     "d": "13.11 (sobota)",
@@ -2422,7 +2428,7 @@
    {
     "d": "",
     "godz": "11:00",
-    "co": "Bazylika del Pilar i targ rękodzieła Feria de Plaza Francia (sb/nd 10–20), Avenida Alvear z pałacami pod jacarandami; kto woli sztukę – Museo Nacional de Bellas Artes (wstęp wolny) z Floralis Genérica."
+    "co": "Opcjonalnie, zależnie od energii i czasu do transferu: Bazylika del Pilar i targ rękodzieła Feria de Plaza Francia (sb/nd 10–20), Avenida Alvear z pałacami pod jacarandami; kto woli sztukę – Museo Nacional de Bellas Artes (wstęp wolny) z Floralis Genérica."
    },
    {
     "d": "",
@@ -2447,7 +2453,7 @@
    {
     "d": "",
     "godz": "15:30–16:10",
-    "co": "Plaza de Mayo (700 m): katedra z grobem San Martína, Cabildo, Museo Casa Rosada (śr–nd 11–18, wejście do 17:30, bezpłatne; zwiedzanie pałacu dla indywidualnych zawieszone)."
+    "co": "Opcjonalnie, zależnie od energii i czasu do transferu: Plaza de Mayo (700 m): katedra z grobem San Martína, Cabildo, Museo Casa Rosada (śr–nd 11–18, wejście do 17:30, bezpłatne; zwiedzanie pałacu dla indywidualnych zawieszone)."
    },
    {
     "d": "",
@@ -2499,7 +2505,7 @@
    "3": "van z kierowcą dla 6 osób (szacunek ok. 1 700 USD za pobyt)",
    "4": "Sprinter z kierowcą dla 8 osób (szacunek ok. 2 050 USD za pobyt)"
   },
-  "uwaga": "Liczba par nie jest jeszcze znana (2, 3 albo 4). Od niej zależy tylko bus z kierowcą (koszt całej grupy dzielony po równo); przy 3–4 parach warto poprosić o całą Casa Vita w Lares. Pokoje, loty, jedzenie i degustacje liczą się na parę niezależnie od wielkości grupy.",
+  "uwaga": "Liczba par nie jest jeszcze znana (2, 3 albo 4). Od niej zależy tylko bus z kierowcą (koszt całej grupy dzielony po równo); przy 3–4 parach warto poprosić o pokoje w Casa Vita (wyłączność osobno do wyceny) w Lares. Pokoje, loty, jedzenie i degustacje liczą się na parę niezależnie od wielkości grupy. Transport jest limitem do wyceny: 6, 7, 9 i 12.11 bus, 8.11 Lagarde, 10.11 Zuccardi, 11.11 Manzano oraz transfery w Buenos Aires. Potwierdzić liczbę osób i walizek, czas oczekiwania, opłaty i odbiory przy podziale grupy; nie doliczać drugi raz kursów objętych wyceną.",
   "loty_scen": {
    "domyslnie": "p48",
    "opcje": [
@@ -2507,31 +2513,31 @@
      "p40",
      "4 000/os. · cel",
      8000,
-     "cel polowania – kupujemy od razu (8 000 zł na parę, ok. 1 600 zł więcej zapasu niż przy progu)"
+     "Pełny koszt lotów dla pary; aktualny zapas pokazano w budżecie poniżej"
     ],
     [
      "p45",
      "4 500/os.",
      9000,
-     "bardzo dobry zakup przy rozsądnych przesiadkach (9 000 zł na parę)"
+     "Pełny koszt lotów dla pary; aktualny zapas pokazano w budżecie poniżej"
     ],
     [
      "p48",
      "4 800/os. · próg",
      9600,
-     "główny próg zakupu (9 600 zł na parę) – w wariancie polecanym zostaje ok. {zapas:0} zł zapasu na upgrade’y"
+     "Pełny koszt lotów dla pary; aktualny zapas pokazano w budżecie poniżej"
     ],
     [
      "p50",
      "5 000/os.",
      10000,
-     "akceptowalne, ale blisko granicy budżetu całego wyjazdu (10 000 zł na parę); wariant polecany: {bilans:0:5000}"
+     "Pełny koszt lotów dla pary; aktualny zapas pokazano w budżecie poniżej"
     ],
     [
      "p55",
      "5 500/os.",
      11000,
-     "dzisiejsze ceny linii europejskich z bagażem plus lot krajowy – gdyby polowanie się nie udało (11 000 zł na parę); wariant polecany: {bilans:0:5500}"
+     "Pełny koszt lotów dla pary; aktualny zapas pokazano w budżecie poniżej"
     ]
    ],
    "uwaga": "Cena za kompletną podróż Warszawa–Mendoza i z powrotem na osobę, z bagażem i lotem krajowym (jeden bilet albo suma biletów). Sprawdzone 25.10.2026: realne ceny to 4 650–6 000 zł, więc próg 4 800 wymaga polowania – najpóźniej w oknie 21.05–2.07.2027. Przełącznik pokazuje, jak cena biletów przesuwa całość względem sufitu 28 000 zł."
@@ -2784,7 +2790,7 @@
     "8.11 pn",
     "baza 1",
     "ok. 8 h",
-    "Lagarde i Fogón 10:15–15:00, popołudnie przy basenie Casa Vita, kolacja w Chacras",
+    "Fogón 12:30, Lagarde 16:00 po potwierdzeniu terminu, lekka kolacja w Chacras",
     "średni"
    ],
    [
@@ -2812,11 +2818,11 @@
     "12.11 pt",
     "baza 3",
     "ok. 2 h",
-    "wymeldowanie 8:30 z Uco; w Buenos Aires tylko zostawienie walizek i nocleg po tangu; 13.11 śniadanie i 8:15 wyjście",
+    "wymeldowanie około 7:30–8:00 z Uco przy locie o 12:00; w Buenos Aires tylko zostawienie walizek i nocleg po tangu; 13.11 śniadanie i 8:15 wyjście",
     "niski – hotel to łóżko i adres"
    ]
   ],
-  "wniosek": "Baza 2 to ok. 26 godzin na jawie w hotelu przez trzy dni (9.11 od 15:00, 10.11 i 11.11 po 9–10 h, w tym noc rocznicy) – tu płacimy za Laguna Suite z tarasem. Baza 1 to ok. 22 godziny przez trzy dni: zmęczone popołudnie po przylocie, wieczór po Andach i spokojne popołudnie po Lagarde – Lares z Kluczem i Casa Vita z basenem daje tu najwięcej za najmniej. Buenos Aires to ok. 2 godziny – Legado Mítico ma być cichy i blisko Palermo i Recolety, nie luksusowy. Koszt noclegu za godzinę na jawie w hotelu (3 pary): Laguna Suite ok. 58 USD/h, Chozos ok. 61 USD/h, Lares ok. 23 USD/h, Legado ok. 130 USD/h (265 USD za piątek; tańsze adresy w Soho są głośniejsze lub słabiej oceniane). Dlatego trzecia noc wypada w Lares, a nie czwarta w Uco: ten sam standard, ok. {up:n4} zł mniej na parę; noc rocznicy i dwa pełne dni zostają w Uco, a czwarta noc w Uco jest upgrade’em.",
+  "wniosek": "Baza 2 to ok. 26 godzin na jawie w hotelu przez trzy dni (9.11 od 15:00, 10.11 i 11.11 po 9–10 h, w tym noc rocznicy) – tu płacimy za Laguna Suite z tarasem. Baza 1 to ok. 22 godziny przez trzy dni: zmęczone popołudnie po przylocie, wieczór po Andach i spokojne popołudnie po Lagarde – Lares z Kluczem i Casa Vita z basenem daje tu najwięcej za najmniej. Buenos Aires to ok. 2 godziny – Legado Mítico ma być cichy i blisko Palermo i Recolety, nie luksusowy. Koszt noclegu za godzinę na jawie w hotelu (3 pary): Laguna Suite ok. 58 USD/h, Chozos ok. 61 USD/h, Lares ok. 23 USD/h, Legado ok. 130 USD/h (265 USD za piątek; tańsze adresy w Soho są głośniejsze lub słabiej oceniane). Dlatego trzecia noc wypada w Lares, a nie czwarta w Uco: ten sam standard, ok. Układ noclegów pozostaje 3+3+1.",
   "agenda": "Agendy nie warto przestawiać pod hotele: dni w Uco już są ułożone z jedną atrakcją przed południem i popołudniem w hotelu, a dzień w Andach i degustacja w Lagarde mają stałe godziny. Jedyna sensowna korekta: 7.11 wrócić z gór nie później niż 17:30, żeby złota godzina (od 19:45) zastała Was na tarasie – w Chozos z Andami, w Lares w ogrodzie Casa Vita."
  },
  "upgrade": {
@@ -2827,21 +2833,14 @@
     "co": "Lunch rocznicowy w Piedra Infinita Cocina (Zuccardi, Zielona Gwiazdka MICHELIN)",
     "kiedy": "10.11, 12:30",
     "zl": 590,
-    "uwaga": "krótkie menu 4 dań z winami Zuccardi zamiast pikniku – najbardziej polecany"
+    "uwaga": "krótkie menu 4 dań z winami Zuccardi zamiast pikniku – najbardziej polecany; dopłata orientacyjna od dolnej granicy cen, pełny pakiet do wyceny"
    },
    {
     "id": "st",
     "co": "Secreto Tango Society – kameralny pokaz tanga",
     "kiedy": "12.11, 18:30",
     "zl": 590,
-    "uwaga": "70 minut, 8 miejsc mailem ≥ 2 miesiące wcześniej; milonga w La Viruta zostaje"
-   },
-   {
-    "id": "n4",
-    "co": "Czwarta noc w Casa de Uco (Laguna Suite)",
-    "kiedy": "8.11",
-    "zl": 1220,
-    "uwaga": "przeprowadzka do Uco zaraz po Lagarde zamiast trzeciej nocy w Lares"
+    "uwaga": "60 minut, 8 miejsc mailem ≥ 2 miesiące wcześniej; La Viruta opcjonalnie, zależnie od energii"
    },
    {
     "id": "cz",
@@ -2939,7 +2938,7 @@
    "id": "pary",
    "stan": "otwarta",
    "t": "Ile par jedzie?",
-   "do": "2026-12-17",
+   "do": "2026-11-17",
    "kto": "wszystkie pary",
    "opcje": [
     [
@@ -2950,18 +2949,18 @@
     ],
     [
      "3 pary",
-     "bus ok. {bus:3} zł na parę; cała Casa Vita w Lares dla grupy – najlepszy układ",
+     "bus ok. {bus:3} zł na parę; pokoje w Casa Vita (wyłączność osobno do wyceny) w Lares dla grupy – najlepszy układ",
      true,
      "3"
     ],
     [
      "4 pary",
-     "bus (Sprinter) ok. {bus:4} zł na parę; w Lares cała Casa Vita (6 pokoi), w Casa de Uco 4 z 6 Laguna Suites",
+     "bus (Sprinter) ok. {bus:4} zł na parę; w Lares pokoje w Casa Vita (wyłączność osobno do wyceny) (6 pokoi), w Casa de Uco 4 z 6 Laguna Suites",
      false,
      "4"
     ]
    ],
-   "rek": "Do 17.12 potwierdzić, kto leci – 18.12 jest pierwsza pełna wycena, a cenę w celu kupujemy od razu. Bez liczby osób nie da się zapytać hoteli o cenę grupową ani kupić biletów w dniu okazji (imiona z paszportów).",
+   "rek": "Do 17.11 potwierdzić skład grupy i dane zgodne z paszportami, przed pierwszymi cenami do Buenos Aires. Pełna wycena do Mendozy orientacyjnie w grudniu; termin zależy od faktycznego otwarcia sprzedaży.",
    "wplyw": "bus od {bus:4} do {bus:2} zł na parę, dom w Lares, liczba Laguna Suites",
    "sekcja": "#budzet"
   },
@@ -2974,7 +2973,7 @@
    "opcje": [
     [
      "Polecany: Lares + Casa de Uco (Laguna Suite) + Legado",
-     "{razem:0} zł na parę – Klucz MICHELIN, widok w noc rocznicy, dom w Chacras",
+     "{razem:0} zł na parę – Klucz MICHELIN, widok w noc rocznicy, pokoje w Chacras",
      true,
      "0"
     ],
@@ -3043,19 +3042,14 @@
     ],
     [
      "Secreto Tango Society (+{up:st} zł)",
-     "kameralny pokaz o 18:30 przed kolacją – milonga w La Viruta zostaje; rezerwacja co najmniej 2 miesiące wcześniej",
+     "kameralny pokaz o 18:30 przed kolacją – La Viruta opcjonalnie, zależnie od energii; rezerwacja co najmniej 2 miesiące wcześniej",
      true
-    ],
-    [
-     "Czwarta noc w Casa de Uco (+{up:n4} zł)",
-     "zamiast trzeciej w Lares; razem z dwoma polecanymi przekracza zapas",
-     false
     ]
    ],
    "rek": "Dwa polecane upgrade’y to razem {upsum:pi:st} zł na parę: przy lotach po 4 800 zł/os. {poup:0:4800:pi:st}, przy lotach w celu 4 000 zł/os. {poup:0:4000:pi:st}.",
    "wplyw": "od +{up:pi} do ok. +4 200 zł na parę",
    "sekcja": "#budzet",
-   "uwaga": "Pozostałe 10 opcji (6 z ceną, 4 do wyceny w hotelu) jest w sekcji Budżet – zaznaczcie, a przeliczy się na parę.",
+   "uwaga": "Pozostałe opcje, w tym dodatki do wyceny w hotelu, są w sekcji Budżet – zaznaczcie, a przeliczy się na parę.",
    "wybor": false
   },
   {
@@ -3086,7 +3080,7 @@
    "id": "wylot",
    "stan": "otwarta",
    "t": "Wylot 4.11 wieczorem czy 5.11?",
-   "do": "2026-12-17",
+   "do": "2026-11-17",
    "kto": "wszystkie pary",
    "opcje": [
     [
@@ -3102,7 +3096,7 @@
      "5"
     ]
    ],
-   "rek": "Ustalić przed pierwszą pełną wyceną 18.12, bo cenę w celu kupujemy od razu. Alerty cenowe ustawiamy na oba dni (linki w sekcji Loty); przy równej cenie bierzemy ten z lądowaniem w Mendozie przed 13:00.",
+   "rek": "Ustalić przed pierwszymi cenami do Buenos Aires w listopadzie. Każdy wariant musi zachować noclegi 6–9.11, 9–12.11 i 12–13.11 oraz powrót do Warszawy 14.11.",
    "wplyw": "jeden dzień urlopu na osobę; lądowanie w Warszawie zawsze najpóźniej w niedzielę 14.11",
    "sekcja": "#kalendarz"
   },
