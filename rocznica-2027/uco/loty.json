@@ -160,6 +160,22 @@
  ],
  "sygnaly": [
   {
+   "data": "2026-11-12",
+   "typ": "Konkurencja",
+   "kierunek": "wzrost",
+   "waga": 1,
+   "opis": "Plus Ultra nie sprzedaje lotów Ezeiza–Madryt (nie wiadomo, czy to błąd systemu, czy wycofanie trasy). Gdyby linia zniknęła z trasy, odpada najtańszy wzorzec z Madrytu (585 EUR z bagażem) i słabnie presja na ceny Iberii i Air Europy.",
+   "url": "https://www.sirchandler.com.ar/2026/11/plus-ultra-no-vende-vuelos-entre-ezeiza-y-madrid-error/"
+  },
+  {
+   "data": "2026-11-11",
+   "typ": "Lotnisko",
+   "kierunek": "spadek",
+   "waga": 1,
+   "opis": "Ezeiza: główny pas startowy znów w pełni czynny od 11.11.2026 – koniec ograniczeń dla lotów dalekodystansowych.",
+   "url": "https://www.sirchandler.com.ar/2026/11/la-pista-principal-de-ezeiza-volvio-a-estar-operativa/"
+  },
+  {
    "data": "2026-11-10",
    "typ": "Kurs",
    "kierunek": "wzrost",

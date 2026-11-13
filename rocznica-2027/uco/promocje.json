@@ -1,7 +1,7 @@
 {
- "zaktualizowano": "2026-11-11",
- "nastepny": "2026-11-13",
- "status": "Odczyt 11.11.2026: brak promocji obejmujących listopad 2027 (strony linii, fora, travel-dealz, AeroRoutes, hotele). Kampania Iberia + Visit Argentina rusza jutro (12.11) – nadal bez podanego okna podróży, przykłady dotyczą I–II 2027; sprawdzenie 13.11. Air Europa pokazuje Madryt–Buenos Aires od 943 EUR w obie strony (III–IV 2027), czyli kompletna podróż ok. 5 600 zł/os. – daleko od celu 4 000 zł. Hotele: żadnej oferty z pobytem w listopadzie 2027; strony Mr & Mrs Smith (Casa de Uco) nie udało się dziś odczytać, więc rabat −15% pozostaje niepotwierdzony w tym odczycie.",
+ "zaktualizowano": "2026-11-13",
+ "nastepny": "2026-11-18",
+ "status": "Odczyt 13.11.2026: brak promocji lotniczych obejmujących listopad 2027. Kampania Iberia + Visit Argentina ruszyła 12.11, ale okna podróży nadal nie opublikowano (strony Iberii nie dało się odczytać automatycznie; przykłady dotyczą II–III 2027, taryfa bez bagażu) – nie prowadzi do celu 4 000 zł. Hotele: Mr & Mrs Smith potwierdza −15% w Casa de Uco przy 3+ nocach z pobytem do 20.12.2027, ale z ceną wyjściową 650 USD za noc – do wyjaśnienia w zapytaniu grupowym.",
  "zrodla": [
   "fly4free.pl (tag argentyna, Ameryka Południowa)",
   "forum fly4free.pl",
@@ -15,6 +15,18 @@
   "hotele: Mr & Mrs Smith (Casa de Uco), Chozos, Lares de Chacras, La Morada, Legado Mítico"
  ],
  "wpisy": [
+  {
+   "data": "2026-11-13",
+   "zrodlo": "Mr & Mrs Smith",
+   "tytul": "Casa de Uco: −15% przy pobycie od 3 nocy, ze śniadaniem",
+   "url": "https://www.mrandmrssmith.com/luxury-hotels/casa-de-uco/offers",
+   "cena": "ok. 552 USD za noc po rabacie (cena wyjściowa na stronie 650 USD)",
+   "trasa": "hotel – Valle de Uco",
+   "terminy": "rezerwacja i pobyt do 20.12.2027 – obejmuje 9–12.11.2027",
+   "bagaz": "–",
+   "pasuje": "tak",
+   "ocena": "Oferta znana od października, dziś potwierdzona na stronie z nowym adresem. Uwaga: strona pokazuje cenę wyjściową 650 USD za noc (po rabacie ok. 552 USD) bez podania kategorii pokoju – w budżecie liczymy Laguna Suite po 500 USD. Jeśli 650 USD dotyczy Laguna Suite, trzy noce wyjdą o ok. 610 zł na parę drożej; rozstrzygnie zapytanie grupowe w styczniu. Jest też −15% za rezerwację 90+ dni wcześniej (do sprawdzenia, czy się łączy)."
+  },
   {
    "data": "2026-11-03",
    "zrodlo": "Fly4free.com",
