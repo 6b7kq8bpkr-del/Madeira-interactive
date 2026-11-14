@@ -160,6 +160,14 @@
  ],
  "sygnaly": [
   {
+   "data": "2026-11-13",
+   "typ": "Konkurencja",
+   "kierunek": "wzrost",
+   "waga": 2,
+   "opis": "Plus Ultra ma wycofać się z tras do Buenos Aires i Limy (El Economista: wniosek przedupadłościowy i zwolnienia grupowe; sprzedaż biletów już wstrzymana, daty ostatniego lotu oficjalnie nie podano). Trasa Madryt–Buenos Aires była już ograniczona z pięciu do dwóch lotów tygodniowo. Dla nas: odpada najtańszy wzorzec z Madrytu (585 EUR z bagażem) i znika tani konkurent Iberii i Air Europy – nie planować zakupu u tej linii.",
+   "url": "https://www.sirchandler.com.ar/2026/11/en-espana-informan-que-plus-ultra-dejaria-de-volar-a-buenos-aires/"
+  },
+  {
    "data": "2026-11-12",
    "typ": "Konkurencja",
    "kierunek": "wzrost",
@@ -447,7 +455,7 @@
  ],
  "skrzynka": [],
  "rss": {
-  "sprawdzono": "2026-11-13 10:54",
+  "sprawdzono": "2026-11-14 10:48",
   "kanaly": [
    {
     "zrodlo": "Fly4free.pl",
@@ -491,12 +499,12 @@
    },
    {
     "zrodlo": "Wakacyjni Piraci",
-    "wpisy": 29,
+    "wpisy": 36,
     "ok": true
    },
    {
     "zrodlo": "HolidayPirates",
-    "wpisy": 63,
+    "wpisy": 67,
     "ok": true
    },
    {
@@ -526,6 +534,42 @@
    }
   ],
   "trafienia": [
+   {
+    "zrodlo": "Sir Chandler",
+    "tytul": "En España informan que Plus Ultra dejaría de volar a Buenos Aires",
+    "url": "https://www.sirchandler.com.ar/2026/11/en-espana-informan-que-plus-ultra-dejaria-de-volar-a-buenos-aires/",
+    "data": "2026-11-13",
+    "opis": " Según publica el medio español El Economista, Plus Ultra está preparando una importante reestructuración que incluiría la presentación de un preconcurso de acreedores y un ERE (expediente de regulación de empleo) que afectaría a buena parte de sus aproximadamente 679 empleados. Esto último es básicamente un procedimiento para reducir personal por motivos económicos u organizativos. Curiosamente..",
+    "sila": "silne",
+    "tryb": "ar"
+   },
+   {
+    "zrodlo": "Infoviajera",
+    "tytul": "Iberia ya ofrece internet gratuito de Starlink en toda su flota de Airbus A321XLR",
+    "url": "https://www.infoviajera.com/2026/11/iberia-ya-ofrece-internet-gratuito-de-starlink-en-toda-su-flota-de-airbus-a321xlr/",
+    "data": "2026-11-12",
+    "opis": " La aerolínea española Iberia completó la instalación del servicio de internet satelital Starlink en todos sus aviones Airbus A321XLR. De esta manera, los pasajeros que vuelen en cualquiera de las ocho aeronaves de este modelo ya pueden conectarse a internet de alta velocidad de forma gratuita, sin importar la clase o el tipo de billete. La última aeronave que recibió la instalación fue el A321XLR",
+    "sila": "silne",
+    "tryb": "ar"
+   },
+   {
+    "zrodlo": "Infoviajera",
+    "tytul": "Aeropuerto de Ezeiza: reabrieron por completo la pista principal y avanzan las obras de renovación",
+    "url": "https://www.infoviajera.com/2026/11/aeropuerto-de-ezeiza-reabrieron-por-completo-la-pista-principal-y-avanzan-las-obras-de-renovacion/",
+    "data": "2026-11-12",
+    "opis": " Aeropuertos Argentina finalizó las obras de renovación de la intersección entre las dos pistas del Aeropuerto Internacional de Ezeiza (Buenos Aires) y rehabilitó por completo la pista 11-29. Los trabajos se realizaron según el cronograma previsto y sin suspender las operaciones del aeropuerto. La pista quedó habilitada en toda su extensión el 11 de noviembre de 2026, a las 4 de la madrugada. El p",
+    "sila": "silne",
+    "tryb": "ar"
+   },
+   {
+    "zrodlo": "Sir Chandler",
+    "tytul": "Plus Ultra no vende vuelos entre Ezeiza y Madrid ¿Error?",
+    "url": "https://www.sirchandler.com.ar/2026/11/plus-ultra-no-vende-vuelos-entre-ezeiza-y-madrid-error/",
+    "data": "2026-11-12",
+    "opis": " Plus Ultra no está vendiendo pasajes en su web entre Madrid y Ezeiza. No aparecen los resultados al buscar en el sitio Esto fue reportado por varios lectores, también Ratamundo lo publicó esta mañana. Si uno usa su buscador, permite imaginar cuando hay vuelos, porque da esas fechas Pero si uno quiere avanzar ya con... \n La entrada  Plus Ultra no vende vuelos entre Ezeiza y Madrid ¿Error?  se publ",
+    "sila": "silne",
+    "tryb": "ar"
+   },
    {
     "zrodlo": "Sir Chandler",
     "tytul": "La pista principal de Ezeiza volvió a estar operativa",
