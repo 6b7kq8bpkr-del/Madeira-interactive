@@ -297,7 +297,7 @@ async function withLoty(mutate, hash, fn) {
   const { pg, log } = await open(1300, 'light', '#decyzje');
   const r = await pg.evaluate(() => ({
     open: document.querySelectorAll('#dgrid .dc').length, closed: document.querySelectorAll('.dclosed .dc').length, rek: document.querySelectorAll('#dgrid .dop li.rek').length,
-    next: document.querySelectorAll('#dnext .dn').length, nextP: document.querySelectorAll('#dnext .dn li').length, kam: document.querySelectorAll('#dnext .dn li a[href="#kalendarz"]').length, today: !!document.querySelector('#os .ostoday'), vis: document.querySelectorAll('#os li.osi:not([hidden])').length, all: document.querySelectorAll('#os li.osi').length,
+    next: document.querySelectorAll('#dnext .dn:not(.late)').length, nextP: document.querySelectorAll('#dnext .dn li').length, kam: document.querySelectorAll('#dnext .dn li a[href="#kalendarz"]').length, today: !!document.querySelector('#os .ostoday'), vis: document.querySelectorAll('#os li.osi:not([hidden])').length, all: document.querySelectorAll('#os li.osi').length,
     tnext: document.querySelector('[data-tnext]').textContent, pig: document.querySelectorAll('.pigt tbody tr').length, pigLinks: [...document.querySelectorAll('.pigt tbody a')].every(a => document.getElementById(a.getAttribute('href').slice(1))),
     ug: document.querySelectorAll('#przygotowania .ug').length, ugN: [...document.querySelectorAll('#przygotowania .ug summary')].reduce((a, s) => a + +(s.textContent.match(/\((\d+)\)/) || [0, 0])[1], 0), uw: window.UCO.prog.uwagi.length,
   }));
