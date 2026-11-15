@@ -1,7 +1,7 @@
 {
- "zaktualizowano": "2026-11-10",
- "status": "Stan na 10.11.2026: cen podróży na nasze daty jeszcze nie ma, bo linie sprzedają 330–361 dni naprzód i nie otworzyły powrotu 13.11.2027. Pierwsze ceny w obie strony do Buenos Aires pojawią się ok. 17–19.11 (Air Europa, Iberia, Lufthansa, Air France/KLM; Turkish 24.11), cały bilet do Mendozy ok. 17–18.12 (Aerolíneas, LATAM). Dla porównania Warszawa–Buenos Aires na inne terminy kosztuje dziś od ok. 4 480 zł, a cel 4 000 zł za całość oznacza taki bilet z bagażem za ok. 3 350 zł. Kampania Iberia + Visit Argentina (od 12.11) nie prowadzi do celu. Następne odczyty: 13.11 (kampania Iberii), 15.11 (monitor), 20.11 (pierwsze ceny w obie strony).",
- "nastepny": "2026-11-15",
+ "zaktualizowano": "2026-11-15",
+ "status": "Stan na 15.11.2026: cen na nasze daty nadal nie ma – powrót 13.11.2027 wejdzie do sprzedaży ok. 17–19.11 (Buenos Aires), a cały bilet do Mendozy ok. 17–18.12. Ceny odniesienia na inne terminy: Warszawa–Buenos Aires od ok. 3 450 zł w najtańszych tygodniach (luty–marzec), typowo 5 000–6 400 zł; cel 4 000 zł za całość oznacza taki bilet z bagażem za ok. 3 350 zł. Plus Ultra zawiesza loty do Buenos Aires (postępowanie przedupadłościowe) – znika najtańszy przewoźnik z Madrytu. Następne odczyty: 20.11 (pierwsze ceny w obie strony), 1.12 (monitor), 18.12 (pełna wycena z Mendozą).",
+ "nastepny": "2026-12-01",
  "prog": 4800,
  "cel": 4000,
  "serie": [
@@ -156,9 +156,28 @@
     "opis": "powrót 13.11.2027 jeszcze nie jest w sprzedaży"
    },
    "uwaga": "Korekta kalendarza: Iberia sprzedaje ok. 360 dni naprzód (nie 330). Ceny w obie strony do Buenos Aires od ok. 17–19.11, cały bilet do Mendozy od ok. 17–18.12. Kursy NBP 9.11: EUR 4,39, USD 3,92. Punkt odniesienia: WAW–EZE od 4 476 zł na inne terminy."
+  },
+  {
+   "data": "2026-11-15",
+   "zrodlo": "monitor (1./15.)",
+   "faza": "Otwarcie sprzedaży",
+   "najtansza": {
+    "id": "calosc",
+    "cena": null,
+    "opis": "brak cen na 5–13.11.2027 – powrót 13.11.2027 nie jest jeszcze w sprzedaży"
+   },
+   "uwaga": "Kayak dla dat 5–13.11.2027 nie zwraca wyników, żadna z odczytanych stron nie pokazuje taryfy na listopad 2027 – zgodnie z kalendarzem (pierwsze ceny do Buenos Aires ok. 17–19.11). Stron Iberii, Air Europy i Turkish nie dało się odczytać automatycznie, więc liczby dni w tabeli sprzedaży pozostają niepotwierdzone do odczytu 20.11. Ceny odniesienia na inne terminy: Warszawa–Buenos Aires od 3 445 zł (Kayak, przez Madryt, II–III), Ethiopian 4 059 zł (Momondo, 1–15.12.2026), Turkish 4 537–4 581 zł (III 2027); średnia z 12 miesięcy 5 697 zł, najtańszy miesiąc wrzesień (mediana 5 152 zł), październik 6 280 zł. Madryt–Buenos Aires od 544 EUR (Avianca, II), Iberia ok. 851 EUR, Air Europa bezpośrednio od 1 099 EUR."
   }
  ],
  "sygnaly": [
+  {
+   "data": "2026-11-14",
+   "typ": "Konkurencja",
+   "kierunek": "wzrost",
+   "waga": 2,
+   "opis": "El Economista: Plus Ultra zawiesza wszystkie loty poza Wenezuelą i przygotowuje postępowanie przedupadłościowe oraz zwolnienia grupowe (ok. 679 osób); bilety do Buenos Aires i Limy zniknęły ze sprzedaży, powód – nierentowność przy drogim paliwie. Potwierdza sygnał z 13.11: na trasie Madryt–Buenos Aires zostają Iberia, Air Europa i Aerolíneas.",
+   "url": "https://www.eleconomista.es/transportes-turismo/noticias/14027551/11/26/plus-ultra-suspende-todos-sus-vuelos-salvo-venezuela-y-prepara-preconcurso-de-acreedores-y-un-erte-para-mas-de-500-trabajadores.html"
+  },
   {
    "data": "2026-11-13",
    "typ": "Konkurencja",
