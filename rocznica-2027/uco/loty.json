@@ -474,7 +474,7 @@
  ],
  "skrzynka": [],
  "rss": {
-  "sprawdzono": "2026-11-14 10:48",
+  "sprawdzono": "2026-11-15 10:48",
   "kanaly": [
    {
     "zrodlo": "Fly4free.pl",
@@ -503,7 +503,7 @@
    },
    {
     "zrodlo": "Travel-dealz · Argentyna",
-    "wpisy": 11,
+    "wpisy": 10,
     "ok": true
    },
    {
@@ -518,12 +518,12 @@
    },
    {
     "zrodlo": "Wakacyjni Piraci",
-    "wpisy": 36,
+    "wpisy": 32,
     "ok": true
    },
    {
     "zrodlo": "HolidayPirates",
-    "wpisy": 67,
+    "wpisy": 31,
     "ok": true
    },
    {
@@ -553,6 +553,15 @@
    }
   ],
   "trafienia": [
+   {
+    "zrodlo": "Infoviajera",
+    "tytul": "Plus Ultra suspendería sus vuelos a Argentina y Perú, según medios españoles",
+    "url": "https://www.infoviajera.com/2026/11/plus-ultra-suspenderia-sus-vuelos-a-argentina-y-peru-segun-medios-espanoles/",
+    "data": "2026-11-13",
+    "opis": " La aerolínea  Plus Ultra vuelve a preocupar a quienes tienen vuelos reservados con la aerolínea española. En las últimas horas, distintos medios de España publicaron nueva información sobre la delicada situación financiera y operativa de la compañía, que incluiría la suspensión de sus rutas hacia Argentina y Perú, una reducción de flota y un proceso de reestructuración laboral. La noticia llega d",
+    "sila": "silne",
+    "tryb": "ar"
+   },
    {
     "zrodlo": "Sir Chandler",
     "tytul": "En España informan que Plus Ultra dejaría de volar a Buenos Aires",
