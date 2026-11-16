@@ -14,6 +14,7 @@ Pliki `../uco/data.js`, `../uco/index.html` i `../uco/plan.ics` są generowane �
 | `tests/smoke.mjs` | testy w przeglądarce (Playwright) |
 
 `../uco/loty.json` i `../uco/promocje.json` nie są generowane – aktualizują je zaplanowani agenci (monitor cen, radar promocji, skrzynka alertów).
+Codzienny raport lotów (`raport` w `loty.json`) powstaje według [RAPORT.md](RAPORT.md); fakty dnia liczy `../uco/tools/raport_fakty.py`.
 
 ## Budowanie
 

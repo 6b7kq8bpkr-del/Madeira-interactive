@@ -797,7 +797,7 @@ footer a { color: var(--ink-2); }
     var F = P.loty;
     function dpl(x) { if (!x) return ''; var p = String(x).split('-'); return p.length === 3 ? esc(p[2] + '.' + p[1] + '.' + p[0]) : esc(x); }
     var LT = [['decyzja', 'Decyzja', 'ceny, kalkulator, progi'], ['radar', 'Radar', 'sygnały, wyprzedaże, promocje'], ['plan', 'Kalendarz', 'fazy zakupu'], ['szukaj', 'Jak szukać', 'scenariusze i narzędzia'], ['zadania', 'Alerty i zadania', 'co zrobić samemu']];
-    h += band('loty') + '<section class="blk" id="loty" style="background:var(--paper)"><div class="wrap"><div class="sh"><div><p class="eyebrow">Warszawa → Mendoza → Buenos Aires · wylot 4.11 (po 20:00) lub 5.11 · lądowanie najpóźniej 14.11.2027</p><h2>Loty</h2><p class="lead2">Pulpit zakupu biletów: co robić teraz, gdzie są ceny wobec celu 4 000 zł i progu 4 800 zł na osobę i co zapowiada rynek. Dane odświeżają agenci – codziennie radar promocji, w poniedziałki i czwartki skrzynka alertów z Gmaila, 1. i 15. pełny monitor cen.</p><details class="ctx"><summary>Kontekst cenowy z października 2026</summary><p>' + esc(F.intro) + '</p></details></div></div>' +
+    h += band('loty') + '<section class="blk" id="loty" style="background:var(--paper)"><div class="wrap"><div class="sh"><div><p class="eyebrow">Warszawa → Mendoza → Buenos Aires · wylot 4.11 (po 20:00) lub 5.11 · lądowanie najpóźniej 14.11.2027</p><h2>Loty</h2><p class="lead2">Pulpit zakupu biletów: co robić teraz, gdzie są ceny wobec celu 4 000 zł i progu 4 800 zł na osobę i co zapowiada rynek. Dane odświeżają agenci – codziennie raport lotów i radar promocji, w poniedziałki i czwartki skrzynka alertów z Gmaila, 1. i 15. pełny monitor cen.</p><details class="ctx"><summary>Kontekst cenowy z października 2026</summary><p>' + esc(F.intro) + '</p></details></div></div>' +
       skala(F.skala) +
       '<div class="raport" id="raport" hidden></div>' +
       '<div class="cockpit" id="teraz"><p class="st">Ładowanie stanu…</p></div>' +
@@ -1047,7 +1047,7 @@ footer a { color: var(--ink-2); }
       var RPB = document.getElementById('raport'), R = M.raport;
       if (RPB && R && R.data) {
         var rAgeD = days(R.data, td);
-        RPB.innerHTML = '<p class="eyebrow">Raport lotów · ' + pl2(R.data) + (rAgeD > 20 ? ' · ⚠ sprzed ' + rAgeD + ' dni' : '') + '</p><h3>' + esc(R.werdykt || '') + '</h3>' +
+        RPB.innerHTML = '<p class="eyebrow">Raport lotów · ' + pl2(R.data) + (rAgeD > 2 ? ' · ⚠ sprzed ' + rAgeD + ' dni' : '') + '</p><h3>' + esc(R.werdykt || '') + '</h3>' +
           (R.punkty && R.punkty.length ? '<ul class="rpp">' + R.punkty.map(function (x) { return '<li><b>' + esc(x[0]) + '</b> ' + esc(x[1]) + '</li>'; }).join('') + '</ul>' : '') +
           (R.teraz && R.teraz.length ? '<div class="rpt"><span class="cl">Co dalej</span><ol>' + R.teraz.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ol></div>' : '') +
           (R.zrodla && R.zrodla.length ? '<details class="ctx"><summary>Źródła raportu (' + R.zrodla.length + ')</summary><p>' + R.zrodla.map(function (z) { return '<a href="' + esc(z.url) + '" target="_blank" rel="noopener">' + esc(z.label) + '</a>'; }).join(' · ') + '</p></details>' : '');
