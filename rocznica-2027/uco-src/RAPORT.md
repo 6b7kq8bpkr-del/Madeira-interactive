@@ -19,7 +19,7 @@ W `../uco/loty.json`:
 
 W `data/program.json` – tylko te pola i tylko wtedy, gdy dzisiejsze fakty im przeczą:
 
-- `loty.kalendarz.fazy[]` bieżącej fazy: `decyzja` (pokazuje się na górze strony jako „Teraz” – ma mówić, co robić dziś), `co`, `automat`;
+- `loty.kalendarz.fazy[]` bieżącej fazy: `decyzja` (pokazuje się na górze strony jako „Teraz” – ma mówić, co robić dziś; najwyżej 330 znaków, bo trafia też do podsumowania dla par), `co`, `automat`;
 - `loty.zadania[]`: `od`, `do`, `opis` – gdy zadania nie da się wykonać w terminie albo zmienił się sposób;
 - `loty.okna.linie[].dni` i `loty.okna.zrodlo` – gdy wyszukiwarka pokazuje inną datę otwarcia sprzedaży niż tabela. Wyjątek: Iberia i Aerolíneas Argentinas są przypięte w testach – różnicę tylko zgłoś;
 - `budzet.kursy.USD`, `data`, `zrodlo` – wyłącznie gdy skrypt wypisze „PRZELICZYĆ BUDŻET” (odchylenie ≥ 3%). `EUR` nie zmieniasz (kurs 4,39 jest przypięty w testach) – zgłoś.

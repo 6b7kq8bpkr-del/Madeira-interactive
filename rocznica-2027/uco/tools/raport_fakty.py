@@ -20,6 +20,7 @@ def check():
     if len(r.get("punkty") or []) < 4 or any(len(x) != 2 or not all(isinstance(s, str) and s for s in x) for x in r.get("punkty") or []): err.append("punkty: co najmniej 4 pary [nagłówek, treść]")
     if len(r.get("teraz") or []) < 2: err.append("teraz: co najmniej 2 kroki")
     if len(r.get("zrodla") or []) < 3 or any(not str(z.get("url", "")).startswith("https://") or not z.get("label") for z in r.get("zrodla") or []): err.append("zrodla: co najmniej 3, każde z label i adresem https")
+    if any(len(f["decyzja"]) > 330 for f in P["loty"]["kalendarz"]["fazy"]): err.append("decyzja fazy ma ponad 330 znaków (podsumowanie dla par dopuszcza linie do 400)")
     if err: sys.exit("raport lotów: " + "; ".join(err))
     print("ok: raport lotów z", pl(TODAY))
 
