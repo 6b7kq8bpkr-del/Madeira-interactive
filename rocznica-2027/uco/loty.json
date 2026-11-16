@@ -1,6 +1,6 @@
 {
- "zaktualizowano": "2026-11-15",
- "status": "Stan na 15.11.2026: cen na nasze daty nadal nie ma – powrót 13.11.2027 wejdzie do sprzedaży ok. 17–19.11 (Buenos Aires), a cały bilet do Mendozy ok. 17–18.12. Ceny odniesienia na inne terminy: Warszawa–Buenos Aires od ok. 3 450 zł w najtańszych tygodniach (luty–marzec), typowo 5 000–6 400 zł; cel 4 000 zł za całość oznacza taki bilet z bagażem za ok. 3 350 zł. Plus Ultra zawiesza loty do Buenos Aires (postępowanie przedupadłościowe) – znika najtańszy przewoźnik z Madrytu. Następne odczyty: 20.11 (pierwsze ceny w obie strony), 1.12 (monitor), 18.12 (pełna wycena z Mendozą).",
+ "zaktualizowano": "2026-11-17",
+ "status": "Stan na 17.11.2026: są pierwsze ceny w obie strony na 5–13.11.2027, ale tylko od linii pobocznych – Warszawa–Buenos Aires od 6 457 zł, Madryt–Buenos Aires od 5 368 zł, bez bagażu; powrót 13.11 sprzedają na razie Boliviana i Avianca. Ceny Iberii, Air Europy, Lufthansy i Air France/KLM ok. 18–20.11, cały bilet do Mendozy ok. 18.12. Plus Ultra zawiesza loty do Buenos Aires. Dolar 4,00 zł (budżet liczony po 3,91). Jeszcze nie kupujemy; szczegóły w raporcie lotów wyżej. Następny monitor cen: 1.12.",
  "nastepny": "2026-12-01",
  "prog": 4800,
  "cel": 4000,
@@ -838,8 +838,8 @@
     "NBP 16.11.2026: 1 USD = 4,00 zł, 1 EUR = 4,40 zł. Budżet jest liczony po 3,91 zł za dolara; dolar jest o 2,3% droższy, co podnosi wariant polecany o ok. 380 zł na parę – zapas do sufitu 28 000 zł spada z 935 do ok. 560 zł (trzy pary, loty po 4 800 zł/os.). Budżet przeliczamy, gdy odchylenie przekroczy 3%, czyli przy kursie od 4,03 zł."
    ],
    [
-    "Do poprawienia na stronie:",
-    "zadanie „Google Flights: śledź ceny” ma termin 20.11, ale Google Flights odrzuca dziś nasze daty jako zbyt odległe (pokazuje ok. 330 dni naprzód) – alert na 5–13.11.2027 da się ustawić dopiero ok. 18.12; do tego czasu działa alert na trasę bez dat albo Kayak. ITA sprzedaje już wylot 5.11.2027, choć tabela zakłada 330 dni. Zadanie „Newslettery” z 14.11 jest po terminie."
+    "Poprawione na stronie:",
+    "termin zadania „Google Flights: śledź ceny” przesunięty z 20.11 na 18.12 (Google Flights pokazuje loty najwyżej ok. 330 dni naprzód i dziś odrzuca nasze daty); opis fazy „Otwarcie sprzedaży” uwzględnia pierwsze ceny. Do sprawdzenia: ITA sprzedaje już wylot 5.11.2027, choć tabela zakłada 330 dni. Zadanie „Newslettery” z 14.11 jest po terminie."
    ]
   ],
   "teraz": [
@@ -881,6 +881,7 @@
     "label": "Sir Chandler: powrót lotów do Ezeizy",
     "url": "https://www.sirchandler.com.ar/2026/11/las-aerolineas-de-vuelos-largos-listas-para-operar-de-nuevo-en-ezeiza/"
    }
-  ]
+  ],
+  "stan": "Kompletnej podróży na nasze daty nie da się jeszcze wycenić. Pierwsze ceny do Buenos Aires na 5–13.11.2027 (Kayak, 17.11): z Warszawy od 6 457 zł, z Madrytu od 5 368 zł, obie bez bagażu i tylko od linii pobocznych. Ceny Iberii, Air Europy i Lufthansy ok. 18–20.11, cały bilet do Mendozy ok. 18.12.2026."
  }
 }

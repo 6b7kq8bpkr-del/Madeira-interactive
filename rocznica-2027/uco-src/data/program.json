@@ -1454,9 +1454,9 @@
      "od": "2026-11-10",
      "do": "2026-11-26",
      "faza": "Otwarcie sprzedaży",
-     "co": "Linie z 359–361-dniowym kalendarzem (Air Europa, Iberia, Lufthansa, Air France/KLM) otwierają powrót 13.11.2027 między 17 a 19.11, Turkish 24.11 – od tego dnia istnieją pierwsze ceny w obie strony Warszawa–Buenos Aires i Madryt–Buenos Aires. Zapisać je jako punkt odniesienia i ustawić alerty Google Flights na te dwie trasy. Równolegle sprawdzić, czy kampania Iberia + Visit Argentina (sprzedaż 12.11.2026–31.05.2027, od 425 EUR za odcinek Madryt–Buenos Aires, Básica bez bagażu; opublikowano tylko daty wyłączone) dopuszcza podróże w listopadzie 2027, i wycenić taryfę Star Alliance/United open-jaw Europa → Buenos Aires → Berlin/Wiedeń (23 kg, reguły obejmują 1.09–9.12.2027; liczy się tylko wariant z wylotem z Buenos Aires 12.11). Cały bilet do Mendozy jeszcze się nie wyceni – Aerolíneas i LATAM sprzedają 330 dni naprzód.",
-     "automat": "Agent 13.11 i 20.11 · monitor 15.11",
-     "decyzja": "Do 17–19.11 nie ma jeszcze czego kupować – linie nie sprzedają powrotu 13.11.2027. Potem kupić od razu tylko przy ≤ 4 000 zł/os. za kompletną podróż z bagażem (np. Warszawa–Buenos Aires z bagażem ≤ ok. 3 350 zł); droższe ceny zapisać jako punkt odniesienia. Nie brać ceny w jedną stronę za cenę podróży.",
+     "co": "Linie z 359–361-dniowym kalendarzem (Air Europa, Iberia, Lufthansa, Air France/KLM) otwierają powrót 13.11.2027 między 17 a 19.11, Turkish 24.11 – od tego dnia istnieją pierwsze ceny w obie strony Warszawa–Buenos Aires i Madryt–Buenos Aires. Zapisać je jako punkt odniesienia. Google Flights pokazuje loty najwyżej ok. 330 dni naprzód, więc alerty na nasze daty da się tam ustawić dopiero ok. 18.12 – do tego czasu ceny czyta codzienny raport w Kayaku. Równolegle sprawdzić, czy kampania Iberia + Visit Argentina (sprzedaż 12.11.2026–31.05.2027, od 425 EUR za odcinek Madryt–Buenos Aires, Básica bez bagażu; opublikowano tylko daty wyłączone) dopuszcza podróże w listopadzie 2027, i wycenić taryfę Star Alliance/United open-jaw Europa → Buenos Aires → Berlin/Wiedeń (23 kg, reguły obejmują 1.09–9.12.2027; liczy się tylko wariant z wylotem z Buenos Aires 12.11). Cały bilet do Mendozy jeszcze się nie wyceni – Aerolíneas i LATAM sprzedają 330 dni naprzód.",
+     "automat": "Raport lotów codziennie · monitor 15.11 i 1.12",
+     "decyzja": "Pierwsze ceny na nasze daty już są, ale tylko od linii pobocznych: 17.11 Warszawa–Buenos Aires od 6 457 zł bez bagażu. Jeszcze nie kupujemy – ceny Iberii, Air Europy, Lufthansy i Air France/KLM powinny pojawić się 18–20.11. Kupić od razu tylko przy ≤ 4 000 zł/os. za kompletną podróż z bagażem (np. Warszawa–Buenos Aires z bagażem ≤ ok. 3 350 zł); droższe ceny zapisać jako punkt odniesienia. Nie brać ceny w jedną stronę za cenę podróży.",
      "ton": "sprawdz",
      "szansa": 0.8,
      "kr": "Start"
@@ -1660,9 +1660,9 @@
    {
     "id": "gf",
     "t": "Google Flights: „Śledź ceny” – najpierw Buenos Aires, potem Mendoza",
-    "od": "2026-11-20",
-    "do": "2026-11-20",
-    "opis": "Od ok. 19.11 da się śledzić WAW–EZE i MAD–EZE na 5→13.11.2027; WAW–MDZ, multi-city ze stopoverem i lot krajowy dopiero od ok. 18.12, gdy sprzedaż otworzą Aerolíneas i LATAM. Linki są na liście obok. Alerty idą na Gmail, agent przenosi je na stronę.",
+    "od": "2026-12-18",
+    "do": "2026-12-18",
+    "opis": "Google Flights pokazuje loty najwyżej ok. 330 dni naprzód: alert na 5→13.11.2027 (WAW–EZE, MAD–EZE, WAW–MDZ, multi-city ze stopoverem i lot krajowy) da się ustawić dopiero ok. 18.12.2026. Do tego czasu ceny na nasze daty czyta codzienny raport lotów. Linki są na liście obok. Alerty idą na Gmail, agent przenosi je na stronę.",
     "link": [
      "Google Flights",
      "https://www.google.com/travel/flights"
@@ -1871,7 +1871,7 @@
      "mdz": true
     }
    ],
-   "zrodlo": "Liczba dni według kalendarzy linii (AwardFares, lipiec 2026; Thrifty Traveler) – przy sprzedaży gotówkowej może się różnić o kilka dni, dla LATAM przyjęte typowe 330. Monitor potwierdzi to przy odczytach 15.11, 20.11 i 18.12."
+   "zrodlo": "Liczba dni według kalendarzy linii (AwardFares, lipiec 2026; Thrifty Traveler) – przy sprzedaży gotówkowej może się różnić o kilka dni, dla LATAM przyjęte typowe 330. Codzienny raport lotów sprawdza to w wyszukiwarce; 17.11.2026 ITA sprzedawała już wylot 5.11.2027, czyli dalej niż przyjęte 330 dni."
   },
   "wyzwalacze": {
    "tytul": "Jaka cena w wyszukiwarce oznacza cel?",

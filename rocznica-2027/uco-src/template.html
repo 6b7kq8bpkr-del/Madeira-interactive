@@ -984,7 +984,7 @@ footer a { color: var(--ink-2); }
           o += '<h4>Trend cen</h4>' + g;
         }
       } else {
-        o += '<div class="empty"><b>Jeszcze bez cen na nasze daty.</b> Linie sprzedają 330–361 dni naprzód: pierwsze ceny w obie strony do Buenos Aires pojawią się ok. 17–19.11.2026, cały bilet do Mendozy ok. 17–18.12.2026 (<a href="#okna">kalendarz otwarcia sprzedaży</a>). Do tego czasu niżej widełki orientacyjne z października 2026.</div>';
+        o += '<div class="empty"><b>Jeszcze bez wyceny kompletnej podróży.</b> ' + (M.raport && M.raport.stan ? esc(M.raport.stan) : 'Linie sprzedają 330–361 dni naprzód: pierwsze ceny w obie strony do Buenos Aires pojawią się ok. 17–19.11.2026, cały bilet do Mendozy ok. 17–18.12.2026.') + ' <a href="#okna">Kalendarz otwarcia sprzedaży</a>. Niżej widełki orientacyjne z października 2026.</div>';
       }
       var mx = 0; priced.forEach(function (s) { H(s).forEach(function (x) { mx = Math.max(mx, x.cena); }); });
       function row(s, i) { var l = last(s), p = prev(s), h = H(s), mn = h.length ? Math.min.apply(null, h.map(function (x) { return x.cena; })) : null;
@@ -1028,6 +1028,7 @@ footer a { color: var(--ink-2); }
       var done = tdDone(), best = priced[0] ? last(priced[0]) : null;
       var skm = document.getElementById('skm'), skn = document.getElementById('skn');
       if (skm && best) { var cl = celNow(); skm.hidden = false; skm.style.left = SKP(best.cena).toFixed(2) + '%'; skm.title = nf(best.cena) + '\u00a0zł'; skn.innerHTML = 'Najlepsza kompletna podróż teraz: <b>' + nf(best.cena) + '\u00a0zł / os.</b> (' + esc(priced[0].linia) + ', ' + pl2(best.data) + ') – ' + (best.cena <= cl ? 'w celu' : nf(best.cena - cl) + '\u00a0zł do celu ' + nf(cl)) + '.'; }
+      else if (skn && M.raport && M.raport.stan) skn.textContent = nb(M.raport.stan);
       var c = '<div class="ck4">';
       c += '<div class="cc cphase"><span class="cl">Faza teraz</span>' + (faza ? '<b>' + esc(faza.faza) + '</b><small>' + pl2(faza.od) + ' – ' + pl2(faza.do) + '</small><p>' + esc(faza.decyzja) + '</p>' : nextF ? '<b>Przed startem</b><small>do ' + pl2(nextF.od) + ' (za ' + days(td, nextF.od) + ' dni)</small><p>Teraz tylko przygotowania z listy zadań – powrót 13.11.2027 nie jest jeszcze w sprzedaży, więc cen podróży nie ma. Następnie: ' + esc(nextF.faza) + ' (' + pl2(nextF.od) + ').</p>' : '<b>Po zakupie</b>') + '<a href="#kalendarz" data-lgo="plan">kalendarz →</a></div>';
       c += '<div class="cc cprice ' + (best ? kl(best.cena) : 'n') + '"><span class="cl">Najlepsza kompletna podróż</span>' + (best ? '<b>' + nf(best.cena) + '\u00a0zł / os.</b><small>' + esc(priced[0].linia) + ' · ' + pl2(best.data) + '</small><p>' + badge(best.cena) + ' ' + (best.cena <= prog ? nf(prog - best.cena) + '\u00a0zł poniżej progu' : nf(best.cena - prog) + '\u00a0zł ponad próg') + '</p>' : '<b>brak wyceny</b><small>ceny do Buenos Aires ok. 17–19.11.2026, cały bilet do Mendozy ok. 17–18.12.2026</small><p>Cel ' + nf(celNow()) + '\u00a0zł, próg ' + nf(prog) + '\u00a0zł/os. Ofertę spoza monitora sprawdź w kalkulatorze.</p>') + '<a href="#kalk" data-lgo="decyzja">kalkulator i ranking →</a></div>';
