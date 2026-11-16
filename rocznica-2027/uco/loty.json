@@ -474,7 +474,7 @@
  ],
  "skrzynka": [],
  "rss": {
-  "sprawdzono": "2026-11-15 10:48",
+  "sprawdzono": "2026-11-16 10:48",
   "kanaly": [
    {
     "zrodlo": "Fly4free.pl",
@@ -518,12 +518,12 @@
    },
    {
     "zrodlo": "Wakacyjni Piraci",
-    "wpisy": 32,
+    "wpisy": 20,
     "ok": true
    },
    {
     "zrodlo": "HolidayPirates",
-    "wpisy": 31,
+    "wpisy": 8,
     "ok": true
    },
    {
@@ -553,6 +553,15 @@
    }
   ],
   "trafienia": [
+   {
+    "zrodlo": "Sir Chandler",
+    "tytul": "World2fly: los números de la aerolínea y el vuelo a Rosario",
+    "url": "https://www.sirchandler.com.ar/2026/11/world2fly-los-numeros-de-la-aerolinea-y-el-vuelo-a-rosario/",
+    "data": "2026-11-15",
+    "opis": " Hace unos días se habló de los números de Iberia y del grupo IAG en general, diciendo que es la empresa que mejores beneficios está teniendo en Europa. Si, Iberia es una de las aerolíneas europeas con mejor rentabilidad. Esto salió en parte porque con la venta de acciones de TAP que terminó comprando el... \n La entrada  World2fly: los números de la aerolínea y el vuelo a Rosario  se publicó prime",
+    "sila": "silne",
+    "tryb": "ar"
+   },
    {
     "zrodlo": "Infoviajera",
     "tytul": "Plus Ultra suspendería sus vuelos a Argentina y Perú, según medios españoles",
