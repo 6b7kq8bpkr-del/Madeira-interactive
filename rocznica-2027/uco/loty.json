@@ -1,6 +1,6 @@
 {
  "zaktualizowano": "2026-11-17",
- "status": "Stan na 17.11.2026: powrót 13.11.2027 sprzedają już Air Europa i Swiss, więc są pierwsze ceny dużych linii – Warszawa–Buenos Aires od 5 820 zł (Lufthansa i Swiss, wylot 4.11) i 5 953 zł (wylot 5.11), Madryt–Buenos Aires bez przesiadki od 4 785 zł (Air Europa), wszystkie bez bagażu. Cała podróż z bagażem i lotem krajowym to ok. 7 000 zł na osobę przy celu 4 000 zł. Iberia i Air France/KLM otwierają powrót 18–19.11, cały bilet do Mendozy ok. 18.12. Plus Ultra oficjalnie zawiesiła trasę Madryt–Buenos Aires od 17.11. Dolar 4,00 zł (budżet liczony po 3,91). Jeszcze nie kupujemy; szczegóły w raporcie lotów wyżej. Następny monitor cen: 1.12.",
+ "status": "Stan na 17.11.2026: powrót 13.11.2027 sprzedają już Air Europa i Swiss, więc są pierwsze ceny dużych linii – Warszawa–Buenos Aires od 5 820 zł (Lufthansa i Swiss, wylot 4.11) i 5 953 zł (wylot 5.11), Madryt–Buenos Aires bez przesiadki od 4 779 zł (Air Europa), wszystkie bez bagażu; popołudniowy odczyt potwierdził te poziomy. Cała podróż z bagażem i lotem krajowym to ok. 7 000 zł na osobę przy celu 4 000 zł. Iberia i Air France/KLM otwierają powrót 18–19.11, cały bilet do Mendozy ok. 18.12. Plus Ultra zawiesiła trasę Madryt–Buenos Aires od 17.11. Dolar 4,00 zł (budżet liczony po 3,91). Jeszcze nie kupujemy; szczegóły w raporcie lotów wyżej. Następny monitor cen: 1.12.",
  "nastepny": "2026-12-01",
  "prog": 4800,
  "cel": 4000,
@@ -823,28 +823,28 @@
  },
  "raport": {
   "data": "2026-11-17",
-  "werdykt": "⚪ Jeszcze nie kupujemy – duże linie otworzyły dziś powrót 13.11 i ceny spadły (Warszawa–Buenos Aires od 5 820 zł, Madryt–Buenos Aires bez przesiadki od 4 785 zł, obie bez bagażu), ale cała podróż wychodzi ok. 7 000 zł przy celu 4 000 zł",
-  "stan": "Kompletnej podróży do Mendozy na nasze daty nie da się jeszcze wycenić, ale są już ceny dużych linii do Buenos Aires (Kayak, 17.11): z Warszawy od 5 820 zł (Lufthansa i Swiss, wylot 4.11) i 5 953 zł (Swiss, wylot 5.11), z Madrytu bez przesiadki od 4 785 zł (Air Europa) – wszystkie bez bagażu. Z bagażem i lotem krajowym to ok. 7 000 zł na osobę, czyli ok. 2 200 zł ponad próg. Iberia i Air France/KLM otwierają powrót 18–19.11, cały bilet do Mendozy ok. 18.12.2026.",
+  "werdykt": "⚪ Jeszcze nie kupujemy – na nasze daty są już ceny dużych linii (Warszawa–Buenos Aires od 5 820 zł, Madryt–Buenos Aires bez przesiadki od 4 779 zł, obie bez bagażu), ale cała podróż wychodzi ok. 7 000 zł przy celu 4 000 zł",
+  "stan": "Kompletnej podróży do Mendozy na nasze daty nie da się jeszcze wycenić, ale są ceny dużych linii do Buenos Aires (Kayak, 17.11): z Warszawy od 5 820 zł (Lufthansa i Swiss, wylot 4.11) i 5 953 zł (Swiss, wylot 5.11), z Madrytu bez przesiadki od 4 779 zł (Air Europa) – wszystkie bez bagażu. Z bagażem i lotem krajowym to ok. 7 000 zł na osobę, czyli ok. 2 200 zł ponad próg. Iberia i Air France/KLM otwierają powrót 18–19.11, cały bilet do Mendozy ok. 18.12.2026.",
   "punkty": [
    [
-    "Od rana 17.11:",
-    "w ciągu dnia powrót 13.11.2027 zaczęły sprzedawać Swiss (z Lufthansą na wylocie) i Air Europa – nocny odczyt pokazywał tylko linie Boliviana i Avianca. Najtańsza cena z Warszawy spadła z 6 457 do 5 953 zł (wylot 5.11) i 5 820 zł (wylot 4.11), z Madrytu z 5 368 do 4 785 zł, i to lotem bez przesiadki. Plus Ultra oficjalnie zawiesiła trasę Madryt–Buenos Aires od 17.11. Kurs dolara bez zmian. Werdykt się nie zmienia: do celu nadal daleko."
+    "Od wczoraj:",
+    "16.11 na nasze daty nie było jeszcze żadnej ceny dużej linii; dziś powrót 13.11.2027 sprzedają Air Europa i Swiss (z Lufthansą na wylocie). Trzeci dzisiejszy odczyt Kayaka (po południu) potwierdza poziomy z południa: z Warszawy bez zmian 5 820 zł (wylot 4.11) i 5 953 zł (wylot 5.11), Air Europa z Madrytu bez przesiadki 4 785 zł (wylot 5.11) i 4 779 zł (wylot 4.11). Nowość: na czele wyników z Madrytu pojawiło się połączenie Avianca + Boliviana za 4 569 zł, ale z dwiema przesiadkami i 32 godzinami podróży tam. Plus Ultra od dziś nie lata do Buenos Aires. Kurs dolara bez zmian. Werdykt się nie zmienia."
    ],
    [
     "Ceny na nasze daty:",
-    "Kayak, odczyt 17.11 w dzień, ceny za osobę bez opłat za bagaż. Warszawa–Buenos Aires (lotnisko Ezeiza) 4–13.11: od 5 820 zł, Lufthansa tam z jedną przesiadką (wylot 14:40; wieczorny 18:35 za 5 890 zł), Swiss z powrotem z dwiema przesiadkami. Wylot 5.11: od 5 953 zł (Swiss, dwie przesiadki w obie strony) i 6 499 zł (Lufthansa tam z jedną przesiadką). Madryt–Buenos Aires 5–13.11: od 4 785 zł, Air Europa bez przesiadki w obie strony (ok. 1 086 EUR). Wyzwalacze celu to 3 350 zł z Warszawy i ok. 560 EUR z Madrytu, obie z bagażem – brakuje ok. 2 500 zł. Cała podróż z bagażem i lotem krajowym: ok. 7 000 zł przez Madryt, ok. 7 200 zł z Warszawy."
+    "Kayak, odczyt 17.11 po południu, ceny za osobę bez opłat za bagaż, przylot na lotnisko Ezeiza. Warszawa–Buenos Aires 4–13.11: od 5 820 zł, Lufthansa tam z jedną przesiadką (wylot 14:40; wieczorny 18:35 za 5 890 zł), Swiss z powrotem z dwiema przesiadkami. Wylot 5.11: od 5 953 zł (Swiss, dwie przesiadki w obie strony) i 6 499 zł (Lufthansa tam z jedną przesiadką, także o 18:35). Madryt–Buenos Aires 5–13.11: Air Europa bez przesiadki w obie strony 4 785 zł (ok. 1 086 EUR), przy wylocie 4.11 – 4 779 zł; najtańsza pozycja to 4 569 zł (Avianca tam z dwiema przesiadkami, Boliviana z powrotem z jedną). Wyzwalacze celu to 3 350 zł z Warszawy i ok. 560 EUR z Madrytu, obie z bagażem – brakuje ok. 2 500 zł. Cała podróż z bagażem i lotem krajowym: ok. 7 000 zł przez Madryt, ok. 7 200 zł z Warszawy."
    ],
    [
     "Sprzedaż na nasze daty:",
-    "powrót 13.11.2027 sprzedają dziś Air Europa (zgodnie z kalendarzem 361 dni) i Swiss – dzień wcześniej, niż zakładała tabela dla Lufthansy i Swiss (360 dni), dlatego tabelę poprawiono na 361. Iberia, British Airways, Air France, KLM i ITA sprzedają na razie tylko wylot; w wynikach z Madrytu pojawiają się wyłącznie w parze z powrotem linii Boliviana. Według kalendarzy powrót otwierają: Iberia 18.11, Air France i KLM 19.11, Turkish 24.11; cały bilet do Mendozy (Aerolíneas, LATAM) ok. 18.12. Kayak zastrzega, że ponad 330 dni naprzód pokazuje niepełną ofertę."
+    "powrót 13.11.2027 sprzedają dziś Air Europa i Swiss – zgodnie z tabelą (361 dni). LOT pojawia się tylko jako dolot. Iberia, British Airways, Air France, KLM i ITA sprzedają na razie sam wylot; Iberia jest w wynikach z Madrytu wyłącznie w parze z powrotem linii Boliviana (od 6 114 zł). Według kalendarzy linii (tabela „Kiedy da się wycenić nasze daty”) powrót otwierają: Iberia 18.11, Air France i KLM 19.11, Turkish 24.11; cały bilet do Mendozy (Aerolíneas, LATAM) ok. 18.12. Rozbieżności z tabelą dziś nie ma. Kayak zastrzega, że ponad 330 dni naprzód pokazuje niepełną ofertę."
    ],
    [
     "Rynek:",
-    "Plus Ultra potwierdziła komunikatem, że od 17.11.2026 zawiesza trasę Madryt–Buenos Aires do odwołania i anuluje wystawione bilety; powód to restrukturyzacja i koszt paliwa (Infoviajera, 16.11). To zamyka wątek z 12–14.11: z trasy zniknął najtańszy przewoźnik (585 EUR z bagażem), bez przesiadki latają Iberia, Air Europa i Aerolíneas. Pierwsza cena Air Europy na nasze daty (ok. 1 086 EUR) odpowiada jej cenom na inne terminy (od 1 099 EUR, monitor 15.11), więc na razie nie widać podwyżki po wyjściu konkurenta. Główny pas w Ezeizie jest czynny od 11.11. Lot Air Europa Madryt–Mendoza pozostaje bez rozkładu."
+    "zawieszenie trasy Madryt–Buenos Aires przez Plus Ultra od 17.11.2026 (do odwołania, bilety anulowane; powód – restrukturyzacja i koszt paliwa) potwierdzają już dwa źródła: Infoviajera (16.11) i Sir Chandler (17.11). Z trasy zniknął najtańszy przewoźnik (585 EUR z bagażem); bez przesiadki latają Iberia, Air Europa i Aerolíneas. Cena Air Europy na nasze daty (ok. 1 086 EUR) odpowiada jej cenom na inne terminy (od 1 099 EUR, monitor 15.11), więc podwyżki po wyjściu konkurenta na razie nie widać. W wiadomościach z 15–17.11 nie ma strajków ani zmian tras dotyczących naszej podróży."
    ],
    [
     "Kampanie i promocje:",
-    "Iberia + Visit Argentina (sprzedaż 12.11.2026–31.05.2027, od 425 EUR za odcinek Madryt–Buenos Aires, taryfa Básica bez bagażu): Iberia nie sprzedaje jeszcze powrotu 13.11, więc nie da się sprawdzić, czy kampania obejmie nasze daty – pierwsza okazja 18.11. Nawet w cenie kampanii z bagażem, dolotem i lotem krajowym wychodzi ok. 5 900 zł, czyli ok. 1 900 zł ponad cel. W przeglądzie wiadomości z 15–17.11 nie ma żadnej promocji na listopad 2027. Black Friday 27.11 nie obejmuje naszych dat. Air France (strona polska, 17.11): znaczek „Promo fare” mają dziś Azja, Karaiby, Reunion i Ameryka Północna, Ameryki Południowej wśród nich nie ma; zwykłe ceny „od” z Warszawy to Buenos Aires 5 018 zł, Santiago 5 012 zł, São Paulo 4 273 zł w obie strony, bez podanych terminów. Promocja milowa Flying Blue na listopad też nie obejmuje Ameryki Południowej."
+    "Iberia + Visit Argentina (sprzedaż 12.11.2026–31.05.2027, od 425 EUR za odcinek Madryt–Buenos Aires, taryfa Básica bez bagażu): Iberia nie sprzedaje jeszcze powrotu 13.11, więc nie da się sprawdzić, czy kampania obejmie nasze daty – pierwsza okazja 18.11. Nawet w cenie kampanii z bagażem, dolotem i lotem krajowym wychodzi ok. 5 900 zł, czyli ok. 1 900 zł ponad cel. W przeglądzie wiadomości z 15–17.11 (Sir Chandler, Infoviajera, Promociones Aéreas) nie ma żadnej promocji na listopad 2027; oferty z 15–16.11 dotyczą lotów z Argentyny do Europy od maja do sierpnia. Black Friday 27.11 nie obejmuje naszych dat. Air France (strona polska, 17.11): znaczek „Promo fare” mają dziś Azja, Karaiby, Reunion i Ameryka Północna, Ameryki Południowej wśród nich nie ma; zwykłe ceny „od” z Warszawy to Buenos Aires 5 018 zł, Santiago 5 012 zł, São Paulo 4 273 zł w obie strony, bez podanych terminów. Promocja milowa Flying Blue na listopad też nie obejmuje Ameryki Południowej."
    ],
    [
     "Kursy:",
@@ -852,7 +852,11 @@
    ],
    [
     "Poprawione na stronie:",
-    "blok „Teraz” podaje dzisiejsze ceny dużych linii zamiast nocnych 6 457 zł; w tabeli sprzedaży Lufthansa i Swiss mają 361 dni (było 360), bo Swiss sprzedaje powrót 13.11 już dziś. Zadania „Ustalić liczbę par” i „Karta bez prowizji” mają termin dziś; „Newslettery” z 14.11 są po terminie. W zakładce „Jak szukać” z wiersza „Madryt–Buenos Aires, z bagażem” usunięto Plus Ultra, która od 17.11 nie lata na tej trasie."
+    "blok „Teraz” podaje popołudniowe ceny (z Madrytu bez przesiadki od 4 779 zł zamiast „od 4 785 zł”). Wcześniej dziś: w tabeli sprzedaży Lufthansa i Swiss mają 361 dni (było 360), a z zakładki „Jak szukać” usunięto Plus Ultra. Zadania „Ustalić liczbę par” i „Karta bez prowizji” mają termin dziś; „Newslettery” z 14.11 są po terminie."
+   ],
+   [
+    "Do poprawienia na stronie:",
+    "przegląd promocji (promocje.json, odczyt 13.11) nadal opisuje ofertę Plus Ultra 585 EUR jako wzorzec – linia od 17.11 nie lata na tej trasie; plik odświeży się przy przeglądzie 18.11."
    ]
   ],
   "teraz": [
@@ -875,6 +879,10 @@
     "url": "https://www.kayak.pl/flights/MAD-BUE/2027-11-05/2027-11-13?sort=price_a"
    },
    {
+    "label": "Kayak: Madryt–Buenos Aires 4–13.11.2027",
+    "url": "https://www.kayak.pl/flights/MAD-BUE/2027-11-04/2027-11-13?sort=price_a"
+   },
+   {
     "label": "NBP: tabela A kursów średnich",
     "url": "https://nbp.pl/statystyka-i-sprawozdawczosc/kursy/tabela-a/"
    },
@@ -887,16 +895,12 @@
     "url": "https://www.infoviajera.com/2026/10/iberia-y-visit-argentina-promocionan-vuelos-madrid-buenos-aires-desde-425-e-el-tramo/"
    },
    {
-    "label": "AwardFares: kiedy linie otwierają sprzedaż",
-    "url": "https://awardfares.com/blog/ultimate-guide-to-award-release-dates/"
+    "label": "Sir Chandler: Plus Ultra oficjalnie zawiesiła loty Madryt–Ezeiza",
+    "url": "https://www.sirchandler.com.ar/2026/11/plus-ultra-suspendio-sus-vuelos-entre-madrid-y-ezeiza-oficialmente/"
    },
    {
-    "label": "Promociones Aéreas: Air Europa i Mendoza",
-    "url": "https://promociones-aereas.com.ar/noticias/vuelos-directos-a-madrid-desde-mendoza-la-gran-apuesta-de-air-europa-para-2027"
-   },
-   {
-    "label": "Sir Chandler: powrót lotów do Ezeizy",
-    "url": "https://www.sirchandler.com.ar/2026/11/las-aerolineas-de-vuelos-largos-listas-para-operar-de-nuevo-en-ezeiza/"
+    "label": "Promociones Aéreas: bieżące oferty",
+    "url": "https://promociones-aereas.com.ar/"
    },
    {
     "label": "Air France Polska: najlepsze oferty",
