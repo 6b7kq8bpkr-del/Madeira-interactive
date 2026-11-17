@@ -449,5 +449,7 @@ async function withLoty(mutate, hash, fn) {
 
 await browser.close(); srv.close();
 console.log(notes.join('\n'));
+// adnotacje GitHub Actions: przyczynę widać w publicznym API bez logowania (czyta ją agent raportu lotów)
+if (fails.length && process.env.GITHUB_ACTIONS) fails.slice(0, 9).forEach(f => console.log('::error title=Testy strony::' + f.replace(/\r?\n/g, ' ').slice(0, 900)));
 if (fails.length) { console.error(`\n${fails.length} problemów:\n- ` + fails.join('\n- ')); process.exit(1); }
 console.log('\nwszystko w porządku');
