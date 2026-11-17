@@ -844,7 +844,7 @@
    ],
    [
     "Kampanie i promocje:",
-    "Iberia + Visit Argentina (sprzedaż 12.11.2026–31.05.2027, od 425 EUR za odcinek Madryt–Buenos Aires, taryfa Básica bez bagażu): Iberia nie sprzedaje jeszcze powrotu 13.11, więc nie da się sprawdzić, czy kampania obejmie nasze daty – pierwsza okazja 18.11. Nawet w cenie kampanii z bagażem, dolotem i lotem krajowym wychodzi ok. 5 900 zł, czyli ok. 1 900 zł ponad cel. W przeglądzie wiadomości z 15–17.11 nie ma żadnej promocji na listopad 2027. Black Friday 27.11 nie obejmuje naszych dat."
+    "Iberia + Visit Argentina (sprzedaż 12.11.2026–31.05.2027, od 425 EUR za odcinek Madryt–Buenos Aires, taryfa Básica bez bagażu): Iberia nie sprzedaje jeszcze powrotu 13.11, więc nie da się sprawdzić, czy kampania obejmie nasze daty – pierwsza okazja 18.11. Nawet w cenie kampanii z bagażem, dolotem i lotem krajowym wychodzi ok. 5 900 zł, czyli ok. 1 900 zł ponad cel. W przeglądzie wiadomości z 15–17.11 nie ma żadnej promocji na listopad 2027. Black Friday 27.11 nie obejmuje naszych dat. Air France (strona polska, 17.11): znaczek „Promo fare” mają dziś Azja, Karaiby, Reunion i Ameryka Północna, Ameryki Południowej wśród nich nie ma; zwykłe ceny „od” z Warszawy to Buenos Aires 5 018 zł, Santiago 5 012 zł, São Paulo 4 273 zł w obie strony, bez podanych terminów. Promocja milowa Flying Blue na listopad też nie obejmuje Ameryki Południowej."
    ],
    [
     "Kursy:",
@@ -852,11 +852,7 @@
    ],
    [
     "Poprawione na stronie:",
-    "blok „Teraz” podaje dzisiejsze ceny dużych linii zamiast nocnych 6 457 zł; w tabeli sprzedaży Lufthansa i Swiss mają 361 dni (było 360), bo Swiss sprzedaje powrót 13.11 już dziś. Zadania „Ustalić liczbę par” i „Karta bez prowizji” mają termin dziś; „Newslettery” z 14.11 są po terminie."
-   ],
-   [
-    "Do poprawienia na stronie:",
-    "w zakładce „Jak szukać” wiersz „Madryt–Buenos Aires, z bagażem” wciąż wymienia Plus Ultra, która od 17.11 nie lata na tej trasie."
+    "blok „Teraz” podaje dzisiejsze ceny dużych linii zamiast nocnych 6 457 zł; w tabeli sprzedaży Lufthansa i Swiss mają 361 dni (było 360), bo Swiss sprzedaje powrót 13.11 już dziś. Zadania „Ustalić liczbę par” i „Karta bez prowizji” mają termin dziś; „Newslettery” z 14.11 są po terminie. W zakładce „Jak szukać” z wiersza „Madryt–Buenos Aires, z bagażem” usunięto Plus Ultra, która od 17.11 nie lata na tej trasie."
    ]
   ],
   "teraz": [
@@ -901,6 +897,10 @@
    {
     "label": "Sir Chandler: powrót lotów do Ezeizy",
     "url": "https://www.sirchandler.com.ar/2026/11/las-aerolineas-de-vuelos-largos-listas-para-operar-de-nuevo-en-ezeiza/"
+   },
+   {
+    "label": "Air France Polska: najlepsze oferty",
+    "url": "https://wwws.airfrance.pl/deals"
    }
   ]
  }
