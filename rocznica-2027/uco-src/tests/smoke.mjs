@@ -14,6 +14,7 @@ const ROOT = path.resolve(HERE, '../../uco');
 const OUTDIR = path.join(HERE, 'out');
 const fails = [], notes = [];
 const fail = (where, what) => fails.push(`${where}: ${what}`);
+const pairTaskList = /Co potrzebujemy od Was:\n• do \d{1,2}\.\d{2}(?:\.\d{4})? – /;
 
 // ---------- dane bez przeglądarki ----------
 function readJSON(f) {
@@ -315,12 +316,16 @@ async function withLoty(mutate, hash, fn) {
   // kwoty z danych: wariant polecany przy trzech parach i lotach w progu (hotels[0].b.razem liczy build.py po aktualnym kursie)
   const R0 = await pg.evaluate(() => ({ razem: window.UCO.hotels[0].b.razem, d: 2 * (window.UCO.prog.budzet.prog - window.UCO.prog.budzet.cel), pi: window.UCO.prog.upgrade.opcje.find(x => x.id === 'pi').zl }));
   const h100 = v => String(Math.round(v / 100) * 100).replace(/(\d)(?=(\d{3})+$)/g, '$1\\s');
-  if (!new RegExp('Koszt: ok\\. ' + h100(R0.razem) + ' zł na parę przy 3 parach').test(t) || !new RegExp('celujemy w 4\\s000 – wtedy ok\\. ' + h100(R0.razem - R0.d) + ' zł').test(t) || !new RegExp('Piedra Infinita \\+' + R0.pi + ' zł').test(t) || !/Co potrzebujemy od Was:\n• do \d{1,2}\.\d{2} – /.test(t) || !/github\.io/.test(t) || t.split('\n').some(l => l.length > 400)) fail('podsumowanie', 'brak kosztu, celu, listy dla par albo linku: ' + t.slice(0, 160));
+  if (!new RegExp('Koszt: ok\\. ' + h100(R0.razem) + ' zł na parę przy 3 parach').test(t) || !new RegExp('celujemy w 4\\s000 – wtedy ok\\. ' + h100(R0.razem - R0.d) + ' zł').test(t) || !new RegExp('Piedra Infinita \\+' + R0.pi + ' zł').test(t) || !pairTaskList.test(t) || !/github\.io/.test(t) || t.split('\n').some(l => l.length > 400)) fail('podsumowanie', 'brak kosztu, celu, listy dla par albo linku: ' + t.slice(0, 160));
   // trwająca faza zostaje widoczna na osi w domyślnym zakresie (zegar w środku fazy „Pełny rozkład”)
   await pg.close();
   const p2 = await browser.newPage({ viewport: { width: 390, height: 800 } }); const e2 = []; p2.on('pageerror', e => e2.push(e.message));
   await p2.addInitScript(() => { const RD = Date; const fixed = new RD(2026, 11, 15, 12, 0, 0).getTime(); class FD extends RD { constructor(...a) { super(...(a.length ? a : [fixed])); } static now() { return fixed; } } globalThis.Date = FD; });
   await p2.goto(BASE + 'index.html#decyzje', { waitUntil: 'load' }); await p2.waitForTimeout(800);
+  // W grudniu najbliższe zadanie par przypada w kolejnym roku: podsumowanie musi zachować rok.
+  await p2.click('#dcopy');
+  const nextYearSummary = await p2.locator('#dtxt').inputValue();
+  if (!pairTaskList.test(nextYearSummary) || !/Co potrzebujemy od Was:\n• do \d{1,2}\.\d{2}\.2027 – /.test(nextYearSummary)) fail('podsumowanie – kolejny rok', 'brak listy z terminem w 2027 r.');
   const f = await p2.evaluate(() => { const li = [...document.querySelectorAll('#os li.osi.k-faza')].find(l => /Pełny rozkład/.test(l.textContent)); return li ? { hidden: li.hidden, run: li.classList.contains('run'), past: li.classList.contains('past'), lone: [...document.querySelectorAll('#os li.osm:not([hidden])')].every(h => { let n = h.nextElementSibling; while (n && !n.classList.contains('osm')) { if (!n.hidden && n.classList.contains('osi')) return true; n = n.nextElementSibling; } return false; }), w: document.documentElement.scrollWidth, pigCost: document.querySelector('.pigt tbody td.n').getBoundingClientRect().right } : null; });
   if (!f || f.hidden || !f.run || f.past) fail('oś czasu', `trwająca faza: ${JSON.stringify(f)}`);
   if (f && (!f.lone || f.w > 390 || f.pigCost > 390)) fail('oś czasu / plan w pigułce (390px)', `pusty nagłówek miesiąca ${!f.lone}, szerokość ${f.w}, prawa krawędź kosztu ${Math.round(f.pigCost)}`);
