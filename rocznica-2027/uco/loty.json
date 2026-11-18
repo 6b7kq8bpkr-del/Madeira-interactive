@@ -868,15 +868,15 @@
    ],
    [
     "Poprawione na stronie:",
-    "blok „Teraz” podaje dzisiejsze ceny (z Warszawy od 5 493 zł, z Madrytu bez przesiadki od 4 755 zł, cała podróż ok. 6 900 zł) i najbliższe otwarcia sprzedaży (Air France/KLM 19.11, Turkish 24.11). W tabeli „Kiedy da się wycenić nasze daty” ITA Airways ma 360 dni zamiast 330, bo sprzedaje już wylot i powrót."
+    "blok „Teraz” podaje dzisiejsze ceny (z Warszawy od 5 493 zł, z Madrytu bez przesiadki od 4 755 zł, cała podróż ok. 6 900 zł) i najbliższe otwarcia sprzedaży (Air France/KLM 19.11, Turkish 24.11). W tabeli „Kiedy da się wycenić nasze daty” ITA Airways ma 360 dni zamiast 330, bo sprzedaje już wylot i powrót. Zadanie „Karta bez prowizji walutowej” ma nowy termin 24.11 (było 17.11) – termin minął bez potwierdzenia, a bez żadnego zadania dla par z datą w 2026 r. testy strony blokowały publikację."
    ],
    [
     "Do poprawienia na stronie:",
-    "zadania „Ustalić liczbę par i zebrać dane z paszportów” oraz „Karta bez prowizji walutowej” miały termin 17.11, „Newslettery” 14.11 – są po terminie, a raport nie wie, czy zostały wykonane. Przegląd promocji (promocje.json, odczyt 13.11) nadal opisuje ofertę Plus Ultra 585 EUR jako wzorzec; plik odświeża osobny przegląd zaplanowany na 18.11."
+    "decyzje „Ile par jedzie?” i „Wylot 4.11 wieczorem czy 5.11?” oraz zadanie „Ustalić liczbę par i zebrać dane z paszportów” miały termin 17.11, „Newslettery” 14.11 – są po terminie, a raport nie wie, czy zostały wykonane. Test strony (tests/smoke.mjs, podsumowanie dla par) nie przyjmuje terminu z rokiem („do 4.01.2027”), więc pada, gdy najbliższe zadanie par wypada w 2027 r. – wróci po 24.11, jeśli nie zostanie poprawiony. Przegląd promocji (promocje.json, odczyt 13.11) nadal opisuje ofertę Plus Ultra 585 EUR jako wzorzec; plik odświeża osobny przegląd."
    ]
   ],
   "teraz": [
-   "Dziś, 18.11: zaległe od wczoraj – ustalić liczbę par, wybrać wylot 4.11 wieczorem albo 5.11 i sprawdzić karty bez prowizji walutowej; zaległe od 14.11 są newslettery.",
+   "Dziś, 18.11: zaległe od wczoraj – ustalić liczbę par i wybrać wylot 4.11 wieczorem albo 5.11; zaległe od 14.11 są newslettery. Karty bez prowizji walutowej sprawdzić do 24.11.",
    "19.11: Air France i KLM powinny otworzyć powrót 13.11 – raport zapisze ich pierwsze ceny i sprawdzi, czy Iberia pokazuje już powrót bez przesiadki oraz cenę kampanii. Kupujemy tylko przy ≤ 3 350 zł z bagażem do Buenos Aires.",
    "24.11: powrót powinien otworzyć Turkish – jeden z tańszych przewoźników z Warszawy (4 537–4 581 zł na inne terminy, monitor 15.11).",
    "27.11: Black Friday – tylko sprawdzamy, czy któraś linia objęła listopad 2027.",

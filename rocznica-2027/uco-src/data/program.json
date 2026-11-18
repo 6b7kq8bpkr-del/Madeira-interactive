@@ -1682,7 +1682,7 @@
     "id": "karta",
     "t": "Karta bez prowizji walutowej dla każdej pary",
     "od": "2026-11-01",
-    "do": "2026-11-17",
+    "do": "2026-11-24",
     "opis": "Płacić w walucie sprzedawcy (EUR/USD), bez przewalutowania DCC; nigdy w pesos.",
     "kto": "pary"
    },
