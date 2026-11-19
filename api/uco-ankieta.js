@@ -1,5 +1,5 @@
 // Ankieta par (Valle de Uco 2027): odpowiedzi w prywatnym Vercel Blob, jeden plik JSON.
-// GET ?kod=…  -> wszystkie odpowiedzi; POST {kod, para, wybory} -> zapis odpowiedzi jednej pary.
+// GET ?kod=…  -> wszystkie odpowiedzi; POST {kod, para, wybory} -> zapis odpowiedzi jednej pary; POST {kod, para, usun: true} -> wycofanie.
 const { put, get } = require('@vercel/blob');
 const PLIK = 'uco/ankieta.json', ORIGINS = ['https://6b7kq8bpkr-del.github.io'];
 const txt = (v, n) => typeof v === 'string' && v.trim().length > 0 && v.trim().length <= n;
@@ -22,6 +22,8 @@ module.exports = async (req, res) => {
   const d = await wczytaj();
   if (req.method === 'GET') return res.status(200).json(d);
   if (req.method !== 'POST') return res.status(405).json({ blad: 'Tylko GET i POST.' });
+  // {kod, para, usun: true} wycofuje odpowiedzi jednej pary
+  if (b.usun === true && txt(b.para, 40)) { delete d.pary[b.para.trim()]; await put(PLIK, JSON.stringify(d), { access: 'private', addRandomSuffix: false, allowOverwrite: true, contentType: 'application/json' }); return res.status(200).json(d); }
   // walidacja na granicy zaufania: krótka nazwa pary, najwyżej 12 odpowiedzi tekstowych, najwyżej 8 par
   const w = b.wybory && typeof b.wybory === 'object' && !Array.isArray(b.wybory) ? Object.entries(b.wybory) : null;
   if (!txt(b.para, 40) || !w || !w.length || w.length > 12 || !w.every(([k, v]) => txt(k, 20) && txt(v, 80))) return res.status(400).json({ blad: 'Podajcie, kto odpowiada, i zaznaczcie przynajmniej jedną odpowiedź.' });
