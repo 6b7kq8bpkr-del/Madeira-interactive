@@ -1173,9 +1173,7 @@
               <ul class="info-list">
                 <li><strong>Kiedy dzwonić do Travel One:</strong> pokój niezgodny z rezerwacją, problem z zameldowaniem, odwołany albo przesunięty lot, konieczność wcześniejszego powrotu.</li>
                 <li><strong>Kiedy nie:</strong> transfery, wycieczki i szlaki to nasze własne rezerwacje — tam dzwonimy do Rui albo do SIMplifiki.</li>
-                <li>Komplet dokumentów podróży (voucher hotelowy, dokumenty lotnicze, numery alarmowe biura) jest do pobrania poniżej — warto mieć go w telefonie także offline.</li>
               </ul>
-              <p class="section-copy"><a class="button secondary" href="assets/dokumenty-podrozy-3891149.pdf" target="_blank" rel="noopener">📄 Otwórz dokumenty podróży (PDF)</a></p>
             </div>
             <div class="parking-facts">
               <h3>🎫 Karty pokładowe — lot 20.08</h3>
