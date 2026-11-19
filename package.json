@@ -1,0 +1,8 @@
+{
+  "name": "madeira-interactive",
+  "private": true,
+  "description": "Strony statyczne + funkcja api/uco-ankieta (Vercel)",
+  "dependencies": {
+    "@vercel/blob": "^2.0.0"
+  }
+}

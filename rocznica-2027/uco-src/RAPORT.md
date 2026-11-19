@@ -76,6 +76,8 @@ Wykres trendu, ranking linii i kafelek „Najlepsza kompletna podróż” czytaj
 
 **`stan`** – 2–3 zdania o tym, czy i za ile da się dziś wycenić nasze daty; strona pokazuje je przy skali cen i w tabeli cen, dopóki monitor nie zapisze kompletnej podróży.
 
+**`tydzien`** – tylko w niedzielę (w pozostałe dni przepisz wartość z poprzedniego raportu bez zmian): podsumowanie tygodnia dla pozostałych par, do wklejenia w grupie. Zwykły tekst, 4–6 krótkich linii, najwyżej 600 znaków: werdykt, jak zmieniła się cena całej podróży od poprzedniej niedzieli (z serii cen), co grupa ma ustalić i do kiedy, adres skrótu https://6b7kq8bpkr-del.github.io/Madeira-interactive/rocznica-2027/uco/skrot.html. Bez żargonu i bez nazw taryf. Pokazuje się na stronie `skrot.html` z przyciskiem kopiowania; nikomu go nie wysyłasz.
+
 **`punkty`** – 4–6 punktów, każdy najwyżej 450 znaków. Strona pokazuje dwa pierwsze, resztę zwija pod „Szczegóły raportu” – dlatego dwa pierwsze muszą wystarczyć komuś, kto nie rozwinie reszty. Kolejność (pomijasz punkty, w których nie ma nic nowego; szczegóły i pełne listy cen idą do `sygnaly`, nie do raportu):
 
 1. `Od wczoraj:` – co się zmieniło względem poprzedniego raportu. Jeśli nic: „bez zmian od DD.MM” i jedno zdanie, co sprawdzono.
