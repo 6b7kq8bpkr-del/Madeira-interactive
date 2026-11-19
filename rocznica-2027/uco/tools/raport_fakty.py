@@ -16,7 +16,9 @@ PROG_KURS = 3.0  # % odchylenia USD od kursu budżetu, od którego raport ma ż�
 def check():
     r, err = L.get("raport") or {}, []
     if r.get("data") != TODAY.isoformat(): err.append(f"raport.data = {r.get('data')}, a dziś jest {TODAY}")
-    if len(r.get("werdykt") or "") < 20: err.append("brak werdyktu")
+    if not 20 <= len(r.get("werdykt") or "") <= 140: err.append("werdykt: 20–140 znaków")
+    if r.get("calosc") is not None and not (isinstance(r["calosc"], (int, float)) and 2000 < r["calosc"] < 20000): err.append("calosc: liczba zł na osobę albo null")
+    if len(r.get("punkty") or []) > 6 or any(len(x[1]) > 450 for x in r.get("punkty") or [] if len(x) == 2): err.append("punkty: najwyżej 6, każdy do 450 znaków")
     if len(r.get("punkty") or []) < 4 or any(len(x) != 2 or not all(isinstance(s, str) and s for s in x) for x in r.get("punkty") or []): err.append("punkty: co najmniej 4 pary [nagłówek, treść]")
     if len(r.get("teraz") or []) < 2: err.append("teraz: co najmniej 2 kroki")
     if len(r.get("zrodla") or []) < 3 or any(not str(z.get("url", "")).startswith("https://") or not z.get("label") for z in r.get("zrodla") or []): err.append("zrodla: co najmniej 3, każde z label i adresem https")

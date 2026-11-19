@@ -16,21 +16,24 @@ W `../uco/loty.json`:
 - `raport` – zastępujesz w całości, codziennie, także gdy nic się nie zmieniło (wtedy piszesz to wprost);
 - `status` i `zaktualizowano` – „Stan na DD.MM.RRRR: …”, 4–6 zdań streszczenia raportu, z dzisiejszą datą;
 - `sygnaly` – dopisujesz na początku listy wyłącznie nowy fakt z adresem źródła; najpierw sprawdź, czy takiego wpisu już nie ma. Format jak w istniejących wpisach: `data`, `typ`, `kierunek` (`wzrost` / `spadek` / `neutralnie` – wpływ na ceny), `waga` 1–3, `opis`, `url`.
+- `rss` – wynik radaru promocji z dzisiejszego uruchomienia `promo_rss.py` (krok 5).
+
+W `../uco/promocje.json`: `zaktualizowano` (dziś), `nastepny` (jutro), `status` (2–3 zdania: czy jest promocja obejmująca listopad 2027) i `wpisy` – dopisujesz tylko realną ofertę z adresem źródła, w formacie istniejących wpisów; wpisy o ofertach, które wygasły albo przestały istnieć, oznacz `pasuje: "nie"` i dopisz to w `ocena`.
 
 W `data/program.json` – tylko te pola i tylko wtedy, gdy dzisiejsze fakty im przeczą:
 
 - `loty.kalendarz.fazy[]` bieżącej fazy: `decyzja` (pokazuje się na górze strony jako „Teraz” – ma mówić, co robić dziś; najwyżej 330 znaków, bo trafia też do podsumowania dla par), `co`, `automat`;
-- `loty.zadania[]`: `od`, `do`, `opis` – gdy zadania nie da się wykonać w terminie albo zmienił się sposób;
+- `loty.zadania[]`: `od`, `do`, `opis` – gdy zadania nie da się wykonać w terminie z przyczyn zewnętrznych albo zmienił się sposób. Terminu, który po prostu minął, nie przesuwasz: zadanie ma zostać widoczne jako zaległe;
 - `loty.okna.linie[].dni` i `loty.okna.zrodlo` – gdy wyszukiwarka pokazuje inną datę otwarcia sprzedaży niż tabela. Wyjątek: Iberia i Aerolíneas Argentinas są przypięte w testach – różnicę tylko zgłoś;
 - `budzet.kursy.USD`, `data`, `zrodlo` – wyłącznie gdy skrypt wypisze „PRZELICZYĆ BUDŻET” (odchylenie ≥ 3%). `EUR` nie zmieniasz (kurs 4,39 jest przypięty w testach) – zgłoś.
 
 Po każdej zmianie w `data/` uruchom `python3 -I build.py` – przelicza `../uco/data.js` i `../uco/index.html`; te pliki commitujesz razem ze źródłem. Każdą zmianę na stronie wymień w raporcie w punkcie „Poprawione na stronie:”.
 
-Nie ruszasz: `nastepny`, `historia`, `serie` (monitor cen 1. i 15.), `rss` (radar), `skrzynka` (alerty z Gmaila), `promocje.json`, `template.html`, testów, workflow ani reszty `data/` (hotele, dni, kwoty budżetu, reguły skali cen). Usterki w tych miejscach opisz w raporcie w punkcie „Do poprawienia na stronie:”.
+Nie ruszasz: `nastepny`, `historia`, `serie`, `skrzynka`, `template.html`, testów, workflow ani reszty `data/` (hotele, dni, kwoty budżetu, reguły skali cen). Usterki w tych miejscach opisz w raporcie w punkcie „Do poprawienia na stronie:”.
 
 ## Kolejność
 
-1. Zacznij od aktualnego `main` (inni agenci zapisują ten sam plik codziennie ok. 10:50).
+1. Zacznij od aktualnego `main`.
 2. `python3 -I ../uco/tools/raport_fakty.py` – kurs NBP, odchylenie od kursu budżetu, które linie sprzedają dziś nasze daty, faza, terminy. Tych liczb nie licz z pamięci.
 3. Przeczytaj w `loty.json`: wczorajszy `raport`, `status`, ostatni wpis `historia`, `sygnaly` z 7 dni, `rss.trafienia`, `skrzynka`; w `promocje.json`: `status` i wpisy z 7 dni.
 4. Sprawdź ceny na nasze daty (5–13.11.2027 i 4–13.11.2027), w tej kolejności, do pierwszego źródła, które odpowie:
@@ -38,18 +41,18 @@ Nie ruszasz: `nastepny`, `historia`, `serie` (monitor cen 1. i 15.), `rss` (rada
    - Momondo, Skyscanner, strony linii (Iberia, Air Europa, Lufthansa, Air France/KLM, Turkish);
    - Google Flights pokazuje loty najwyżej ok. 330 dni naprzód – nasz powrót zobaczy dopiero ok. 18.12.2026.
    Zapisz dla każdej ceny: linie, liczbę przesiadek, czy jest bagaż rejestrowany, które lotnisko w Buenos Aires. Porównaj z cenami-wyzwalaczami (`loty.wyzwalacze`; na stronie zakładka „Jak szukać”).
-5. Sprawdź wiadomości z ostatnich 48 godzin (wyszukiwarka + kanały z `rss.trafienia`): promocje i kampanie do Argentyny (Iberia, Air Europa, Aerolíneas, LATAM, ITA, Turkish, Ethiopian), zmiany tras i przewoźników na Europa–Buenos Aires/Mendoza, Ezeiza, strajki, ceny paliwa.
-6. Napisz `raport` (układ niżej), `status`, ewentualne `sygnaly`; popraw w `data/program.json` to, co przestało być prawdą, i przebuduj stronę.
+5. Radar i wiadomości: `python3 -I ../uco/tools/promo_rss.py --days 3 --json "$TMPDIR/rss.json"` i wynik (`sprawdzono`, `kanaly`, `trafienia`) zapisz jako `rss` w `loty.json`; jeśli sieć zablokuje kanały, zostaw stary `rss` i napisz to w raporcie. Potem wiadomości z ostatnich 48 godzin (trafienia radaru + wyszukiwarka): promocje i kampanie do Argentyny (Iberia, Air Europa, Aerolíneas, LATAM, ITA, Turkish, Ethiopian, Air France/KLM, Lufthansa), zmiany tras i przewoźników na Europa–Buenos Aires/Mendoza, Ezeiza, strajki, ceny paliwa.
+6. Napisz `raport` (układ niżej), `status`, ewentualne `sygnaly`, zaktualizuj `promocje.json`; popraw w `data/program.json` to, co przestało być prawdą, i przebuduj stronę.
 7. Sprawdź: `python3 -I ../uco/tools/raport_fakty.py --check` i `python3 -I build.py --check`; jeśli jest Node – testy z `tests/` (README).
-8. Commit „Raport lotów: RRRR-MM-DD”, pull request do `main`, scalenie po zielonych testach. Publikacja strony rusza sama po scaleniu. Jeśli scalenie się nie uda, zostaw otwarty PR i napisz to w podsumowaniu przebiegu.
+8. Commit „Loty: stan na RRRR-MM-DD” i publikacja według instrukcji zadania. Publikacja strony rusza sama po wypchnięciu na `main` i przejściu testów; przyczynę błędu testów pokazują adnotacje przebiegu w GitHub Actions.
 
 ## Układ raportu
 
 ```json
-{"data": "RRRR-MM-DD", "werdykt": "…", "stan": "…", "punkty": [["Nagłówek:", "treść"], …], "teraz": ["…"], "zrodla": [{"label": "…", "url": "https://…"}]}
+{"data": "RRRR-MM-DD", "werdykt": "…", "calosc": 6900, "stan": "…", "punkty": [["Nagłówek:", "treść"], …], "teraz": ["…"], "zrodla": [{"label": "…", "url": "https://…"}]}
 ```
 
-**`werdykt`** – jedno zdanie, zaczyna się od ikony:
+**`werdykt`** – jedno krótkie zdanie, najwyżej 140 znaków, zaczyna się od ikony; liczby zostaw na punkt „Ceny na nasze daty”:
 
 | Ikona | Kiedy |
 |---|---|
@@ -59,9 +62,11 @@ Nie ruszasz: `nastepny`, `historia`, `serie` (monitor cen 1. i 15.), `rss` (rada
 | ⚪ Jeszcze nie kupujemy | brak cen na nasze daty albo ceny powyżej 5 000 zł/os. |
 | 🔴 Uwaga | zdarzenie, które wymaga decyzji grupy: upadłość linii, zamknięcie lotniska, odwołana trasa, zbliżający się twardy termin 31.08.2027 |
 
+**`calosc`** – liczba: dzisiejsza cena całej podróży na osobę (bilet do Buenos Aires albo Mendozy + bagaż + dolot + lot krajowy), najtańszy wariant, który da się dziś realnie kupić, zaokrąglona do 100 zł; `null`, gdy nie da się jej oszacować. Strona liczy z niej koszt na parę „przy dzisiejszych cenach lotów” i przekroczenie sufitu.
+
 **`stan`** – 2–3 zdania o tym, czy i za ile da się dziś wycenić nasze daty; strona pokazuje je przy skali cen i w tabeli cen, dopóki monitor nie zapisze kompletnej podróży.
 
-**`punkty`** – 5–9 punktów, każdy do ok. 600 znaków, w tej kolejności (pomijasz tylko te, w których nie ma nic do powiedzenia):
+**`punkty`** – 4–6 punktów, każdy najwyżej 450 znaków. Strona pokazuje dwa pierwsze, resztę zwija pod „Szczegóły raportu” – dlatego dwa pierwsze muszą wystarczyć komuś, kto nie rozwinie reszty. Kolejność (pomijasz punkty, w których nie ma nic nowego; szczegóły i pełne listy cen idą do `sygnaly`, nie do raportu):
 
 1. `Od wczoraj:` – co się zmieniło względem poprzedniego raportu. Jeśli nic: „bez zmian od DD.MM” i jedno zdanie, co sprawdzono.
 2. `Ceny na nasze daty:` – najtańsza kompletna podróż i najtańszy odcinek do Buenos Aires, z odległością od wyzwalacza. Gdy cen nie ma – od kiedy będą.
