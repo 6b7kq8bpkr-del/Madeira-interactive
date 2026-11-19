@@ -16,7 +16,8 @@ W `../uco/loty.json`:
 - `raport` – zastępujesz w całości, codziennie, także gdy nic się nie zmieniło (wtedy piszesz to wprost);
 - `status` i `zaktualizowano` – „Stan na DD.MM.RRRR: …”, 4–6 zdań streszczenia raportu, z dzisiejszą datą;
 - `sygnaly` – dopisujesz na początku listy wyłącznie nowy fakt z adresem źródła; najpierw sprawdź, czy takiego wpisu już nie ma. Format jak w istniejących wpisach: `data`, `typ`, `kierunek` (`wzrost` / `spadek` / `neutralnie` – wpływ na ceny), `waga` 1–3, `opis`, `url`.
-- `rss` – wynik radaru promocji z dzisiejszego uruchomienia `promo_rss.py` (krok 5).
+- `rss` – wynik radaru promocji z dzisiejszego uruchomienia `promo_rss.py` (krok 5);
+- `serie[].hist` i `historia` – dzienny zapis cen (zasady w sekcji „Historia cen”).
 
 W `../uco/promocje.json`: `zaktualizowano` (dziś), `nastepny` (jutro), `status` (2–3 zdania: czy jest promocja obejmująca listopad 2027) i `wpisy` – dopisujesz tylko realną ofertę z adresem źródła, w formacie istniejących wpisów; wpisy o ofertach, które wygasły albo przestały istnieć, oznacz `pasuje: "nie"` i dopisz to w `ocena`.
 
@@ -25,11 +26,11 @@ W `data/program.json` – tylko te pola i tylko wtedy, gdy dzisiejsze fakty im p
 - `loty.kalendarz.fazy[]` bieżącej fazy: `decyzja` (pokazuje się na górze strony jako „Teraz” – ma mówić, co robić dziś; najwyżej 330 znaków, bo trafia też do podsumowania dla par), `co`, `automat`;
 - `loty.zadania[]`: `od`, `do`, `opis` – gdy zadania nie da się wykonać w terminie z przyczyn zewnętrznych albo zmienił się sposób. Terminu, który po prostu minął, nie przesuwasz: zadanie ma zostać widoczne jako zaległe;
 - `loty.okna.linie[].dni` i `loty.okna.zrodlo` – gdy wyszukiwarka pokazuje inną datę otwarcia sprzedaży niż tabela. Wyjątek: Iberia i Aerolíneas Argentinas są przypięte w testach – różnicę tylko zgłoś;
-- `budzet.kursy.USD`, `data`, `zrodlo` – wyłącznie gdy skrypt wypisze „PRZELICZYĆ BUDŻET” (odchylenie ≥ 3%). `EUR` nie zmieniasz (kurs 4,39 jest przypięty w testach) – zgłoś.
+- `budzet.kursy.USD`, `EUR`, `data`, `zrodlo` – w każdy poniedziałek według wiersza „KURS NBP” ze skryptu (dwa miejsca po przecinku), a w inny dzień tylko gdy skrypt wypisze „PRZELICZYĆ BUDŻET”. Po zmianie podaj w punkcie „Kursy:”, ile kosztuje teraz wariant polecany.
 
 Po każdej zmianie w `data/` uruchom `python3 -I build.py` – przelicza `../uco/data.js` i `../uco/index.html`; te pliki commitujesz razem ze źródłem. Każdą zmianę na stronie wymień w raporcie w punkcie „Poprawione na stronie:”.
 
-Nie ruszasz: `nastepny`, `historia`, `serie`, `skrzynka`, `template.html`, testów, workflow ani reszty `data/` (hotele, dni, kwoty budżetu, reguły skali cen). Usterki w tych miejscach opisz w raporcie w punkcie „Do poprawienia na stronie:”.
+Nie ruszasz: `nastepny`, `skrzynka`, `template.html`, `skrot.html`, testów, workflow ani reszty `data/` (hotele, dni, kwoty budżetu, reguły skali cen, decyzje). Usterki w tych miejscach opisz w raporcie w punkcie „Do poprawienia na stronie:”.
 
 ## Kolejność
 
@@ -45,6 +46,15 @@ Nie ruszasz: `nastepny`, `historia`, `serie`, `skrzynka`, `template.html`, test�
 6. Napisz `raport` (układ niżej), `status`, ewentualne `sygnaly`, zaktualizuj `promocje.json`; popraw w `data/program.json` to, co przestało być prawdą, i przebuduj stronę.
 7. Sprawdź: `python3 -I ../uco/tools/raport_fakty.py --check` i `python3 -I build.py --check`; jeśli jest Node – testy z `tests/` (README).
 8. Commit „Loty: stan na RRRR-MM-DD” i publikacja według instrukcji zadania. Publikacja strony rusza sama po wypchnięciu na `main` i przejściu testów; przyczynę błędu testów pokazują adnotacje przebiegu w GitHub Actions.
+
+## Historia cen
+
+Wykres trendu, ranking linii i kafelek „Najlepsza kompletna podróż” czytają `serie[].hist` w `loty.json`. Codziennie dopisujesz po jednym punkcie `{"data": "RRRR-MM-DD", "cena": N}` do każdej serii, którą da się dziś wycenić; istniejących punktów nie zmieniasz, a jeśli punkt z dzisiejszą datą już jest – zastępujesz go.
+
+- `cena` to zawsze **pełna podróż na osobę**: najtańszy bilet tej linii na nasze daty plus dodatki z tabeli `loty.wyzwalacze` (bagaż 700 zł, lot krajowy 650 zł, przez Madryt dolot i nocleg 850 zł, z Wiednia lub Berlina dojazd 450 zł), zaokrąglona do 10 zł. Bilet w EUR przelicz po `budzet.kursy.EUR`.
+- Serie linii (`ib`, `ue`, `lh`, `af`, `tk`, `ita`, `et`, `ar`): najtańszy wariant tej linii – z Warszawy albo przez Madryt z dolotem. `vie`: najtańszy bilet z Wiednia lub Berlina. `calosc`, `stopover`, `openjaw`, `mad`: dopiero gdy da się kupić cały bilet do Mendozy (ok. 18.12.2026) – wtedy bez doliczania lotu krajowego.
+- Do `historia` dopisz jeden wpis dziennie: `data`, `zrodlo: "raport dzienny"`, `faza`, `najtansza` (`id` serii, `cena`, `opis` – z czego się składa) i `uwaga` (jedno–dwa zdania).
+- `raport.calosc` to najniższa dzisiejsza cena wśród serii w planie bazowym (wylot z Warszawy albo przez Madryt), zaokrąglona do 100 zł; tańszy wylot z Wiednia lub Berlina opisz w raporcie, ale nie wpisuj go do `calosc`, dopóki grupa nie wybierze tej opcji w decyzji „Co robimy, jeśli ceny lotów nie spadną?”.
 
 ## Układ raportu
 

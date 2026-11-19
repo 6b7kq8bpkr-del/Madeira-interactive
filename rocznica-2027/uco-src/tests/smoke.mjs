@@ -337,7 +337,7 @@ async function withLoty(mutate, hash, fn) {
   const p4 = await browser.newPage({ viewport: { width: 1300, height: 900 } }); const e4 = []; p4.on('pageerror', e => e4.push(e.message));
   await p4.goto(BASE + 'index.html#decyzje', { waitUntil: 'load' }); await p4.waitForTimeout(1000);
   const q0 = await p4.evaluate(() => ({ mx: document.querySelectorAll('#mx td.n').length, sel: document.querySelector('#mx td.sel button')?.textContent.replace(/\D/g, ''), pay: document.querySelectorAll('#payl li').length, prog: document.getElementById('dprog').innerText.replace(/\s+/g, ' '), tprog: document.querySelector('[data-tprog]').textContent, paryRows: [...document.querySelectorAll('#os li.osi')].filter(l => /Ustalić liczbę par/.test(l.textContent)).length, dupDec: [...document.querySelectorAll('#os li.osi')].filter(l => /Ile par jedzie/.test(l.textContent)).length }));
-  if (q0.mx !== 15 || q0.sel !== String(R0.razem) || q0.pay !== 5 || !/Decyzje 3 \/ 10/i.test(q0.prog) || !/Decyzje 3\/10 · zadania/.test(q0.tprog) || q0.paryRows !== 0 || q0.dupDec !== 1) fail('decyzje – budżet', JSON.stringify(q0));
+  if (q0.mx !== 15 || q0.sel !== String(R0.razem) || q0.pay !== 5 || !/Decyzje 3 \/ 11/i.test(q0.prog) || !/Decyzje 3\/11 · zadania/.test(q0.tprog) || q0.paryRows !== 0 || q0.dupDec !== 1) fail('decyzje – budżet', JSON.stringify(q0));
   // kurs dolara: jedno źródło – opis wariantu (znaczniki z build.py) zgadza się z tabelą budżetu (calc() na stronie), notka o kursie pokazuje kurs z danych
   const fx = await p4.evaluate(() => { const U = window.UCO, k = U.prog.budzet.kursy, c = window.__calcFor(3, 2 * U.prog.budzet.prog), nf = v => String(v).replace(/(\d)(?=(\d{3})+$)/g, '$1\u00a0'), r10 = v => Math.round(v / 10) * 10; return { build: U.hotels[0].b.razem, calc: c.razem, nocleg: c.nocleg === Math.round(U.hotels[0].model.usd_para * k.USD), note: U.hotels[0].note.includes('ok. ' + nf(r10(c.razem)) + '\u00a0zł') && U.hotels[0].note.includes('Nocleg ok. ' + nf(r10(c.nocleg)) + '\u00a0zł'), dni: U.days.reduce((a, d) => a + d.cost, 0) === c.jedzenie + c.wycieczki_bilety, kursn: document.getElementById('kursn')?.textContent || '', kurs: String(k.USD.toFixed(2)).replace('.', ','), braces: /\{[a-z_]+[:}]/.test(JSON.stringify(U)) }; });
   if (fx.build !== fx.calc || !fx.nocleg || !fx.note || !fx.dni || !fx.kursn.includes(fx.kurs) || !/10\sgr na dolarze/.test(fx.kursn) || fx.braces) fail('budżet – kurs dolara', JSON.stringify(fx));
@@ -371,16 +371,16 @@ async function withLoty(mutate, hash, fn) {
     const rows = [...document.querySelectorAll('#wyzwalacze .wyl li')].map(li => ({ c: li.querySelector('.wc').textContent, p: li.querySelector('.wp').textContent }));
     const exp = W.map(x => { const sum = (x.dodatki || []).reduce((a, d) => a + d[1], 0), k = x.wal === 'EUR' ? B.kursy.EUR : 1; return [Math.floor((B.cel - sum) / k / 10) * 10, Math.floor((B.prog - sum) / k / 10) * 10]; });
     const O = window.UCO.prog.loty.okna, okt = [...document.querySelectorAll('#okna .okt tbody tr')].map(tr => [tr.cells[0].querySelector('b').textContent, tr.cells[1].textContent, tr.cells[2].textContent]);
-    return { n: rows.length, ok: rows.every((x, i) => num(x.c) === exp[i][0] && num(x.p) === exp[i][1]), first: rows[0], eur: rows.filter(x => /EUR/.test(x.c)).length, kurs: document.querySelector('#wyzwalacze .eyebrow').textContent, okt, okm: document.querySelectorAll('#okna .okm li').length, lines: O.linie.length };
+    return { n: rows.length, ok: rows.every((x, i) => num(x.c) === exp[i][0] && num(x.p) === exp[i][1]), first: rows[0], eur: rows.filter(x => /EUR/.test(x.c)).length, kurs: document.querySelector('#wyzwalacze .eyebrow').textContent, okt, okm: document.querySelectorAll('#okna .okm li').length, lines: O.linie.length, eurs: String(B.kursy.EUR.toFixed(2)).replace('.', ','), eurv: B.kursy.EUR };
   });
-  if (r.n < 6 || !r.ok || !/4\s000\szł/.test(r.first.c) || !/4\s800\szł/.test(r.first.p) || r.eur < 2 || !/4,39/.test(r.kurs)) fail('ceny-wyzwalacze', JSON.stringify({ n: r.n, ok: r.ok, first: r.first, eur: r.eur, kurs: r.kurs }));
+  if (r.n < 6 || !r.ok || !/4\s000\szł/.test(r.first.c) || !/4\s800\szł/.test(r.first.p) || r.eur < 2 || !r.kurs.includes(r.eurs)) fail('ceny-wyzwalacze', JSON.stringify({ n: r.n, ok: r.ok, first: r.first, eur: r.eur, kurs: r.kurs }));
   const ib = r.okt.find(x => x[0] === 'Iberia'), ar = r.okt.find(x => /Aerolíneas/.test(x[0]));
   if (r.okt.length !== r.lines || r.okm !== 2 || !ib || ib[1] !== '10.11' || ib[2] !== '18.11' || !ar || ar[1] !== '10.12' || ar[2] !== '18.12') fail('okna sprzedaży', JSON.stringify({ rows: r.okt.length, okm: r.okm, ib, ar }));
   // kalkulator liczy EUR po kursie z danych, także gdy w pamięci został stary zapis waluty
   await pg.evaluate(() => { localStorage.setItem('uco-kalk', JSON.stringify({ c: '585', w: '4.3', z: '1', b: true })); });
   await pg.reload({ waitUntil: 'load' }); await pg.waitForTimeout(900);
   const k = await pg.evaluate(() => ({ wal: document.getElementById('k-wal').value, out: document.getElementById('k-out').innerText.replace(/\s+/g, ' ') }));
-  if (k.wal !== 'EUR' || !/2\s?568\s?zł/.test(k.out)) fail('kalkulator – kurs', JSON.stringify(k));
+  if (k.wal !== 'EUR' || !k.out.replace(/\s/g, '').includes(Math.round(585 * r.eurv) + 'zł')) fail('kalkulator – kurs', JSON.stringify(k));
   if (log.errs.length) fail('ceny-wyzwalacze', 'błędy JS: ' + log.errs[0]);
   await pg.close();
 }

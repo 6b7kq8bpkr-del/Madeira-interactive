@@ -35,7 +35,16 @@
    "trasa": "WAW–MAD–EZE (bilet A)",
    "orient": "5 300–6 300 zł",
    "uwagi": "Iberia WAW–MAD–EZE 4 800–5 500 + lot krajowy z bagażem 510–900 zł; sprawdzić też cały bilet Iberia/LATAM do MDZ",
-   "hist": []
+   "hist": [
+    {
+     "data": "2026-11-18",
+     "cena": 7320
+    },
+    {
+     "data": "2026-11-19",
+     "cena": 6530
+    }
+   ]
   },
   {
    "id": "ar",
@@ -59,7 +68,20 @@
    "trasa": "WAW–MAD–EZE (bilet A)",
    "orient": "5 100–6 000 zł",
    "uwagi": "Air Europa 4 600–5 200 + lot krajowy z bagażem 510–900 zł",
-   "hist": []
+   "hist": [
+    {
+     "data": "2026-11-17",
+     "cena": 6990
+    },
+    {
+     "data": "2026-11-18",
+     "cena": 6960
+    },
+    {
+     "data": "2026-11-19",
+     "cena": 6970
+    }
+   ]
   },
   {
    "id": "ita",
@@ -83,7 +105,20 @@
    "trasa": "WAW–FRA/ZRH–EZE (bilet A)",
    "orient": "5 200–6 000 zł",
    "uwagi": "Lufthansa/Swiss 4 700–5 200 + lot krajowy z bagażem 510–900 zł; Light bez bagażu",
-   "hist": []
+   "hist": [
+    {
+     "data": "2026-11-17",
+     "cena": 7300
+    },
+    {
+     "data": "2026-11-18",
+     "cena": 6970
+    },
+    {
+     "data": "2026-11-19",
+     "cena": 6750
+    }
+   ]
   },
   {
    "id": "tk",
@@ -131,7 +166,12 @@
    "trasa": "VIE/BER–EZE lub MDZ (przez GRU/SCL/MAD)",
    "orient": "2 650–2 850 zł bez bagażu (wzorzec V–VI 2026 na XI 2026)",
    "uwagi": "wzorzec: ogłaszane w maju–czerwcu na listopad; w cenie serii doliczyć dojazd (300–600 zł), bagaż (250–450 zł/odcinek) i lot krajowy; liczy się tylko przy całości ≤ 4 000 zł/os. i 6–8 miejscach w jednej klasie",
-   "hist": []
+   "hist": [
+    {
+     "data": "2026-11-19",
+     "cena": 6270
+    }
+   ]
   }
  ],
  "historia": [
@@ -167,9 +207,28 @@
     "opis": "brak cen na 5–13.11.2027 – powrót 13.11.2027 nie jest jeszcze w sprzedaży"
    },
    "uwaga": "Kayak dla dat 5–13.11.2027 nie zwraca wyników, żadna z odczytanych stron nie pokazuje taryfy na listopad 2027 – zgodnie z kalendarzem (pierwsze ceny do Buenos Aires ok. 17–19.11). Stron Iberii, Air Europy i Turkish nie dało się odczytać automatycznie, więc liczby dni w tabeli sprzedaży pozostają niepotwierdzone do odczytu 20.11. Ceny odniesienia na inne terminy: Warszawa–Buenos Aires od 3 445 zł (Kayak, przez Madryt, II–III), Ethiopian 4 059 zł (Momondo, 1–15.12.2026), Turkish 4 537–4 581 zł (III 2027); średnia z 12 miesięcy 5 697 zł, najtańszy miesiąc wrzesień (mediana 5 152 zł), październik 6 280 zł. Madryt–Buenos Aires od 544 EUR (Avianca, II), Iberia ok. 851 EUR, Air Europa bezpośrednio od 1 099 EUR."
+  },
+  {
+   "data": "2026-11-19",
+   "zrodlo": "raport dzienny",
+   "faza": "Otwarcie sprzedaży",
+   "najtansza": {
+    "id": "vie",
+    "cena": 6270,
+    "opis": "Wiedeń–Buenos Aires 4 468 zł (Lufthansa, jedna przesiadka) + dojazd 450, bagaż 700 i lot krajowy 650 zł"
+   },
+   "uwaga": "Pierwszy zapis cen do serii: pełna podróż na osobę = najtańszy bilet danej linii na 5–13.11.2027 z Kayaka plus dodatki z tabeli cen-wyzwalaczy. Iberia przez Madryt 6 530 zł, Lufthansa/Swiss z Warszawy 6 750 zł, Air Europa przez Madryt 6 970 zł."
   }
  ],
  "sygnaly": [
+  {
+   "data": "2026-11-19",
+   "typ": "Kurs",
+   "kierunek": "wzrost",
+   "waga": 1,
+   "opis": "Budżet przeliczony po kursach NBP z 19.11.2026: USD 4,02 zł (było 3,91), EUR 4,42 zł. Wariant polecany 27 535 zł na parę przy lotach po 4 800 zł/os.; kurs aktualizowany odtąd co poniedziałek.",
+   "url": "https://nbp.pl/statystyka-i-sprawozdawczosc/kursy/tabela-a/"
+  },
   {
    "data": "2026-11-19",
    "typ": "Taryfa",
@@ -708,20 +767,20 @@
     "Kayak, 19.11 po południu, za osobę bez bagażu. Madryt–Buenos Aires bez przesiadki: Iberia 4 328 zł, Air Europa 4 765 zł. Warszawa–Buenos Aires: Lufthansa 5 396 zł (tam dwie przesiadki, z powrotem jedna), z jedną przesiadką w obie strony 6 123 zł (Swiss i Lufthansa). Wyzwalacze celu to 3 350 zł z Warszawy i ok. 560 EUR z Madrytu, obie z bagażem. Cała podróż z bagażem, dolotem i lotem krajowym: ok. 6 600 zł przez Madryt, ok. 6 750 zł z Warszawy."
    ],
    [
-    "Sprzedaż na nasze daty:",
-    "powrót 13.11.2027 sprzedają Air Europa, Lufthansa, Swiss, Iberia, British Airways i ITA. Air France i KLM według kalendarza otwierają powrót dziś, ale w czołówce wyników Kayaka ich nie ma – do sprawdzenia jutro. Turkish 24.11, cały bilet do Mendozy (Aerolíneas, LATAM) ok. 18.12."
+    "Inne lotniska:",
+    "do Buenos Aires z Wiednia od 4 468 zł i z Berlina od 4 716 zł (Lufthansa, jedna przesiadka) wobec 5 396 zł z Warszawy; z dojazdem cała podróż ok. 6 300 zł, czyli ok. 500 zł taniej. Przez Santiago i São Paulo nie wychodzi taniej. Szczegóły w decyzji „Co robimy, jeśli ceny lotów nie spadną?”."
    ],
    [
-    "Rynek i promocje:",
-    "Plus Ultra odwołała loty Madryt–Buenos Aires do 15.12.2026; Avianca oferuje jej pasażerom darmowy powrót (Infoviajera, 17–18.11). Cena Iberii na nasze daty (ok. 980 EUR) jest powyżej kampanii z Visit Argentina (850 EUR w obie strony), więc kampania naszych dat na razie nie obejmuje. Radar promocji (14 z 15 kanałów, 3 dni) nie znalazł oferty z Europy do Argentyny na listopad 2027."
+    "Sprzedaż i rynek:",
+    "powrót 13.11.2027 sprzedają Air Europa, Lufthansa, Swiss, Iberia, British Airways i ITA; Air France i KLM do sprawdzenia jutro, Turkish 24.11, cały bilet do Mendozy ok. 18.12. Plus Ultra odwołała loty Madryt–Buenos Aires do 15.12.2026. Cena Iberii (ok. 980 EUR) jest powyżej kampanii z Visit Argentina (850 EUR). Radar promocji nie znalazł oferty na listopad 2027."
    ],
    [
     "Kursy:",
-    "NBP 19.11.2026: 1 USD = 4,02 zł, 1 EUR = 4,42 zł. Budżet jest liczony po 3,91 zł za dolara; dolar jest o 2,8% droższy, czyli ok. 450 zł na parę więcej. Próg przeliczenia budżetu to 3% (kurs 4,03 zł)."
+    "NBP 19.11.2026: 1 USD = 4,02 zł, 1 EUR = 4,42 zł. Budżet został dziś przeliczony po tych kursach: wariant polecany kosztuje 27 535 zł na parę (było 27 065 zł), zapas do sufitu 465 zł przy lotach po 4 800 zł/os. Od teraz kurs aktualizujemy co poniedziałek."
    ],
    [
     "Poprawione na stronie:",
-    "budżet pokazuje teraz także koszt przy dzisiejszych cenach lotów (ok. 30 700 zł na parę, ok. 2 700 zł ponad sufit); raport jest krótszy, a szczegóły zwinięte; radar promocji uruchamia codzienny agent; poprawione linki do przewodnika MICHELIN. Zaległe decyzje grupy: liczba par i wylot 4.11 czy 5.11 (termin 17.11)."
+    "budżet pokazuje koszt także przy dzisiejszych cenach lotów (ok. 31 100 zł na parę, ok. 3 100 zł ponad sufit); działa historia cen i ranking linii; doszła decyzja „Co robimy, jeśli ceny nie spadną?” oraz krótka strona dla par (skrot.html). Zaległe decyzje grupy: liczba par i wylot 4.11 czy 5.11 (termin 17.11)."
    ]
   ],
   "teraz": [
@@ -755,6 +814,10 @@
    {
     "label": "Info Viajera: Iberia + Visit Argentina",
     "url": "https://infoviajera.com/2026/10/iberia-y-visit-argentina-promocionan-vuelos-madrid-buenos-aires-desde-425-e-el-tramo"
+   },
+   {
+    "label": "Kayak: Wiedeń–Buenos Aires 5–13.11.2027",
+    "url": "https://www.kayak.pl/flights/VIE-BUE/2027-11-05/2027-11-13?sort=price_a"
    }
   ]
  }

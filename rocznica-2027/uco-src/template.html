@@ -676,7 +676,7 @@ footer a { color: var(--ink-2); }
       : nx ? '<b>Czekamy na ' + esc(nx.faza.toLowerCase()) + '</b><small>od ' + d2(nx.od) + ' · ' + (function (n) { return n <= 0 ? 'dziś' : 'za ' + n + (n === 1 ? ' dzień' : ' dni'); })(Math.ceil((new Date(nx.od) - new Date(td)) / 864e5)) + '</small><p>Do tego czasu nic nie kupujemy. Potem: ' + esc(nx.decyzja.charAt(0).toLowerCase() + nx.decyzja.slice(1)) + '</p>'
       : '<b>Bilety kupione</b><p>Zostały rezerwacje z listy przygotowań.</p>';
     h += '<section class="blk trip" aria-label="Wyjazd w skrócie"><div class="wrap"><div class="tcard">' +
-      '<div class="tc"><span class="tl">Kiedy</span><b>5–14 listopada 2027</b><small>wylot z Warszawy 4.11 po 20:00 albo 5.11 · powrót najpóźniej w niedzielę 14.11 · rocznica w środę 10.11</small></div>' +
+      '<div class="tc"><span class="tl">Kiedy</span><b>5–14 listopada 2027</b><small>wylot z Warszawy 4.11 po 20:00 albo 5.11 · powrót najpóźniej w niedzielę 14.11 · rocznica w środę 10.11</small><a href="skrot.html">skrót dla par →</a></div>' +
       '<div class="tc"><span class="tl">Gdzie śpimy</span><ol class="tst">' + (P.etapy || []).map(function (e, i) { return '<li><i>' + e.noce + '</i><span><b' + (!i ? ' data-dyn="h1"' : '') + '>' + esc(e.hotel) + '</b><small>' + esc(e.nazwa) + '</small></span></li>'; }).join('') + '</ol></div>' +
       '<div class="tc"><span class="tl">Koszt na parę</span><b data-dyn="koszt">–</b><small data-dyn="zapas"></small><a href="#budzet">budżet i upgrade’y →</a></div>' +
       '<div class="tc tnow"><span class="tl">Teraz</span>' + teraz + '<small class="tnext" data-tnext></small><small class="tlate" data-tlate hidden></small><small class="tprog" data-tprog></small><a href="#decyzje">decyzje i terminy →</a></div>' +

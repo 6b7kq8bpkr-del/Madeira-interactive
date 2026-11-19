@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Valle de Uco 2027 – skrót dla par</title>
+<style>
+:root { --bg: #f8f8f5; --card: #fff; --ink: #1d1a1f; --ink2: #4a4550; --line: #d6d8d1; --acc: #6d1f3a; --late: #93561f; }
+@media (prefers-color-scheme: dark) { :root { --bg: #141116; --card: #1d1920; --ink: #f1edf0; --ink2: #c9c1c9; --line: #332c35; --acc: #d6809b; --late: #e0a46a; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 680px; margin: 0 auto; padding: 20px 16px 48px; }
+h1 { font-size: 1.7rem; line-height: 1.2; margin: 0 0 4px; } h2 { font-size: 1.15rem; margin: 0 0 10px; }
+.sub { color: var(--ink2); margin: 0 0 20px; }
+section { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px; margin: 0 0 14px; }
+p { margin: 0 0 8px; } small, .m { color: var(--ink2); font-size: .9rem; }
+.big { font-size: 1.45rem; font-weight: 700; }
+fieldset { border: 0; border-top: 1px solid var(--line); margin: 0; padding: 12px 0 4px; } fieldset:first-of-type { border-top: 0; padding-top: 0; }
+legend { font-weight: 600; padding: 0; } .late { color: var(--late); font-weight: 600; }
+label { display: flex; gap: 10px; align-items: flex-start; padding: 9px 0; min-height: 44px; cursor: pointer; } label span small { display: block; }
+input[type=radio] { width: 20px; height: 20px; margin: 3px 0 0; accent-color: var(--acc); flex: none; }
+button, a.btn { display: inline-block; min-height: 44px; padding: 10px 18px; border-radius: 8px; border: 1px solid var(--acc); background: var(--acc); color: var(--bg); font: inherit; font-weight: 600; cursor: pointer; text-decoration: none; }
+a { color: var(--acc); } #ok { margin-left: 10px; }
+</style>
+</head>
+<body>
+<main>
+<h1>Valle de Uco i Buenos Aires</h1>
+<p class="sub">20. rocznica ślubu · 5–14 listopada 2027 · skrót dla par</p>
+<section><h2>Czy już kupujemy bilety?</h2><p id="werdykt">Wczytuję…</p><p class="m" id="stan"></p></section>
+<section><h2>Ile to kosztuje</h2><p class="big" id="koszt"></p><p class="m" id="kosztn"></p></section>
+<section><h2>Co musimy ustalić</h2><form id="dec"></form><p><button type="button" id="send">Wyślij nasze odpowiedzi</button><span class="m" id="ok" role="status"></span></p><p class="m">Przycisk otwiera udostępnianie (np. WhatsApp) albo kopiuje tekst do schowka – wklej go w naszej grupie. Strona niczego sama nie wysyła.</p></section>
+<p><a class="btn" href="./">Pełny plan: trasa, hotele, budżet, loty →</a></p>
+</main>
+<script src="data.js"></script>
+<script>
+(function () {
+  var U = window.UCO || {}, P = U.prog || {}, B = P.budzet || {}, $ = function (i) { return document.getElementById(i); };
+  var nf = function (v) { return String(Math.round(v)).replace(/(\d)(?=(\d{3})+$)/g, '$1 '); }, pl = function (d) { var p = String(d).split('-'); return +p[2] + '.' + p[1] + '.' + p[0]; };
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return '&#' + c.charCodeAt(0) + ';'; }); };
+  var td = new Date().toISOString().slice(0, 10), razem = ((U.hotels || [])[0] || { b: {} }).b.razem || 0, loty = ((U.hotels || [])[0] || { b: {} }).b.loty || 0;
+  function koszt(R) {
+    $('koszt').textContent = 'ok. ' + nf(Math.round(razem / 100) * 100) + ' zł na parę';
+    var t = 'Trzy pary, hotele z planu, bilety po ' + nf(B.prog) + ' zł za osobę. Sufit, który przyjęliśmy: ' + nf(B.sufit) + ' zł.';
+    var c = R && +R.calosc; if (c > 0 && 2 * c > loty) { var m = Math.round((razem - loty + 2 * c) / 100) * 100; t += ' Przy dzisiejszych cenach lotów (ok. ' + nf(c) + ' zł za osobę) wychodzi ok. ' + nf(m) + ' zł na parę' + (m > B.sufit ? ', czyli ' + nf(m - B.sufit) + ' zł ponad sufit.' : '.'); }
+    $('kosztn').textContent = t;
+  }
+  koszt(null);
+  var D = (P.decyzje || []).filter(function (d) { return d.stan === 'otwarta' && d.opcje && d.opcje.length; }).sort(function (a, b) { return a.do < b.do ? -1 : 1; }).slice(0, 5);
+  $('dec').innerHTML = D.map(function (d) {
+    return '<fieldset><legend>' + esc(d.t) + ' <small class="' + (d.do < td ? 'late' : '') + '">' + (d.do < td ? 'po terminie ' : 'do ') + pl(d.do) + '</small></legend>' +
+      d.opcje.map(function (o, i) { return '<label><input type="radio" name="' + esc(d.id) + '" value="' + i + '"><span>' + esc(o[0]) + (o[2] ? ' <small style="display:inline">· polecane</small>' : '') + '<small>' + esc(o[1]) + '</small></span></label>'; }).join('') + '</fieldset>';
+  }).join('') || '<p>Nic do ustalenia.</p>';
+  $('send').onclick = function () {
+    var out = D.map(function (d) { var c = document.querySelector('input[name="' + d.id + '"]:checked'); return c ? '• ' + d.t + ' ' + d.opcje[+c.value][0] : null; }).filter(Boolean);
+    if (!out.length) { $('ok').textContent = 'Zaznaczcie przynajmniej jedną odpowiedź.'; return; }
+    var txt = 'Argentyna 2027 – nasze odpowiedzi:\n' + out.join('\n');
+    if (navigator.share) navigator.share({ text: txt }).catch(function () {});
+    else if (navigator.clipboard) navigator.clipboard.writeText(txt).then(function () { $('ok').textContent = 'Skopiowane – wklejcie w grupie.'; }, function () { $('ok').textContent = txt; });
+    else $('ok').textContent = txt;
+  };
+  fetch('loty.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (M) {
+    var R = M.raport || {}; $('werdykt').textContent = R.werdykt || 'Brak raportu.'; $('stan').textContent = (R.data ? 'Raport z ' + pl(R.data) + '. ' : '') + (R.stan || ''); koszt(R);
+  }).catch(function () { $('werdykt').textContent = 'Nie udało się wczytać raportu lotów – zajrzyj do pełnego planu.'; });
+})();
+</script>
+</body>
+</html>
