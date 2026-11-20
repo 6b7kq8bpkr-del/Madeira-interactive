@@ -1,6 +1,6 @@
 {
- "zaktualizowano": "2026-11-19",
- "status": "Stan na 19.11.2026: Iberia sprzedaje już loty bez przesiadki na 5–13.11.2027 – z Madrytu od 4 328 zł, z Warszawy najtaniej 5 396 zł (Lufthansa), bez bagażu. Cała podróż z bagażem, dolotem i lotem krajowym to ok. 6 600 zł na osobę przy celu 4 000 zł, więc jeszcze nie kupujemy. Air France i KLM do sprawdzenia 20.11, Turkish otwiera powrót 24.11, cały bilet do Mendozy ok. 18.12. Dolar 4,02 zł (budżet po 3,91).",
+ "zaktualizowano": "2026-11-20",
+ "status": "Stan na 20.11.2026: ceny na 5–13.11.2027 stoją w miejscu – z Madrytu bez przesiadki od 4 336 zł (Iberia), z Warszawy od 5 555 zł (KLM), bez bagażu. Cała podróż z bagażem, dolotem i lotem krajowym to ok. 6 500 zł na osobę przy celu 4 000 zł, więc jeszcze nie kupujemy. Air France i KLM sprzedają już powrót 13.11; Turkish otwiera go 24.11, cały bilet do Mendozy da się wycenić ok. 18.12. Z Wiednia wychodzi ok. 6 350 zł. Promocji na listopad 2027 nie ma.",
  "nastepny": "2026-12-01",
  "prog": 4800,
  "cel": 4000,
@@ -43,6 +43,10 @@
     {
      "data": "2026-11-19",
      "cena": 6530
+    },
+    {
+     "data": "2026-11-20",
+     "cena": 6540
     }
    ]
   },
@@ -80,6 +84,10 @@
     {
      "data": "2026-11-19",
      "cena": 6970
+    },
+    {
+     "data": "2026-11-20",
+     "cena": 6970
     }
    ]
   },
@@ -97,7 +105,12 @@
    "trasa": "WAW–CDG/AMS–EZE (bilet A)",
    "orient": "5 800–6 600 zł",
    "uwagi": "Air France/KLM 5 300–5 800 + lot krajowy z bagażem 510–900 zł",
-   "hist": []
+   "hist": [
+    {
+     "data": "2026-11-20",
+     "cena": 6910
+    }
+   ]
   },
   {
    "id": "lh",
@@ -117,6 +130,10 @@
     {
      "data": "2026-11-19",
      "cena": 6750
+    },
+    {
+     "data": "2026-11-20",
+     "cena": 6970
     }
    ]
   },
@@ -170,6 +187,10 @@
     {
      "data": "2026-11-19",
      "cena": 6270
+    },
+    {
+     "data": "2026-11-20",
+     "cena": 6350
     }
    ]
   }
@@ -218,9 +239,36 @@
     "opis": "Wiedeń–Buenos Aires 4 468 zł (Lufthansa, jedna przesiadka) + dojazd 450, bagaż 700 i lot krajowy 650 zł"
    },
    "uwaga": "Pierwszy zapis cen do serii: pełna podróż na osobę = najtańszy bilet danej linii na 5–13.11.2027 z Kayaka plus dodatki z tabeli cen-wyzwalaczy. Iberia przez Madryt 6 530 zł, Lufthansa/Swiss z Warszawy 6 750 zł, Air Europa przez Madryt 6 970 zł."
+  },
+  {
+   "data": "2026-11-20",
+   "zrodlo": "raport dzienny",
+   "faza": "Otwarcie sprzedaży",
+   "najtansza": {
+    "id": "vie",
+    "cena": 6350,
+    "opis": "Wiedeń–Buenos Aires 4 500 zł (ITA i Swiss, tam jedna przesiadka, z powrotem dwie) + dojazd 500, bagaż 700 i lot krajowy 650 zł"
+   },
+   "uwaga": "W planie bazowym najtaniej Iberia przez Madryt 6 540 zł (bilet 4 336 zł, praktycznie bez zmian). Pierwszy punkt serii Air France/KLM: 6 910 zł (KLM z Warszawy 5 555 zł). Lufthansa/Swiss z Warszawy 6 970 zł (bilet podrożał z 5 396 do 5 624 zł), Air Europa przez Madryt 6 970 zł."
   }
  ],
  "sygnaly": [
+  {
+   "data": "2026-11-20",
+   "typ": "Rozkład",
+   "kierunek": "neutralnie",
+   "waga": 1,
+   "opis": "Kayak 20.11: powrót 13.11.2027 sprzedają już Air France i KLM – Warszawa–Buenos Aires 5–13.11.2027 od 5 555 zł (KLM, tam dwie przesiadki, z powrotem jedna) i 5 591 zł (Air France i KLM, jedna przesiadka w obie strony), bez bagażu. Lufthansa i Swiss z Warszawy 5 624 zł (wczoraj 5 396 zł), Iberia z Madrytu bez przesiadki 4 336 zł (bez zmian). Air Canada pokazuje 4 180 zł z Warszawy, ale z trzema przesiadkami w każdą stronę i lądowaniem w Warszawie w poniedziałek 15.11 – poza naszymi zasadami.",
+   "url": "https://www.kayak.pl/flights/WAW-BUE/2027-11-05/2027-11-13?sort=price_a"
+  },
+  {
+   "data": "2026-11-20",
+   "typ": "Rozkład",
+   "kierunek": "neutralnie",
+   "waga": 1,
+   "opis": "Według Sir Chandler KLM ograniczy loty Amsterdam–Buenos Aires z codziennych do sześciu w tygodniu od 28.05 do 2.09.2027 (brak samolotów). Listopada 2027 to nie dotyczy.",
+   "url": "https://www.sirchandler.com.ar/2026/11/klm-bajara-una-frecuencia-semanal-durante-tres-meses-de-2027/"
+  },
   {
    "data": "2026-11-19",
    "typ": "Kurs",
@@ -589,16 +637,16 @@
  ],
  "skrzynka": [],
  "rss": {
-  "sprawdzono": "2026-11-19 16:19",
+  "sprawdzono": "2026-11-20 11:38",
   "kanaly": [
    {
     "zrodlo": "Fly4free.pl",
-    "wpisy": 0,
+    "wpisy": 20,
     "ok": true
    },
    {
     "zrodlo": "Fly4free.pl · Argentyna",
-    "wpisy": 0,
+    "wpisy": 20,
     "ok": true
    },
    {
@@ -608,18 +656,19 @@
    },
    {
     "zrodlo": "Fly4free.pl · Buenos Aires",
-    "wpisy": 0,
+    "wpisy": 20,
     "ok": true
    },
    {
     "zrodlo": "Fly4free.pl · Ameryka Płd.",
-    "wpisy": 0,
+    "wpisy": 20,
     "ok": true
    },
    {
     "zrodlo": "Travel-dealz · Argentyna",
-    "wpisy": 10,
-    "ok": true
+    "wpisy": 0,
+    "ok": false,
+    "blad": "IncompleteRead(234786 bytes read)"
    },
    {
     "zrodlo": "Travel-dealz · Chile",
@@ -633,12 +682,12 @@
    },
    {
     "zrodlo": "Wakacyjni Piraci",
-    "wpisy": 27,
+    "wpisy": 28,
     "ok": true
    },
    {
     "zrodlo": "HolidayPirates",
-    "wpisy": 72,
+    "wpisy": 79,
     "ok": true
    },
    {
@@ -658,9 +707,8 @@
    },
    {
     "zrodlo": "Sir Chandler",
-    "wpisy": 0,
-    "ok": false,
-    "blad": "IncompleteRead(15986 bytes read)"
+    "wpisy": 20,
+    "ok": true
    },
    {
     "zrodlo": "Aeroroutes",
@@ -670,21 +718,57 @@
   ],
   "trafienia": [
    {
-    "zrodlo": "Infoviajera",
-    "tytul": "Ahora Plus Ultra cancela los vuelos a Buenos Aires hasta el 15 de diciembre, ¿y los demás…?",
-    "url": "https://www.infoviajera.com/2026/11/ahora-plus-ultra-cancela-los-vuelos-a-buenos-aires-hasta-el-15-de-diciembre-y-los-demas/",
-    "data": "2026-11-17",
-    "opis": " La aerolínea Plus Ultra modificó la información publicada en su sitio web sobre la suspensión de la ruta entre Buenos Aires y Madrid, como por arte de magia. En la versión actual del comunicado, la compañía informa que dejará de operar esta conexión a partir del martes 17 de noviembre de 2026 y que cancelará los vuelos hasta el 15 de diciembre; en la versión anterior, la suspensión se planteaba..",
+    "zrodlo": "Sir Chandler",
+    "tytul": "Avianca cubre a los pasajeros de Plus Ultra que ya hayan arrancado el viaje",
+    "url": "https://www.sirchandler.com.ar/2026/11/avianca-cubre-a-los-pasajeros-de-plus-ultra-que-ya-hayan-arrancado-el-viaje/",
+    "data": "2026-11-19",
+    "opis": " Ante la suspensión de los vuelos de Plus Ultra entre Madrid y Buenos Aires, y también con Lima, Avianca anunció que ayudará a los pasajeros afectados a regresar a sus destinos, utilizando sus vuelos con conexión en Bogotá. La aerolínea colombiana ofrecerá el traslado sin cobrar la tarifa aérea, aunque los pasajeros tendrán que pagar... \n La entrada  Avianca cubre a los pasajeros de Plus Ultra que",
     "sila": "silne",
     "tryb": "ar"
    },
    {
-    "zrodlo": "Infoviajera",
-    "tytul": "Plus Ultra deja de volar entre Buenos Aires y Madrid y cancela los pasajes emitidos",
-    "url": "https://www.infoviajera.com/2026/11/plus-ultra-deja-de-volar-entre-buenos-aires-y-madrid-y-cancela-los-pasajes-emitidos/",
-    "data": "2026-11-17",
-    "opis": " Llegó la confirmación oficial de la aerolínea Plus Ultra, que anuncia que suspende su ruta Madrid – Buenos Aires a partir del 17 de noviembre de 2026 y hasta nuevo aviso. Los pasajeros afectados, o sea quienes han comprado pasajes para volar esta ruta en fechas posteriores al 17 de noviembre, recibirán un correo electrónico con los detalles de la cancelación. Aclaran que quienes compraron el pasa",
+    "zrodlo": "Sir Chandler",
+    "tytul": "KLM bajará una frecuencia semanal durante tres meses de 2027",
+    "url": "https://www.sirchandler.com.ar/2026/11/klm-bajara-una-frecuencia-semanal-durante-tres-meses-de-2027/",
+    "data": "2026-11-19",
+    "opis": " KLM dejará el vuelo diario entre Amsterdam y Ezeiza, con la continuación a Santiago de Chile durante poco más de tres meses de 2027. Esto será en la temporada alta del hemisferio norte y sería por limitación de flota. Las fechas informadas son desde el 28 de mayo al 2 de septiembre, donde habrá SEIS... \n La entrada  KLM bajará una frecuencia semanal durante tres meses de 2027  se publicó primero ",
+    "sila": "slabe",
+    "tryb": "ar"
+   },
+   {
+    "zrodlo": "Sir Chandler",
+    "tytul": "Córdoba, Tucumán y Rosario los que más crecieron en pasajeros internacionales este año",
+    "url": "https://www.sirchandler.com.ar/2026/11/cordoba-tucuman-y-rosario-los-que-mas-crecieron-en-pasajeros-internacionales-este-ano/",
+    "data": "2026-11-19",
+    "opis": " Los aeropuertos argentinos registraron un crecimiento del 10% en el movimiento de pasajeros internacionales durante los primeros diez meses de 2026, pero el dato más interesante aparece al separar los aeropuertos de Buenos Aires de los del interior del país. Mientras Ezeiza y Aeroparque crecieron en conjunto un 7%, los demás aeropuertos aumentaron un 29%... \n La entrada  Córdoba, Tucumán y Rosari",
+    "sila": "slabe",
+    "tryb": "ar"
+   },
+   {
+    "zrodlo": "Promociones Aéreas",
+    "tytul": "¿Planificando un Eurotrip? 🌍 Acá hay un Descuento para 🎫 Actividades en Roma, París, Londres, Madrid y Barcelona 📸",
+    "url": "https://promociones-aereas.com.ar/2026/11/planificando-un-eurotrip-aca-hay-un-descuento-para-actividades-en-roma-paris-londres-madrid-y-barcelona-ac-p.html",
+    "data": "2026-11-19",
+    "opis": " En este artículo les dejamos las 5 actividades mas populares en Roma, París, Londres, Madrid y Barcelona para que las puedan reservar con 5% de Descuento 🎫 MUY IMPORTANTE: el […] \n La entrada  ¿Planificando un Eurotrip? 🌍 Acá hay un Descuento para 🎫 Actividades en Roma, París, Londres, Madrid y Barcelona 📸  se publicó primero en  Promociones Aéreas . ",
+    "sila": "slabe",
+    "tryb": "ar"
+   },
+   {
+    "zrodlo": "Sir Chandler",
+    "tytul": "El limbo de los pasajes de Plus Ultra desde el 15 de diciembre",
+    "url": "https://www.sirchandler.com.ar/2026/11/el-limbo-de-los-pasajes-de-plus-ultra-desde-el-15-de-diciembre/",
+    "data": "2026-11-18",
+    "opis": " Ayer se conoció oficialmente que Plus Ultra cortaba las operaciones entre Madrid y Ezeiza, además de Lima. Básicamente sólo volarán a Caracas. En el comunicado que pusieron inicialmente, la suspensión era por tiempo indefinido. Pero lectores de agencias de viaje advirtieron que no figuraban cancelados después del 15 de diciembre. Horas después… CAMBIARON el comunicado... \n La entrada  El limbo de",
     "sila": "silne",
+    "tryb": "ar"
+   },
+   {
+    "zrodlo": "Sir Chandler",
+    "tytul": "Área de espera gratis en Ezeiza – EDITADO: volvió a funcionar",
+    "url": "https://www.sirchandler.com.ar/2026/11/area-de-espera-gratis-en-ezeiza-cerrada-temporalmente-por-un-incidente/",
+    "data": "2026-11-18",
+    "opis": " En Ezeiza hace ya varios años hay un área de espera gratuito DENTRO DEL AEROPUERTO. Esto lo mostré cuando se inauguró, hice el video con la ubicación, tratando de combatir el peligroso espacio que usan muchos autos para esperar que llegue alguien al costado de la Riccheri. Está entrando al estacionamiento normalmente, girando a la... \n La entrada  Área de espera gratis en Ezeiza – EDITADO: volvió",
+    "sila": "slabe",
     "tryb": "ar"
    },
    {
@@ -698,24 +782,6 @@
    },
    {
     "zrodlo": "Fly4free.com",
-    "tytul": "🇧🇴 Bolivia from €502! Cheap flights from Madrid to one of South America’s wildest destinations",
-    "url": "https://www.fly4free.com/flight-deals/europe/flights-from-madrid-to-bolivia-e502/",
-    "data": "2026-11-16",
-    "opis": "If you’re looking for a trip that feels genuinely different from the usual long-haul escape, Bolivia is hard to beat. Flights from Madrid to Santa Cruz (Viru Viru) start from just €502 return, giving you a very affordable entry point into a country of salt deserts, high-altitude lakes, Andean peaks, colonial cities and Amazon rainforest.",
-    "sila": "slabe",
-    "tryb": "eu"
-   },
-   {
-    "zrodlo": "Infoviajera",
-    "tytul": "Copa Airlines aumentará sus vuelos entre Mendoza y Panamá: tendrá 10 frecuencias semanales en verano",
-    "url": "https://www.infoviajera.com/2026/11/copa-airlines-aumentara-sus-vuelos-entre-mendoza-y-panama-tendra-10-frecuencias-semanales-en-verano/",
-    "data": "2026-11-16",
-    "opis": " Copa Airlines celebró sus nueve años de operaciones en Mendoza (Argentina) y anunció un nuevo incremento de frecuencias para la próxima temporada de verano. Según nos cuentan, a partir de enero de 2027, la aerolínea pasará de 7 a 10 vuelos semanales entre Mendoza y Ciudad de Panamá. La conexión permite acceder al Hub de las Américas, ubicado en el Aeropuerto Internacional de Tocumen, desde donde ",
-    "sila": "slabe",
-    "tryb": "ar"
-   },
-   {
-    "zrodlo": "Fly4free.com",
     "tytul": "Explore the Land of the Incas! 🦙 Air France/KLM flights from many UK cities to Peru from £578",
     "url": "https://www.fly4free.com/flight-deals/europe/flights-from-the-uk-to-peru-p578/",
     "data": "2026-11-17",
@@ -724,71 +790,53 @@
     "tryb": "eu"
    },
    {
-    "zrodlo": "Wakacyjni Piraci",
-    "tytul": "Odkryj jedno z najpiękniejszych miasteczek Polski 🌿 Romantyczny Kazimierz Dolny ♥️",
-    "url": "https://www.wakacyjnipiraci.pl/hotele/odkryj-jedno-z-najpiekniejszych-miasteczek-polski-romantyczny-kazimierz-dolny",
-    "data": "2026-11-18",
-    "opis": "Ahoj Piraci! 🏴‍☠️ Latamy po świecie, ale warto sprawdzić również lokalne propozycje. Co powiecie na city break w małym romantycznym miasteczku, wśród renesansowych kamieniczek? \n\nTo nadwiślański Kazimierz Dolny, Wasz apartament znajduje się nieopodal rynku oraz ruin zamku, więc nie grozi Wam nuda!\nKlimatyczne kawiarnie, ale również świetne warunki dla osób kochających trekking i narciarskie szaleń",
-    "sila": "slabe",
-    "tryb": "eu"
-   },
-   {
-    "zrodlo": "Promociones Aéreas",
-    "tytul": "¡Atenti Cordobeses! 🥘 Hay vuelos a Madrid a partir de U$D 885 🌹",
-    "url": "https://promociones-aereas.com.ar/2026/11/atenti-cordobeses-hay-vuelos-a-madrid-avianca-rt-p.html",
-    "data": "2026-11-18",
-    "opis": " Hay muy buenas tarifas de vuelos a Madrid desde Córdoba a partir de U$D 885 finales, ida y vuelta. Importante: La compra en U$D se realiza y emite en/desde una […] \n La entrada  ¡Atenti Cordobeses! 🥘 Hay vuelos a Madrid a partir de U$D 885 🌹  se publicó primero en  Promociones Aéreas . ",
-    "sila": "slabe",
-    "tryb": "ar"
-   },
-   {
-    "zrodlo": "Promociones Aéreas",
-    "tytul": "Madrid a partir de U$D 802 con Carry On desde Buenos Aires ✈️ 🌹",
-    "url": "https://promociones-aereas.com.ar/2026/11/madrid-con-carry-on-desde-buenos-aires-avianca-rt-p-8.html",
-    "data": "2026-11-19",
-    "opis": " Hay muy buenas tarifas de vuelos a Madrid desde Buenos Aires a partir de U$D 802 finales, ida y vuelta. Importante: La compra en U$D se realiza y emite en/desde […] \n La entrada  Madrid a partir de U$D 802 con Carry On desde Buenos Aires ✈️ 🌹  se publicó primero en  Promociones Aéreas . ",
-    "sila": "slabe",
+    "zrodlo": "Infoviajera",
+    "tytul": "Ahora Plus Ultra cancela los vuelos a Buenos Aires hasta el 15 de diciembre, ¿y los demás…?",
+    "url": "https://www.infoviajera.com/2026/11/ahora-plus-ultra-cancela-los-vuelos-a-buenos-aires-hasta-el-15-de-diciembre-y-los-demas/",
+    "data": "2026-11-17",
+    "opis": " La aerolínea Plus Ultra modificó la información publicada en su sitio web sobre la suspensión de la ruta entre Buenos Aires y Madrid, como por arte de magia. En la versión actual del comunicado, la compañía informa que dejará de operar esta conexión a partir del martes 17 de noviembre de 2026 y que cancelará los vuelos hasta el 15 de diciembre; en la versión anterior, la suspensión se planteaba..",
+    "sila": "silne",
     "tryb": "ar"
    }
   ]
  },
  "raport": {
-  "data": "2026-11-19",
-  "werdykt": "⚪ Jeszcze nie kupujemy – Iberia otworzyła loty bez przesiadki, ale cała podróż to wciąż ok. 6 600 zł przy celu 4 000 zł",
-  "calosc": 6600,
-  "stan": "Kompletnej podróży do Mendozy na nasze daty nie da się jeszcze wycenić, ale są ceny dużych linii do Buenos Aires (Kayak, 19.11): z Madrytu bez przesiadki od 4 328 zł (Iberia), z Warszawy od 5 396 zł (Lufthansa) – bez bagażu. Z bagażem, dolotem i lotem krajowym to ok. 6 600 zł na osobę, ok. 1 800 zł ponad próg. Turkish otwiera powrót 24.11, cały bilet do Mendozy ok. 18.12.2026.",
+  "data": "2026-11-20",
+  "werdykt": "⚪ Jeszcze nie kupujemy – ceny stoją w miejscu, cała podróż to wciąż ok. 6 500 zł przy celu 4 000 zł",
+  "calosc": 6500,
+  "stan": "Kompletnej podróży do Mendozy na nasze daty nie da się jeszcze wycenić, ale są ceny dużych linii do Buenos Aires (Kayak, 20.11): z Madrytu bez przesiadki od 4 336 zł (Iberia), z Warszawy od 5 555 zł (KLM) – bez bagażu. Z bagażem, dolotem i lotem krajowym to ok. 6 500 zł na osobę, ok. 1 700 zł ponad próg. Turkish otwiera powrót 24.11, cały bilet do Mendozy ok. 18.12.2026.",
   "punkty": [
    [
     "Od wczoraj:",
-    "Iberia pokazała pierwszy lot bez przesiadki w obie strony na 5–13.11.2027: 4 328 zł z Madrytu (ok. 980 EUR), o ok. 430 zł taniej niż Air Europa. Z Warszawy najtaniej jest 5 396 zł (wczoraj 5 619 zł). Dolar podrożał do 4,02 zł. Werdykt się nie zmienia."
+    "Ceny prawie bez zmian: Iberia z Madrytu bez przesiadki 4 336 zł (wczoraj 4 328 zł), więc cała podróż to nadal ok. 6 540 zł – kwota 6 500 zł zamiast wczorajszych 6 600 zł wynika tylko z zaokrąglenia. Nowe: Air France i KLM sprzedają już powrót 13.11 (z Warszawy od 5 555 zł), a Lufthansa z Warszawy podrożała z 5 396 zł do 5 624 zł. Werdykt się nie zmienia."
    ],
    [
     "Ceny na nasze daty:",
-    "Kayak, 19.11 po południu, za osobę bez bagażu. Madryt–Buenos Aires bez przesiadki: Iberia 4 328 zł, Air Europa 4 765 zł. Warszawa–Buenos Aires: Lufthansa 5 396 zł (tam dwie przesiadki, z powrotem jedna), z jedną przesiadką w obie strony 6 123 zł (Swiss i Lufthansa). Wyzwalacze celu to 3 350 zł z Warszawy i ok. 560 EUR z Madrytu, obie z bagażem. Cała podróż z bagażem, dolotem i lotem krajowym: ok. 6 600 zł przez Madryt, ok. 6 750 zł z Warszawy."
+    "Kayak, 20.11 przed południem, za osobę bez bagażu, wylot 5.11, lądowanie na Ezeizie. Madryt–Buenos Aires bez przesiadki: Iberia 4 336 zł, Air Europa 4 768 zł. Warszawa–Buenos Aires: KLM 5 555 zł (tam dwie przesiadki, z powrotem jedna), Air France i KLM z jedną przesiadką 5 591 zł, Swiss i Lufthansa 5 624 zł. Cała podróż z bagażem, dolotem i lotem krajowym: ok. 6 540 zł przez Madryt, ok. 6 900 zł z Warszawy – ok. 2 500 zł ponad cel."
+   ],
+   [
+    "Sprzedaż na nasze daty:",
+    "powrót 13.11.2027 sprzedają już Iberia, Air Europa, Lufthansa, Swiss, Air France, KLM, ITA i British Airways – zgodnie z tabelą. Turkish powinien otworzyć powrót 24.11, a Ethiopian, LATAM i Aerolíneas ok. 17–18.12; wtedy da się wycenić cały bilet do Mendozy. Wylot w czwartek 4.11 nie daje oszczędności: tańsze loty Lufthansy (od 5 494 zł) startują przed 20:00."
    ],
    [
     "Inne lotniska:",
-    "do Buenos Aires z Wiednia od 4 468 zł i z Berlina od 4 716 zł (Lufthansa, jedna przesiadka) wobec 5 396 zł z Warszawy; z dojazdem cała podróż ok. 6 300 zł, czyli ok. 500 zł taniej. Przez Santiago i São Paulo nie wychodzi taniej. Szczegóły w decyzji „Co robimy, jeśli ceny lotów nie spadną?”."
+    "do Buenos Aires z Wiednia od 4 500 zł (ITA i Swiss, tam jedna przesiadka, z powrotem dwie; z jedną w obie strony 4 539 zł), z Berlina od 4 727 zł (Swiss i Lufthansa) wobec 5 555 zł z Warszawy. Z dojazdem, bagażem i lotem krajowym cała podróż z Wiednia to ok. 6 350 zł – ok. 200 zł taniej niż przez Madryt. Air Canada pokazuje 4 180 zł z Warszawy, ale z trzema przesiadkami i lądowaniem w poniedziałek 15.11 – nie liczymy."
    ],
    [
-    "Sprzedaż i rynek:",
-    "powrót 13.11.2027 sprzedają Air Europa, Lufthansa, Swiss, Iberia, British Airways i ITA; Air France i KLM do sprawdzenia jutro, Turkish 24.11, cały bilet do Mendozy ok. 18.12. Plus Ultra odwołała loty Madryt–Buenos Aires do 15.12.2026. Cena Iberii (ok. 980 EUR) jest powyżej kampanii z Visit Argentina (850 EUR). Radar promocji nie znalazł oferty na listopad 2027."
-   ],
-   [
-    "Kursy:",
-    "NBP 19.11.2026: 1 USD = 4,02 zł, 1 EUR = 4,42 zł. Budżet został dziś przeliczony po tych kursach: wariant polecany kosztuje 27 535 zł na parę (było 27 065 zł), zapas do sufitu 465 zł przy lotach po 4 800 zł/os. Od teraz kurs aktualizujemy co poniedziałek."
+    "Rynek i promocje:",
+    "bez nowych wiadomości z 48 godzin. Plus Ultra nadal nie lata między Madrytem a Buenos Aires (odwołane do 15.12.2026). Kampania Iberii z Visit Argentina (850 EUR w obie strony) nie obejmuje naszych dat – Iberia sprzedaje je po ok. 980 EUR. Radar promocji (dwa przebiegi, kanały odpowiadały z przerwami) nie znalazł oferty na listopad 2027; nie odpowiedział kanał Travel-dealz · Argentyna. Kursy NBP z 19.11 są takie jak w budżecie."
    ],
    [
     "Poprawione na stronie:",
-    "budżet pokazuje koszt także przy dzisiejszych cenach lotów (ok. 31 100 zł na parę, ok. 3 100 zł ponad sufit); działa historia cen i ranking linii; doszła decyzja „Co robimy, jeśli ceny nie spadną?” oraz krótka strona dla par (skrot.html). Zaległe decyzje grupy: liczba par i wylot 4.11 czy 5.11 (termin 17.11)."
+    "blok „Teraz” pokazuje dzisiejsze ceny; do historii cen doszła seria Air France/KLM (6 910 zł za całą podróż). Liczba par i dzień wylotu nie są już zaległe – od 20.11 obowiązują założenia robocze (trzy pary, piątek 5.11), potwierdzenie do 15.01.2027. W ankiecie par nie ma jeszcze odpowiedzi."
    ]
   ],
   "teraz": [
-   "Dziś, 19.11: zaległe od 17.11 – ustalić liczbę par i wybrać wylot 4.11 wieczorem albo 5.11; newslettery zaległe od 14.11.",
-   "20.11: sprawdzić, czy Air France i KLM sprzedają już powrót 13.11 i za ile.",
-   "24.11: powrót powinien otworzyć Turkish; do tego dnia karty bez prowizji walutowej.",
-   "27.11: Black Friday – tylko sprawdzamy, czy któraś linia objęła listopad 2027.",
-   "Ok. 18.12: pełna wycena całego biletu do Mendozy i alerty Google Flights na nasze daty."
+   "Dziś, 20.11: zaległe od 14.11 – zapisać się na newslettery (Travel-dealz, Fly4free, Iberia, Air Europa, LATAM).",
+   "Do 24.11: karta bez prowizji walutowej dla każdej pary; tego dnia powrót powinien otworzyć Turkish.",
+   "27–30.11: Black Friday – tylko sprawdzamy, czy któraś linia objęła listopad 2027.",
+   "Ok. 18.12: pełna wycena całego biletu do Mendozy i alerty Google Flights na nasze daty.",
+   "Do 15.01.2027: pary potwierdzają skład (roboczo trzy pary) i wylot w piątek 5.11 – w ankiecie na stronie skrótu."
   ],
   "zrodla": [
    {
@@ -800,24 +848,28 @@
     "url": "https://www.kayak.pl/flights/WAW-BUE/2027-11-05/2027-11-13?sort=price_a"
    },
    {
+    "label": "Kayak: Warszawa–Buenos Aires 4–13.11.2027",
+    "url": "https://www.kayak.pl/flights/WAW-BUE/2027-11-04/2027-11-13?sort=price_a"
+   },
+   {
+    "label": "Kayak: Wiedeń–Buenos Aires 5–13.11.2027",
+    "url": "https://www.kayak.pl/flights/VIE-BUE/2027-11-05/2027-11-13?sort=price_a"
+   },
+   {
+    "label": "Kayak: Berlin–Buenos Aires 5–13.11.2027",
+    "url": "https://www.kayak.pl/flights/BER-BUE/2027-11-05/2027-11-13?sort=price_a"
+   },
+   {
     "label": "Infoviajera: Plus Ultra odwołuje loty do 15.12",
     "url": "https://www.infoviajera.com/2026/11/ahora-plus-ultra-cancela-los-vuelos-a-buenos-aires-hasta-el-15-de-diciembre-y-los-demas/"
-   },
-   {
-    "label": "Infoviajera: Avianca dla pasażerów Plus Ultra",
-    "url": "https://www.infoviajera.com/2026/11/avianca-ofrece-vuelos-gratis-de-vuelta-para-los-pasajeros-afectados-por-plus-ultra/"
-   },
-   {
-    "label": "NBP: tabela A kursów średnich",
-    "url": "https://nbp.pl/statystyka-i-sprawozdawczosc/kursy/tabela-a/"
    },
    {
     "label": "Info Viajera: Iberia + Visit Argentina",
     "url": "https://infoviajera.com/2026/10/iberia-y-visit-argentina-promocionan-vuelos-madrid-buenos-aires-desde-425-e-el-tramo"
    },
    {
-    "label": "Kayak: Wiedeń–Buenos Aires 5–13.11.2027",
-    "url": "https://www.kayak.pl/flights/VIE-BUE/2027-11-05/2027-11-13?sort=price_a"
+    "label": "NBP: tabela A kursów średnich",
+    "url": "https://nbp.pl/statystyka-i-sprawozdawczosc/kursy/tabela-a/"
    }
   ]
  }
