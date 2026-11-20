@@ -25,12 +25,13 @@ W `data/program.json` – tylko te pola i tylko wtedy, gdy dzisiejsze fakty im p
 
 - `loty.kalendarz.fazy[]` bieżącej fazy: `decyzja` (pokazuje się na górze strony jako „Teraz” – ma mówić, co robić dziś; najwyżej 330 znaków, bo trafia też do podsumowania dla par), `co`, `automat`;
 - `loty.zadania[]`: `od`, `do`, `opis` – gdy zadania nie da się wykonać w terminie z przyczyn zewnętrznych albo zmienił się sposób. Terminu, który po prostu minął, nie przesuwasz: zadanie ma zostać widoczne jako zaległe;
+- `decyzje[].ankieta` – wynik ankiety par dla otwartych decyzji (sekcja „Ankieta par”); innych pól decyzji nie zmieniasz;
 - `loty.okna.linie[].dni` i `loty.okna.zrodlo` – gdy wyszukiwarka pokazuje inną datę otwarcia sprzedaży niż tabela. Wyjątek: Iberia i Aerolíneas Argentinas są przypięte w testach – różnicę tylko zgłoś;
 - `budzet.kursy.USD`, `EUR`, `data`, `zrodlo` – w każdy poniedziałek według wiersza „KURS NBP” ze skryptu (dwa miejsca po przecinku), a w inny dzień tylko gdy skrypt wypisze „PRZELICZYĆ BUDŻET”. Po zmianie podaj w punkcie „Kursy:”, ile kosztuje teraz wariant polecany.
 
 Po każdej zmianie w `data/` uruchom `python3 -I build.py` – przelicza `../uco/data.js` i `../uco/index.html`; te pliki commitujesz razem ze źródłem. Każdą zmianę na stronie wymień w raporcie w punkcie „Poprawione na stronie:”.
 
-Nie ruszasz: `nastepny`, `skrzynka`, `template.html`, `skrot.html`, testów, workflow ani reszty `data/` (hotele, dni, kwoty budżetu, reguły skali cen, decyzje). Usterki w tych miejscach opisz w raporcie w punkcie „Do poprawienia na stronie:”.
+Nie ruszasz: `nastepny`, `skrzynka`, `template.html`, `skrot.html`, testów, workflow ani reszty `data/` (hotele, dni, kwoty budżetu, reguły skali cen, treść decyzji poza polem `ankieta`). Usterki w tych miejscach opisz w raporcie w punkcie „Do poprawienia na stronie:”.
 
 ## Kolejność
 
@@ -55,6 +56,25 @@ Wykres trendu, ranking linii i kafelek „Najlepsza kompletna podróż” czytaj
 - Serie linii (`ib`, `ue`, `lh`, `af`, `tk`, `ita`, `et`, `ar`): najtańszy wariant tej linii – z Warszawy albo przez Madryt z dolotem. `vie`: najtańszy bilet z Wiednia lub Berlina. `calosc`, `stopover`, `openjaw`, `mad`: dopiero gdy da się kupić cały bilet do Mendozy (ok. 18.12.2026) – wtedy bez doliczania lotu krajowego.
 - Do `historia` dopisz jeden wpis dziennie: `data`, `zrodlo: "raport dzienny"`, `faza`, `najtansza` (`id` serii, `cena`, `opis` – z czego się składa) i `uwaga` (jedno–dwa zdania).
 - `raport.calosc` to najniższa dzisiejsza cena wśród serii w planie bazowym (wylot z Warszawy albo przez Madryt), zaokrąglona do 100 zł; tańszy wylot z Wiednia lub Berlina opisz w raporcie, ale nie wpisuj go do `calosc`, dopóki grupa nie wybierze tej opcji w decyzji „Co robimy, jeśli ceny lotów nie spadną?”.
+
+## Ankieta par
+
+Pary odpowiadają na otwarte decyzje na stronie `skrot.html`; odpowiedzi leżą poza repozytorium. Adres i kod dostępu są w instrukcji zadania, nie tutaj – repozytorium jest publiczne, więc kodu ani imion par nigdy nie zapisujesz w żadnym pliku ani w raporcie.
+
+- Pobierz odpowiedzi (GET z kodem). Dla każdej otwartej decyzji, na którą ktoś odpowiedział, wpisz w `decyzje[].ankieta` w `data/program.json` same liczby, np. „3 pary – 2 odpowiedzi, 4 pary – 1 odpowiedź (stan na 20.11)”. Gdy nikt nie odpowiedział, pola nie dodajesz; gdy odpowiedzi zniknęły, usuwasz je.
+- Decyzji nie zamykasz i nie zmieniasz budżetu ani planu pod wynik ankiety. Gdy co najmniej dwie pary odpowiedziały i wszystkie odpowiedzi są zgodne, dopisz do pola „– zgodnie” i wymień decyzję w raporcie w kroku `teraz` jako gotową do zamknięcia przez organizatora.
+- Jeśli ankiety nie da się odczytać, zostaw pola bez zmian i napisz to w podsumowaniu przebiegu.
+
+## Powiadomienia
+
+Jedno powiadomienie push do właściciela (sposób wysyłki jest w instrukcji zadania), tylko gdy zachodzi któryś przypadek – w zwykły dzień bez zmian nie wysyłasz nic:
+
+- werdykt 🎯 albo 🟢 – „KUPOWAĆ: linia, cena za osobę, trasa”;
+- nowe minimum: dzisiejsza `raport.calosc` jest niższa od każdej wcześniejszej wartości `historia[].najtansza.cena` i punktów serii planu bazowego (`ib`, `ue`, `lh`, `af`, `tk`, `ita`, `et`, `ar`, `calosc`) o co najmniej 100 zł – „Loty Argentyna: nowe minimum X zł/os. (poprzednie Y zł), linia, trasa”;
+- spadek `raport.calosc` o 300 zł lub więcej od wczoraj, jeśli nie jest to już zgłoszone jako nowe minimum;
+- werdykt 🔴 – jedno zdanie, co się stało;
+- raportu nie udało się opublikować – „Loty Argentyna: raport z DD.MM nieopublikowany – powód”;
+- ankieta: decyzja ma zgodne odpowiedzi co najmniej dwóch par – „Argentyna: decyzja … gotowa do zamknięcia”, raz na decyzję (nie powtarzaj, gdy pole `ankieta` już wczoraj kończyło się na „– zgodnie”).
 
 ## Układ raportu
 
