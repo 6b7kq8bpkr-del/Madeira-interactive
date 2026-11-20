@@ -48,6 +48,11 @@ Nie ruszasz: `nastepny`, `skrzynka`, `template.html`, `skrot.html`, testów, wor
 7. Sprawdź: `python3 -I ../uco/tools/raport_fakty.py --check` i `python3 -I build.py --check`; jeśli jest Node – testy z `tests/` (README).
 8. Commit „Loty: stan na RRRR-MM-DD” i publikacja według instrukcji zadania. Publikacja strony rusza sama po wypchnięciu na `main` i przejściu testów; przyczynę błędu testów pokazują adnotacje przebiegu w GitHub Actions.
 
+## Założenia robocze grupy (od 20.11.2026)
+
+- **Trzy pary.** Wszystkie kwoty „na parę” i cała podróż liczone dla sześciu osób.
+- **Wylot w piątek 5.11.2027.** `raport.calosc`, serie cen i werdykt liczysz dla wylotu 5.11. Wylot w czwartek 4.11 (po 20:00) sprawdzasz codziennie obok: jeśli ten sam typ biletu jest w czwartek tańszy o co najmniej 300 zł na osobę, napisz to w punkcie „Ceny na nasze daty:” z obiema cenami i godziną wylotu, a w kroku `teraz` dodaj „do decyzji: czwartek tańszy o X zł”. Mniejszej różnicy nie zgłaszasz. Wylot w czwartek przed 20:00 nie wchodzi w grę.
+
 ## Historia cen
 
 Wykres trendu, ranking linii i kafelek „Najlepsza kompletna podróż” czytają `serie[].hist` w `loty.json`. Codziennie dopisujesz po jednym punkcie `{"data": "RRRR-MM-DD", "cena": N}` do każdej serii, którą da się dziś wycenić; istniejących punktów nie zmieniasz, a jeśli punkt z dzisiejszą datą już jest – zastępujesz go.

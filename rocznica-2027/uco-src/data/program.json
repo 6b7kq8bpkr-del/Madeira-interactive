@@ -1673,8 +1673,8 @@
     "id": "pary",
     "t": "Ustalić liczbę par i zebrać dane z paszportów",
     "od": "2026-11-01",
-    "do": "2026-11-17",
-    "opis": "Imiona dokładnie jak w paszporcie, paszporty ważne w listopadzie 2027 – bez tego nie da się kupić w dniu okazji.",
+    "do": "2027-01-15",
+    "opis": "Na razie zakładamy trzy pary. Skład i dane z paszportów (imiona i nazwiska jak w dokumencie, daty ważności) potwierdzić przed zapytaniami do hoteli – albo od razu, gdy pojawi się cena biletów w celu.",
     "kto": "pary",
     "dec": "pary"
    },
@@ -2498,7 +2498,7 @@
    "3": "van z kierowcą dla 6 osób (szacunek ok. 1 700 USD za pobyt)",
    "4": "Sprinter z kierowcą dla 8 osób (szacunek ok. 2 050 USD za pobyt)"
   },
-  "uwaga": "Liczba par nie jest jeszcze znana (2, 3 albo 4). Od niej zależy tylko bus z kierowcą (koszt całej grupy dzielony po równo); przy 3–4 parach warto poprosić o pokoje w Casa Vita (wyłączność osobno do wyceny) w Lares. Pokoje, loty, jedzenie i degustacje liczą się na parę niezależnie od wielkości grupy. Transport jest limitem do wyceny: 6, 7, 9 i 12.11 bus, 8.11 Lagarde, 10.11 Zuccardi, 11.11 Manzano oraz transfery w Buenos Aires. Potwierdzić liczbę osób i walizek, czas oczekiwania, opłaty i odbiory przy podziale grupy; nie doliczać drugi raz kursów objętych wyceną.",
+  "uwaga": "Założenie robocze: trzy pary (możliwe dwie albo cztery). Od niej zależy tylko bus z kierowcą (koszt całej grupy dzielony po równo); przy 3–4 parach warto poprosić o pokoje w Casa Vita (wyłączność osobno do wyceny) w Lares. Pokoje, loty, jedzenie i degustacje liczą się na parę niezależnie od wielkości grupy. Transport jest limitem do wyceny: 6, 7, 9 i 12.11 bus, 8.11 Lagarde, 10.11 Zuccardi, 11.11 Manzano oraz transfery w Buenos Aires. Potwierdzić liczbę osób i walizek, czas oczekiwania, opłaty i odbiory przy podziale grupy; nie doliczać drugi raz kursów objętych wyceną.",
   "loty_scen": {
    "domyslnie": "p48",
    "opcje": [
@@ -2931,7 +2931,7 @@
    "id": "pary",
    "stan": "otwarta",
    "t": "Ile par jedzie?",
-   "do": "2026-11-17",
+   "do": "2027-01-15",
    "kto": "wszystkie pary",
    "opcje": [
     [
@@ -2953,7 +2953,7 @@
      "4"
     ]
    ],
-   "rek": "Do 17.11 potwierdzić skład grupy i dane zgodne z paszportami, przed pierwszymi cenami do Buenos Aires. Pełna wycena do Mendozy orientacyjnie w grudniu; termin zależy od faktycznego otwarcia sprzedaży.",
+   "rek": "Założenie robocze od 20.11.2026: jedziemy w trzy pary – budżet, bus i pokoje liczymy dla sześciu osób. Ostateczny skład i dane zgodne z paszportami potwierdzamy do 15.01.2027, przed zapytaniami grupowymi do hoteli; jeśli wcześniej trafi się cena biletów w celu, skład trzeba potwierdzić tego samego dnia.",
    "wplyw": "bus od {bus:4} do {bus:2} zł na parę, dom w Lares, liczba Laguna Suites",
    "sekcja": "#budzet"
   },
@@ -3109,7 +3109,7 @@
    "id": "wylot",
    "stan": "otwarta",
    "t": "Wylot 4.11 wieczorem czy 5.11?",
-   "do": "2026-11-17",
+   "do": "2027-01-15",
    "kto": "wszystkie pary",
    "opcje": [
     [
@@ -3125,7 +3125,7 @@
      "5"
     ]
    ],
-   "rek": "{regula:noclegi}",
+   "rek": "Założenie robocze od 20.11.2026: lecimy w piątek 5.11. Czwartek 4.11 wieczorem wybieramy tylko wtedy, gdy bilet będzie tańszy o co najmniej 300 zł na osobę – agent porównuje oba dni codziennie i zgłosi taką różnicę w raporcie. Noclegi bez zmian: Chacras 6–9.11, Uco 9–12.11, Buenos Aires 12–13.11; wylot z Buenos Aires 13.11, lądowanie w Warszawie 14.11.",
    "wplyw": "jeden dzień urlopu na osobę; lądowanie w Warszawie zawsze najpóźniej w niedzielę 14.11",
    "sekcja": "#kalendarz"
   },
