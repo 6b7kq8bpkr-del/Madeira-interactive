@@ -40,6 +40,7 @@ Nie ruszasz: `nastepny`, `skrzynka`, `template.html`, `skrot.html`, testów, wor
 3. Przeczytaj w `loty.json`: wczorajszy `raport`, `status`, ostatni wpis `historia`, `sygnaly` z 7 dni, `rss.trafienia`, `skrzynka`; w `promocje.json`: `status` i wpisy z 7 dni.
 4. Sprawdź ceny na nasze daty (5–13.11.2027 i 4–13.11.2027), w tej kolejności, do pierwszego źródła, które odpowie:
    - Kayak: `https://www.kayak.pl/flights/WAW-BUE/2027-11-05/2027-11-13?sort=price_a`, to samo dla `MAD-BUE`, `VIE-BUE` i `BER-BUE` (Wiedeń i Berlin sprawdzasz codziennie – to plan B grupy), a od 18.12.2026 także `WAW-MDZ` i `MAD-MDZ`;
+   - **postój w Buenos Aires na jednym bilecie** (codziennie, od 20.11.2026): `https://www.kayak.pl/flights/WAW-MDZ/2027-11-05/MDZ-BUE/2027-11-12/BUE-WAW/2027-11-13?sort=price_a` i to samo z `MAD` zamiast `WAW` – trzy odcinki, noc 12→13.11 w Buenos Aires zgodnie z planem. „Nie znaleziono lotów” oznacza, że lot krajowy nie jest jeszcze w sprzedaży: napisz to jednym zdaniem w punkcie „Ceny na nasze daty:” i nie wyceniaj serii `stopover`;
    - Momondo, Skyscanner, strony linii (Iberia, Air Europa, Lufthansa, Air France/KLM, Turkish);
    - Google Flights pokazuje loty najwyżej ok. 330 dni naprzód – nasz powrót zobaczy dopiero ok. 18.12.2026.
    Zapisz dla każdej ceny: linie, liczbę przesiadek, czy jest bagaż rejestrowany, które lotnisko w Buenos Aires. Porównaj z cenami-wyzwalaczami (`loty.wyzwalacze`; na stronie zakładka „Jak szukać”).
@@ -53,12 +54,14 @@ Nie ruszasz: `nastepny`, `skrzynka`, `template.html`, `skrot.html`, testów, wor
 - **Trzy pary.** Wszystkie kwoty „na parę” i cała podróż liczone dla sześciu osób.
 - **Wylot w piątek 5.11.2027.** `raport.calosc`, serie cen i werdykt liczysz dla wylotu 5.11. Wylot w czwartek 4.11 (po 20:00) sprawdzasz codziennie obok: jeśli ten sam typ biletu jest w czwartek tańszy o co najmniej 300 zł na osobę, napisz to w punkcie „Ceny na nasze daty:” z obiema cenami i godziną wylotu, a w kroku `teraz` dodaj „do decyzji: czwartek tańszy o X zł”. Mniejszej różnicy nie zgłaszasz. Wylot w czwartek przed 20:00 nie wchodzi w grę.
 
+- **Postój w Buenos Aires.** Bilet z postojem 12→13.11 porównujesz codziennie z najtańszym biletem Warszawa–Buenos Aires plus lot krajowy 650 zł. Gdy jest tańszy albo droższy najwyżej o 300 zł na osobę, to on jest wariantem polecanym (chronione przesiadki, bagaż na jednym bilecie) i wchodzi do `raport.calosc`; w punkcie „Ceny na nasze daty:” podaj obie ceny, linie i lotnisko w Buenos Aires. Biletu bez nocy 12.11 w Buenos Aires ani ze zmianą lotniska między lotami tego samego dnia nie bierzesz pod uwagę.
+
 ## Historia cen
 
 Wykres trendu, ranking linii i kafelek „Najlepsza kompletna podróż” czytają `serie[].hist` w `loty.json`. Codziennie dopisujesz po jednym punkcie `{"data": "RRRR-MM-DD", "cena": N}` do każdej serii, którą da się dziś wycenić; istniejących punktów nie zmieniasz, a jeśli punkt z dzisiejszą datą już jest – zastępujesz go.
 
 - `cena` to zawsze **pełna podróż na osobę**: najtańszy bilet tej linii na nasze daty plus dodatki z tabeli `loty.wyzwalacze` (bagaż 700 zł, lot krajowy 650 zł, przez Madryt dolot i nocleg 850 zł, z Wiednia lub Berlina 500 zł – dojazd autem, parking i jedna noc w hotelu, liczone ponad koszt dojazdu do Warszawy), zaokrąglona do 10 zł. Bilet w EUR przelicz po `budzet.kursy.EUR`.
-- Serie linii (`ib`, `ue`, `lh`, `af`, `tk`, `ita`, `et`, `ar`): najtańszy wariant tej linii – z Warszawy albo przez Madryt z dolotem. `vie`: najtańszy bilet z Wiednia lub Berlina. `calosc`, `stopover`, `openjaw`, `mad`: dopiero gdy da się kupić cały bilet do Mendozy (ok. 18.12.2026) – wtedy bez doliczania lotu krajowego.
+- Serie linii (`ib`, `ue`, `lh`, `af`, `tk`, `ita`, `et`, `ar`): najtańszy wariant tej linii – z Warszawy albo przez Madryt z dolotem. `vie`: najtańszy bilet z Wiednia lub Berlina. `stopover`: bilet wieloodcinkowy z postojem w Buenos Aires (adres w kroku 4) – od dnia, w którym wyszukiwarka pokaże cenę; bez doliczania lotu krajowego, bagaż 700 zł tylko gdy taryfa go nie ma, przez Madryt +850 zł. `calosc`, `openjaw`, `mad`: dopiero gdy da się kupić cały bilet do Mendozy (ok. 18.12.2026) – też bez lotu krajowego.
 - Do `historia` dopisz jeden wpis dziennie: `data`, `zrodlo: "raport dzienny"`, `faza`, `najtansza` (`id` serii, `cena`, `opis` – z czego się składa) i `uwaga` (jedno–dwa zdania).
 - `raport.calosc` to najniższa dzisiejsza cena wśród serii w planie bazowym (wylot z Warszawy albo przez Madryt), zaokrąglona do 100 zł; tańszy wylot z Wiednia lub Berlina opisz w raporcie, ale nie wpisuj go do `calosc`, dopóki grupa nie wybierze tej opcji w decyzji „Co robimy, jeśli ceny lotów nie spadną?”.
 
