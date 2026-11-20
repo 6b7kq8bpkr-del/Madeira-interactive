@@ -1977,8 +1977,8 @@
      "wal": "PLN",
      "dodatki": [
       [
-       "dojazd",
-       450
+       "dojazd autem, parking i hotel",
+       500
       ],
       [
        "bagaż",
@@ -3036,7 +3036,7 @@
     ],
     [
      "Wylot z Wiednia albo Berlina",
-     "19.11.2026: Wiedeń–Buenos Aires od 4 468 zł, Berlin od 4 716 zł (Lufthansa, jedna przesiadka) wobec 5 396 zł z Warszawy; z dojazdem cała podróż ok. 6 300 zł/os. – ok. 500 zł taniej",
+     "20.11.2026: Wiedeń–Buenos Aires od 4 476 zł, Berlin od 4 727 zł wobec 5 555 zł z Warszawy. Dojazd autem, parking na 10 dni i noc w hotelu przy lotnisku to ok. 1 450–1 500 zł na parę – ok. 1 000 zł więcej niż dojazd i parking w Warszawie. Cała podróż ok. 6 330 zł/os., czyli ok. 550 zł taniej, za ok. 12 godzin jazdy w obie strony",
      false,
      "vie"
     ],
@@ -3054,7 +3054,7 @@
     ]
    ],
    "rek": "Sprawdzone 19.11.2026 (Kayak, 5–13.11.2027, bez bagażu): do Buenos Aires z Warszawy od 5 396 zł, z Berlina od 4 716 zł (przy wylocie 4.11 po południu od 4 355 zł), z Wiednia od 4 468 zł, z Madrytu bez przesiadki od 4 328 zł plus dolot. Przez Santiago (od 6 135 zł) i São Paulo (od 4 807 zł plus dalszy lot) nie wychodzi taniej. Wcześniejszy wylot 3.11 obniża cenę z Warszawy tylko do 5 176 zł. Bilety za mile: według nieoficjalnych tabel Madryt–Buenos Aires w klasie ekonomicznej kosztuje w Iberia Club od ok. 17 000 Avios w jedną stronę poza szczytem, a w Flying Blue z Paryża od ok. 45 000 mil, w obu programach plus dopłaty i podatki; tych liczb nie potwierdziliśmy u linii. To opcja tylko dla par, które mają zapas mil albo kupią Avios w promocji – dostępność na nasze daty sprawdzić po założeniu konta Iberia Club (zadanie do 4.01.2027). Do stycznia nic nie tracimy na czekaniu: jeśli po Rebajas (26.01) cała podróż nadal kosztuje ponad 5 500 zł/os., wybieramy jedną z trzech pozostałych opcji.",
-   "wplyw": "od 0 do ok. +3 300 zł na parę; wylot z Wiednia to dodatkowy dojazd i nocleg",
+   "wplyw": "od 0 do ok. +3 300 zł na parę; wylot z Wiednia lub Berlina to dojazd autem, parking i noc w hotelu",
    "sekcja": "#loty"
   },
   {
