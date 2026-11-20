@@ -39,7 +39,7 @@ Nie ruszasz: `nastepny`, `skrzynka`, `template.html`, `skrot.html`, testów, wor
 2. `python3 -I ../uco/tools/raport_fakty.py` – kurs NBP, odchylenie od kursu budżetu, które linie sprzedają dziś nasze daty, faza, terminy. Tych liczb nie licz z pamięci.
 3. Przeczytaj w `loty.json`: wczorajszy `raport`, `status`, ostatni wpis `historia`, `sygnaly` z 7 dni, `rss.trafienia`, `skrzynka`; w `promocje.json`: `status` i wpisy z 7 dni.
 4. Sprawdź ceny na nasze daty (5–13.11.2027 i 4–13.11.2027), w tej kolejności, do pierwszego źródła, które odpowie:
-   - Kayak: `https://www.kayak.pl/flights/WAW-BUE/2027-11-05/2027-11-13?sort=price_a`, to samo dla `MAD-BUE`, a od 18.12.2026 także `WAW-MDZ` i `MAD-MDZ`;
+   - Kayak: `https://www.kayak.pl/flights/WAW-BUE/2027-11-05/2027-11-13?sort=price_a`, to samo dla `MAD-BUE`, `VIE-BUE` i `BER-BUE` (Wiedeń i Berlin sprawdzasz codziennie – to plan B grupy), a od 18.12.2026 także `WAW-MDZ` i `MAD-MDZ`;
    - Momondo, Skyscanner, strony linii (Iberia, Air Europa, Lufthansa, Air France/KLM, Turkish);
    - Google Flights pokazuje loty najwyżej ok. 330 dni naprzód – nasz powrót zobaczy dopiero ok. 18.12.2026.
    Zapisz dla każdej ceny: linie, liczbę przesiadek, czy jest bagaż rejestrowany, które lotnisko w Buenos Aires. Porównaj z cenami-wyzwalaczami (`loty.wyzwalacze`; na stronie zakładka „Jak szukać”).
@@ -103,7 +103,7 @@ Jedno powiadomienie push do właściciela (sposób wysyłki jest w instrukcji za
 1. `Od wczoraj:` – co się zmieniło względem poprzedniego raportu. Jeśli nic: „bez zmian od DD.MM” i jedno zdanie, co sprawdzono.
 2. `Ceny na nasze daty:` – najtańsza kompletna podróż i najtańszy odcinek do Buenos Aires, z odległością od wyzwalacza. Gdy cen nie ma – od kiedy będą.
 3. `Sprzedaż na nasze daty:` – które linie sprzedają już wylot i powrót (skrypt + to, co faktycznie widać w wyszukiwarce; rozbieżność nazwij).
-4. `Ceny odniesienia (inne daty):` – tylko gdy brak cen na nasze daty; z datą odczytu.
+4. `Inne lotniska:` – codziennie: najtańszy bilet z Wiednia i z Berlina (linia, przesiadki), o ile taniej niż z Warszawy i ile wychodzi cała podróż z dojazdem; punkt do serii `vie`. Gdy brak cen na nasze daty, w tym miejscu podaj zamiast tego ceny odniesienia na inne daty, z datą odczytu.
 5. `Rynek:` – przewoźnicy, trasy, lotniska, paliwo: tylko to, co zmienia cenę albo ryzyko naszej podróży.
 6. `Kampanie i promocje:` – co trwa, czy obejmuje listopad 2027, ile brakuje do celu.
 7. `Kursy:` – wiersz ze skryptu po polsku. Przy odchyleniu dolara ≥ 3% zmień `budzet.kursy.USD` (zasady wyżej) i napisz, o ile zmienił się koszt na parę i zapas do sufitu.
