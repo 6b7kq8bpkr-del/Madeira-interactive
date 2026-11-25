@@ -1,0 +1,24 @@
+name: Valle de Uco – strażnik raportu
+# Codziennie wieczorem sprawdza, czy opublikowany raport lotów jest dzisiejszy.
+# Gdy nie jest, przebieg kończy się błędem i GitHub wysyła e-mail właścicielowi repozytorium.
+on:
+  schedule:
+    - cron: '0 18 * * *'   # 19:00 czasu zimowego, 20:00 letniego
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  raport:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Raport lotów ma dzisiejszą datę
+        run: |
+          dzis=$(TZ=Europe/Warsaw date +%F)
+          adres=https://6b7kq8bpkr-del.github.io/Madeira-interactive/rocznica-2027/uco/loty.json
+          raport=$(curl -fsS --retry 3 "$adres?t=$(date +%s)" | python3 -c "import json,sys; print(json.load(sys.stdin)['raport']['data'])")
+          echo "Dziś: $dzis, raport na stronie: $raport"
+          if [ "$raport" != "$dzis" ]; then
+            echo "::error::Raport lotów na stronie jest z $raport, a dziś jest $dzis – agent dzienny nie opublikował raportu."
+            exit 1
+          fi

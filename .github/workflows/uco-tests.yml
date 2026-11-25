@@ -5,12 +5,7 @@ on:
       - 'rocznica-2027/uco/**'
       - 'rocznica-2027/uco-src/**'
       - '.github/workflows/uco-tests.yml'
-  push:
-    branches: [main]
-    paths:
-      - 'rocznica-2027/uco/**'
-      - 'rocznica-2027/uco-src/**'
-      - '.github/workflows/uco-tests.yml'
+  # bez „push”: na main testy uruchamia pages.yml (workflow_call), żeby nie biegły dwa razy
   workflow_call:
   workflow_dispatch:
 permissions:

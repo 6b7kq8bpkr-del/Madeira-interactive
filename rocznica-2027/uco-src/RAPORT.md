@@ -63,7 +63,7 @@ Wykres trendu, ranking linii i kafelek „Najlepsza kompletna podróż” czytaj
 - `cena` to zawsze **pełna podróż na osobę**: najtańszy bilet tej linii na nasze daty plus dodatki z tabeli `loty.wyzwalacze` (bagaż 700 zł, lot krajowy 650 zł, przez Madryt dolot i nocleg 850 zł, z Wiednia lub Berlina 500 zł – dojazd autem, parking i jedna noc w hotelu, liczone ponad koszt dojazdu do Warszawy), zaokrąglona do 10 zł. Bilet w EUR przelicz po `budzet.kursy.EUR`.
 - Serie linii (`ib`, `ue`, `lh`, `af`, `tk`, `ita`, `et`, `ar`): najtańszy wariant tej linii – z Warszawy albo przez Madryt z dolotem. `vie`: najtańszy bilet z Wiednia lub Berlina. `stopover`: bilet wieloodcinkowy z postojem w Buenos Aires (adres w kroku 4) – od dnia, w którym wyszukiwarka pokaże cenę; bez doliczania lotu krajowego, bagaż 700 zł tylko gdy taryfa go nie ma, przez Madryt +850 zł. `calosc`, `openjaw`, `mad`: dopiero gdy da się kupić cały bilet do Mendozy (ok. 18.12.2026) – też bez lotu krajowego.
 - Do `historia` dopisz jeden wpis dziennie: `data`, `zrodlo: "raport dzienny"`, `faza`, `najtansza` (`id` serii, `cena`, `opis` – z czego się składa) i `uwaga` (jedno–dwa zdania).
-- `raport.calosc` to najniższa dzisiejsza cena wśród serii w planie bazowym (wylot z Warszawy albo przez Madryt), zaokrąglona do 100 zł; tańszy wylot z Wiednia lub Berlina opisz w raporcie, ale nie wpisuj go do `calosc`, dopóki grupa nie wybierze tej opcji w decyzji „Co robimy, jeśli ceny lotów nie spadną?”.
+- `raport.calosc` to najniższa dzisiejsza cena wśród serii w planie bazowym (wylot z Warszawy albo przez Madryt), zaokrąglona do 10 zł – tak samo jak punkty serii, żeby zaokrąglenie nie udawało ruchu cen; tańszy wylot z Wiednia lub Berlina opisz w raporcie, ale nie wpisuj go do `calosc`, dopóki grupa nie wybierze tej opcji w decyzji „Co robimy, jeśli ceny lotów nie spadną?”.
 
 ## Ankieta par
 
@@ -75,10 +75,10 @@ Pary odpowiadają na otwarte decyzje na stronie `skrot.html`; odpowiedzi leżą 
 
 ## Powiadomienia
 
-Jedno powiadomienie push do właściciela (sposób wysyłki jest w instrukcji zadania), tylko gdy zachodzi któryś przypadek – w zwykły dzień bez zmian nie wysyłasz nic:
+Jedno powiadomienie push do właściciela dziennie, zawsze (sposób wysyłki jest w instrukcji zadania). W zwykły dzień to jedna linia, najwyżej 120 znaków: „Loty DD.MM: X zł/os. (−Y zł od wczoraj | +Y zł | bez zmian), werdykt w dwóch–trzech słowach” – X to `raport.calosc`, zmiana liczona do `calosc` z poprzedniego raportu. Gdy zachodzi któryś przypadek z listy, zamiast zwykłej linii wysyłasz jego treść (kilka przypadków łączysz w jedną wiadomość):
 
 - werdykt 🎯 albo 🟢 – „KUPOWAĆ: linia, cena za osobę, trasa”;
-- nowe minimum: dzisiejsza `raport.calosc` jest niższa od każdej wcześniejszej wartości `historia[].najtansza.cena` i punktów serii planu bazowego (`ib`, `ue`, `lh`, `af`, `tk`, `ita`, `et`, `ar`, `calosc`) o co najmniej 100 zł – „Loty Argentyna: nowe minimum X zł/os. (poprzednie Y zł), linia, trasa”;
+- nowe minimum: dzisiejsza `raport.calosc` jest o co najmniej 100 zł niższa od najniższego wcześniejszego punktu `hist` w seriach planu bazowego (`ib`, `ue`, `lh`, `af`, `tk`, `ita`, `et`, `ar`, `calosc`, `mad`, `stopover`). Serii `vie` ani wpisów `historia[].najtansza` nie bierzesz do porównania – zawierają plan B z Wiednia i Berlina, którego nie ma w `calosc` – „Loty Argentyna: nowe minimum X zł/os. (poprzednie Y zł), linia, trasa”;
 - spadek `raport.calosc` o 300 zł lub więcej od wczoraj, jeśli nie jest to już zgłoszone jako nowe minimum;
 - werdykt 🔴 – jedno zdanie, co się stało;
 - raportu nie udało się opublikować – „Loty Argentyna: raport z DD.MM nieopublikowany – powód”;
@@ -100,7 +100,7 @@ Jedno powiadomienie push do właściciela (sposób wysyłki jest w instrukcji za
 | ⚪ Jeszcze nie kupujemy | brak cen na nasze daty albo ceny powyżej 5 000 zł/os. |
 | 🔴 Uwaga | zdarzenie, które wymaga decyzji grupy: upadłość linii, zamknięcie lotniska, odwołana trasa, zbliżający się twardy termin 31.08.2027 |
 
-**`calosc`** – liczba: dzisiejsza cena całej podróży na osobę (bilet do Buenos Aires albo Mendozy + bagaż + dolot + lot krajowy), najtańszy wariant, który da się dziś realnie kupić, zaokrąglona do 100 zł; `null`, gdy nie da się jej oszacować. Strona liczy z niej koszt na parę „przy dzisiejszych cenach lotów” i przekroczenie sufitu.
+**`calosc`** – liczba: dzisiejsza cena całej podróży na osobę (bilet do Buenos Aires albo Mendozy + bagaż + dolot + lot krajowy), najtańszy wariant, który da się dziś realnie kupić, zaokrąglona do 10 zł (w `werdykt` i `stan` możesz pisać „ok.” z dokładnością do 50 zł); `null`, gdy nie da się jej oszacować. Strona liczy z niej koszt na parę „przy dzisiejszych cenach lotów” i przekroczenie sufitu.
 
 **`stan`** – 2–3 zdania o tym, czy i za ile da się dziś wycenić nasze daty; strona pokazuje je przy skali cen i w tabeli cen, dopóki monitor nie zapisze kompletnej podróży.
 

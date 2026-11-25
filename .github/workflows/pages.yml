@@ -1,3 +1,4 @@
+# Testy strony Valle de Uco biegną tu jako zadanie „validate” – raz na każdy commit.
 name: GitHub Pages
 on:
   push:
@@ -18,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.ponowienie.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - name: Dane monitora lotów to poprawny JSON
@@ -30,4 +31,13 @@ jobs:
         with:
           path: .
       - id: deployment
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+      # GitHub czasem nie widzi świeżo wgranej paczki ze stroną (25.11.2026) – jedna ponowna próba po minucie
+      - name: Przerwa przed ponowną próbą
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 60
+      - id: ponowienie
+        name: Ponowna próba wdrożenia
+        if: steps.deployment.outcome == 'failure'
         uses: actions/deploy-pages@v4
