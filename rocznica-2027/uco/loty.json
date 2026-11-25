@@ -1,6 +1,6 @@
 {
- "zaktualizowano": "2026-11-24",
- "status": "Stan na 24.11.2026: ceny na 5–13.11.2027 prawie bez zmian – z Madrytu bez przesiadki od 4 391 zł (Iberia), z Warszawy od 5 659 zł (Swiss i Lufthansa), bez bagażu. Cała podróż z bagażem, dolotem i lotem krajowym to ok. 6 600 zł na osobę przy celu 4 000 zł, więc jeszcze nie kupujemy. Bilet z postojem w Buenos Aires pojawił się w wyszukiwarce, ale tylko jako składanka osobnych biletów za ponad 14 000 zł. Turkish nie pokazał jeszcze powrotu. Z Wiednia wychodzi ok. 6 470 zł. Promocji na listopad 2027 nie ma.",
+ "zaktualizowano": "2026-11-25",
+ "status": "Stan na 25.11.2026: Iberia z Madrytu bez przesiadki staniała do 4 223 zł (wczoraj 4 391 zł) – najniżej od początku odczytów; z Warszawy bez zmian, od 5 653 zł (Swiss i Lufthansa), wszystko bez bagażu. Cała podróż z bagażem, dolotem i lotem krajowym to ok. 6 400 zł na osobę przy celu 4 000 zł, więc jeszcze nie kupujemy. Bilet z postojem w Buenos Aires nadal tylko jako składanka osobnych biletów za ok. 13 000 zł. Turkish wciąż nie sprzedaje naszych dat. Z Berlina wychodzi ok. 6 350 zł. Promocji na listopad 2027 nie ma.",
  "nastepny": "2026-12-01",
  "prog": 4800,
  "cel": 4000,
@@ -55,6 +55,10 @@
     {
      "data": "2026-11-24",
      "cena": 6590
+    },
+    {
+     "data": "2026-11-25",
+     "cena": 6420
     }
    ]
   },
@@ -104,6 +108,10 @@
     {
      "data": "2026-11-24",
      "cena": 7040
+    },
+    {
+     "data": "2026-11-25",
+     "cena": 7030
     }
    ]
   },
@@ -133,6 +141,10 @@
     {
      "data": "2026-11-24",
      "cena": 7240
+    },
+    {
+     "data": "2026-11-25",
+     "cena": 7230
     }
    ]
   },
@@ -166,6 +178,10 @@
     {
      "data": "2026-11-24",
      "cena": 7010
+    },
+    {
+     "data": "2026-11-25",
+     "cena": 7000
     }
    ]
   },
@@ -231,6 +247,10 @@
     {
      "data": "2026-11-24",
      "cena": 6470
+    },
+    {
+     "data": "2026-11-25",
+     "cena": 6350
     }
    ]
   }
@@ -312,9 +332,36 @@
     "opis": "Wiedeń–Buenos Aires 4 615 zł (Swiss, dwie przesiadki w każdą stronę) + dojazd 500, bagaż 700 i lot krajowy 650 zł"
    },
    "uwaga": "W planie bazowym najtaniej Iberia przez Madryt 6 590 zł (bilet 4 391 zł, +41 zł). Lufthansa/Swiss z Warszawy 7 010 zł (bilet 5 659 zł), Air Europa przez Madryt 7 040 zł, Air France/KLM 7 240 zł. Bilet z postojem w Buenos Aires pierwszy raz widoczny, ale tylko jako łączenie osobnych biletów (14 469 zł z Warszawy) – bez punktu w serii."
+  },
+  {
+   "data": "2026-11-25",
+   "zrodlo": "raport dzienny",
+   "faza": "Otwarcie sprzedaży",
+   "najtansza": {
+    "id": "vie",
+    "cena": 6350,
+    "opis": "Berlin–Buenos Aires 4 502 zł (British Airways, jedna przesiadka w każdą stronę) + dojazd 500, bagaż 700 i lot krajowy 650 zł"
+   },
+   "uwaga": "W planie bazowym najtaniej Iberia przez Madryt 6 420 zł (bilet 4 223 zł, −168 zł od wczoraj) – najniżej od początku odczytów. Air Europa przez Madryt 7 030 zł, Lufthansa/Swiss z Warszawy 7 000 zł (bilet 5 653 zł), Air France/KLM 7 230 zł. Bilet z postojem w Buenos Aires nadal tylko jako łączenie osobnych biletów (12 992 zł z Warszawy) – bez punktu w serii."
   }
  ],
  "sygnaly": [
+  {
+   "data": "2026-11-25",
+   "typ": "Taryfa",
+   "kierunek": "spadek",
+   "waga": 1,
+   "opis": "Kayak 25.11, 5–13.11.2027, bez bagażu: Iberia z Madrytu bez przesiadki 4 223 zł (24.11: 4 391 zł) – najniższa cena od początku odczytów; Air Europa 4 830 zł (4 835 zł). Z Warszawy Swiss i Lufthansa 5 653 zł (5 659 zł), KLM 5 883 zł (5 887 zł), Air France z jedną przesiadką w obie strony 5 905 zł. Z Berlina pojawił się British Airways za 4 502 zł z jedną przesiadką w każdą stronę (Swiss i Lufthansa 4 750 zł); z Wiednia Swiss 4 616 zł. Air Canada z Warszawy 4 109 zł, ale z trzema przesiadkami i lądowaniem w poniedziałek – poza naszymi zasadami.",
+   "url": "https://www.kayak.pl/flights/MAD-BUE/2027-11-05/2027-11-13?sort=price_a"
+  },
+  {
+   "data": "2026-11-25",
+   "typ": "Rozkład",
+   "kierunek": "neutralnie",
+   "waga": 1,
+   "opis": "Kayak 25.11: po zawężeniu wyników Warszawa–Buenos Aires 5–13.11.2027 do Turkish Airlines i osobno do ITA Airways wyszukiwarka odpowiada „Brak pasujących wyników” – żadna z tych linii nie jest dziś w ofercie na nasze daty z Warszawy. Dla Turkish to drugi dzień po dacie otwarcia z kalendarza (24.11), więc w tabeli sprzedaży przyjęto 352 dni zamiast 354. Bilet wieloodcinkowy z postojem w Buenos Aires: 12 992 zł z Warszawy, 10 173 zł z Madrytu, nadal wyłącznie łączenie osobnych biletów z przesiadką na ryzyko pasażera.",
+   "url": "https://www.kayak.pl/flights/WAW-BUE/2027-11-05/2027-11-13?sort=price_a&fs=airlines=TK"
+  },
   {
    "data": "2026-11-24",
    "typ": "Rozkład",
@@ -731,7 +778,7 @@
  ],
  "skrzynka": [],
  "rss": {
-  "sprawdzono": "2026-11-24 11:34",
+  "sprawdzono": "2026-11-25 11:57",
   "kanaly": [
    {
     "zrodlo": "Fly4free.pl",
@@ -751,9 +798,8 @@
    },
    {
     "zrodlo": "Fly4free.pl · Buenos Aires",
-    "wpisy": 0,
-    "ok": false,
-    "blad": "IncompleteRead(44704 bytes read)"
+    "wpisy": 20,
+    "ok": true
    },
    {
     "zrodlo": "Fly4free.pl · Ameryka Płd.",
@@ -767,25 +813,23 @@
    },
    {
     "zrodlo": "Travel-dealz · Chile",
-    "wpisy": 0,
-    "ok": false,
-    "blad": "IncompleteRead(63694 bytes read)"
+    "wpisy": 4,
+    "ok": true
    },
    {
     "zrodlo": "Travel-dealz",
     "wpisy": 0,
-    "ok": false,
-    "blad": "IncompleteRead(377489 bytes read)"
+    "ok": true
    },
    {
     "zrodlo": "Wakacyjni Piraci",
     "wpisy": 0,
     "ok": false,
-    "blad": "IncompleteRead(6442 bytes read)"
+    "blad": "IncompleteRead(0 bytes read)"
    },
    {
     "zrodlo": "HolidayPirates",
-    "wpisy": 31,
+    "wpisy": 59,
     "ok": true
    },
    {
@@ -800,21 +844,18 @@
    },
    {
     "zrodlo": "Promociones Aéreas",
-    "wpisy": 0,
-    "ok": false,
-    "blad": "IncompleteRead(0 bytes read)"
+    "wpisy": 15,
+    "ok": true
    },
    {
     "zrodlo": "Sir Chandler",
-    "wpisy": 0,
-    "ok": false,
-    "blad": "IncompleteRead(0 bytes read)"
+    "wpisy": 20,
+    "ok": true
    },
    {
     "zrodlo": "Aeroroutes",
-    "wpisy": 0,
-    "ok": false,
-    "blad": "IncompleteRead(14156 bytes read, 7832 more expected)"
+    "wpisy": 20,
+    "ok": true
    }
   ],
   "trafienia": [
@@ -824,6 +865,15 @@
     "url": "https://www.infoviajera.com/2026/11/mas-preocupacion-por-plus-ultra-ahora-desaparecieron-los-vuelos-a-caracas/",
     "data": "2026-11-22",
     "opis": " La situación de Plus Ultra Líneas Aéreas suma un nuevo capítulo. Después de suspender sus vuelos entre Buenos Aires y Madrid y cancelar las operaciones hacia Lima, ahora también desaparecieron de su programación en la web oficial de la aerolínea, las conexiones con Caracas desde Madrid y Tenerife. De acuerdo con información publicada por medios especializados este domingo, la compañía habría deja",
+    "sila": "silne",
+    "tryb": "ar"
+   },
+   {
+    "zrodlo": "Sir Chandler",
+    "tytul": "Plus Ultra habría operado su último vuelo y podría cerrar definitivamente",
+    "url": "https://www.sirchandler.com.ar/2026/11/plus-ultra-habria-operado-su-ultimo-vuelo-y-podria-cerrar-definitivamente/",
+    "data": "2026-11-23",
+    "opis": " Esta mañana española habría aterrizado el último vuelo de Plus Ultra, proveniente de Caracas, el último destino que había dejado operativo la aerolínea. Si bien se informó que la aerolínea cortaba los vuelos de Lima y Ezeiza, pero que mantenía los de Caracas con Madrid y Tenerife, parece que la situación económica de la aerolínea... \n La entrada  Plus Ultra habría operado su último vuelo y podría",
     "sila": "silne",
     "tryb": "ar"
    },
@@ -839,39 +889,39 @@
   ]
  },
  "raport": {
-  "data": "2026-11-24",
-  "werdykt": "⚪ Jeszcze nie kupujemy – ceny prawie bez zmian, cała podróż to ok. 6 600 zł przy celu 4 000 zł",
-  "calosc": 6600,
-  "stan": "Kompletnej podróży do Mendozy na nasze daty nie da się jeszcze rozsądnie wycenić, ale są ceny dużych linii do Buenos Aires (Kayak, 24.11): z Madrytu bez przesiadki od 4 391 zł (Iberia), z Warszawy od 5 659 zł (Swiss i Lufthansa) – bez bagażu. Z bagażem, dolotem i lotem krajowym to ok. 6 600 zł na osobę, ok. 1 800 zł ponad próg. Cały bilet do Mendozy na jednej rezerwacji powinien pojawić się ok. 18.12.2026.",
+  "data": "2026-11-25",
+  "werdykt": "⚪ Jeszcze nie kupujemy – Iberia z Madrytu staniała, ale cała podróż to wciąż ok. 6 400 zł przy celu 4 000 zł",
+  "calosc": 6400,
+  "stan": "Kompletnej podróży do Mendozy na nasze daty nie da się jeszcze rozsądnie wycenić, ale są ceny dużych linii do Buenos Aires (Kayak, 25.11): z Madrytu bez przesiadki od 4 223 zł (Iberia), z Warszawy od 5 653 zł (Swiss i Lufthansa) – bez bagażu. Z bagażem, dolotem i lotem krajowym to ok. 6 400 zł na osobę, ok. 1 600 zł ponad próg. Cały bilet do Mendozy na jednej rezerwacji powinien pojawić się ok. 18.12.2026.",
   "punkty": [
    [
     "Od wczoraj:",
-    "Ceny drgnęły w górę o 25–40 zł: Iberia z Madrytu bez przesiadki 4 391 zł (wczoraj 4 350 zł), Swiss i Lufthansa z Warszawy 5 659 zł (5 633 zł). Cała podróż nadal ok. 6 600 zł, werdykt bez zmian. Nowość: wyszukiwarka pierwszy raz pokazała bilet z postojem w Buenos Aires, ale tylko jako składankę osobnych biletów za ponad 14 000 zł – to nie jest oferta dla nas. Turkish wbrew kalendarzowi nie pojawił się jeszcze w wynikach."
+    "Iberia z Madrytu bez przesiadki staniała o 168 zł, do 4 223 zł – to najniższa cena od początku odczytów. Cała podróż przez Madryt spadła z ok. 6 600 do ok. 6 400 zł, ale do celu wciąż brakuje ok. 2 400 zł, więc werdykt bez zmian. Z Warszawy ceny stoją (Swiss i Lufthansa 5 653 zł). W Berlinie pojawił się British Airways za 4 502 zł. Turkish nadal nie sprzedaje naszych dat."
    ],
    [
     "Ceny na nasze daty:",
-    "Kayak, za osobę bez bagażu, wylot 5.11, lotnisko Ezeiza. Z Madrytu bez przesiadki: Iberia 4 391 zł, Air Europa 4 835 zł. Z Warszawy: Swiss i Lufthansa 5 659 zł (tam dwie przesiadki, z powrotem jedna), KLM i Air France 5 887 zł. Cała podróż: ok. 6 590 zł przez Madryt, ok. 7 010 zł z Warszawy – ok. 2 600 zł ponad cel. Bilet z postojem w Buenos Aires: 14 469 zł z Warszawy, 11 076 zł z Madrytu, tylko jako łączenie osobnych biletów – nie polecamy."
+    "Kayak, za osobę bez bagażu, wylot 5.11, lotnisko Ezeiza. Z Madrytu bez przesiadki: Iberia 4 223 zł, Air Europa 4 830 zł. Z Warszawy: Swiss i Lufthansa 5 653 zł (tam dwie przesiadki, z powrotem jedna), KLM 5 883 zł, Air France 5 905 zł. Cała podróż: ok. 6 420 zł przez Madryt, ok. 7 000 zł z Warszawy. Bilet z postojem w Buenos Aires: 12 992 zł z Warszawy, 10 173 zł z Madrytu, nadal tylko jako łączenie osobnych biletów – nie polecamy."
    ],
    [
     "Sprzedaż na nasze daty:",
-    "powrót 13.11.2027 sprzedają Iberia, Air Europa, Lufthansa, Swiss, Air France, KLM i British Airways. Według kalendarza Turkish miał otworzyć powrót dziś, ale Kayak nie pokazuje ani jego, ani ITA – sprawdzimy jutro, tabeli na razie nie zmieniamy. Ethiopian, LATAM i Aerolíneas ok. 17–18.12. Wylot w czwartek 4.11 nie daje oszczędności: Lufthansa od 5 529 zł, ale ze startem o 14:40 albo 18:35, czyli przed 20:00."
+    "powrót 13.11.2027 sprzedają Iberia, Air Europa, Lufthansa, Swiss, Air France, KLM i British Airways. Turkish i ITA: po zawężeniu wyników z Warszawy do każdej z tych linii Kayak nie pokazuje żadnej oferty. Ethiopian, LATAM i Aerolíneas ok. 17–18.12. Wylot w czwartek 4.11 nie daje oszczędności: Lufthansa od 5 525 zł, ale ze startem o 14:40 albo 18:35, czyli przed 20:00."
    ],
    [
     "Inne lotniska:",
-    "do Buenos Aires z Wiednia od 4 615 zł (Swiss, dwie przesiadki w każdą stronę; z jedną w powrocie 4 650 zł), z Berlina od 4 744 zł (Swiss i Lufthansa) wobec 5 659 zł z Warszawy. Z dojazdem, bagażem i lotem krajowym cała podróż z Wiednia to ok. 6 470 zł – ok. 120 zł taniej niż przez Madryt. Lufthansy z Wiednia za 4 473 zł nie liczymy: lot tam trwa 54 godziny i ląduje dopiero 7.11."
+    "do Buenos Aires z Berlina od 4 502 zł (British Airways, jedna przesiadka w każdą stronę, powrót w niedzielę o 13:15), z Wiednia od 4 616 zł (Swiss, dwie przesiadki w każdą stronę) wobec 5 653 zł z Warszawy. Z dojazdem, bagażem i lotem krajowym cała podróż z Berlina to ok. 6 350 zł – tylko ok. 70 zł taniej niż przez Madryt. Lufthansy z Wiednia za 4 432 zł nie liczymy: lot tam trwa 54 godziny."
    ],
    [
     "Rynek i promocje:",
-    "Plus Ultra: Infoviajera podaje, że ze sprzedaży zniknęły też loty do Caracas; hiszpański Demócrata pisze, że linia deklaruje dalszą działalność – upadłości nikt nie ogłosił. Dla nas bez zmian: bez przesiadki z Madrytu latają Iberia, Air Europa i Aerolíneas. Tydzień Black Friday w Argentynie to oferty z wylotem z Buenos Aires; Air Europa zapowiada swoje na 27.11. Oferty na listopad 2027 nie ma. Radar promocji: odpowiedziało 8 z 15 kanałów."
+    "bez nowych faktów. Plus Ultra: nadal tylko doniesienia Sir Chandler i Infoviajery o wstrzymaniu lotów, linia jest w postępowaniu układowym z wierzycielami i upadłości nie ogłosiła; nas to nie dotyczy bezpośrednio. Black Friday zaczyna się 27.11 – dotąd widać wyłącznie oferty z wylotem z Buenos Aires, żadnej na listopad 2027. Radar promocji: odpowiedziało 13 z 15 kanałów, bez trafień na nasze daty."
    ],
    [
     "Poprawione na stronie:",
-    "blok „Teraz” z dzisiejszymi cenami i informacją o Turkish. W ankiecie par nadal nie ma odpowiedzi. Kurs NBP z 23.11 (dolar 4,06 zł, euro 4,46 zł) zgadza się z budżetem – bez przeliczania."
+    "blok „Teraz” z dzisiejszymi cenami; w tabeli sprzedaży Turkish ma 352 dni zamiast 354 (drugi dzień bez oferty), a opis fazy nie podaje już daty 24.11. W ankiecie par nadal nie ma odpowiedzi. Kurs NBP z 25.11: dolar 4,10 zł, euro 4,48 zł – dolar o 0,9% powyżej kursu budżetu (ok. 150 zł na parę), bez przeliczania."
    ]
   ],
   "teraz": [
-   "Dziś, 24.11: zaległe od 14.11 – zapisać się na newslettery (Travel-dealz, Fly4free, Iberia, Air Europa, LATAM); dziś mija też termin na kartę bez prowizji walutowej dla każdej pary.",
-   "Jutro, 25.11: sprawdzamy, czy Turkish otworzył powrót 13.11.2027.",
+   "Dziś, 25.11: zaległe – zapisać się na newslettery (Travel-dealz, Fly4free, Iberia, Air Europa, LATAM; termin minął 14.11) i załatwić kartę bez prowizji walutowej dla każdej pary (termin minął 24.11).",
+   "Jutro, 26.11: ponownie sprawdzamy, czy Turkish otworzył powrót 13.11.2027.",
    "27–30.11: Black Friday – tylko sprawdzamy, czy któraś linia objęła listopad 2027.",
    "Ok. 18.12: pełna wycena całego biletu do Mendozy i alerty Google Flights na nasze daty.",
    "Do 15.01.2027: pary potwierdzają skład (roboczo trzy pary) i wylot w piątek 5.11 – w ankiecie na stronie skrótu."
@@ -890,12 +940,16 @@
     "url": "https://www.kayak.pl/flights/WAW-BUE/2027-11-04/2027-11-13?sort=price_a"
    },
    {
-    "label": "Kayak: Wiedeń–Buenos Aires 5–13.11.2027",
-    "url": "https://www.kayak.pl/flights/VIE-BUE/2027-11-05/2027-11-13?sort=price_a"
+    "label": "Kayak: Warszawa–Buenos Aires, tylko Turkish",
+    "url": "https://www.kayak.pl/flights/WAW-BUE/2027-11-05/2027-11-13?sort=price_a&fs=airlines=TK"
    },
    {
     "label": "Kayak: Berlin–Buenos Aires 5–13.11.2027",
     "url": "https://www.kayak.pl/flights/BER-BUE/2027-11-05/2027-11-13?sort=price_a"
+   },
+   {
+    "label": "Kayak: Wiedeń–Buenos Aires 5–13.11.2027",
+    "url": "https://www.kayak.pl/flights/VIE-BUE/2027-11-05/2027-11-13?sort=price_a"
    },
    {
     "label": "Kayak: bilet z postojem w Buenos Aires z Warszawy",
@@ -906,16 +960,12 @@
     "url": "https://www.kayak.pl/flights/MAD-MDZ/2027-11-05/MDZ-BUE/2027-11-12/BUE-MAD/2027-11-13?sort=price_a"
    },
    {
-    "label": "Infoviajera: Plus Ultra – zniknęły loty do Caracas",
-    "url": "https://www.infoviajera.com/2026/11/mas-preocupacion-por-plus-ultra-ahora-desaparecieron-los-vuelos-a-caracas/"
+    "label": "Sir Chandler: Plus Ultra miała wykonać ostatni lot",
+    "url": "https://www.sirchandler.com.ar/2026/11/plus-ultra-habria-operado-su-ultimo-vuelo-y-podria-cerrar-definitivamente/"
    },
    {
-    "label": "Demócrata: Plus Ultra zawiesza Limę i Buenos Aires, deklaruje dalszą działalność",
-    "url": "https://www.democrata.es/internacional/plus-ultra-vuelos-cancelados-rutas-destinos/"
-   },
-   {
-    "label": "Air Europa: Black Friday",
-    "url": "https://www.aireuropa.com/ar/es/aea/ofertas/black-friday.html"
+    "label": "NBP: tabela kursów 229/A/NBP/2026",
+    "url": "https://api.nbp.pl/api/exchangerates/tables/A/?format=json"
    }
   ]
  }

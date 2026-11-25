@@ -1454,9 +1454,9 @@
      "od": "2026-11-10",
      "do": "2026-11-26",
      "faza": "Otwarcie sprzedaży",
-     "co": "Linie z 359–361-dniowym kalendarzem (Air Europa, Iberia, Lufthansa, Air France/KLM) otwierają powrót 13.11.2027 między 17 a 19.11, Turkish 24.11 – od tego dnia istnieją pierwsze ceny w obie strony Warszawa–Buenos Aires i Madryt–Buenos Aires. Zapisać je jako punkt odniesienia. Google Flights pokazuje loty najwyżej ok. 330 dni naprzód, więc alerty na nasze daty da się tam ustawić dopiero ok. 18.12 – do tego czasu ceny czyta codzienny raport w Kayaku. Równolegle sprawdzić, czy kampania Iberia + Visit Argentina (sprzedaż 12.11.2026–31.05.2027, od 425 EUR za odcinek Madryt–Buenos Aires, Básica bez bagażu; opublikowano tylko daty wyłączone) dopuszcza podróże w listopadzie 2027, i wycenić taryfę Star Alliance/United open-jaw Europa → Buenos Aires → Berlin/Wiedeń (23 kg, reguły obejmują 1.09–9.12.2027; liczy się tylko wariant z wylotem z Buenos Aires 12.11). Cały bilet do Mendozy jeszcze się nie wyceni – Aerolíneas i LATAM sprzedają 330 dni naprzód.",
+     "co": "Linie z 359–361-dniowym kalendarzem (Air Europa, Iberia, Lufthansa, Air France/KLM) otworzyły powrót 13.11.2027 między 17 a 19.11 (Turkish do 25.11 jeszcze nie) – od tego dnia istnieją pierwsze ceny w obie strony Warszawa–Buenos Aires i Madryt–Buenos Aires. Zapisać je jako punkt odniesienia. Google Flights pokazuje loty najwyżej ok. 330 dni naprzód, więc alerty na nasze daty da się tam ustawić dopiero ok. 18.12 – do tego czasu ceny czyta codzienny raport w Kayaku. Równolegle sprawdzić, czy kampania Iberia + Visit Argentina (sprzedaż 12.11.2026–31.05.2027, od 425 EUR za odcinek Madryt–Buenos Aires, Básica bez bagażu; opublikowano tylko daty wyłączone) dopuszcza podróże w listopadzie 2027, i wycenić taryfę Star Alliance/United open-jaw Europa → Buenos Aires → Berlin/Wiedeń (23 kg, reguły obejmują 1.09–9.12.2027; liczy się tylko wariant z wylotem z Buenos Aires 12.11). Cały bilet do Mendozy jeszcze się nie wyceni – Aerolíneas i LATAM sprzedają 330 dni naprzód.",
      "automat": "Codzienny raport lotów",
-     "decyzja": "Ceny prawie bez zmian (24.11: Madryt–Buenos Aires bez przesiadki od 4 391 zł, Warszawa–Buenos Aires od 5 659 zł, bez bagażu), cała podróż to ok. 6 600 zł – jeszcze nie kupujemy. Turkish nie pokazał jeszcze powrotu, sprawdzamy codziennie. Kupić od razu tylko przy ≤ 4 000 zł/os. za całą podróż z bagażem.",
+     "decyzja": "Iberia z Madrytu staniała (25.11: bez przesiadki od 4 223 zł; Warszawa–Buenos Aires od 5 653 zł, bez bagażu), ale cała podróż to wciąż ok. 6 400 zł – jeszcze nie kupujemy. Turkish nadal nie sprzedaje naszych dat, sprawdzamy codziennie. Kupić od razu tylko przy ≤ 4 000 zł/os. za całą podróż z bagażem.",
      "ton": "sprawdz",
      "szansa": 0.8,
      "kr": "Start"
@@ -1844,7 +1844,7 @@
     },
     {
      "n": "Turkish Airlines",
-     "dni": 354,
+     "dni": 352,
      "rola": "tylko do Buenos Aires",
      "eze": true
     },
@@ -1871,7 +1871,7 @@
      "mdz": true
     }
    ],
-   "zrodlo": "Liczba dni według kalendarzy linii (AwardFares, lipiec 2026; Thrifty Traveler) – przy sprzedaży gotówkowej może się różnić o kilka dni, dla LATAM przyjęte typowe 330. Codzienny raport lotów sprawdza to w wyszukiwarce; 17.11.2026 ITA sprzedawała już wylot 5.11.2027, czyli dalej niż przyjęte 330 dni. Tego samego dnia Swiss sprzedawał już powrót 13.11.2027 (361 dni), więc Lufthansa i Swiss mają w tabeli 361 zamiast 360. 18.11.2026 ITA sprzedawała już także powrót 13.11.2027 (360 dni), więc ma w tabeli 360 zamiast 330."
+   "zrodlo": "Liczba dni według kalendarzy linii (AwardFares, lipiec 2026; Thrifty Traveler) – przy sprzedaży gotówkowej może się różnić o kilka dni, dla LATAM przyjęte typowe 330. Codzienny raport lotów sprawdza to w wyszukiwarce; 17.11.2026 ITA sprzedawała już wylot 5.11.2027, czyli dalej niż przyjęte 330 dni. Tego samego dnia Swiss sprzedawał już powrót 13.11.2027 (361 dni), więc Lufthansa i Swiss mają w tabeli 361 zamiast 360. 18.11.2026 ITA sprzedawała już także powrót 13.11.2027 (360 dni), więc ma w tabeli 360 zamiast 330. 25.11.2026 Turkish drugi dzień z rzędu nie miał w Kayaku żadnej oferty Warszawa–Buenos Aires na 5–13.11.2027, więc ma w tabeli 352 zamiast 354 – to górna granica, nie potwierdzona data."
   },
   "wyzwalacze": {
    "tytul": "Jaka cena w wyszukiwarce oznacza cel?",
