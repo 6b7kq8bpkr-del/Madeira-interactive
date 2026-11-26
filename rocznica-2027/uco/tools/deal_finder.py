@@ -91,7 +91,7 @@ def build_plan(program):
         plan.append({'id': key, 'nazwa': name, 'scenariusz': scenario, 'odcinki': [dict(z=a, do=b, data=d) for a, b, d in legs],
                      'trasa': query, 'dorosli': 2, 'braki': missing, 'priorytet': priority,
                      'kayak': 'https://www.kayak.pl/flights/' + parts + '/2adults?sort=price_a',
-                     'google': 'https://www.google.com/travel/flights?' + urlencode({'hl': 'pl', 'curr': 'PLN', 'q': 'Flights multi city ' + query + ' 2 adults economy'})})
+                     'google': 'https://www.google.com/travel/flights?hl=pl&curr=PLN'})
 
     for day in (r['wylot'], r['wylotAlternatywny']):
         short = day[-2:] + '.11'

@@ -5,7 +5,7 @@ Wyszukiwarka jest częścią istniejącej strony, pod `#wyszukiwarka`. Używa re
 ## Co działa bez konta
 
 - Publiczne RSS: skan co 6 godzin (`.github/workflows/uco-search.yml`), ponowienia po awarii pojedynczego kanału, zachowanie poprzednich tropów i ich prawdziwych dat.
-- 21 zapytań trasowych: pełny bilet z postojem, open-jaw, Atlantyk plus krajowe, Madryt, VIE/BER i inne huby. Linki do KAYAK i Google Flights; formularz zawsze sprawdzić przed oceną ceny. Wyszukiwanie tekstowe Google może zmienić interpretację trasy.
+- 21 zapytań trasowych: pełny bilet z postojem, open-jaw, Atlantyk plus krajowe, Madryt, VIE/BER i inne huby. Gotowe linki do KAYAK dla dwóch dorosłych oraz kopiowanie planu do ręcznego uzupełnienia formularza Google Flights. Kontrola 26.11.2026 potwierdziła, że Google ignoruje tekstowe zapytanie multi-city, dlatego link jest jawnie oznaczony jako formularz do uzupełnienia. Formularz zawsze sprawdzić przed oceną ceny.
 - Domyślnie widoczne tropy cenowe; wiadomości lotnicze i podróże w przeciwnym kierunku dostępne w osobnych widokach. Priorytet sprawdzenia artykułu, kierunek podróży, aktualność, wyszukiwanie tekstowe, filtrowanie i lokalna lista zapisanych/ukrytych. Wynik punktowy to heurystyka przydatności wpisu, nie prawdopodobieństwo dostępności.
 - Agent o 9:00 i 18:00 uzupełnia odczyty forów, komentarzy, linii i autoryzowanej skrzynki. Treści prywatnych wiadomości nie trafiają do publicznego JSON.
 

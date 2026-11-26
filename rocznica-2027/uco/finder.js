@@ -41,7 +41,7 @@
     host.className = 'finder';
     host.innerHTML = '<header class="finder-head"><div><p class="eyebrow">Pełna podróż, dobry lot, noc w Buenos Aires</p><h3>Wyszukiwarka okazji</h3><p>Aktualne tropy, zaplanowane wyszukiwania i wyceny do sprawdzenia. Cena z nagłówka promocji nie jest ceną Waszej podróży.</p></div><button type="button" id="finder-refresh">Pobierz najnowszy skan</button></header>' +
       '<p id="finder-status" role="status">Pobieranie wyników…</p><div id="finder-health"></div>' +
-      '<details class="finder-plan"><summary>Wyszukaj konkretne połączenie</summary><p>Otwórz portal z wybraną trasą. Sprawdź daty, dwie osoby i bagaż w formularzu. Te linki nie włączają alertów.</p><label for="finder-scenario">Wariant podróży</label><select id="finder-scenario"><option value="">Wszystkie warianty</option></select><div id="finder-routes"></div></details>' +
+      '<details class="finder-plan"><summary>Wyszukaj konkretne połączenie</summary><p>KAYAK otwiera wybraną trasę dla dwóch osób. W Google wybierz „Wiele miast” i wpisz odcinki z planu poniżej; skopiowanie planu ułatwia ich przeniesienie. Sprawdź daty, dwie osoby i bagaż w formularzu. Te linki nie włączają alertów.</p><label for="finder-scenario">Wariant podróży</label><select id="finder-scenario"><option value="">Wszystkie warianty</option></select><div id="finder-routes"></div></details>' +
       '<details class="finder-quotes"><summary>Wyceny z porównywarki i gotowe oferty</summary><div id="finder-quotes"></div></details>' +
       '<form class="finder-filters" id="finder-filters"><label>Szukaj w tropach<input id="finder-query" type="search" placeholder="np. Iberia, Mendoza, stopover" maxlength="120"></label><label>Kierunek<select id="finder-category"><option value="">Wszystkie kierunki</option></select></label><label>Widok<select id="finder-mode"><option value="deals">Tropy cenowe</option><option value="all">Wszystkie wpisy</option><option value="news">Wiadomości lotnicze</option><option value="fresh">Publikacje z 7 dni</option><option value="saved">Zapisane</option><option value="hidden">Ukryte</option></select></label><label>Kolejność<select id="finder-sort"><option value="priority">Priorytet sprawdzenia</option><option value="newest">Najnowsza publikacja</option></select></label></form>' +
       '<p class="finder-note">Priorytet jest oceną przydatności tematu dla tej podróży. Nie potwierdza dostępności ani ceny. Zapisane i ukryte tropy pamięta tylko ta przeglądarka.</p><p id="finder-count" aria-live="polite"></p><ol id="finder-leads" class="finder-leads"></ol>' +
@@ -57,7 +57,15 @@
       (state.plan || []).filter(q => !selected || q.scenariusz === selected).forEach(q => {
         const row = el('article', null, 'finder-route');
         row.append(el('h4', q.nazwa), el('p', q.trasa, 'finder-route-text'));
-        const links = el('div', null, 'finder-links'); links.append(link('KAYAK · 2 osoby ↗', q.kayak), link('Google Flights ↗', q.google));
+        const links = el('div', null, 'finder-links'); links.append(link('KAYAK · 2 osoby ↗', q.kayak), link('Google · wpisz trasę ↗', q.google));
+        const copy = el('button', 'Skopiuj plan wyszukiwania'); copy.type = 'button';
+        const copyStatus = el('span', '', 'finder-note'); copyStatus.setAttribute('role', 'status');
+        copy.addEventListener('click', async () => {
+          const value = '2 osoby dorosłe, klasa ekonomiczna, kabinowy i 23 kg na osobę.\n' + q.odcinki.map(l => l.z + ' → ' + l.do + ', ' + l.data).join('\n') + '\nStopover Buenos Aires 12-13.11.2027; przylot 12.11 do 15:59, wylot 13.11 od 18:00. Wylot z WAW 4.11 wyłącznie po 20:00. Powrót WAW do 14.11.';
+          try { await navigator.clipboard.writeText(value); copyStatus.textContent = 'Plan skopiowany. Uzupełnij formularz Google.'; }
+          catch (_) { copyStatus.textContent = 'Nie udało się skopiować. Odcinki i daty znajdziesz powyżej.'; }
+        });
+        links.append(copy, copyStatus);
         row.append(links);
         const check = state.zapytania && state.zapytania[q.id];
         row.append(el('p', check ? date(check.sprawdzono) + ' · ' + check.status + (check.opis ? ': ' + check.opis : '') : 'Brak automatycznego odczytu tej trasy.', 'finder-note'));

@@ -32,7 +32,7 @@
    ],
    "priorytet": 0,
    "kayak": "https://www.kayak.pl/flights/WAW-MDZ/2027-11-05/MDZ-BUE/2027-11-12/BUE-WAW/2027-11-13/2adults?sort=price_a",
-   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+WAW-MDZ+2027-11-05+%2F+MDZ-BUE+2027-11-12+%2F+BUE-WAW+2027-11-13+2+adults+economy"
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN"
   },
   {
    "id": "openjaw-2027-11-05",
@@ -59,7 +59,7 @@
    ],
    "priorytet": 1,
    "kayak": "https://www.kayak.pl/flights/WAW-MDZ/2027-11-05/EZE-WAW/2027-11-13/2adults?sort=price_a",
-   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+WAW-MDZ+2027-11-05+%2F+EZE-WAW+2027-11-13+2+adults+economy"
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN"
   },
   {
    "id": "eze-2027-11-05",
@@ -85,7 +85,7 @@
    ],
    "priorytet": 1,
    "kayak": "https://www.kayak.pl/flights/WAW-EZE/2027-11-05/EZE-WAW/2027-11-13/2adults?sort=price_a",
-   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+WAW-EZE+2027-11-05+%2F+EZE-WAW+2027-11-13+2+adults+economy"
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN"
   },
   {
    "id": "calosc-2027-11-04",
@@ -117,7 +117,7 @@
    ],
    "priorytet": 0,
    "kayak": "https://www.kayak.pl/flights/WAW-MDZ/2027-11-04/MDZ-BUE/2027-11-12/BUE-WAW/2027-11-13/2adults?sort=price_a",
-   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+WAW-MDZ+2027-11-04+%2F+MDZ-BUE+2027-11-12+%2F+BUE-WAW+2027-11-13+2+adults+economy"
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN"
   },
   {
    "id": "openjaw-2027-11-04",
@@ -144,7 +144,7 @@
    ],
    "priorytet": 1,
    "kayak": "https://www.kayak.pl/flights/WAW-MDZ/2027-11-04/EZE-WAW/2027-11-13/2adults?sort=price_a",
-   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+WAW-MDZ+2027-11-04+%2F+EZE-WAW+2027-11-13+2+adults+economy"
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN"
   },
   {
    "id": "eze-2027-11-04",
@@ -170,7 +170,7 @@
    ],
    "priorytet": 1,
    "kayak": "https://www.kayak.pl/flights/WAW-EZE/2027-11-04/EZE-WAW/2027-11-13/2adults?sort=price_a",
-   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+WAW-EZE+2027-11-04+%2F+EZE-WAW+2027-11-13+2+adults+economy"
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN"
   },
   {
    "id": "krajowe",
@@ -196,7 +196,7 @@
    ],
    "priorytet": 1,
    "kayak": "https://www.kayak.pl/flights/EZE-MDZ/2027-11-06/MDZ-BUE/2027-11-12/2adults?sort=price_a",
-   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+EZE-MDZ+2027-11-06+%2F+MDZ-BUE+2027-11-12+2+adults+economy"
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN"
   },
   {
    "id": "mdz-bue",
@@ -217,7 +217,7 @@
    ],
    "priorytet": 1,
    "kayak": "https://www.kayak.pl/flights/MDZ-BUE/2027-11-12/2adults?sort=price_a",
-   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+MDZ-BUE+2027-11-12+2+adults+economy"
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN"
   },
   {
    "id": "mad-stopover",
@@ -249,7 +249,7 @@
    ],
    "priorytet": 2,
    "kayak": "https://www.kayak.pl/flights/MAD-MDZ/2027-11-05/MDZ-BUE/2027-11-12/BUE-MAD/2027-11-13/2adults?sort=price_a",
-   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+MAD-MDZ+2027-11-05+%2F+MDZ-BUE+2027-11-12+%2F+BUE-MAD+2027-11-13+2+adults+economy"
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN"
   },
   {
    "id": "mad-doloty",
@@ -276,7 +276,7 @@
    ],
    "priorytet": 2,
    "kayak": "https://www.kayak.pl/flights/WAW-MAD/2027-11-04/MAD-WAW/2027-11-14/2adults?sort=price_a",
-   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+WAW-MAD+2027-11-04+%2F+MAD-WAW+2027-11-14+2+adults+economy"
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN"
   },
   {
    "id": "mad-eze",
@@ -303,7 +303,7 @@
    ],
    "priorytet": 3,
    "kayak": "https://www.kayak.pl/flights/MAD-EZE/2027-11-05/EZE-MAD/2027-11-13/2adults?sort=price_a",
-   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+MAD-EZE+2027-11-05+%2F+EZE-MAD+2027-11-13+2+adults+economy"
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN"
   },
   {
    "id": "vie-eze",
@@ -330,7 +330,7 @@
    ],
    "priorytet": 3,
    "kayak": "https://www.kayak.pl/flights/VIE-EZE/2027-11-05/EZE-VIE/2027-11-13/2adults?sort=price_a",
-   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+VIE-EZE+2027-11-05+%2F+EZE-VIE+2027-11-13+2+adults+economy"
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN"
   },
   {
    "id": "ber-eze",
@@ -357,7 +357,7 @@
    ],
    "priorytet": 3,
    "kayak": "https://www.kayak.pl/flights/BER-EZE/2027-11-05/EZE-BER/2027-11-13/2adults?sort=price_a",
-   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+BER-EZE+2027-11-05+%2F+EZE-BER+2027-11-13+2+adults+economy"
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN"
   },
   {
    "id": "fco-eze",
@@ -384,7 +384,7 @@
    ],
    "priorytet": 3,
    "kayak": "https://www.kayak.pl/flights/FCO-EZE/2027-11-05/EZE-FCO/2027-11-13/2adults?sort=price_a",
-   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+FCO-EZE+2027-11-05+%2F+EZE-FCO+2027-11-13+2+adults+economy"
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN"
   },
   {
    "id": "cdg-eze",
@@ -411,7 +411,7 @@
    ],
    "priorytet": 3,
    "kayak": "https://www.kayak.pl/flights/CDG-EZE/2027-11-05/EZE-CDG/2027-11-13/2adults?sort=price_a",
-   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+CDG-EZE+2027-11-05+%2F+EZE-CDG+2027-11-13+2+adults+economy"
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN"
   },
   {
    "id": "ams-eze",
@@ -438,7 +438,7 @@
    ],
    "priorytet": 3,
    "kayak": "https://www.kayak.pl/flights/AMS-EZE/2027-11-05/EZE-AMS/2027-11-13/2adults?sort=price_a",
-   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+AMS-EZE+2027-11-05+%2F+EZE-AMS+2027-11-13+2+adults+economy"
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN"
   },
   {
    "id": "fra-eze",
@@ -465,7 +465,7 @@
    ],
    "priorytet": 3,
    "kayak": "https://www.kayak.pl/flights/FRA-EZE/2027-11-05/EZE-FRA/2027-11-13/2adults?sort=price_a",
-   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+FRA-EZE+2027-11-05+%2F+EZE-FRA+2027-11-13+2+adults+economy"
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN"
   },
   {
    "id": "zrh-eze",
@@ -492,7 +492,7 @@
    ],
    "priorytet": 3,
    "kayak": "https://www.kayak.pl/flights/ZRH-EZE/2027-11-05/EZE-ZRH/2027-11-13/2adults?sort=price_a",
-   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+ZRH-EZE+2027-11-05+%2F+EZE-ZRH+2027-11-13+2+adults+economy"
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN"
   },
   {
    "id": "ist-eze",
@@ -519,7 +519,7 @@
    ],
    "priorytet": 3,
    "kayak": "https://www.kayak.pl/flights/IST-EZE/2027-11-05/EZE-IST/2027-11-13/2adults?sort=price_a",
-   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+IST-EZE+2027-11-05+%2F+EZE-IST+2027-11-13+2+adults+economy"
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN"
   },
   {
    "id": "scl-openjaw",
@@ -546,7 +546,7 @@
    ],
    "priorytet": 3,
    "kayak": "https://www.kayak.pl/flights/WAW-SCL/2027-11-05/EZE-WAW/2027-11-13/2adults?sort=price_a",
-   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+WAW-SCL+2027-11-05+%2F+EZE-WAW+2027-11-13+2+adults+economy"
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN"
   },
   {
    "id": "gru-openjaw",
@@ -573,7 +573,7 @@
    ],
    "priorytet": 3,
    "kayak": "https://www.kayak.pl/flights/WAW-GRU/2027-11-05/EZE-WAW/2027-11-13/2adults?sort=price_a",
-   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+WAW-GRU+2027-11-05+%2F+EZE-WAW+2027-11-13+2+adults+economy"
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN"
   }
  ],
  "tropy": [

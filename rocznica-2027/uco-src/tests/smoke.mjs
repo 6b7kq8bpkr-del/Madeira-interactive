@@ -497,6 +497,10 @@ async function withLoty(mutate, hash, fn) {
   await pg.locator('.finder-plan summary').click();
   await pg.locator('#finder-scenario').selectOption('stopover');
   if(await pg.locator('#finder-routes article').count()!==2) fail('wyszukiwarka','brak obu dozwolonych dat wylotu');
+  await pg.evaluate(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>{window.__finderCopied=text;}}}));
+  await pg.locator('#finder-routes button').first().click();
+  const copied = await pg.evaluate(()=>window.__finderCopied);
+  if(!copied.includes('2 osoby dorosłe') || !copied.includes('MDZ → BUE, 2027-11-12') || !copied.includes('BUE → WAW, 2027-11-13')) fail('wyszukiwarka','kopiowany plan pomija pasażerów lub stopover');
   if(await pg.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1)) fail('wyszukiwarka','przewijanie poziome na telefonie');
   await pg.close();
 }
