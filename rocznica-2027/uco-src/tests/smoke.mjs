@@ -316,7 +316,7 @@ async function withLoty(mutate, hash, fn) {
   // kwoty z danych: wariant polecany przy trzech parach i lotach w progu (hotels[0].b.razem liczy build.py po aktualnym kursie)
   const R0 = await pg.evaluate(() => ({ razem: window.UCO.hotels[0].b.razem, d: 2 * (window.UCO.prog.budzet.prog - window.UCO.prog.budzet.cel), pi: window.UCO.prog.upgrade.opcje.find(x => x.id === 'pi').zl }));
   const h100 = v => String(Math.round(v / 100) * 100).replace(/(\d)(?=(\d{3})+$)/g, '$1\\s');
-  if (!new RegExp('Koszt: ok\\. ' + h100(R0.razem) + ' zł na parę przy 3 parach').test(t) || !new RegExp('celujemy w 4\\s000 – wtedy ok\\. ' + h100(R0.razem - R0.d) + ' zł').test(t) || !new RegExp('Piedra Infinita \\+' + R0.pi + ' zł').test(t) || !pairTaskList.test(t) || !/github\.io/.test(t) || t.split('\n').some(l => l.length > 400)) fail('podsumowanie', 'brak kosztu, celu, listy dla par albo linku: ' + t.slice(0, 160));
+  if (!new RegExp('Koszt: ok\\. ' + h100(R0.razem) + ' zł na parę przy 3 parach').test(t) || !new RegExp('celujemy w 4\\s500 – wtedy ok\\. ' + h100(R0.razem - R0.d) + ' zł').test(t) || !new RegExp('Piedra Infinita \\+' + R0.pi + ' zł').test(t) || !pairTaskList.test(t) || !/github\.io/.test(t) || t.split('\n').some(l => l.length > 400)) fail('podsumowanie', 'brak kosztu, celu, listy dla par albo linku: ' + t.slice(0, 160));
   // trwająca faza zostaje widoczna na osi w domyślnym zakresie (zegar w środku fazy „Pełny rozkład”)
   await pg.close();
   const p2 = await browser.newPage({ viewport: { width: 390, height: 800 } }); const e2 = []; p2.on('pageerror', e => e2.push(e.message));
@@ -347,9 +347,9 @@ async function withLoty(mutate, hash, fn) {
   await p4.click('#grp [data-np="4"]'); await p4.waitForTimeout(150);
   const q2 = await p4.evaluate(() => ({ checked: document.querySelector('input[data-dsel="pary"][value="4"]').checked, dsf: document.querySelector('[data-dsf="pary"]').textContent, sel: document.querySelector('#mx td.sel button')?.dataset.mx }));
   if (!q2.checked || !/Wybrano: 4\spary/.test(q2.dsf) || q2.sel !== '4|p48') fail('decyzje – budżet → karta', JSON.stringify(q2));
-  await p4.click('#mx button[data-mx="3|p40"]'); await p4.waitForTimeout(150);
+  await p4.click('#mx button[data-mx="3|p45"]'); await p4.waitForTimeout(150);
   const q3 = await p4.evaluate(() => ({ np: document.querySelector('#grp [aria-pressed="true"]')?.dataset.np, ls: document.querySelector('#lsc [aria-pressed="true"]')?.dataset.ls, sel: document.querySelector('#mx td.sel button')?.textContent.replace(/\D/g, ''), sum: document.querySelector('#payl li.sum b').textContent.replace(/\D/g, ''), txt: (document.getElementById('dcopy').click(), document.getElementById('dtxt').value) }));
-  if (q3.np !== '3' || q3.ls !== 'p40' || q3.sel !== String(R0.razem - R0.d) || q3.sum !== String(R0.razem - R0.d) || !/Ustalone: Ile par jedzie → 3\spary/.test(q3.txt)) fail('decyzje – macierz', JSON.stringify(q3));
+  if (q3.np !== '3' || q3.ls !== 'p45' || q3.sel !== String(R0.razem - R0.d) || q3.sum !== String(R0.razem - R0.d) || !/Ustalone: Ile par jedzie → 3\spary/.test(q3.txt)) fail('decyzje – macierz', JSON.stringify(q3));
   await p4.click('[data-dclr="pary"]'); await p4.waitForTimeout(100);
   const q4 = await p4.evaluate(() => ({ done: document.querySelector('[data-dec-card="pary"]').classList.contains('done'), any: [...document.querySelectorAll('input[data-dsel="pary"]')].some(c => c.checked) }));
   if (q4.done || q4.any) fail('decyzje – zmień', JSON.stringify(q4));
@@ -373,7 +373,7 @@ async function withLoty(mutate, hash, fn) {
     const O = window.UCO.prog.loty.okna, okt = [...document.querySelectorAll('#okna .okt tbody tr')].map(tr => [tr.cells[0].querySelector('b').textContent, tr.cells[1].textContent, tr.cells[2].textContent]);
     return { n: rows.length, ok: rows.every((x, i) => num(x.c) === exp[i][0] && num(x.p) === exp[i][1]), first: rows[0], eur: rows.filter(x => /EUR/.test(x.c)).length, kurs: document.querySelector('#wyzwalacze .eyebrow').textContent, okt, okm: document.querySelectorAll('#okna .okm li').length, lines: O.linie.length, eurs: String(B.kursy.EUR.toFixed(2)).replace('.', ','), eurv: B.kursy.EUR };
   });
-  if (r.n < 6 || !r.ok || !/4\s000\szł/.test(r.first.c) || !/4\s800\szł/.test(r.first.p) || r.eur < 2 || !r.kurs.includes(r.eurs)) fail('ceny-wyzwalacze', JSON.stringify({ n: r.n, ok: r.ok, first: r.first, eur: r.eur, kurs: r.kurs }));
+  if (r.n < 6 || !r.ok || !/4\s500\szł/.test(r.first.c) || !/4\s800\szł/.test(r.first.p) || r.eur < 2 || !r.kurs.includes(r.eurs)) fail('ceny-wyzwalacze', JSON.stringify({ n: r.n, ok: r.ok, first: r.first, eur: r.eur, kurs: r.kurs }));
   const ib = r.okt.find(x => x[0] === 'Iberia'), ar = r.okt.find(x => /Aerolíneas/.test(x[0]));
   if (r.okt.length !== r.lines || r.okm !== 2 || !ib || ib[1] !== '10.11' || ib[2] !== '18.11' || !ar || ar[1] !== '10.12' || ar[2] !== '18.12') fail('okna sprzedaży', JSON.stringify({ rows: r.okt.length, okm: r.okm, ib, ar }));
   // kalkulator liczy EUR po kursie z danych, także gdy w pamięci został stary zapis waluty
@@ -385,15 +385,15 @@ async function withLoty(mutate, hash, fn) {
   await pg.close();
 }
 
-// skala cen z celem 4 000 zł: pasek, sześć progów, marker najlepszej ceny i werdykt kalkulatora
+// skala cen z celem 4 500 zł: pasek, pięć progów, marker najlepszej ceny i werdykt kalkulatora
 {
   const { pg, errs } = await withLoty(M => { M.serie.find(s => s.id === 'calosc').hist = [{ data: '2026-12-01', cena: 4600 }]; }, '#skala', async pg => {
     await pg.fill('#k-cena', '3900');
   });
   const r = await pg.evaluate(() => ({ seg: document.querySelectorAll('#skala .sks').length, li: document.querySelectorAll('#skala .skl li').length, mk: !document.getElementById('skm').hidden, left: parseFloat(document.getElementById('skm').style.left), note: document.getElementById('skn').innerText, kalk: document.getElementById('k-out').innerText }));
-  if (r.seg !== 6 || r.li !== 6) fail('skala cen', `segmenty ${r.seg}, progi ${r.li} zamiast 6`);
+  if (r.seg !== 5 || r.li !== 5) fail('skala cen', `segmenty ${r.seg}, progi ${r.li} zamiast 5`);
   if (!r.mk || Math.abs(r.left - 41.67) > 0.1) fail('skala cen', `marker 4 600 zł w złym miejscu (${r.left}%)`);
-  if (!/600\s?zł do celu/.test(r.note)) fail('skala cen', `opis najlepszej ceny: ${r.note}`);
+  if (!/100\s?zł do celu/.test(r.note)) fail('skala cen', `opis najlepszej ceny: ${r.note}`);
   if (!/Cel osiągnięty/.test(r.kalk)) fail('skala cen', 'kalkulator nie uznał 3 900 zł za cel');
   if (errs.length) fail('skala cen', 'błędy JS: ' + errs[0]);
   await pg.close();

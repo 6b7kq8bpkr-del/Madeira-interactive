@@ -5,7 +5,7 @@ Odpowiada na jedno pytanie: **czy dziś kupujemy bilety, a jeśli nie – co si�
 Czyta go osoba, która nie śledzi rynku: ma zrozumieć werdykt po pierwszym zdaniu.
 
 Podróż: Warszawa → Mendoza → Buenos Aires → Warszawa, wylot 4.11 po 20:00 albo 5.11.2027, powrót z Buenos Aires 13.11.2027, 2–4 pary.
-Cel 4 000 zł, próg 4 800 zł na osobę za kompletną podróż z bagażem i lotem krajowym (reguły decyzji: `loty.skala` w `data/program.json`).
+Cel 4 500 zł (od 26.11.2026; wcześniej 4 000 zł), próg 4 800 zł na osobę za kompletną podróż z bagażem i lotem krajowym (reguły decyzji: `loty.skala` w `data/program.json`).
 
 ## Co wolno zmieniać
 
@@ -94,8 +94,8 @@ Jedno powiadomienie push do właściciela dziennie, zawsze (sposób wysyłki jes
 
 | Ikona | Kiedy |
 |---|---|
-| 🎯 Kupować dziś | kompletna podróż z bagażem ≤ 4 000 zł/os. na nasze daty, potwierdzona u linii |
-| 🟢 Kupować, jeśli… | 4 000–4 800 zł/os. i spełniony warunek ze skali (tania klasa się kończy albo jest po 21.05.2027) |
+| 🎯 Kupować dziś | kompletna podróż z bagażem ≤ 4 500 zł/os. na nasze daty, potwierdzona u linii |
+| 🟢 Kupować, jeśli… | 4 500–4 800 zł/os. i spełniony warunek ze skali (tania klasa się kończy albo jest po 21.05.2027) |
 | 🟡 Obserwować | cena do 5 000 zł/os. albo promocja, która może objąć nasze daty |
 | ⚪ Jeszcze nie kupujemy | brak cen na nasze daty albo ceny powyżej 5 000 zł/os. |
 | 🔴 Uwaga | zdarzenie, które wymaga decyzji grupy: upadłość linii, zamknięcie lotniska, odwołana trasa, zbliżający się twardy termin 31.08.2027 |

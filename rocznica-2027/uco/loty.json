@@ -1,16 +1,16 @@
 {
  "zaktualizowano": "2026-11-25",
- "status": "Stan na 25.11.2026: Iberia z Madrytu bez przesiadki staniała do 4 223 zł (wczoraj 4 391 zł) – najniżej od początku odczytów; z Warszawy bez zmian, od 5 653 zł (Swiss i Lufthansa), wszystko bez bagażu. Cała podróż z bagażem, dolotem i lotem krajowym to ok. 6 400 zł na osobę przy celu 4 000 zł, więc jeszcze nie kupujemy. Bilet z postojem w Buenos Aires nadal tylko jako składanka osobnych biletów za ok. 13 000 zł. Turkish wciąż nie sprzedaje naszych dat. Z Berlina wychodzi ok. 6 350 zł. Promocji na listopad 2027 nie ma.",
+ "status": "Stan na 25.11.2026: Iberia z Madrytu bez przesiadki staniała do 4 223 zł (wczoraj 4 391 zł) – najniżej od początku odczytów; z Warszawy bez zmian, od 5 653 zł (Swiss i Lufthansa), wszystko bez bagażu. Cała podróż z bagażem, dolotem i lotem krajowym to ok. 6 400 zł na osobę przy celu 4 500 zł, więc jeszcze nie kupujemy. Bilet z postojem w Buenos Aires nadal tylko jako składanka osobnych biletów za ok. 13 000 zł. Turkish wciąż nie sprzedaje naszych dat. Z Berlina wychodzi ok. 6 350 zł. Promocji na listopad 2027 nie ma.",
  "nastepny": "2026-12-01",
  "prog": 4800,
- "cel": 4000,
+ "cel": 4500,
  "serie": [
   {
    "id": "calosc",
    "linia": "Cały bilet WAW–MDZ (Iberia+AR, LATAM, Air Europa)",
    "trasa": "WAW–EZE/SCL/GRU–MDZ · MDZ–EZE–WAW (jedna rezerwacja)",
    "orient": "od ok. 5 150 zł (Momondo „od”)",
-   "uwagi": "główne wyszukiwanie: maks. 2 przesiadki, w Buenos Aires przylot i wylot z EZE, w São Paulo GRU; cel ≤ 4 000 zł, próg 4 800 zł",
+   "uwagi": "główne wyszukiwanie: maks. 2 przesiadki, w Buenos Aires przylot i wylot z EZE, w São Paulo GRU; cel ≤ 4 500 zł, próg 4 800 zł",
    "hist": []
   },
   {
@@ -719,7 +719,7 @@
    "nazwa": "Rebajas de enero – przedsprzedaż Iberia Club 5.01, ogólna ok. 8–26.01",
    "szansa": "wysoka",
    "historia": "2026: podróże 10.01–10.12.2026 (cały listopad), São Paulo od 299 EUR w jedną stronę",
-   "uwaga": "Najlepsze okno. Założyć darmowe konto Iberia Club przed 5.01 (przedsprzedaż). Wycenić WAW–MDZ przez MAD i EZE oraz multi-city ze stopoverem; kupić przy ≤ 4 000 zł/os. (4 000–4 500 zł tylko, gdy tania klasa się kończy)."
+   "uwaga": "Najlepsze okno. Założyć darmowe konto Iberia Club przed 5.01 (przedsprzedaż). Wycenić WAW–MDZ przez MAD i EZE oraz multi-city ze stopoverem; kupić przy ≤ 4 500 zł/os. (4 500–4 800 zł tylko, gdy tania klasa się kończy)."
   },
   {
    "od": "2027-01-13",
@@ -746,7 +746,7 @@
    "nazwa": "promocje na sezon XI–III",
    "szansa": "srednia",
    "historia": "V–VI 2026: Wiedeń–Buenos Aires 2 650–2 850 zł z terminami w listopadzie 2026",
-   "uwaga": "Dzika karta – tylko gdy całość z dojazdem, bagażem i krajowym ≤ 4 000 zł/os."
+   "uwaga": "Dzika karta – tylko gdy całość z dojazdem, bagażem i krajowym ≤ 4 500 zł/os."
   },
   {
    "od": "2027-05-10",
@@ -890,13 +890,13 @@
  },
  "raport": {
   "data": "2026-11-25",
-  "werdykt": "⚪ Jeszcze nie kupujemy – Iberia z Madrytu staniała, ale cała podróż to wciąż ok. 6 400 zł przy celu 4 000 zł",
+  "werdykt": "⚪ Jeszcze nie kupujemy – Iberia z Madrytu staniała, ale cała podróż to wciąż ok. 6 400 zł przy celu 4 500 zł",
   "calosc": 6400,
   "stan": "Kompletnej podróży do Mendozy na nasze daty nie da się jeszcze rozsądnie wycenić, ale są ceny dużych linii do Buenos Aires (Kayak, 25.11): z Madrytu bez przesiadki od 4 223 zł (Iberia), z Warszawy od 5 653 zł (Swiss i Lufthansa) – bez bagażu. Z bagażem, dolotem i lotem krajowym to ok. 6 400 zł na osobę, ok. 1 600 zł ponad próg. Cały bilet do Mendozy na jednej rezerwacji powinien pojawić się ok. 18.12.2026.",
   "punkty": [
    [
     "Od wczoraj:",
-    "Iberia z Madrytu bez przesiadki staniała o 168 zł, do 4 223 zł – to najniższa cena od początku odczytów. Cała podróż przez Madryt spadła z ok. 6 600 do ok. 6 400 zł, ale do celu wciąż brakuje ok. 2 400 zł, więc werdykt bez zmian. Z Warszawy ceny stoją (Swiss i Lufthansa 5 653 zł). W Berlinie pojawił się British Airways za 4 502 zł. Turkish nadal nie sprzedaje naszych dat."
+    "Iberia z Madrytu bez przesiadki staniała o 168 zł, do 4 223 zł – to najniższa cena od początku odczytów. Cała podróż przez Madryt spadła z ok. 6 600 do ok. 6 400 zł, ale do celu wciąż brakuje ok. 1 900 zł, więc werdykt bez zmian. Z Warszawy ceny stoją (Swiss i Lufthansa 5 653 zł). W Berlinie pojawił się British Airways za 4 502 zł. Turkish nadal nie sprzedaje naszych dat."
    ],
    [
     "Ceny na nasze daty:",
