@@ -13,7 +13,7 @@ Pliki `../uco/data.js`, `../uco/index.html` i `../uco/plan.ics` są generowane �
 | `build.py` | składa `data.js`, `index.html` i `plan.ics` |
 | `tests/smoke.mjs` | testy w przeglądarce (Playwright) |
 
-`../uco/loty.json` i `../uco/promocje.json` nie są generowane – aktualizują je zaplanowani agenci (monitor cen, radar promocji, skrzynka alertów).
+`../uco/loty.json` i `../uco/promocje.json` nie są generowane - aktualizują je monitoring publicznych źródeł i skaner RSS. Newslettery trafiają do użytkownika; harmonogram nie czyta prywatnej skrzynki. Potwierdzone usługi są zapisane w `loty.uslugi` w `data/program.json` i widoczne w zakładce „Działania”.
 Codzienny raport lotów (`raport` w `loty.json`) powstaje według [RAPORT.md](RAPORT.md); fakty dnia liczy `../uco/tools/raport_fakty.py`.
 
 ## Budowanie

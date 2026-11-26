@@ -256,10 +256,10 @@
   {
    "when": "od otwarcia sprzedaży (XI–XII 2026) do 31.08.2027",
    "what": "{regula:profil} {regula:przesiadki} {regula:bagaz} Wycenę wszystkich części potwierdzić u linii przed zakupem, najpóźniej do 31.08.2027; powyżej progu 4800 zł/os. potrzebna decyzja budżetowa. Monitoring i testy bez API cen.",
-   "krotko": "Loty: alerty od połowy listopada 2026 (gotowe linki w sekcji Loty), zakup od otwarcia rozkładu do 31.08.2027, parami. Wylot 4.11 (od 20:00) lub 5.11, lądowanie w Warszawie najpóźniej 14.11; cel 4 500 zł/os. za kompletną podróż (próg 4 800 zł).",
+   "krotko": "Loty: monitoring całej trasy działa o 9:00 i 18:00, bez API cen. Newslettery KLM i Air Europa aktywowane. Zakup po potwierdzeniu jednego chronionego biletu z Warszawy, stopoveru i ceny dla dwóch osób; cel 4500 zł/os., próg 4800 zł/os.",
    "od": "2026-11-11",
    "do": "2027-08-31",
-   "k": "Loty – alerty, potem zakup"
+   "k": "Loty - monitoring i zakup"
   },
   {
    "when": "wiosna–lato 2027",
@@ -799,10 +799,6 @@
    "url": "https://help.skyscanner.net/hc/en-gb/articles/206028971"
   },
   {
-   "label": "ExpertFlyer – Flight Availability (przewodnik)",
-   "url": "https://www.expertflyer.com/blog/guide/how-to-check-flight-availability-expertflyer"
-  },
-  {
    "label": "Iberia – czasy przesiadek w Madrycie",
    "url": "https://www.iberia.com/ar/fly-with-iberia/madrid-airport/connectiontime"
   },
@@ -1042,23 +1038,6 @@
    "Kupno po decyzji użytkownika. Przygotować całą kombinację, sprawdzić miejsca dla pozostałych par i warunki taryfy. Nie pomijać odcinków biletu.",
    "Nie czekać na promocję za wszelką cenę. Gdy pełna, sprawdzona podróż spełnia cel oraz wymogi komfortu i ochrony, jest kandydatem do zakupu."
   ],
-  "alerty": [
-   {
-    "n": "KAYAK - cała trasa, wylot 05.11",
-    "url": "https://www.kayak.pl/flights/WAW-MDZ/2027-11-05/MDZ-BUE/2027-11-12/BUE-WAW/2027-11-13/2adults?sort=price_a",
-    "opis": "Trzy części na jednym bilecie, dwa miejsca, sam podręczny dopuszczony. Wylot 4.11 wyłącznie po 20:00. Sprawdzić ofertę u linii. Sam link nie włącza alertu."
-   },
-   {
-    "n": "KAYAK - cała trasa, wylot 04.11",
-    "url": "https://www.kayak.pl/flights/WAW-MDZ/2027-11-04/MDZ-BUE/2027-11-12/BUE-WAW/2027-11-13/2adults?sort=price_a",
-    "opis": "Trzy części na jednym bilecie, dwa miejsca, sam podręczny dopuszczony. Wylot 4.11 wyłącznie po 20:00. Sprawdzić ofertę u linii. Sam link nie włącza alertu."
-   },
-   {
-    "n": "Google Flights - wiele miast",
-    "url": "https://www.google.com/travel/flights?hl=pl&curr=PLN",
-    "opis": "Wybierz Wiele miast i wpisz WAW-MDZ / MDZ-BUE / BUE-WAW dla dwóch osób. Daty z profilu powyżej; link nie uzupełnia formularza ani nie aktywuje alertu."
-   }
-  ],
   "daty": [
    [
     "Bazowy",
@@ -1071,7 +1050,6 @@
     "Tylko gdy przylot do Mendozy wypada 6.11. Noclegi bez zmian: 6–9.11 Chacras, 9–12.11 Uco, 12–13.11 Buenos Aires. Koszt nocy w hubie doliczyć."
    ]
   ],
-  "alerty_intro": "Linki są gotowymi wyszukiwaniami, nie dowodem działających alertów. Po otwarciu sprawdzić 2 dorosłych i daty. Aktywność alertu potwierdza serwis lub otrzymana wiadomość; odhaczenie na stronie zapisuje tylko Twoją notatkę.",
   "stopover": {
    "tytul": "Stopover w Buenos Aires w drodze powrotnej – na jednym bilecie",
    "intro": "Noc 12-13.11 w Buenos Aires jest stałą częścią podróży. Szukamy przylotu z Mendozy 12.11 rano lub wczesnym popołudniem i wylotu do Europy 13.11 wieczorem. Multi-city opisuje wyszukiwanie, nie dowodzi wystawienia jednego biletu. Ochronę, zgodę na postój i bagaż trzeba potwierdzić u sprzedającej linii przed zapłatą. {regula:noclegi}",
@@ -1123,7 +1101,7 @@
    "kroki": [
     {
      "t": "Szeroko zbieraj tropy.",
-     "opis": "Dwie rodziny wyszukiwarek, portale promocji, nowe wpisy i komentarze na forach oraz już aktywne newslettery. Zapisuj datę i zakres odczytu.",
+     "opis": "Dwie rodziny wyszukiwarek, portale promocji, nowe wpisy i komentarze na forach. Newslettery KLM i Air Europa przychodzą do użytkownika. Zapisuj datę i zakres rzeczywiście wykonanego odczytu.",
      "kiedy": "codziennie; przy promocji ponowna wycena bez zwłoki"
     },
     {
@@ -1163,8 +1141,8 @@
     {
      "n": "Alerty i dostępność",
      "p": [
-      "Status aktywny wymaga potwierdzenia w serwisie lub odebranego alertu. Sam link i checkbox na tej stronie go nie włączają.",
-      "Nie zakładać dostępności dla 6 osób z ceny dla 2. Pozostałe pary wycenić ponownie przed zakupem. Płatne narzędzia i nowe konta wymagają decyzji użytkownika."
+      "Sprawdzone statusy newsletterów i monitoringu są w zakładce Działania. Link do wyszukiwania nie oznacza aktywnego alertu.",
+      "Wystarczają bezpłatne źródła i bezpośrednie formularze linii. Nie zakładamy kont ani abonamentów na zapas. Pozostałe pary wyceniamy osobno przed zakupem."
      ],
      "link": "https://www.google.com/travel/flights"
     }
@@ -1321,104 +1299,9 @@
      "typ": "termin"
     }
    ],
-   "automaty": [
-    {
-     "d": "2026-11-13",
-     "typ": "agent",
-     "t": "Agent: kampania Iberia + Visit Argentina, Star Alliance open-jaw (wylot z Buenos Aires 12.11)"
-    },
-    {
-     "d": "2026-11-16",
-     "typ": "przyp",
-     "t": "Przypomnienie: alerty cenowe (ustawić po 19.11, gdy linie otworzą powrót 13.11.2027)"
-    },
-    {
-     "d": "2026-11-20",
-     "typ": "agent",
-     "t": "Agent: pierwsze ceny w obie strony do Buenos Aires"
-    },
-    {
-     "d": "2026-11-27",
-     "typ": "przyp",
-     "t": "Przypomnienie: Black Friday"
-    },
-    {
-     "d": "2026-12-14",
-     "typ": "przyp",
-     "t": "Przypomnienie: konta i alerty na Mendozę (sprzedaż od ok. 17–18.12)"
-    },
-    {
-     "d": "2026-12-18",
-     "typ": "agent",
-     "t": "Agent: pierwsza pełna wycena 6 scenariuszy (z Mendozą)"
-    },
-    {
-     "d": "2026-12-18",
-     "typ": "przyp",
-     "t": "Przypomnienie: pierwsza wycena lotów krajowych; aktualizacja przed zakupem podróży"
-    },
-    {
-     "d": "2027-01-05",
-     "typ": "agent",
-     "t": "Agent: rebajas Iberii (przedsprzedaż Iberia Club)"
-    },
-    {
-     "d": "2027-01-22",
-     "typ": "agent",
-     "t": "Agent: FITUR – promocje Aerolíneas z Europy"
-    },
-    {
-     "d": "2027-03-08",
-     "typ": "przyp",
-     "t": "Przypomnienie: półmetek polowania"
-    },
-    {
-     "d": "2027-05-21",
-     "typ": "agent",
-     "t": "Agent: start planowanego okna obserwacji"
-    },
-    {
-     "d": "2027-07-02",
-     "typ": "agent",
-     "t": "Agent: decyzja na koniec okna"
-    },
-    {
-     "d": "2027-08-31",
-     "typ": "agent",
-     "t": "Agent: twardy termin zakupu"
-    },
-    {
-     "d": "2027-09-15",
-     "typ": "przyp",
-     "t": "Przypomnienie: kontrola po zakupie"
-    }
-   ]
+   "automaty": []
   },
   "zadania": [
-   {
-    "id": "news",
-    "t": "Newslettery na Gmail: Travel-dealz (alert „Buenos Aires”), Fly4free, Iberia, Air Europa, LATAM",
-    "od": "2026-11-01",
-    "do": "2026-11-14",
-    "opis": "Promocje z newsletterów przychodzą na Twoją skrzynkę – agent ich nie czyta, więc dobrą cenę sprawdź w kalkulatorze.",
-    "link": [
-     "Travel-dealz – newsletter",
-     "https://travel-dealz.com/newsletter/"
-    ],
-    "kto": "my"
-   },
-   {
-    "id": "gf",
-    "t": "Google Flights: „Śledź ceny” – najpierw Buenos Aires, potem Mendoza",
-    "od": "2026-12-18",
-    "do": "2026-12-18",
-    "opis": "Google Flights pokazuje loty najwyżej ok. 330 dni naprzód: alert na 5→13.11.2027 (WAW–EZE, MAD–EZE, WAW–MDZ, multi-city ze stopoverem i lot krajowy) da się ustawić dopiero ok. 18.12.2026. Do tego czasu ceny na nasze daty czyta codzienny raport lotów. Linki są na liście obok. Alerty idą na Gmail, agent przenosi je na stronę.",
-    "link": [
-     "Google Flights",
-     "https://www.google.com/travel/flights"
-    ],
-    "kto": "my"
-   },
    {
     "id": "pary",
     "t": "Ustalić liczbę par i zebrać dane z paszportów",
@@ -1430,58 +1313,18 @@
    },
    {
     "id": "karta",
-    "t": "Karta bez prowizji walutowej dla każdej pary",
-    "od": "2026-11-01",
-    "do": "2026-11-24",
-    "opis": "Płacić w walucie sprzedawcy (EUR/USD), bez przewalutowania DCC; nigdy w pesos.",
+    "t": "Sprawdzić koszty płatności przed zakupem biletów",
+    "od": "2026-11-26",
+    "do": "2027-01-15",
+    "opis": "Sprawdzić w swojej karcie kurs i opłaty oraz końcową kwotę u sprzedawcy. Nie trzeba zakładać nowego konta ani kupować abonamentu tylko do monitorowania lotów.",
     "kto": "pary"
-   },
-   {
-    "id": "iberiaclub",
-    "t": "Założyć konto Iberia Club (każda para)",
-    "od": "2026-12-01",
-    "do": "2027-01-04",
-    "opis": "Przedsprzedaż styczniowej wyprzedaży dla członków – w 2026 r. ruszyła 5.01 i objęła podróże do 10.12.",
-    "link": [
-     "iberia.com",
-     "https://www.iberia.com/pl/"
-    ],
-    "kto": "pary"
-   },
-   {
-    "id": "ef",
-    "t": "Opcjonalnie: ExpertFlyer Premium i alerty klas O/Q/N",
-    "od": "2026-11-20",
-    "do": "2027-01-04",
-    "opis": "12,99 USD/mies.; Iberia Madryt–EZE i Madryt–Santiago, Air Europa Madryt–EZE na 5–6.11 i 12–13.11.2027, liczba miejsc 2. Maile czyta agent.",
-    "link": [
-     "ExpertFlyer",
-     "https://www.expertflyer.com"
-    ],
-    "kto": "my"
-   },
-   {
-    "id": "rebajas",
-    "t": "Rebajas Iberii: wycenić i przy ≤ 4 500 zł/os. kupić",
-    "od": "2027-01-05",
-    "do": "2027-01-26",
-    "opis": "Najpierw zatrzymać cenę na 72 h dla wszystkich par (ok. 10 EUR/os.), potem kupić parami tego samego dnia.",
-    "kto": "my"
    },
    {
     "id": "decyzja",
-    "t": "Decyzja: kupić najlepszą opcję ≤ 5 000 zł/os.",
+    "t": "Ocenić najlepszą pełną ofertę i budżet",
     "od": "2027-05-21",
     "do": "2027-07-02",
-    "opis": "Koniec planowanego okna obserwacji. Po zakupie: potwierdzić Casa de Uco i Lares, zwolnić drugi hotel bazy 1.",
-    "kto": "my"
-   },
-   {
-    "id": "krajowy",
-    "t": "Wycenić loty krajowe przed zakupem całej podróży",
-    "od": "2026-12-18",
-    "do": "2026-12-18",
-    "opis": "{regula:lot_krajowy} {regula:lotniska}",
+    "opis": "Cel 4500 zł/os., próg 4800 zł/os.; drożej wymaga decyzji budżetowej. Super okazje do 8000 zł za parę mogą mieć opisane małe kompromisy. Zakup po ponownej kontroli u linii.",
     "kto": "my"
    },
    {
@@ -1756,13 +1599,6 @@
      "jak": "Promociones Aéreas i Aeroroutes jako uzupełnienie. Odróżnić kierunek z Europy od podróży mieszkańców Argentyny."
     },
     {
-     "id": "mail",
-     "n": "Aktywowane alerty i newslettery",
-     "typ": "Skrzynka",
-     "url": "https://mail.google.com/",
-     "jak": "Nowe wiadomości od ostatniego odczytu, także Spam. Na stronie tylko publiczne fakty; bez adresów, kodów i spersonalizowanych linków."
-    },
-    {
      "id": "stopover",
      "n": "Visit Buenos Aires: warunki",
      "typ": "Stopover",
@@ -1771,8 +1607,45 @@
     }
    ],
    "frazy": "Mendoza / MDZ, Buenos Aires / BUE / EZE / AEP, Argentina / Argentyna, Santiago / SCL, São Paulo / GRU; listopad / November / noviembre 2027; multidestino, stopover, open-jaw, error fare. Sprawdzać datę wpisu, kierunek podróży i okres obowiązywania.",
-   "rytm": "Codziennie: ceny wszystkich wariantów, promocje, fora i dostępne alerty. Black Friday, styczniowe wyprzedaże i spadek ceny wymagają szybkiej ponownej wyceny u linii. Data ostatniego odczytu poniżej pokazuje faktyczne wykonanie; lista źródeł nie jest potwierdzeniem aktywnego alertu."
-  }
+   "rytm": "Publiczne źródła sprawdzamy o 9:00 i 18:00, a skaner RSS uruchamia się co 6 godzin. Newslettery są osobnym kanałem dla użytkownika. Data ostatniego odczytu pokazuje faktyczne wykonanie; harmonogram i lista źródeł nie dowodzą uzyskania pełnej wyceny."
+  },
+  "uslugi": [
+   {
+    "id": "monitor",
+    "n": "Monitoring całej trasy",
+    "status": "Harmonogram aktywny",
+    "data": "2026-11-26",
+    "opis": "Kontrola publicznych źródeł o 9:00 i 18:00. Dwie osoby, jeden chroniony bilet z Warszawy i stopover w Buenos. Wynik ostatniej kontroli pokazuje raport; harmonogram nie gwarantuje uzyskania ceny.",
+    "url": "#wyszukiwarka"
+   },
+   {
+    "id": "radar",
+    "n": "Radar promocji i forów",
+    "status": "Skaner RSS działa",
+    "data": "2026-11-26",
+    "opis": "Publiczne publikacje są zbierane co 6 godzin. Ostatni sprawdzony przebieg zakończył się poprawnie. Fora i komentarze wymagają osobnej kontroli w monitoringu; awarie kanałów pokazujemy w stanie źródeł.",
+    "url": "#finder-promos"
+   },
+   {
+    "id": "klm",
+    "n": "Newsletter KLM",
+    "status": "Zapis potwierdzony",
+    "data": "2026-11-26",
+    "opis": "Aktywowano bezpłatnie. Zapisano Warszawę Chopina jako preferowane lotnisko. Oferty przychodzą e-mailem; nie są automatyczną wyceną naszej trasy.",
+    "url": "https://www.klm.pl/en/information/updates/newsletter"
+   },
+   {
+    "id": "air-europa",
+    "n": "Newsletter Air Europa",
+    "status": "Zapis potwierdzony",
+    "data": "2026-11-26",
+    "opis": "Aktywowano bezpłatnie i potwierdzono linkiem z wiadomości. Oferty oraz przedsprzedaże przychodzą e-mailem; każdą trzeba sprawdzić dla całej trasy z Warszawy.",
+    "url": "https://www.aireuropa.com/ot/en/aea/newsletter.html"
+   }
+  ],
+  "uslugi_info": "Uruchomione usługi i data potwierdzenia. Newslettery trafiają do skrzynki użytkownika; stały monitoring korzysta z publicznych źródeł.",
+  "uslugi_oczekujace": "Google Flights: 26.11 kalendarz nie udostępniał 5 i 13.11.2027. Ponowna kontrola w połowie grudnia w ramach istniejącego monitoringu; alert dopiero po udostępnieniu dat i funkcji śledzenia właściwej trasy. Nie jest jeszcze aktywny. KAYAK: w sprawdzonej pełnej trasie multi-city nie było przełącznika alertu. Zachowujemy go jako wyszukiwarkę, bez obietnicy powiadomień.",
+  "uslugi_rezygnacje": "Usunięto z planu ExpertFlyer Premium, płatne abonamenty portali, masowe zapisy do ogólnych newsletterów, zakładanie Iberia Club dla każdej pary oraz alerty na osobne bilety. Promocje Iberii i pozostałych linii nadal sprawdzamy publicznie. Newslettera Iberii nie aktywowano: formularz nie pojawił się na sprawdzonych stronach ofert; konto nie jest potrzebne do przeglądania promocji."
  },
  "hotele_karty": [
   {

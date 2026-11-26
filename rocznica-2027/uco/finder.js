@@ -116,6 +116,7 @@
       const flex = el('details'); flex.append(el('summary', 'Przy super okazji dopuszczamy mały kompromis'), el('p', program.zasady_podrozy.super_okazje, 'finder-note')); box.append(flex);
       const next = el('a', 'Sprawdź pełną trasę u linii →'); next.href = '#finder-plan'; box.append(next);
       box.append(el('p', 'Automatycznie zbieramy publikacje o promocjach. Cena i dostępność całej trasy wymagają sprawdzenia w formularzu linii. API cen pozostaje wyłączone.', 'finder-note'));
+      const services = el('a', 'Co już działa: monitoring i newslettery →'); services.href = '#zadania'; services.dataset.lgo = 'zadania'; box.append(services);
     }
 
     function research() {

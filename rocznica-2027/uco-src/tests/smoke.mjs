@@ -457,7 +457,7 @@ async function withLoty(mutate, hash, fn) {
   if (!(await pg.locator('#oferty').innerText()).replace(/\s+/g,' ').includes('Jest super okazja z kompromisem') || await pg.evaluate(()=>window.__bestSingle!==null || !document.getElementById('skm').hidden)) fail('super okazja','kompromis przedstawiono jako ofertę bez odstępstw');
   if (await pg.locator('#finder-overview details').getAttribute('open') === null) await pg.locator('#finder-overview details > summary').click();
   if (!(await pg.locator('#finder-overview details').innerText()).replace(/\s+/g,' ').includes('2 niewielkie odstępstwa')) fail('super okazja','brak jasnej polityki');
-  await pg.locator('#finder-overview > a').click();
+  await pg.locator('#finder-overview > a[href="#finder-plan"]').click();
   await pg.evaluate(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>{window.__flexCopied=text;}}}));
   await pg.locator('#finder-routes button').first().click();
   const copied=(await pg.evaluate(()=>window.__flexCopied) || '').replace(/\s+/g,' ');
@@ -539,6 +539,13 @@ async function withLoty(mutate, hash, fn) {
   await pg.waitForFunction(()=>document.getElementById('finder-status').textContent.includes('Skan publikacji:'));
   if(!(await pg.locator('#finder-overview h4').textContent()).includes('Nie udało')) fail('wyszukiwarka','świeży RSS zamaskował awarię ofert');
   if(!(await pg.locator('#finder-research').textContent()).includes('Nie potwierdzają cen na listopad')) fail('wyszukiwarka','testy pomylone z listopadem');
+  await pg.evaluate(()=>{ localStorage.setItem('uco-al',JSON.stringify({0:true,1:true,2:true})); localStorage.setItem('uco-td',JSON.stringify({news:false,gf:false,ef:false,iberiaclub:false})); });
+  await pg.reload({waitUntil:'load'});
+  await pg.locator('#finder-overview > a[href="#zadania"]').click();
+  if(!(await pg.locator('#uslugi-monitoringu').isVisible())) fail('działania','link z wyszukiwarki nie odsłania stanu usług');
+  if(await pg.locator('#uslugi-monitoringu input, [data-al], [data-td="news"], [data-td="gf"], [data-td="ef"], [data-td="iberiaclub"]').count()) fail('działania','stare checkboxy lub zadania udają aktywację usług');
+  if(await pg.locator('#uslugi-monitoringu .al > li').count()!==4) fail('działania','brak potwierdzonych usług');
+  if(await pg.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1)) fail('działania','przewijanie poziome na telefonie');
   await pg.close();
 }
 

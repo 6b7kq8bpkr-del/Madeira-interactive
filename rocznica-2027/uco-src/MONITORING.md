@@ -4,7 +4,7 @@ Zasady dotyczą kolejnych raportów, radaru i ręcznych odczytów. Przeczytaj pr
 
 ## Wyniki wyszukiwarki okazji
 
-Na początku odczytaj [bieżący skan](https://raw.githubusercontent.com/6b7kq8bpkr-del/Madeira-interactive/uco-monitor-data/okazje.json) i [zasady skanera](WYSZUKIWARKA.md). Sprawdź datę, awarie źródeł oraz kolejkę nieodczytanych tras. Przejrzyj nowe tropy od ostatniej kontroli i sprawdź obiecujące wyceny u linii. Punktacja tropów nie jest oceną pewności oferty, a `cenaWyniku` bez potwierdzonej jednostki nie jest ceną za osobę. Nie zmieniaj historii na podstawie daty skanu. Zachowaj osobne odczyty forów, komentarzy i skrzynki.
+Na początku odczytaj [bieżący skan](https://raw.githubusercontent.com/6b7kq8bpkr-del/Madeira-interactive/uco-monitor-data/okazje.json) i [zasady skanera](WYSZUKIWARKA.md). Sprawdź datę, awarie źródeł oraz kolejkę nieodczytanych tras. Przejrzyj nowe tropy od ostatniej kontroli i sprawdź obiecujące wyceny u linii. Punktacja tropów nie jest oceną pewności oferty, a `cenaWyniku` bez potwierdzonej jednostki nie jest ceną za osobę. Nie zmieniaj historii na podstawie daty skanu. Zachowaj osobne odczyty forów i komentarzy; skrzynka nie jest częścią stałego monitoringu.
 
 Skaner nie zastępuje kontroli dwóch rodzin wyszukiwarek. Używaj go do szybszego znalezienia kandydatów i luk. Nie przepisuj do raportu tokenów, kluczy ani prywatnych linków.
 
@@ -32,9 +32,15 @@ Minimum dwie rodziny wyszukiwarek, jeśli dostępne; Kayak/Momondo liczą się j
 - Osobno sprawdź nowe posty **i komentarze** Fly4free, Forum Fly4free, Pepper, Travel-Dealz, Secret Flying oraz oficjalne kampanie linii. RSS artykułów nie dowodzi przeczytania forów. Źródła i frazy w `loty.monitoring`; wyszukiwarka internetowa jest uzupełnieniem, nie dowodem pełnego odczytu forum.
 - Kierunki: MDZ/Mendoza, EZE/AEP/BUE/Buenos Aires, Argentyna/Argentina, SCL/Santiago, GRU/São Paulo. Języki PL/EN/ES, frazy listopad/November/noviembre 2027, stopover, multidestino, open-jaw. Sprawdź również promocję bez nazwy Mendoza, jeśli da się dołączyć sensowny krajowy odcinek.
 - Z każdego tropu zachowaj URL, datę publikacji i odczytu, kierunek podróży, daty podróży, termin sprzedaży, bagaż, 2 miejsca, warunki i wynik sprawdzenia u linii. Wyprzedaż z Argentyny do Europy ani historyczna promocja nie są naszą ofertą. Nie wyprowadzaj sezonu wyłącznie z tytułu wpisu.
-- Czytaj nowe wiadomości w już autoryzowanej skrzynce i Spam od ostatniego odczytu. Nie publikuj danych kont, treści prywatnej korespondencji, spersonalizowanych linków, kodów ani danych par. Nie twórz kont, nie kupuj abonamentów i nie aktywuj zapisów bez upoważnienia. Checkbox na stronie nie jest potwierdzeniem subskrypcji.
+- Stały monitoring korzysta z publicznych źródeł. Zgoda użytkownika z 26.11 obejmuje użycie Gmaila do zapisów KLM, Iberii, Air Europa i alertów Google Flights/KAYAK oraz odczyt ich potwierdzeń aktywacji, również w spamie. Nie rozszerza jej to na regularny odczyt całej poczty ani newsletterów. Nie publikuj adresu, treści prywatnej korespondencji, spersonalizowanych linków, kodów ani danych par. Rejestr stanu to `program.json -> loty.uslugi`; aktualizacja statusu wymaga potwierdzenia w danej usłudze.
 - Przy każdej rodzinie źródeł zapisz w `loty.json.pokrycie` obiekt `id` (z katalogu), `sprawdzono` (ISO ze strefą), `status` (`sprawdzone`, `częściowe`, `błąd`, `wymaga logowania`, `poza kalendarzem`), `wynik` i publiczny `url`. Zapisuj ostatni odczyt, bez danych osobowych. Przy braku sprawdzenia nie odświeżaj daty.
 - Dedupikuj URL bez parametrów śledzących; artykuł skopiowany w kilku portalach i kilka tagów tego samego portalu nie są niezależnym potwierdzeniem. Daty bez roku i brak daty wymagają kontroli.
+
+## Uruchomione działania - 26.11.2026
+
+Newsletter KLM aktywowany, zapisano Warszawę Chopina jako preferowane lotnisko. Air Europa aktywowana i potwierdzona linkiem z e-maila. Nie ponawiaj zapisów. Newslettera Iberii nie aktywowano: sprawdzone strony ofert nie udostępniły formularza; promocje Iberii nadal czytamy publicznie. Rezygnujemy z zadania zakładania Iberia Club dla każdej pary, ExpertFlyer Premium, płatnych abonamentów portali i masowych zapisów do newsletterów powielających publiczny radar.
+
+Google Flights nie udostępniał naszych listopadowych dat; ponowna kontrola kalendarza w połowie grudnia należy do istniejącego monitoringu. KAYAK nie pokazał przełącznika śledzenia pełnej trasy multi-city. Nie deklaruj aktywnego alertu ani gwarantowanej daty uruchomienia; nie zastępuj całej trasy alertem na osobny bilet. Nie dodawaj tych pozycji jako zaległych zadań użytkownika. Linki do wyszukiwania są już w panelu wyszukiwarki.
 
 ## Zabezpieczenie Buenos Aires
 

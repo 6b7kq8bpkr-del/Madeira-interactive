@@ -10,6 +10,8 @@ Odpowiada na jedno pytanie: **czy dziś kupujemy bilety, a jeśli nie – co si�
 
 Czyta go osoba, która nie śledzi rynku: ma zrozumieć werdykt po pierwszym zdaniu.
 
+W „Co dalej” nie odtwarzaj usuniętych zadań zapisów, kont i abonamentów. Stan wykonanych działań jest w `program.json -> loty.uslugi`; newslettery KLM i Air Europa zostały aktywowane 26.11.2026. Google Flights czeka na dostępność dat. Nie przedstawiaj samych linków jako aktywnych alertów ani obietnicy automatycznego odczytu poczty.
+
 Podróż: Warszawa → Mendoza → Buenos Aires → Warszawa, wylot 4.11 po 20:00 albo 5.11.2027, powrót z Buenos Aires 13.11.2027, 2–4 pary.
 Cel 4 500 zł (od 26.11.2026; wcześniej 4 000 zł), próg 4 800 zł na osobę za kompletną podróż z podręcznym i wszystkimi odcinkami na jednym bilecie (reguły decyzji: `loty.skala` w `data/program.json`).
 

@@ -818,7 +818,7 @@
    "nazwa": "Rebajas de enero – przedsprzedaż Iberia Club 5.01, ogólna ok. 8–26.01",
    "szansa": "wysoka",
    "historia": "2026: podróże 10.01–10.12.2026 (cały listopad), São Paulo od 299 EUR w jedną stronę",
-   "uwaga": "Najlepsze okno. Założyć darmowe konto Iberia Club przed 5.01 (przedsprzedaż). Wycenić WAW–MDZ przez MAD i EZE oraz multi-city ze stopoverem; kupić przy ≤ 4 500 zł/os. (4 500–4 800 zł tylko, gdy tania klasa się kończy)."
+   "uwaga": "Sprawdzić faktyczny okres styczniowej promocji i pełny bilet WAW-MDZ / MDZ-BUE / BUE-WAW. Nie zakładamy kont na zapas; członkostwo rozważyć dopiero, jeśli konkretna oferta wymaga go i daje policzalną korzyść."
   },
   {
    "od": "2027-01-13",
@@ -1118,11 +1118,10 @@
    ]
   ],
   "teraz": [
-   "Dziś, 26.11: zaległe – zapisać się na newslettery (Travel-dealz, Fly4free, Iberia, Air Europa, LATAM; termin minął 14.11) i załatwić kartę bez prowizji walutowej dla każdej pary (termin minął 24.11).",
-   "Jutro, 27.11: start Black Friday – sprawdzamy, czy któraś linia objęła listopad 2027 i czy Turkish otworzył powrót 13.11.2027.",
-   "27–30.11: niczego nie kupujemy „bo promocja”, jeśli cała podróż nie schodzi do 4 500 zł na osobę.",
-   "Ok. 18.12: pełna wycena całego biletu do Mendozy i alerty Google Flights na nasze daty.",
-   "Do 15.01.2027: pary potwierdzają skład (roboczo trzy pary) i wylot w piątek 5.11 – w ankiecie na stronie skrótu."
+   "Działania uporządkowane 26.11: newslettery KLM i Air Europa aktywowane; monitoring o 9:00 i 18:00 oraz radar publicznych promocji pozostają włączone. Bez abonamentów i API cen.",
+   "Sprawdzamy pełny chroniony bilet WAW-MDZ / MDZ-BUE / BUE-WAW dla dwóch osób. Wycen częściowych ani osobnych biletów nie traktujemy jako oferty do zakupu.",
+   "Google Flights: ponowna kontrola dat w połowie grudnia. Alert na listopad nie jest aktywny; samo otwarcie linku go nie uruchamia.",
+   "Do 15.01.2027 pary potwierdzają skład i dane potrzebne do zakupu. Przed płatnością sprawdzamy końcową cenę, podręczny, ochronę i nocleg w Buenos."
   ],
   "zrodla": [
    {
