@@ -1,0 +1,1102 @@
+{
+ "wersja": 1,
+ "sprawdzono": "2026-11-26T11:03:15.709322+01:00",
+ "plan": [
+  {
+   "id": "calosc-2027-11-05",
+   "nazwa": "Cała podróż z postojem - 05.11",
+   "scenariusz": "stopover",
+   "odcinki": [
+    {
+     "z": "WAW",
+     "do": "MDZ",
+     "data": "2027-11-05"
+    },
+    {
+     "z": "MDZ",
+     "do": "BUE",
+     "data": "2027-11-12"
+    },
+    {
+     "z": "BUE",
+     "do": "WAW",
+     "data": "2027-11-13"
+    }
+   ],
+   "trasa": "WAW-MDZ 2027-11-05 / MDZ-BUE 2027-11-12 / BUE-WAW 2027-11-13",
+   "dorosli": 2,
+   "braki": [
+    "23 kg na każdym odcinku",
+    "wystawienie jednego chronionego biletu",
+    "hotel i transfery w Buenos Aires"
+   ],
+   "priorytet": 0,
+   "kayak": "https://www.kayak.pl/flights/WAW-MDZ/2027-11-05/MDZ-BUE/2027-11-12/BUE-WAW/2027-11-13/2adults?sort=price_a",
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+WAW-MDZ+2027-11-05+%2F+MDZ-BUE+2027-11-12+%2F+BUE-WAW+2027-11-13+2+adults+economy"
+  },
+  {
+   "id": "openjaw-2027-11-05",
+   "nazwa": "Do Mendozy, powrót z Buenos Aires - 05.11",
+   "scenariusz": "openjaw",
+   "odcinki": [
+    {
+     "z": "WAW",
+     "do": "MDZ",
+     "data": "2027-11-05"
+    },
+    {
+     "z": "EZE",
+     "do": "WAW",
+     "data": "2027-11-13"
+    }
+   ],
+   "trasa": "WAW-MDZ 2027-11-05 / EZE-WAW 2027-11-13",
+   "dorosli": 2,
+   "braki": [
+    "lot MDZ-BUE 12.11",
+    "bagaż i ochrona",
+    "porównanie ceny całości"
+   ],
+   "priorytet": 1,
+   "kayak": "https://www.kayak.pl/flights/WAW-MDZ/2027-11-05/EZE-WAW/2027-11-13/2adults?sort=price_a",
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+WAW-MDZ+2027-11-05+%2F+EZE-WAW+2027-11-13+2+adults+economy"
+  },
+  {
+   "id": "eze-2027-11-05",
+   "nazwa": "Atlantyk z Warszawy - 05.11",
+   "scenariusz": "osobne",
+   "odcinki": [
+    {
+     "z": "WAW",
+     "do": "EZE",
+     "data": "2027-11-05"
+    },
+    {
+     "z": "EZE",
+     "do": "WAW",
+     "data": "2027-11-13"
+    }
+   ],
+   "trasa": "WAW-EZE 2027-11-05 / EZE-WAW 2027-11-13",
+   "dorosli": 2,
+   "braki": [
+    "EZE-MDZ 6.11 i MDZ-BUE 12.11",
+    "bagaż, bufor i koszt całości"
+   ],
+   "priorytet": 1,
+   "kayak": "https://www.kayak.pl/flights/WAW-EZE/2027-11-05/EZE-WAW/2027-11-13/2adults?sort=price_a",
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+WAW-EZE+2027-11-05+%2F+EZE-WAW+2027-11-13+2+adults+economy"
+  },
+  {
+   "id": "calosc-2027-11-04",
+   "nazwa": "Cała podróż z postojem - 04.11",
+   "scenariusz": "stopover",
+   "odcinki": [
+    {
+     "z": "WAW",
+     "do": "MDZ",
+     "data": "2027-11-04"
+    },
+    {
+     "z": "MDZ",
+     "do": "BUE",
+     "data": "2027-11-12"
+    },
+    {
+     "z": "BUE",
+     "do": "WAW",
+     "data": "2027-11-13"
+    }
+   ],
+   "trasa": "WAW-MDZ 2027-11-04 / MDZ-BUE 2027-11-12 / BUE-WAW 2027-11-13",
+   "dorosli": 2,
+   "braki": [
+    "23 kg na każdym odcinku",
+    "wystawienie jednego chronionego biletu",
+    "hotel i transfery w Buenos Aires"
+   ],
+   "priorytet": 0,
+   "kayak": "https://www.kayak.pl/flights/WAW-MDZ/2027-11-04/MDZ-BUE/2027-11-12/BUE-WAW/2027-11-13/2adults?sort=price_a",
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+WAW-MDZ+2027-11-04+%2F+MDZ-BUE+2027-11-12+%2F+BUE-WAW+2027-11-13+2+adults+economy"
+  },
+  {
+   "id": "openjaw-2027-11-04",
+   "nazwa": "Do Mendozy, powrót z Buenos Aires - 04.11",
+   "scenariusz": "openjaw",
+   "odcinki": [
+    {
+     "z": "WAW",
+     "do": "MDZ",
+     "data": "2027-11-04"
+    },
+    {
+     "z": "EZE",
+     "do": "WAW",
+     "data": "2027-11-13"
+    }
+   ],
+   "trasa": "WAW-MDZ 2027-11-04 / EZE-WAW 2027-11-13",
+   "dorosli": 2,
+   "braki": [
+    "lot MDZ-BUE 12.11",
+    "bagaż i ochrona",
+    "porównanie ceny całości"
+   ],
+   "priorytet": 1,
+   "kayak": "https://www.kayak.pl/flights/WAW-MDZ/2027-11-04/EZE-WAW/2027-11-13/2adults?sort=price_a",
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+WAW-MDZ+2027-11-04+%2F+EZE-WAW+2027-11-13+2+adults+economy"
+  },
+  {
+   "id": "eze-2027-11-04",
+   "nazwa": "Atlantyk z Warszawy - 04.11",
+   "scenariusz": "osobne",
+   "odcinki": [
+    {
+     "z": "WAW",
+     "do": "EZE",
+     "data": "2027-11-04"
+    },
+    {
+     "z": "EZE",
+     "do": "WAW",
+     "data": "2027-11-13"
+    }
+   ],
+   "trasa": "WAW-EZE 2027-11-04 / EZE-WAW 2027-11-13",
+   "dorosli": 2,
+   "braki": [
+    "EZE-MDZ 6.11 i MDZ-BUE 12.11",
+    "bagaż, bufor i koszt całości"
+   ],
+   "priorytet": 1,
+   "kayak": "https://www.kayak.pl/flights/WAW-EZE/2027-11-04/EZE-WAW/2027-11-13/2adults?sort=price_a",
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+WAW-EZE+2027-11-04+%2F+EZE-WAW+2027-11-13+2+adults+economy"
+  },
+  {
+   "id": "krajowe",
+   "nazwa": "Dwa odcinki krajowe",
+   "scenariusz": "osobne",
+   "odcinki": [
+    {
+     "z": "EZE",
+     "do": "MDZ",
+     "data": "2027-11-06"
+    },
+    {
+     "z": "MDZ",
+     "do": "BUE",
+     "data": "2027-11-12"
+    }
+   ],
+   "trasa": "EZE-MDZ 2027-11-06 / MDZ-BUE 2027-11-12",
+   "dorosli": 2,
+   "braki": [
+    "bagaż 23 kg",
+    "zgodność z lotem przez Atlantyk"
+   ],
+   "priorytet": 1,
+   "kayak": "https://www.kayak.pl/flights/EZE-MDZ/2027-11-06/MDZ-BUE/2027-11-12/2adults?sort=price_a",
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+EZE-MDZ+2027-11-06+%2F+MDZ-BUE+2027-11-12+2+adults+economy"
+  },
+  {
+   "id": "mdz-bue",
+   "nazwa": "Mendoza do Buenos Aires 12.11",
+   "scenariusz": "openjaw",
+   "odcinki": [
+    {
+     "z": "MDZ",
+     "do": "BUE",
+     "data": "2027-11-12"
+    }
+   ],
+   "trasa": "MDZ-BUE 2027-11-12",
+   "dorosli": 2,
+   "braki": [
+    "przylot do 15:59",
+    "bagaż 23 kg"
+   ],
+   "priorytet": 1,
+   "kayak": "https://www.kayak.pl/flights/MDZ-BUE/2027-11-12/2adults?sort=price_a",
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+MDZ-BUE+2027-11-12+2+adults+economy"
+  },
+  {
+   "id": "mad-stopover",
+   "nazwa": "Chroniony bilet z Madrytu",
+   "scenariusz": "mad",
+   "odcinki": [
+    {
+     "z": "MAD",
+     "do": "MDZ",
+     "data": "2027-11-05"
+    },
+    {
+     "z": "MDZ",
+     "do": "BUE",
+     "data": "2027-11-12"
+    },
+    {
+     "z": "BUE",
+     "do": "MAD",
+     "data": "2027-11-13"
+    }
+   ],
+   "trasa": "MAD-MDZ 2027-11-05 / MDZ-BUE 2027-11-12 / BUE-MAD 2027-11-13",
+   "dorosli": 2,
+   "braki": [
+    "doloty WAW-MAD-WAW",
+    "noc przed Atlantykiem i bufory",
+    "bagaż i koszt całości"
+   ],
+   "priorytet": 2,
+   "kayak": "https://www.kayak.pl/flights/MAD-MDZ/2027-11-05/MDZ-BUE/2027-11-12/BUE-MAD/2027-11-13/2adults?sort=price_a",
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+MAD-MDZ+2027-11-05+%2F+MDZ-BUE+2027-11-12+%2F+BUE-MAD+2027-11-13+2+adults+economy"
+  },
+  {
+   "id": "mad-doloty",
+   "nazwa": "Doloty do Madrytu",
+   "scenariusz": "mad",
+   "odcinki": [
+    {
+     "z": "WAW",
+     "do": "MAD",
+     "data": "2027-11-04"
+    },
+    {
+     "z": "MAD",
+     "do": "WAW",
+     "data": "2027-11-14"
+    }
+   ],
+   "trasa": "WAW-MAD 2027-11-04 / MAD-WAW 2027-11-14",
+   "dorosli": 2,
+   "braki": [
+    "wylot 4.11 po 20:00",
+    "noc i minimum 12 h przed Atlantykiem",
+    "powrót zgodny z przylotem z EZE"
+   ],
+   "priorytet": 2,
+   "kayak": "https://www.kayak.pl/flights/WAW-MAD/2027-11-04/MAD-WAW/2027-11-14/2adults?sort=price_a",
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+WAW-MAD+2027-11-04+%2F+MAD-WAW+2027-11-14+2+adults+economy"
+  },
+  {
+   "id": "mad-eze",
+   "nazwa": "MAD - Buenos Aires",
+   "scenariusz": "mad",
+   "odcinki": [
+    {
+     "z": "MAD",
+     "do": "EZE",
+     "data": "2027-11-05"
+    },
+    {
+     "z": "EZE",
+     "do": "MAD",
+     "data": "2027-11-13"
+    }
+   ],
+   "trasa": "MAD-EZE 2027-11-05 / EZE-MAD 2027-11-13",
+   "dorosli": 2,
+   "braki": [
+    "dojazd lub doloty z Polski i powrót do 14.11",
+    "loty krajowe, noclegi buforowe i bagaż",
+    "koszt całości i osobna decyzja dla planu B"
+   ],
+   "priorytet": 3,
+   "kayak": "https://www.kayak.pl/flights/MAD-EZE/2027-11-05/EZE-MAD/2027-11-13/2adults?sort=price_a",
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+MAD-EZE+2027-11-05+%2F+EZE-MAD+2027-11-13+2+adults+economy"
+  },
+  {
+   "id": "vie-eze",
+   "nazwa": "VIE - Buenos Aires",
+   "scenariusz": "vie",
+   "odcinki": [
+    {
+     "z": "VIE",
+     "do": "EZE",
+     "data": "2027-11-05"
+    },
+    {
+     "z": "EZE",
+     "do": "VIE",
+     "data": "2027-11-13"
+    }
+   ],
+   "trasa": "VIE-EZE 2027-11-05 / EZE-VIE 2027-11-13",
+   "dorosli": 2,
+   "braki": [
+    "dojazd lub doloty z Polski i powrót do 14.11",
+    "loty krajowe, noclegi buforowe i bagaż",
+    "koszt całości i osobna decyzja dla planu B"
+   ],
+   "priorytet": 3,
+   "kayak": "https://www.kayak.pl/flights/VIE-EZE/2027-11-05/EZE-VIE/2027-11-13/2adults?sort=price_a",
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+VIE-EZE+2027-11-05+%2F+EZE-VIE+2027-11-13+2+adults+economy"
+  },
+  {
+   "id": "ber-eze",
+   "nazwa": "BER - Buenos Aires",
+   "scenariusz": "vie",
+   "odcinki": [
+    {
+     "z": "BER",
+     "do": "EZE",
+     "data": "2027-11-05"
+    },
+    {
+     "z": "EZE",
+     "do": "BER",
+     "data": "2027-11-13"
+    }
+   ],
+   "trasa": "BER-EZE 2027-11-05 / EZE-BER 2027-11-13",
+   "dorosli": 2,
+   "braki": [
+    "dojazd lub doloty z Polski i powrót do 14.11",
+    "loty krajowe, noclegi buforowe i bagaż",
+    "koszt całości i osobna decyzja dla planu B"
+   ],
+   "priorytet": 3,
+   "kayak": "https://www.kayak.pl/flights/BER-EZE/2027-11-05/EZE-BER/2027-11-13/2adults?sort=price_a",
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+BER-EZE+2027-11-05+%2F+EZE-BER+2027-11-13+2+adults+economy"
+  },
+  {
+   "id": "fco-eze",
+   "nazwa": "FCO - Buenos Aires",
+   "scenariusz": "huby",
+   "odcinki": [
+    {
+     "z": "FCO",
+     "do": "EZE",
+     "data": "2027-11-05"
+    },
+    {
+     "z": "EZE",
+     "do": "FCO",
+     "data": "2027-11-13"
+    }
+   ],
+   "trasa": "FCO-EZE 2027-11-05 / EZE-FCO 2027-11-13",
+   "dorosli": 2,
+   "braki": [
+    "dojazd lub doloty z Polski i powrót do 14.11",
+    "loty krajowe, noclegi buforowe i bagaż",
+    "koszt całości i osobna decyzja dla planu B"
+   ],
+   "priorytet": 3,
+   "kayak": "https://www.kayak.pl/flights/FCO-EZE/2027-11-05/EZE-FCO/2027-11-13/2adults?sort=price_a",
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+FCO-EZE+2027-11-05+%2F+EZE-FCO+2027-11-13+2+adults+economy"
+  },
+  {
+   "id": "cdg-eze",
+   "nazwa": "CDG - Buenos Aires",
+   "scenariusz": "huby",
+   "odcinki": [
+    {
+     "z": "CDG",
+     "do": "EZE",
+     "data": "2027-11-05"
+    },
+    {
+     "z": "EZE",
+     "do": "CDG",
+     "data": "2027-11-13"
+    }
+   ],
+   "trasa": "CDG-EZE 2027-11-05 / EZE-CDG 2027-11-13",
+   "dorosli": 2,
+   "braki": [
+    "dojazd lub doloty z Polski i powrót do 14.11",
+    "loty krajowe, noclegi buforowe i bagaż",
+    "koszt całości i osobna decyzja dla planu B"
+   ],
+   "priorytet": 3,
+   "kayak": "https://www.kayak.pl/flights/CDG-EZE/2027-11-05/EZE-CDG/2027-11-13/2adults?sort=price_a",
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+CDG-EZE+2027-11-05+%2F+EZE-CDG+2027-11-13+2+adults+economy"
+  },
+  {
+   "id": "ams-eze",
+   "nazwa": "AMS - Buenos Aires",
+   "scenariusz": "huby",
+   "odcinki": [
+    {
+     "z": "AMS",
+     "do": "EZE",
+     "data": "2027-11-05"
+    },
+    {
+     "z": "EZE",
+     "do": "AMS",
+     "data": "2027-11-13"
+    }
+   ],
+   "trasa": "AMS-EZE 2027-11-05 / EZE-AMS 2027-11-13",
+   "dorosli": 2,
+   "braki": [
+    "dojazd lub doloty z Polski i powrót do 14.11",
+    "loty krajowe, noclegi buforowe i bagaż",
+    "koszt całości i osobna decyzja dla planu B"
+   ],
+   "priorytet": 3,
+   "kayak": "https://www.kayak.pl/flights/AMS-EZE/2027-11-05/EZE-AMS/2027-11-13/2adults?sort=price_a",
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+AMS-EZE+2027-11-05+%2F+EZE-AMS+2027-11-13+2+adults+economy"
+  },
+  {
+   "id": "fra-eze",
+   "nazwa": "FRA - Buenos Aires",
+   "scenariusz": "huby",
+   "odcinki": [
+    {
+     "z": "FRA",
+     "do": "EZE",
+     "data": "2027-11-05"
+    },
+    {
+     "z": "EZE",
+     "do": "FRA",
+     "data": "2027-11-13"
+    }
+   ],
+   "trasa": "FRA-EZE 2027-11-05 / EZE-FRA 2027-11-13",
+   "dorosli": 2,
+   "braki": [
+    "dojazd lub doloty z Polski i powrót do 14.11",
+    "loty krajowe, noclegi buforowe i bagaż",
+    "koszt całości i osobna decyzja dla planu B"
+   ],
+   "priorytet": 3,
+   "kayak": "https://www.kayak.pl/flights/FRA-EZE/2027-11-05/EZE-FRA/2027-11-13/2adults?sort=price_a",
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+FRA-EZE+2027-11-05+%2F+EZE-FRA+2027-11-13+2+adults+economy"
+  },
+  {
+   "id": "zrh-eze",
+   "nazwa": "ZRH - Buenos Aires",
+   "scenariusz": "huby",
+   "odcinki": [
+    {
+     "z": "ZRH",
+     "do": "EZE",
+     "data": "2027-11-05"
+    },
+    {
+     "z": "EZE",
+     "do": "ZRH",
+     "data": "2027-11-13"
+    }
+   ],
+   "trasa": "ZRH-EZE 2027-11-05 / EZE-ZRH 2027-11-13",
+   "dorosli": 2,
+   "braki": [
+    "dojazd lub doloty z Polski i powrót do 14.11",
+    "loty krajowe, noclegi buforowe i bagaż",
+    "koszt całości i osobna decyzja dla planu B"
+   ],
+   "priorytet": 3,
+   "kayak": "https://www.kayak.pl/flights/ZRH-EZE/2027-11-05/EZE-ZRH/2027-11-13/2adults?sort=price_a",
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+ZRH-EZE+2027-11-05+%2F+EZE-ZRH+2027-11-13+2+adults+economy"
+  },
+  {
+   "id": "ist-eze",
+   "nazwa": "IST - Buenos Aires",
+   "scenariusz": "huby",
+   "odcinki": [
+    {
+     "z": "IST",
+     "do": "EZE",
+     "data": "2027-11-05"
+    },
+    {
+     "z": "EZE",
+     "do": "IST",
+     "data": "2027-11-13"
+    }
+   ],
+   "trasa": "IST-EZE 2027-11-05 / EZE-IST 2027-11-13",
+   "dorosli": 2,
+   "braki": [
+    "dojazd lub doloty z Polski i powrót do 14.11",
+    "loty krajowe, noclegi buforowe i bagaż",
+    "koszt całości i osobna decyzja dla planu B"
+   ],
+   "priorytet": 3,
+   "kayak": "https://www.kayak.pl/flights/IST-EZE/2027-11-05/EZE-IST/2027-11-13/2adults?sort=price_a",
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+IST-EZE+2027-11-05+%2F+EZE-IST+2027-11-13+2+adults+economy"
+  },
+  {
+   "id": "scl-openjaw",
+   "nazwa": "Przylot przez SCL, powrót z Buenos Aires",
+   "scenariusz": "huby",
+   "odcinki": [
+    {
+     "z": "WAW",
+     "do": "SCL",
+     "data": "2027-11-05"
+    },
+    {
+     "z": "EZE",
+     "do": "WAW",
+     "data": "2027-11-13"
+    }
+   ],
+   "trasa": "WAW-SCL 2027-11-05 / EZE-WAW 2027-11-13",
+   "dorosli": 2,
+   "braki": [
+    "SCL-MDZ z przylotem 6.11",
+    "MDZ-BUE 12.11",
+    "bagaż i odpowiednie bufory"
+   ],
+   "priorytet": 3,
+   "kayak": "https://www.kayak.pl/flights/WAW-SCL/2027-11-05/EZE-WAW/2027-11-13/2adults?sort=price_a",
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+WAW-SCL+2027-11-05+%2F+EZE-WAW+2027-11-13+2+adults+economy"
+  },
+  {
+   "id": "gru-openjaw",
+   "nazwa": "Przylot przez GRU, powrót z Buenos Aires",
+   "scenariusz": "huby",
+   "odcinki": [
+    {
+     "z": "WAW",
+     "do": "GRU",
+     "data": "2027-11-05"
+    },
+    {
+     "z": "EZE",
+     "do": "WAW",
+     "data": "2027-11-13"
+    }
+   ],
+   "trasa": "WAW-GRU 2027-11-05 / EZE-WAW 2027-11-13",
+   "dorosli": 2,
+   "braki": [
+    "GRU-MDZ z przylotem 6.11",
+    "MDZ-BUE 12.11",
+    "bagaż i odpowiednie bufory"
+   ],
+   "priorytet": 3,
+   "kayak": "https://www.kayak.pl/flights/WAW-GRU/2027-11-05/EZE-WAW/2027-11-13/2adults?sort=price_a",
+   "google": "https://www.google.com/travel/flights?hl=pl&curr=PLN&q=Flights+multi+city+WAW-GRU+2027-11-05+%2F+EZE-WAW+2027-11-13+2+adults+economy"
+  }
+ ],
+ "tropy": [
+  {
+   "id": "adf9e595c03d06f7",
+   "tytul": "BRAZILIAN SUMMER 😎 🍹 Non-stop flights from Madrid to Sao Paulo for €587",
+   "opis": "Experience comfort, reliability, and direct service to one of Brazil’s most exciting destinations! LATAM is offering discounted flights to Sao Paulo starting at only €587 for a round trip.",
+   "url": "https://www.fly4free.com/flight-deals/europe/flights-from-madrid-to-sao-paulo-e587/",
+   "zrodlo": "Fly4free.com",
+   "data": "2026-11-23",
+   "kategoria": "Inne huby",
+   "priorytet": 70,
+   "dlaczego": [
+    "Wpis zawiera cenę lub zapowiedź promocji"
+   ],
+   "braki": [
+    "daty 4/5-14.11.2027, dwa miejsca, pełna cena i bagaż do weryfikacji",
+    "potrzebny dalszy lot do Mendozy"
+   ],
+   "status": "trop",
+   "rodzaj": "oferta",
+   "odwrotny": false,
+   "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
+   "ostatniOdczyt": "2026-11-26T11:03:15.709322+01:00"
+  },
+  {
+   "id": "9413d7833d478fdc",
+   "tytul": "Exotic combination of flights 😎 🌴 Cape Verde + Recife, Brazil in one tropical trip from Amsterdam for €526",
+   "opis": "Why settle for one tropical destination when you can explore two? This exotic flight combination from Amsterdam lets you discover the beautiful beaches and volcanic landscapes of Cape Verde before heading to Recife, Brazil, for a taste of S",
+   "url": "https://www.fly4free.com/flight-deals/europe/trip-from-amsterdam-to-cape-verde-and-recife-e526/",
+   "zrodlo": "Fly4free.com",
+   "data": "2026-11-23",
+   "kategoria": "Doloty / informacje",
+   "priorytet": 60,
+   "dlaczego": [
+    "Wpis zawiera cenę lub zapowiedź promocji"
+   ],
+   "braki": [
+    "daty 4/5-14.11.2027, dwa miejsca, pełna cena i bagaż do weryfikacji"
+   ],
+   "status": "trop",
+   "rodzaj": "oferta",
+   "odwrotny": false,
+   "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
+   "ostatniOdczyt": "2026-11-26T11:03:15.709322+01:00"
+  },
+  {
+   "id": "55c85a863959bd75",
+   "tytul": "Ameryka Południowa na ferie za 2308 PLN! 😮🌍 Brazylia 2w1: Rio de Janeiro i Sao Paulo w jednej podróży 🇧🇷🦜",
+   "opis": "Świetna cena za loty w dalekim (i zazwyczaj drogim) kierunku, jakim jest Brazylia 😍 Zainspiruj się poniższą propozycją, by wybrać się tam w szczycie sezonu ☀️ który przypada na nasze ferie zimowe ☃️ Co powiesz na propozycję, by sanki i trad",
+   "url": "https://www.fly4free.pl/ameryka-poludniowa-brazylia-na-ferie-2308-pln/",
+   "zrodlo": "Fly4free.pl · Ameryka Płd.",
+   "data": "2026-11-17",
+   "kategoria": "Inne huby",
+   "priorytet": 60,
+   "dlaczego": [
+    "Wpis zawiera cenę lub zapowiedź promocji"
+   ],
+   "braki": [
+    "daty 4/5-14.11.2027, dwa miejsca, pełna cena i bagaż do weryfikacji",
+    "potrzebny dalszy lot do Mendozy"
+   ],
+   "status": "trop",
+   "rodzaj": "oferta",
+   "odwrotny": false,
+   "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
+   "ostatniOdczyt": "2026-11-26T11:03:15.709322+01:00"
+  },
+  {
+   "id": "8e8d0812a9a230a7",
+   "tytul": "Finalmente, Plus Ultra anuncia la suspensión total de sus operaciones aéreas",
+   "opis": "La aerolínea Plus Ultra finalmente anunció la suspensión total de sus operaciones aéreas a partir de hoy, 23 de noviembre de 2026. Los puntos salientes de su comunicado son los siguientes: Plus Ultra Líneas Aéreas suspende sus operaciones a",
+   "url": "https://www.infoviajera.com/2026/11/finamente-plus-ultra-anuncia-la-suspension-total-de-sus-operaciones-aereas/",
+   "zrodlo": "Infoviajera",
+   "data": "2026-11-24",
+   "kategoria": "Doloty / informacje",
+   "priorytet": 30,
+   "dlaczego": [
+    "Wiadomość lotnicza - brak potwierdzonej oferty cenowej",
+    "Wzmianka o listopadzie"
+   ],
+   "braki": [
+    "znaczenie informacji dla planowanego połączenia"
+   ],
+   "status": "trop",
+   "rodzaj": "informacja",
+   "odwrotny": false,
+   "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
+   "ostatniOdczyt": "2026-11-26T11:03:15.709322+01:00"
+  },
+  {
+   "id": "a2a6fde3cb653293",
+   "tytul": "Air France refuerza sus vuelos en América, Asia y la península ibérica para el invierno europeo 2026-2027",
+   "opis": "Air France ampliará su oferta de vuelos durante la temporada de invierno europea 2026-2027, que se extiende de noviembre de 2026 a abril de 2027. La compañía prevé operar hasta 725 vuelos diarios a cerca de 170 destinos, con mayor capacidad",
+   "url": "https://www.infoviajera.com/2026/11/air-france-refuerza-sus-vuelos-en-america-asia-y-la-peninsula-iberica-para-el-invierno-europeo-2026-2027/",
+   "zrodlo": "Infoviajera",
+   "data": "2026-11-23",
+   "kategoria": "Doloty / informacje",
+   "priorytet": 30,
+   "dlaczego": [
+    "Wiadomość lotnicza - brak potwierdzonej oferty cenowej",
+    "Wzmianka o 2027 - zakres dat nadal do kontroli",
+    "Wzmianka o listopadzie"
+   ],
+   "braki": [
+    "znaczenie informacji dla planowanego połączenia"
+   ],
+   "status": "trop",
+   "rodzaj": "informacja",
+   "odwrotny": false,
+   "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
+   "ostatniOdczyt": "2026-11-26T11:03:15.709322+01:00"
+  },
+  {
+   "id": "2be40396b1d1beb7",
+   "tytul": "Más preocupación por Plus Ultra: ahora desaparecieron los vuelos a Caracas",
+   "opis": "La situación de Plus Ultra Líneas Aéreas suma un nuevo capítulo. Después de suspender sus vuelos entre Buenos Aires y Madrid y cancelar las operaciones hacia Lima, ahora también desaparecieron de su programación en la web oficial de la aero",
+   "url": "https://www.infoviajera.com/2026/11/mas-preocupacion-por-plus-ultra-ahora-desaparecieron-los-vuelos-a-caracas/",
+   "zrodlo": "Infoviajera",
+   "data": "2026-11-22",
+   "kategoria": "Buenos Aires / Argentyna",
+   "priorytet": 30,
+   "dlaczego": [
+    "Wiadomość lotnicza - brak potwierdzonej oferty cenowej",
+    "Dotyczy Argentyny lub Buenos Aires"
+   ],
+   "braki": [
+    "znaczenie informacji dla planowanego połączenia"
+   ],
+   "status": "trop",
+   "rodzaj": "informacja",
+   "odwrotny": false,
+   "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
+   "ostatniOdczyt": "2026-11-26T11:03:15.709322+01:00"
+  },
+  {
+   "id": "d31ab7de7d020dc6",
+   "tytul": "Ezeiza inauguró una nueva terminal para envíos por courier",
+   "opis": "Aeropuertos Argentina Cargas inauguró en Ezeiza una nueva terminal destinada a las operaciones de courier de importación, con una inversión de 21 millones de dólares esta semana Cuando comprás un producto en una tienda de Estados Unidos o C",
+   "url": "https://www.sirchandler.com.ar/2026/11/ezeiza-inauguro-una-nueva-terminal-para-envios-por-courier/",
+   "zrodlo": "Sir Chandler",
+   "data": "2026-11-21",
+   "kategoria": "Buenos Aires / Argentyna",
+   "priorytet": 30,
+   "dlaczego": [
+    "Wiadomość lotnicza - brak potwierdzonej oferty cenowej",
+    "Dotyczy Argentyny lub Buenos Aires"
+   ],
+   "braki": [
+    "znaczenie informacji dla planowanego połączenia"
+   ],
+   "status": "trop",
+   "rodzaj": "informacja",
+   "odwrotny": false,
+   "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
+   "ostatniOdczyt": "2026-11-26T11:03:15.709322+01:00"
+  },
+  {
+   "id": "7ca0feb84ebe905a",
+   "tytul": "Avianca cubre a los pasajeros de Plus Ultra que ya hayan arrancado el viaje",
+   "opis": "Ante la suspensión de los vuelos de Plus Ultra entre Madrid y Buenos Aires, y también con Lima, Avianca anunció que ayudará a los pasajeros afectados a regresar a sus destinos, utilizando sus vuelos con conexión en Bogotá. La aerolínea colo",
+   "url": "https://www.sirchandler.com.ar/2026/11/avianca-cubre-a-los-pasajeros-de-plus-ultra-que-ya-hayan-arrancado-el-viaje/",
+   "zrodlo": "Sir Chandler",
+   "data": "2026-11-19",
+   "kategoria": "Buenos Aires / Argentyna",
+   "priorytet": 30,
+   "dlaczego": [
+    "Wiadomość lotnicza - brak potwierdzonej oferty cenowej",
+    "Dotyczy Argentyny lub Buenos Aires"
+   ],
+   "braki": [
+    "znaczenie informacji dla planowanego połączenia"
+   ],
+   "status": "trop",
+   "rodzaj": "informacja",
+   "odwrotny": false,
+   "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
+   "ostatniOdczyt": "2026-11-26T11:03:15.709322+01:00"
+  },
+  {
+   "id": "b2fd2a97b09ebf3d",
+   "tytul": "Córdoba, Tucumán y Rosario los que más crecieron en pasajeros internacionales este año",
+   "opis": "Los aeropuertos argentinos registraron un crecimiento del 10% en el movimiento de pasajeros internacionales durante los primeros diez meses de 2026, pero el dato más interesante aparece al separar los aeropuertos de Buenos Aires de los del",
+   "url": "https://www.sirchandler.com.ar/2026/11/cordoba-tucuman-y-rosario-los-que-mas-crecieron-en-pasajeros-internacionales-este-ano/",
+   "zrodlo": "Sir Chandler",
+   "data": "2026-11-19",
+   "kategoria": "Buenos Aires / Argentyna",
+   "priorytet": 30,
+   "dlaczego": [
+    "Wiadomość lotnicza - brak potwierdzonej oferty cenowej",
+    "Dotyczy Argentyny lub Buenos Aires"
+   ],
+   "braki": [
+    "znaczenie informacji dla planowanego połączenia"
+   ],
+   "status": "trop",
+   "rodzaj": "informacja",
+   "odwrotny": false,
+   "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
+   "ostatniOdczyt": "2026-11-26T11:03:15.709322+01:00"
+  },
+  {
+   "id": "651592428c28ffcc",
+   "tytul": "KLM bajará una frecuencia semanal durante tres meses de 2027",
+   "opis": "KLM dejará el vuelo diario entre Amsterdam y Ezeiza, con la continuación a Santiago de Chile durante poco más de tres meses de 2027. Esto será en la temporada alta del hemisferio norte y sería por limitación de flota. Las fechas informadas",
+   "url": "https://www.sirchandler.com.ar/2026/11/klm-bajara-una-frecuencia-semanal-durante-tres-meses-de-2027/",
+   "zrodlo": "Sir Chandler",
+   "data": "2026-11-19",
+   "kategoria": "Inne huby",
+   "priorytet": 30,
+   "dlaczego": [
+    "Wiadomość lotnicza - brak potwierdzonej oferty cenowej",
+    "Wzmianka o 2027 - zakres dat nadal do kontroli"
+   ],
+   "braki": [
+    "znaczenie informacji dla planowanego połączenia"
+   ],
+   "status": "trop",
+   "rodzaj": "informacja",
+   "odwrotny": false,
+   "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
+   "ostatniOdczyt": "2026-11-26T11:03:15.709322+01:00"
+  },
+  {
+   "id": "786db17835563deb",
+   "tytul": "Plus Ultra habría operado su último vuelo y podría cerrar definitivamente",
+   "opis": "Esta mañana española habría aterrizado el último vuelo de Plus Ultra, proveniente de Caracas, el último destino que había dejado operativo la aerolínea. Si bien se informó que la aerolínea cortaba los vuelos de Lima y Ezeiza, pero que mante",
+   "url": "https://www.sirchandler.com.ar/2026/11/plus-ultra-habria-operado-su-ultimo-vuelo-y-podria-cerrar-definitivamente/",
+   "zrodlo": "Sir Chandler",
+   "data": "2026-11-23",
+   "kategoria": "Doloty / informacje",
+   "priorytet": 25,
+   "dlaczego": [
+    "Wiadomość lotnicza - brak potwierdzonej oferty cenowej"
+   ],
+   "braki": [
+    "znaczenie informacji dla planowanego połączenia"
+   ],
+   "status": "trop",
+   "rodzaj": "informacja",
+   "odwrotny": false,
+   "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
+   "ostatniOdczyt": "2026-11-26T11:03:15.709322+01:00"
+  },
+  {
+   "id": "a4d92438631ffbf3",
+   "tytul": "Plus Ultra suspendió sus vuelos entre Madrid y Ezeiza oficialmente",
+   "opis": "Anoche Plus Ultra envió un comunicado informando la suspensión total de los vuelos entre Madrid y Ezeiza desde el 17 de noviembre. Es «Hasta nuevo aviso» y ponen un link para los reclamos de las compras directas, aclarando que si fue por ag",
+   "url": "https://www.sirchandler.com.ar/2026/11/plus-ultra-suspendio-sus-vuelos-entre-madrid-y-ezeiza-oficialmente/",
+   "zrodlo": "Sir Chandler",
+   "data": "2026-11-17",
+   "kategoria": "Doloty / informacje",
+   "priorytet": 23,
+   "dlaczego": [
+    "Wiadomość lotnicza - brak potwierdzonej oferty cenowej",
+    "Wzmianka o listopadzie"
+   ],
+   "braki": [
+    "znaczenie informacji dla planowanego połączenia"
+   ],
+   "status": "trop",
+   "rodzaj": "informacja",
+   "odwrotny": false,
+   "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
+   "ostatniOdczyt": "2026-11-26T11:03:15.709322+01:00"
+  },
+  {
+   "id": "8a76a3d660d54c97",
+   "tytul": "Air Europa protesta por seguir en la terminal fea del aeropuerto de Madrid",
+   "opis": "Air Europa llevó a la Justicia española su pelea con el administrador de los aeropuertos españoles, Aena, por el reparto de las inversiones previstas en el aeropuerto de Madrid-Barajas. La aerolínea considera que Iberia está siendo benefici",
+   "url": "https://www.sirchandler.com.ar/2026/11/air-europa-protesta-por-seguir-en-la-terminal-fea-del-aeropuerto-de-madrid/",
+   "zrodlo": "Sir Chandler",
+   "data": "2026-11-21",
+   "kategoria": "Doloty / informacje",
+   "priorytet": 19,
+   "dlaczego": [
+    "Wiadomość lotnicza - brak potwierdzonej oferty cenowej"
+   ],
+   "braki": [
+    "znaczenie informacji dla planowanego połączenia"
+   ],
+   "status": "trop",
+   "rodzaj": "informacja",
+   "odwrotny": false,
+   "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
+   "ostatniOdczyt": "2026-11-26T11:03:15.709322+01:00"
+  },
+  {
+   "id": "501e162c293fc305",
+   "tytul": "El limbo de los pasajes de Plus Ultra desde el 15 de diciembre",
+   "opis": "Ayer se conoció oficialmente que Plus Ultra cortaba las operaciones entre Madrid y Ezeiza, además de Lima. Básicamente sólo volarán a Caracas. En el comunicado que pusieron inicialmente, la suspensión era por tiempo indefinido. Pero lectore",
+   "url": "https://www.sirchandler.com.ar/2026/11/el-limbo-de-los-pasajes-de-plus-ultra-desde-el-15-de-diciembre/",
+   "zrodlo": "Sir Chandler",
+   "data": "2026-11-18",
+   "kategoria": "Doloty / informacje",
+   "priorytet": 19,
+   "dlaczego": [
+    "Wiadomość lotnicza - brak potwierdzonej oferty cenowej"
+   ],
+   "braki": [
+    "znaczenie informacji dla planowanego połączenia"
+   ],
+   "status": "trop",
+   "rodzaj": "informacja",
+   "odwrotny": false,
+   "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
+   "ostatniOdczyt": "2026-11-26T11:03:15.709322+01:00"
+  },
+  {
+   "id": "9813bc91a5ec741e",
+   "tytul": "Área de espera gratis en Ezeiza – EDITADO: volvió a funcionar",
+   "opis": "En Ezeiza hace ya varios años hay un área de espera gratuito DENTRO DEL AEROPUERTO. Esto lo mostré cuando se inauguró, hice el video con la ubicación, tratando de combatir el peligroso espacio que usan muchos autos para esperar que llegue a",
+   "url": "https://www.sirchandler.com.ar/2026/11/area-de-espera-gratis-en-ezeiza-cerrada-temporalmente-por-un-incidente/",
+   "zrodlo": "Sir Chandler",
+   "data": "2026-11-18",
+   "kategoria": "Doloty / informacje",
+   "priorytet": 19,
+   "dlaczego": [
+    "Wiadomość lotnicza - brak potwierdzonej oferty cenowej"
+   ],
+   "braki": [
+    "znaczenie informacji dla planowanego połączenia"
+   ],
+   "status": "trop",
+   "rodzaj": "informacja",
+   "odwrotny": false,
+   "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
+   "ostatniOdczyt": "2026-11-26T11:03:15.709322+01:00"
+  },
+  {
+   "id": "b9ef291833dbfbe2",
+   "tytul": "Black Friday: ¡Hermoso! ✈️ Vuelos a Madrid desde Córdoba a partir de U$D 920 con Carry On 🥘 y financiamiento en Cuotas",
+   "opis": "Hay Vuelos a Madrid desde Córdoba a partir de U$D 920 finales, ida y vuelta, con Carry On incluido, ó a partir de U$D 1.043 con equipaje en Bodega de […] La entrada Black Friday: ¡Hermoso! ✈️ Vuelos a Madrid desde Córdoba a partir de U$D 92",
+   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-hermoso-vuelos-a-madrid-desde-cordoba-con-carry-on-cuotas-latam-rt-p.html",
+   "zrodlo": "Promociones Aéreas",
+   "data": "2026-11-25",
+   "kategoria": "Doloty / informacje",
+   "priorytet": 15,
+   "dlaczego": [
+    "Wpis zawiera cenę lub zapowiedź promocji"
+   ],
+   "braki": [
+    "daty 4/5-14.11.2027, dwa miejsca, pełna cena i bagaż do weryfikacji",
+    "prawdopodobnie podróż w przeciwną stronę; nie porównywać z naszym biletem"
+   ],
+   "status": "trop",
+   "rodzaj": "oferta",
+   "odwrotny": true,
+   "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
+   "ostatniOdczyt": "2026-11-26T11:03:15.709322+01:00"
+  }
+ ],
+ "wyceny": [],
+ "zapytania": {},
+ "limity": {
+  "miesiac": "2026-11",
+  "dzien": "2026-11-26",
+  "miesiacZapytania": 0,
+  "dzienZapytania": 0
+ },
+ "konfiguracjaLimitow": {
+  "limitDzien": 7,
+  "limitMiesiac": 210,
+  "limitPrzebieg": 4,
+  "waznoscGodziny": 24,
+  "minPrzerwaMinuty": 60
+ },
+ "zrodlaReczne": [
+  {
+   "id": "forum",
+   "nazwa": "Forum Fly4free",
+   "domena": "forum.fly4free.pl",
+   "opis": "Posty i odpowiedzi o promocjach, przesiadkach i zmianach rozkładu. Automatyczny odczyt HTTP zablokowany 26.11.2026."
+  },
+  {
+   "id": "pepper",
+   "nazwa": "Pepper - komentarze",
+   "domena": "pepper.pl",
+   "opis": "Sprawdzić komentarze o dostępności, datach i bagażu; RSS zawiera tylko część wpisów."
+  },
+  {
+   "id": "secret",
+   "nazwa": "Secret Flying",
+   "domena": "secretflying.com",
+   "opis": "Promocje i błędy taryfowe, zawsze z kontrolą terminu podróży."
+  },
+  {
+   "id": "flyertalk",
+   "nazwa": "FlyerTalk",
+   "domena": "flyertalk.com/forum",
+   "opis": "Taryfy, zmiany rozkładu i doświadczenia z osobnymi biletami; wpis nie jest ofertą."
+  }
+ ],
+ "rss": {
+  "sprawdzono": "2026-11-26T11:03:15+01:00",
+  "stan": "czesciowy",
+  "kanaly": [
+   {
+    "zrodlo": "Fly4free.pl",
+    "url": "https://www.fly4free.pl/feed/",
+    "grupa": "fly4free.pl",
+    "sprawdzono": "2026-11-26T11:03:15+01:00",
+    "wpisy": 20,
+    "ok": true
+   },
+   {
+    "zrodlo": "Fly4free.pl · Argentyna",
+    "url": "https://www.fly4free.pl/tag/argentyna/feed/",
+    "grupa": "fly4free.pl",
+    "sprawdzono": "2026-11-26T11:03:15+01:00",
+    "wpisy": 20,
+    "ok": true
+   },
+   {
+    "zrodlo": "Fly4free.com",
+    "url": "https://www.fly4free.com/feed/",
+    "grupa": "fly4free.com",
+    "sprawdzono": "2026-11-26T11:03:15+01:00",
+    "wpisy": 50,
+    "ok": true
+   },
+   {
+    "zrodlo": "Fly4free.pl · Buenos Aires",
+    "url": "https://www.fly4free.pl/tag/buenos-aires/feed/",
+    "grupa": "fly4free.pl",
+    "sprawdzono": "2026-11-26T11:03:15+01:00",
+    "wpisy": 20,
+    "ok": true
+   },
+   {
+    "zrodlo": "Fly4free.pl · Ameryka Płd.",
+    "url": "https://www.fly4free.pl/tag/ameryka-poludniowa/feed/",
+    "grupa": "fly4free.pl",
+    "sprawdzono": "2026-11-26T11:03:15+01:00",
+    "wpisy": 20,
+    "ok": true
+   },
+   {
+    "zrodlo": "Travel-dealz · Argentyna",
+    "url": "https://travel-dealz.com/destination/argentina/feed/",
+    "grupa": "travel-dealz.com",
+    "sprawdzono": "2026-11-26T11:03:15+01:00",
+    "wpisy": 9,
+    "ok": true
+   },
+   {
+    "zrodlo": "Travel-dealz · Chile",
+    "url": "https://travel-dealz.com/destination/chile/feed/",
+    "grupa": "travel-dealz.com",
+    "sprawdzono": "2026-11-26T11:03:15+01:00",
+    "wpisy": 4,
+    "ok": true
+   },
+   {
+    "zrodlo": "Travel-dealz",
+    "url": "https://travel-dealz.com/feed/",
+    "grupa": "travel-dealz.com",
+    "sprawdzono": "2026-11-26T11:03:15+01:00",
+    "wpisy": 0,
+    "ok": false,
+    "blad": "niepoprawny RSS/Atom"
+   },
+   {
+    "zrodlo": "Wakacyjni Piraci",
+    "url": "https://www.wakacyjnipiraci.pl/feed",
+    "grupa": "wakacyjnipiraci.pl",
+    "sprawdzono": "2026-11-26T11:03:15+01:00",
+    "wpisy": 32,
+    "ok": true
+   },
+   {
+    "zrodlo": "HolidayPirates",
+    "url": "https://www.holidaypirates.com/feed",
+    "grupa": "holidaypirates.com",
+    "sprawdzono": "2026-11-26T11:03:15+01:00",
+    "wpisy": 67,
+    "ok": true
+   },
+   {
+    "zrodlo": "Pepper.pl",
+    "url": "https://www.pepper.pl/rss/nowe",
+    "grupa": "pepper.pl",
+    "sprawdzono": "2026-11-26T11:03:15+01:00",
+    "wpisy": 30,
+    "ok": true
+   },
+   {
+    "zrodlo": "Infoviajera",
+    "url": "https://www.infoviajera.com/feed/",
+    "grupa": "infoviajera.com",
+    "sprawdzono": "2026-11-26T11:03:15+01:00",
+    "wpisy": 10,
+    "ok": true
+   },
+   {
+    "zrodlo": "Promociones Aéreas",
+    "url": "https://promociones-aereas.com.ar/feed/",
+    "grupa": "promociones-aereas.com.ar",
+    "sprawdzono": "2026-11-26T11:03:15+01:00",
+    "wpisy": 15,
+    "ok": true
+   },
+   {
+    "zrodlo": "Sir Chandler",
+    "url": "https://www.sirchandler.com.ar/feed/",
+    "grupa": "sirchandler.com.ar",
+    "sprawdzono": "2026-11-26T11:03:15+01:00",
+    "wpisy": 20,
+    "ok": true
+   },
+   {
+    "zrodlo": "Aeroroutes",
+    "url": "https://www.aeroroutes.com/eng?format=rss",
+    "grupa": "aeroroutes.com",
+    "sprawdzono": "2026-11-26T11:03:15+01:00",
+    "wpisy": 20,
+    "ok": true
+   }
+  ]
+ },
+ "ceny": {
+  "status": "wymaga podłączenia",
+  "opis": "Automatyczne ceny czekają na konto SerpApi i klucz zapisany jako sekret repozytorium. Tropy RSS działają bez konta."
+ },
+ "uwaga": "Tropy i ceny porównywarki wymagają weryfikacji. Gotowe do zakupu oferty pokazuje osobny panel z pełnymi warunkami."
+}

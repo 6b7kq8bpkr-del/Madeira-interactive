@@ -33,7 +33,10 @@ jobs:
       - name: Reguły ofert i radar (bez sieci)
         run: |
           python3 -I tests/test_promo_rss.py
+          python3 -I -B tests/test_deal_finder.py
+          python3 -I -B tests/check_finder_output.py
           node tests/flight-rules.test.cjs
+          node tests/finder.test.cjs
           node tests/check-offers.cjs
       - name: Playwright i Chromium
         working-directory: rocznica-2027/uco-src/tests

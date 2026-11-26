@@ -42,7 +42,7 @@ const ics = fs.readFileSync(path.join(ROOT, 'plan.ics'), 'utf8');
 }
 
 // ---------- serwer statyczny ----------
-const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.json': 'application/json; charset=utf-8', '.jpg': 'image/jpeg', '.png': 'image/png', '.svg': 'image/svg+xml', '.ics': 'text/calendar; charset=utf-8' };
+const MIME = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.json': 'application/json; charset=utf-8', '.jpg': 'image/jpeg', '.png': 'image/png', '.svg': 'image/svg+xml', '.ics': 'text/calendar; charset=utf-8' };
 const srv = http.createServer((req, res) => {
   const p = path.normalize(decodeURIComponent(req.url.split(/[?#]/)[0])).replace(/^(\.\.[/\\])+/, '');
   const f = path.join(ROOT, p === '/' ? 'index.html' : p);
@@ -158,7 +158,7 @@ for (const [W, scheme] of CONFIGS) {
 }
 
 // linki głębokie: sekcja ma być widoczna (rozwinięta) i przewinięta pod górę ekranu
-for (const h of ['decyzje', 'plan', 'd10-11', 'budzet', 'upgrade', 'hotele', 'loty', 'radar', 'kalendarz', 'poradnik', 'zadania', 'kalk', 'rezerwacje', 'wyzwalacze', 'okna', 'kombinacje', 'warianty-lotow', 'zrodla-monitoringu']) {
+for (const h of ['decyzje', 'plan', 'd10-11', 'budzet', 'upgrade', 'hotele', 'loty', 'radar', 'kalendarz', 'poradnik', 'zadania', 'kalk', 'rezerwacje', 'wyzwalacze', 'okna', 'wyszukiwarka', 'kombinacje', 'warianty-lotow', 'zrodla-monitoringu']) {
   const { pg, log } = await open(1300, 'light', '#' + h);
   const r = await pg.evaluate(h => { const el = document.getElementById(h); if (!el) return null; const b = el.getBoundingClientRect(); return { shown: !!el.getClientRects().length, top: Math.round(b.top) }; }, h);
   if (!r) fail('#' + h, 'brak elementu');
@@ -470,6 +470,34 @@ async function withLoty(mutate, hash, fn) {
     badset: own.filter(i => i.hasAttribute('srcset') && !/^img\/\S+ 720w, img\/\S+ 1800w$/.test(i.getAttribute('srcset'))).map(i => i.getAttribute('srcset').slice(0, 40)) }; });
   if (im.nodim) fail('dotyk 390px', `${im.nodim} zdjęć bez wymiarów (treść przeskakuje przy ładowaniu)`);
   if (im.badset.length) fail('dotyk 390px', `zepsuty srcset: ${im.badset[0]}`);
+  await pg.close();
+}
+
+// Wyszukiwarka: źródła jako tekst, filtry, zapis lokalny, awaria odczytu.
+{
+  const pg = await browser.newPage({viewport:{width:375,height:812}});
+  const base = JSON.parse(fs.readFileSync(path.join(ROOT,'okazje.json'),'utf8'));
+  base.tropy = [{id:'finder-synthetic',rodzaj:'oferta',tytul:'Mendoza <img src=x onerror=alert(1)>',opis:'Iberia bagaż',url:'https://example.com/test',data:new Date().toISOString().slice(0,10),zrodlo:'TEST',kategoria:'Mendoza',priorytet:70,dlaczego:['Mendoza'],braki:['potwierdzenie']}, {id:'finder-other',rodzaj:'oferta',tytul:'Buenos Aires',opis:'Air Europa',url:'https://example.com/other',data:new Date().toISOString().slice(0,10),zrodlo:'TEST',kategoria:'Buenos Aires / Argentyna',priorytet:60,braki:[]}];
+  let outage=false;
+  await pg.route('**/okazje.json', r => outage ? r.abort() : r.fulfill({status:200,contentType:'application/json',body:JSON.stringify(base)}));
+  await pg.goto(BASE+'#wyszukiwarka',{waitUntil:'load'});
+  await pg.locator('#finder-leads li').first().waitFor();
+  if(await pg.locator('#finder-leads img').count()) fail('wyszukiwarka','HTML źródła został wykonany');
+  await pg.locator('#finder-query').fill('bagaz');
+  if(await pg.locator('#finder-leads li').count()!==1) fail('wyszukiwarka','filtr bez polskich znaków');
+  await pg.locator('#finder-leads button').first().click();
+  await pg.reload({waitUntil:'load'});
+  await pg.locator('#finder-leads li').first().waitFor();
+  await pg.locator('#finder-mode').selectOption('saved');
+  if(await pg.locator('#finder-leads li').count()!==1) fail('wyszukiwarka','zapisany trop zniknął po odświeżeniu');
+  outage=true;
+  await pg.locator('#finder-refresh').click();
+  await pg.waitForFunction(()=>document.getElementById('finder-status').textContent.includes('Nie udało'));
+  if(await pg.locator('#finder-leads li').count()!==1) fail('wyszukiwarka','awaria skasowała ostatnie wyniki');
+  await pg.locator('.finder-plan summary').click();
+  await pg.locator('#finder-scenario').selectOption('stopover');
+  if(await pg.locator('#finder-routes article').count()!==2) fail('wyszukiwarka','brak obu dozwolonych dat wylotu');
+  if(await pg.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1)) fail('wyszukiwarka','przewijanie poziome na telefonie');
   await pg.close();
 }
 

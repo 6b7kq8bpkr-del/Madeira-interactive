@@ -1,0 +1,20 @@
+{
+ "wersja": 1,
+ "rssDni": 14,
+ "przechowywanieDni": 30,
+ "maxTropy": 150,
+ "koniec": "2027-08-31",
+ "serpapi": {
+  "limitDzien": 7,
+  "limitMiesiac": 210,
+  "limitPrzebieg": 4,
+  "waznoscGodziny": 24,
+  "minPrzerwaMinuty": 60
+ },
+ "zrodlaReczne": [
+  {"id":"forum", "nazwa":"Forum Fly4free", "domena":"forum.fly4free.pl", "opis":"Posty i odpowiedzi o promocjach, przesiadkach i zmianach rozkładu. Automatyczny odczyt HTTP zablokowany 26.11.2026."},
+  {"id":"pepper", "nazwa":"Pepper - komentarze", "domena":"pepper.pl", "opis":"Sprawdzić komentarze o dostępności, datach i bagażu; RSS zawiera tylko część wpisów."},
+  {"id":"secret", "nazwa":"Secret Flying", "domena":"secretflying.com", "opis":"Promocje i błędy taryfowe, zawsze z kontrolą terminu podróży."},
+  {"id":"flyertalk", "nazwa":"FlyerTalk", "domena":"flyertalk.com/forum", "opis":"Taryfy, zmiany rozkładu i doświadczenia z osobnymi biletami; wpis nie jest ofertą."}
+ ]
+}

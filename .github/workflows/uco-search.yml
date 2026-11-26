@@ -1,0 +1,71 @@
+name: Valle de Uco - wyszukiwarka okazji
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/uco-search.yml'
+      - 'rocznica-2027/uco/tools/deal_finder.py'
+      - 'rocznica-2027/uco/tools/promo_rss.py'
+      - 'rocznica-2027/uco-src/data/wyszukiwarka.json'
+permissions:
+  contents: write
+concurrency:
+  group: uco-search-data
+  cancel-in-progress: false
+jobs:
+  scan:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Testy skanera bez dostępu do cen
+        run: python3 -I -B rocznica-2027/uco-src/tests/test_deal_finder.py
+      - name: Ostatni publiczny skan
+        run: |
+          if git ls-remote --exit-code --heads origin uco-monitor-data > /dev/null; then
+            git fetch origin uco-monitor-data --depth=1
+            git show FETCH_HEAD:okazje.json > rocznica-2027/uco/okazje.json
+          fi
+      - name: Przywrócenie licznika zapytań
+        uses: actions/cache/restore@v4
+        with:
+          path: .uco-private/quota.json
+          key: uco-quota-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: uco-quota-
+      - name: Publiczne promocje i opcjonalne ceny
+        env:
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+        run: python3 -I -B rocznica-2027/uco/tools/deal_finder.py --state .uco-private/quota.json
+      - name: Zachowanie zużycia także po przerwaniu
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .uco-private/quota.json
+          key: uco-quota-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Kontrola publicznego wyniku
+        env:
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+        run: python3 -I -B rocznica-2027/uco-src/tests/check_finder_output.py
+      - name: Publikacja tylko danych wyszukiwarki
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          blob=$(git hash-object -w rocznica-2027/uco/okazje.json)
+          tree=$(printf '100644 blob %s\tokazje.json\n' "$blob" | git mktree)
+          parent=''
+          if git ls-remote --exit-code --heads origin uco-monitor-data > /dev/null; then
+            git fetch origin uco-monitor-data --depth=1
+            parent=$(git rev-parse FETCH_HEAD)
+          fi
+          if [ -n "$parent" ]; then
+            commit=$(git commit-tree "$tree" -p "$parent" -m 'Odśwież publiczne tropy i wyceny lotów')
+          else
+            commit=$(git commit-tree "$tree" -m 'Uruchom publiczny skaner okazji lotniczych')
+          fi
+          git push origin "$commit:refs/heads/uco-monitor-data"

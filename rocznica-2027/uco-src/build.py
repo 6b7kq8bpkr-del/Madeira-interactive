@@ -235,6 +235,10 @@ import hashlib
 # Wersja zależy od treści, nie od daty uruchomienia builda.
 version = hashlib.sha256(BUILT.sub("", files["data.js"]).encode("utf-8")).hexdigest()[:12]
 files["index.html"] = files["index.html"].replace('src="data.js"', f'src="data.js?v={version}"')
+for asset in ('flight-rules.js', 'finder.js', 'finder.css'):
+    with open(f'{OUT}/{asset}', 'rb') as source:
+        digest = hashlib.sha256(source.read()).hexdigest()[:12]
+    files['index.html'] = files['index.html'].replace(f'"{asset}"', f'"{asset}?v={digest}"')
 bad = []
 for name, txt in files.items():
     path = f"{OUT}/{name}"

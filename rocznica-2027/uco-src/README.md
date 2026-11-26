@@ -74,3 +74,7 @@ node tests/check-offers.cjs
 ```
 
 Regresje: szacunek i stary odczyt nie zasilają oferty do zakupu, 2 miejsca, bagaż, czas, daty, noc w BUE, bufory i oszczędność przy osobnych biletach. RSS: błędny XML/HTML to awaria, deduplikacja URL, przestrzenie nazw Atom/RSS, aktualność i częściowe pokrycie. Ceny testowe z `tests/flight-fixture.cjs` nie są danymi produkcyjnymi.
+
+## Wyszukiwarka okazji
+
+Opis działania, bezpieczne podłączenie SerpApi, ograniczenia bezpłatnego limitu i utrzymanie: [WYSZUKIWARKA.md](WYSZUKIWARKA.md). Skaner publikuje publiczne dane do osobnej gałęzi `uco-monitor-data`, bez zmiany codziennego raportu. Moduły `finder.js` i `finder.css` nie są generowane; build wersjonuje ich adresy.

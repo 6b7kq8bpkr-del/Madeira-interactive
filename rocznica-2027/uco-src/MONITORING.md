@@ -2,6 +2,12 @@
 
 Zasady dotyczą kolejnych raportów, radaru i ręcznych odczytów. Przeczytaj przed każdą aktualizacją. Źródłem dat i roboczych buforów jest `data/program.json` → `loty.monitoring.reguly`, a cen `budzet`. Nie zmieniaj reguł w codziennym raporcie.
 
+## Wyniki wyszukiwarki okazji
+
+Na początku odczytaj [bieżący skan](https://raw.githubusercontent.com/6b7kq8bpkr-del/Madeira-interactive/uco-monitor-data/okazje.json) i [zasady skanera](WYSZUKIWARKA.md). Sprawdź datę, awarie źródeł oraz kolejkę nieodczytanych tras. Przejrzyj nowe tropy od ostatniej kontroli i sprawdź obiecujące wyceny u linii. Punktacja tropów nie jest oceną pewności oferty, a `cenaWyniku` bez potwierdzonej jednostki nie jest ceną za osobę. Nie zmieniaj historii na podstawie daty skanu. Zachowaj osobne odczyty forów, komentarzy i skrzynki.
+
+Skaner nie zastępuje kontroli dwóch rodzin wyszukiwarek. Używaj go do szybszego znalezienia kandydatów i luk. Nie przepisuj do raportu tokenów, kluczy ani prywatnych linków.
+
 ## Co sprawdzać
 
 Codziennie wyceń sześć scenariuszy z `loty.monitoring.scenariusze`, każdy dla **2 dorosłych**, wylot 5.11 oraz 4.11 po 20:00. Nie przerywaj po pierwszej odpowiadającej wyszukiwarce: minimum dwie rodziny wyszukiwarek (Kayak/Momondo liczą się jako jedna), a obiecujące wyniki potwierdź u sprzedającej linii. Brak dostępu zapisuj jako lukę. Scenariusze spoza Warszawy są planem B do decyzji grupy; nie wygrywają automatycznie z planem podstawowym.
