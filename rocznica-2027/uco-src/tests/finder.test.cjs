@@ -64,3 +64,33 @@ assert.equal(flexBoard.best,null,'Kompromis nie staje się ofertą spełniając�
 assert.equal(flexBoard.compromise.cena,4000);
 assert.equal(overview({oferty:[flexOffer]},rules,budget,rank,Date.now()+25*36e5).compromise,null);
 console.log('Panel rozróżnia super okazję z kompromisem - OK');
+
+// Analiza pulpitu: rzeczywiste migawki, wspólny profil, brak pozornej prognozy.
+const {dashboardData}=require('../../uco/flight-rules.js');
+const testResearch={wyniki:[{cenaPara:13988.92},{cenaPara:null},{cenaPara:11629.28}]};
+const metrics=dashboardData({oferty:[]},rules,budget,testResearch,now);
+assert.equal(metrics.best,null);
+assert.equal(metrics.points.length,0);
+assert.equal(metrics.tests[0].cenaPara,11629.28);
+assert(Math.abs(metrics.gap-2629.28)<0.001);
+assert.equal(Math.round(metrics.reduction*10)/10,22.6);
+assert.equal(metrics.goalReached,false);
+const snapshot=(price,time)=>({...fixture(price),sprawdzono:time});
+const old=snapshot(5000,'2026-11-20T10:00:00+01:00');
+const today=snapshot(4500,'2026-11-26T09:00:00+01:00');
+const invalid={...snapshot(3000,'2026-11-25T10:00:00+01:00'),ochronaPotwierdzona:false};
+const archive=[old,invalid, snapshot(5200,old.sprawdzono), snapshot(2000,'2026-11-27T10:00:00+01:00'),{sprawdzono:'invalid'},earlier];
+const series=dashboardData({oferty:[today],archiwumOfert:archive},rules,budget,testResearch,now);
+assert.deepEqual(series.points.map(x=>x.price),[10000,9000]);
+assert.equal(series.change,-1000);
+assert.equal(series.goalReached,true);
+assert.equal(series.comparison.kind,'current');
+assert.equal(series.gap,0);
+const expired=dashboardData({oferty:[old]},rules,budget,{},now);
+assert.equal(expired.best,null);
+assert.equal(expired.points.length,1,'Dawna poprawna wycena może zasilać historię, lecz nie bieżącą cenę');
+assert.equal(expired.change,null);
+assert.equal(dashboardData({oferty:[flexOffer]},rules,budget,{},Date.now()).points.length,0,'Kompromisy nie obniżają standardowego trendu');
+assert.equal(dashboardData(null,rules,budget,testResearch,now).available,false);
+assert.equal(dashboardData({oferty:[],serie:[{hist:[{cena:1,data:'2026-11-25'}]}]},rules,budget,{},now).points.length,0,'Stare szacunki nie stają się historią pełnych cen');
+console.log('Pulpit: historia, deduplikacja dni, progi, porównania i brak pozornej prognozy - OK');

@@ -132,7 +132,34 @@
     return {current, best, compromise, headline: best ? (best.cena <= budget.prog ? 'Jest aktualna kompletna oferta w progu. Sprawdź cenę przed zakupem.' : 'Aktualna kompletna oferta jest powyżej progu zakupu.') : compromise ? 'Jest super okazja z kompromisem. Sprawdź odstępstwa w pełnym planie.' : current ? 'Brak aktualnej, kompletnej oferty spełniającej wymagania.' : 'Raport nieaktualny. Sprawdź aktualne oferty przed decyzją.',
       detail: (report.data ? 'Raport z ' + report.data + '. ' : 'Brak daty raportu. ') + (!compatible ? 'Raport dotyczy wcześniejszych wymagań podróży. ' : current ? '' : 'Dane historyczne - wymagają odświeżenia. ') + (report.stan || '') + (compromise ? ' Super okazja: ' + (compromise.cena * 2).toLocaleString('pl-PL') + ' zł za parę. ' + compromise.deviations.join(' ') : '')};
   }
-  const api = {assess, rank, reportState};
+  // Dashboard uses the same eligibility checks as purchase decisions. Historical
+  // snapshots are assessed at observation time, never made current again.
+  function dashboardData(monitor, rules, budget, research, now=Date.now()) {
+    const available = !!monitor && Array.isArray(monitor.oferty);
+    const ranked = rank(available ? monitor.oferty : [], rules, budget, now);
+    const best = ranked.find(r => r.ready) || null;
+    const tests = (Array.isArray(research?.wyniki) ? research.wyniki : []).filter(r => finite(r.cenaPara) && r.cenaPara > 0).sort((a,b) => a.cenaPara-b.cenaPara);
+    const days = new Map();
+    const archive = Array.isArray(monitor?.archiwumOfert) ? monitor.archiwumOfert : [];
+    for (const o of [...archive, ...(available ? monitor.oferty : [])]) {
+      const t = stamp(o?.sprawdzono);
+      if (!Number.isFinite(t) || t > now || now-t > 30*864e5) continue;
+      const r = assess(o, rules, t);
+      if (!r.ready || r.separate) continue;
+      const d = date(o.sprawdzono, 'Europe/Warsaw');
+      const prev = days.get(d);
+      if (!prev || r.cena*2 < prev.price) days.set(d, {day:d, price:r.cena*2});
+    }
+    const points = [...days.values()].sort((a,b) => a.day.localeCompare(b.day));
+    const change = points.length > 1 ? points.at(-1).price-points[0].price : null;
+    const target = budget.cel*2;
+    const comparison = best ? {price:best.cena*2, kind:'current'} : tests.length ? {price:tests[0].cenaPara, kind:'test'} : null;
+    const gap = comparison ? Math.max(0, comparison.price-target) : null;
+    return {available, ranked, best, tests, points, change, target, comparison, gap,
+      reduction: comparison ? gap/comparison.price*100 : null,
+      goalReached: !!best && best.cena*2 <= target};
+  }
+  const api = {assess, rank, reportState, dashboardData};
   if (typeof module !== 'undefined' && module.exports) module.exports=api;
   else root.UcoFlights=api;
 })(typeof window !== 'undefined' ? window : globalThis);

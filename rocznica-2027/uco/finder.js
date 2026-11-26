@@ -67,7 +67,7 @@
     if (!host) return;
     const rules = program.loty.monitoring.reguly;
     const labels = {stopover:'Cała trasa z Warszawy na jednym bilecie'};
-    const money = n => Number(n).toLocaleString('pl-PL', {maximumFractionDigits: 0});
+    const money = n => Number(n).toLocaleString('pl-PL', {maximumFractionDigits: 0}).replace(/^(\d)(\d{3})$/, '$1\u00a0$2');
     const nb = s => String(s || '').replace(/\b([aiouwzAIOUWZ])\s+/g, '$1\u00a0');
     const date = s => {
       if (typeof s !== 'string' || !s) return 'brak odczytu';
@@ -78,10 +78,12 @@
     const link = (label, url) => { const a = el('a', label); const safe = safeURL(url); if (safe) { a.href = safe; a.target = '_blank'; a.rel = 'noopener noreferrer'; } return a; };
     const get = k => { try { const x = JSON.parse(localStorage.getItem('uco-finder-' + k)); return Array.isArray(x) ? x.filter(v => typeof v === 'string') : []; } catch (_) { return []; } };
     const put = (k, value) => { try { localStorage.setItem('uco-finder-' + k, JSON.stringify(value)); } catch (_) {} };
+    let shortlistMode = null;
     let monitorState = null, state = null, saved = get('saved'), hidden = get('hidden');
     host.className = 'finder';
-    host.innerHTML = '<header class="finder-head"><div><p class="eyebrow">Listopad 2027 · 2 dorosłych · bez API</p><h3>Stan poszukiwań lotów</h3></div><button type="button" id="finder-refresh">Odśwież zapisane wyniki</button></header>' +
+    host.innerHTML = '<header class="finder-head"><div><p class="eyebrow">Listopad 2027 · 2 dorosłych · bez API</p><h3>Pulpit lotów</h3></div><button type="button" id="finder-refresh">Odśwież zapisane wyniki</button></header>' +
       '<section id="finder-overview" class="finder-overview" aria-live="polite"><h4>Wczytuję status listopada…</h4></section>' +
+      '<div id="finder-insights" class="finder-insights"></div><div id="finder-dashboard-actions" class="finder-dashboard-actions"></div><section class="finder-best"><h4>Najlepsze zapisane wyniki</h4><div id="finder-shortlist"></div></section>' +
       '<section id="finder-research" class="finder-research"><h4>Co dały wcześniejsze testy?</h4><div id="finder-research-results"></div></section>' +
       '<details class="finder-plan" id="finder-plan"><summary>Następny krok: sprawdź całą trasę u linii</summary><p>Najpierw KLM / Air France przez São Paulo lub Santiago, następnie Iberia przez Madryt i Aerolíneas. To kolejność sprawdzania oparta na dotychczasowych testach, nie gwarancja najniższej ceny. Wybierz „Wiele miast”, 2 dorosłych i klasę ekonomiczną. Sprawdź obie daty wylotu poniżej.</p><div id="finder-airlines" class="finder-links"></div><p class="finder-note">Linki linii otwierają formularze bez wypełnionych dat. KAYAK przenosi odcinki; wyniki mogą obejmować osobne bilety. W Google wpisz odcinki ręcznie. Sprawdź końcową kwotę i ochronę wszystkich przewoźników u linii.</p><label for="finder-scenario">Wariant podróży</label><select id="finder-scenario"><option value="">Pełna trasa - obie daty wylotu</option></select><div id="finder-routes"></div></details>' +
       '<details id="finder-promos"><summary>Promocje, portale i fora - tropy do sprawdzenia</summary><p id="finder-status" role="status">Pobieranie tropów…</p><div id="finder-health"></div>' +
@@ -95,17 +97,20 @@
 
     function dashboard() {
       const box = $('overview'); box.replaceChildren();
+      const actions = $('dashboard-actions'); actions.replaceChildren();
       const summary = overview(monitorState, rules, program.budzet, root.UcoFlights.rank);
       const b = summary.best, c = summary.compromise;
+      const data = root.UcoFlights.dashboardData(monitorState, rules, program.budzet, program.badaniaLotow);
+      insights(data); shortlist(data, shortlistMode || (data.ranked.length ? 'november' : 'tests'));
       box.append(el('p', 'STATUS LISTOPADA', 'eyebrow'), el('h4', !summary.available ? 'Nie udało się odczytać ofert na listopad' : b ? 'Jest kompletna oferta na listopad' : c ? 'Super okazja z kompromisem na listopad' : 'Brak potwierdzonej oferty na listopad'));
       box.append(el('p', !summary.available ? 'Stan ofert jest nieznany. Odśwież wyniki lub sprawdź formularz linii.' : b ? 'Spełnia zapisane kryteria trasy, bagażu i ochrony. Przed zakupem sprawdź ponownie dostępność.' : c ? 'Cena, trasa, bagaż i ochrona są potwierdzone. Ten wariant wymaga niewielkiego kompromisu w komforcie podróży - szczegóły poniżej.' : 'Nie mamy jeszcze aktualnej ceny całej trasy spełniającej wszystkie wymagania. To nie oznacza, że takich biletów nie ma.'));
       const stats = el('dl', null, 'finder-stats');
-      const values = [[c && !b ? 'Cena z kompromisem dla pary' : 'Cena całej trasy dla pary', b || c ? money((b || c).cena * 2) + ' zł' : 'Niepotwierdzona'], ['Cel dla pary', money(program.budzet.cel * 2) + ' zł'], ['Próg zakupu dla pary', money(program.budzet.prog * 2) + ' zł']];
-      values.forEach(([title,value]) => { const group = el('div'); group.append(el('dt',title),el('dd',value)); stats.append(group); });
+      const values = [['Najlepsza cena · listopad', b ? money(b.cena*2)+' zł' : c ? money(c.cena*2)+' zł' : 'Brak wyceny', b ? 'Potwierdzona · bez odstępstw' : c ? 'Super okazja z kompromisem' : 'Cała trasa na jednym bilecie'], ['Najtańszy wcześniejszy test', data.tests.length ? money(data.tests[0].cenaPara)+' zł' : 'Brak danych', data.tests.length ? data.tests[0].linia+' · '+data.tests[0].termin : 'Inne daty podróży'], ['Cel dla pary', money(data.target)+' zł', 'Podręczny · wszystkie odcinki'], ['Zmiana ceny · listopad', data.change===null ? 'Za mało danych' : (data.change>0?'+':'')+money(data.change)+' zł', data.points.length+' dni z pełną wyceną / 30 dni']];
+      values.forEach(([title,value,note]) => { const group = el('div'); group.append(el('dt',title),el('dd',value),el('span',note,'finder-note')); stats.append(group); });
       box.append(stats);
       if (b) box.append(el('p', 'Sprawdzono: ' + date(b.offer.sprawdzono) + '. ' + (b.cena <= program.budzet.prog ? 'Cena mieści się w progu.' : 'Cena przekracza próg zakupu.'), 'finder-note'), link('Otwórz ofertę u linii ↗', b.offer.url));
       else if (summary.candidates && !c) box.append(el('p', 'Zapisane wyceny do sprawdzenia: ' + summary.candidates + '. Żadna nie spełnia obecnie wszystkich kryteriów.', 'finder-note'));
-      box.append(el('p', 'Wylot 4.11 po 20:00 lub 5.11 → Mendoza 6.11. Buenos 12-13.11, powrót do Warszawy najpóźniej 14.11. Standardowo maks. 2 przesiadki i 30 h w stronę; zwykłe przesiadki 2-8 h, w Buenos min. 3 h.', 'finder-note'));
+      const criteria = el('p', 'Wylot 4.11 po 20:00 lub 5.11 → Mendoza 6.11. Buenos 12-13.11, powrót do Warszawy najpóźniej 14.11. Standardowo maks. 2 przesiadki i 30 h w stronę; zwykłe przesiadki 2-8 h, w Buenos min. 3 h.', 'finder-note');
       if (c) {
         const option = el('div', null, 'finder-route');
         option.append(el('h4', 'Super okazja z kompromisem: ' + money(c.cena * 2) + ' zł / 2 osoby'));
@@ -113,27 +118,97 @@
         const list = el('ul'); c.deviations.forEach(t => list.append(el('li',t))); option.append(list);
         option.append(el('p', 'Do rozważenia po ocenie tych kompromisów i ponownej kontroli ceny.', 'finder-warning'), link('Sprawdź tę ofertę u linii ↗', c.offer.url)); box.append(option);
       }
-      const flex = el('details'); flex.append(el('summary', 'Przy super okazji dopuszczamy mały kompromis'), el('p', program.zasady_podrozy.super_okazje, 'finder-note')); box.append(flex);
-      const next = el('a', 'Sprawdź pełną trasę u linii →'); next.href = '#finder-plan'; box.append(next);
-      box.append(el('p', 'Automatycznie zbieramy publikacje o promocjach. Cena i dostępność całej trasy wymagają sprawdzenia w formularzu linii. API cen pozostaje wyłączone.', 'finder-note'));
-      const services = el('a', 'Co już działa: monitoring i newslettery →'); services.href = '#zadania'; services.dataset.lgo = 'zadania'; box.append(services);
+      const flex = el('details'); flex.append(el('summary', 'Przy super okazji dopuszczamy mały kompromis'), el('p', program.zasady_podrozy.super_okazje, 'finder-note'), criteria); actions.append(flex);
+      const next = el('a', 'Sprawdź pełną trasę u linii →'); next.href = '#finder-plan'; actions.append(next);
+      actions.append(el('p', 'Automatycznie zbieramy publikacje o promocjach. Cena i dostępność całej trasy wymagają sprawdzenia w formularzu linii. API cen pozostaje wyłączone.', 'finder-note'));
+      const services = el('a', 'Co już działa: monitoring i newslettery →'); services.href = '#zadania'; services.dataset.lgo = 'zadania'; actions.append(services);
+    }
+
+    function insights(data) {
+      const box = $('insights'); box.replaceChildren();
+      const trend = el('section', null, 'finder-trend');
+      trend.append(el('p', 'RUCH CEN · OSTATNIE 30 DNI', 'eyebrow'), el('h4', 'Trend pełnej trasy'));
+      const points = data.points;
+      const chart = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      chart.setAttribute('viewBox','0 0 560 210'); chart.setAttribute('role','img');
+      chart.setAttribute('aria-label', points.length ? 'Dzienne minima ceny dla pary. ' + points.map(p=>date(p.day)+': '+money(p.price)+' zł').join('; ') : 'Brak potwierdzonych wycen do wykresu. Linia celu: '+money(data.target)+' zł za parę.');
+      const add = (tag, attrs, text) => { const n = document.createElementNS(chart.namespaceURI,tag); Object.entries(attrs).forEach(([k,v])=>n.setAttribute(k,v)); if(text) n.textContent=text; chart.append(n); return n; };
+      const max = Math.max(data.target*1.4,...points.map(p=>p.price))*1.08;
+      const y = price => 176-price/max*150;
+      [0, data.target, max].forEach(v => {
+        add('line',{x1:65,x2:542,y1:y(v),y2:y(v),class:v===data.target?'chart-target':'chart-grid'});
+        add('text',{x:57,y:y(v)+4,'text-anchor':'end'},money(v));
+      });
+      add('text',{x:70,y:y(data.target)-8,class:'chart-label'},'Cel '+money(data.target)+' zł');
+      if (points.length) {
+        const start = Date.parse(points[0].day), end = Date.parse(points.at(-1).day);
+        const x = p => points.length===1 ? 300 : 75+(Date.parse(p.day)-start)/(end-start)*450;
+        if(points.length>1) add('polyline',{points:points.map(p=>x(p)+','+y(p.price)).join(' '),class:'chart-price'});
+        points.forEach(p=>{ const c=add('circle',{cx:x(p),cy:y(p.price),r:4,class:'chart-dot'}); const t=document.createElementNS(chart.namespaceURI,'title'); t.textContent=date(p.day)+': '+money(p.price)+' zł'; c.append(t); });
+        add('text',{x:75,y:203},date(points[0].day));
+        if(points.length>1) add('text',{x:535,y:203,'text-anchor':'end'},date(points.at(-1).day));
+      } else add('text',{x:300,y:54,'text-anchor':'middle',class:'chart-empty'},'Czekamy na pierwszą pełną wycenę');
+      if(points.length) trend.append(chart);
+      else {
+        const empty=el('div',null,'finder-chart-empty');
+        empty.append(el('strong','0'),el('p','potwierdzonych odczytów na listopad'),el('span','Cel: '+money(data.target)+' zł za parę'));
+        trend.append(empty);
+      }
+      trend.append(el('p', points.length>1 ? (data.change<0?'Spadek o ':data.change>0?'Wzrost o ':'Bez zmiany: ')+money(Math.abs(data.change))+' zł między pierwszym i ostatnim odczytem. '+points.length+' dni z wyceną.' : points.length===1 ? 'Jeden dzień z wyceną. Za mało, aby ocenić kierunek zmian.' : 'Brak trendu na listopad. Wcześniejsze testy i sumy osobnych biletów nie zasilają tego wykresu.', 'finder-note'));
+      const methodology = el('details'); methodology.append(el('summary','Jak liczymy trend?'),el('p','Dzienne minimum za 2 osoby z odczytów ostatnich 30 dni, zgodnych z obecnymi datami, jednym biletem, bagażem i stopoverem. Łączymy dostępne dni bez uzupełniania luk. To zmiana najniższej znalezionej ceny, nie prognoza rynku. Wykluczamy kompromisy komfortu i niepełne wyceny.','finder-note')); trend.append(methodology);
+      const chance = el('section',null,'finder-chance');
+      chance.append(el('p','CEL · '+money(data.target)+' ZŁ ZA PARĘ','eyebrow'),el('h4','Szansa na osiągnięcie celu'));
+      chance.append(el('p',data.goalReached?'Cel dostępny teraz':'Brak wiarygodnej prognozy','finder-chance-verdict'));
+      chance.append(el('p',data.goalReached?'Znaleźliśmy pełną ofertę w celu. Sprawdź ponownie cenę i dostępność przed decyzją.':'Nie ma podstaw do uczciwego procentu prawdopodobieństwa. '+(points.length?'Historia obejmuje '+points.length+' dni z pełną wyceną.':'Nie mamy jeszcze historii pełnych cen na listopad.'),'finder-note'));
+      if(data.comparison) {
+        const test = data.comparison.kind==='test';
+        chance.append(el('p',test?'Punkt odniesienia: najtańszy wcześniejszy test.':'Punkt odniesienia: najlepsza aktualna oferta.','finder-note'));
+        chance.append(el('strong',data.gap>0?'Potrzebny spadek: '+money(data.gap)+' zł ('+data.reduction.toLocaleString('pl-PL',{maximumFractionDigits:1})+'%)':test?'Cena testowa mieści się w celu':'Cena mieści się w celu','finder-gap'));
+        const track = el('div',null,'finder-goal-track'); track.setAttribute('aria-hidden','true'); const fill=el('span'); fill.style.width=Math.min(100,data.target/data.comparison.price*100)+'%'; track.append(fill); chance.append(track);
+        chance.append(el('p',test?'Porównanie do testu z innych dat. Wymagany spadek nie jest szansą na promocję.':'Różnica ceny do celu; nie prawdopodobieństwo spadku.','finder-note'));
+      }
+      const thresholds = el('dl',null,'finder-thresholds');
+      [['Super okazja',budgetMoney('super_okazja')],['Cel',money(data.target)+' zł'],['Próg zakupu',budgetMoney('prog')]].forEach(([a,b])=>{ const d=el('div'); d.append(el('dt',a),el('dd',b)); thresholds.append(d); }); chance.append(thresholds);
+      box.append(trend,chance);
+    }
+    function budgetMoney(key) { return money(program.budzet[key]*2)+' zł'; }
+
+    function shortlist(data, mode) {
+      const box=$('shortlist'); box.replaceChildren();
+      const group=el('div',null,'finder-switch'); group.setAttribute('role','group'); group.setAttribute('aria-label','Zakres porównania ofert');
+      [['november','Listopad 2027'],['tests','Wcześniejsze testy']].forEach(([key,title])=>{ const b=el('button',title); b.type='button'; b.setAttribute('aria-pressed',String(mode===key)); b.addEventListener('click',()=>{ shortlistMode=key; shortlist(data,key); }); group.append(b); });
+      box.append(group);
+      if(mode==='november') {
+        box.append(el('p',data.available?'Pełna trasa dla dwóch osób. Kolejność: oferty zgodne, kompromisy, pozostałe wyceny.':'Nie udało się odczytać ofert. Odśwież zapisane wyniki.','finder-note'));
+        if(!data.ranked.length) box.append(el('p','Brak zapisanej pełnej oferty na listopad. Porównaj wcześniejsze testy lub otwórz formularz linii.','finder-empty'));
+        data.ranked.slice(0,3).forEach(r=>{
+          const a=el('article',null,'finder-offer');
+          const top=el('div'); top.append(el('span',r.ready?'Zgodna z kryteriami':r.compromise?'Super okazja z kompromisem':'Do ponownej weryfikacji','finder-badge'),el('h4',r.offer.nazwa || 'Pełna trasa z Warszawy'),el('p','Odczyt: '+date(r.offer.sprawdzono),'finder-note'));
+          const price=el('div',null,'finder-offer-price'); price.append(el('strong',r.cena?money(r.cena*2)+' zł':'Brak pełnej ceny'),el('span','za 2 osoby','finder-note')); a.append(top,price);
+          const info=el('div',null,'finder-offer-info'); info.append(el('p',r.ready?'Jeden bilet · podręczny · Buenos '+Math.round(r.stopHours)+' h':(r.compromise?r.deviations:r.reasons).join(' '),'finder-note'),link('Sprawdź u linii ↗',r.offer.url)); a.append(info); box.append(a);
+        });
+      } else {
+        box.append(el('p','Historyczne odczyty na inne terminy. Nie potwierdzają cen na listopad ani dostępności dziś. Kwoty za 2 osoby.','finder-note'));
+        const max=Math.max(data.target,...data.tests.map(x=>x.cenaPara));
+        data.tests.slice(0,3).forEach((r,i)=>{
+          const a=el('article',null,'finder-offer'); const top=el('div'); top.append(el('span',i===0?'Najtańszy test':'Wcześniejszy test','finder-badge'),el('h4',r.linia),el('p',r.termin,'finder-note'));
+          const price=el('div',null,'finder-offer-price'); price.append(el('strong',money(r.cenaPara)+' zł'),el('span','za 2 osoby','finder-note')); a.append(top,price);
+          const bar=el('div',null,'finder-price-bar'); bar.setAttribute('aria-hidden','true'); const fill=el('span'); fill.style.width=r.cenaPara/max*100+'%'; const goal=el('i'); goal.style.left=data.target/max*100+'%'; bar.append(fill,goal); a.append(bar);
+          const info=el('div',null,'finder-offer-info'); info.append(el('p',r.trasa,'finder-route-text'),el('p',r.status+'. '+r.wynik,'finder-note'),el('p','Następny krok: '+r.nastepny,'finder-note'),link('Formularz '+r.linia+' ↗',r.url)); a.append(info); box.append(a);
+        });
+        if(!data.tests.length) box.append(el('p','Brak zapisanych pełnych cen testowych.','finder-empty'));
+        else box.append(el('p','Kreska na paskach oznacza cel '+money(data.target)+' zł. Różne terminy nie są szeregiem cenowym.','finder-note'));
+      }
     }
 
     function research() {
       const box = $('research-results'), log = program.badaniaLotow || {}, rows = Array.isArray(log.wyniki) ? log.wyniki : [];
       box.replaceChildren();
       if (!rows.length) { box.append(el('p', 'Brak zapisanych testów u linii.')); return; }
-      const priced = rows.filter(x => Number.isFinite(x.cenaPara) && x.cenaPara > 0).sort((a,b) => a.cenaPara-b.cenaPara);
-      const best = priced[0];
-      if (best) {
-        box.append(el('p', 'Najniższa zapisana pełna wycena testowa: ' + best.linia + ', ' + money(best.cenaPara) + ' zł / 2 osoby, ' + best.termin + '.'));
-        box.append(el('p', best.status + '. ' + best.wynik, 'finder-warning'));
-        box.append(el('p', 'Do zrobienia: ' + best.nastepny));
-      }
       box.append(el('p', 'Ostatnie badanie: ' + date(log.sprawdzono) + '. ' + log.zakres + ' Ceny testowe są historyczne i wymagają ponownego odczytu.', 'finder-note'));
-      const details = el('details'), summary = el('summary', 'Wyniki i luki: ' + rows.length + ' sprawdzeń u linii');
+      const details = el('details'), summary = el('summary', 'Pozostałe sprawdzenia i luki (' + rows.filter(x=>!Number.isFinite(x.cenaPara)).length + ')');
       details.append(summary);
-      rows.forEach(x => {
+      rows.filter(x => !Number.isFinite(x.cenaPara)).forEach(x => {
         const row = el('article', null, 'finder-route');
         row.append(el('h4', x.linia + ' · ' + x.termin), el('p', x.status + (x.cenaPara != null ? ' · ' + money(x.cenaPara) + ' zł / 2 osoby' : ' · bez pełnej ceny')),
           el('p', x.trasa, 'finder-route-text'), el('p', x.wynik), el('p', 'Następny krok: ' + x.nastepny, 'finder-note'), link('Otwórz linię ↗', x.url));

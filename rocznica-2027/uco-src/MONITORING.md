@@ -82,3 +82,11 @@ Pierwszy panel w Lotach bierze ofertę wyłącznie z `loty.json.oferty`, przez w
 Wyniki ręcznych testów u linii zapisujemy także w `data/badania-lotow.json`, z datą badania, terminem podróży, pełną ceną dla pary (lub null), wynikiem, brakami i następnym krokiem. Po zmianie uruchamiamy `build.py`. Dane techniczne pozostają w `diagnostics/`; publiczny rejestr nie zawiera identyfikatorów sesji, danych pasażerów ani sekretów. Testy są historyczne i nie są automatycznie odświeżanymi ofertami.
 
 Priorytet badań: KLM/Air France przez GRU/SCL, Iberia przez MAD, próba pełnej wyceny WAW w Aerolíneas. Każdorazowo cała trasa i 2 dorosłych, oba dopuszczalne wyloty; dokładne godziny, ochrona wszystkich partnerów i podręczny. Nie powtarzać odrzuconej kombinacji bez zmiany daty/rejsu albo nowej przesłanki. Próbę zablokowanego formularza zapisywać jako lukę, nie brak lotów. Nowe źródło nie jest niezależnym potwierdzeniem, jeśli pokazuje tę samą taryfę partnerów. Nie włączać API.
+
+### Pulpit i historia pełnych cen
+
+`UcoFlights.dashboardData` liczy wskaźniki, różnicę do celu i trend. Wszystkie kwoty pulpitu dotyczą pary. Bieżąca cena pochodzi wyłącznie z `oferty` ocenionych przez wspólne reguły. Testy z `badania-lotow.json` pozostają jawnie historycznymi punktami odniesienia na inne terminy.
+
+Przed zastąpieniem lub usunięciem rzeczywistej oferty zachowaj jej pełną migawkę w `loty.json.archiwumOfert` (ten sam schemat co `oferty`, z niezmienionym `sprawdzono`). Nie twórz duplikatów tego samego id i czasu; nie archiwizuj danych prywatnych. Wykres wybiera minimum na dzień odczytu w strefie Europe/Warsaw z ostatnich 30 dni. Każdą migawkę ocenia według aktualnego profilu, ale w chwili jej odczytu. Odrzuca niepełne koszty, inne terminy, kompromisy komfortu i przyszłe daty odczytu. Dopuszczalne dwie daty wylotu tworzą wspólny koszyk najtańszych ofert; to nie cena stałego rejsu.
+
+Nie przepisuj dawnych `serie[].hist` ani szacunków do `archiwumOfert` bez pełnej dokumentacji oferty. Pusta historia jest poprawna. Różnica do celu i procent wymaganego spadku to działania arytmetyczne, nie prawdopodobieństwo promocji. Bez skalibrowanego modelu i odpowiednich danych panel pokazuje brak wiarygodnej prognozy.

@@ -45,3 +45,75 @@
   .finder-stats > div:first-child { grid-column: 1 / -1; }
   .finder-stats dd { font-size: 1.1rem; }
 }
+
+/* Pulpit: kwoty, porównanie do celu i potwierdzona historia. */
+.finder-overview { border-left: 0; border-top: 3px solid var(--malbec); padding: 18px 20px; }
+.finder-overview > p:not(.eyebrow) { font-size: .88rem; }
+.finder-stats { grid-template-columns: repeat(4,minmax(0,1fr)); padding: 18px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.finder-stats > div { min-width: 0; }
+.finder-stats dd { font-size: clamp(1.2rem,2vw,1.7rem); font-variant-numeric: tabular-nums; line-height: 1.25; }
+.finder-stats span { display: block; margin-top: 8px; }
+.finder-overview > a { margin-right: 24px; font-size: .9rem; }
+.finder-overview > details { margin-bottom: 4px; }
+.finder-insights { display: grid; grid-template-columns: 1.25fr 1fr; gap: 30px; margin: 28px 0; }
+.finder-insights > section { min-width: 0; }
+.finder-chance { border-left: 1px solid var(--line); padding-left: 30px; }
+.finder .finder-chance-verdict { font-size: 1.25rem; font-weight: 600; color: var(--malbec); }
+.finder-gap { font-size: .95rem; display: block; }
+.finder-goal-track { background: var(--line); height: 6px; margin: 16px 0 8px; }
+.finder-goal-track > span { display: block; background: var(--malbec); height: 100%; }
+.finder-thresholds { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; border-top: 1px solid var(--line); padding-top: 14px; }
+.finder-thresholds dt { font-size: .8rem; color: var(--ink-2); }
+.finder-thresholds dd { margin: 4px 0 0; font-weight: 600; }
+.finder-trend svg { width: 100%; height: auto; margin: 16px 0 0; overflow: visible; }
+.finder-trend svg text { font-family: var(--f-sans); font-size: 13px; fill: var(--ink-2); }
+.chart-grid { stroke: var(--line); stroke-width: 1; }
+.chart-target { stroke: var(--poplar); stroke-dasharray: 5 4; stroke-width: 2; }
+.chart-price { stroke: var(--malbec); stroke-width: 3; fill: none; }
+.chart-dot { fill: var(--malbec); }
+.finder-trend svg .chart-empty { fill: var(--ink); font-size: 14px; }
+.finder-best { border-top: 1px solid var(--line); padding: 22px 0 10px; }
+.finder-best > h4 { font-size: 1.35rem; }
+.finder-switch { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+.finder-switch button[aria-pressed="true"] { background: var(--malbec); color: var(--paper); }
+.finder-offer { display: grid; grid-template-columns: minmax(0,1fr) auto; column-gap: 24px; padding: 20px 0; border-top: 1px solid var(--line); }
+.finder-offer h4 { margin-top: 8px; }
+.finder-offer p { margin-bottom: 8px; }
+.finder-badge { font-size: .78rem; color: var(--malbec); font-weight: 600; }
+.finder-offer-price { text-align: right; }
+.finder-offer-price strong { display: block; font-size: 1.6rem; font-variant-numeric: tabular-nums; }
+.finder-offer-price span { display: block; }
+.finder-offer-info, .finder-price-bar { grid-column: 1 / -1; }
+.finder-offer-info a { display: inline-flex; min-height: 44px; align-items: center; }
+.finder-price-bar { height: 7px; background: var(--line); position: relative; margin: 8px 0 14px; }
+.finder-price-bar span { display: block; height: 100%; background: var(--malbec); }
+.finder-price-bar i { position: absolute; top: -4px; bottom: -4px; border-left: 3px solid var(--poplar); }
+.finder-empty { padding: 20px; background: var(--chip); }
+@media(max-width:760px) {
+  .finder-stats { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .finder-stats > div:first-child { grid-column: auto; }
+  .finder-insights { grid-template-columns: 1fr; gap: 20px; }
+  .finder-chance { padding: 20px 0 0; border-left: 0; border-top: 1px solid var(--line); }
+  .finder-offer { column-gap: 12px; }
+  .finder-offer-price strong { font-size: 1.25rem; }
+}
+@media(max-width:380px) {
+  .finder-overview { padding: 14px; }
+  .finder-stats { gap: 18px 10px; }
+  .finder-stats dd { font-size: 1.15rem; }
+  .finder-trend svg text { font-size: 21px; }
+  .finder-trend svg .chart-empty { font-size: 19px; }
+}
+.finder-dashboard-actions { display: flex; flex-wrap: wrap; gap: 0 24px; border-top: 1px solid var(--line); padding: 10px 0; }
+.finder-dashboard-actions > a { display: inline-flex; align-items: center; min-height: 44px; font-size: .9rem; font-weight: 600; }
+.finder-dashboard-actions > details { width: 100%; border: 0; margin: 0; }
+.finder-dashboard-actions > p { order: 2; width: 100%; }
+
+.finder-chart-empty { min-height: 190px; display: flex; flex-direction: column; justify-content: center; text-align: center; margin-top: 16px; background: var(--chip); padding: 20px; }
+.finder-chart-empty strong { font-size: 2rem; line-height: 1.2; font-weight: 500; }
+.finder .finder-chart-empty p { font-size: .88rem; color: var(--ink-2); }
+.finder-chart-empty span { border-top: 2px dashed var(--poplar); padding-top: 10px; font-size: .86rem; }
+@media(max-width:540px) {
+  .finder-trend svg text { font-size: 24px; }
+  .finder-trend svg .chart-label { display: none; }
+}

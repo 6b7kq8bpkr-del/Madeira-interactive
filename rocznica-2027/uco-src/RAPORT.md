@@ -26,6 +26,7 @@ W `../uco/loty.json`:
 - `sygnaly` – dopisujesz na początku listy wyłącznie nowy fakt z adresem źródła; najpierw sprawdź, czy takiego wpisu już nie ma. Format jak w istniejących wpisach: `data`, `typ`, `kierunek` (`wzrost` / `spadek` / `neutralnie` – wpływ na ceny), `waga` 1–3, `opis`, `url`.
 - `rss` – wynik radaru promocji z dzisiejszego uruchomienia `promo_rss.py` (krok 5);
 - `serie[].hist` i `historia` - dzienny zapis cen z poziomem weryfikacji.
+- `archiwumOfert` - pełne migawki zastępowanych ofert według MONITORING.md; bez zmiany daty odczytu i bez zamiany szacunków w potwierdzone ceny.
 - `oferty` i `pokrycie` - rzeczywiste oferty i odczyty źródeł według MONITORING.md; bez danych prywatnych.
 
 W `../uco/promocje.json`: `zaktualizowano` (dziś), `nastepny` (jutro), `status` (2–3 zdania: czy jest promocja obejmująca listopad 2027) i `wpisy` – dopisujesz tylko realną ofertę z adresem źródła, w formacie istniejących wpisów; wpisy o ofertach, które wygasły albo przestały istnieć, oznacz `pasuje: "nie"` i dopisz to w `ocena`.
