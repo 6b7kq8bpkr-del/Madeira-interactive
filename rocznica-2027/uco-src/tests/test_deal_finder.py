@@ -227,6 +227,20 @@ class Tests(unittest.TestCase):
             self.assertEqual(result['zapytaniaTestu'],1)
             self.assertEqual(result['wycena']['cenaWyniku'],550)
 
+    def test_split_trip_sums_three_prices_without_selection_tokens(self):
+        q=next(q for q in finder.build_plan(PROGRAM) if q.get('sposobWyceny')=='osobne')
+        replies=[response('WAW','MDZ','2027-11-05',6000),response('MDZ','AEP','2027-11-12',800),response('EZE','WAW','2027-11-13',3500)]
+        calls=[]
+        class Fake:
+            def search(self,p): calls.append(dict(p)); return replies.pop(0)
+        result=finder.quote(q,PROGRAM['loty']['monitoring']['reguly'],Fake(),NOW)
+        self.assertEqual(result['cenaWyniku'],10300)
+        self.assertEqual(result['cenyOdcinkow'],[6000,800,3500])
+        self.assertEqual(result['stopoverGodziny'],30)
+        self.assertEqual(result['sposobWyceny'],'osobne')
+        self.assertTrue(all(p['type']==2 and 'departure_token' not in p for p in calls))
+        self.assertFalse(result['kompletPodrozy'])
+
     def test_manual_budget_preserves_monthly_cap_and_consumption(self):
         class Fake:
             def __init__(self,key,quota,checkpoint): self.quota,self.checkpoint=quota,checkpoint

@@ -118,6 +118,7 @@
         if (q.bagaz) row.append(el('p', q.bagaz, 'finder-warning'));
         if (q.stopoverGodziny != null) row.append(el('p', 'Postój w Buenos Aires: ' + q.stopoverGodziny + ' h. Hotel i transfery osobno.'));
         (q.trasy || []).forEach((legs, i) => row.append(el('p', 'Część ' + (i + 1) + ': ' + legs.map(l => l.z + ' ' + l.wylotLokalny + ' → ' + l.do + ' ' + l.przylotLokalny + ' (' + l.rejs + ')').join('; '), 'finder-note')));
+        (q.linkiOdcinkow || []).forEach((url, i) => row.append(link('Część ' + (i + 1) + ': ' + money((q.cenyOdcinkow || [])[i]) + ' PLN ↗', url)));
         row.append(el('p', 'Brakuje: ' + (q.braki || []).join('; ') + '.', 'finder-warning'), link('Sprawdź wycenę i sprzedawcę ↗', q.url));
         box.append(row);
       });

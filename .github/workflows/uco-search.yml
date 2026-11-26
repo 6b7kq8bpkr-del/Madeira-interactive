@@ -9,14 +9,14 @@ on:
         type: boolean
         default: false
       test_route:
-        description: 'Zakres testu: pełna trasa (3 zapytania) lub MDZ-BUE (1 zapytanie)'
+        description: 'Zakres: trip = multi-city, split = 3 osobne bilety, domestic = MDZ-BUE'
         type: choice
-        options: [trip, domestic]
+        options: [trip, domestic, split]
         default: trip
       test_extra_budget:
         description: 'Dodatkowy budżet dzienny tylko dla ręcznego testu (miesięczny bez zmian)'
         type: choice
-        options: ['0', '2']
+        options: ['0', '2', '4']
         default: '0'
   push:
     branches: [main]

@@ -99,6 +99,10 @@ def build_plan(program):
         add('calosc-' + day, 'Cała podróż z postojem - ' + short, 'stopover',
             [('WAW', 'MDZ', day), ('MDZ', 'BUE', r['buenosOd']), ('BUE', 'WAW', r['buenosDo'])],
             ['23 kg na każdym odcinku', 'wystawienie jednego chronionego biletu', 'hotel i transfery w Buenos Aires'], 0 if day == r['wylot'] else 1)
+        add('calosc-osobne-' + day, 'Cała podróż - osobne bilety - ' + short, 'stopover',
+            [('WAW', 'MDZ', day), ('MDZ', 'BUE', r['buenosOd']), ('BUE', 'WAW', r['buenosDo'])],
+            ['osobne bilety: brak wspólnej ochrony całej podróży', '23 kg na każdym odcinku', 'hotel i transfery w Buenos Aires'], 1)
+        plan[-1]['sposobWyceny'] = 'osobne'
         add('openjaw-' + day, 'Do Mendozy, powrót z Buenos Aires - ' + short, 'openjaw',
             [('WAW', 'MDZ', day), ('EZE', 'WAW', r['buenosDo'])], ['lot MDZ-BUE 12.11', 'bagaż i ochrona', 'porównanie ceny całości'], 1)
         add('eze-' + day, 'Atlantyk z Warszawy - ' + short, 'osobne',
@@ -337,8 +341,12 @@ def quote(query, rules, client, now):
     Brak tokenu, limit lub puste wyniki nigdy nie zamieniają częściowej ścieżki w komplet.
     """
     params, selected, last = parameters(query, rules), [], None
+    separate = query.get('sposobWyceny') == 'osobne'
+    prices, urls = [], []
     url = query['google']
     for index, expected in enumerate(query['odcinki']):
+        if separate:
+            params = parameters(dict(query, odcinki=[expected]), rules)
         response = client.search(params)
         url = public_url(response.get('search_metadata', {}).get('google_flights_url')) or url
         echoed = response.get('search_parameters', {})
@@ -352,7 +360,9 @@ def quote(query, rules, client, now):
             raise ProviderError(f'część {index + 1}/{len(query["odcinki"])}: {len(choices(response))} wyników źródła, żaden nie spełnia reguł; nie oznacza to wyprzedania')
         last = available[0]
         selected.append(route_from(last))
-        if index < len(query['odcinki']) - 1:
+        prices.append(last['price'])
+        urls.append(url)
+        if not separate and index < len(query['odcinki']) - 1:
             token = last.get('departure_token')
             if not token:
                 raise ProviderError('brak danych do wyboru kolejnego odcinka; wycena niekompletna')
@@ -367,7 +377,10 @@ def quote(query, rules, client, now):
             raise ProviderError('postój w Buenos Aires jest za krótki')
     return {'id': ident(query['id'] + json.dumps(selected, sort_keys=True)), 'zapytanie': query['id'],
             'nazwa': query['nazwa'], 'scenariusz': query['scenariusz'], 'sprawdzono': now.isoformat(),
-            'dorosli': 2, 'waluta': 'PLN', 'cenaWyniku': last['price'], 'zakresCeny': 'wynik wyszukiwania dla 2 dorosłych; jednostka do kontroli w formularzu',
+            'dorosli': 2, 'waluta': 'PLN', 'cenaWyniku': sum(prices) if separate else last['price'],
+            'zakresCeny': ('suma trzech osobnych biletów dla 2 dorosłych; dodatki do potwierdzenia' if separate else 'wynik wyszukiwania dla 2 dorosłych; jednostka do kontroli w formularzu'),
+            'sposobWyceny': 'osobne' if separate else 'multi-city',
+            'cenyOdcinkow': prices if separate else [], 'linkiOdcinkow': urls if separate else [],
             'stopoverGodziny': stopover, 'bagazPotwierdzony': False,
             'bagaz': 'Filtr dwóch bagaży kabinowych wysłany; API nie potwierdza ich uwzględnienia w cenie. Wymagana kontrola obu bagaży i 23 kg na osobę.',
             'trasy': selected, 'url': url, 'status': 'do potwierdzenia', 'braki': query['braki'] +
@@ -398,12 +411,12 @@ def test_prices(output, config, program, previous, key, now, state_path, client_
         if isinstance(value, str) and re.fullmatch(r'\d{4}-\d{2}-\d{2}', value):
             rules[field] = (dt.date.fromisoformat(value) + delta).isoformat()
     plan = build_plan(shifted)
-    query = next(q for q in plan if q['id'] == 'mdz-bue') if route == 'domestic' else plan[0]
+    query = next(q for q in plan if q['id'] == 'mdz-bue') if route == 'domestic' else next(q for q in plan if q.get('sposobWyceny') == 'osobne') if route == 'split' else plan[0]
     query['id'] = 'test-marzec-2027-' + route
     query['nazwa'] = 'TEST połączenia - marzec 2027, nie oferta na rocznicę'
     cost = len(query['odcinki'])
-    if extra_budget not in (0, 2):
-        raise ValueError('Dodatkowy budżet testowy: 0 lub 2.')
+    if extra_budget not in (0, 2, 4):
+        raise ValueError('Dodatkowy budżet testowy: 0, 2 lub 4.')
     limits = dict(config['serpapi'], limitPrzebieg=cost,
                   limitDzien=config['serpapi']['limitDzien'] + extra_budget)
     quota = Quota(previous.get('limity', {}), limits, now)
@@ -510,8 +523,8 @@ def main():
     ap.add_argument('--rss-file', type=Path, help='Gotowy wynik RSS; do testów i ponownego przeliczenia bez sieci.')
     ap.add_argument('--no-prices', action='store_true')
     ap.add_argument('--test-prices', action='store_true', help='Ręczny test 5-13.03.2027; wynik oddzielnie od ofert listopadowych.')
-    ap.add_argument('--test-route', choices=['trip', 'domestic'], default='trip')
-    ap.add_argument('--test-extra-budget', type=int, choices=[0, 2], default=0)
+    ap.add_argument('--test-route', choices=['trip', 'domestic', 'split'], default='trip')
+    ap.add_argument('--test-extra-budget', type=int, choices=[0, 2, 4], default=0)
     args = ap.parse_args()
     config, program = read(SRC / 'data/wyszukiwarka.json'), read(SRC / 'data/program.json')
     previous = read(args.output, {})
