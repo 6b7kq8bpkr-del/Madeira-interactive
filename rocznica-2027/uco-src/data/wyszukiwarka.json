@@ -5,6 +5,8 @@
  "maxTropy": 150,
  "koniec": "2027-08-31",
  "serpapi": {
+  "kalendarzPotwierdzonyDo": "2027-10-21",
+  "kalendarzSprawdzono": "2026-11-26",
   "limitDzien": 7,
   "limitMiesiac": 210,
   "limitPrzebieg": 4,

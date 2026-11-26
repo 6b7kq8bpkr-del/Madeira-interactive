@@ -32,6 +32,14 @@ Przycisk „Pobierz najnowszy skan” odczytuje zapisany wynik. Nie uruchamia za
 
 Utrata pojedynczego źródła nie zeruje listy tropów. Brak wyników nie oznacza braku promocji, wyprzedania ani zamkniętej sprzedaży. Błędy 401/403/429 zatrzymują dalsze płatne odczyty danego przebiegu. Surowe odpowiedzi z tokenami, klucze i spersonalizowane linki nie są zapisywane w danych publicznych.
 
+## Ochrona limitu i test na wcześniejszym terminie
+
+Klucz został podłączony 26.11.2026. Tego dnia Google Flights jawnie odrzucało listopad jako zbyt odległy, a formularz pozwalał wybrać daty do 21.10.2027. Konfiguracja `serpapi.kalendarzPotwierdzonyDo` przechowuje tę potwierdzoną granicę. Skaner sprawdza wszystkie części zapytania przed wywołaniem API. Daty późniejsze są oznaczane „oczekuje na kalendarz” i zużywają zero zapytań. Brak lub błędna granica również blokuje API. Upływ czasu sam nie odblokowuje zapytań.
+
+Istniejący agent o 9:00 i 18:00 sprawdza granicę w bezpłatnym formularzu Google Flights. Po rzeczywistym potwierdzeniu dostępności późniejszych dat aktualizuje wyłącznie `kalendarzPotwierdzonyDo` oraz `kalendarzSprawdzono` w konfiguracji. Nie wolno przesuwać granicy na podstawie przypuszczenia, liczby dni wyprzedzenia ani pustego wyniku API. RSS, portale i fora działają podczas blokady.
+
+Ręczny workflow z opcją `price_test` uruchamia ten sam adapter i parser dla WAW-MDZ 5.03.2027, MDZ-BUE 12.03 oraz BUE-WAW 13.03. Maksymalnie trzy wywołania, w ramach wspólnego limitu dziennego i miesięcznego. Test nie uruchamia się z harmonogramu ani przy publikacji kodu. Wynik trafia wyłącznie do osobnego artefaktu `test-cen-marzec-2027` (7 dni) i logu, bez sekretów i tokenów, nigdy do `wyceny` listopadowego monitora. Nieudana próba ma końcowy status błędu. Po teście zwykły skan publikuje aktualny licznik i stan blokady.
+
 ## Utrzymanie
 
 ```sh

@@ -151,12 +151,62 @@ class Tests(unittest.TestCase):
                 self.quota.charge(); self.checkpoint()
                 raise finder.ProviderError('źródło zwróciło HTTP 429')
         old={'wyceny':[{'id':'old','sprawdzono':(NOW-dt.timedelta(days=1)).isoformat()}]}
+        opened=copy.deepcopy(CONFIG)
+        opened['serpapi']['kalendarzPotwierdzonyDo']='2027-11-14'
         with tempfile.TemporaryDirectory() as d:
-            s=finder.collect(Path(d)/'out.json',CONFIG,PROGRAM,old,RSS,'FAKE',NOW,Path(d)/'quota.json',Fake)
+            s=finder.collect(Path(d)/'out.json',opened,PROGRAM,old,RSS,'FAKE',NOW,Path(d)/'quota.json',Fake)
             self.assertEqual(s['wyceny'],old['wyceny'])
             self.assertEqual(s['limity']['dzienZapytania'],1)
             self.assertEqual(finder.read(Path(d)/'quota.json')['limity']['dzienZapytania'],1)
             self.assertEqual(s['ceny']['status'],'błąd źródła')
+
+    def test_future_calendar_never_constructs_provider_or_charges(self):
+        old={'limity':dict(finder.Quota({},CONFIG['serpapi'],NOW).state,dzienZapytania=4,miesiacZapytania=4)}
+        with tempfile.TemporaryDirectory() as d:
+            for date in (NOW,NOW+dt.timedelta(days=60)):
+                s=finder.collect(Path(d)/'out.json',CONFIG,PROGRAM,old,RSS,'FAKE',date,
+                                 client_factory=lambda *a: self.fail('API must stay blocked'))
+                self.assertEqual(s['ceny']['status'],'oczekuje na kalendarz')
+                self.assertTrue(all(q['status']=='oczekuje na kalendarz' for q in s['zapytania'].values()))
+                self.assertNotIn('ostatniaProba',s['ceny'])
+                self.assertEqual(s['limity'],finder.Quota(old['limity'],CONFIG['serpapi'],date).state)
+
+    def test_calendar_requires_all_slices_and_explicit_evidence(self):
+        q=finder.build_plan(PROGRAM)[0]
+        config=copy.deepcopy(CONFIG)
+        for boundary,allowed in [('2027-11-05',False),('2027-11-12',False),('2027-11-13',True),('invalid',False)]:
+            config['serpapi']['kalendarzPotwierdzonyDo']=boundary
+            self.assertEqual(finder.calendar_allows(q,config),allowed)
+        del config['serpapi']['kalendarzPotwierdzonyDo']
+        self.assertFalse(finder.calendar_allows(q,config))
+
+    def test_real_price_diagnostic_is_isolated_and_counts_three_calls(self):
+        calls=[]
+        replies=[response('WAW','MDZ','2027-03-05',8000,'first'),response('MDZ','AEP','2027-03-12',8200,'second'),response('EZE','WAW','2027-03-13',8500)]
+        replies[0]['best_flights'][0]['flights'][0]['arrival_airport']['time']='2027-03-06 12:00'
+        class Fake:
+            def __init__(self,key,quota,checkpoint): self.quota,self.checkpoint=quota,checkpoint
+            def search(self,p):
+                self.quota.charge(); self.checkpoint(); calls.append(dict(p)); return replies.pop(0)
+        old={'limity':dict(finder.Quota({},CONFIG['serpapi'],NOW).state,dzienZapytania=4,miesiacZapytania=4),'wyceny':[]}
+        with tempfile.TemporaryDirectory() as d:
+            result=finder.test_prices(Path(d)/'test.json',CONFIG,PROGRAM,old,'FAKE',NOW,Path(d)/'quota.json',Fake)
+            self.assertEqual(result['status'],'pobrano cenę')
+            self.assertEqual(result['zapytaniaTestu'],3)
+            self.assertEqual(result['wycena']['cenaWyniku'],8500)
+            self.assertEqual(result['limity']['dzienZapytania'],7)
+            self.assertEqual(finder.read(Path(d)/'quota.json')['limity']['miesiacZapytania'],7)
+            self.assertEqual(old['wyceny'],[])
+            self.assertEqual(PROGRAM['loty']['monitoring']['reguly']['wylot'],'2027-11-05')
+            self.assertTrue(all('2027-03-' in p['multi_city_json'] and '2027-11-' not in p['multi_city_json'] for p in calls))
+
+    def test_diagnostic_does_not_bypass_daily_limit(self):
+        old={'limity':dict(finder.Quota({},CONFIG['serpapi'],NOW).state,dzienZapytania=5,miesiacZapytania=5)}
+        with tempfile.TemporaryDirectory() as d:
+            result=finder.test_prices(Path(d)/'test.json',CONFIG,PROGRAM,old,'FAKE',NOW,Path(d)/'quota.json',
+                                     lambda *a: self.fail('No quota for full test'))
+            self.assertEqual(result['zapytaniaTestu'],0)
+            self.assertEqual(result['status'],'błąd')
 
     def test_stop_after_search_deadline(self):
         with tempfile.TemporaryDirectory() as d:

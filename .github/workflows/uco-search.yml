@@ -3,6 +3,11 @@ on:
   schedule:
     - cron: '17 */6 * * *'
   workflow_dispatch:
+    inputs:
+      price_test:
+        description: 'Test rzeczywistych cen 5-13.03.2027 (maks. 3 zapytania, osobny wynik)'
+        type: boolean
+        default: false
   push:
     branches: [main]
     paths:
@@ -38,6 +43,20 @@ jobs:
           path: .uco-private/quota.json
           key: uco-quota-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: uco-quota-
+      - name: Ręczny test cen dla wcześniejszych dat
+        id: price_test
+        if: github.event_name == 'workflow_dispatch' && inputs.price_test
+        continue-on-error: true
+        env:
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+        run: python3 -I -B rocznica-2027/uco/tools/deal_finder.py --state .uco-private/quota.json --test-prices
+      - name: Wynik testu bez sekretów
+        if: always() && github.event_name == 'workflow_dispatch' && inputs.price_test
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-cen-marzec-2027
+          path: .uco-private/price-test.json
+          retention-days: 7
       - name: Publiczne promocje i opcjonalne ceny
         env:
           SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
@@ -69,3 +88,6 @@ jobs:
             commit=$(git commit-tree "$tree" -m 'Uruchom publiczny skaner okazji lotniczych')
           fi
           git push origin "$commit:refs/heads/uco-monitor-data"
+      - name: Końcowy status testu cen
+        if: steps.price_test.outcome == 'failure'
+        run: exit 1

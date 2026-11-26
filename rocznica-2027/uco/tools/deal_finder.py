@@ -3,6 +3,7 @@
 Nie rezerwuje, nie wysyła wiadomości i nigdy nie zmienia loty.json.oferty.
 """
 import argparse
+import copy
 import datetime as dt
 import hashlib
 import importlib.util
@@ -355,6 +356,57 @@ def quote(query, rules, client, now):
             'kompletPodrozy': False, 'potwierdzonaULinii': False}
 
 
+def calendar_allows(query, config):
+    """Tylko daty potwierdzone w bezpłatnym kalendarzu; brak dowodu blokuje API.
+    Nie przesuwamy granicy automatycznie wraz z upływem czasu.
+    """
+    try:
+        until = dt.date.fromisoformat(config['serpapi']['kalendarzPotwierdzonyDo'])
+        return all(dt.date.fromisoformat(leg['data']) <= until for leg in query['odcinki'])
+    except (KeyError, TypeError, ValueError):
+        return False
+
+
+def test_prices(output, config, program, previous, key, now, state_path, client_factory=SerpApi):
+    """Ręczny test tego samego adaptera; oddzielny plik, maks. trzy wywołania.
+    Wyniki nigdy nie trafiają do listopadowych wycen ani raportu zakupu.
+    """
+    shifted = copy.deepcopy(program)
+    rules = shifted['loty']['monitoring']['reguly']
+    departure = dt.date(2027, 3, 5)
+    delta = departure - dt.date.fromisoformat(rules['wylot'])
+    for field, value in list(rules.items()):
+        if isinstance(value, str) and re.fullmatch(r'\d{4}-\d{2}-\d{2}', value):
+            rules[field] = (dt.date.fromisoformat(value) + delta).isoformat()
+    query = build_plan(shifted)[0]
+    query['id'] = 'test-marzec-2027'
+    query['nazwa'] = 'TEST połączenia - marzec 2027, nie oferta na rocznicę'
+    limits = dict(config['serpapi'], limitPrzebieg=3)
+    quota = Quota(previous.get('limity', {}), limits, now)
+    result = {'test': True, 'sprawdzono': now.isoformat(), 'odcinki': query['odcinki'],
+              'status': 'błąd', 'limity': quota.state,
+              'uwaga': 'Rzeczywista cena dla wcześniejszych dat. Nie dotyczy wyjazdu w listopadzie.'}
+
+    def checkpoint():
+        atomic(state_path, {'sprawdzono': now.isoformat(), 'limity': quota.state})
+
+    try:
+        if not key:
+            raise ProviderError('Brak klucza SerpApi.')
+        if now.date() >= departure or not calendar_allows(query, config):
+            raise ProviderError('Termin testu nie mieści się w potwierdzonym kalendarzu przyszłych lotów.')
+        if min(limits['limitDzien'] - quota.state['dzienZapytania'],
+               limits['limitMiesiac'] - quota.state['miesiacZapytania']) < 3:
+            raise ProviderError('Brak limitu na pełny test trzech części; nie wysłano zapytań.')
+        result['wycena'] = quote(query, rules, client_factory(key, quota, checkpoint), now)
+        result['status'] = 'pobrano cenę'
+    except ProviderError as e:
+        result['opis'] = str(e)
+    result['zapytaniaTestu'] = quota.run
+    atomic(output, result)
+    return result
+
+
 def collect(output, config, program, previous=None, rss_result=None, key=None, now=None, state_path=None, client_factory=SerpApi):
     now = now or dt.datetime.now(WARSAW)
     previous = previous or {}
@@ -375,9 +427,18 @@ def collect(output, config, program, previous=None, rss_result=None, key=None, n
     result = rss_result if rss_result is not None else rss.scan(config['rssDni'])
     state['rss'] = {k: result[k] for k in ('sprawdzono', 'stan', 'kanaly')}
     state['tropy'] = merge_leads(state['tropy'], result['trafienia'], now, config)
+    eligible = [q for q in plan if calendar_allows(q, config)]
+    boundary = config['serpapi'].get('kalendarzPotwierdzonyDo', 'brak potwierdzenia')
+    waiting = ('Bez zapytań API poza potwierdzonym kalendarzem Google Flights (do ' + boundary + '). '
+               'Listopad czeka na potwierdzenie dat w bezpłatnym formularzu. RSS i monitoring portali działają nadal.')
+    for query in plan:
+        if query not in eligible:
+            state['zapytania'][query['id']] = {'status': 'oczekuje na kalendarz', 'opis': waiting}
     last_attempt = stamp(state['ceny'].get('ostatniaProba'))
     if not key:
         state['ceny'] = {'status': 'wymaga podłączenia', 'opis': 'Automatyczne ceny czekają na konto SerpApi i klucz zapisany jako sekret repozytorium. Tropy RSS działają bez konta.'}
+    elif not eligible:
+        state['ceny'] = dict(state['ceny'], status='oczekuje na kalendarz', opis=waiting)
     elif last_attempt and (now - last_attempt).total_seconds() < config['serpapi']['minPrzerwaMinuty'] * 60:
         state['ceny']['opis'] = 'Zachowano poprzedni odczyt; trwa przerwa ograniczająca zużycie zapytań.'
     else:
@@ -392,7 +453,7 @@ def collect(output, config, program, previous=None, rss_result=None, key=None, n
             cadence = {0:24, 1:48, 2:72, 3:168}[q['priorytet']]
             urgency = (now - checked).total_seconds() / (3600 * cadence) if checked else 1
             return (-urgency, q['priorytet'])
-        for query in sorted(plan, key=queue_key):
+        for query in sorted(eligible, key=queue_key):
             if not quota.available():
                 break
             if queue_key(query)[0] > -1:
@@ -424,6 +485,7 @@ def main():
     ap.add_argument('--state', type=Path, help='Plik licznika zapisywany przed każdym zapytaniem (poza stroną).')
     ap.add_argument('--rss-file', type=Path, help='Gotowy wynik RSS; do testów i ponownego przeliczenia bez sieci.')
     ap.add_argument('--no-prices', action='store_true')
+    ap.add_argument('--test-prices', action='store_true', help='Ręczny test 5-13.03.2027; wynik oddzielnie od ofert listopadowych.')
     args = ap.parse_args()
     config, program = read(SRC / 'data/wyszukiwarka.json'), read(SRC / 'data/program.json')
     previous = read(args.output, {})
@@ -441,6 +503,13 @@ def main():
         elif reserved.get('dzien') == current.get('dzien'):
             merged['dzienZapytania'] = max(current.get('dzienZapytania', 0), reserved.get('dzienZapytania', 0))
         previous['limity'] = merged
+    if args.test_prices:
+        if not args.state or args.no_prices:
+            ap.error('Test wymaga --state i nie może używać --no-prices.')
+        result = test_prices(args.state.parent / 'price-test.json', config, program, previous,
+                             os.environ.get('SERPAPI_API_KEY'), dt.datetime.now(WARSAW), args.state)
+        print(json.dumps(result, ensure_ascii=False))
+        raise SystemExit(0 if result['status'] == 'pobrano cenę' else 1)
     result = collect(args.output, config, program, previous, read(args.rss_file) if args.rss_file else None,
                      None if args.no_prices else os.environ.get('SERPAPI_API_KEY'), state_path=args.state)
     print(json.dumps({'tropy': len(result['tropy']), 'wyceny': len(result['wyceny']),
