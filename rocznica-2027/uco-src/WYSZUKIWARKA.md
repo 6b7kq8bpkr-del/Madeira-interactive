@@ -38,7 +38,7 @@ Klucz został podłączony 26.11.2026. Tego dnia Google Flights jawnie odrzucał
 
 Istniejący agent o 9:00 i 18:00 sprawdza granicę w bezpłatnym formularzu Google Flights. Po rzeczywistym potwierdzeniu dostępności późniejszych dat aktualizuje wyłącznie `kalendarzPotwierdzonyDo` oraz `kalendarzSprawdzono` w konfiguracji. Nie wolno przesuwać granicy na podstawie przypuszczenia, liczby dni wyprzedzenia ani pustego wyniku API. RSS, portale i fora działają podczas blokady.
 
-Ręczny workflow z opcją `price_test` uruchamia ten sam adapter i parser dla WAW-MDZ 5.03.2027, MDZ-BUE 12.03 oraz BUE-WAW 13.03. Maksymalnie trzy wywołania, w ramach wspólnego limitu dziennego i miesięcznego. Test nie uruchamia się z harmonogramu ani przy publikacji kodu. Wynik trafia wyłącznie do osobnego artefaktu `test-cen-marzec-2027` (7 dni) i logu, bez sekretów i tokenów, nigdy do `wyceny` listopadowego monitora. Nieudana próba ma końcowy status błędu. Po teście zwykły skan publikuje aktualny licznik i stan blokady.
+Ręczny workflow z opcją `price_test` uruchamia ten sam adapter i parser dla WAW-MDZ 5.03.2027, MDZ-BUE 12.03 oraz BUE-WAW 13.03. Opcja `test_route=domestic` sprawdza tylko MDZ-BUE 12.03 jednym wywołaniem; `trip` sprawdza całą trasę maksymalnie trzema. Oba tryby mieszczą się we wspólnym limicie dziennym i miesięcznym. Buenos Aires jest przekazywane do API jako lista lotnisk `AEP,EZE`, zgodnie z dokumentowanym formatem dostawcy. Test nie uruchamia się z harmonogramu ani przy publikacji kodu. Wynik trafia wyłącznie do osobnego artefaktu `test-cen-marzec-2027` (7 dni) i logu, bez sekretów i tokenów, nigdy do `wyceny` listopadowego monitora. Nieudana próba ma końcowy status błędu. Po teście zwykły skan publikuje aktualny licznik i stan blokady.
 
 ## Utrzymanie
 

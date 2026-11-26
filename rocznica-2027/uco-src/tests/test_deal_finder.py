@@ -43,6 +43,8 @@ class Tests(unittest.TestCase):
         self.assertEqual(legs[0]['times'], '20,23')
         self.assertEqual(legs[1]['times'], '0,23,0,15')
         self.assertEqual(legs[2]['times'], '18,23')
+        self.assertEqual(legs[1]['arrival_id'], 'AEP,EZE')
+        self.assertEqual(legs[2]['departure_id'], 'AEP,EZE')
         self.assertEqual(p['adults'], 2)
         self.assertNotIn('outbound_date', p)
 
@@ -207,6 +209,21 @@ class Tests(unittest.TestCase):
                                      lambda *a: self.fail('No quota for full test'))
             self.assertEqual(result['zapytaniaTestu'],0)
             self.assertEqual(result['status'],'błąd')
+
+    def test_domestic_diagnostic_uses_one_call_and_explicit_airports(self):
+        class Fake:
+            def __init__(self,key,quota,checkpoint): self.quota,self.checkpoint=quota,checkpoint
+            def search(self,p):
+                self.quota.charge(); self.checkpoint()
+                self.params=p
+                assert p['arrival_id']=='AEP,EZE' and p['type']==2
+                return response('MDZ','AEP','2027-03-12',550)
+        old={'limity':dict(finder.Quota({},CONFIG['serpapi'],NOW).state,dzienZapytania=5,miesiacZapytania=5)}
+        with tempfile.TemporaryDirectory() as d:
+            result=finder.test_prices(Path(d)/'test.json',CONFIG,PROGRAM,old,'FAKE',NOW,Path(d)/'quota.json',Fake,route='domestic')
+            self.assertEqual(result['status'],'pobrano cenę')
+            self.assertEqual(result['zapytaniaTestu'],1)
+            self.assertEqual(result['wycena']['cenaWyniku'],550)
 
     def test_stop_after_search_deadline(self):
         with tempfile.TemporaryDirectory() as d:

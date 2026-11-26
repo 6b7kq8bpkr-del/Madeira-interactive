@@ -8,6 +8,11 @@ on:
         description: 'Test rzeczywistych cen 5-13.03.2027 (maks. 3 zapytania, osobny wynik)'
         type: boolean
         default: false
+      test_route:
+        description: 'Zakres testu: pełna trasa (3 zapytania) lub MDZ-BUE (1 zapytanie)'
+        type: choice
+        options: [trip, domestic]
+        default: trip
   push:
     branches: [main]
     paths:
@@ -49,7 +54,8 @@ jobs:
         continue-on-error: true
         env:
           SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
-        run: python3 -I -B rocznica-2027/uco/tools/deal_finder.py --state .uco-private/quota.json --test-prices
+          TEST_ROUTE: ${{ inputs.test_route }}
+        run: python3 -I -B rocznica-2027/uco/tools/deal_finder.py --state .uco-private/quota.json --test-prices --test-route "$TEST_ROUTE"
       - name: Wynik testu bez sekretów
         if: always() && github.event_name == 'workflow_dispatch' && inputs.price_test
         uses: actions/upload-artifact@v4

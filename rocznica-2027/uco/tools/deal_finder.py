@@ -261,7 +261,9 @@ def parameters(query, rules):
            'travel_class': 1, 'stops': 3, 'bags': 2, 'deep_search': 'true', 'show_hidden': 'true', 'sort_by': 2}
     slices = []
     for leg in legs:
-        s = {'departure_id': leg['z'], 'arrival_id': leg['do'], 'date': leg['data']}
+        # API dokumentuje konkretne lotniska lub kgmid, nie miejskie kody IATA.
+        airports = lambda code: 'AEP,EZE' if code == 'BUE' else code
+        s = {'departure_id': airports(leg['z']), 'arrival_id': airports(leg['do']), 'date': leg['data']}
         if leg['z'] == 'WAW' and leg['data'] == rules['wylotAlternatywny']:
             s['times'] = '20,23'
         if leg['z'] in ('BUE', 'EZE', 'AEP') and leg['data'] == rules['buenosDo']:
@@ -367,7 +369,7 @@ def calendar_allows(query, config):
         return False
 
 
-def test_prices(output, config, program, previous, key, now, state_path, client_factory=SerpApi):
+def test_prices(output, config, program, previous, key, now, state_path, client_factory=SerpApi, route='trip'):
     """Ręczny test tego samego adaptera; oddzielny plik, maks. trzy wywołania.
     Wyniki nigdy nie trafiają do listopadowych wycen ani raportu zakupu.
     """
@@ -378,10 +380,12 @@ def test_prices(output, config, program, previous, key, now, state_path, client_
     for field, value in list(rules.items()):
         if isinstance(value, str) and re.fullmatch(r'\d{4}-\d{2}-\d{2}', value):
             rules[field] = (dt.date.fromisoformat(value) + delta).isoformat()
-    query = build_plan(shifted)[0]
-    query['id'] = 'test-marzec-2027'
+    plan = build_plan(shifted)
+    query = next(q for q in plan if q['id'] == 'mdz-bue') if route == 'domestic' else plan[0]
+    query['id'] = 'test-marzec-2027-' + route
     query['nazwa'] = 'TEST połączenia - marzec 2027, nie oferta na rocznicę'
-    limits = dict(config['serpapi'], limitPrzebieg=3)
+    cost = len(query['odcinki'])
+    limits = dict(config['serpapi'], limitPrzebieg=cost)
     quota = Quota(previous.get('limity', {}), limits, now)
     result = {'test': True, 'sprawdzono': now.isoformat(), 'odcinki': query['odcinki'],
               'status': 'błąd', 'limity': quota.state,
@@ -396,8 +400,8 @@ def test_prices(output, config, program, previous, key, now, state_path, client_
         if now.date() >= departure or not calendar_allows(query, config):
             raise ProviderError('Termin testu nie mieści się w potwierdzonym kalendarzu przyszłych lotów.')
         if min(limits['limitDzien'] - quota.state['dzienZapytania'],
-               limits['limitMiesiac'] - quota.state['miesiacZapytania']) < 3:
-            raise ProviderError('Brak limitu na pełny test trzech części; nie wysłano zapytań.')
+               limits['limitMiesiac'] - quota.state['miesiacZapytania']) < cost:
+            raise ProviderError('Brak limitu na pełny wybrany test; nie wysłano zapytań.')
         result['wycena'] = quote(query, rules, client_factory(key, quota, checkpoint), now)
         result['status'] = 'pobrano cenę'
     except ProviderError as e:
@@ -486,6 +490,7 @@ def main():
     ap.add_argument('--rss-file', type=Path, help='Gotowy wynik RSS; do testów i ponownego przeliczenia bez sieci.')
     ap.add_argument('--no-prices', action='store_true')
     ap.add_argument('--test-prices', action='store_true', help='Ręczny test 5-13.03.2027; wynik oddzielnie od ofert listopadowych.')
+    ap.add_argument('--test-route', choices=['trip', 'domestic'], default='trip')
     args = ap.parse_args()
     config, program = read(SRC / 'data/wyszukiwarka.json'), read(SRC / 'data/program.json')
     previous = read(args.output, {})
@@ -507,7 +512,7 @@ def main():
         if not args.state or args.no_prices:
             ap.error('Test wymaga --state i nie może używać --no-prices.')
         result = test_prices(args.state.parent / 'price-test.json', config, program, previous,
-                             os.environ.get('SERPAPI_API_KEY'), dt.datetime.now(WARSAW), args.state)
+                             os.environ.get('SERPAPI_API_KEY'), dt.datetime.now(WARSAW), args.state, route=args.test_route)
         print(json.dumps(result, ensure_ascii=False))
         raise SystemExit(0 if result['status'] == 'pobrano cenę' else 1)
     result = collect(args.output, config, program, previous, read(args.rss_file) if args.rss_file else None,
