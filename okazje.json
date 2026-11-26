@@ -1,6 +1,6 @@
 {
  "wersja": 1,
- "sprawdzono": "2026-11-26T11:22:19.982930+01:00",
+ "sprawdzono": "2026-11-26T11:43:22.707992+01:00",
  "plan": [
   {
    "id": "calosc-2027-11-05",
@@ -597,7 +597,7 @@
    "rodzaj": "oferta",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T11:22:19.982930+01:00"
+   "ostatniOdczyt": "2026-11-26T11:43:22.707992+01:00"
   },
   {
    "id": "9413d7833d478fdc",
@@ -618,7 +618,7 @@
    "rodzaj": "oferta",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T11:22:19.982930+01:00"
+   "ostatniOdczyt": "2026-11-26T11:43:22.707992+01:00"
   },
   {
    "id": "55c85a863959bd75",
@@ -640,7 +640,7 @@
    "rodzaj": "oferta",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T11:22:19.982930+01:00"
+   "ostatniOdczyt": "2026-11-26T11:43:22.707992+01:00"
   },
   {
    "id": "8e8d0812a9a230a7",
@@ -662,7 +662,7 @@
    "rodzaj": "informacja",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T11:22:19.982930+01:00"
+   "ostatniOdczyt": "2026-11-26T11:43:22.707992+01:00"
   },
   {
    "id": "a2a6fde3cb653293",
@@ -685,7 +685,7 @@
    "rodzaj": "informacja",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T11:22:19.982930+01:00"
+   "ostatniOdczyt": "2026-11-26T11:43:22.707992+01:00"
   },
   {
    "id": "2be40396b1d1beb7",
@@ -707,7 +707,7 @@
    "rodzaj": "informacja",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T11:22:19.982930+01:00"
+   "ostatniOdczyt": "2026-11-26T11:43:22.707992+01:00"
   },
   {
    "id": "d31ab7de7d020dc6",
@@ -729,7 +729,7 @@
    "rodzaj": "informacja",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T11:22:19.982930+01:00"
+   "ostatniOdczyt": "2026-11-26T11:43:22.707992+01:00"
   },
   {
    "id": "7ca0feb84ebe905a",
@@ -751,7 +751,7 @@
    "rodzaj": "informacja",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T11:22:19.982930+01:00"
+   "ostatniOdczyt": "2026-11-26T11:43:22.707992+01:00"
   },
   {
    "id": "b2fd2a97b09ebf3d",
@@ -773,7 +773,7 @@
    "rodzaj": "informacja",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T11:22:19.982930+01:00"
+   "ostatniOdczyt": "2026-11-26T11:43:22.707992+01:00"
   },
   {
    "id": "651592428c28ffcc",
@@ -795,7 +795,7 @@
    "rodzaj": "informacja",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T11:22:19.982930+01:00"
+   "ostatniOdczyt": "2026-11-26T11:43:22.707992+01:00"
   },
   {
    "id": "786db17835563deb",
@@ -816,7 +816,7 @@
    "rodzaj": "informacja",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T11:22:19.982930+01:00"
+   "ostatniOdczyt": "2026-11-26T11:43:22.707992+01:00"
   },
   {
    "id": "a4d92438631ffbf3",
@@ -838,7 +838,7 @@
    "rodzaj": "informacja",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T11:22:19.982930+01:00"
+   "ostatniOdczyt": "2026-11-26T11:43:22.707992+01:00"
   },
   {
    "id": "8a76a3d660d54c97",
@@ -859,7 +859,7 @@
    "rodzaj": "informacja",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T11:22:19.982930+01:00"
+   "ostatniOdczyt": "2026-11-26T11:43:22.707992+01:00"
   },
   {
    "id": "501e162c293fc305",
@@ -880,7 +880,7 @@
    "rodzaj": "informacja",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T11:22:19.982930+01:00"
+   "ostatniOdczyt": "2026-11-26T11:43:22.707992+01:00"
   },
   {
    "id": "9813bc91a5ec741e",
@@ -901,7 +901,7 @@
    "rodzaj": "informacja",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T11:22:19.982930+01:00"
+   "ostatniOdczyt": "2026-11-26T11:43:22.707992+01:00"
   },
   {
    "id": "b9ef291833dbfbe2",
@@ -923,16 +923,37 @@
    "rodzaj": "oferta",
    "odwrotny": true,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T11:22:19.982930+01:00"
+   "ostatniOdczyt": "2026-11-26T11:43:22.707992+01:00"
   }
  ],
  "wyceny": [],
- "zapytania": {},
+ "zapytania": {
+  "calosc-2027-11-05": {
+   "sprawdzono": "2026-11-26T11:43:22.707992+01:00",
+   "status": "luka",
+   "opis": "źródło nie zwróciło wyników; sprawdź konto, daty i pozostały limit"
+  },
+  "openjaw-2027-11-05": {
+   "sprawdzono": "2026-11-26T11:43:22.707992+01:00",
+   "status": "luka",
+   "opis": "źródło nie zwróciło wyników; sprawdź konto, daty i pozostały limit"
+  },
+  "eze-2027-11-05": {
+   "sprawdzono": "2026-11-26T11:43:22.707992+01:00",
+   "status": "luka",
+   "opis": "źródło nie zwróciło wyników; sprawdź konto, daty i pozostały limit"
+  },
+  "mdz-bue": {
+   "sprawdzono": "2026-11-26T11:43:22.707992+01:00",
+   "status": "luka",
+   "opis": "źródło nie zwróciło wyników; sprawdź konto, daty i pozostały limit"
+  }
+ },
  "limity": {
   "miesiac": "2026-11",
   "dzien": "2026-11-26",
-  "miesiacZapytania": 0,
-  "dzienZapytania": 0
+  "miesiacZapytania": 4,
+  "dzienZapytania": 4
  },
  "konfiguracjaLimitow": {
   "limitDzien": 7,
@@ -968,14 +989,14 @@
   }
  ],
  "rss": {
-  "sprawdzono": "2026-11-26T11:22:19+01:00",
+  "sprawdzono": "2026-11-26T11:43:22+01:00",
   "stan": "czesciowy",
   "kanaly": [
    {
     "zrodlo": "Fly4free.pl",
     "url": "https://www.fly4free.pl/feed/",
     "grupa": "fly4free.pl",
-    "sprawdzono": "2026-11-26T11:22:19+01:00",
+    "sprawdzono": "2026-11-26T11:43:22+01:00",
     "wpisy": 20,
     "ok": true
    },
@@ -983,7 +1004,7 @@
     "zrodlo": "Fly4free.pl · Argentyna",
     "url": "https://www.fly4free.pl/tag/argentyna/feed/",
     "grupa": "fly4free.pl",
-    "sprawdzono": "2026-11-26T11:22:19+01:00",
+    "sprawdzono": "2026-11-26T11:43:22+01:00",
     "wpisy": 20,
     "ok": true
    },
@@ -991,7 +1012,7 @@
     "zrodlo": "Fly4free.com",
     "url": "https://www.fly4free.com/feed/",
     "grupa": "fly4free.com",
-    "sprawdzono": "2026-11-26T11:22:19+01:00",
+    "sprawdzono": "2026-11-26T11:43:22+01:00",
     "wpisy": 50,
     "ok": true
    },
@@ -999,7 +1020,7 @@
     "zrodlo": "Fly4free.pl · Buenos Aires",
     "url": "https://www.fly4free.pl/tag/buenos-aires/feed/",
     "grupa": "fly4free.pl",
-    "sprawdzono": "2026-11-26T11:22:19+01:00",
+    "sprawdzono": "2026-11-26T11:43:22+01:00",
     "wpisy": 20,
     "ok": true
    },
@@ -1007,7 +1028,7 @@
     "zrodlo": "Fly4free.pl · Ameryka Płd.",
     "url": "https://www.fly4free.pl/tag/ameryka-poludniowa/feed/",
     "grupa": "fly4free.pl",
-    "sprawdzono": "2026-11-26T11:22:19+01:00",
+    "sprawdzono": "2026-11-26T11:43:22+01:00",
     "wpisy": 20,
     "ok": true
    },
@@ -1015,7 +1036,7 @@
     "zrodlo": "Travel-dealz · Argentyna",
     "url": "https://travel-dealz.com/destination/argentina/feed/",
     "grupa": "travel-dealz.com",
-    "sprawdzono": "2026-11-26T11:22:19+01:00",
+    "sprawdzono": "2026-11-26T11:43:22+01:00",
     "wpisy": 0,
     "ok": false,
     "blad": "The read operation timed out"
@@ -1024,7 +1045,7 @@
     "zrodlo": "Travel-dealz · Chile",
     "url": "https://travel-dealz.com/destination/chile/feed/",
     "grupa": "travel-dealz.com",
-    "sprawdzono": "2026-11-26T11:22:19+01:00",
+    "sprawdzono": "2026-11-26T11:43:22+01:00",
     "wpisy": 4,
     "ok": true
    },
@@ -1032,7 +1053,7 @@
     "zrodlo": "Travel-dealz",
     "url": "https://travel-dealz.com/feed/",
     "grupa": "travel-dealz.com",
-    "sprawdzono": "2026-11-26T11:22:19+01:00",
+    "sprawdzono": "2026-11-26T11:43:22+01:00",
     "wpisy": 0,
     "ok": false,
     "blad": "niepoprawny RSS/Atom"
@@ -1041,23 +1062,23 @@
     "zrodlo": "Wakacyjni Piraci",
     "url": "https://www.wakacyjnipiraci.pl/feed",
     "grupa": "wakacyjnipiraci.pl",
-    "sprawdzono": "2026-11-26T11:22:19+01:00",
-    "wpisy": 32,
+    "sprawdzono": "2026-11-26T11:43:22+01:00",
+    "wpisy": 30,
     "ok": true
    },
    {
     "zrodlo": "HolidayPirates",
     "url": "https://www.holidaypirates.com/feed",
     "grupa": "holidaypirates.com",
-    "sprawdzono": "2026-11-26T11:22:19+01:00",
-    "wpisy": 67,
+    "sprawdzono": "2026-11-26T11:43:22+01:00",
+    "wpisy": 62,
     "ok": true
    },
    {
     "zrodlo": "Pepper.pl",
     "url": "https://www.pepper.pl/rss/nowe",
     "grupa": "pepper.pl",
-    "sprawdzono": "2026-11-26T11:22:19+01:00",
+    "sprawdzono": "2026-11-26T11:43:22+01:00",
     "wpisy": 30,
     "ok": true
    },
@@ -1065,7 +1086,7 @@
     "zrodlo": "Infoviajera",
     "url": "https://www.infoviajera.com/feed/",
     "grupa": "infoviajera.com",
-    "sprawdzono": "2026-11-26T11:22:19+01:00",
+    "sprawdzono": "2026-11-26T11:43:22+01:00",
     "wpisy": 10,
     "ok": true
    },
@@ -1073,7 +1094,7 @@
     "zrodlo": "Promociones Aéreas",
     "url": "https://promociones-aereas.com.ar/feed/",
     "grupa": "promociones-aereas.com.ar",
-    "sprawdzono": "2026-11-26T11:22:19+01:00",
+    "sprawdzono": "2026-11-26T11:43:22+01:00",
     "wpisy": 15,
     "ok": true
    },
@@ -1081,7 +1102,7 @@
     "zrodlo": "Sir Chandler",
     "url": "https://www.sirchandler.com.ar/feed/",
     "grupa": "sirchandler.com.ar",
-    "sprawdzono": "2026-11-26T11:22:19+01:00",
+    "sprawdzono": "2026-11-26T11:43:22+01:00",
     "wpisy": 20,
     "ok": true
    },
@@ -1089,15 +1110,16 @@
     "zrodlo": "Aeroroutes",
     "url": "https://www.aeroroutes.com/eng?format=rss",
     "grupa": "aeroroutes.com",
-    "sprawdzono": "2026-11-26T11:22:19+01:00",
+    "sprawdzono": "2026-11-26T11:43:22+01:00",
     "wpisy": 20,
     "ok": true
    }
   ]
  },
  "ceny": {
-  "status": "wymaga podłączenia",
-  "opis": "Automatyczne ceny czekają na konto SerpApi i klucz zapisany jako sekret repozytorium. Tropy RSS działają bez konta."
+  "status": "aktywny",
+  "opis": "Wykorzystano limit tego przebiegu, dnia lub miesiąca. Pozostałe warianty czekają w kolejce.",
+  "ostatniaProba": "2026-11-26T11:43:22.707992+01:00"
  },
  "uwaga": "Tropy i ceny porównywarki wymagają weryfikacji. Gotowe do zakupu oferty pokazuje osobny panel z pełnymi warunkami."
 }
