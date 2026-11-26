@@ -108,7 +108,9 @@
       const ready = ranked.filter(q => q.ready);
       box.append(el('p', ready.length ? ready.length + ' ofert spełnia pełne kryteria. Szczegóły i cena na osobę poniżej w panelu „Jaką kombinację kupić?”.' : 'Brak kompletnej, potwierdzonej u linii oferty. Niczego nie rezerwujemy.'));
       const all = (state.wyceny || []).filter(q => q && safeURL(q.url));
-      if (!all.length) box.append(el('p', 'Nie pobrano jeszcze wycen z API. Gotowe wyszukiwania tras działają bez konta; automatyczne ceny wymagają podłączenia SerpApi.'));
+      if (!all.length) box.append(el('p', (state.ceny || {}).status === 'wymaga podłączenia'
+        ? 'Nie pobrano jeszcze wycen z API. Gotowe wyszukiwania tras działają bez konta; automatyczne ceny wymagają podłączenia SerpApi.'
+        : 'Nie uzyskano kompletnej wyceny. Sprawdź stan źródła powyżej i odczyty w sekcji „Wyszukaj konkretne połączenie”. Możesz otworzyć trasę w portalu i sprawdzić ją ręcznie.'));
       all.slice().sort((a,b) => String(b.sprawdzono).localeCompare(String(a.sprawdzono))).forEach(q => {
         const row = el('article', null, 'finder-route');
         row.append(el('h4', q.nazwa), el('p', date(q.sprawdzono) + ' · ' + (fresh(q.sprawdzono) ? 'do potwierdzenia' : 'odczyt starszy niż 24 h - odśwież przed oceną')));
