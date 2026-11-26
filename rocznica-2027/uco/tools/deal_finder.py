@@ -181,7 +181,8 @@ def classify(item, now):
     priced = bool(re.search(r'(?:€|\$|£|U\$D|USD|EUR|PLN)\s*\d|\d[\d .,]*\s*(?:€|\$|£|PLN|EUR|USD)\b', value, re.I))
     promotion = bool(re.search(r'promoc|discount|oferta|sale\b|deal\b|black friday|cyber monday|tanie loty', normalized_title))
     news = bool(re.search(r'suspend|suspensi|cancel|preocup|desapareci|ultimo vuelo|cerrar|courier|cargas|terminal|pasajeros|frecuencia|area de espera|protesta|refuerza|operaciones aereas', normalized_title))
-    kind = 'oferta' if (priced or promotion) and not news else 'informacja'
+    activities = bool(re.search(r'actividades|excursiones|visitas guiadas|atrakcje|zwiedzanie|tours|hotels|noclegi', normalized_title)) and not re.search(r'vuelos|flights|loty|bilety lotnicze', normalized_title)
+    kind = 'oferta' if (priced or promotion) and not news and not activities else 'informacja'
     if kind == 'oferta':
         points += 35
         why.insert(0, 'Wpis zawiera cenę lub zapowiedź promocji')

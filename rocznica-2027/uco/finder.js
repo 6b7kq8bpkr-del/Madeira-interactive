@@ -33,11 +33,17 @@
         google:'https://www.google.com/travel/flights?hl=pl&curr=PLN'};
     });
   }
+  function usefulLead(x) {
+    const title = norm(x.tytul);
+    if (/(actividades|excursiones|visitas guiadas|atrakcje|zwiedzanie|tours|hotels|noclegi)/.test(title) && !/(vuelos|flights|loty|bilety lotnicze)/.test(title)) return false;
+    return ['Mendoza', 'Buenos Aires / Argentyna', 'Inne huby'].includes(x.kategoria) ||
+      /\b(iberia|air france|klm|latam|aerolineas|air europa|lufthansa|swiss|turkish|tap)\b/.test(title);
+  }
   function filterLeads(leads, query, category, mode, saved, hidden, now = Date.now()) {
     const words = norm(query).split(/\s+/).filter(Boolean);
     return (Array.isArray(leads) ? leads : []).filter(x => x && safeURL(x.url)).filter(x => {
       if (category && x.kategoria !== category) return false;
-      if (mode === 'deals' && (x.rodzaj !== 'oferta' || reverseLead(x))) return false;
+      if (mode === 'deals' && (x.rodzaj !== 'oferta' || reverseLead(x) || !usefulLead(x))) return false;
       if (mode === 'news' && x.rodzaj !== 'informacja') return false;
       if (mode === 'saved' && !saved.includes(x.id)) return false;
       if (mode === 'hidden' ? !hidden.includes(x.id) : hidden.includes(x.id)) return false;
@@ -80,7 +86,7 @@
       '<details class="finder-plan" id="finder-plan"><summary>Następny krok: sprawdź całą trasę u linii</summary><p>Najpierw KLM / Air France przez São Paulo lub Santiago, następnie Iberia przez Madryt i Aerolíneas. To kolejność sprawdzania oparta na dotychczasowych testach, nie gwarancja najniższej ceny. Wybierz „Wiele miast”, 2 dorosłych i klasę ekonomiczną. Sprawdź obie daty wylotu poniżej.</p><div id="finder-airlines" class="finder-links"></div><p class="finder-note">Linki linii otwierają formularze bez wypełnionych dat. KAYAK przenosi odcinki; wyniki mogą obejmować osobne bilety. W Google wpisz odcinki ręcznie. Sprawdź końcową kwotę i ochronę wszystkich przewoźników u linii.</p><label for="finder-scenario">Wariant podróży</label><select id="finder-scenario"><option value="">Pełna trasa - obie daty wylotu</option></select><div id="finder-routes"></div></details>' +
       '<details id="finder-promos"><summary>Promocje, portale i fora - tropy do sprawdzenia</summary><p id="finder-status" role="status">Pobieranie tropów…</p><div id="finder-health"></div>' +
       '<form class="finder-filters" id="finder-filters"><label>Szukaj w tropach<input id="finder-query" type="search" placeholder="np. Iberia, Mendoza, stopover" maxlength="120"></label><label>Kierunek<select id="finder-category"><option value="">Wszystkie kierunki</option></select></label><label>Widok<select id="finder-mode"><option value="deals">Tropy cenowe</option><option value="all">Wszystkie wpisy</option><option value="news">Wiadomości lotnicze</option><option value="fresh">Publikacje z 7 dni</option><option value="saved">Zapisane</option><option value="hidden">Ukryte</option></select></label><label>Kolejność<select id="finder-sort"><option value="priority">Przydatność dla tej podróży</option><option value="newest">Najnowsza publikacja</option></select></label></form>' +
-      '<p class="finder-note">Nagłówek promocji nie jest ceną tej podróży. Domyślnie pomijamy loty rozpoczynające się w Argentynie. Zapisane i ukryte tropy pamięta tylko ta przeglądarka.</p><p id="finder-count" aria-live="polite"></p><ol id="finder-leads" class="finder-leads"></ol>' +
+      '<p class="finder-note">Nagłówek promocji nie jest ceną tej podróży. Domyślnie pokazujemy Argentynę, Santiago, São Paulo i kampanie odpowiednich linii. Pomijamy loty rozpoczynające się w Argentynie oraz oferty atrakcji. Zapisane i ukryte tropy pamięta tylko ta przeglądarka.</p><p id="finder-count" aria-live="polite"></p><ol id="finder-leads" class="finder-leads"></ol>' +
       '<details class="finder-sources"><summary>Odczytane źródła i luki</summary><div id="finder-sources"></div><p><a href="#zrodla-monitoringu" data-lgo="radar">Pełny katalog źródeł →</a></p></details></details>' +
       '<details class="finder-quotes"><summary>Archiwum wycen z porównywarki</summary><p>Starsze próby mogą dotyczyć innych lotnisk i dat. Nie są ofertami na tę podróż.</p><div id="finder-quotes"></div></details>';
     const $ = id => host.querySelector('#finder-' + id);
@@ -269,7 +275,7 @@
     setInterval(() => { dashboard(); if (state) quotes(monitorState || {}); }, 60000);
     research(); routes(); refresh();
   }
-  const api = {mount, filterLeads, currentPlan, searchPlan, overview, reverseLead, fresh, safeURL};
+  const api = {mount, filterLeads, currentPlan, searchPlan, overview, reverseLead, usefulLead, fresh, safeURL};
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.UcoFinder = api;
 })(typeof window !== 'undefined' ? window : globalThis);

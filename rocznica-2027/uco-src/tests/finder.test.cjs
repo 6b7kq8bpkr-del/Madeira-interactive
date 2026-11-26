@@ -51,3 +51,10 @@ assert.equal(filterLeads([reverse],'','','deals',[],[],now).length,0,'Stary skan
 assert.equal(filterLeads([reverse],'','','all',[],[],now).length,1,'Trop pozostaje dostępny w pełnym archiwum');
 assert.equal(reverseLead({...data[0],tytul:'Madrid to Buenos Aires from €700'}),false);
 console.log('Status listopada, ochrona, wygasanie i plan niezależny od RSS - OK');
+const unrelated = {...data[0], kategoria:'Doloty / informacje', tytul:'Flights Madrid to Costa Rica from €390'};
+const tour = {...data[0], tytul:'Black Friday: actividades en Buenos Aires desde U$D 20'};
+const hub = {...data[0], kategoria:'Inne huby', tytul:'Flights Madrid to Sao Paulo for €587'};
+const sale = {...data[0], kategoria:'Doloty / informacje', tytul:'Iberia Black Friday'};
+assert.deepEqual(filterLeads([unrelated,tour,hub,sale],'','','deals',[],[],now).map(x=>x.tytul),[hub.tytul,sale.tytul]);
+assert.equal(filterLeads([unrelated,tour],'','','all',[],[],now).length,2);
+console.log('Promocje: właściwe kierunki i linie, bez wycieczek ani obcych tras - OK');

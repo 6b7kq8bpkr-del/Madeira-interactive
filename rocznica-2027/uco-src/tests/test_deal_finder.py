@@ -74,6 +74,10 @@ class Tests(unittest.TestCase):
         self.assertTrue(x['odwrotny'])
         self.assertLess(x['priorytet'],40)
 
+    def test_tours_are_not_flight_offers(self):
+        x=finder.classify({'tytul':'Black Friday: Las mejores actividades para hacer en París desde U$D 20 con descuentos', 'data':'2026-11-26', 'url':'https://example.com/promo'},NOW)
+        self.assertEqual(x['rodzaj'],'informacja')
+
     def test_duplicate_and_stale_read_keeps_original_time(self):
         article={'tytul':'Mendoza 2027', 'data':'2026-11-25', 'url':'https://example.com/a?utm_source=one'}
         one=finder.merge_leads([], [article, dict(article,url='https://example.com/a?utm_source=two')], NOW,CONFIG)
