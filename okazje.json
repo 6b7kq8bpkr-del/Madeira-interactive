@@ -1,6 +1,6 @@
 {
  "wersja": 1,
- "sprawdzono": "2026-11-26T14:19:43.016510+01:00",
+ "sprawdzono": "2026-11-26T15:10:49.811669+01:00",
  "plan": [
   {
    "id": "calosc-2027-11-05",
@@ -71,28 +71,6 @@
  ],
  "tropy": [
   {
-   "id": "bde8170c5b98bff3",
-   "tytul": "Black Friday: ¡Increiblee! ✈️ Vuelos a Madrid 🥘a partir de U$D 700 con Carry On desde Aeroparque 🤩",
-   "opis": "Hay muy buenos Vuelos a Madrid desde Aeroparque a partir de U$D 700 finales, ida y vuelta, con Carry On incluido. Fechas en Primavera y verano de allá ✈️ Tarifa […] La entrada Black Friday: ¡Increiblee! ✈️ Vuelos a Madrid 🥘a partir de U$D 7",
-   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-increiblee-vuelos-a-madrid-con-carry-on-desde-aeroparque-avianca-rt-p.html",
-   "zrodlo": "Promociones Aéreas",
-   "data": "2026-11-26",
-   "kategoria": "Buenos Aires / Argentyna",
-   "priorytet": 90,
-   "dlaczego": [
-    "Wpis zawiera cenę lub zapowiedź promocji",
-    "Dotyczy Argentyny lub Buenos Aires"
-   ],
-   "braki": [
-    "daty 4/5-14.11.2027, dwa miejsca, pełna cena i bagaż do weryfikacji"
-   ],
-   "status": "trop",
-   "rodzaj": "oferta",
-   "odwrotny": false,
-   "pierwszyOdczyt": "2026-11-26T14:19:43.016510+01:00",
-   "ostatniOdczyt": "2026-11-26T14:19:43.016510+01:00"
-  },
-  {
    "id": "adf9e595c03d06f7",
    "tytul": "BRAZILIAN SUMMER 😎 🍹 Non-stop flights from Madrid to Sao Paulo for €587",
    "opis": "Experience comfort, reliability, and direct service to one of Brazil’s most exciting destinations! LATAM is offering discounted flights to Sao Paulo starting at only €587 for a round trip.",
@@ -112,7 +90,7 @@
    "rodzaj": "oferta",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T14:19:43.016510+01:00"
+   "ostatniOdczyt": "2026-11-26T15:10:49.811669+01:00"
   },
   {
    "id": "3779f31fb999c115",
@@ -133,7 +111,28 @@
    "rodzaj": "oferta",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T12:14:54.449318+01:00",
-   "ostatniOdczyt": "2026-11-26T14:19:43.016510+01:00"
+   "ostatniOdczyt": "2026-11-26T15:10:49.811669+01:00"
+  },
+  {
+   "id": "635958536e40eddc",
+   "tytul": "Black Friday: Las mejores actividades para hacer en París desde U$D 20 con descuentos 🥐👨‍🎨",
+   "opis": "En este post les dejamos las visitas guiadas y excursiones en Español más populares que se pueden hacer en París, con precios a partir de U$D 20 por persona. Es […] La entrada Black Friday: Las mejores actividades para hacer en París desde ",
+   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-las-mejores-actividades-para-hacer-en-paris-con-descuentos.html",
+   "zrodlo": "Promociones Aéreas",
+   "data": "2026-11-26",
+   "kategoria": "Doloty / informacje",
+   "priorytet": 60,
+   "dlaczego": [
+    "Wpis zawiera cenę lub zapowiedź promocji"
+   ],
+   "braki": [
+    "daty 4/5-14.11.2027, dwa miejsca, pełna cena i bagaż do weryfikacji"
+   ],
+   "status": "trop",
+   "rodzaj": "oferta",
+   "odwrotny": false,
+   "pierwszyOdczyt": "2026-11-26T15:10:49.811669+01:00",
+   "ostatniOdczyt": "2026-11-26T15:10:49.811669+01:00"
   },
   {
    "id": "55c85a863959bd75",
@@ -155,7 +154,7 @@
    "rodzaj": "oferta",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T14:19:43.016510+01:00"
+   "ostatniOdczyt": "2026-11-26T15:10:49.811669+01:00"
   },
   {
    "id": "9413d7833d478fdc",
@@ -176,7 +175,7 @@
    "rodzaj": "oferta",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T14:19:43.016510+01:00"
+   "ostatniOdczyt": "2026-11-26T15:10:49.811669+01:00"
   },
   {
    "id": "8e8d0812a9a230a7",
@@ -198,7 +197,7 @@
    "rodzaj": "informacja",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T14:19:43.016510+01:00"
+   "ostatniOdczyt": "2026-11-26T15:10:49.811669+01:00"
   },
   {
    "id": "a2a6fde3cb653293",
@@ -221,7 +220,7 @@
    "rodzaj": "informacja",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T14:19:43.016510+01:00"
+   "ostatniOdczyt": "2026-11-26T15:10:49.811669+01:00"
   },
   {
    "id": "2be40396b1d1beb7",
@@ -243,7 +242,7 @@
    "rodzaj": "informacja",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T14:19:43.016510+01:00"
+   "ostatniOdczyt": "2026-11-26T15:10:49.811669+01:00"
   },
   {
    "id": "d31ab7de7d020dc6",
@@ -265,7 +264,7 @@
    "rodzaj": "informacja",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T14:19:43.016510+01:00"
+   "ostatniOdczyt": "2026-11-26T15:10:49.811669+01:00"
   },
   {
    "id": "7ca0feb84ebe905a",
@@ -287,7 +286,7 @@
    "rodzaj": "informacja",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T14:19:43.016510+01:00"
+   "ostatniOdczyt": "2026-11-26T15:10:49.811669+01:00"
   },
   {
    "id": "b2fd2a97b09ebf3d",
@@ -309,7 +308,7 @@
    "rodzaj": "informacja",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T14:19:43.016510+01:00"
+   "ostatniOdczyt": "2026-11-26T15:10:49.811669+01:00"
   },
   {
    "id": "651592428c28ffcc",
@@ -331,7 +330,28 @@
    "rodzaj": "informacja",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T14:19:43.016510+01:00"
+   "ostatniOdczyt": "2026-11-26T15:10:49.811669+01:00"
+  },
+  {
+   "id": "6c42d56997fbc500",
+   "tytul": "Okazja zbiorcza: piłki marki Adidas l Tango Rosario 65.40zł, Trionda Club 70.85zł i wiele innych...",
+   "opis": "65,40zł - adidas Tango Rosario 65,40 z 109 Link Trionda Club 70,85 z 109 Link UEFA Champions League 26/27 Real Madrid Club 69,97 z 74.96 Link Trionda Club #2 76,30 z 109 Link PKO BP Ekstraklasa, piłka treningowa 90,30 z 129 Link Piłka klubo",
+   "url": "https://www.pepper.pl/promocje/okazja-zbiorcza-pilki-marki-adidas-l-tango-rosario-6540zl-trionda-club-7085zl-i-wiele-innych-1401325",
+   "zrodlo": "Pepper.pl",
+   "data": "2026-11-26",
+   "kategoria": "Doloty / informacje",
+   "priorytet": 25,
+   "dlaczego": [
+    "Wiadomość lotnicza - brak potwierdzonej oferty cenowej"
+   ],
+   "braki": [
+    "znaczenie informacji dla planowanego połączenia"
+   ],
+   "status": "trop",
+   "rodzaj": "informacja",
+   "odwrotny": false,
+   "pierwszyOdczyt": "2026-11-26T15:10:49.811669+01:00",
+   "ostatniOdczyt": "2026-11-26T15:10:49.811669+01:00"
   },
   {
    "id": "a4d92438631ffbf3",
@@ -374,7 +394,7 @@
    "rodzaj": "informacja",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T14:19:43.016510+01:00"
+   "ostatniOdczyt": "2026-11-26T15:10:49.811669+01:00"
   },
   {
    "id": "8a76a3d660d54c97",
@@ -395,7 +415,30 @@
    "rodzaj": "informacja",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T14:19:43.016510+01:00"
+   "ostatniOdczyt": "2026-11-26T15:10:49.811669+01:00"
+  },
+  {
+   "id": "bde8170c5b98bff3",
+   "tytul": "Black Friday: ¡Increiblee! ✈️ Vuelos a Madrid 🥘a partir de U$D 700 con Carry On desde Aeroparque 🤩",
+   "opis": "Hay muy buenos Vuelos a Madrid desde Aeroparque a partir de U$D 700 finales, ida y vuelta, con Carry On incluido. Fechas en Primavera y verano de allá ✈️ Tarifa […] La entrada Black Friday: ¡Increiblee! ✈️ Vuelos a Madrid 🥘a partir de U$D 7",
+   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-increiblee-vuelos-a-madrid-con-carry-on-desde-aeroparque-avianca-rt-p.html",
+   "zrodlo": "Promociones Aéreas",
+   "data": "2026-11-26",
+   "kategoria": "Buenos Aires / Argentyna",
+   "priorytet": 15,
+   "dlaczego": [
+    "Wpis zawiera cenę lub zapowiedź promocji",
+    "Dotyczy Argentyny lub Buenos Aires"
+   ],
+   "braki": [
+    "daty 4/5-14.11.2027, dwa miejsca, pełna cena i bagaż do weryfikacji",
+    "prawdopodobnie podróż w przeciwną stronę; nie porównywać z naszym biletem"
+   ],
+   "status": "trop",
+   "rodzaj": "oferta",
+   "odwrotny": true,
+   "pierwszyOdczyt": "2026-11-26T14:19:43.016510+01:00",
+   "ostatniOdczyt": "2026-11-26T15:10:49.811669+01:00"
   },
   {
    "id": "b9ef291833dbfbe2",
@@ -438,7 +481,7 @@
    "rodzaj": "informacja",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T14:19:43.016510+01:00"
+   "ostatniOdczyt": "2026-11-26T15:10:49.811669+01:00"
   },
   {
    "id": "9813bc91a5ec741e",
@@ -459,7 +502,7 @@
    "rodzaj": "informacja",
    "odwrotny": false,
    "pierwszyOdczyt": "2026-11-26T11:03:15.709322+01:00",
-   "ostatniOdczyt": "2026-11-26T14:19:43.016510+01:00"
+   "ostatniOdczyt": "2026-11-26T15:10:49.811669+01:00"
   }
  ],
  "wyceny": [],
@@ -600,14 +643,14 @@
   }
  ],
  "rss": {
-  "sprawdzono": "2026-11-26T14:19:43+01:00",
+  "sprawdzono": "2026-11-26T15:10:49+01:00",
   "stan": "czesciowy",
   "kanaly": [
    {
     "zrodlo": "Fly4free.pl",
     "url": "https://www.fly4free.pl/feed/",
     "grupa": "fly4free.pl",
-    "sprawdzono": "2026-11-26T14:19:43+01:00",
+    "sprawdzono": "2026-11-26T15:10:49+01:00",
     "wpisy": 20,
     "ok": true
    },
@@ -615,7 +658,7 @@
     "zrodlo": "Fly4free.pl · Argentyna",
     "url": "https://www.fly4free.pl/tag/argentyna/feed/",
     "grupa": "fly4free.pl",
-    "sprawdzono": "2026-11-26T14:19:43+01:00",
+    "sprawdzono": "2026-11-26T15:10:49+01:00",
     "wpisy": 20,
     "ok": true
    },
@@ -623,7 +666,7 @@
     "zrodlo": "Fly4free.com",
     "url": "https://www.fly4free.com/feed/",
     "grupa": "fly4free.com",
-    "sprawdzono": "2026-11-26T14:19:43+01:00",
+    "sprawdzono": "2026-11-26T15:10:49+01:00",
     "wpisy": 50,
     "ok": true
    },
@@ -631,7 +674,7 @@
     "zrodlo": "Fly4free.pl · Buenos Aires",
     "url": "https://www.fly4free.pl/tag/buenos-aires/feed/",
     "grupa": "fly4free.pl",
-    "sprawdzono": "2026-11-26T14:19:43+01:00",
+    "sprawdzono": "2026-11-26T15:10:49+01:00",
     "wpisy": 20,
     "ok": true
    },
@@ -639,7 +682,7 @@
     "zrodlo": "Fly4free.pl · Ameryka Płd.",
     "url": "https://www.fly4free.pl/tag/ameryka-poludniowa/feed/",
     "grupa": "fly4free.pl",
-    "sprawdzono": "2026-11-26T14:19:43+01:00",
+    "sprawdzono": "2026-11-26T15:10:49+01:00",
     "wpisy": 20,
     "ok": true
    },
@@ -647,7 +690,7 @@
     "zrodlo": "Travel-dealz · Argentyna",
     "url": "https://travel-dealz.com/destination/argentina/feed/",
     "grupa": "travel-dealz.com",
-    "sprawdzono": "2026-11-26T14:19:43+01:00",
+    "sprawdzono": "2026-11-26T15:10:49+01:00",
     "wpisy": 0,
     "ok": false,
     "blad": "The read operation timed out"
@@ -656,7 +699,7 @@
     "zrodlo": "Travel-dealz · Chile",
     "url": "https://travel-dealz.com/destination/chile/feed/",
     "grupa": "travel-dealz.com",
-    "sprawdzono": "2026-11-26T14:19:43+01:00",
+    "sprawdzono": "2026-11-26T15:10:49+01:00",
     "wpisy": 4,
     "ok": true
    },
@@ -664,7 +707,7 @@
     "zrodlo": "Travel-dealz",
     "url": "https://travel-dealz.com/feed/",
     "grupa": "travel-dealz.com",
-    "sprawdzono": "2026-11-26T14:19:43+01:00",
+    "sprawdzono": "2026-11-26T15:10:49+01:00",
     "wpisy": 20,
     "ok": true
    },
@@ -672,7 +715,7 @@
     "zrodlo": "Wakacyjni Piraci",
     "url": "https://www.wakacyjnipiraci.pl/feed",
     "grupa": "wakacyjnipiraci.pl",
-    "sprawdzono": "2026-11-26T14:19:43+01:00",
+    "sprawdzono": "2026-11-26T15:10:49+01:00",
     "wpisy": 32,
     "ok": true
    },
@@ -680,7 +723,7 @@
     "zrodlo": "HolidayPirates",
     "url": "https://www.holidaypirates.com/feed",
     "grupa": "holidaypirates.com",
-    "sprawdzono": "2026-11-26T14:19:43+01:00",
+    "sprawdzono": "2026-11-26T15:10:49+01:00",
     "wpisy": 64,
     "ok": true
    },
@@ -688,7 +731,7 @@
     "zrodlo": "Pepper.pl",
     "url": "https://www.pepper.pl/rss/nowe",
     "grupa": "pepper.pl",
-    "sprawdzono": "2026-11-26T14:19:43+01:00",
+    "sprawdzono": "2026-11-26T15:10:49+01:00",
     "wpisy": 30,
     "ok": true
    },
@@ -696,7 +739,7 @@
     "zrodlo": "Infoviajera",
     "url": "https://www.infoviajera.com/feed/",
     "grupa": "infoviajera.com",
-    "sprawdzono": "2026-11-26T14:19:43+01:00",
+    "sprawdzono": "2026-11-26T15:10:49+01:00",
     "wpisy": 10,
     "ok": true
    },
@@ -704,7 +747,7 @@
     "zrodlo": "Promociones Aéreas",
     "url": "https://promociones-aereas.com.ar/feed/",
     "grupa": "promociones-aereas.com.ar",
-    "sprawdzono": "2026-11-26T14:19:43+01:00",
+    "sprawdzono": "2026-11-26T15:10:49+01:00",
     "wpisy": 15,
     "ok": true
    },
@@ -712,7 +755,7 @@
     "zrodlo": "Sir Chandler",
     "url": "https://www.sirchandler.com.ar/feed/",
     "grupa": "sirchandler.com.ar",
-    "sprawdzono": "2026-11-26T14:19:43+01:00",
+    "sprawdzono": "2026-11-26T15:10:49+01:00",
     "wpisy": 20,
     "ok": true
    },
@@ -720,7 +763,7 @@
     "zrodlo": "Aeroroutes",
     "url": "https://www.aeroroutes.com/eng?format=rss",
     "grupa": "aeroroutes.com",
-    "sprawdzono": "2026-11-26T14:19:43+01:00",
+    "sprawdzono": "2026-11-26T15:10:49+01:00",
     "wpisy": 20,
     "ok": true
    }
