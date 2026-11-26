@@ -11,7 +11,9 @@ SRC = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('finder', SRC.parent / 'uco/tools/deal_finder.py')
 finder = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(finder)
-CONFIG = finder.read(SRC / 'data/wyszukiwarka.json')
+PRODUCTION_CONFIG = finder.read(SRC / 'data/wyszukiwarka.json')
+CONFIG = copy.deepcopy(PRODUCTION_CONFIG)
+CONFIG['serpapi']['enabled'] = True  # exclusively for fake providers below
 PROGRAM = finder.read(SRC / 'data/program.json')
 NOW = dt.datetime(2026, 11, 26, 10, tzinfo=finder.WARSAW)
 RSS = {'sprawdzono': NOW.isoformat(), 'stan': 'czesciowy', 'kanaly': [{'zrodlo':'Test', 'ok':False}], 'trafienia':[]}
@@ -20,13 +22,18 @@ RSS = {'sprawdzono': NOW.isoformat(), 'stan': 'czesciowy', 'kanaly': [{'zrodlo':
 def response(origin, dest, day, price, token=None):
     arrival = '2027-11-06 12:00' if dest=='MDZ' else day + ' 14:00' if origin=='MDZ' else day + ' 23:00'
     departure = day + (' 10:00' if origin=='MDZ' else ' 20:00')
-    row = {'price': price, 'flights':[{'departure_airport':{'id':origin, 'time':departure}, 'arrival_airport':{'id':dest, 'time':arrival}, 'airline':'TEST', 'flight_number':'TEST 1'}]}
+    row = {'price': price, 'total_duration': 120, 'flights':[{'departure_airport':{'id':origin, 'time':departure}, 'arrival_airport':{'id':dest, 'time':arrival}, 'airline':'TEST', 'flight_number':'TEST 1'}]}
     if token:
         row['departure_token'] = token
     return {'search_parameters':{'adults':2, 'currency':'PLN'}, 'best_flights':[row]}
 
 
 class Tests(unittest.TestCase):
+    def setUp(self):
+        no_network = patch.object(finder.urllib.request, 'urlopen', side_effect=AssertionError('Offline suite: network forbidden'))
+        no_network.start()
+        self.addCleanup(no_network.stop)
+
     def test_plan_keeps_stopover_and_two_people(self):
         plan = finder.build_plan(PROGRAM)
         self.assertEqual(len({q['id'] for q in plan}), len(plan))
@@ -34,7 +41,8 @@ class Tests(unittest.TestCase):
             self.assertIn('/2adults', q['kayak'])
             if q['scenariusz'] == 'stopover':
                 self.assertEqual([l['data'] for l in q['odcinki']][1:], ['2027-11-12','2027-11-13'])
-        self.assertGreaterEqual(len(plan), 20)
+        self.assertEqual(len(plan), 2)
+        self.assertTrue(all(q['wspolnaOferta'] and q['odcinki'][0]['z']=='WAW' and q['odcinki'][-1]['do']=='WAW' for q in plan))
 
     def test_earlier_departure_and_return_times_are_sent(self):
         q = next(q for q in finder.build_plan(PROGRAM) if q['id']=='calosc-2027-11-04')
@@ -308,7 +316,7 @@ class Tests(unittest.TestCase):
             self.assertEqual(result['wycena']['cenaWyniku'],550)
 
     def test_split_trip_sums_three_prices_without_selection_tokens(self):
-        q=next(q for q in finder.build_plan(PROGRAM) if q.get('sposobWyceny')=='osobne')
+        q=next(q for q in finder.build_plan(PROGRAM, legacy=True) if q.get('sposobWyceny')=='osobne')
         replies=[response('WAW','MDZ','2027-11-05',6000),response('MDZ','AEP','2027-11-12',800),response('EZE','WAW','2027-11-13',3500)]
         calls=[]
         class Fake:
@@ -341,9 +349,40 @@ class Tests(unittest.TestCase):
         rules=PROGRAM['loty']['monitoring']['reguly']
         q=finder.build_plan(PROGRAM)[0]
         x=response('WAW','MDZ','2027-11-05',8000)['best_flights'][0]
+        first=copy.deepcopy(x['flights'][0]); first['arrival_airport']={'id':'GRU','time':'2027-11-06 05:00'}
+        second=copy.deepcopy(x['flights'][0]); second['departure_airport']={'id':'GRU','time':'2027-11-06 08:00'}
+        x['flights']=[first,second]
         for minutes,accepted in [(70,False),(175,True),(560,False)]:
             x['layovers']=[{'id':'GRU','duration':minutes}]
             self.assertEqual(finder.usable(x,q['odcinki'][0],rules),accepted)
+
+    def test_disabled_api_blocks_normal_and_manual_even_with_key_and_open_calendar(self):
+        config=copy.deepcopy(PRODUCTION_CONFIG)
+        self.assertIs(config['serpapi']['enabled'],False)
+        config['serpapi']['kalendarzPotwierdzonyDo']='2027-12-31'
+        old={'limity':dict(finder.Quota({},CONFIG['serpapi'],NOW).state,dzienZapytania=15,miesiacZapytania=15)}
+        def forbidden(*args): self.fail('Provider must not even be constructed')
+        with tempfile.TemporaryDirectory() as d:
+            normal=finder.collect(Path(d)/'out.json',config,PROGRAM,old,RSS,'DUMMY',NOW,client_factory=forbidden)
+            self.assertEqual(normal['ceny']['status'],'wyłączone')
+            self.assertEqual(normal['limity'],old['limity'])
+            for route in ('trip','single-mad','domestic','split'):
+                manual=finder.test_prices(Path(d)/'test.json',config,PROGRAM,old,'DUMMY',NOW,Path(d)/'quota.json',forbidden,route=route,request_budget=4)
+                self.assertEqual(manual['zapytaniaTestu'],0)
+                self.assertEqual(manual['limity'],old['limity'])
+
+    def test_missing_layovers_or_duration_never_pass(self):
+        q=finder.build_plan(PROGRAM)[0];rules=PROGRAM['loty']['monitoring']['reguly']
+        row=response('WAW','MDZ','2027-11-05',8000)['best_flights'][0]
+        row.pop('total_duration')
+        self.assertFalse(finder.usable(row,q['odcinki'][0],rules))
+        row['total_duration']=1000
+        first=copy.deepcopy(row['flights'][0]);first['arrival_airport']={'id':'FRA','time':'2027-11-05 21:00'}
+        second=copy.deepcopy(row['flights'][0]);second['departure_airport']={'id':'FRA','time':'2027-11-05 21:10'}
+        row['flights']=[first,second]
+        for layovers in (None,[],[{'id':'FRA','duration':10}],[{'id':'OTHER','duration':180}]):
+            if layovers is not None:row['layovers']=layovers
+            self.assertFalse(finder.usable(row,q['odcinki'][0],rules))
 
     def test_stop_after_search_deadline(self):
         with tempfile.TemporaryDirectory() as d:

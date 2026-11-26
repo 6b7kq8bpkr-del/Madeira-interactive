@@ -82,7 +82,7 @@ def text(value, limit=240):
     return re.sub(r'\s+', ' ', str(value or '')).strip()[:limit]
 
 
-def build_plan(program):
+def build_plan(program, legacy=False):
     r = program['loty']['monitoring']['reguly']
     plan = []
 
@@ -127,6 +127,11 @@ def build_plan(program):
     for query in plan:
         if query['id'].startswith('calosc-2027') or query['id'] == 'mad-stopover':
             query['wspolnaOferta'] = True
+    # Dawne trasy pozostają wyłącznie w izolowanych testach adaptera.
+    if not legacy:
+        plan = [q for q in plan if q['id'] in ('calosc-' + r['wylot'], 'calosc-' + r['wylotAlternatywny'])]
+        for q in plan:
+            q['braki'] = ['bagaż podręczny dla każdej osoby na każdym odcinku', 'jeden chroniony bilet WAW-MDZ-BUE-WAW', 'hotel i transfery w Buenos Aires']
     return plan
 
 
@@ -335,7 +340,12 @@ def usable(choice, expected, rules):
             return False
         if expected['do'] == 'WAW' and end.date().isoformat() > rules['powrot']:
             return False
-        for connection in choice.get('layovers', []):
+        connections = choice.get('layovers', [])
+        if not isinstance(connections, list) or len(connections) != len(legs) - 1:
+            return False
+        for index, connection in enumerate(connections):
+            if not isinstance(connection, dict) or connection.get('id') != legs[index]['arrival_airport']['id']:
+                return False
             minimum = rules['buePrzesiadkaH'] if connection.get('id') in ('AEP', 'EZE') else rules['przesiadkaH']
             minutes = connection.get('duration')
             if not isinstance(minutes, (int, float)) or not minimum * 60 <= minutes <= rules['max_przesiadka_h'] * 60:
@@ -343,7 +353,7 @@ def usable(choice, expected, rules):
         if any(a['arrival_airport']['id'] != b['departure_airport']['id'] for a, b in zip(legs, legs[1:])):
             return False
         duration = choice.get('total_duration')
-        if isinstance(duration, (int,float)) and duration > rules['max_podroz_h'] * 60:
+        if isinstance(duration, bool) or not isinstance(duration, (int,float)) or not math.isfinite(duration) or not 0 < duration <= rules['max_podroz_h'] * 60:
             return False
         return True
     except (KeyError, IndexError, TypeError, ValueError):
@@ -473,9 +483,9 @@ def quote(query, rules, client, now):
             'sposobWyceny': 'wspólna oferta linii' if booking else 'osobne' if separate else 'multi-city',
             'cenyOdcinkow': prices if separate else [], 'linkiOdcinkow': urls if separate else [],
             'stopoverGodziny': stopover, 'bagazPotwierdzony': False,
-            'bagaz': 'Filtr dwóch bagaży kabinowych wysłany; API nie potwierdza ich uwzględnienia w cenie. Wymagana kontrola obu bagaży i 23 kg na osobę.',
+            'bagaz': 'Wymagane potwierdzenie bagażu podręcznego dla dwóch osób na każdym odcinku. Bagaż rejestrowany jest opcjonalny.',
             'trasy': selected, 'url': url, 'status': 'wariant warunkowy' if exceptions else 'do potwierdzenia', 'braki': exceptions + query['braki'] +
-            ['finalna cena u linii dla dwóch osób', 'dwa bagaże kabinowe w cenie', 'dokładne strefy czasowe i bufory', '23 kg na osobę i warunki ochrony'],
+            ['finalna cena u linii dla dwóch osób', 'dwa bagaże podręczne w cenie', 'dokładne strefy czasowe i bufory', 'ochrona całej trasy na jednym bilecie'],
             'kompletPodrozy': False, 'potwierdzonaULinii': False}
 
 
@@ -494,6 +504,11 @@ def test_prices(output, config, program, previous, key, now, state_path, client_
     """Ręczny test tego samego adaptera; oddzielny plik, maks. trzy wywołania.
     Wyniki nigdy nie trafiają do listopadowych wycen ani raportu zakupu.
     """
+    if config['serpapi'].get('enabled') is not True:
+        result = {'test': True, 'status': 'wyłączone', 'opis': 'Zapytania API wyłączone na życzenie użytkownika.', 'zapytaniaTestu': 0,
+                  'limity': previous.get('limity', {}), 'sprawdzono': now.isoformat()}
+        atomic(output, result)
+        return result
     shifted = copy.deepcopy(program)
     rules = shifted['loty']['monitoring']['reguly']
     departure = dt.date(2027, 5, 7) if route == 'single-mad' else dt.date(2027, 3, 5)
@@ -501,7 +516,7 @@ def test_prices(output, config, program, previous, key, now, state_path, client_
     for field, value in list(rules.items()):
         if isinstance(value, str) and re.fullmatch(r'\d{4}-\d{2}-\d{2}', value):
             rules[field] = (dt.date.fromisoformat(value) + delta).isoformat()
-    plan = build_plan(shifted)
+    plan = build_plan(shifted, legacy=True)
     query = next(q for q in plan if q['id'] == 'mdz-bue') if route == 'domestic' else next(q for q in plan if q.get('sposobWyceny') == 'osobne') if route == 'split' else plan[0]
     if route == 'single-mad':
         query = next(q for q in plan if q['id'] == 'mad-stopover')
@@ -576,7 +591,11 @@ def collect(output, config, program, previous=None, rss_result=None, key=None, n
         if query not in eligible:
             state['zapytania'][query['id']] = {'status': 'oczekuje na kalendarz', 'opis': waiting}
     last_attempt = stamp(state['ceny'].get('ostatniaProba'))
-    if not key:
+    if config['serpapi'].get('enabled') is not True:
+        state['ceny'] = {'status': 'wyłączone', 'opis': 'API wyłączone na życzenie użytkownika. Sprawdzamy portale, promocje i fora bez płatnych zapytań.'}
+        for query in plan:
+            state['zapytania'][query['id']] = {'status': 'sprawdzanie ręczne', 'opis': 'Wyszukaj całą trasę w bezpłatnym formularzu linii lub porównywarki.'}
+    elif not key:
         state['ceny'] = {'status': 'wymaga podłączenia', 'opis': 'Automatyczne ceny czekają na konto SerpApi i klucz zapisany jako sekret repozytorium. Tropy RSS działają bez konta.'}
     elif not eligible:
         state['ceny'] = dict(state['ceny'], status='oczekuje na kalendarz', opis=waiting)

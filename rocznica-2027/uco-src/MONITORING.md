@@ -10,16 +10,13 @@ Skaner nie zastępuje kontroli dwóch rodzin wyszukiwarek. Używaj go do szybsze
 
 ## Co sprawdzać
 
-Codziennie wyceń sześć scenariuszy z `loty.monitoring.scenariusze`, każdy dla **2 dorosłych**, wylot 5.11 oraz 4.11 po 20:00. Nie przerywaj po pierwszej odpowiadającej wyszukiwarce: minimum dwie rodziny wyszukiwarek (Kayak/Momondo liczą się jako jedna), a obiecujące wyniki potwierdź u sprzedającej linii. Brak dostępu zapisuj jako lukę. Scenariusze spoza Warszawy są planem B do decyzji grupy; nie wygrywają automatycznie z planem podstawowym.
+Wyłącznie pełny chroniony bilet WAW-MDZ / MDZ-BUE / BUE-WAW dla dwóch dorosłych. Sprawdź wylot 5.11 i 4.11 po 20:00. Osobny dolot, krajowy, open-jaw wymagający dokupienia odcinka i wylot spoza Warszawy są wykluczone niezależnie od ceny. Porównuj linie i huby w ramach tego samego biletu.
 
-1. Jeden bilet WAW-MDZ / MDZ-BUE / BUE-WAW z nocą 12-13.11.
-2. Open-jaw WAW-MDZ / EZE-WAW oraz osobny MDZ-AEP lub EZE 12.11.
-3. WAW-EZE-WAW plus EZE-MDZ 6.11 i MDZ-AEP lub EZE 12.11.
-4. Osobny dolot WAW-MAD oraz chroniony bilet z Madrytu, również z nocą w BUE; powrót do WAW 14.11, wszystkie dodatki i nocleg buforowy.
-5. VIE/BER z dojazdem, parkingiem, hotelem i powrotem do domu do 14.11. Weryfikuj godziny całego dojazdu osobno.
-6. Huby SCL/GRU oraz europejskie open-jaw tylko przy rzeczywistej ofercie na komplet odcinków. Nie zakładaj partnerstwa ani sprzedawalności.
+Podręczny na każdym odcinku wystarczy. Potwierdź rodzaj, wymiary i masę; rejestrowany jest opcjonalny i nie podnosi automatycznie ceny o ryczałt. Najwyżej 2 przesiadki i 30 h w stronę, przesiadki 2-8 h, w BUE minimum 3 h. Reguły w `loty.monitoring.reguly` są nadrzędne wobec historycznych opisów.
 
-Zwykłe WAW-MDZ-WAW bez nocy w Buenos Aires jest wyłącznie punktem odniesienia. Nie można rekomendować go zamiast uzgodnionego planu. Oceniaj cenę **oraz** czas, ochronę, bagaż i czas w mieście. Dla każdej kombinacji podaj, czego brakuje do zakupu, zamiast bezwarunkowego „najtańsza”.
+**Zakaz API cen od 26.11.2026:** nie wywołuj SerpApi, nie uruchamiaj rzeczywistych testów, nie podnoś limitów i nie włączaj `serpapi.enabled`. Zakaz dotyczy wszystkich dat i nie wygasa po otwarciu listopada. Dozwolone: bezpłatne formularze, portale, RSS i fora. Testy kodu wyłącznie offline z atrapami dostawców.
+
+Minimum dwie rodziny wyszukiwarek, jeśli dostępne; Kayak/Momondo liczą się jako jedna. Obiecujące wyniki potwierdzaj u linii. Brak dostępu lub wyceny zapisuj jako lukę. Na wcześniejsze daty można sprawdzać działanie formularza, lecz nie traktować ceny jako oferty na rocznicę.
 
 ## Portale, promocje, fora i alerty
 
@@ -35,9 +32,9 @@ Zwykłe WAW-MDZ-WAW bez nocy w Buenos Aires jest wyłącznie punktem odniesienia
 
 Plan jest stały: MDZ 6.11, MDZ-BUE 12.11, BUE-Europa 13.11, WAW do 14.11. Robocze kryterium komfortu: minimum 24 h między lotami w BUE, przylot 12.11 do 15:59, wylot 13.11 od 18:00. Policz z godzin i stref, nie z samej liczby nocy. Plan hotelu, dostępność pokoju, przechowalni i transferów sprawdź przed zakupem. Nie deklaruj rezerwacji, jeśli jej nie ma.
 
-Dopuszczamy AEP przy przylocie i EZE przy wylocie **podczas noclegu**; nie dopuszczamy zmiany lotniska w krótkiej przesiadce. Godziny odpraw i transferów sprawdzaj przed zakupem. Hotele i transport BUE wspólne dla wariantów są już w budżecie pobytu - nie doliczaj ich drugi raz do biletów. Dodatkowy hotel przy pozycjonowaniu do Madrytu jest kosztem tego wariantu.
+Dopuszczamy AEP przy przylocie i EZE przy wylocie **podczas noclegu**; nie dopuszczamy zmiany lotniska w krótkiej przesiadce. Godziny odpraw i transferów sprawdzaj przed zakupem. Hotele i transport BUE wspólne dla wariantów są już w budżecie pobytu - nie doliczaj ich drugi raz do biletów. Osobne pozycjonowanie do Madrytu jest poza profilem.
 
-Jeden koszyk, kod rezerwacji ani multi-city nie dowodzą ochrony. Potwierdź wystawienie wspólnego biletu i zakres odpowiedzialności linii, regułę stopoveru oraz odbiór/nadanie bagażu. Przy osobnych biletach wymagamy minimum 5 h na tym samym lotnisku, a przed kolejnym lotem dalekim 12 h i nocy. Bufory są naszymi założeniami, nie gwarancją. Bez porównywalnej chronionej ceny nie stwierdzaj oszczędności 800 zł/os.
+Jeden koszyk, kod rezerwacji ani multi-city nie dowodzą ochrony. Potwierdź wystawienie wspólnego biletu i zakres odpowiedzialności linii, regułę stopoveru oraz odbiór/nadanie bagażu. Osobne bilety są wykluczone. Jeden PNR lub koszyk nie zastępuje potwierdzenia jednego biletu.
 
 Oficjalne warunki Visit Buenos Aires odczytane 26.11.2026: benefity tylko dla pobytów do 30.04.2027, wymagają ponad 24 h i kwalifikującego biletu. **Listopad 2027 jest poza obecną edycją.** Nową edycję sprawdzaj w regulaminie: https://stopover.visitbue.app/bases-y-condiciones?lang=en. Planowanego pobytu nie uzależniaj od darmowego stopoveru ani benefitów.
 
@@ -49,10 +46,12 @@ Po zmianie rozkładu ponownie policz bufory, pobyt BUE i datę powrotu. Wskaż d
 
 - `id`, `nazwa`, `dorosli: 2`, `sprawdzono` (ISO 8601 ze strefą, np. `+01:00`), `url` (publiczna strona linii bez identyfikatora sesji), `potwierdzonaULinii` (boolean).
 - `koszty`: lista `{nazwa, plnPara, status, url}`. Kwoty **za parę** w PLN; status `potwierdzone` albo `szacunek`. Dla walut obcych zachowaj również `waluta`, `kwotaPara`, `kurs`, `kursData`. `kosztyKompletne` tylko po kontroli wszystkich biletów, bagażu, podatków, pozycjonowania, dodatkowego hotelu i transferów. Kwota zero dopuszczalna np. dla bagażu w taryfie, lecz musi mieć potwierdzenie. Nie mnoż ceny dla 1 osoby bez sprawdzenia 2 miejsc.
-- `odcinki`: kolejne loty `{z, do, wylot, przylot, linia, rejs, bilet, bagazKg, kabinowy}`. Godziny ISO z prawidłowym offsetem. `bilet` to anonimowy identyfikator grupy odcinków (A/B/C), **nigdy numer biletu lub PNR**. `bagazKg` i `kabinowy` dotyczą każdej osoby. Pełna podróż od WAW do WAW, także osobne doloty. Plan B VIE/BER pozostaje kandydatem do osobnej decyzji.
-- `ochronaPotwierdzona`: potwierdzony zakres ochrony wewnątrz każdego wspólnego biletu, nie ochrona między osobnymi biletami. `stopoverWTaryfie`: plan i warunki wszystkich biletów obejmują pobyt 12-13.11. `planBUE`: sprawdzono dostępność hotelu, przechowalni i transferów (to **nie** znaczy zarezerwowano).
+- `odcinki`: kolejne loty `{z, do, wylot, przylot, linia, rejs, bilet, bagazKg, kabinowy}`. Godziny ISO z prawidłowym offsetem. `bilet` to anonimowy identyfikator grupy odcinków (A/B/C), **nigdy numer biletu lub PNR**. `bagazKg` i `kabinowy` dotyczą każdej osoby. Pełna podróż od WAW do WAW na jednym bilecie, ten sam anonimowy identyfikator `bilet` dla wszystkich odcinków. `kabinowy: true` wymagane; `bagazKg` opcjonalne, gdy rejestrowany nie jest kupowany.
+- `ochronaPotwierdzona`: potwierdzony zakres ochrony jednego biletu obejmującego wszystkie odcinki. `stopoverWTaryfie`: plan i warunki wszystkich biletów obejmują pobyt 12-13.11. `planBUE`: sprawdzono dostępność hotelu, przechowalni i transferów (to **nie** znaczy zarezerwowano).
 
-Moduł `../uco/flight-rules.js` ocenia te dane wspólnie na stronie i w testach. Brak danych działa na niekorzyść kwalifikacji, nigdy jako automatyczne potwierdzenie. Ważność ceny: 24 h; przed zapłatą ponowna wycena. Dla osobnych biletów moduł wymaga aktualnej chronionej oferty porównawczej z tym samym dniem wylotu i różnicy minimum `budzet.min_oszczednosc`. Ochrona i pełna cena są ważniejsze niż tani nagłówek.
+Moduł `../uco/flight-rules.js` ocenia te dane wspólnie na stronie i w testach. Brak danych działa na niekorzyść kwalifikacji, nigdy jako automatyczne potwierdzenie. Ważność ceny: 24 h; przed zapłatą ponowna wycena. Osobne bilety nie mogą uzyskać statusu gotowego do zakupu. Ochrona i pełna cena są ważniejsze niż tani nagłówek.
+
+`raport.profil` musi odpowiadać `loty.monitoring.reguly.profil` (`waw-jeden-podreczny-v1`). Nie oznaczaj starego raportu nowym profilem bez ponownej weryfikacji. Raporty sprzed zmiany są archiwalne.
 
 `raport.calosc`: wyłącznie cena zakwalifikowanej oferty, zaokrąglona do 10 zł; inaczej `null`. `raport.ofertaId` wiąże ją z ofertą. `raport.szacunek`: oddzielnie orientacyjna suma z jawnie oznaczonymi ryczałtami. `raport.typCeny`: `potwierdzona` lub `szacunek`. Nigdy nie wydawaj werdyktu kupna z szacunku.
 

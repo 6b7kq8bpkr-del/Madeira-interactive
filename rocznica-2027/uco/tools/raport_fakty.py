@@ -52,6 +52,9 @@ def fakty():
         print(f"  dolar {pct:+.1f}% wobec budżetu = {dz:+d} zł na parę w wariancie polecanym (3 pary)" + (f" · PRZELICZYĆ BUDŻET (próg {PROG_KURS:.0f}%)" if abs(pct) >= PROG_KURS else f" · bez przeliczania (próg {PROG_KURS:.0f}%)"))
     print("SPRZEDAŻ NASZYCH DAT według kalendarzy linii (liczby dni niepotwierdzone – sprawdzić w wyszukiwarce):")
     for l in P["loty"]["okna"]["linie"]:
+        if not isinstance(l.get('dni'), (int, float)) or l['dni'] <= 0:
+            print(f"  {l['n']}: horyzont niepotwierdzony - sprawdź kalendarz linii; brak ceny nie wyznacza daty otwarcia")
+            continue
         a, z = wyl - dt.timedelta(days=l["dni"]), pow_ - dt.timedelta(days=l["dni"])
         st = "planowane okno obu kierunków otwarte - potwierdź ofertę u linii" if z <= TODAY else f"wylot tak, powrót od {pl(z)}" if a <= TODAY else f"wylot od {pl(a)}, powrót od {pl(z)}"
         print(f"  {l['n']} ({l['dni']} dni): {st}")

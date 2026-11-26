@@ -3,26 +3,6 @@ on:
   schedule:
     - cron: '17 */6 * * *'
   workflow_dispatch:
-    inputs:
-      price_test:
-        description: 'Test cen na wcześniejszych datach (3 zapytania lub 4 ze wspólną ofertą linii)'
-        type: boolean
-        default: false
-      test_route:
-        description: 'Zakres: single-mad = wspólna oferta AR 7-15 maja; pozostałe tryby = marzec'
-        type: choice
-        options: [trip, domestic, split, single-mad]
-        default: trip
-      test_extra_budget:
-        description: 'Dodatkowy budżet dzienny tylko dla ręcznego testu (miesięczny bez zmian)'
-        type: choice
-        options: ['0', '2', '4']
-        default: '0'
-      test_request_budget:
-        description: 'Zatwierdzony budżet jednego testu: 4 zapytania ponad dzisiejsze zużycie; limit miesięczny bez zmian'
-        type: choice
-        options: ['0', '4']
-        default: '0'
   push:
     branches: [main]
     paths:
@@ -58,27 +38,8 @@ jobs:
           path: .uco-private/quota.json
           key: uco-quota-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: uco-quota-
-      - name: Ręczny test cen dla wcześniejszych dat
-        id: price_test
-        if: github.event_name == 'workflow_dispatch' && inputs.price_test
-        continue-on-error: true
-        env:
-          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
-          TEST_ROUTE: ${{ inputs.test_route }}
-          TEST_EXTRA_BUDGET: ${{ inputs.test_extra_budget }}
-          TEST_REQUEST_BUDGET: ${{ inputs.test_request_budget }}
-        run: python3 -I -B rocznica-2027/uco/tools/deal_finder.py --state .uco-private/quota.json --test-prices --test-route "$TEST_ROUTE" --test-extra-budget "$TEST_EXTRA_BUDGET" --test-request-budget "$TEST_REQUEST_BUDGET"
-      - name: Wynik testu bez sekretów
-        if: always() && github.event_name == 'workflow_dispatch' && inputs.price_test
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-cen-wczesniejsze-daty
-          path: .uco-private/price-test.json
-          retention-days: 7
-      - name: Publiczne promocje i opcjonalne ceny
-        env:
-          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
-        run: python3 -I -B rocznica-2027/uco/tools/deal_finder.py --state .uco-private/quota.json
+      - name: Publiczne promocje bez API cen
+        run: python3 -I -B rocznica-2027/uco/tools/deal_finder.py --state .uco-private/quota.json --no-prices
       - name: Zachowanie zużycia także po przerwaniu
         if: always()
         uses: actions/cache/save@v4
@@ -86,8 +47,6 @@ jobs:
           path: .uco-private/quota.json
           key: uco-quota-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Kontrola publicznego wyniku
-        env:
-          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
         run: python3 -I -B rocznica-2027/uco-src/tests/check_finder_output.py
       - name: Publikacja tylko danych wyszukiwarki
         run: |
@@ -106,6 +65,3 @@ jobs:
             commit=$(git commit-tree "$tree" -m 'Uruchom publiczny skaner okazji lotniczych')
           fi
           git push origin "$commit:refs/heads/uco-monitor-data"
-      - name: Końcowy status testu cen
-        if: steps.price_test.outcome == 'failure'
-        run: exit 1

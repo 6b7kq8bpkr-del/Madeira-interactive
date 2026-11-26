@@ -23,13 +23,24 @@
     });
   }
 
+  function currentPlan(plan, rules) {
+    return (Array.isArray(plan) ? plan : []).filter(q => {
+      const legs = q?.odcinki;
+      return q?.scenariusz === 'stopover' && q.sposobWyceny !== 'osobne' && q.dorosli === 2 && legs?.length === 3 &&
+        legs[0].z === 'WAW' && legs[0].do === 'MDZ' && [rules.wylot, rules.wylotAlternatywny].includes(legs[0].data) &&
+        legs[1].z === 'MDZ' && legs[1].do === 'BUE' && legs[1].data === rules.buenosOd &&
+        legs[2].z === 'BUE' && legs[2].do === 'WAW' && legs[2].data === rules.buenosDo;
+    });
+  }
+
   function mount(host, program) {
     if (!host) return;
     const rules = program.loty.monitoring.reguly;
-    const labels = {stopover: 'Cały bilet z postojem', openjaw: 'Do MDZ, powrót z BUE', osobne: 'Atlantyk i krajowe', mad: 'Przez Madryt', vie: 'Wiedeń / Berlin', huby: 'Pozostałe huby'};
+    const labels = {stopover:'Cała trasa z Warszawy na jednym bilecie'};
     const money = n => Number(n).toLocaleString('pl-PL', {maximumFractionDigits: 0});
     const nb = s => String(s || '').replace(/\b([aiouwzAIOUWZ])\s+/g, '$1\u00a0');
     const date = s => {
+      if (typeof s !== 'string' || !s) return 'brak odczytu';
       const d = new Date(s && s.length === 10 ? s + 'T12:00:00Z' : s);
       return Number.isNaN(+d) ? 'brak odczytu' : new Intl.DateTimeFormat('pl-PL', {dateStyle: 'short', ...(s.length > 10 ? {timeStyle:'short'} : {}), timeZone:'Europe/Warsaw'}).format(d);
     };
@@ -37,7 +48,7 @@
     const link = (label, url) => { const a = el('a', label); const safe = safeURL(url); if (safe) { a.href = safe; a.target = '_blank'; a.rel = 'noopener noreferrer'; } return a; };
     const get = k => { try { const x = JSON.parse(localStorage.getItem('uco-finder-' + k)); return Array.isArray(x) ? x.filter(v => typeof v === 'string') : []; } catch (_) { return []; } };
     const put = (k, value) => { try { localStorage.setItem('uco-finder-' + k, JSON.stringify(value)); } catch (_) {} };
-    let state = null, saved = get('saved'), hidden = get('hidden');
+    let monitorState = null, state = null, saved = get('saved'), hidden = get('hidden');
     host.className = 'finder';
     host.innerHTML = '<header class="finder-head"><div><p class="eyebrow">Pełna podróż, dobry lot, noc w Buenos Aires</p><h3>Wyszukiwarka okazji</h3><p>Aktualne tropy, zaplanowane wyszukiwania i wyceny do sprawdzenia. Cena z nagłówka promocji nie jest ceną Waszej podróży.</p></div><button type="button" id="finder-refresh">Pobierz najnowszy skan</button></header>' +
       '<p id="finder-status" role="status">Pobieranie wyników…</p><div id="finder-health"></div>' +
@@ -54,14 +65,16 @@
       const box = $('routes'); box.replaceChildren();
       if (!state) return;
       const selected = $('scenario').value;
-      (state.plan || []).filter(q => !selected || q.scenariusz === selected).forEach(q => {
+      const plan = currentPlan(state.plan, rules).filter(q => !selected || q.scenariusz === selected);
+      if (!plan.length) box.append(el('p', 'Skan nie zawiera planu zgodnego z aktualnymi wymaganiami. Skorzystaj z pełnej trasy w sekcji „Jak szukać”.', 'finder-warning'));
+      plan.forEach(q => {
         const row = el('article', null, 'finder-route');
         row.append(el('h4', q.nazwa), el('p', q.trasa, 'finder-route-text'));
         const links = el('div', null, 'finder-links'); links.append(link('KAYAK · 2 osoby ↗', q.kayak), link('Google · wpisz trasę ↗', q.google));
         const copy = el('button', 'Skopiuj plan wyszukiwania'); copy.type = 'button';
         const copyStatus = el('span', '', 'finder-note'); copyStatus.setAttribute('role', 'status');
         copy.addEventListener('click', async () => {
-          const value = '2 osoby dorosłe, klasa ekonomiczna, kabinowy i 23 kg na osobę.\n' + q.odcinki.map(l => l.z + ' → ' + l.do + ', ' + l.data).join('\n') + '\nStopover Buenos Aires 12-13.11.2027; przylot 12.11 do 15:59, wylot 13.11 od 18:00. Wylot z WAW 4.11 wyłącznie po 20:00. Powrót WAW do 14.11.';
+          const value = program.zasady_podrozy.profil + '\n' + program.zasady_podrozy.bagaz + '\n' + program.zasady_podrozy.przesiadki + '\n' + q.odcinki.map(l => l.z + ' → ' + l.do + ', ' + l.data).join('\n');
           try { await navigator.clipboard.writeText(value); copyStatus.textContent = 'Plan skopiowany. Uzupełnij formularz Google.'; }
           catch (_) { copyStatus.textContent = 'Nie udało się skopiować. Odcinki i daty znajdziesz powyżej.'; }
         });
@@ -109,7 +122,7 @@
       box.append(el('p', ready.length ? ready.length + ' ofert spełnia pełne kryteria. Szczegóły i cena na osobę poniżej w panelu „Jaką kombinację kupić?”.' : 'Brak kompletnej, potwierdzonej u linii oferty. Niczego nie rezerwujemy.'));
       const all = (state.wyceny || []).filter(q => q && safeURL(q.url));
       if (!all.length) box.append(el('p', (state.ceny || {}).status === 'wymaga podłączenia'
-        ? 'Nie pobrano jeszcze wycen z API. Gotowe wyszukiwania tras działają bez konta; automatyczne ceny wymagają podłączenia SerpApi.'
+        ? 'Automatyczne ceny są niedostępne. Otwórz pełną trasę w bezpłatnym formularzu linii.'
         : 'Nie uzyskano kompletnej wyceny. Sprawdź stan źródła powyżej i odczyty w sekcji „Wyszukaj konkretne połączenie”. Możesz otworzyć trasę w portalu i sprawdzić ją ręcznie.'));
       all.slice().sort((a,b) => String(b.sprawdzono).localeCompare(String(a.sprawdzono))).forEach(q => {
         const row = el('article', null, 'finder-route');
@@ -138,7 +151,7 @@
         row.append(link(s.nazwa + ' ↗', 'https://www.google.com/search?' + new URLSearchParams({q:'site:' + s.domena + ' (Mendoza OR "Buenos Aires" OR Argentyna OR Argentina) 2027', tbs:'qdr:m'})), el('span', ' · ' + s.opis)); box.append(row);
       });
       const limits = state.konfiguracjaLimitow || {};
-      box.append(el('p', 'Tryb startowy API: do ' + limits.limitDzien + ' zapytań dziennie i ' + limits.limitMiesiac + ' miesięcznie. Jedna wycena złożonej trasy zużywa kilka zapytań, dlatego warianty są sprawdzane rotacyjnie. Odczyt API nie zastępuje weryfikacji u przewoźnika.', 'finder-note'));
+      if (program.apiCenWlaczone) box.append(el('p', 'Tryb startowy API: do ' + limits.limitDzien + ' zapytań dziennie i ' + limits.limitMiesiac + ' miesięcznie. Jedna wycena złożonej trasy zużywa kilka zapytań, dlatego warianty są sprawdzane rotacyjnie. Odczyt API nie zastępuje weryfikacji u przewoźnika.', 'finder-note'));
     }
 
     async function refresh() {
@@ -158,7 +171,8 @@
         if (responses.some(r => !r.ok)) throw new Error('HTTP');
         const [data, monitor] = await Promise.all(responses.map(r => r.json()));
         if (!Array.isArray(data.tropy) || !Array.isArray(data.plan) || data.wersja !== 1) throw new Error('schema');
-        state = data;
+        state = data; monitorState = monitor;
+        if (!program.apiCenWlaczone) state.ceny = {status:'wyłączone', opis:'Zapytania API wyłączone. Portale, promocje i fora sprawdzamy bez płatnych zapytań.'};
         $('status').textContent = 'Ostatni skan: ' + date(data.sprawdzono) + '. ' + (fallback ? 'Bieżący skaner jest niedostępny - pokazuję kopię z ostatniego wdrożenia strony. ' : '') + (fresh(data.sprawdzono, Date.now(), 8) ? 'Dane są aktualne względem rytmu skanera.' : 'Skan jest opóźniony. Korzystaj z linków i sprawdź źródła ręcznie.');
         const channels = (state.rss || {}).kanaly || [];
         $('health').replaceChildren(el('p', 'RSS: ' + channels.filter(c => c.ok).length + '/' + channels.length + ' kanałów. Ceny automatyczne: ' + ((state.ceny || {}).status || 'brak danych') + '.', 'finder-health-line'), el('p', (state.ceny || {}).opis, 'finder-note'));
@@ -171,9 +185,10 @@
     ['query', 'category', 'mode', 'sort'].forEach(id => $(id).addEventListener(id === 'query' ? 'input' : 'change', leads));
     $('scenario').addEventListener('change', routes);
     $('refresh').addEventListener('click', refresh);
+    setInterval(() => { if (state && monitorState) quotes(monitorState); }, 60000);
     refresh();
   }
-  const api = {mount, filterLeads, fresh, safeURL};
+  const api = {mount, filterLeads, currentPlan, fresh, safeURL};
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.UcoFinder = api;
 })(typeof window !== 'undefined' ? window : globalThis);

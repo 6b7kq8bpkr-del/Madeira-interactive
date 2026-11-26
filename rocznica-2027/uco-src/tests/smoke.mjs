@@ -180,6 +180,11 @@ for (const h of ['decyzje', 'plan', 'd10-11', 'budzet', 'upgrade', 'hotele', 'lo
   if (up !== base + ups[0][1] + ups[1][1]) fail('budżet', `po zaznaczeniu ${ups.map(u => u[0])} suma ${up} zamiast ${base + ups[0][1] + ups[1][1]}`);
   for (const [id] of ups) await pg.uncheck(`[data-up="${id}"]`);
   if (await num() !== base) fail('budżet', 'odznaczenie upgrade’ów nie przywraca planu bazowego');
+  await pg.click('#lsc [data-ls="p40"]');
+  const p40 = await num();
+  if (!/4\s000\/os\./.test(await pg.locator('#lsc [data-ls="p40"]').innerText())) fail('budżet', 'błędna cena jednostkowa wariantu p40');
+  await pg.click('#lsc [data-ls="p45"]');
+  if (await num() - p40 !== 1000) fail('budżet', 'różnica 500 zł/os. nie daje 1000 zł/parę');
   const sufit = await pg.evaluate(() => window.UCO.prog.budzet.sufit);
   if (base > sufit) fail('budżet', `plan bazowy ${base} zł przekracza sufit ${sufit} zł`);
   if (log.errs.length) fail('budżet', 'błędy JS: ' + log.errs[0]);
@@ -234,11 +239,11 @@ for (const h of ['decyzje', 'plan', 'd10-11', 'budzet', 'upgrade', 'hotele', 'lo
   await pg.fill('#own-wlasne', '');
   await pg.fill('#k-cena', '3350'); await pg.check('#k-kr');
   await pg.evaluate(() => { window.__bestSingle = null; window.__kalkUpd(); });
-  if (!(await pg.locator('#k-out').innerText()).includes('Opłacalność niepotwierdzona')) fail('osobne bilety', 'brak blokady bez ceny porównawczej');
+  if (!(await pg.locator('#k-out').innerText()).includes('Poza wymaganiami podróży')) fail('osobne bilety', 'brak blokady bez ceny porównawczej');
   await pg.fill('#k-single', '4500');
-  if (!(await pg.locator('#k-out').innerText()).includes('Nie opłaca się')) fail('osobne bilety', 'ręczne porównanie nie blokuje zbyt małej oszczędności');
+  if (!(await pg.locator('#k-out').innerText()).includes('Poza wymaganiami podróży')) fail('osobne bilety', 'ręczne porównanie nie blokuje zbyt małej oszczędności');
   await pg.fill('#k-single', '5000');
-  if ((await pg.locator('#k-out').innerText()).includes('Nie opłaca się')) fail('osobne bilety', 'błędna odmowa przy oszczędności 1000 zł');
+  if (!(await pg.locator('#k-out').innerText()).includes('Poza wymaganiami podróży')) fail('osobne bilety', 'błędna odmowa przy oszczędności 1000 zł');
   await pg.fill('#k-cena', '4800'); await pg.uncheck('#k-kr');
   await pg.evaluate(() => window.__setNp(2));
   if (/940/.test(await pg.locator('#k-out .kver').innerText())) fail('werdykt', 'pozostał bazowy zapas 940 zł');
@@ -286,9 +291,9 @@ async function withLoty(mutate, hash, fn) {
     await pg.fill('#k-cena', '3850'); await pg.check('#k-kr'); await pg.fill('#k-krc', '650');
     t = await out();
     if (!/4\s?500\s?zł/.test(t)) fail('kalkulator', `3 850 + krajowy 650 nie dało 4 500 zł: ${t.slice(0, 80)}`);
-    if (!/Nie opłaca się/.test(t) || /Bardzo dobry/.test(t)) fail('kalkulator', 'osobne bilety bez 800 zł oszczędności dostają werdykt „kupować”');
+    if (!/Poza wymaganiami podróży/.test(t) || /Bardzo dobry/.test(t)) fail('kalkulator', 'osobne bilety bez 800 zł oszczędności dostają werdykt „kupować”');
     await pg.fill('#k-cena', '3000'); t = await out();
-    if (/Nie opłaca się/.test(t)) fail('kalkulator', 'osobne bilety z oszczędnością ≥ 800 zł dostają werdykt „nie opłaca się”');
+    if (!/Poza wymaganiami podróży/.test(t)) fail('kalkulator', 'osobne bilety z oszczędnością ≥ 800 zł dostają werdykt „nie opłaca się”');
   });
   if (errs.length) fail('kalkulator', 'błędy JS: ' + errs[0]);
   await pg.close();
@@ -374,7 +379,7 @@ async function withLoty(mutate, hash, fn) {
     const O = window.UCO.prog.loty.okna, okt = [...document.querySelectorAll('#okna .okt tbody tr')].map(tr => [tr.cells[0].querySelector('b').textContent, tr.cells[1].textContent, tr.cells[2].textContent]);
     return { n: rows.length, ok: rows.every((x, i) => num(x.c) === exp[i][0] && num(x.p) === exp[i][1]), first: rows[0], eur: rows.filter(x => /EUR/.test(x.c)).length, kurs: document.querySelector('#wyzwalacze .eyebrow').textContent, okt, okm: document.querySelectorAll('#okna .okm li').length, lines: O.linie.length, eurs: String(B.kursy.EUR.toFixed(2)).replace('.', ','), eurv: B.kursy.EUR };
   });
-  if (r.n < 6 || !r.ok || !/4\s500\szł/.test(r.first.c) || !/4\s800\szł/.test(r.first.p) || r.eur < 2 || !r.kurs.includes(r.eurs)) fail('ceny-wyzwalacze', JSON.stringify({ n: r.n, ok: r.ok, first: r.first, eur: r.eur, kurs: r.kurs }));
+  if (r.n !== 1 || !r.ok || !/4\s500\szł/.test(r.first.c) || !/4\s800\szł/.test(r.first.p) || !r.kurs.includes(r.eurs)) fail('ceny-wyzwalacze', JSON.stringify({ n: r.n, ok: r.ok, first: r.first, eur: r.eur, kurs: r.kurs }));
   const ib = r.okt.find(x => x[0] === 'Iberia'), ar = r.okt.find(x => /Aerolíneas/.test(x[0]));
   if (r.okt.length !== r.lines || r.okm !== 2 || !ib || ib[1] !== '10.11' || ib[2] !== '18.11' || !ar || ar[1] !== '10.12' || ar[2] !== '18.12') fail('okna sprzedaży', JSON.stringify({ rows: r.okt.length, okm: r.okm, ib, ar }));
   // kalkulator liczy EUR po kursie z danych, także gdy w pamięci został stary zapis waluty
@@ -502,6 +507,22 @@ async function withLoty(mutate, hash, fn) {
   const copied = await pg.evaluate(()=>window.__finderCopied);
   if(!copied.includes('2 osoby dorosłe') || !copied.includes('MDZ → BUE, 2027-11-12') || !copied.includes('BUE → WAW, 2027-11-13')) fail('wyszukiwarka','kopiowany plan pomija pasażerów lub stopover');
   if(await pg.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1)) fail('wyszukiwarka','przewijanie poziome na telefonie');
+  await pg.close();
+}
+
+// Skrót: stare werdykty nie zachęcają do zakupu, kod nie trafia do URL ani pamięci.
+{
+  const pg = await browser.newPage({viewport:{width:375,height:812}});
+  const calls=[];
+  await pg.route('**/api/uco-ankieta*', r=>{ calls.push(r.request()); return r.fulfill({status:200,contentType:'application/json',headers:{'access-control-allow-origin':'*'},body:'{"pary":{}}'}); });
+  await pg.addInitScript(()=>localStorage.setItem('uco-kod','synthetic-old-code'));
+  await pg.route('**/loty.json',r=>r.fulfill({contentType:'application/json',body:JSON.stringify({raport:{data:'2020-01-01',werdykt:'Kupować dziś'},oferty:[]})}));
+  await pg.goto(BASE+'skrot.html');
+  await pg.getByText('Raport nieaktualny. Sprawdź aktualne oferty przed decyzją.',{exact:true}).waitFor();
+  if (await pg.locator('input[type="password"]').count()!==1 || await pg.evaluate(()=>localStorage.getItem('uco-kod'))!==null || calls.length) fail('skrót','kod jest przechowywany, jawny albo odczyt uruchomiono bez działania użytkownika');
+  await pg.locator('#read').click();
+  if (!await pg.getByText('Wpiszcie kod grupy.',{exact:true}).isVisible() || calls.length) fail('skrót','pusty kod uruchomił odczyt');
+  if(await pg.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1)) fail('skrót','przewijanie poziome na telefonie');
   await pg.close();
 }
 

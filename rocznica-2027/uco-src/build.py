@@ -19,6 +19,15 @@ KU = P["budzet"]["kursy"]; USD = KU["USD"]; FX = USD / KU.get("baza_kosztow", US
 def hup(v): return int(math.floor(v + 0.5))                      # jak Math.round w JS
 def r10(v): return hup(v / 10.0) * 10
 def zl(v): return f"{int(v):,}".replace(",", " ")
+# Opisy korzystają z tych samych reguł co ocena ofert.
+R = P['loty']['monitoring']['reguly']
+P['apiCenWlaczone'] = json.load(open('data/wyszukiwarka.json'))['serpapi'].get('enabled') is True
+P['zasady_podrozy']['przesiadki'] = f"Jeden chroniony bilet na całą trasę z Warszawy. Najwyżej {R['max_przesiadki']} przesiadki w stronę, do {R['max_podroz_h']} h podróży. Przesiadki {R['przesiadkaH']}-{R['max_przesiadka_h']} h, w Buenos Aires minimum {R['buePrzesiadkaH']} h. Zmiana AEP/EZE wyłącznie podczas stopoveru, nigdy przy krótkiej przesiadce. To nasze bufory komfortu; warunki ochrony potwierdza linia."
+P['zasady_podrozy']['bagaz'] = 'Wystarczy bagaż podręczny dla każdej osoby na każdym odcinku; potwierdzić w cenie limit, wymiary i masę. Rejestrowany jest opcjonalny, z osobną wyceną dopłaty.'
+P['zasady_podrozy']['profil'] = f"WAW-MDZ / MDZ-BUE / BUE-WAW, 2 osoby dorosłe, klasa ekonomiczna, jeden chroniony bilet. Wylot {R['wylot']} lub {R['wylotAlternatywny']} po 20:00; przylot MDZ {R['mendoza']}. Stopover BUE {R['buenosOd']} do {R['buenosDo']}, minimum {R['stop_min_h']} h, przylot do {R['buenosPrzylotMax']}:59, wylot od {R['buenosWylotMin']}:00. Powrót WAW najpóźniej {R['powrot']}."
+for option in P['grupa']['loty_scen']['opcje']:
+    price = option[2] / 2
+    option[1] = zl(price) + '/os.' + (' · cel' if price == P['budzet']['cel'] else ' · próg' if price == P['budzet']['prog'] else '')
 _koszty0 = sum(d["cost"] for d in P["days"])
 for d in P["days"]: d["cost"] = r10(d["cost"] * FX)
 KOSZTY = sum(d["cost"] for d in P["days"])

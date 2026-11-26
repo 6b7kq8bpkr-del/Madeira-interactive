@@ -44,7 +44,7 @@
         duration = [hours(first.wylot,legs[mdz].przylot), hours(back.wylot,last.przylot)];
         if (duration.some(h => h <= 0 || h > rules.max_podroz_h) || mdz > rules.max_przesiadki || legs.length-domestic-2 > rules.max_przesiadki) reasons.push('Za długa podróż lub ponad 2 przesiadki w stronę.');
       }
-      if (legs.some(l => !finite(l.bagazKg) || l.bagazKg < 23 || l.kabinowy !== true)) reasons.push('Niepotwierdzone 23 kg i bagaż kabinowy na każdym odcinku dla każdej osoby.');
+      if (legs.some(l => l.kabinowy !== true || ((rules.bagazRejestrowanyKg || 0) > 0 && (!finite(l.bagazKg) || l.bagazKg < rules.bagazRejestrowanyKg)))) reasons.push('Niepotwierdzony wymagany bagaż na każdym odcinku dla każdej osoby. Podręczny wystarczy; rejestrowany jest opcjonalny.');
       if (o.ochronaPotwierdzona !== true) reasons.push('Niepotwierdzony zakres ochrony przewoźnika dla wspólnych biletów.');
       for (let i=1; i<legs.length; i++) {
         if (i === mdz+1) continue; // pobyt w Mendozie
@@ -59,6 +59,7 @@
         } else if (gap < (BUE(a.do) ? rules.buePrzesiadkaH : rules.przesiadkaH) || gap > rules.max_przesiadka_h) reasons.push('Przesiadka poza przyjętym zakresem czasu.');
       }
       separate ||= new Set(legs.map(l => l.bilet)).size > 1;
+      if (rules.jedenBilet && separate) reasons.push('Cała trasa z Warszawy, także MDZ-BUE, musi być na jednym chronionym bilecie.');
     }
     if (separate) warn.push('Osobne bilety: bufor i polisa nie oznaczają ochrony przez linię.');
     return {id:o.id, offer:o, cena:total, stopHours, duration, separate, reasons:[...new Set(reasons)], warn, ready:reasons.length===0};
@@ -78,7 +79,16 @@
     });
     return results.sort((a,b) => Number(b.ready)-Number(a.ready) || (a.cena??Infinity)-(b.cena??Infinity));
   }
-  const api = {assess, rank};
+  function reportState(monitor, rules, budget, now=Date.now()) {
+    const report = monitor.raport || {}, today = new Intl.DateTimeFormat('en-CA', {timeZone:'Europe/Warsaw', year:'numeric', month:'2-digit', day:'2-digit'}).format(new Date(now));
+    const age = /^\d{4}-\d{2}-\d{2}$/.test(report.data || '') ? (Date.parse(today) - Date.parse(report.data)) / 864e5 : NaN;
+    const compatible = report.profil === rules.profil;
+    const current = compatible && Number.isFinite(age) && age >= 0 && age <= 1;
+    const best = rank(monitor.oferty, rules, budget, now).find(x => x.ready);
+    return {current, best, headline: best ? (best.cena <= budget.prog ? 'Jest aktualna kompletna oferta w progu. Sprawdź cenę przed zakupem.' : 'Aktualna kompletna oferta jest powyżej progu zakupu.') : current ? 'Brak aktualnej, kompletnej oferty spełniającej wymagania.' : 'Raport nieaktualny. Sprawdź aktualne oferty przed decyzją.',
+      detail: (report.data ? 'Raport z ' + report.data + '. ' : 'Brak daty raportu. ') + (!compatible ? 'Raport dotyczy wcześniejszych wymagań podróży. ' : current ? '' : 'Dane historyczne - wymagają odświeżenia. ') + (report.stan || '')};
+  }
+  const api = {assess, rank, reportState};
   if (typeof module !== 'undefined' && module.exports) module.exports=api;
   else root.UcoFlights=api;
 })(typeof window !== 'undefined' ? window : globalThis);

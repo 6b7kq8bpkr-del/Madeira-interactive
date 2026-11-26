@@ -1,5 +1,5 @@
 const assert = require('node:assert/strict');
-const {filterLeads, fresh, safeURL} = require('../../uco/finder.js');
+const {filterLeads, currentPlan, fresh, safeURL} = require('../../uco/finder.js');
 const now = Date.parse('2026-11-26T10:00:00+01:00');
 const data = [
   {id:'one',rodzaj:'oferta',tytul:'Buenos Aires - bagaż',zrodlo:'Iberia',kategoria:'Buenos Aires / Argentyna',url:'https://example.com/one',data:'2026-11-26'},
@@ -20,4 +20,11 @@ assert.equal(fresh('2026-11-27T09:00:00Z',now),false);
 assert.equal(fresh('not-a-date',now),false);
 assert.equal(safeURL('https://user:password@example.com'), '');
 assert.equal(safeURL('javascript:alert(1)'), '');
+const rules = require('../data/program.json').loty.monitoring.reguly;
+const previousScan = require('../../uco/okazje.json');
+const routes = currentPlan(previousScan.plan, rules);
+assert.equal(routes.length, 2, 'Starszy skan zachowuje oba pełne wyszukiwania');
+assert.equal(currentPlan(routes.map(q=>({...q,sposobWyceny:'osobne'})),rules).length,0);
+assert.equal(currentPlan(routes.map(q=>({...q,dorosli:1})),rules).length,0);
+assert.equal(currentPlan(routes.map(q=>({...q,odcinki:q.odcinki.map((l,i)=>i===2?{...l,data:'2027-11-12'}:l)})),rules).length,0);
 console.log('Wyszukiwarka: filtry, aktualność i bezpieczne linki - OK');

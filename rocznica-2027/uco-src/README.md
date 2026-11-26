@@ -55,7 +55,7 @@ GitHub Actions (`.github/workflows/uco-tests.yml`) uruchamia `build.py --check` 
 
 ## Reguły podróży i własne wyceny
 
-`zasady_podrozy` w `data/program.json` zawiera wspólne daty 3+3+1, bufory przesiadek i warianty AEP/EZE. W opisach używaj `{regula:noclegi}`, `{regula:przesiadki}` i `{regula:lotniska}`.
+`loty.monitoring.reguly` jest źródłem profilu jednego biletu WAW-MDZ-BUE-WAW, bagażu i buforów. Build generuje `zasady_podrozy.profil/przesiadki/bagaz` oraz etykiety cen z wartości liczbowych. Pozostałe `zasady_podrozy` opisują pobyt i transfery. W opisach używaj `{regula:noclegi}`, `{regula:przesiadki}` i `{regula:lotniska}`.
 
 Własne wyceny noclegów i transportu zastępują całe pozycje budżetu; dodatkowe koszty są doliczane. Kwoty w PLN zapisują się lokalnie osobno dla wariantu hotelowego i liczby par; puste pole przywraca szacunek. Jedna funkcja `calc()` zasila budżet, kalkulator lotów i harmonogram płatności. Kwoty własne w PLN są wyłączone z wrażliwości na USD.
 
@@ -73,8 +73,14 @@ node tests/flight-rules.test.cjs
 node tests/check-offers.cjs
 ```
 
-Regresje: szacunek i stary odczyt nie zasilają oferty do zakupu, 2 miejsca, bagaż, czas, daty, noc w BUE, bufory i oszczędność przy osobnych biletach. RSS: błędny XML/HTML to awaria, deduplikacja URL, przestrzenie nazw Atom/RSS, aktualność i częściowe pokrycie. Ceny testowe z `tests/flight-fixture.cjs` nie są danymi produkcyjnymi.
+Regresje: szacunek i stary odczyt nie zasilają oferty do zakupu, 2 miejsca, bagaż, czas, daty, noc w BUE, bufory i odrzucenie osobnych biletów niezależnie od oszczędności. RSS: błędny XML/HTML to awaria, deduplikacja URL, przestrzenie nazw Atom/RSS, aktualność i częściowe pokrycie. Ceny testowe z `tests/flight-fixture.cjs` nie są danymi produkcyjnymi.
 
 ## Wyszukiwarka okazji
 
 Opis działania, bezpieczne podłączenie SerpApi, ograniczenia bezpłatnego limitu i utrzymanie: [WYSZUKIWARKA.md](WYSZUKIWARKA.md). Skaner publikuje publiczne dane do osobnej gałęzi `uco-monitor-data`, bez zmiany codziennego raportu. Moduły `finder.js` i `finder.css` nie są generowane; build wersjonuje ich adresy.
+
+## Ankieta i aktualność raportu
+
+Ankieta zapisuje prywatny plik każdej pary pod skrótem jej nazwy. Dawny plik wspólny jest tylko odczytywany; nowe rekordy nadpisują jego wartości przy odczycie. Wycofanie zapisuje znacznik, więc dawna odpowiedź nie wraca. Równoczesne zapisy różnych par nie nadpisują się. Kod jest wyłącznie w nagłówku żądania i w bieżącym polu hasła; stary zapis localStorage jest usuwany. Ograniczanie błędnych prób w funkcji działa na instancję, nie jest globalnym limitem WAF. Metody Vercel Blob: https://vercel.com/docs/vercel-blob/using-blob-sdk oraz https://vercel.com/changelog/vercel-blob-now-supports-consistent-reads-on-private-storage.
+
+`node tests/ankieta.test.cjs` używa wyłącznie atrap Blob. Nie testować zapisem danych fikcyjnych w produkcyjnej ankiecie. Skrót i pełny plan używają `UcoFlights.reportState`; stare lub niezgodne z profilem raporty nie wydają decyzji zakupu. Ocena wygasa także w otwartej karcie.

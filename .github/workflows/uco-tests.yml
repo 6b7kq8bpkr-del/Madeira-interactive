@@ -4,6 +4,8 @@ on:
     paths:
       - 'rocznica-2027/uco/**'
       - 'rocznica-2027/uco-src/**'
+      - 'api/uco-ankieta.js'
+      - 'rocznica-2027/index.html'
       - '.github/workflows/uco-tests.yml'
   # bez „push”: na main testy uruchamia pages.yml (workflow_call), żeby nie biegły dwa razy
   workflow_call:
@@ -38,6 +40,7 @@ jobs:
           node tests/flight-rules.test.cjs
           node tests/finder.test.cjs
           node tests/check-offers.cjs
+          node tests/ankieta.test.cjs
       - name: Playwright i Chromium
         working-directory: rocznica-2027/uco-src/tests
         run: npm ci && npx playwright install --with-deps chromium
