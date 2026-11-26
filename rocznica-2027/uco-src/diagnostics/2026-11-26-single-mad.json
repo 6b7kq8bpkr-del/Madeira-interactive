@@ -1,0 +1,120 @@
+{
+  "test": true,
+  "sprawdzono": "2026-11-26T12:45:24.041783+01:00",
+  "odcinki": [
+    {
+      "z": "MAD",
+      "do": "MDZ",
+      "data": "2027-05-07"
+    },
+    {
+      "z": "MDZ",
+      "do": "AEP",
+      "data": "2027-05-14"
+    },
+    {
+      "z": "EZE",
+      "do": "MAD",
+      "data": "2027-05-15"
+    }
+  ],
+  "status": "pobrano cenę",
+  "limity": {
+    "miesiac": "2026-11",
+    "dzien": "2026-11-26",
+    "miesiacZapytania": 15,
+    "dzienZapytania": 15
+  },
+  "dodatkowyBudzetTestu": 0,
+  "zatwierdzonyBudzetTestu": 4,
+  "uwaga": "Rzeczywista cena dla wcześniejszych dat. Nie dotyczy wyjazdu w listopadzie.",
+  "wycena": {
+    "id": "866dcf4367ee2e07",
+    "zapytanie": "test-2027-05-07-single-mad",
+    "nazwa": "TEST połączenia 2027-05-07, nie oferta na rocznicę",
+    "scenariusz": "mad",
+    "sprawdzono": "2026-11-26T12:45:24.041783+01:00",
+    "dorosli": 2,
+    "waluta": "PLN",
+    "cenaWyniku": 9490,
+    "wspolnaOferta": {
+      "sprzedawca": "Aerolineas Argentinas",
+      "cena": 9490,
+      "bagazZrodla": [
+        "1 free carry-on"
+      ],
+      "wspolnaOfertaLinii": true,
+      "uwaga": "Cała trasa w jednej ofercie linii w Google Flights, bez oznaczenia osobnych biletów. Wystawienie jednego biletu, bagaż 23 kg i ochronę potwierdź przed płatnością."
+    },
+    "odstepstwa": [
+      "Przesiadka w EZE 2 h 50 min zamiast wymaganego minimum 3 h. Wariant nie spełnia reguł podróży."
+    ],
+    "regulySpelnione": false,
+    "zakresCeny": "wynik wyszukiwania dla 2 dorosłych; jednostka do kontroli w formularzu",
+    "sposobWyceny": "wspólna oferta linii",
+    "cenyOdcinkow": [],
+    "linkiOdcinkow": [],
+    "stopoverGodziny": 38.75,
+    "bagazPotwierdzony": false,
+    "bagaz": "Filtr dwóch bagaży kabinowych wysłany; API nie potwierdza ich uwzględnienia w cenie. Wymagana kontrola obu bagaży i 23 kg na osobę.",
+    "trasy": [
+      [
+        {
+          "z": "MAD",
+          "do": "EZE",
+          "wylotLokalny": "2027-05-07 20:05",
+          "przylotLokalny": "2027-05-08 04:10",
+          "linia": "Aerolineas Argentinas",
+          "rejs": "AR 1133",
+          "minuty": 785
+        },
+        {
+          "z": "EZE",
+          "do": "MDZ",
+          "wylotLokalny": "2027-05-08 07:00",
+          "przylotLokalny": "2027-05-08 09:00",
+          "linia": "Aerolineas Argentinas",
+          "rejs": "AR 1404",
+          "minuty": 120
+        }
+      ],
+      [
+        {
+          "z": "MDZ",
+          "do": "AEP",
+          "wylotLokalny": "2027-05-14 07:30",
+          "przylotLokalny": "2027-05-14 09:10",
+          "linia": "Aerolineas Argentinas",
+          "rejs": "AR 1401",
+          "minuty": 100
+        }
+      ],
+      [
+        {
+          "z": "EZE",
+          "do": "MAD",
+          "wylotLokalny": "2027-05-15 23:55",
+          "przylotLokalny": "2027-05-16 17:10",
+          "linia": "Aerolineas Argentinas",
+          "rejs": "AR 1132",
+          "minuty": 735
+        }
+      ]
+    ],
+    "url": "https://www.google.com/travel/flights?hl=en&gl=pl&curr=PLN&tfs=CBwQAhpoEgoyMDI3LTA1LTA3IiAKA01BRBIKMjAyNy0wNS0wNxoDRVpFKgJBUjIEMTEzMyIgCgNFWkUSCjIwMjctMDUtMDgaA01EWioCQVIyBDE0MDQoAjICQVJqBwgBEgNNQURyBwgBEgNNRFoaThIKMjAyNy0wNS0xNCIgCgNNRFoSCjIwMjctMDUtMTQaA0FFUCoCQVIyBDE0MDEoAjICQVJAAEgXUABYD2oHCAESA01EWnIHCAESA0FFUBpKEgoyMDI3LTA1LTE1IiAKA0VaRRIKMjAyNy0wNS0xNRoDTUFEKgJBUjIEMTEzMigCMgJBUkASSBdqBwgBEgNFWkVyBwgBEgNNQURAAUABSAFqAhACcAGYAQM&tfu=EgQIAhAB",
+    "status": "wariant warunkowy",
+    "braki": [
+      "Przesiadka w EZE 2 h 50 min zamiast wymaganego minimum 3 h. Wariant nie spełnia reguł podróży.",
+      "doloty WAW-MAD-WAW",
+      "noc przed Atlantykiem i bufory",
+      "bagaż i koszt całości",
+      "finalna cena u linii dla dwóch osób",
+      "dwa bagaże kabinowe w cenie",
+      "dokładne strefy czasowe i bufory",
+      "23 kg na osobę i warunki ochrony"
+    ],
+    "kompletPodrozy": false,
+    "potwierdzonaULinii": false
+  },
+  "zapytaniaTestu": 4
+}
