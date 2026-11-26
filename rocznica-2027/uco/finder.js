@@ -115,6 +115,8 @@
         const row = el('article', null, 'finder-route');
         row.append(el('h4', q.nazwa), el('p', date(q.sprawdzono) + ' · ' + (fresh(q.sprawdzono) ? 'do potwierdzenia' : 'odczyt starszy niż 24 h - odśwież przed oceną')));
         row.append(el('p', 'Kwota wyniku: ' + money(q.cenaWyniku) + ' PLN. ' + q.zakresCeny + '. Nie porównujemy jej automatycznie z ceną za osobę.'));
+        if (q.wspolnaOferta) row.append(el('p', 'Wspólna oferta: ' + q.wspolnaOferta.sprzedawca + '. ' + q.wspolnaOferta.uwaga));
+        if ((q.odstepstwa || []).length) row.append(el('p', 'Wariant nie spełnia reguł: ' + q.odstepstwa.join('; '), 'finder-warning'));
         if (q.bagaz) row.append(el('p', q.bagaz, 'finder-warning'));
         if (q.stopoverGodziny != null) row.append(el('p', 'Postój w Buenos Aires: ' + q.stopoverGodziny + ' h. Hotel i transfery osobno.'));
         (q.trasy || []).forEach((legs, i) => row.append(el('p', 'Część ' + (i + 1) + ': ' + legs.map(l => l.z + ' ' + l.wylotLokalny + ' → ' + l.do + ' ' + l.przylotLokalny + ' (' + l.rejs + ')').join('; '), 'finder-note')));

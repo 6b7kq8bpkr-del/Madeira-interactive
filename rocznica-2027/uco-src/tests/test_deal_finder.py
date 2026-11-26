@@ -112,17 +112,97 @@ class Tests(unittest.TestCase):
     def test_every_slice_is_selected_and_price_not_multiplied(self):
         q=finder.build_plan(PROGRAM)[0]
         replies=[response('WAW','MDZ','2027-11-05',8000,'first'),response('MDZ','AEP','2027-11-12',8200,'second'),response('EZE','WAW','2027-11-13',8500)]
+        selected=[finder.route_from(r['best_flights'][0]) for r in replies]
+        replies[-1]['best_flights'][0]['booking_token']='booking-final'
+        replies.append({'search_parameters':{'adults':2,'currency':'PLN'},
+                        'selected_flights':[r['best_flights'][0] for r in replies],
+                        'booking_options':[{'together':{'airline':True,'book_with':'TEST','price':8400}}]})
         calls=[]
         class Fake:
             def search(self,p): calls.append(dict(p)); return replies.pop(0)
         result=finder.quote(q,PROGRAM['loty']['monitoring']['reguly'],Fake(),NOW)
-        self.assertEqual(result['cenaWyniku'],8500)
+        self.assertEqual(result['cenaWyniku'],8400)
+        self.assertEqual(calls[3]['booking_token'],'booking-final')
+        self.assertNotIn('departure_token',calls[3])
+        self.assertTrue(result['wspolnaOferta']['wspolnaOfertaLinii'])
         self.assertEqual(calls[2]['departure_token'],'second')
         self.assertEqual(len(result['trasy']),3)
         self.assertEqual(result['stopoverGodziny'],30)
         self.assertFalse(result['bagazPotwierdzony'])
         self.assertFalse(result['kompletPodrozy'])
         self.assertFalse(result['potwierdzonaULinii'])
+
+    def test_joint_booking_rejects_partial_separate_and_agency_options(self):
+        row=response('MDZ','AEP','2027-11-12',500)['best_flights'][0]
+        selected=[finder.route_from(row)]
+        response_data={'selected_flights':[row],'booking_options':[]}
+        for option in [
+            {'separate_tickets':True,'together':{'airline':True,'book_with':'TEST','price':500}},
+            {'together':{'book_with':'Agency','price':500}},
+            {'departing':{'price':200},'returning':{'price':300}},
+            {'together':{'airline':True,'book_with':'TEST','price':500,'extensions':['Self-transfer tickets']}},
+        ]:
+            with self.subTest(option=option):
+                response_data['booking_options']=[option]
+                with self.assertRaises(finder.ProviderError): finder.joint_booking(response_data,selected)
+        response_data['booking_options']=[{'together':{'airline':True,'book_with':'TEST','price':500}}]
+        response_data['selected_flights']=[]
+        with self.assertRaises(finder.ProviderError): finder.joint_booking(response_data,selected)
+
+    def test_single_ticket_reserves_booking_request_and_economy_only(self):
+        query=finder.build_plan(PROGRAM)[0]
+        self.assertEqual(finder.request_cost(query),4)
+        row=response('WAW','MDZ','2027-11-05',10000)['best_flights'][0]
+        row['flights'][0]['travel_class']='Business'
+        self.assertFalse(finder.usable(row,query['odcinki'][0],PROGRAM['loty']['monitoring']['reguly']))
+        old={'limity':dict(finder.Quota({},CONFIG['serpapi'],NOW).state,dzienZapytania=4,miesiacZapytania=4)}
+        opened=copy.deepcopy(CONFIG)
+        opened['serpapi']['kalendarzPotwierdzonyDo']='2027-11-14'
+        opened_program=copy.deepcopy(PROGRAM)
+        with tempfile.TemporaryDirectory() as d:
+            class Fake:
+                def __init__(self,*a): pass
+                def search(self,params):
+                    raise AssertionError('Brak czterech zapytań: nie wolno zaczynać wyceny')
+            with patch.object(finder,'build_plan',return_value=[query]):
+                state=finder.collect(Path(d)/'out.json',opened,opened_program,old,RSS,'FAKE',NOW,client_factory=Fake)
+            self.assertEqual(state['limity']['dzienZapytania'],4)
+            self.assertEqual(state['wyceny'],[])
+
+    def test_single_ticket_diagnostic_has_hard_four_request_budget(self):
+        class Fake:
+            def __init__(self,key,quota,checkpoint): self.quota,self.checkpoint=quota,checkpoint
+            def search(self,p):
+                self.quota.charge(); self.checkpoint()
+                raise finder.ProviderError('syntetyczny brak wyników')
+        old={'limity':dict(finder.Quota({},CONFIG['serpapi'],NOW).state,dzienZapytania=11,miesiacZapytania=11)}
+        with tempfile.TemporaryDirectory() as d:
+            result=finder.test_prices(Path(d)/'out.json',CONFIG,PROGRAM,old,'FAKE',NOW,Path(d)/'quota.json',Fake,route='single-mad',request_budget=4)
+            self.assertEqual(result['zapytaniaTestu'],1)
+            self.assertEqual(result['limity']['dzienZapytania'],12)
+            self.assertEqual(result['odcinki'][0],{'z':'MAD','do':'MDZ','data':'2027-05-07'})
+            old['limity']['miesiacZapytania']=208
+            blocked=finder.test_prices(Path(d)/'out.json',CONFIG,PROGRAM,old,'FAKE',NOW,Path(d)/'quota.json',lambda *a:self.fail('monthly cap'),route='single-mad',request_budget=4)
+            self.assertEqual(blocked['zapytaniaTestu'],0)
+
+    def test_rejected_prefix_selects_next_candidate_without_extra_request(self):
+        q=finder.build_plan(PROGRAM)[0]
+        cheap=response('WAW','MDZ','2027-11-05',8000,'cheap')['best_flights'][0]
+        next_choice=copy.deepcopy(cheap)
+        next_choice['flights'][0]['departure_airport']['time']='2027-11-05 21:00'
+        next_choice.update(price=8500,departure_token='next')
+        q['pominSciezki']=[finder.path_id([finder.route_from(cheap)])]
+        calls=[]
+        class Fake:
+            def search(self,p):
+                calls.append(dict(p))
+                if len(calls)==1:
+                    return {'search_parameters':{'adults':2,'currency':'PLN'},'best_flights':[cheap,next_choice]}
+                raise finder.ProviderError('brak wyników',empty_results=True)
+        with self.assertRaises(finder.ProviderError) as caught:
+            finder.quote(q,PROGRAM['loty']['monitoring']['reguly'],Fake(),NOW)
+        self.assertEqual(calls[1]['departure_token'],'next')
+        self.assertEqual(caught.exception.path_id,finder.path_id([finder.route_from(next_choice)]))
 
     def test_missing_token_does_not_create_partial_quote(self):
         class Fake:

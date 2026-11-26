@@ -124,6 +124,9 @@ def build_plan(program):
         add(airport.lower() + '-openjaw', 'Przylot przez ' + airport + ', powrót z Buenos Aires', 'huby',
             [('WAW', airport, r['wylot']), ('EZE', 'WAW', r['buenosDo'])],
             [airport + '-MDZ z przylotem 6.11', 'MDZ-BUE 12.11', 'bagaż i odpowiednie bufory'], 3)
+    for query in plan:
+        if query['id'].startswith('calosc-2027') or query['id'] == 'mad-stopover':
+            query['wspolnaOferta'] = True
     return plan
 
 
@@ -211,7 +214,13 @@ def merge_leads(old, fresh, now, config):
 
 
 class ProviderError(Exception):
-    pass
+    def __init__(self, message, path_id=None, empty_results=False):
+        super().__init__(message)
+        self.path_id, self.empty_results = path_id, empty_results
+
+
+def path_id(routes):
+    return ident(json.dumps(routes, sort_keys=True)) if routes else None
 
 
 class Quota:
@@ -255,7 +264,8 @@ class SerpApi:
             raise ProviderError('nie udało się odczytać źródła; poprzednie wyniki zachowane') from None
         if result.get('error'):
             # Nie publikujemy surowego błędu: może zawierać URL z kluczem.
-            raise ProviderError('źródło nie zwróciło wyników; sprawdź konto, daty i pozostały limit')
+            raise ProviderError('źródło nie zwróciło wyników; sprawdź konto, daty i pozostały limit',
+                                empty_results=result['error'] == "Google Flights hasn't returned any results for this query.")
         return result
 
 
@@ -263,6 +273,8 @@ def parameters(query, rules):
     legs = query['odcinki']
     out = {'engine': 'google_flights', 'hl': 'en', 'gl': 'pl', 'currency': 'PLN', 'adults': 2,
            'travel_class': 1, 'stops': 3, 'bags': 2, 'deep_search': 'true', 'show_hidden': 'true', 'sort_by': 2}
+    if query.get('linie'):
+        out['include_airlines'] = query['linie']
     slices = []
     for leg in legs:
         # API dokumentuje konkretne lotniska lub kgmid, nie miejskie kody IATA.
@@ -304,6 +316,8 @@ def usable(choice, expected, rules):
         legs = choice['flights']
         if not 1 <= len(legs) <= rules['max_przesiadki'] + 1:
             return False
+        if any(f.get('travel_class', 'Economy') != 'Economy' for f in legs):
+            return False
         departure, arrival = legs[0]['departure_airport'], legs[-1]['arrival_airport']
         begin = dt.datetime.fromisoformat(departure['time'])
         end = dt.datetime.fromisoformat(arrival['time'])
@@ -336,18 +350,68 @@ def usable(choice, expected, rules):
         return False
 
 
+def separate_ticket(value):
+    if value.get('separate_tickets') or value.get('departing') or value.get('returning'):
+        return True
+    notes = json.dumps([value.get('extensions', []), value.get('ticket_type', '')], ensure_ascii=False)
+    return bool(re.search(r'separate.ticket|self.transfer', notes, re.I))
+
+
+def request_cost(query):
+    return len(query['odcinki']) + int(bool(query.get('wspolnaOferta')))
+
+
+def joint_booking(response, selected):
+    """Wspólna oferta bezpośredniej linii dla dokładnie całej wybranej trasy.
+    Sam sprzedawca, sojusz ani pole together nie dowodzą wspólnego biletu.
+    Nie publikujemy booking_request, post_data ani tokenów.
+    """
+    def signature(routes):
+        return [(leg['z'], leg['do'], leg['wylotLokalny'], leg['przylotLokalny'])
+                for route in routes for leg in route]
+    returned = [route_from(row) for row in response.get('selected_flights', [])]
+    if not returned or signature(returned) != signature(selected):
+        raise ProviderError('oferta sprzedaży nie potwierdza wszystkich wybranych lotów')
+    available = []
+    for option in response.get('booking_options', []):
+        together = option.get('together', {})
+        price = together.get('price')
+        if separate_ticket(option) or separate_ticket(together) or together.get('airline') is not True:
+            continue
+        if not isinstance(price, (float, int)) or isinstance(price, bool) or not math.isfinite(price) or price <= 0:
+            continue
+        if not together.get('book_with'):
+            continue
+        available.append(together)
+    if not available:
+        raise ProviderError('brak wspólnej oferty linii dla całej trasy; nie oznaczono jej jako jeden bilet')
+    best = min(available, key=lambda x: x['price'])
+    baggage = best.get('baggage_prices') or response.get('baggage_prices', {}).get('together', [])
+    return {'sprzedawca': text(best['book_with'], 80), 'cena': best['price'],
+            'bagazZrodla': [text(item, 180) for item in baggage if isinstance(item, str)],
+            'wspolnaOfertaLinii': True,
+            'uwaga': 'Cała trasa w jednej ofercie linii w Google Flights, bez oznaczenia osobnych biletów. Wystawienie jednego biletu, bagaż 23 kg i ochronę potwierdź przed płatnością.'}
+
+
 def quote(query, rules, client, now):
     """Podążaj za wyborem kolejnych części. Cena pierwszej części nie jest ceną finalną.
     Brak tokenu, limit lub puste wyniki nigdy nie zamieniają częściowej ścieżki w komplet.
     """
     params, selected, last = parameters(query, rules), [], None
     separate = query.get('sposobWyceny') == 'osobne'
-    prices, urls = [], []
+    prices, urls, exceptions = [], [], []
+    shared = bool(query.get('wspolnaOferta'))
+    booking = None
     url = query['google']
     for index, expected in enumerate(query['odcinki']):
         if separate:
             params = parameters(dict(query, odcinki=[expected]), rules)
-        response = client.search(params)
+        try:
+            response = client.search(params)
+        except ProviderError as error:
+            if shared and error.empty_results:
+                error.path_id = path_id(selected)
+            raise
         url = public_url(response.get('search_metadata', {}).get('google_flights_url')) or url
         echoed = response.get('search_parameters', {})
         if str(echoed.get('adults')) != '2' or echoed.get('currency') != 'PLN':
@@ -355,9 +419,19 @@ def quote(query, rules, client, now):
         available = choices(response)
         # Zachowaj kilka kandydatur tylko na poziomie listy; wybór jednej ścieżki
         # jest ograniczeniem limitu API, nie dowodem najniższej ceny rynku.
-        available = [c for c in available if usable(c, expected, rules)]
+        if shared:
+            available = [c for c in available if not separate_ticket(c)]
+        strict = [c for c in available if usable(c, expected, rules)]
+        # Wyłącznie jawny przykład diagnostyczny: pokazuj odstępstwo, nie zmieniaj
+        # reguł monitora ani kwalifikacji do zakupu.
+        if not strict and query.get('testPolaczenia170Min'):
+            diagnostic_rules = dict(rules, buePrzesiadkaH=170 / 60)
+            strict = [c for c in available if usable(c, expected, diagnostic_rules)]
+            if strict:
+                exceptions.append('Przesiadka w EZE 2 h 50 min zamiast wymaganego minimum 3 h. Wariant nie spełnia reguł podróży.')
+        available = [c for c in strict if path_id(selected + [route_from(c)]) not in query.get('pominSciezki', [])]
         if not available:
-            raise ProviderError(f'część {index + 1}/{len(query["odcinki"])}: {len(choices(response))} wyników źródła, żaden nie spełnia reguł; nie oznacza to wyprzedania')
+            raise ProviderError(f'część {index + 1}/{len(query["odcinki"])}: {len(choices(response))} wyników źródła, żaden nie spełnia reguł lub pozostałe ścieżki już odrzucono; nie oznacza to wyprzedania', path_id=path_id(selected) if shared else None)
         last = available[0]
         selected.append(route_from(last))
         prices.append(last['price'])
@@ -367,8 +441,24 @@ def quote(query, rules, client, now):
             if not token:
                 raise ProviderError('brak danych do wyboru kolejnego odcinka; wycena niekompletna')
             params['departure_token'] = token
+    if shared:
+        token = last.get('booking_token')
+        if not token:
+            raise ProviderError('brak danych do potwierdzenia wspólnej oferty linii')
+        booking_params = dict(params, booking_token=token)
+        booking_params.pop('departure_token', None)
+        response = client.search(booking_params)
+        echoed = response.get('search_parameters', {})
+        if str(echoed.get('adults')) != '2' or echoed.get('currency') != 'PLN':
+            raise ProviderError('oferta sprzedaży nie potwierdziła dwóch dorosłych i PLN')
+        try:
+            booking = joint_booking(response, selected)
+        except ProviderError as error:
+            error.path_id = path_id(selected)
+            raise
+        url = public_url(response.get('search_metadata', {}).get('google_flights_url')) or url
     stopover = None
-    if query['scenariusz'] == 'stopover':
+    if len(selected) == 3 and query['odcinki'][1]['z'] == 'MDZ' and query['odcinki'][1]['do'] in ('BUE', 'AEP', 'EZE'):
         zone = ZoneInfo('America/Argentina/Buenos_Aires')
         arrival = dt.datetime.fromisoformat(selected[1][-1]['przylotLokalny']).replace(tzinfo=zone)
         departure = dt.datetime.fromisoformat(selected[2][0]['wylotLokalny']).replace(tzinfo=zone)
@@ -377,13 +467,14 @@ def quote(query, rules, client, now):
             raise ProviderError('postój w Buenos Aires jest za krótki')
     return {'id': ident(query['id'] + json.dumps(selected, sort_keys=True)), 'zapytanie': query['id'],
             'nazwa': query['nazwa'], 'scenariusz': query['scenariusz'], 'sprawdzono': now.isoformat(),
-            'dorosli': 2, 'waluta': 'PLN', 'cenaWyniku': sum(prices) if separate else last['price'],
+            'dorosli': 2, 'waluta': 'PLN', 'cenaWyniku': booking['cena'] if booking else sum(prices) if separate else last['price'],
+            'wspolnaOferta': booking, 'odstepstwa': exceptions, 'regulySpelnione': not exceptions,
             'zakresCeny': ('suma trzech osobnych biletów dla 2 dorosłych; dodatki do potwierdzenia' if separate else 'wynik wyszukiwania dla 2 dorosłych; jednostka do kontroli w formularzu'),
-            'sposobWyceny': 'osobne' if separate else 'multi-city',
+            'sposobWyceny': 'wspólna oferta linii' if booking else 'osobne' if separate else 'multi-city',
             'cenyOdcinkow': prices if separate else [], 'linkiOdcinkow': urls if separate else [],
             'stopoverGodziny': stopover, 'bagazPotwierdzony': False,
             'bagaz': 'Filtr dwóch bagaży kabinowych wysłany; API nie potwierdza ich uwzględnienia w cenie. Wymagana kontrola obu bagaży i 23 kg na osobę.',
-            'trasy': selected, 'url': url, 'status': 'do potwierdzenia', 'braki': query['braki'] +
+            'trasy': selected, 'url': url, 'status': 'wariant warunkowy' if exceptions else 'do potwierdzenia', 'braki': exceptions + query['braki'] +
             ['finalna cena u linii dla dwóch osób', 'dwa bagaże kabinowe w cenie', 'dokładne strefy czasowe i bufory', '23 kg na osobę i warunki ochrony'],
             'kompletPodrozy': False, 'potwierdzonaULinii': False}
 
@@ -399,29 +490,42 @@ def calendar_allows(query, config):
         return False
 
 
-def test_prices(output, config, program, previous, key, now, state_path, client_factory=SerpApi, route='trip', extra_budget=0):
+def test_prices(output, config, program, previous, key, now, state_path, client_factory=SerpApi, route='trip', extra_budget=0, request_budget=0):
     """Ręczny test tego samego adaptera; oddzielny plik, maks. trzy wywołania.
     Wyniki nigdy nie trafiają do listopadowych wycen ani raportu zakupu.
     """
     shifted = copy.deepcopy(program)
     rules = shifted['loty']['monitoring']['reguly']
-    departure = dt.date(2027, 3, 5)
+    departure = dt.date(2027, 5, 7) if route == 'single-mad' else dt.date(2027, 3, 5)
     delta = departure - dt.date.fromisoformat(rules['wylot'])
     for field, value in list(rules.items()):
         if isinstance(value, str) and re.fullmatch(r'\d{4}-\d{2}-\d{2}', value):
             rules[field] = (dt.date.fromisoformat(value) + delta).isoformat()
     plan = build_plan(shifted)
     query = next(q for q in plan if q['id'] == 'mdz-bue') if route == 'domestic' else next(q for q in plan if q.get('sposobWyceny') == 'osobne') if route == 'split' else plan[0]
-    query['id'] = 'test-marzec-2027-' + route
-    query['nazwa'] = 'TEST połączenia - marzec 2027, nie oferta na rocznicę'
-    cost = len(query['odcinki'])
+    if route == 'single-mad':
+        query = next(q for q in plan if q['id'] == 'mad-stopover')
+        query.update(linie='AR', testPolaczenia170Min=True)
+        query['odcinki'][1]['do'] = 'AEP'
+        query['odcinki'][2]['z'] = 'EZE'
+    elif route == 'trip':
+        # Dawny test trzech wyborów; osobny tryb obejmuje także ofertę sprzedaży.
+        query.pop('wspolnaOferta', None)
+    query['id'] = 'test-' + departure.isoformat() + '-' + route
+    query['nazwa'] = 'TEST połączenia ' + departure.isoformat() + ', nie oferta na rocznicę'
+    cost = request_cost(query)
     if extra_budget not in (0, 2, 4):
         raise ValueError('Dodatkowy budżet testowy: 0, 2 lub 4.')
     limits = dict(config['serpapi'], limitPrzebieg=cost,
                   limitDzien=config['serpapi']['limitDzien'] + extra_budget)
+    if request_budget not in (0, 4):
+        raise ValueError('Budżet jednego zatwierdzonego testu: 0 lub 4.')
+    if request_budget:
+        consumed = Quota(previous.get('limity', {}), limits, now).state['dzienZapytania']
+        limits.update(limitDzien=consumed + request_budget, limitPrzebieg=min(cost, request_budget))
     quota = Quota(previous.get('limity', {}), limits, now)
     result = {'test': True, 'sprawdzono': now.isoformat(), 'odcinki': query['odcinki'],
-              'status': 'błąd', 'limity': quota.state, 'dodatkowyBudzetTestu': extra_budget,
+              'status': 'błąd', 'limity': quota.state, 'dodatkowyBudzetTestu': extra_budget, 'zatwierdzonyBudzetTestu': request_budget,
               'uwaga': 'Rzeczywista cena dla wcześniejszych dat. Nie dotyczy wyjazdu w listopadzie.'}
 
     def checkpoint():
@@ -495,17 +599,23 @@ def collect(output, config, program, previous=None, rss_result=None, key=None, n
                 break
             if queue_key(query)[0] > -1:
                 continue  # nie zużywaj limitu na dopiero co sprawdzony wariant
-            if len(query['odcinki']) > min(config['serpapi']['limitPrzebieg'] - quota.run,
+            if request_cost(query) > min(config['serpapi']['limitPrzebieg'] - quota.run,
                                           config['serpapi']['limitDzien'] - quota.state['dzienZapytania'],
                                           config['serpapi']['limitMiesiac'] - quota.state['miesiacZapytania']):
                 continue
+            prior = state['zapytania'].get(query['id'], {})
+            rejected = [p for p in prior.get('odrzuconeSciezki', [])
+                        if stamp(p.get('data')) and (now - stamp(p['data'])).days < 7][-12:]
+            attempt = dict(query, pominSciezki=[p['id'] for p in rejected])
             try:
-                candidate = quote(query, rules, client, now)
+                candidate = quote(attempt, rules, client, now)
                 state['wyceny'] = [x for x in state['wyceny'] if x.get('zapytanie') != query['id']] + [candidate]
-                state['zapytania'][query['id']] = {'sprawdzono': now.isoformat(), 'status': 'wynik do weryfikacji'}
+                state['zapytania'][query['id']] = {'sprawdzono': now.isoformat(), 'status': 'wynik do weryfikacji', 'odrzuconeSciezki': rejected}
                 state['ceny']['ostatniSukces'] = now.isoformat()
             except ProviderError as e:
-                state['zapytania'][query['id']] = {'sprawdzono': now.isoformat(), 'status': 'luka', 'opis': str(e)}
+                if e.path_id and e.path_id not in [p['id'] for p in rejected]:
+                    rejected.append({'id': e.path_id, 'data': now.isoformat()})
+                state['zapytania'][query['id']] = {'sprawdzono': now.isoformat(), 'status': 'luka', 'opis': str(e), 'odrzuconeSciezki': rejected[-12:]}
                 if 'HTTP 401' in str(e) or 'HTTP 403' in str(e) or 'HTTP 429' in str(e):
                     state['ceny'].update(status='błąd źródła', opis=str(e))
                     break
@@ -523,8 +633,9 @@ def main():
     ap.add_argument('--rss-file', type=Path, help='Gotowy wynik RSS; do testów i ponownego przeliczenia bez sieci.')
     ap.add_argument('--no-prices', action='store_true')
     ap.add_argument('--test-prices', action='store_true', help='Ręczny test 5-13.03.2027; wynik oddzielnie od ofert listopadowych.')
-    ap.add_argument('--test-route', choices=['trip', 'domestic', 'split'], default='trip')
+    ap.add_argument('--test-route', choices=['trip', 'domestic', 'split', 'single-mad'], default='trip')
     ap.add_argument('--test-extra-budget', type=int, choices=[0, 2, 4], default=0)
+    ap.add_argument('--test-request-budget', type=int, choices=[0, 4], default=0)
     args = ap.parse_args()
     config, program = read(SRC / 'data/wyszukiwarka.json'), read(SRC / 'data/program.json')
     previous = read(args.output, {})
@@ -546,7 +657,7 @@ def main():
         if not args.state or args.no_prices:
             ap.error('Test wymaga --state i nie może używać --no-prices.')
         result = test_prices(args.state.parent / 'price-test.json', config, program, previous,
-                             os.environ.get('SERPAPI_API_KEY'), dt.datetime.now(WARSAW), args.state, route=args.test_route, extra_budget=args.test_extra_budget)
+                             os.environ.get('SERPAPI_API_KEY'), dt.datetime.now(WARSAW), args.state, route=args.test_route, extra_budget=args.test_extra_budget, request_budget=args.test_request_budget)
         print(json.dumps(result, ensure_ascii=False))
         raise SystemExit(0 if result['status'] == 'pobrano cenę' else 1)
     result = collect(args.output, config, program, previous, read(args.rss_file) if args.rss_file else None,
