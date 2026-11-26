@@ -1004,32 +1004,34 @@
   "intro": "Z Warszawy do Mendozy, ok. 20–30 h w jedną stronę zależnie od linii; powrót z Buenos Aires po dniu w mieście. Linie sprzedają bilety 330–361 dni naprzód: pierwsze ceny w obie strony do Buenos Aires na nasze daty pojawią się ok. 17–19.11.2026, a cały bilet do Mendozy da się wycenić ok. 17–18.12.2026 (tabela w zakładce Kalendarz). Punkt odniesienia z 25.10.2026 (inne terminy niż nasz): sam bilet Warszawa–Buenos Aires z bagażem kosztował 4 150–4 500 zł u Ethiopian i Turkish, 4 700–5 800 zł u linii europejskich, lot krajowy z bagażem {usd:130}–{usd:230} zł; średnia roczna trasy ok. 5 750 zł, a listopad jest najtańszym miesiącem. Budżet liczy kompletną podróż Warszawa–Mendoza na osobę: cel 4 500 zł (kupujemy od razu), główny próg zakupu 4 800 zł (9 600 zł na parę) – przy nim wariant polecany zostawia ok. {zapas:0} zł zapasu na parę przed niewycenionymi wydatkami (wariant bazowy dla trzech par); wariant polecany (Lares + Laguna Suite) mieści się w suficie do ok. {maxlot:0} zł/os. (wariant 4 z pokojem Cordón del Plata do ok. {maxlot:3} zł/os.). Kolejność szukania: najpierw cały bilet do Mendozy, równolegle Madryt–Mendoza jako chroniona podróż, osobne bilety dopiero przy oszczędności ≥ 800 zł/os.",
   "opcje": [
    {
-    "n": "Cały bilet Warszawa–Mendoza (jedna rezerwacja)",
-    "trasa": "WAW → EZE / SCL / GRU → MDZ · MDZ → BUE → WAW",
-    "linie": "Iberia + Aerolíneas lub LATAM przez Madryt i Buenos Aires; LATAM przez São Paulo (GRU) lub Santiago (SCL); Air Europa / ITA z partnerami. Maks. dwie przesiadki, bez zmiany lotniska w jednym mieście (w Buenos Aires przylot i dalszy lot z EZE).",
-    "czas": "ok. 20–26 h",
-    "cena": "25.10.2026 „od” ok. 5 150 zł (Momondo, inne terminy); cel ≤ 4 500 zł, próg 4 800 zł",
-    "plus": "Przesiadki chronione przez przewoźnika, bagaż nadany do celu, jedna rezerwacja na parę; cena całej trasy bywa niższa niż suma odcinków.",
-    "minus": "Mniej kombinacji niż przy dwóch biletach; rozkład partnerów pojawia się później niż główny.",
+    "n": "1. Jeden bilet z nocą w Buenos Aires",
+    "trasa": "WAW-MDZ 5.11 / MDZ-AEP lub EZE 12.11 / EZE-WAW 13.11",
+    "linie": "Sprawdzamy faktycznie oferowany zestaw przewoźników, bilety i warunki taryfy. Nazwa linii ani sojuszu nie potwierdza ochrony.",
+    "czas": "do 30 h w stronę, bez pobytu BUE",
+    "cena": "cel 4 500 zł/os., próg 4 800 zł/os.",
+    "plus": "Pierwszy wybór. Taryfa i wszystkie odcinki potwierdzone u linii; sprawdzamy też wylot 4.11 po 20:00.",
+    "minus": "Wycena orientacyjna nie jest ofertą. Potrzebne 2 miejsca, wszystkie odcinki z bagażem i noc 12-13.11 w Buenos Aires.",
     "rek": true
    },
    {
-    "n": "Dolot do Madrytu + Madryt–Mendoza jako jedna chroniona podróż",
-    "trasa": "WAW → MAD (osobno) · MAD → EZE/SCL → MDZ (jeden bilet)",
-    "linie": "LOT / Iberia / Ryanair do Madrytu; Iberia z LATAM lub Aerolíneas z Madrytu do Mendozy na jednym bilecie. Publiczny wynik Google Flights: Iberia/LATAM Madryt–Mendoza 998 USD w obie strony (ok. {usd:998} zł po kursie {kurs} zł za dolara) na 23.01–8.02.2027.",
-    "czas": "ok. 22–28 h + bufor",
-    "cena": "ok. 3 900 zł + dolot 500–900 zł + bagaż + nocleg buforowy",
-    "plus": "Przesiadki od Madrytu chronione; potencjał poniżej progu, jeśli dolot i bagaż wyjdą tanio.",
-    "minus": "Osobny bilet do Madrytu to własne ryzyko – przed drogim lotem przez Atlantyk nocleg buforowy w Madrycie (koszt i dzień urlopu albo jedna noc mniej w Mendozie). Opłaca się dopiero przy oszczędności ≥ 800 zł/os. po wszystkich dodatkach."
+    "n": "2. Do Mendozy, z Buenos Aires",
+    "trasa": "WAW-MDZ 5.11 / EZE-WAW 13.11 + MDZ-AEP lub EZE 12.11",
+    "linie": "Sprawdzamy faktycznie oferowany zestaw przewoźników, bilety i warunki taryfy. Nazwa linii ani sojuszu nie potwierdza ochrony.",
+    "czas": "do 30 h w stronę, bez pobytu BUE",
+    "cena": "cel 4 500 zł/os., próg 4 800 zł/os.",
+    "plus": "Główne loty na jednym bilecie; krajowy osobno, dzień przed powrotem. Porównujemy pełny koszt i ryzyko z wariantem 1.",
+    "minus": "Wycena orientacyjna nie jest ofertą. Potrzebne 2 miejsca, wszystkie odcinki z bagażem i noc 12-13.11 w Buenos Aires.",
+    "rek": false
    },
    {
-    "n": "Dwa bilety: Warszawa–Buenos Aires + lot krajowy",
-    "trasa": "WAW → EZE · EZE → MDZ · MDZ → AEP/EZE · EZE → WAW",
-    "linie": "Ethiopian przez Addis Abebę lub Turkish przez Stambuł (4 150–4 500 zł z bagażem) albo linie europejskie; krajowo Aerolíneas lub JetSMART ({usd:130}–{usd:230} zł z bagażem)",
-    "czas": "ok. 20–30 h",
-    "cena": "4 650–6 500 zł razem",
-    "plus": "Najwięcej kombinacji; Ethiopian i Turkish mają bagaż w cenie.",
-    "minus": "Walizki trzeba odebrać, oclić i nadać ponownie (LATAM i inni nie nadają do celu przy osobnych rezerwacjach); roboczo 4–5 h między lotami przy EZE → EZE, co najmniej 6 h przy zmianie na Aeroparque (bufor planistyczny, bez ochrony osobnych biletów). Tylko przy oszczędności ≥ 800 zł/os. wobec jednego biletu."
+    "n": "3. Buenos Aires + loty krajowe",
+    "trasa": "WAW-EZE 5-13.11 / EZE-MDZ 6.11 / MDZ-AEP lub EZE 12.11",
+    "linie": "Sprawdzamy faktycznie oferowany zestaw przewoźników, bilety i warunki taryfy. Nazwa linii ani sojuszu nie potwierdza ochrony.",
+    "czas": "do 30 h w stronę, bez pobytu BUE",
+    "cena": "cel 4 500 zł/os., próg 4 800 zł/os.",
+    "plus": "Wymaga wyceny obu lotów krajowych, 23 kg, buforów i oszczędności co najmniej 800 zł/os. Sam tani Atlantyk nie wystarczy.",
+    "minus": "Wycena orientacyjna nie jest ofertą. Potrzebne 2 miejsca, wszystkie odcinki z bagażem i noc 12-13.11 w Buenos Aires.",
+    "rek": false
    }
   ],
   "kiedy": [
@@ -1051,22 +1053,17 @@
    ]
   ],
   "zasady": [
-   "Każdą cenę z wyszukiwarki przeliczać na kompletną podróż (tabela „Ceny-wyzwalacze” wyżej): cel 4 500 zł za całość to np. Warszawa–Buenos Aires z bagażem za ok. 3 850 zł albo Madryt–Buenos Aires z bagażem za ok. 670 EUR.",
-   "Nie wyceniać przed otwarciem sprzedaży powrotu: linie sprzedają 330–361 dni naprzód, więc cena w obie strony do Buenos Aires istnieje od ok. 17–19.11.2026, a cały bilet do Mendozy od ok. 17–18.12.2026. Cena w jedną stronę nie jest połową ceny podróży.",
-   "Najpierw szukać całego biletu Warszawa–Mendoza: sprzedają go Iberia, Air Europa, ITA i Air France/KLM (odcinek do Mendozy na Aerolíneas przez Buenos Aires) oraz LATAM przez São Paulo lub Santiago – porównać wszystkie huby, bo cena całej trasy bywa korzystniejsza niż suma odcinków. Maks. dwie przesiadki, bez zmiany lotniska w jednym mieście. Turkish, Ethiopian i Lufthansa dowożą tylko do Buenos Aires.",
-   "Równolegle sprawdzać osobny dolot do Madrytu i Madryt–Mendoza jako jedną chronioną podróż (przykład Iberia/LATAM 998 USD w obie strony, 23.01–8.02.2027; Kayak 28.10.2026: MAD–MDZ od 825 EUR) – ale doliczyć Warszawę, bagaż i nocleg buforowy; zwykła różnica ex-Madryt to tylko 100–200 EUR, więc scenariusz ma sens głównie przy promocji ex-Hiszpania.",
-   "Osobne bilety wybierać dopiero przy oszczędności minimum 800 zł/os. po wszystkich dodatkach – to próg opłacalności dodatkowego ryzyka. Przed drogim lotem międzykontynentalnym nocleg buforowy; wariant musi zachować siedem nocy w układzie 3+3+1 i powrót do Warszawy 14.11.",
-   "Stopover w Buenos Aires na jednym bilecie: szukać multi-city (WAW→MDZ 5.11, MDZ→EZE 12.11, EZE→WAW 13.11) i brać, gdy dopłata wobec zwykłego biletu w obie strony jest ≤ 300 zł/os. – to taniej niż osobny lot krajowy i z chronioną przesiadką. Szczegóły w ramce „Stopover w Buenos Aires”.",
-   "Lotniska: w Buenos Aires preferować przylot i dalszy wylot z EZE (nie EZE → AEP), w São Paulo pilnować GRU. Przy osobnych rezerwacjach nie zakładać nadania walizki do celu – LATAM i inni wymagają odbioru i ponownego nadania bagażu.",
-   "Szukać dla dwóch osób, potem sprawdzić miejsca dla całej grupy; nie mnożyć najniższej ceny jednostkowej przez liczbę osób bez potwierdzenia. Zakup 2 + 2 + 2 porównać, ale oszczędność musi wynikać z rzeczywistych cen pozostałych miejsc.",
-   "Daty: wylot z Warszawy w czwartek 4.11 najwcześniej o 20:00 albo w piątek 5.11; lądowanie w Warszawie najpóźniej w niedzielę 14.11 (sobota 13.11 też dobra, jeśli połączenie lepsze). Patrzeć na datę i godzinę przylotu do Warszawy – nocny lot z Buenos Aires ląduje dzień później. Odpadają powroty z przylotem w poniedziałek (np. przez USA z długą przesiadką) i późniejsze wyjazdy.",
-   "Porównać Ethiopian (przez Addis Abebę) i Turkish (przez Stambuł) z liniami europejskimi: według odczytów z X–XI 2026 to jedyne linie z biletem do Buenos Aires za 4 150–4 700 zł z bagażem w cenie; Iberia, ITA, Lufthansa i Air France to 800–1 200 zł więcej.",
-   "Bilet Aerolíneas Argentinas z lotem krajowym w cenie (Madryt lub Rzym → Buenos Aires → Mendoza) – w promocjach dolot za 50–100 EUR; przesiadka na jednym bilecie jest chroniona.",
-   "Bagaż liczyć osobno: taryfy light za Atlantyk +300–400 zł w każdą stronę (w kalkulatorze 700 zł w obie); krajowo Aerolíneas Base tylko z małym bagażem pod fotel (walizka 15 kg ok. 42 000–45 000 ARS online), JetSMART 23 kg 10–40 USD za odcinek; od grudnia 2026 opłata lotniskowa 9 USD. Na 7 nocy rozważyć jedną walizkę na parę.",
-   "Strony argentyńskie (.com.ar) Aerolíneas i JetSMART pokazują czasem inne ceny niż zagraniczne – porównać obie wersje z kartą bez przewalutowania.",
-   "Mile opłacają się tylko, jeśli ktoś już je ma (Iberia Avios off-peak Madryt–Buenos Aires od 17 000 Avios za odcinek plus opłaty). Error fares do Argentyny zdarzają się 1–2 razy w roku i znikają w kilka godzin – nie planować na nich budżetu.",
-   "Miejsca: na odcinku Buenos Aires → Mendoza lewa strona (A) – Andy przy podejściu; na nocnym locie przez Atlantyk rząd przy skrzydle jest najcichszy.",
-   "{regula:przesiadki}"
+   "Szukamy dla 2 dorosłych. Każda oferta ma zachować 3 noce w Chacras, 3 w Uco i noc 12-13.11 w Buenos Aires. Cel 4 500 zł/os., próg 4 800 zł/os. za wszystkie bilety z bagażem. Wyszukanie ceny nie oznacza potwierdzenia ani rezerwacji.",
+   "Buenos Aires: przylot 12.11 do 15:59, wylot 13.11 od 18:00, co najmniej 24 godziny między lotami. To nasze kryterium komfortu, nie gwarancja przewoźnika. Preferowane ok. 30 godzin; liczymy osobno transfery, odprawę i czas w mieście.",
+   "Najwyżej 2 przesiadki w stronę i do 30 godzin na dojazd lotniczy w każdą stronę, bez pobytu w Buenos Aires. Inny wariant wymaga świadomej decyzji. Nie zamieniamy dnia w mieście na noc na lotnisku.",
+   "Jedna rezerwacja w portalu nie dowodzi ochrony. Sprawdzamy bilety i odpowiedzialność linii. Hacker Fare, self-transfer i gwarancja pośrednika nie są biletem chronionym przez przewoźnika.",
+   "Osobne bilety: minimum 5 godzin na tym samym lotnisku; przed osobnym lotem dalekim minimum 12 godzin i nocleg. Powrót MDZ-BUE 12.11 daje noc zapasu, lecz nie ochronę. Oszczędność minimum 800 zł/os. wobec porównywalnej chronionej oferty po wszystkich dodatkach.",
+   "Na zwykłej chronionej przesiadce przyjmujemy 2 godziny, w Buenos Aires po przylocie międzynarodowym 3 godziny; maksymalnie 8 godzin. To robocze bufory komfortu, nie oficjalne minima lotnisk. Zmiana AEP/EZE tylko podczas noclegu w mieście.",
+   "Bagaż: kabinowy i 23 kg na osobę na każdym odcinku. 15 kg w kraju wymaga wyceny dopłaty. Hotel w Buenos Aires i transfery już ujęte w budżecie liczymy tylko raz; osobno pokazujemy dodatkowy nocleg przy dolocie do huba.",
+   "Trop, szacunek i potwierdzona oferta to trzy różne stany. Aktualna oferta wymaga finalnej wyceny dla 2 dorosłych u linii; po 24 godzinach wraca do weryfikacji.",
+   "Brak wyników nie dowodzi zamkniętej sprzedaży. Nie przesuwać kalendarza linii na podstawie samego braku ceny; potrzebny dowód z formularza.",
+   "Kupno po decyzji użytkownika. Przygotować całą kombinację, sprawdzić miejsca dla pozostałych par i warunki taryfy. Nie pomijać odcinków biletu.",
+   "Nie czekać na promocję za wszelką cenę. Gdy pełna, sprawdzona podróż spełnia cel oraz wymogi komfortu i ochrony, jest kandydatem do zakupu."
   ],
   "alerty": [
    {
@@ -1076,14 +1073,14 @@
     "opis": "Główne wyszukiwanie: jedna rezerwacja do Mendozy, porównać przesiadki EZE / SCL / GRU, maks. dwie, bez zmiany lotniska. Powrót 13.11 – sprawdzić, że lot ląduje w Warszawie w niedzielę 14.11. Bilet w obie strony to punkt odniesienia ceny – przy nocy w Buenos Aires kupujemy multi-city ze stopoverem albo open-jaw."
    },
    {
-    "n": "WAW → MDZ, czw 4.11 od 20:00 → 12.11 (lądowanie sob 13.11)",
-    "url": "https://www.google.com/travel/flights?q=Flights%20from%20WAW%20to%20MDZ%20on%202027-11-04%20through%202027-11-12%20for%202%20adults",
-    "opis": "Wariant o dobę wcześniej. W filtrze „Godziny” ustawić wylot 20:00–23:59; przy powrocie 13.11 (lądowanie w niedzielę) – dodatkowa noc w Mendozie."
+    "n": "WAW-MDZ, czw 4.11 po 20:00; powrót z EZE 13.11",
+    "url": "https://www.google.com/travel/flights?q=Flights%20from%20WAW%20to%20MDZ%20on%202027-11-04%20and%20EZE%20to%20WAW%20on%202027-11-13%20for%202%20adults",
+    "opis": "Przylot MDZ 6.11, MDZ-BUE osobno 12.11; noclegi 3+3+1 bez zmian. Sprawdzić godzinę wylotu po 20:00 i pełną cenę."
    },
    {
     "n": "WAW → MDZ ze stopoverem w Buenos Aires (multi-city: 5.11 · 12.11 · 13.11)",
     "url": "https://www.google.com/travel/flights?q=Flights%20from%20WAW%20to%20MDZ%20on%202027-11-05%2C%20from%20MDZ%20to%20EZE%20on%202027-11-12%2C%20from%20EZE%20to%20WAW%20on%202027-11-13%20for%202%20adults",
-    "opis": "Jeden bilet z nocą w Buenos Aires w drodze powrotnej; porównać z biletem w obie strony – dopłata ≤ 300 zł/os. to okazja. Google nie śledzi cen multi-city, więc sprawdzać ręcznie albo polegać na naszym agencie."
+    "opis": "Wyszukiwanie trzech odcinków dla 2 dorosłych z nocą 12-13.11 w Buenos Aires. Osobno potwierdzić ochronę u linii; multi-city może zwrócić osobne bilety. Sam link nie włącza alertu."
    },
    {
     "n": "MAD → MDZ, 5→13.11.2027 – chroniona podróż z Madrytu",
@@ -1119,7 +1116,7 @@
    {
     "n": "Kayak – multi-city ze stopoverem w Buenos Aires",
     "url": "https://www.kayak.pl/flights/WAW-MDZ/2027-11-05/MDZ-EZE/2027-11-12/EZE-WAW/2027-11-13/2adults",
-    "opis": "Trzy odcinki na jednym bilecie; Kayak pozwala zapisać wyszukiwanie."
+    "opis": "Wyszukiwanie trzech odcinków dla 2 dorosłych z nocą 12-13.11 w Buenos Aires. Osobno potwierdzić ochronę u linii; multi-city może zwrócić osobne bilety. Sam link nie włącza alertu."
    },
    {
     "n": "Kayak – statystyki trasy WAW–EZE (bez logowania)",
@@ -1134,12 +1131,12 @@
    {
     "g": "Skyscanner (konto, „Otrzymuj alerty cenowe”)",
     "n": "Skyscanner – WAW → MDZ, 5→13.11.2027",
-    "url": "https://www.skyscanner.pl/transport/loty/waw/mdz/271105/271113/?adults=2",
+    "url": "https://www.skyscanner.pl/transport/loty/waw/mdz/271105/271113/?adultsv2=2",
     "opis": "Alert na cały bilet; widok „cały miesiąc” pokazuje sąsiednie dni."
    },
    {
     "n": "Skyscanner – WAW → BUE, 5→13.11.2027 (wszystkie lotniska)",
-    "url": "https://www.skyscanner.pl/transport/loty/waw/buea/271105/271113/?adults=2",
+    "url": "https://www.skyscanner.pl/transport/loty/waw/buea/271105/271113/?adultsv2=2",
     "opis": "Wszystkie lotniska Buenos Aires; przydatne, gdy 5.11 wypadnie drogo."
    },
    {
@@ -1186,18 +1183,18 @@
     "Tylko gdy przylot do Mendozy wypada 6.11. Noclegi bez zmian: 6–9.11 Chacras, 9–12.11 Uco, 12–13.11 Buenos Aires. Koszt nocy w hubie doliczyć."
    ]
   ],
-  "alerty_intro": "Alertów na kontach Google, Kayak i Skyscanner nie da się założyć zdalnie – trzeba kliknąć zalogowanym. Każdy link otwiera gotowe wyszukiwanie dla 2 osób (daty powrotu to dzień wylotu z Argentyny – lądowanie w Warszawie dzień później, najpóźniej w niedzielę 14.11; jeśli alert był już ustawiony na powrót 14.11, zmienić na 13.11); w wynikach włączyć „Śledź ceny” (Google), „Price alerts” (Kayak, Skyscanner), „Alert cenowy” (eSky). Odhaczaj założone – zapisuje się w tej przeglądarce. Po naszej stronie działa jeden automat: codziennie ok. 11:30 agent czyta ceny na nasze daty, wiadomości i radar promocji (RSS) i zapisuje raport lotów. Alertów z Twojej skrzynki nie czyta – cenę z alertu wpisz w kalkulatorze.",
+  "alerty_intro": "Linki są gotowymi wyszukiwaniami, nie dowodem działających alertów. Po otwarciu sprawdzić 2 dorosłych i daty. Aktywność alertu potwierdza serwis lub otrzymana wiadomość; odhaczenie na stronie zapisuje tylko Twoją notatkę.",
   "stopover": {
    "tytul": "Stopover w Buenos Aires w drodze powrotnej – na jednym bilecie",
-   "intro": "Plan i tak kończy się nocą w Buenos Aires (12→13.11). Zamiast kupować lot krajowy osobno, można zamówić cały bilet tak, by przesiadka w Buenos Aires trwała ok. 30 h: Mendoza → Buenos Aires 12.11 rano, Buenos Aires → Warszawa 13.11 wieczorem. To zwykła taryfa z wydłużoną przesiadką (stopover), więc przesiadka pozostaje chroniona, a dopłata wynosi zwykle 0–150 EUR – zwykle mniej niż osobny lot krajowy z bagażem ({usd:130}–{usd:230} zł). Wyszukiwarki w trybie „w obie strony” tego nie pokażą; trzeba szukać jako multi-city (wieloodcinkowo). {regula:noclegi} {regula:lotniska}",
+   "intro": "Noc 12-13.11 w Buenos Aires jest stałą częścią podróży. Szukamy przylotu z Mendozy 12.11 rano lub wczesnym popołudniem i wylotu do Europy 13.11 wieczorem. Multi-city opisuje wyszukiwanie, nie dowodzi wystawienia jednego biletu. Ochronę, zgodę na postój i bagaż trzeba potwierdzić u sprzedającej linii przed zapłatą. {regula:noclegi}",
    "kroki": [
-    "W Google Flights / Kayak / Skyscanner wybrać „Multi-city” i wpisać trzy odcinki: WAW → MDZ 5.11, MDZ → EZE 12.11 (rano lub w południe), EZE → WAW 13.11 (wieczór). Dla 2 osób, potem sprawdzić miejsca dla całej grupy.",
-    "Porównać z ceną zwykłego biletu w obie strony WAW–MDZ na te same daty. Dopłata do 300 zł/os. – brać stopover; powyżej – open-jaw WAW → MDZ / EZE → WAW z osobnym lotem krajowym 12.11. Odrzucić bilet bez nocy w Buenos Aires 12.11. Nie pomijać odcinków biletu: no-show może anulować dalszą podróż.",
-    "Te same trzy odcinki wpisać na stronach linii (Iberia, Air Europa, ITA, LATAM, Aerolíneas Argentinas mają tryb „wieloodcinkowy”) – systemy linii częściej niż wyszukiwarki wyceniają stopover jak zwykłą przesiadkę. W ITA Matrix (matrix.itasoftware.com) można dodatkowo wymusić stopover kodem routingu i zobaczyć reguły taryfy.",
-    "{regula:lotniska} Przy nocnym postoju odebrać bagaż i nadać ponownie 13.11 na EZE.",
-    "Przy rezerwacji sprawdzić, czy taryfa dopuszcza stopover (w regułach: „stopovers permitted” / „1 stopover at 150 EUR”) i czy bagaż rejestrowany jest na całej trasie. {regula:noclegi}"
+    "Wycenić trzy odcinki dla 2 dorosłych: WAW-MDZ 5.11, MDZ-AEP lub EZE 12.11, EZE-WAW 13.11. Powtórzyć dla wylotu 4.11 po 20:00, bez zmiany pobytów.",
+    "Policzyć godziny postoju z dat i stref czasowych. Kryterium komfortu: co najmniej 24 godziny, przylot 12.11 do 15:59, wylot 13.11 od 18:00. Powrót do Warszawy najpóźniej 14.11.",
+    "Porównać jeden bilet z open-jaw i osobnym MDZ-BUE oraz z WAW-EZE plus oba loty krajowe. Wszystkie warianty muszą zawierać tę samą noc w Buenos Aires i ten sam bagaż. Zwykły powrót z MDZ bez nocy w mieście to tylko dodatkowy benchmark.",
+    "Hotel 12-13.11, odbiór i przechowanie walizek oraz transfer AEP/EZE sprawdzić przed zakupem. Wspólne koszty hotelu i transportu są już w budżecie pobytu; nie doliczać ich ponownie do progu biletów. Dodatkowy nocleg w Madrycie liczyć oddzielnie.",
+    "Po wystawieniu sprawdzić wszystkie odcinki i numery biletów, a po zmianie rozkładu ponownie policzyć nocleg i bufory. Nie pomijać żadnego odcinka. Alternatywny lot MDZ-BUE 12.11 to plan awaryjny do sprawdzenia, nie gwarantowane miejsce."
    ],
-   "kiedy_warto": "Stopover opłaca się niemal zawsze, gdy dopłata ≤ 300 zł/os.: oszczędza osobny bilet krajowy ({usd:130}–{usd:230} zł z bagażem), chroni przesiadkę 6.11 i 12.11, a walizki nadane w Mendozie 12.11 do Buenos Aires 13.11 ponownie nadaje się na Ezeizie na tym samym bilecie. Nie opłaca się, gdy linia liczy stopover jak dwa osobne bilety (dopłata 150–300 EUR) – wtedy open-jaw WAW → MDZ / EZE → WAW plus osobny lot krajowy 12.11.",
+   "kiedy_warto": "Preferujemy potwierdzony jeden bilet z nocą w mieście. Dopłata do 300 zł/os. wobec kompletnego wariantu z tą samą nocą jest argumentem za wygodą, ale nie podnosi progu 4 800 zł. Osobne bilety rekomendujemy dopiero przy oszczędności minimum 800 zł/os. i poprawnych buforach. Obecna edycja benefitów Visit Buenos Aires kończy się 30.04.2027 (warunki sprawdzone 26.11.2026); nie obejmuje listopada. Pobyt rezerwujemy niezależnie od ewentualnej nowej promocji.",
    "linki": [
     [
      "Google Flights – multi-city WAW→MDZ 5.11 · MDZ→EZE 12.11 · EZE→WAW 13.11",
@@ -1214,236 +1211,141 @@
     [
      "Skyscanner – tryb wieloodcinkowy",
      "https://www.skyscanner.pl/transport/multi-city/"
+    ],
+    [
+     "Oficjalne warunki benefitów - obecnie poza naszym terminem",
+     "https://stopover.visitbue.app/bases-y-condiciones?lang=en"
     ]
    ]
   },
   "poradnik": {
    "tytul": "Jak szukać i kiedy kupić bilety do Mendozy",
-   "zaktualizowano": "10.11.2026",
-   "intro": "Wnioski z pogłębionego badania taryf, forów i narzędzi (28.10.2026), uzupełnione 10.11.2026 o terminy otwarcia sprzedaży i ceny-wyzwalacze. Najważniejsze: jeden bilet Warszawa–Mendoza sprzedają tylko linie z partnerem w Buenos Aires lub Santiago – Iberia, Air Europa, ITA, Air France/KLM (odcinek do Mendozy na Aerolíneas) i LATAM (przez São Paulo lub Santiago, z pominięciem Buenos Aires). Turkish, Ethiopian i Lufthansa dowożą tylko do Buenos Aires. Odcinek krajowy doliczony do biletu kosztuje u Aerolíneas 50–100 EUR – mniej niż osobny lot (ok. 125–150 USD) i z chronioną przesiadką. Daty 5–14.11 to u linii sezon niski; pierwsze ceny w obie strony do Buenos Aires pojawią się ok. 17–19.11.2026, cały bilet do Mendozy ok. 17–18.12.2026, a robocze okno obserwacji to 18–24 tygodnie przed lotem, bez gwarancji najniższej ceny, czyli w maju–lipcu 2027. Żadna promocja Black Friday z ostatnich lat nie obejmowała listopada następnego roku; jedyna kampania, która to robiła, to styczniowe „rebajas” Iberii (w 2026 r. podróże do 10.12; w sprzedaży z Argentyny do 30.11).",
+   "zaktualizowano": "2026-11-26",
+   "intro": "Najpierw zgodność z planem, pełne koszty i ochrona. Dopiero potem ranking cen. Poniżej procedura od pierwszego tropu do decyzji o zakupie.",
    "scenariusze": [
     {
-     "n": "1 · Jeden bilet WAW–MDZ w obie strony",
-     "trasa": "WAW → MAD/FCO/CDG/AMS → EZE → MDZ (Iberia, Air Europa, ITA, AF/KLM) albo WAW → MAD/FRA → GRU/SCL → MDZ (LATAM)",
-     "rek": true,
-     "jak": "Google Flights „Round trip” WAW–MDZ, filtr „Bags: 1 checked”, wyłączyć „Separate tickets”, „Connecting airports” ograniczyć do MAD, FCO, CDG, AMS, GRU, SCL + EZE. Potem ITA Matrix z routingiem „X? X?” i podglądem reguł taryfy. Wycenić dla 2 osób, potem 4 i 6.",
-     "wygrywa": "Od 21.05.2027, gdy cena za kompletną podróż jest ≤ 4 800 zł/os. – a przy przesiadkach chronionych i bagażu nadanym do Mendozy także do 5 000 zł. To punkt odniesienia dla wszystkich innych scenariuszy.",
-     "ryzyko": "Sprawdzić, czy odcinek do Mendozy startuje z EZE (Aerolíneas lata z EZE i z AEP; zmiana lotniska w jednym bilecie to bus 45–75 minut). Dwie przesiadki = dłuższa podróż (20–26 h)."
+     "n": "1. Jeden bilet z nocą w Buenos Aires",
+     "trasa": "WAW-MDZ 5.11 / MDZ-AEP lub EZE 12.11 / EZE-WAW 13.11",
+     "jak": "Pierwszy wybór. Taryfa i wszystkie odcinki potwierdzone u linii; sprawdzamy też wylot 4.11 po 20:00.",
+     "wygrywa": "Po sprawdzeniu całej podróży dla 2 osób, z nocą 12-13.11 w Buenos Aires.",
+     "ryzyko": "Osobne bilety wymagają buforów i oszczędności netto; plan B wymaga decyzji grupy.",
+     "rek": true
     },
     {
-     "n": "2 · Multi-city ze stopoverem w Buenos Aires",
-     "trasa": "WAW → MDZ 5.11 · MDZ → EZE 12.11 · EZE → WAW 13.11",
-     "jak": "Google Flights, Kayak i strony linii w trybie multi-city (Iberia i LATAM: „Multidestino”). W ITA Matrix te same trzy odcinki – w podziale ceny widać, czy system dał jedną taryfę ze stopoverem, czy taryfę open-jaw plus tani odcinek krajowy. Zapytać też Aerolíneas o program „Stopover Buenos Aires” (24/48/72 h, bilety z zagranicy – edycja 2026/27 kończy się 30.04.2027, trzeba czekać na kolejną).",
-     "wygrywa": "Gdy dopłata wobec scenariusza 1 jest ≤ 300 zł/os. – zastępuje osobny lot krajowy ({usd:130}–{usd:230} zł) i chroni przesiadkę.",
-     "ryzyko": "W taryfach ekonomicznych Iberii i AF/KLM stopover bywa „not permitted” – wtedy system wyceni odcinek krajowy osobno (to nadal jeden bilet, zwykle za podobną kwotę). Przerwa poniżej 24 h liczy się jako zwykła przesiadka, powyżej – jako stopover; nasza noc w Palermo to ok. 30 h."
+     "n": "2. Do Mendozy, z Buenos Aires",
+     "trasa": "WAW-MDZ 5.11 / EZE-WAW 13.11 + MDZ-AEP lub EZE 12.11",
+     "jak": "Główne loty na jednym bilecie; krajowy osobno, dzień przed powrotem. Porównujemy pełny koszt i ryzyko z wariantem 1.",
+     "wygrywa": "Po sprawdzeniu całej podróży dla 2 osób, z nocą 12-13.11 w Buenos Aires.",
+     "ryzyko": "Osobne bilety wymagają buforów i oszczędności netto; plan B wymaga decyzji grupy.",
+     "rek": false
     },
     {
-     "n": "3 · Bilet do Buenos Aires + osobny lot krajowy",
-     "trasa": "WAW ⇄ EZE (Turkish, Ethiopian, Lufthansa, KLM…) · EZE ⇄ MDZ (Aerolíneas, JetSMART)",
-     "jak": "Google Flights / Kayak WAW–EZE dla 2 osób; krajowy na stronach aerolineas.com.ar i jetsmart.com (porównać wersję argentyńską i międzynarodową, zawsze w taryfie z bagażem). Lot krajowy wycenić z 23 kg przed zakupem międzykontynentalnego, następnie kupić po potwierdzeniu całości.",
-     "wygrywa": "Tylko przy oszczędności ≥ 800 zł/os. wobec scenariusza 1 po doliczeniu bagażu krajowego i czasu – realnie wtedy, gdy Turkish lub Ethiopian zejdą poniżej 4 000 zł z bagażem.",
-     "ryzyko": "Osobne rezerwacje: walizki odbieramy, przechodzimy imigrację i nadajemy ponownie; w EZE roboczo 4–5 h (do AEP co najmniej 6 h). Opóźnienie pierwszej linii nie obliguje drugiej. Przez Stambuł lub Addis Abebę 3 odcinki i 28–30 h. Flybondi wypadł z rynku w 2026 r. – zostają Aerolíneas i JetSMART."
+     "n": "3. Buenos Aires + loty krajowe",
+     "trasa": "WAW-EZE 5-13.11 / EZE-MDZ 6.11 / MDZ-AEP lub EZE 12.11",
+     "jak": "Wymaga wyceny obu lotów krajowych, 23 kg, buforów i oszczędności co najmniej 800 zł/os. Sam tani Atlantyk nie wystarczy.",
+     "wygrywa": "Po sprawdzeniu całej podróży dla 2 osób, z nocą 12-13.11 w Buenos Aires.",
+     "ryzyko": "Osobne bilety wymagają buforów i oszczędności netto; plan B wymaga decyzji grupy.",
+     "rek": false
     },
     {
-     "n": "4 · Dolot do Madrytu + bilet Madryt–Mendoza",
-     "trasa": "WAW → MAD (LOT/Wizz, osobno) · MAD ⇄ MDZ (Iberia+Aerolíneas, LATAM, Air Europa)",
-     "jak": "Bilet MAD–MDZ szukać jak w scenariuszu 1, ale z miastem sprzedaży Madryt (w ITA Matrix „Sales city: Madrid”, na iberia.com/es). Dolot przez AZair lub Google Flights; LOT lata WAW–MAD 2× dziennie w sezonie letnim 2026, Wizz codziennie.",
-     "wygrywa": "Tylko gdy Iberia lub Aerolíneas mają promocję ex-Hiszpania niedostępną z Warszawy (styczniowe rebajas, promocje Aerolíneas „desde Europa” 930–1 035 EUR z bagażem i dolotem krajowym). Zwykła różnica ex-Madryt wynosi 100–200 EUR, a dolot i nocleg buforowy ją zjadają.",
-     "ryzyko": "Dolot nie jest chroniony: nocleg buforowy w Madrycie (koszt + dzień) albo poranny LOT i popołudniowy lot do Buenos Aires (Iberia ok. 16:40). EU261 pokryje opóźniony dolot, ale nie uratuje biletu przez Atlantyk."
+     "n": "4. Madryt z dolotem i noclegiem",
+     "trasa": "WAW-MAD 4.11 po 20:00 / MAD-MDZ 5.11 / MDZ-BUE 12.11 / BUE-MAD 13.11 / MAD-WAW 14.11",
+     "jak": "Liczymy oba doloty i nocleg. Chroniony bilet od Madrytu nie chroni osobnego dolotu. Przylot MDZ nadal 6.11.",
+     "wygrywa": "Po sprawdzeniu całej podróży dla 2 osób, z nocą 12-13.11 w Buenos Aires.",
+     "ryzyko": "Osobne bilety wymagają buforów i oszczędności netto; plan B wymaga decyzji grupy.",
+     "rek": false
     },
     {
-     "n": "5 · Open-jaw: do Mendozy, powrót z Buenos Aires",
-     "trasa": "WAW → MDZ 5.11 · EZE → WAW 13.11 (lot krajowy MDZ → EZE osobno)",
-     "jak": "Multi-city z dwoma odcinkami albo „Round trip” z opcją „Allow airport changes”. W IATA to suma połówek biletów w obie strony – Mendoza i Buenos Aires leżą w jednym kraju, więc zwykle bez dopłaty.",
-     "wygrywa": "Gdy scenariusz 2 jest wyceniany drogo, a open-jaw kosztuje tyle co zwykły bilet w obie strony: wtedy dokupujemy tylko jeden odcinek krajowy MDZ → EZE 12.11 (ok. 60–150 USD z bagażem).",
-     "ryzyko": "Lot krajowy na osobnym bilecie – jak w scenariuszu 3, ale tylko raz i bez presji czasu (cały dzień w Buenos Aires przed wylotem 13.11)."
+     "n": "5. Wiedeń lub Berlin - plan B",
+     "trasa": "VIE lub BER do MDZ / powrót z EZE 13.11 + MDZ-BUE 12.11",
+     "jak": "Dojazd, parking, ewentualny hotel i powrót do domu do 14.11. Oceniane osobno; nie obniżają ceny planu z Warszawy.",
+     "wygrywa": "Po sprawdzeniu całej podróży dla 2 osób, z nocą 12-13.11 w Buenos Aires.",
+     "ryzyko": "Osobne bilety wymagają buforów i oszczędności netto; plan B wymaga decyzji grupy.",
+     "rek": false
     },
     {
-     "n": "6 · Promocja z Wiednia, Berlina lub Madrytu (dzika karta)",
-     "trasa": "VIE/BER → EZE lub MDZ (LATAM lub oneworld) · Star Alliance open-jaw Europa → EZE/GRU → BER/VIE",
-     "jak": "Alerty Google Flights dla 1 osoby na VIE–EZE, BER–EZE, VIE–MDZ i MAD–EZE w trybie „Any dates”; newslettery Fly4free, Travel-dealz, Secret Flying. Wzorzec z lat 2024–26: promocje LATAM z Wiednia na listopad (2 650–2 850 zł, tylko bagaż podręczny) pojawiały się w maju–czerwcu, oneworld z Oslo w czerwcu, Star Alliance/United open-jaw (23 kg, z Polski 2 030–2 150 zł z podręcznym) w czerwcu–październiku – a taryfa z 21.10.2026 (MAD–EZE–BER 497 EUR z 23 kg) już dopuszcza podróże 1.09–9.12.2027.",
-     "wygrywa": "Gdy po doliczeniu dojazdu do Wiednia/Berlina (pociąg lub lot 300–600 zł), bagażu (ok. 250–450 zł za odcinek), lotu krajowego i ewentualnego noclegu całość wychodzi ≤ 4 500 zł/os. – i tylko jeśli wszystkie pary dostaną tę samą taryfę tego samego dnia.",
-     "ryzyko": "Promocje znikają w 1–3 dni i rzadko mają 6–8 miejsc w jednej klasie; powrót do Berlina/Wiednia zamiast Warszawy; bilety z podręcznym bagażem; Star Alliance open-jaw prowadzi przez USA (ESTA, 20–30 h w drodze, w powrocie 8–17 h przesiadki) – przy wylocie z Buenos Aires 13.11 ląduje w Europie w poniedziałek, więc odpada; zgodny z niedzielą tylko przy wylocie 12.11 kosztem dnia w Mendozie, a wylot w czwartek po 20:00 nie zdąży na poranne rejsy do USA. Dla grupy to plan na okazję, nie plan bazowy."
+     "n": "6. Inne huby i promocje open-jaw",
+     "trasa": "Przez SCL / GRU, europejskie MAD / FCO / CDG / AMS / FRA / ZRH / IST",
+     "jak": "Tylko faktycznie sprzedawane połączenia, bez zakładania partnerstw. Zwykłe WAW-MDZ-WAW bez nocy w Buenos Aires jest wyłącznie punktem odniesienia.",
+     "wygrywa": "Po sprawdzeniu całej podróży dla 2 osób, z nocą 12-13.11 w Buenos Aires.",
+     "ryzyko": "Osobne bilety wymagają buforów i oszczędności netto; plan B wymaga decyzji grupy.",
+     "rek": false
     }
    ],
    "kroki": [
     {
-     "t": "Kto lata do Mendozy.",
-     "opis": "Na Flightconnections wpisać MDZ: krajowo Aerolíneas (z EZE i AEP) i JetSMART, międzynarodowo LATAM z Santiago i São Paulo. Dzięki temu wiadomo, że do Mendozy na jednym bilecie dowiozą tylko partnerzy Aerolíneas (Iberia, Air Europa, ITA, AF/KLM) i LATAM.",
-     "link": [
-      "Flightconnections MDZ",
-      "https://www.flightconnections.com/flights-to-mendoza-mdz"
-     ],
-     "kiedy": "raz, teraz"
+     "t": "Szeroko zbieraj tropy.",
+     "opis": "Dwie rodziny wyszukiwarek, portale promocji, nowe wpisy i komentarze na forach oraz już aktywne newslettery. Zapisuj datę i zakres odczytu.",
+     "kiedy": "codziennie; przy promocji ponowna wycena bez zwłoki"
     },
     {
-     "t": "Sprawdzić, czy nasze daty są już w sprzedaży.",
-     "opis": "Linie sprzedają 330–361 dni naprzód (tabela w zakładce Kalendarz). Dopóki powrót 13.11.2027 nie jest otwarty, wyszukiwarka pokaże pusty wynik albo cenę w jedną stronę – to nie błąd i nie cena podróży. Do Buenos Aires w obie strony od ok. 17–19.11.2026, cały bilet do Mendozy od ok. 17–18.12.2026.",
-     "kiedy": "przed każdym przeglądem do połowy grudnia 2026"
+     "t": "Porównaj wszystkie kombinacje.",
+     "opis": "Jeden bilet ze stopoverem, open-jaw z lotem krajowym, Buenos Aires z dwoma krajowymi oraz warianty przez Madryt i plan B. Sprawdź oba dni wylotu bez zmiany noclegów."
     },
     {
-     "t": "Cztery przeglądy w Google Flights dla 2 osób.",
-     "opis": "Round trip WAW–MDZ; multi-city WAW→MDZ / MDZ→EZE 12.11 / EZE→WAW 13.11; round trip WAW–EZE; multi-city open-jaw WAW→MDZ / EZE→WAW. Filtry: „Bags: 1 checked bag”, wyłączyć „Separate tickets”, przesiadki maks. 2, „Connecting airports” z maksymalnym czasem przesiadki 4 h, „Godziny”: wylot z Warszawy w czwartek po 20:00 (w piątek bez ograniczeń), przylot powrotny najpóźniej w niedzielę 14.11. Zapisać trzy najtańsze kombinacje z każdej wyszukiwarki (zrzut ekranu z datą).",
-     "link": [
-      "Google Flights",
-      "https://www.google.com/travel/flights"
-     ],
-     "kiedy": "Warszawa–Buenos Aires od ok. 20.11.2026, komplet z Mendozą od ok. 18.12.2026, potem co 2 tygodnie"
+     "t": "Sprawdź sens podróży.",
+     "opis": "Godziny i strefy, maksymalnie 2 przesiadki i do 30 godzin, bagaż na każdym odcinku, ochrona u linii i minimum doba w Buenos Aires. Krótkie przesiadki bez zmiany lotniska."
     },
     {
-     "t": "Weryfikacja taryfy w ITA Matrix.",
-     "opis": "Te same warianty z kodami routingu (np. „MAD EZE” lub „X? X?” na odcinek, „/ maxconnect 240”, „/ alliance oneworld”). Kliknąć cenę → „Itinerary details” → „rules”: sprawdzić Seasonality (czy 5–14.11 trafia w sezon niski – od grudnia ta sama taryfa drożeje), Stopovers, Min/Max stay, Penalties i klasę rezerwacyjną. Wycenić z miastem sprzedaży Warszawa, Madryt i Buenos Aires. Co tydzień od grudnia: „See calendar of lowest fares” dla MDZ, SCL i EZE z Warszawy oraz Wiednia, Berlina, Pragi, Madrytu (pobyt 8 nocy) – najszybszy legalny test luk taryfowych.",
-     "link": [
-      "ITA Matrix",
-      "https://matrix.itasoftware.com"
-     ],
-     "kiedy": "przy każdej obiecującej cenie"
+     "t": "Potwierdź pełną wycenę.",
+     "opis": "Dwa rzeczywiście dostępne miejsca u sprzedającej linii. Koszty pary z bagażem, podatkami, dolotami i dodatkowym noclegiem. Hotel BUE i wspólny transport już są w budżecie pobytu; nie licz ich drugi raz."
     },
     {
-     "t": "Przeliczyć wynik na kompletną podróż.",
-     "opis": "Każdą cenę porównać z tabelą „Ceny-wyzwalacze” albo wpisać do kalkulatora: do biletu bez bagażu doliczyć bagaż, do biletu do Buenos Aires lot krajowy, do biletu z Madrytu dolot i nocleg. Dopiero ta suma idzie na skalę cen (cel 4 500 zł, próg 4 800 zł).",
-     "kiedy": "przy każdej cenie, która wygląda na okazję"
-    },
-    {
-     "t": "Kontrola w Kayak, Momondo i Skyscanner.",
-     "opis": "Te same daty dla 2 osób. Kayak oznacza „Hacker Fare” (dwa osobne bilety), Skyscanner – „Self-transfer”: traktować jak scenariusz 3, nie jak jeden bilet. Momondo „Flight Insight” pokazuje, ile dni przed wylotem trasa jest najtańsza.",
-     "link": [
-      "Kayak",
-      "https://www.kayak.pl"
-     ],
-     "kiedy": "co 2 tygodnie, razem z krokiem 2"
-    },
-    {
-     "t": "Ta sama trasa na stronie linii w trzech wersjach.",
-     "opis": "Iberia, Air Europa, ITA, Air France/KLM, LATAM, Aerolíneas – wycenić identyczne loty w wersji polskiej, hiszpańskiej i argentyńskiej, przeliczyć po kursie karty i porównać zawartość taryfy (Iberia: Básica bez bagażu, Óptima z 1 sztuką; Air Europa: Lite bez, Standard 23 kg; LATAM: Light/Standard/Full). Kupować u linii, nie w pośredniku.",
-     "kiedy": "przed zakupem"
-    },
-    {
-     "t": "Test miejsc dla grupy.",
-     "opis": "Tę samą trasę wycenić dla 1, 2, 4, 6 i 8 pasażerów i zobaczyć, przy której liczbie cena skacze – tyle miejsc jest w najtańszej klasie. Kupować tyle par, ile się mieści, resztę osobno (2+2+2), a po zakupie poprosić linię o powiązanie rezerwacji na miejsca obok siebie. Grupowe taryfy zaczynają się od 10 osób – dla nas nie działają. Dokładną liczbę miejsc w klasie pokazuje ExpertFlyer (Flight Availability).",
-     "link": [
-      "ExpertFlyer",
-      "https://www.expertflyer.com"
-     ],
-     "kiedy": "przy każdej cenie, którą chcecie kupić"
-    },
-    {
-     "t": "Alerty na właściwe pary.",
-     "opis": "Google Flights „Track prices” działa tylko dla lotów w obie strony i w jedną stronę (dla multi-city jest zawodne – rozbić na alerty w jedną stronę WAW→MDZ i EZE→WAW): założyć WAW–MDZ, WAW–EZE, WAW–SCL oraz dla 1 osoby VIE–EZE i BER–EZE, na konkretne daty i w trybie „Any dates” (mail tylko przy znaczącym spadku). Dodatkowo Kayak „Track prices”, Skyscanner Price Alert i newsletter Secret Flying. Alerty mówią o trendzie – decyzję podejmuje się po krokach 3 i 6.",
-     "link": [
-      "Alerty Google Flights",
-      "https://support.google.com/travel/answer/6235879"
-     ],
-     "kiedy": "pierwsze 19–20.11.2026 (Buenos Aires), komplet 18–20.12.2026 (Mendoza)"
-    },
-    {
-     "t": "Zakup parami tego samego dnia.",
-     "opis": "Gdy kompletna podróż kosztuje ≤ 4 500 zł/os. (cel; od 21.05.2027 także do 4 800 zł – skala cen niżej), kupować wszystkie pary w ciągu jednego dnia, u linii, w walucie sprzedawcy (bez przewalutowania DCC), osobna rezerwacja na parę, imiona jak w paszporcie, zrzut reguł taryfy. Lot krajowy wycenić przed zakupem całości i kupić po bilecie międzykontynentalnym.",
-     "kiedy": "od otwarcia sprzedaży do 31.08.2027, bez czekania na „idealny miesiąc”"
+     "t": "Przed zapłatą decyzja i ostatnia kontrola.",
+     "opis": "Cel 4 500 zł/os.; próg 4 800 zł zgodnie ze skalą. Osobne bilety dopiero przy 800 zł/os. oszczędności netto. Sprawdzić pozostałe pary, hotel i transfery; zakup wyłącznie po decyzji użytkownika. Monitoring nie robi rezerwacji."
     }
    ],
    "narzedzia": [
     {
-     "n": "Google Flights",
+     "n": "Wyszukiwarki i reguły taryf",
      "p": [
-      "„Round trip” → „Multi-city” → „Add flight”; limit 9 pasażerów; filtry Stops, Airlines (sojusze: oneworld = Iberia; SkyTeam = AF/KLM/Air Europa/Aerolíneas; Star Alliance = ITA/Lufthansa/LOT; LATAM bez sojuszu), Bags, Connecting airports, Duration, Separate tickets.",
-      "„Date grid” i „Price graph” pod filtrami – tylko dla biletów w obie strony. „Price insights” (low/typical/high) nie dla każdej pary miast.",
-      "Zmiana lotniska EZE ↔ AEP widoczna jako czerwone ostrzeżenie na karcie lotu – osobnego filtra nie ma."
+      "Google Flights i Skyscanner oraz Kayak/Momondo jako jedna rodzina źródeł. Po otwarciu linku zawsze sprawdzić 2 dorosłych, daty, bagaż i dokładne lotniska.",
+      "ITA Matrix pomaga sprawdzić reguły stopoveru i ograniczenia taryfy; nie sprzedaje biletu. Finalna cena i ochrona muszą zostać potwierdzone u linii."
+     ],
+     "link": "https://matrix.itasoftware.com/"
+    },
+    {
+     "n": "Promocje i fora",
+     "p": [
+      "Fly4free, Forum Fly4free, Pepper, Travel-Dealz i Secret Flying: sprawdzaj okres podróży, kierunek i najnowsze komentarze. Stara promocja to kontekst, nie aktualna oferta.",
+      "Infoviajera, Sir Chandler, Promociones Aéreas i Aeroroutes uzupełniają obraz tras i rynku. Ważny komunikat potwierdzić u przewoźnika."
+     ],
+     "link": "https://forum.fly4free.pl/"
+    },
+    {
+     "n": "Alerty i dostępność",
+     "p": [
+      "Status aktywny wymaga potwierdzenia w serwisie lub odebranego alertu. Sam link i checkbox na tej stronie go nie włączają.",
+      "Nie zakładać dostępności dla 6 osób z ceny dla 2. Pozostałe pary wycenić ponownie przed zakupem. Płatne narzędzia i nowe konta wymagają decyzji użytkownika."
      ],
      "link": "https://www.google.com/travel/flights"
-    },
-    {
-     "n": "ITA Matrix",
-     "p": [
-      "Routing: „MAD” lub „X:MAD” (tylko ta przesiadka), „MAD EZE” (kolejno), „MAD,FCO,CDG,AMS,FRA” (jedna z nich), „X? X?” (maks. 2 przesiadki), „IB+” (tylko Iberia), „~AR” (bez Aerolíneas), „N” (bez przesiadek).",
-      "Extension codes: „/ minconnect 90; maxconnect 240”, „/ -overnight”, „/ alliance oneworld”, „/ maxdur 1500”, „/ f bc=O” (tylko dana klasa – czy grupa mieści się w jednej).",
-      "Reguły: cena → „Itinerary details” → „rules” przy każdej taryfie. Kalendarz najniższych cen na pobyt 7–9 nocy. Matrix nie sprzedaje – identyczne loty kupić u linii."
-     ],
-     "link": "https://matrix.itasoftware.com"
-    },
-    {
-     "n": "Kayak · Momondo · Skyscanner",
-     "p": [
-      "Kayak: multi-city do 6 odcinków, do 9 dorosłych; „Hacker Fare” = dwa osobne bilety; „Track prices” w wynikach; Explore pokazuje ceny z 48 h bez bagażu – tylko orientacyjnie.",
-      "Momondo: „Flight Insight” po wyszukaniu – najtańszy dzień tygodnia, miesiąc i wyprzedzenie.",
-      "Skyscanner: multi-city w formularzu; „Self-transfer” = sami przenosimy bagaż, „transfer protection” to gwarancja pośrednika, nie linii."
-     ],
-     "link": "https://www.momondo.pl"
-    },
-    {
-     "n": "Strony linii",
-     "p": [
-      "LATAM i Iberia: zakładka „Multidestino” (open-jaw dozwolony). Air Europa, ITA, AF/KLM: „Multi-city” w formularzu. Aerolíneas: „Múltiples destinos”.",
-      "Zmiana kraju w stopce (iberia.com/pl → /es → /ar, latamairlines.com/ar/es) – ceny w różnych punktach sprzedaży bywają różne; płacić w walucie sprzedawcy.",
-      "Taryfy bez bagażu rejestrowanego: Iberia Básica, Air Europa Lite, LATAM Basic, Lufthansa Light, Aerolíneas Base (od maja 2026 nawet bez bagażu podręcznego)."
-     ],
-     "link": "https://www.iberia.com/pl/"
-    },
-    {
-     "n": "Miejsca dla grupy",
-     "p": [
-      "ExpertFlyer Premium (12,99 USD/mies., od III 2026): „Flight Availability Alert” – ikona dzwonka przy locie, wybór klasy (np. O, Q, N) i liczby miejsc (2) → e-mail, gdy linia otworzy tanią klasę. Pokrycie potwierdzone: Air Europa, Air France, KLM, Turkish; Iberia na liście; LATAM i Aerolíneas niepotwierdzone. Pokazuje dostępność, nie cenę – wycena w ITA Matrix kodem „/ f bc=O”.",
-      "Alerty ustawiać od ok. 20.11.2026 na Iberię Madryt–EZE i Madryt–Santiago oraz Air Europa Madryt–Córdoba/EZE, od ok. 18.12.2026 na LATAM Madryt–Santiago, 5–6.11 i 12–13.11.2027; maile czyta agent „Skrzynka” w pn i czw.",
-      "seats.aero Pro (9,99 USD/mies.) – tylko nagrody (Flying Blue, Miles & More, Turkish), bez Iberii i LATAM.",
-      "Metoda bez narzędzi: szukać dla 1 → 2 → 4 → 6 → 8 i patrzeć na skok ceny."
-     ],
-     "link": "https://www.expertflyer.com"
-    },
-    {
-     "n": "Doloty i promocje",
-     "p": [
-      "AZair: najtańsze doloty WAW/WMI → MAD, FCO, MXP z elastycznymi datami (±5 dni) – kupuje się u linii.",
-      "Secret Flying (alerty mailowe na miasta wylotu), Travel-dealz, Fly4free, Wakacyjni Piraci – promocje; nasz agent sprawdza je w środy i piątki.",
-      "Flightradar24 / FlightStats – punktualność konkretnych rejsów (np. Aerolíneas EZE–MDZ) przed wyborem przesiadki."
-     ],
-     "link": "https://www.azair.eu"
     }
    ],
    "checklista": [
-    "Przy cenie w progu: Iberia „Mantén tu precio” – zatrzymanie ceny na 72 h za ok. 10 EUR od osoby (odliczane przy zakupie) daje parom czas na decyzję; zatrzymać od razu dla wszystkich par.",
-    "Bagaż rejestrowany w każdej taryfie na każdym odcinku (Básica / Lite / Basic / Light / Base = bez bagażu; dopłata ok. 140–180 EUR w obie strony zmienia ranking).",
-    "Daty i godziny: wylot z Warszawy w czwartek 4.11 nie wcześniej niż 20:00 (albo w piątek 5.11), lądowanie w Warszawie najpóźniej w niedzielę 14.11 – sprawdzić datę przylotu ostatniego odcinka, a przy przesiadce w Europie, czy tego dnia jest jeszcze późniejszy lot do Warszawy na wypadek opóźnienia.",
-    "Bilet WAW ⇄ MDZ w obie strony pasuje tylko przy wylocie z Mendozy 13.11 (bez nocy w Buenos Aires). Przy nocy 12→13.11 – wyłącznie multi-city ze stopoverem, open-jaw WAW → MDZ / EZE → WAW + lot krajowy 12.11 albo WAW ⇄ EZE + loty krajowe. Nigdy nie pomijać odcinka biletu: niewykorzystany lot (no-show) anuluje resztę rezerwacji.",
-    "To samo lotnisko na przesiadce: w Buenos Aires EZE → EZE (nie AEP), w São Paulo GRU (nie CGH); w Madrycie między T4 i T4S min. 90 minut (paszporty spoza Schengen w T4S).",
-    "{regula:przesiadki}",
-    "Reguły taryfy zapisane (zrzut ekranu): zmiany, zwrot, sezon, klasa. W UE i w Hiszpanii nie ma 24-godzinnego bezpłatnego anulowania (to przepis amerykański); Iberia oferuje tylko „hold”.",
-    "Płatność w walucie sprzedawcy, bez przewalutowania DCC; karta bez prowizji za walutę.",
-    "Zakup u linii, nie u pośrednika (eSky, Fru, Kiwi, Trip.com) – przy zmianie rozkładu pośrednik tylko przekazuje maile.",
-    "Osobna rezerwacja na każdą parę, imiona dokładnie jak w paszporcie, paszporty ważne w listopadzie 2027; po zakupie prośba o powiązanie rezerwacji i miejsca obok siebie.",
-    "EU261 obejmuje każdy wylot z UE i lot do UE tylko linią z UE – powrót Aerolíneas na osobnym bilecie jest poza nim (w Argentynie dekret 809/2024: posiłki i hotel przy opóźnieniu > 4 h).",
-    "Przed zakupem na listopad 2027 sprawdzić komunikaty o pracach na lotnisku Ezeiza (25.10–11.11.2026 remont pasa zawiesił loty Iberii, ITA, Lufthansy i Air France/KLM) i czy ruszył zapowiadany bezpośredni lot Air Europa Madryt–Mendoza (w 2026 r. w negocjacjach).",
-    "Po zakupie: wpisać cenę do monitora (cel 4 500, próg 4 800), odwołać alerty, zarezerwować lot krajowy tylko jeśli scenariusz tego wymaga."
+    "Finalna wycena dla 2 dorosłych u linii, nie starsza niż 24 godziny; ponowna kontrola bezpośrednio przed zapłatą. Dane pasażerów i dokumentów wpisuje kupujący.",
+    "Wszystkie odcinki, godziny lokalne i strefy; MDZ 6.11, BUE 12-13.11, WAW do 14.11. Maksymalnie 2 przesiadki i do 30 h w każdą stronę, bez pobytu BUE.",
+    "Na każdym odcinku kabinowy i 23 kg na osobę; wszystkie podatki i dodatki, waluta oraz kurs. Cena na osobę wynika z rzeczywistej wyceny pary.",
+    "Podział na bilety i ochrona potwierdzone u linii. Osobne bilety mają odpowiednie bufory i minimum 800 zł/os. oszczędności netto wobec porównywalnej oferty.",
+    "Pobyt BUE co najmniej 24 h, hotel 12-13.11 i przechowanie walizek dostępne, plan transferów oraz plan awaryjny lotu krajowego sprawdzone. Żadnych założonych benefitów na listopad 2027.",
+    "Zapisane warunki taryfy, zmian i anulowania, zakres odpowiedzialności linii. Przy błędnej taryfie weryfikacja wystawienia biletów przed dalszymi bezzwrotnymi wydatkami.",
+    "Dostępność dla pozostałych par sprawdzona oddzielnie; nie mnożyć najniższej ceny dla jednej pary przez całą grupę.",
+    "Po świadomej decyzji użytkownika: zakup, kontrola wystawienia wszystkich biletów i ponowna ocena stopoveru po każdej zmianie rozkładu. Sam monitoring niczego nie kupuje ani nie rezerwuje."
    ],
    "bledy": [
-    "Branie ceny w jedną stronę za połowę ceny podróży, gdy powrót 13.11.2027 nie jest jeszcze w sprzedaży – taryfy w jedną stronę przez Atlantyk są zwykle droższe niż połowa biletu w obie strony.",
-    "Ocenianie ceny biletu do Buenos Aires albo z Madrytu progiem dla kompletnej podróży – Warszawa–Buenos Aires z bagażem to cel dopiero przy ok. 3 350 zł, Madryt–Buenos Aires z bagażem przy ok. 560 EUR.",
-    "Płacenie w pesos na stronach argentyńskich (iberia.com/ar, aerolineas.com.ar) – 30 % podatku „percepción”, odrzucenia zagranicznych kart i ryzyko anulowania; strona argentyńska tylko do porównania (w ITA Matrix opcja „sales city”).",
-    "Pomylenie lotnisk: AEP i EZE w Buenos Aires, CGH i GRU w São Paulo – multi-city ze zmianą lotniska bez zaplanowanego transferu.",
-    "„+1 dzień”: lot WAW–MAD–EZE ląduje następnego dnia; powrót z Buenos Aires 13.11 wieczorem to lądowanie w Warszawie 14.11 – w niedzielę, w którą trzeba być w domu, więc tylko połączenia z przylotem tego dnia (najlepiej do ok. 18:00, z zapasowym lotem do Warszawy).",
-    "Przesiadki na granicy minimum (Madryt 45–55 min dla Iberii) – przy dwóch parach z bagażem to loteria.",
-    "Porównywanie taryf bez bagażu z taryfami z bagażem.",
-    "Alerty tylko na wylot albo tylko na jedną datę – bez trybu „Any dates” i bez WAW–EZE.",
-    "Założenie, że Turkish, Ethiopian albo Lufthansa dowiozą do Mendozy na jednym bilecie – nie mają partnera krajowego.",
-    "Pominięcie sezonu taryfy: ta sama taryfa od 1 grudnia bywa o kilkaset złotych droższa – nasze daty są przed tym progiem.",
-    "Czekanie na Black Friday 2027: promocje listopadowe obejmują podróże do maja następnego roku, nie nasz termin.",
-    "Mnożenie najniższej ceny z wyszukiwarki przez 6 lub 8 osób bez sprawdzenia miejsc w klasie.",
-    "Kupowanie w pośredniku dla oszczędności 50–100 zł – przy zmianie rozkładu dla 6–8 osób to realny koszt.",
-    "Szukanie tylko do Buenos Aires: bilet „przez” do Mendozy (LATAM przez Santiago lub Limę, Iberia/Air Europa z Aerolíneas) bywa w tej samej cenie – zawsze wyceniać MDZ, SCL i EZE obok siebie."
+    "Tania cena samego Atlantyku przedstawiona jako cała podróż; ryczałty 650/700/850 zł potraktowane jak potwierdzone koszty.",
+    "Jedno zamówienie pośrednika uznane za jeden chroniony bilet albo nocleg buforowy uznany za ochronę przesiadki.",
+    "Brak wyniku uznany za zamkniętą sprzedaż; stary odczyt opisany jako dzisiejszy; brak RSS opisany jako brak promocji.",
+    "Zaniżona liczba pasażerów; cena dla jednej osoby pomnożona przez dwa bez sprawdzenia miejsc.",
+    "Postój krótszy niż doba, noc na lotnisku zamiast w mieście albo wylot z Buenos Aires 12.11 zamiast 13.11.",
+    "Przesuwanie wyjazdu, skracanie Uco lub opuszczenie odcinka biletu, aby uzyskać pozornie tańszą cenę."
    ],
    "wnioski": [
-    "Jeden bilet WAW–MDZ sprzedają: Iberia, Air Europa, ITA, Air France/KLM (odcinek do Mendozy na Aerolíneas) oraz LATAM przez São Paulo lub Santiago. Lufthansa/Swiss, Turkish i Ethiopian – tylko do Buenos Aires.",
-    "Odcinek krajowy w jednym bilecie kosztuje u Aerolíneas +50–100 EUR, mniej niż osobny lot (ok. 125–150 USD) – i chroni przesiadkę oraz bagaż. U Iberii/AF/KLM porównać WAW–MDZ z WAW–EZE w tym samym oknie: różnica powinna być ≤ 100 EUR.",
-    "Open-jaw (do Mendozy, powrót z Buenos Aires) wycenia się jako sumę połówek – zwykle bez dopłaty. Stopover > 24 h w Buenos Aires w taryfach eko Iberii i AF/KLM bywa zakazany; wtedy system doliczy odcinek krajowy osobno – nadal na jednym bilecie.",
-    "Ex-Madryt oszczędza zwykle 100–200 EUR/os.; dolot i nocleg buforowy to zjadają. Sens tylko przy promocji ex-Hiszpania (styczeń) albo promocji Aerolíneas „desde Europa”.",
-    "Linie sprzedają 330–361 dni naprzód: Air Europa i LOT 361, Iberia i Lufthansa 360, Air France/KLM 359, Turkish 354, Ethiopian 331, Aerolíneas, LATAM i ITA 330 (korekta z 10.11.2026 – Iberia to 360 dni, nie 330). Cena w obie strony istnieje dopiero, gdy w sprzedaży jest też powrót 13.11.2027: do Buenos Aires od 17–19.11.2026, cały bilet do Mendozy od 17–18.12.2026. Robocze okno obserwacji, bez gwarancji najniższej ceny: 18–24 tygodnie przed, czyli maj–lipiec 2027; grupa 6–8 osób zużywa tanie klasy, więc dobra cena wcześniej jest lepsza niż statystyka.",
-    "5–14.11 to sezon niski/przejściowy (blackouty Iberii zaczynają się w styczniu; agregatory wskazują listopad jako najtańszy miesiąc do Buenos Aires).",
-    "Black Friday (Iberia, Air Europa, TAP, LATAM, ITA) obejmował podróże do maja następnego roku – nie liczyć na BF 2026 ani 2027. Jedyna kampania z listopadem: styczniowe rebajas Iberii (2026: podróże do 10.12, w sprzedaży z Argentyny do 30.11) – obserwować 5–26 stycznia 2027.",
-    "Kupować parami (2+2+2): wycena dla 6 osób skacze, gdy w najtańszej klasie zostały 2–4 miejsca; taryfy grupowe zaczynają się od 10 osób.",
-    "Krajowo: Flybondi w postępowaniu układowym i bez lotów od lipca 2026; zostają Aerolíneas (EZE i AEP, punktualność ok. 76–90 %) i JetSMART (33–34 loty tygodniowo na Mendozę w styczniu 2027).",
-    "Promocje z Polski do Buenos Aires w latach 2024–26 to 2 030–2 920 zł, prawie zawsze tylko z bagażem podręcznym, głównie z Wiednia i Berlina; te obejmujące listopad ogłaszano 4 tygodnie do 6 miesięcy przed wylotem (LATAM ex-Wiedeń w maju–czerwcu). Z 23 kg w cenie: Turkish+Copa, Delta, oneworld ex-Oslo, Ethiopian ex-Porto/Rzym i Star Alliance open-jaw.",
-    "Fora zgodnie: Aerolíneas miała 76,5 % punktualności w 2025 r., a strajk 3–5.08.2026 odwołał prawie wszystkie loty z Mendozy – stąd nasz dzień zapasu w Buenos Aires przed lotem do Europy i zasada „jeden bilet dla ważnej podróży”; pośrednicy (eSky, Kiwi) przy zmianach rozkładu zawodzą.",
-    "Program Aerolíneas „Stopover Buenos Aires” (24/48/72 h dla biletów z zagranicy, edycja 1.10.2026–30.04.2027) pokazuje, że stopover w naszym kształcie jest produktem linii – sprawdzić w 2027, czy jest kolejna edycja i czy bez dopłaty.",
-    "Luki taryfowe z badania 28.10.2026: (1) bilet do Mendozy przez Santiago lub Limę bywa w cenie biletu do Buenos Aires; (2) promocje ex-Madryt na 2027 już się pojawiają (Air France 562 EUR) – liczyć z dolotem i noclegiem; (3) Iberia zatrzymuje cenę na 72 h za 10 EUR/os.; (4) taryfy grupowe dopiero od 10 osób – parami taniej; (5) mile (Avios, Flying Blue) tylko oportunistycznie; (6) w pesos nie płacić; (7) błędne taryfy: kupować u linii, hotele rezerwować dopiero po 7–10 dniach."
+    "Wpis na forum lub portalowej promocji to trop. Najpierw sprawdzić daty listopada 2027 i kierunek z Europy, potem faktyczny rozkład, 2 miejsca, bagaż oraz cenę u linii.",
+    "Nie zakładać dopłaty 0-150 EUR za stopover ani dostępności partnerów. Pełna cena i ochrona wynikają z konkretnego biletu; warto porównać multi-city, open-jaw i odcinki osobno.",
+    "Nie wolno porównywać wrześniowej wyceny testowej z listopadową ofertą jako spadku tego samego produktu. Analogicznie: 1 osoba zamiast 2, 15 kg zamiast 23 kg, różne lotniska i brak nocy w Buenos Aires to inne produkty.",
+    "Okno sprzedaży partnerów może być krótsze niż przewoźnika głównego. Brak ceny w agregatorze nie dowodzi zamkniętej sprzedaży. Kalendarz otwarcia to prognoza do weryfikacji w formularzu linii.",
+    "Sprawdzać komentarze o wygasłych ofertach, zmianach lotnisk, odwołaniach i osobnych biletach. Pojedyncza relacja nie dowodzi trwałej reguły ani przyszłej punktualności.",
+    "Benefity Stopover Buenos Aires w edycji sprawdzonej 26.11.2026 obowiązują do 30.04.2027. Brak kolejnej edycji nie blokuje zwykłego pobytu 12-13.11 kupionego zgodnie z taryfą."
    ]
   },
   "kalendarz": {
@@ -1456,7 +1358,7 @@
      "faza": "Otwarcie sprzedaży",
      "co": "Linie z 359–361-dniowym kalendarzem (Air Europa, Iberia, Lufthansa, Air France/KLM) otworzyły powrót 13.11.2027 między 17 a 19.11 (Turkish do 25.11 jeszcze nie) – od tego dnia istnieją pierwsze ceny w obie strony Warszawa–Buenos Aires i Madryt–Buenos Aires. Zapisać je jako punkt odniesienia. Google Flights pokazuje loty najwyżej ok. 330 dni naprzód, więc alerty na nasze daty da się tam ustawić dopiero ok. 18.12 – do tego czasu ceny czyta codzienny raport w Kayaku. Równolegle sprawdzić, czy kampania Iberia + Visit Argentina (sprzedaż 12.11.2026–31.05.2027, od 425 EUR za odcinek Madryt–Buenos Aires, Básica bez bagażu; opublikowano tylko daty wyłączone) dopuszcza podróże w listopadzie 2027, i wycenić taryfę Star Alliance/United open-jaw Europa → Buenos Aires → Berlin/Wiedeń (23 kg, reguły obejmują 1.09–9.12.2027; liczy się tylko wariant z wylotem z Buenos Aires 12.11). Cały bilet do Mendozy jeszcze się nie wyceni – Aerolíneas i LATAM sprzedają 330 dni naprzód.",
      "automat": "Codzienny raport lotów",
-     "decyzja": "Iberia z Madrytu staniała (25.11: bez przesiadki od 4 223 zł; Warszawa–Buenos Aires od 5 653 zł, bez bagażu), ale cała podróż to wciąż ok. 6 400 zł – jeszcze nie kupujemy. Turkish nadal nie sprzedaje naszych dat, sprawdzamy codziennie. Kupić od razu tylko przy ≤ 4 500 zł/os. za całą podróż z bagażem.",
+     "decyzja": "Sprawdzamy pełną podróż dla 2 osób z nocą 12-13.11 w Buenos Aires. Odczyty z 25.11 z dodatkami to szacunki, nie oferta. Kupno rozważamy po potwierdzeniu wszystkich odcinków, bagażu i ochrony u linii: cel 4 500 zł/os., próg 4 800 zł/os.",
      "ton": "sprawdz",
      "szansa": 0.8,
      "kr": "Start"
@@ -1991,6 +1893,168 @@
     }
    ],
    "uwaga": "Przy osobnych biletach obowiązuje dodatkowa zasada: bierzemy je tylko wtedy, gdy są tańsze od najlepszego jednego biletu o co najmniej 800 zł na osobę. Dokładne przeliczenie konkretnej oferty robi kalkulator w zakładce Decyzja."
+  },
+  "monitoring": {
+   "reguly": {
+    "wylot": "2027-11-05",
+    "wylotAlternatywny": "2027-11-04",
+    "mendoza": "2027-11-06",
+    "buenosOd": "2027-11-12",
+    "buenosDo": "2027-11-13",
+    "powrot": "2027-11-14",
+    "waznosc_h": 24,
+    "stop_min_h": 24,
+    "buenosPrzylotMax": 15,
+    "buenosWylotMin": 18,
+    "max_podroz_h": 30,
+    "max_przesiadki": 2,
+    "przesiadkaH": 2,
+    "buePrzesiadkaH": 3,
+    "max_przesiadka_h": 8,
+    "osobneH": 5,
+    "osobnePrzedAtlantykiemH": 12
+   },
+   "intro": "Szukamy dla 2 dorosłych. Każda oferta ma zachować 3 noce w Chacras, 3 w Uco i noc 12-13.11 w Buenos Aires. Cel 4 500 zł/os., próg 4 800 zł/os. za wszystkie bilety z bagażem. Wyszukanie ceny nie oznacza potwierdzenia ani rezerwacji.",
+   "kryteria": [
+    "Buenos Aires: przylot 12.11 do 15:59, wylot 13.11 od 18:00, co najmniej 24 godziny między lotami. To nasze kryterium komfortu, nie gwarancja przewoźnika. Preferowane ok. 30 godzin; liczymy osobno transfery, odprawę i czas w mieście.",
+    "Najwyżej 2 przesiadki w stronę i do 30 godzin na dojazd lotniczy w każdą stronę, bez pobytu w Buenos Aires. Inny wariant wymaga świadomej decyzji. Nie zamieniamy dnia w mieście na noc na lotnisku.",
+    "Jedna rezerwacja w portalu nie dowodzi ochrony. Sprawdzamy bilety i odpowiedzialność linii. Hacker Fare, self-transfer i gwarancja pośrednika nie są biletem chronionym przez przewoźnika.",
+    "Osobne bilety: minimum 5 godzin na tym samym lotnisku; przed osobnym lotem dalekim minimum 12 godzin i nocleg. Powrót MDZ-BUE 12.11 daje noc zapasu, lecz nie ochronę. Oszczędność minimum 800 zł/os. wobec porównywalnej chronionej oferty po wszystkich dodatkach.",
+    "Na zwykłej chronionej przesiadce przyjmujemy 2 godziny, w Buenos Aires po przylocie międzynarodowym 3 godziny; maksymalnie 8 godzin. To robocze bufory komfortu, nie oficjalne minima lotnisk. Zmiana AEP/EZE tylko podczas noclegu w mieście.",
+    "Bagaż: kabinowy i 23 kg na osobę na każdym odcinku. 15 kg w kraju wymaga wyceny dopłaty. Hotel w Buenos Aires i transfery już ujęte w budżecie liczymy tylko raz; osobno pokazujemy dodatkowy nocleg przy dolocie do huba."
+   ],
+   "scenariusze": [
+    {
+     "id": "stopover",
+     "n": "1. Jeden bilet z nocą w Buenos Aires",
+     "trasa": "WAW-MDZ 5.11 / MDZ-AEP lub EZE 12.11 / EZE-WAW 13.11",
+     "co": "Pierwszy wybór. Taryfa i wszystkie odcinki potwierdzone u linii; sprawdzamy też wylot 4.11 po 20:00.",
+     "url": "https://www.kayak.pl/flights/WAW-MDZ/2027-11-05/MDZ-BUE/2027-11-12/BUE-WAW/2027-11-13/2adults?sort=price_a"
+    },
+    {
+     "id": "openjaw",
+     "n": "2. Do Mendozy, z Buenos Aires",
+     "trasa": "WAW-MDZ 5.11 / EZE-WAW 13.11 + MDZ-AEP lub EZE 12.11",
+     "co": "Główne loty na jednym bilecie; krajowy osobno, dzień przed powrotem. Porównujemy pełny koszt i ryzyko z wariantem 1.",
+     "url": "https://www.kayak.pl/flights/WAW-MDZ/2027-11-05/EZE-WAW/2027-11-13/2adults?sort=price_a"
+    },
+    {
+     "id": "osobne",
+     "n": "3. Buenos Aires + loty krajowe",
+     "trasa": "WAW-EZE 5-13.11 / EZE-MDZ 6.11 / MDZ-AEP lub EZE 12.11",
+     "co": "Wymaga wyceny obu lotów krajowych, 23 kg, buforów i oszczędności co najmniej 800 zł/os. Sam tani Atlantyk nie wystarczy.",
+     "url": "https://www.kayak.pl/flights/WAW-EZE/2027-11-05/2027-11-13/2adults?sort=price_a"
+    },
+    {
+     "id": "mad",
+     "n": "4. Madryt z dolotem i noclegiem",
+     "trasa": "WAW-MAD 4.11 po 20:00 / MAD-MDZ 5.11 / MDZ-BUE 12.11 / BUE-MAD 13.11 / MAD-WAW 14.11",
+     "co": "Liczymy oba doloty i nocleg. Chroniony bilet od Madrytu nie chroni osobnego dolotu. Przylot MDZ nadal 6.11.",
+     "url": "https://www.kayak.pl/flights/MAD-MDZ/2027-11-05/MDZ-BUE/2027-11-12/BUE-MAD/2027-11-13/2adults?sort=price_a"
+    },
+    {
+     "id": "vie",
+     "n": "5. Wiedeń lub Berlin - plan B",
+     "trasa": "VIE lub BER do MDZ / powrót z EZE 13.11 + MDZ-BUE 12.11",
+     "co": "Dojazd, parking, ewentualny hotel i powrót do domu do 14.11. Oceniane osobno; nie obniżają ceny planu z Warszawy.",
+     "url": "https://www.kayak.pl/flights/VIE-MDZ/2027-11-05/EZE-VIE/2027-11-13/2adults?sort=price_a"
+    },
+    {
+     "id": "huby",
+     "n": "6. Inne huby i promocje open-jaw",
+     "trasa": "Przez SCL / GRU, europejskie MAD / FCO / CDG / AMS / FRA / ZRH / IST",
+     "co": "Tylko faktycznie sprzedawane połączenia, bez zakładania partnerstw. Zwykłe WAW-MDZ-WAW bez nocy w Buenos Aires jest wyłącznie punktem odniesienia.",
+     "url": "https://www.google.com/travel/flights"
+    }
+   ],
+   "zrodla": [
+    {
+     "id": "google",
+     "n": "Google Flights",
+     "typ": "Ceny",
+     "url": "https://www.google.com/travel/flights",
+     "jak": "Oba dni wylotu, 2 dorosłych, czas podróży i lotniska; alert dopiero po potwierdzeniu aktywacji."
+    },
+    {
+     "id": "kayak",
+     "n": "Kayak + Momondo",
+     "typ": "Ceny",
+     "url": "https://www.kayak.pl/flights",
+     "jak": "Ta sama rodzina wyszukiwarek, nie dwa niezależne potwierdzenia. Osobno sprawdzać multi-city i Hacker Fare."
+    },
+    {
+     "id": "skyscanner",
+     "n": "Skyscanner",
+     "typ": "Ceny",
+     "url": "https://www.skyscanner.pl/transport/multi-city/",
+     "jak": "Drugie źródło cen; w formularzu sprawdzić 2 osoby, bagaż i self-transfer."
+    },
+    {
+     "id": "linie",
+     "n": "Linie i reguły taryf",
+     "typ": "Potwierdzenie",
+     "url": "https://matrix.itasoftware.com/",
+     "jak": "Iberia, Air Europa, Aerolíneas, LATAM, AF/KLM, ITA, Lufthansa/SWISS, Turkish, Ethiopian. Matrix pomaga z taryfą, ostateczną cenę potwierdza linia."
+    },
+    {
+     "id": "fly4free",
+     "n": "Fly4free: portal i komentarze",
+     "typ": "Promocje",
+     "url": "https://www.fly4free.pl/tag/argentyna/",
+     "jak": "Nowe wpisy i komentarze: Argentyna, Buenos Aires, Mendoza, Santiago, São Paulo; również wyloty z Europy."
+    },
+    {
+     "id": "forum",
+     "n": "Forum Fly4free",
+     "typ": "Forum",
+     "url": "https://forum.fly4free.pl/",
+     "jak": "Nowe posty o promocjach, Aerolíneas, EZE/AEP, open-jaw i zmianach rozkładu. Zapisać link do postu i jego datę, nie tylko temat."
+    },
+    {
+     "id": "pepper",
+     "n": "Pepper",
+     "typ": "Promocje i komentarze",
+     "url": "https://www.pepper.pl/",
+     "jak": "Słowa kluczowe i najnowsze komentarze; gorący wpis może dotyczyć innych dat lub lotów z Argentyny do Europy."
+    },
+    {
+     "id": "traveldealz",
+     "n": "Travel-Dealz",
+     "typ": "Promocje",
+     "url": "https://travel-dealz.com/destination/argentina/",
+     "jak": "Okres podróży, ograniczenia taryfy i 2 miejsca; newsletter jest tylko tropem."
+    },
+    {
+     "id": "secret",
+     "n": "Secret Flying",
+     "typ": "Promocje",
+     "url": "https://www.secretflying.com/",
+     "jak": "Publiczne oferty i błędy taryfowe. Brak RSS lub blokada nie oznacza braku promocji; bez płatnych subskrypcji."
+    },
+    {
+     "id": "argentina",
+     "n": "Infoviajera i Sir Chandler",
+     "typ": "Rynek lokalny",
+     "url": "https://www.infoviajera.com/",
+     "jak": "Promociones Aéreas i Aeroroutes jako uzupełnienie. Odróżnić kierunek z Europy od podróży mieszkańców Argentyny."
+    },
+    {
+     "id": "mail",
+     "n": "Aktywowane alerty i newslettery",
+     "typ": "Skrzynka",
+     "url": "https://mail.google.com/",
+     "jak": "Nowe wiadomości od ostatniego odczytu, także Spam. Na stronie tylko publiczne fakty; bez adresów, kodów i spersonalizowanych linków."
+    },
+    {
+     "id": "stopover",
+     "n": "Visit Buenos Aires: warunki",
+     "typ": "Stopover",
+     "url": "https://stopover.visitbue.app/bases-y-condiciones?lang=en",
+     "jak": "Odczyt 26.11.2026: benefity do 30.04.2027, więc poza naszym terminem. Szukać nowej edycji, ale nie uzależniać od niej noclegu."
+    }
+   ],
+   "frazy": "Mendoza / MDZ, Buenos Aires / BUE / EZE / AEP, Argentina / Argentyna, Santiago / SCL, São Paulo / GRU; listopad / November / noviembre 2027; multidestino, stopover, open-jaw, error fare. Sprawdzać datę wpisu, kierunek podróży i okres obowiązywania.",
+   "rytm": "Codziennie: ceny wszystkich wariantów, promocje, fora i dostępne alerty. Black Friday, styczniowe wyprzedaże i spadek ceny wymagają szybkiej ponownej wyceny u linii. Data ostatniego odczytu poniżej pokazuje faktyczne wykonanie; lista źródeł nie jest potwierdzeniem aktywnego alertu."
   }
  },
  "hotele_karty": [

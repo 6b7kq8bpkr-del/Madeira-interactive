@@ -49,7 +49,7 @@ a { color: var(--acc); } #ok { margin-left: 10px; }
   function koszt(R) {
     $('koszt').textContent = 'ok. ' + nf(Math.round(razem / 100) * 100) + ' zł na parę';
     var t = 'Trzy pary, hotele z planu, bilety po ' + nf(B.prog) + ' zł za osobę. Sufit, który przyjęliśmy: ' + nf(B.sufit) + ' zł.';
-    var c = R && +R.calosc; if (c > 0 && 2 * c > loty) { var m = Math.round((razem - loty + 2 * c) / 100) * 100; t += ' Przy dzisiejszych cenach lotów (ok. ' + nf(c) + ' zł za osobę) wychodzi ok. ' + nf(m) + ' zł na parę' + (m > B.sufit ? ', czyli ' + nf(m - B.sufit) + ' zł ponad sufit.' : '.'); }
+    var c = R && +(R.calosc || R.szacunek); if (c > 0 && 2 * c > loty) { var m = Math.round((razem - loty + 2 * c) / 100) * 100; t += ' Przy ostatniej wycenie lub szacunku lotów (ok. ' + nf(c) + ' zł za osobę) wychodzi ok. ' + nf(m) + ' zł na parę' + (m > B.sufit ? ', czyli ' + nf(m - B.sufit) + ' zł ponad sufit.' : '.'); }
     $('kosztn').textContent = t;
   }
   koszt(null);

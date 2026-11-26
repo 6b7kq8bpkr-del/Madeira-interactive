@@ -4,12 +4,13 @@ Użycie: python3 -I raport_fakty.py [--date RRRR-MM-DD]   wypisuje kurs NBP, okn
         python3 -I raport_fakty.py --check [--date …]     błąd, gdy „raport” w loty.json nie jest dzisiejszy albo jest niepełny
 Procedura raportu: ../../uco-src/RAPORT.md"""
 import sys, json, os, datetime as dt, urllib.request
+from zoneinfo import ZoneInfo
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 P = json.load(open(os.path.join(HERE, "..", "..", "uco-src", "data", "program.json"), encoding="utf-8"))
 L = json.load(open(os.path.join(HERE, "..", "loty.json"), encoding="utf-8"))
 D = dt.date.fromisoformat
-TODAY = D(sys.argv[sys.argv.index("--date") + 1]) if "--date" in sys.argv else dt.date.today()
+TODAY = D(sys.argv[sys.argv.index("--date") + 1]) if "--date" in sys.argv else dt.datetime.now(ZoneInfo("Europe/Warsaw")).date()
 pl = lambda d: f"{d.day}.{d.month:02d}.{d.year}"
 PROG_KURS = 3.0  # % odchylenia USD od kursu budżetu, od którego raport ma żądać przeliczenia budżetu
 
@@ -52,7 +53,7 @@ def fakty():
     print("SPRZEDAŻ NASZYCH DAT według kalendarzy linii (liczby dni niepotwierdzone – sprawdzić w wyszukiwarce):")
     for l in P["loty"]["okna"]["linie"]:
         a, z = wyl - dt.timedelta(days=l["dni"]), pow_ - dt.timedelta(days=l["dni"])
-        st = "sprzedaje w obie strony" if z <= TODAY else f"wylot tak, powrót od {pl(z)}" if a <= TODAY else f"wylot od {pl(a)}, powrót od {pl(z)}"
+        st = "planowane okno obu kierunków otwarte - potwierdź ofertę u linii" if z <= TODAY else f"wylot tak, powrót od {pl(z)}" if a <= TODAY else f"wylot od {pl(a)}, powrót od {pl(z)}"
         print(f"  {l['n']} ({l['dni']} dni): {st}")
     print("TERMINY (zaległe i najbliższe 7 dni):")
     for z in sorted(P["loty"]["zadania"], key=lambda z: z["do"]):

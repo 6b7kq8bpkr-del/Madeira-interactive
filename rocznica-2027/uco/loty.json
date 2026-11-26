@@ -38,27 +38,33 @@
    "hist": [
     {
      "data": "2026-11-18",
-     "cena": 7320
+     "cena": 7320,
+     "status": "szacunek"
     },
     {
      "data": "2026-11-19",
-     "cena": 6530
+     "cena": 6530,
+     "status": "szacunek"
     },
     {
      "data": "2026-11-20",
-     "cena": 6540
+     "cena": 6540,
+     "status": "szacunek"
     },
     {
      "data": "2026-11-23",
-     "cena": 6550
+     "cena": 6550,
+     "status": "szacunek"
     },
     {
      "data": "2026-11-24",
-     "cena": 6590
+     "cena": 6590,
+     "status": "szacunek"
     },
     {
      "data": "2026-11-25",
-     "cena": 6420
+     "cena": 6420,
+     "status": "szacunek"
     }
    ]
   },
@@ -87,31 +93,38 @@
    "hist": [
     {
      "data": "2026-11-17",
-     "cena": 6990
+     "cena": 6990,
+     "status": "szacunek"
     },
     {
      "data": "2026-11-18",
-     "cena": 6960
+     "cena": 6960,
+     "status": "szacunek"
     },
     {
      "data": "2026-11-19",
-     "cena": 6970
+     "cena": 6970,
+     "status": "szacunek"
     },
     {
      "data": "2026-11-20",
-     "cena": 6970
+     "cena": 6970,
+     "status": "szacunek"
     },
     {
      "data": "2026-11-23",
-     "cena": 7000
+     "cena": 7000,
+     "status": "szacunek"
     },
     {
      "data": "2026-11-24",
-     "cena": 7040
+     "cena": 7040,
+     "status": "szacunek"
     },
     {
      "data": "2026-11-25",
-     "cena": 7030
+     "cena": 7030,
+     "status": "szacunek"
     }
    ]
   },
@@ -132,19 +145,23 @@
    "hist": [
     {
      "data": "2026-11-20",
-     "cena": 6910
+     "cena": 6910,
+     "status": "szacunek"
     },
     {
      "data": "2026-11-23",
-     "cena": 7220
+     "cena": 7220,
+     "status": "szacunek"
     },
     {
      "data": "2026-11-24",
-     "cena": 7240
+     "cena": 7240,
+     "status": "szacunek"
     },
     {
      "data": "2026-11-25",
-     "cena": 7230
+     "cena": 7230,
+     "status": "szacunek"
     }
    ]
   },
@@ -157,31 +174,38 @@
    "hist": [
     {
      "data": "2026-11-17",
-     "cena": 7300
+     "cena": 7300,
+     "status": "szacunek"
     },
     {
      "data": "2026-11-18",
-     "cena": 6970
+     "cena": 6970,
+     "status": "szacunek"
     },
     {
      "data": "2026-11-19",
-     "cena": 6750
+     "cena": 6750,
+     "status": "szacunek"
     },
     {
      "data": "2026-11-20",
-     "cena": 6970
+     "cena": 6970,
+     "status": "szacunek"
     },
     {
      "data": "2026-11-23",
-     "cena": 6980
+     "cena": 6980,
+     "status": "szacunek"
     },
     {
      "data": "2026-11-24",
-     "cena": 7010
+     "cena": 7010,
+     "status": "szacunek"
     },
     {
      "data": "2026-11-25",
-     "cena": 7000
+     "cena": 7000,
+     "status": "szacunek"
     }
    ]
   },
@@ -234,23 +258,28 @@
    "hist": [
     {
      "data": "2026-11-19",
-     "cena": 6270
+     "cena": 6270,
+     "status": "szacunek"
     },
     {
      "data": "2026-11-20",
-     "cena": 6350
+     "cena": 6350,
+     "status": "szacunek"
     },
     {
      "data": "2026-11-23",
-     "cena": 6470
+     "cena": 6470,
+     "status": "szacunek"
     },
     {
      "data": "2026-11-24",
-     "cena": 6470
+     "cena": 6470,
+     "status": "szacunek"
     },
     {
      "data": "2026-11-25",
-     "cena": 6350
+     "cena": 6350,
+     "status": "szacunek"
     }
    ]
   }
@@ -778,82 +807,128 @@
  ],
  "skrzynka": [],
  "rss": {
-  "sprawdzono": "2026-11-25 11:57",
+  "sprawdzono": "2026-11-26T09:21:00+01:00",
+  "dni": 3,
   "kanaly": [
    {
     "zrodlo": "Fly4free.pl",
+    "url": "https://www.fly4free.pl/feed/",
+    "grupa": "fly4free.pl",
+    "sprawdzono": "2026-11-26T09:21:00+01:00",
     "wpisy": 20,
     "ok": true
    },
    {
     "zrodlo": "Fly4free.pl · Argentyna",
+    "url": "https://www.fly4free.pl/tag/argentyna/feed/",
+    "grupa": "fly4free.pl",
+    "sprawdzono": "2026-11-26T09:21:00+01:00",
     "wpisy": 20,
     "ok": true
    },
    {
     "zrodlo": "Fly4free.com",
-    "wpisy": 0,
-    "ok": false,
-    "blad": "IncompleteRead(0 bytes read)"
+    "url": "https://www.fly4free.com/feed/",
+    "grupa": "fly4free.com",
+    "sprawdzono": "2026-11-26T09:21:00+01:00",
+    "wpisy": 50,
+    "ok": true
    },
    {
     "zrodlo": "Fly4free.pl · Buenos Aires",
+    "url": "https://www.fly4free.pl/tag/buenos-aires/feed/",
+    "grupa": "fly4free.pl",
+    "sprawdzono": "2026-11-26T09:21:00+01:00",
     "wpisy": 20,
     "ok": true
    },
    {
     "zrodlo": "Fly4free.pl · Ameryka Płd.",
+    "url": "https://www.fly4free.pl/tag/ameryka-poludniowa/feed/",
+    "grupa": "fly4free.pl",
+    "sprawdzono": "2026-11-26T09:21:00+01:00",
     "wpisy": 20,
     "ok": true
    },
    {
     "zrodlo": "Travel-dealz · Argentyna",
-    "wpisy": 9,
-    "ok": true
+    "url": "https://travel-dealz.com/destination/argentina/feed/",
+    "grupa": "travel-dealz.com",
+    "sprawdzono": "2026-11-26T09:21:00+01:00",
+    "wpisy": 0,
+    "ok": false,
+    "blad": "The read operation timed out"
    },
    {
     "zrodlo": "Travel-dealz · Chile",
+    "url": "https://travel-dealz.com/destination/chile/feed/",
+    "grupa": "travel-dealz.com",
+    "sprawdzono": "2026-11-26T09:21:00+01:00",
     "wpisy": 4,
     "ok": true
    },
    {
     "zrodlo": "Travel-dealz",
+    "url": "https://travel-dealz.com/feed/",
+    "grupa": "travel-dealz.com",
+    "sprawdzono": "2026-11-26T09:21:00+01:00",
     "wpisy": 0,
-    "ok": true
+    "ok": false,
+    "blad": "niepoprawny RSS/Atom"
    },
    {
     "zrodlo": "Wakacyjni Piraci",
-    "wpisy": 0,
-    "ok": false,
-    "blad": "IncompleteRead(0 bytes read)"
+    "url": "https://www.wakacyjnipiraci.pl/feed",
+    "grupa": "wakacyjnipiraci.pl",
+    "sprawdzono": "2026-11-26T09:21:00+01:00",
+    "wpisy": 33,
+    "ok": true
    },
    {
     "zrodlo": "HolidayPirates",
-    "wpisy": 59,
+    "url": "https://www.holidaypirates.com/feed",
+    "grupa": "holidaypirates.com",
+    "sprawdzono": "2026-11-26T09:21:00+01:00",
+    "wpisy": 57,
     "ok": true
    },
    {
     "zrodlo": "Pepper.pl",
+    "url": "https://www.pepper.pl/rss/nowe",
+    "grupa": "pepper.pl",
+    "sprawdzono": "2026-11-26T09:21:00+01:00",
     "wpisy": 30,
     "ok": true
    },
    {
     "zrodlo": "Infoviajera",
+    "url": "https://www.infoviajera.com/feed/",
+    "grupa": "infoviajera.com",
+    "sprawdzono": "2026-11-26T09:21:00+01:00",
     "wpisy": 10,
     "ok": true
    },
    {
     "zrodlo": "Promociones Aéreas",
+    "url": "https://promociones-aereas.com.ar/feed/",
+    "grupa": "promociones-aereas.com.ar",
+    "sprawdzono": "2026-11-26T09:21:00+01:00",
     "wpisy": 15,
     "ok": true
    },
    {
     "zrodlo": "Sir Chandler",
+    "url": "https://www.sirchandler.com.ar/feed/",
+    "grupa": "sirchandler.com.ar",
+    "sprawdzono": "2026-11-26T09:21:00+01:00",
     "wpisy": 20,
     "ok": true
    },
    {
     "zrodlo": "Aeroroutes",
+    "url": "https://www.aeroroutes.com/eng?format=rss",
+    "grupa": "aeroroutes.com",
+    "sprawdzono": "2026-11-26T09:21:00+01:00",
     "wpisy": 20,
     "ok": true
    }
@@ -861,12 +936,16 @@
   "trafienia": [
    {
     "zrodlo": "Infoviajera",
-    "tytul": "Más preocupación por Plus Ultra: ahora desaparecieron los vuelos a Caracas",
-    "url": "https://www.infoviajera.com/2026/11/mas-preocupacion-por-plus-ultra-ahora-desaparecieron-los-vuelos-a-caracas/",
-    "data": "2026-11-22",
-    "opis": " La situación de Plus Ultra Líneas Aéreas suma un nuevo capítulo. Después de suspender sus vuelos entre Buenos Aires y Madrid y cancelar las operaciones hacia Lima, ahora también desaparecieron de su programación en la web oficial de la aerolínea, las conexiones con Caracas desde Madrid y Tenerife. De acuerdo con información publicada por medios especializados este domingo, la compañía habría deja",
+    "tytul": "Finalmente, Plus Ultra anuncia la suspensión total de sus operaciones aéreas",
+    "url": "https://www.infoviajera.com/2026/11/finamente-plus-ultra-anuncia-la-suspension-total-de-sus-operaciones-aereas/",
+    "data": "2026-11-24",
+    "opis": " La aerolínea Plus Ultra finalmente anunció la suspensión total de sus operaciones aéreas a partir de hoy, 23 de noviembre de 2026. Los puntos salientes de su comunicado son los siguientes: Plus Ultra Líneas Aéreas suspende sus operaciones aéreas a partir de hoy, 23 de noviembre de 2026 y hasta nuevo aviso Ese final, en donde mencionan un posible «nuevo aviso», intenta apelar a la ilusión de que p",
     "sila": "silne",
-    "tryb": "ar"
+    "tryb": "ar",
+    "status": "trop",
+    "kanaly": [
+     "Infoviajera"
+    ]
    },
    {
     "zrodlo": "Sir Chandler",
@@ -875,7 +954,50 @@
     "data": "2026-11-23",
     "opis": " Esta mañana española habría aterrizado el último vuelo de Plus Ultra, proveniente de Caracas, el último destino que había dejado operativo la aerolínea. Si bien se informó que la aerolínea cortaba los vuelos de Lima y Ezeiza, pero que mantenía los de Caracas con Madrid y Tenerife, parece que la situación económica de la aerolínea... \n La entrada  Plus Ultra habría operado su último vuelo y podría",
     "sila": "silne",
-    "tryb": "ar"
+    "tryb": "ar",
+    "status": "trop",
+    "kanaly": [
+     "Sir Chandler"
+    ]
+   },
+   {
+    "zrodlo": "Promociones Aéreas",
+    "tytul": "Black Friday: ¡Hermoso! ✈️ Vuelos a Madrid desde Córdoba a partir de U$D 920 con Carry On 🥘 y financiamiento en Cuotas",
+    "url": "https://promociones-aereas.com.ar/2026/11/black-friday-hermoso-vuelos-a-madrid-desde-cordoba-con-carry-on-cuotas-latam-rt-p.html",
+    "data": "2026-11-25",
+    "opis": " Hay Vuelos a Madrid desde Córdoba a partir de U$D 920 finales, ida y vuelta, con Carry On incluido, ó a partir de U$D 1.043 con equipaje en Bodega de […] \n La entrada  Black Friday: ¡Hermoso! ✈️ Vuelos a Madrid desde Córdoba a partir de U$D 920 con Carry On 🥘 y financiamiento en Cuotas  se publicó primero en  Promociones Aéreas . ",
+    "sila": "slabe",
+    "tryb": "ar",
+    "status": "trop",
+    "kanaly": [
+     "Promociones Aéreas"
+    ]
+   },
+   {
+    "zrodlo": "Fly4free.com",
+    "tytul": "Exotic combination of flights 😎 🌴 Cape Verde + Recife, Brazil in one tropical trip from Amsterdam for €526",
+    "url": "https://www.fly4free.com/flight-deals/europe/trip-from-amsterdam-to-cape-verde-and-recife-e526/",
+    "data": "2026-11-23",
+    "opis": "Why settle for one tropical destination when you can explore two? This exotic flight combination from Amsterdam lets you discover the beautiful beaches and volcanic landscapes of Cape Verde before heading to Recife, Brazil, for a taste of South American culture, sunshine and stunning coastline. Flights to both destinations are available for just €526! An unusual combination for an unforgettable tr",
+    "sila": "slabe",
+    "tryb": "eu",
+    "status": "trop",
+    "kanaly": [
+     "Fly4free.com"
+    ]
+   },
+   {
+    "zrodlo": "Fly4free.com",
+    "tytul": "BRAZILIAN SUMMER 😎 🍹 Non-stop flights from Madrid to Sao Paulo for €587",
+    "url": "https://www.fly4free.com/flight-deals/europe/flights-from-madrid-to-sao-paulo-e587/",
+    "data": "2026-11-23",
+    "opis": "Experience comfort, reliability, and direct service to one of Brazil’s most exciting destinations! LATAM is offering discounted flights to Sao Paulo starting at only €587 for a round trip.",
+    "sila": "slabe",
+    "tryb": "eu",
+    "status": "trop",
+    "kanaly": [
+     "Fly4free.com"
+    ]
    },
    {
     "zrodlo": "Infoviajera",
@@ -884,14 +1006,20 @@
     "data": "2026-11-23",
     "opis": " Air France ampliará su oferta de vuelos durante la temporada de invierno europea 2026-2027, que se extiende de noviembre de 2026 a abril de 2027. La compañía prevé operar hasta 725 vuelos diarios a cerca de 170 destinos, con mayor capacidad en rutas hacia América, Asia y África, además de reforzar sus conexiones europeas. Por el momento, no vimos que Air France haya anunciado cambios en sus vuelo",
     "sila": "slabe",
-    "tryb": "ar"
+    "tryb": "ar",
+    "status": "trop",
+    "kanaly": [
+     "Infoviajera"
+    ]
    }
-  ]
+  ],
+  "stan": "czesciowy",
+  "uwaga": "RSS to tropy, nie potwierdzone oferty. Fora, komentarze, newslettery i ceny linii wymagają osobnego odczytu. Kanały jednego portalu nie są niezależnymi źródłami."
  },
  "raport": {
   "data": "2026-11-25",
   "werdykt": "⚪ Jeszcze nie kupujemy – Iberia z Madrytu staniała, ale cała podróż to wciąż ok. 6 400 zł przy celu 4 500 zł",
-  "calosc": 6400,
+  "calosc": null,
   "stan": "Kompletnej podróży do Mendozy na nasze daty nie da się jeszcze rozsądnie wycenić, ale są ceny dużych linii do Buenos Aires (Kayak, 25.11): z Madrytu bez przesiadki od 4 223 zł (Iberia), z Warszawy od 5 653 zł (Swiss i Lufthansa) – bez bagażu. Z bagażem, dolotem i lotem krajowym to ok. 6 400 zł na osobę, ok. 1 600 zł ponad próg. Cały bilet do Mendozy na jednej rezerwacji powinien pojawić się ok. 18.12.2026.",
   "punkty": [
    [
@@ -967,6 +1095,47 @@
     "label": "NBP: tabela kursów 229/A/NBP/2026",
     "url": "https://api.nbp.pl/api/exchangerates/tables/A/?format=json"
    }
-  ]
- }
+  ],
+  "typCeny": "szacunek",
+  "szacunek": 6400,
+  "ofertaId": null
+ },
+ "oferty": [],
+ "pokrycie": [
+  {
+   "id": "stopover",
+   "sprawdzono": "2026-11-26",
+   "status": "sprawdzone",
+   "wynik": "Regulamin benefitów kończy się 30.04.2027. Listopad poza edycją.",
+   "url": "https://stopover.visitbue.app/bases-y-condiciones?lang=en"
+  },
+  {
+   "id": "fly4free",
+   "sprawdzono": "2026-11-26T09:21:00+01:00",
+   "status": "częściowe",
+   "wynik": "RSS: 5/5 kanałów. Artykuły sprawdzone automatycznie; komentarze, fora i ceny u linii nie były w tym odczycie weryfikowane.",
+   "url": "https://www.fly4free.pl/feed/"
+  },
+  {
+   "id": "traveldealz",
+   "sprawdzono": "2026-11-26T09:21:00+01:00",
+   "status": "częściowe",
+   "wynik": "RSS: 1/3 kanałów. Artykuły sprawdzone automatycznie; komentarze, fora i ceny u linii nie były w tym odczycie weryfikowane.",
+   "url": "https://travel-dealz.com/destination/argentina/feed/"
+  },
+  {
+   "id": "pepper",
+   "sprawdzono": "2026-11-26T09:21:00+01:00",
+   "status": "częściowe",
+   "wynik": "RSS: 1/1 kanałów. Artykuły sprawdzone automatycznie; komentarze, fora i ceny u linii nie były w tym odczycie weryfikowane.",
+   "url": "https://www.pepper.pl/rss/nowe"
+  },
+  {
+   "id": "argentina",
+   "sprawdzono": "2026-11-26T09:21:00+01:00",
+   "status": "częściowe",
+   "wynik": "RSS: 4/4 kanałów. Artykuły sprawdzone automatycznie; komentarze, fora i ceny u linii nie były w tym odczycie weryfikowane.",
+   "url": "https://www.infoviajera.com/feed/"
+  }
+ ]
 }

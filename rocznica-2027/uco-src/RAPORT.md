@@ -1,5 +1,7 @@
 # Raport lotów – procedura codzienna
 
+**Najpierw przeczytaj [MONITORING.md](MONITORING.md).** To nadrzędne zasady kompletności ofert, źródeł, ochrony i pobytu w Buenos Aires (aktualizacja 26.11.2026).
+
 Raport to blok „Raport lotów” na wierzchu sekcji [Loty](https://6b7kq8bpkr-del.github.io/Madeira-interactive/rocznica-2027/uco/#loty).
 Odpowiada na jedno pytanie: **czy dziś kupujemy bilety, a jeśli nie – co się zmieniło od wczoraj i co dalej.**
 Czyta go osoba, która nie śledzi rynku: ma zrozumieć werdykt po pierwszym zdaniu.
@@ -17,7 +19,8 @@ W `../uco/loty.json`:
 - `status` i `zaktualizowano` – „Stan na DD.MM.RRRR: …”, 4–6 zdań streszczenia raportu, z dzisiejszą datą;
 - `sygnaly` – dopisujesz na początku listy wyłącznie nowy fakt z adresem źródła; najpierw sprawdź, czy takiego wpisu już nie ma. Format jak w istniejących wpisach: `data`, `typ`, `kierunek` (`wzrost` / `spadek` / `neutralnie` – wpływ na ceny), `waga` 1–3, `opis`, `url`.
 - `rss` – wynik radaru promocji z dzisiejszego uruchomienia `promo_rss.py` (krok 5);
-- `serie[].hist` i `historia` – dzienny zapis cen (zasady w sekcji „Historia cen”).
+- `serie[].hist` i `historia` - dzienny zapis cen z poziomem weryfikacji.
+- `oferty` i `pokrycie` - rzeczywiste oferty i odczyty źródeł według MONITORING.md; bez danych prywatnych.
 
 W `../uco/promocje.json`: `zaktualizowano` (dziś), `nastepny` (jutro), `status` (2–3 zdania: czy jest promocja obejmująca listopad 2027) i `wpisy` – dopisujesz tylko realną ofertę z adresem źródła, w formacie istniejących wpisów; wpisy o ofertach, które wygasły albo przestały istnieć, oznacz `pasuje: "nie"` i dopisz to w `ocena`.
 
@@ -38,13 +41,13 @@ Nie ruszasz: `nastepny`, `skrzynka`, `template.html`, `skrot.html`, testów, wor
 1. Zacznij od aktualnego `main`.
 2. `python3 -I ../uco/tools/raport_fakty.py` – kurs NBP, odchylenie od kursu budżetu, które linie sprzedają dziś nasze daty, faza, terminy. Tych liczb nie licz z pamięci.
 3. Przeczytaj w `loty.json`: wczorajszy `raport`, `status`, ostatni wpis `historia`, `sygnaly` z 7 dni, `rss.trafienia`, `skrzynka`; w `promocje.json`: `status` i wpisy z 7 dni.
-4. Sprawdź ceny na nasze daty (5–13.11.2027 i 4–13.11.2027), w tej kolejności, do pierwszego źródła, które odpowie:
-   - Kayak: `https://www.kayak.pl/flights/WAW-BUE/2027-11-05/2027-11-13?sort=price_a`, to samo dla `MAD-BUE`, `VIE-BUE` i `BER-BUE` (Wiedeń i Berlin sprawdzasz codziennie – to plan B grupy), a od 18.12.2026 także `WAW-MDZ` i `MAD-MDZ`;
-   - **postój w Buenos Aires na jednym bilecie** (codziennie, od 20.11.2026): `https://www.kayak.pl/flights/WAW-MDZ/2027-11-05/MDZ-BUE/2027-11-12/BUE-WAW/2027-11-13?sort=price_a` i to samo z `MAD` zamiast `WAW` – trzy odcinki, noc 12→13.11 w Buenos Aires zgodnie z planem. „Nie znaleziono lotów” oznacza, że lot krajowy nie jest jeszcze w sprzedaży: napisz to jednym zdaniem w punkcie „Ceny na nasze daty:” i nie wyceniaj serii `stopover`;
+4. Sprawdź ceny na nasze daty (5–13.11.2027 i 4–13.11.2027), w minimum dwóch rodzinach wyszukiwarek i u linii dla obiecujących ofert; dla 2 dorosłych, bez kończenia po pierwszym źródle:
+   - Kayak: `https://www.kayak.pl/flights/WAW-BUE/2027-11-05/2027-11-13/2adults?sort=price_a`, to samo dla `MAD-BUE`, `VIE-BUE` i `BER-BUE` (Wiedeń i Berlin sprawdzasz codziennie – to plan B grupy), a od 18.12.2026 także `WAW-MDZ` i `MAD-MDZ`;
+   - **postój w Buenos Aires na jednym bilecie** (codziennie, od 20.11.2026): `https://www.kayak.pl/flights/WAW-MDZ/2027-11-05/MDZ-BUE/2027-11-12/BUE-WAW/2027-11-13/2adults?sort=price_a` i to samo z `MAD` zamiast `WAW` – trzy odcinki, noc 12→13.11 w Buenos Aires zgodnie z planem. „Nie znaleziono lotów” nie dowodzi zamkniętej sprzedaży. Sprawdź odcinek u linii i zapisz zaobserwowany komunikat; brak kompletnej ceny oznacza brak potwierdzonej oferty;
    - Momondo, Skyscanner, strony linii (Iberia, Air Europa, Lufthansa, Air France/KLM, Turkish);
    - Google Flights pokazuje loty najwyżej ok. 330 dni naprzód – nasz powrót zobaczy dopiero ok. 18.12.2026.
    Zapisz dla każdej ceny: linie, liczbę przesiadek, czy jest bagaż rejestrowany, które lotnisko w Buenos Aires. Porównaj z cenami-wyzwalaczami (`loty.wyzwalacze`; na stronie zakładka „Jak szukać”).
-5. Radar i wiadomości: `python3 -I ../uco/tools/promo_rss.py --days 3 --json "$TMPDIR/rss.json"` i wynik (`sprawdzono`, `kanaly`, `trafienia`) zapisz jako `rss` w `loty.json`; jeśli sieć zablokuje kanały, zostaw stary `rss` i napisz to w raporcie. Potem wiadomości z ostatnich 48 godzin (trafienia radaru + wyszukiwarka): promocje i kampanie do Argentyny (Iberia, Air Europa, Aerolíneas, LATAM, ITA, Turkish, Ethiopian, Air France/KLM, Lufthansa), zmiany tras i przewoźników na Europa–Buenos Aires/Mendoza, Ezeiza, strajki, ceny paliwa.
+5. Radar i wiadomości: `python3 -I ../uco/tools/promo_rss.py --days 3 --json "$TMPDIR/rss.json"` i wynik (`sprawdzono`, `kanaly`, `trafienia`) zapisz jako `rss` w `loty.json`; zapisz także świeży częściowy wynik z listą awarii. Jeśli narzędzie nie utworzyło wyniku, zachowaj stary `rss` bez zmiany daty i ujawnij lukę. Osobno przeczytaj fora i komentarze według MONITORING.md. Potem wiadomości z ostatnich 48 godzin (trafienia radaru + wyszukiwarka): promocje i kampanie do Argentyny (Iberia, Air Europa, Aerolíneas, LATAM, ITA, Turkish, Ethiopian, Air France/KLM, Lufthansa), zmiany tras i przewoźników na Europa–Buenos Aires/Mendoza, Ezeiza, strajki, ceny paliwa.
 6. Napisz `raport` (układ niżej), `status`, ewentualne `sygnaly`, zaktualizuj `promocje.json`; popraw w `data/program.json` to, co przestało być prawdą, i przebuduj stronę.
 7. Sprawdź: `python3 -I ../uco/tools/raport_fakty.py --check` i `python3 -I build.py --check`; jeśli jest Node – testy z `tests/` (README).
 8. Commit „Loty: stan na RRRR-MM-DD” i publikacja według instrukcji zadania. Publikacja strony rusza sama po wypchnięciu na `main` i przejściu testów; przyczynę błędu testów pokazują adnotacje przebiegu w GitHub Actions.
@@ -54,16 +57,16 @@ Nie ruszasz: `nastepny`, `skrzynka`, `template.html`, `skrot.html`, testów, wor
 - **Trzy pary.** Wszystkie kwoty „na parę” i cała podróż liczone dla sześciu osób.
 - **Wylot w piątek 5.11.2027.** `raport.calosc`, serie cen i werdykt liczysz dla wylotu 5.11. Wylot w czwartek 4.11 (po 20:00) sprawdzasz codziennie obok: jeśli ten sam typ biletu jest w czwartek tańszy o co najmniej 300 zł na osobę, napisz to w punkcie „Ceny na nasze daty:” z obiema cenami i godziną wylotu, a w kroku `teraz` dodaj „do decyzji: czwartek tańszy o X zł”. Mniejszej różnicy nie zgłaszasz. Wylot w czwartek przed 20:00 nie wchodzi w grę.
 
-- **Postój w Buenos Aires.** Bilet z postojem 12→13.11 porównujesz codziennie z najtańszym biletem Warszawa–Buenos Aires plus lot krajowy 650 zł. Gdy jest tańszy albo droższy najwyżej o 300 zł na osobę, to on jest wariantem polecanym (chronione przesiadki, bagaż na jednym bilecie) i wchodzi do `raport.calosc`; w punkcie „Ceny na nasze daty:” podaj obie ceny, linie i lotnisko w Buenos Aires. Biletu bez nocy 12.11 w Buenos Aires ani ze zmianą lotniska między lotami tego samego dnia nie bierzesz pod uwagę.
+- **Postój w Buenos Aires.** Obowiązkowy pobyt 12-13.11 w każdym wariancie do zakupu. Reguły, bufory i trzy główne kombinacje opisuje MONITORING.md. Nie zakładaj ochrony na podstawie multi-city. Osobne loty krajowe po 650 zł to szacunek, nie oferta porównawcza.
 
 ## Historia cen
 
 Wykres trendu, ranking linii i kafelek „Najlepsza kompletna podróż” czytają `serie[].hist` w `loty.json`. Codziennie dopisujesz po jednym punkcie `{"data": "RRRR-MM-DD", "cena": N}` do każdej serii, którą da się dziś wycenić; istniejących punktów nie zmieniasz, a jeśli punkt z dzisiejszą datą już jest – zastępujesz go.
 
-- `cena` to zawsze **pełna podróż na osobę**: najtańszy bilet tej linii na nasze daty plus dodatki z tabeli `loty.wyzwalacze` (bagaż 700 zł, lot krajowy 650 zł, przez Madryt dolot i nocleg 850 zł, z Wiednia lub Berlina 500 zł – dojazd autem, parking i jedna noc w hotelu, liczone ponad koszt dojazdu do Warszawy), zaokrąglona do 10 zł. Bilet w EUR przelicz po `budzet.kursy.EUR`.
+- `cena` to **wycena lub szacunek pełnej podróży na osobę**, oznaczone polem `status`. Stałe dodatki dają wyłącznie `szacunek`: najtańszy bilet tej linii na nasze daty plus dodatki z tabeli `loty.wyzwalacze` (bagaż 700 zł, lot krajowy 650 zł, przez Madryt dolot i nocleg 850 zł, z Wiednia lub Berlina 500 zł – dojazd autem, parking i jedna noc w hotelu, liczone ponad koszt dojazdu do Warszawy), zaokrąglona do 10 zł. Bilet w EUR przelicz po `budzet.kursy.EUR`.
 - Serie linii (`ib`, `ue`, `lh`, `af`, `tk`, `ita`, `et`, `ar`): najtańszy wariant tej linii – z Warszawy albo przez Madryt z dolotem. `vie`: najtańszy bilet z Wiednia lub Berlina. `stopover`: bilet wieloodcinkowy z postojem w Buenos Aires (adres w kroku 4) – od dnia, w którym wyszukiwarka pokaże cenę; bez doliczania lotu krajowego, bagaż 700 zł tylko gdy taryfa go nie ma, przez Madryt +850 zł. `calosc`, `openjaw`, `mad`: dopiero gdy da się kupić cały bilet do Mendozy (ok. 18.12.2026) – też bez lotu krajowego.
 - Do `historia` dopisz jeden wpis dziennie: `data`, `zrodlo: "raport dzienny"`, `faza`, `najtansza` (`id` serii, `cena`, `opis` – z czego się składa) i `uwaga` (jedno–dwa zdania).
-- `raport.calosc` to najniższa dzisiejsza cena wśród serii w planie bazowym (wylot z Warszawy albo przez Madryt), zaokrąglona do 10 zł – tak samo jak punkty serii, żeby zaokrąglenie nie udawało ruchu cen; tańszy wylot z Wiednia lub Berlina opisz w raporcie, ale nie wpisuj go do `calosc`, dopóki grupa nie wybierze tej opcji w decyzji „Co robimy, jeśli ceny lotów nie spadną?”.
+- `raport.calosc` pochodzi wyłącznie z kwalifikującej się oferty według MONITORING.md; inaczej `null`. Szacunek z dodatkami zapisuj w `raport.szacunek`. Plan B VIE/BER nie zastępuje planu z Warszawy.
 
 ## Ankieta par
 
@@ -75,7 +78,7 @@ Pary odpowiadają na otwarte decyzje na stronie `skrot.html`; odpowiedzi leżą 
 
 ## Powiadomienia
 
-Jedno powiadomienie push do właściciela dziennie, zawsze (sposób wysyłki jest w instrukcji zadania). W zwykły dzień to jedna linia, najwyżej 120 znaków: „Loty DD.MM: X zł/os. (−Y zł od wczoraj | +Y zł | bez zmian), werdykt w dwóch–trzech słowach” – X to `raport.calosc`, zmiana liczona do `calosc` z poprzedniego raportu. Gdy zachodzi któryś przypadek z listy, zamiast zwykłej linii wysyłasz jego treść (kilka przypadków łączysz w jedną wiadomość):
+Powiadomienia wyłącznie zgodnie z autoryzacją i instrukcją uruchamiającego zadania; sama procedura nie upoważnia do wysyłki. Nigdy nie wysyłaj „KUPOWAĆ” dla szacunku. Gdy `calosc` jest null, podaj „brak potwierdzonej oferty”, ewentualnie jawny szacunek; nie licz spadku null do zera. Nie porównuj szacunku z ceną potwierdzoną jako nowego minimum. W zwykły dzień to jedna linia, najwyżej 120 znaków: „Loty DD.MM: X zł/os. (−Y zł od wczoraj | +Y zł | bez zmian), werdykt w dwóch–trzech słowach” – X to `raport.calosc`, zmiana liczona do `calosc` z poprzedniego raportu. Gdy zachodzi któryś przypadek z listy, zamiast zwykłej linii wysyłasz jego treść (kilka przypadków łączysz w jedną wiadomość):
 
 - werdykt 🎯 albo 🟢 – „KUPOWAĆ: linia, cena za osobę, trasa”;
 - nowe minimum: dzisiejsza `raport.calosc` jest o co najmniej 100 zł niższa od najniższego wcześniejszego punktu `hist` w seriach planu bazowego (`ib`, `ue`, `lh`, `af`, `tk`, `ita`, `et`, `ar`, `calosc`, `mad`, `stopover`). Serii `vie` ani wpisów `historia[].najtansza` nie bierzesz do porównania – zawierają plan B z Wiednia i Berlina, którego nie ma w `calosc` – „Loty Argentyna: nowe minimum X zł/os. (poprzednie Y zł), linia, trasa”;
@@ -100,7 +103,7 @@ Jedno powiadomienie push do właściciela dziennie, zawsze (sposób wysyłki jes
 | ⚪ Jeszcze nie kupujemy | brak cen na nasze daty albo ceny powyżej 5 000 zł/os. |
 | 🔴 Uwaga | zdarzenie, które wymaga decyzji grupy: upadłość linii, zamknięcie lotniska, odwołana trasa, zbliżający się twardy termin 31.08.2027 |
 
-**`calosc`** – liczba: dzisiejsza cena całej podróży na osobę (bilet do Buenos Aires albo Mendozy + bagaż + dolot + lot krajowy), najtańszy wariant, który da się dziś realnie kupić, zaokrąglona do 10 zł (w `werdykt` i `stan` możesz pisać „ok.” z dokładnością do 50 zł); `null`, gdy nie da się jej oszacować. Strona liczy z niej koszt na parę „przy dzisiejszych cenach lotów” i przekroczenie sufitu.
+**`calosc`** - cena potwierdzonej kompletnej oferty na osobę (do 10 zł), związana przez `ofertaId` z `oferty`; inaczej `null`. `szacunek` i `typCeny` są oddzielne. Suma ceny z wyszukiwarki i ryczałtów nie może wywołać werdyktu kupna.
 
 **`stan`** – 2–3 zdania o tym, czy i za ile da się dziś wycenić nasze daty; strona pokazuje je przy skali cen i w tabeli cen, dopóki monitor nie zapisze kompletnej podróży.
 

@@ -60,3 +60,17 @@ GitHub Actions (`.github/workflows/uco-tests.yml`) uruchamia `build.py --check` 
 Własne wyceny noclegów i transportu zastępują całe pozycje budżetu; dodatkowe koszty są doliczane. Kwoty w PLN zapisują się lokalnie osobno dla wariantu hotelowego i liczby par; puste pole przywraca szacunek. Jedna funkcja `calc()` zasila budżet, kalkulator lotów i harmonogram płatności. Kwoty własne w PLN są wyłączone z wrażliwości na USD.
 
 Testy obejmują też własne wyceny, zapis ustawień, ręczną cenę porównawczą, galerię sterowaną klawiaturą, brak JavaScript, brak danych strony i awarię monitora. Publikacja GitHub Pages zależy od pomyślnego wykonania tego samego workflow testów.
+
+## Monitoring kombinacji i źródeł
+
+Obowiązujące reguły, schemat `oferty`/`pokrycie`, rozdzielenie `calosc` i `szacunek`: [MONITORING.md](MONITORING.md). Czysty moduł `../uco/flight-rules.js` jest wspólny dla strony i testów; nie jest generowany. Daty i bufory znajdują się w `loty.monitoring.reguly`, progi cenowe w `budzet`. Strona nie odpytuje portali w tle - pokazuje dane zapisane przez monitor; link nie oznacza aktywowanego alertu.
+
+Testy bez sieci (również w CI):
+
+```sh
+python3 -I tests/test_promo_rss.py
+node tests/flight-rules.test.cjs
+node tests/check-offers.cjs
+```
+
+Regresje: szacunek i stary odczyt nie zasilają oferty do zakupu, 2 miejsca, bagaż, czas, daty, noc w BUE, bufory i oszczędność przy osobnych biletach. RSS: błędny XML/HTML to awaria, deduplikacja URL, przestrzenie nazw Atom/RSS, aktualność i częściowe pokrycie. Ceny testowe z `tests/flight-fixture.cjs` nie są danymi produkcyjnymi.

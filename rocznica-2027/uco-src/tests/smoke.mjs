@@ -9,6 +9,7 @@ import { fileURLToPath } from 'node:url';
 
 const require = createRequire(import.meta.url);
 const { chromium } = require('playwright');
+const flightFixture = require('./flight-fixture.cjs');
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '../../uco');
 const OUTDIR = path.join(HERE, 'out');
@@ -157,7 +158,7 @@ for (const [W, scheme] of CONFIGS) {
 }
 
 // linki głębokie: sekcja ma być widoczna (rozwinięta) i przewinięta pod górę ekranu
-for (const h of ['decyzje', 'plan', 'd10-11', 'budzet', 'upgrade', 'hotele', 'loty', 'radar', 'kalendarz', 'poradnik', 'zadania', 'kalk', 'rezerwacje', 'wyzwalacze', 'okna']) {
+for (const h of ['decyzje', 'plan', 'd10-11', 'budzet', 'upgrade', 'hotele', 'loty', 'radar', 'kalendarz', 'poradnik', 'zadania', 'kalk', 'rezerwacje', 'wyzwalacze', 'okna', 'kombinacje', 'warianty-lotow', 'zrodla-monitoringu']) {
   const { pg, log } = await open(1300, 'light', '#' + h);
   const r = await pg.evaluate(h => { const el = document.getElementById(h); if (!el) return null; const b = el.getBoundingClientRect(); return { shown: !!el.getClientRects().length, top: Math.round(b.top) }; }, h);
   if (!r) fail('#' + h, 'brak elementu');
@@ -277,7 +278,7 @@ async function withLoty(mutate, hash, fn) {
   await fn(pg); return { pg, errs };
 }
 {
-  const { pg, errs } = await withLoty(M => { M.serie.find(s => s.id === 'calosc').hist = [{ data: '2026-12-01', cena: 5000 }]; }, '#kalk', async pg => {
+  const { pg, errs } = await withLoty(M => { M.oferty = [flightFixture(5000)]; }, '#kalk', async pg => {
     const out = () => pg.evaluate(() => document.getElementById('k-out').innerText.replace(/\s+/g, ' '));
     await pg.fill('#k-cena', '4 299,99');
     let t = await out();
@@ -387,7 +388,7 @@ async function withLoty(mutate, hash, fn) {
 
 // skala cen z celem 4 500 zł: pasek, pięć progów, marker najlepszej ceny i werdykt kalkulatora
 {
-  const { pg, errs } = await withLoty(M => { M.serie.find(s => s.id === 'calosc').hist = [{ data: '2026-12-01', cena: 4600 }]; }, '#skala', async pg => {
+  const { pg, errs } = await withLoty(M => { M.oferty = [flightFixture(4600)]; }, '#skala', async pg => {
     await pg.fill('#k-cena', '3900');
   });
   const r = await pg.evaluate(() => ({ seg: document.querySelectorAll('#skala .sks').length, li: document.querySelectorAll('#skala .skl li').length, mk: !document.getElementById('skm').hidden, left: parseFloat(document.getElementById('skm').style.left), note: document.getElementById('skn').innerText, kalk: document.getElementById('k-out').innerText }));
@@ -417,6 +418,26 @@ async function withLoty(mutate, hash, fn) {
   if (/niedostępny/.test(r.teraz) || !r.teraz) fail('dane agentów', 'panel „Co teraz” nie wyrenderował się przy niepełnym sygnale');
   if (r.podium.replace(/\D/g, '') !== '4700') fail('dane agentów', `aktualna cena to ${r.podium} zamiast najnowszej 4 700 zł`);
   if (errs.length) fail('dane agentów', 'błędy JS: ' + errs[0]);
+  await pg.close();
+}
+
+// Fałszywie tania i stara oferta nie wygrywa ze sprawdzoną kombinacją.
+{
+  const { pg, errs } = await withLoty(M => {
+    const stale=flightFixture(1000); stale.id='stale'; stale.sprawdzono='2020-01-01T12:00Z';
+    const short=flightFixture(2000); short.id='short'; short.odcinki[4].wylot='2027-11-13T08:00-03:00';
+    M.oferty=[stale,short,flightFixture(4600)];
+  }, '#kombinacje', async () => {});
+  const text=await pg.locator('#oferty').innerText();
+  if (!/Najtańsza sprawdzona kombinacja: 4\s?600/.test(text)) fail('oferty','stara cena lub krótki postój trafiły do rekomendacji');
+  if (await pg.evaluate(() => window.__bestSingle) !== 4600) fail('oferty','niepoprawna cena porównawcza w kalkulatorze');
+  if (errs.length) fail('oferty', errs[0]);
+  await pg.close();
+}
+{
+  const { pg } = await withLoty(M => { M.oferty=[]; }, '#kombinacje', async () => {});
+  if (!(await pg.locator('#oferty').innerText()).includes('Brak kompletnej')) fail('oferty','szacunki przedstawione jako oferty');
+  if (await pg.evaluate(() => window.__bestSingle !== null || !document.getElementById('skm').hidden)) fail('oferty','historyczna cena użyta jako potwierdzona');
   await pg.close();
 }
 
