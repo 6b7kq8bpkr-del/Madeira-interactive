@@ -1182,9 +1182,9 @@
      "od": "2026-11-10",
      "do": "2026-11-26",
      "faza": "Otwarcie sprzedaży",
-     "co": "Sprawdzić wybieralne daty w formularzach linii oraz pełną trasę WAW-MDZ / MDZ-BUE / BUE-WAW dla 2 osób. Dotychczasowe ceny do Buenos Aires są tylko punktem odniesienia. Brak wyniku Turkish w Kayaku nie potwierdza zamkniętego kalendarza. Orientacyjny termin dostępności odcinków krajowych to połowa grudnia; wymaga weryfikacji. Promocję z innego lotniska wykorzystujemy wyłącznie jako trop do znalezienia jednego chronionego biletu z Warszawy.",
+     "co": "Sprawdzono formularze KLM, Air France, Iberii, Aerolíneas, Lufthansy i Air Europy. Nie uzyskano pełnej wyceny na listopad. Ponowić sprawdzenie po zmianie dostępności i uzupełnić lukę Lufthansy na 4.11.2027. Nie wyznaczać terminu otwarcia sprzedaży z samego braku wyniku. Kryteria jednego biletu z Warszawy, podręcznego i stopoveru pozostają bez zmian.",
      "automat": "Codzienny raport lotów",
-     "decyzja": "Sprawdzamy pełną trasę WAW-MDZ / MDZ-BUE / BUE-WAW u linii. Kalendarz otwarcia jest orientacyjny. Brak potwierdzonej wyceny nie dowodzi braku lotów. Status listopada i wcześniejsze testy są w sekcji Loty; API pozostaje wyłączone.",
+     "decyzja": "26.11: kontrola 6 przewoźników bez API nie dała pełnej ceny WAW-MDZ / MDZ-BUE / BUE-WAW. Daty są już wybieralne w części formularzy. Szczegóły i luki na pulpicie lotów; brak wyniku nie dowodzi braku biletów.",
      "ton": "sprawdz",
      "szansa": 0.8,
      "kr": "Start"

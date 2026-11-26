@@ -1,5 +1,5 @@
 const assert = require('node:assert/strict');
-const {filterLeads, currentPlan, fresh, safeURL} = require('../../uco/finder.js');
+const {filterLeads, currentPlan, fresh, safeURL, latestChecks} = require('../../uco/finder.js');
 const now = Date.parse('2026-11-26T10:00:00+01:00');
 const data = [
   {id:'one',rodzaj:'oferta',tytul:'Buenos Aires - bagaż',zrodlo:'Iberia',kategoria:'Buenos Aires / Argentyna',url:'https://example.com/one',data:'2026-11-26'},
@@ -94,3 +94,14 @@ assert.equal(dashboardData({oferty:[flexOffer]},rules,budget,{},Date.now()).poin
 assert.equal(dashboardData(null,rules,budget,testResearch,now).available,false);
 assert.equal(dashboardData({oferty:[],serie:[{hist:[{cena:1,data:'2026-11-25'}]}]},rules,budget,{},now).points.length,0,'Stare szacunki nie stają się historią pełnych cen');
 console.log('Pulpit: historia, deduplikacja dni, progi, porównania i brak pozornej prognozy - OK');
+
+// Rejestr sprawdzeń nie zastępuje ofert i nie przechodzi między profilami podróży.
+const checked = {profil:rules.profil,dorosli:2,wyloty:[rules.wylot],buenosOd:rules.buenosOd,buenosDo:rules.buenosDo,sprawdzono:'2026-11-26T16:00:00+01:00',linie:[{linia:'Test',wynik:'Brak wyceny'}]};
+assert.equal(latestChecks({kontrolaListopada:checked},rules),checked);
+for (const changed of [{profil:'inny'},{dorosli:1},{buenosDo:'2027-03-13'},{wyloty:['2027-03-05']},{wyloty:[]},{sprawdzono:'nieznana'},{linie:[]}]) {
+ assert.equal(latestChecks({kontrolaListopada:{...checked,...changed}},rules),null);
+}
+assert.equal(latestChecks(null,rules),null);
+assert.equal(dashboardData({oferty:[],kontrolaListopada:checked},rules,budget,{},now).best,null);
+assert.equal(dashboardData({oferty:[],kontrolaListopada:checked},rules,budget,{},now).points.length,0);
+console.log('OK: kontrole linii nie udają cen ani innego profilu podróży');

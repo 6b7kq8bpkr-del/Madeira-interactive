@@ -28,6 +28,7 @@ W `../uco/loty.json`:
 - `serie[].hist` i `historia` - dzienny zapis cen z poziomem weryfikacji.
 - `archiwumOfert` - pełne migawki zastępowanych ofert według MONITORING.md; bez zmiany daty odczytu i bez zamiany szacunków w potwierdzone ceny.
 - `oferty` i `pokrycie` - rzeczywiste oferty i odczyty źródeł według MONITORING.md; bez danych prywatnych.
+- `kontrolaListopada` - ostatnie rzeczywiste próby w formularzach linii według MONITORING.md. Zachowaj poprzedni zapis, jeśli linie nie były sprawdzane; skan promocji nie upoważnia do zmiany daty kontroli.
 
 W `../uco/promocje.json`: `zaktualizowano` (dziś), `nastepny` (jutro), `status` (2–3 zdania: czy jest promocja obejmująca listopad 2027) i `wpisy` – dopisujesz tylko realną ofertę z adresem źródła, w formacie istniejących wpisów; wpisy o ofertach, które wygasły albo przestały istnieć, oznacz `pasuje: "nie"` i dopisz to w `ocena`.
 

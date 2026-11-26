@@ -507,6 +507,11 @@ async function withLoty(mutate, hash, fn) {
   let outage=false;
   await pg.route('**/okazje.json', r => outage ? r.abort() : r.fulfill({status:200,contentType:'application/json',body:JSON.stringify(base)}));
   await pg.goto(BASE+'#wyszukiwarka',{waitUntil:'load'});
+  await pg.locator('#finder-checks').waitFor();
+  if(await pg.getByRole('button',{name:'Listopad 2027',exact:true}).getAttribute('aria-pressed')!=='true') fail('kontrola linii','aktualne próby ukryte za historycznymi testami');
+  if(await pg.locator('#finder-checks .finder-check').count()!==loty.kontrolaListopada.linie.length || await pg.locator('#finder-shortlist .finder-offer').count()) fail('kontrola linii','braki wyników pomylono z ofertami');
+  await pg.locator('#finder-checks summary').first().click();
+  if(!await pg.locator('#finder-checks details a').first().isVisible()) fail('kontrola linii','szczegóły odczytu nie otwierają się');
   await pg.locator('#finder-promos > summary').click();
   await pg.locator('#finder-leads li').first().waitFor();
   if(await pg.locator('#finder-leads img').count()) fail('wyszukiwarka','HTML źródła został wykonany');
@@ -533,6 +538,7 @@ async function withLoty(mutate, hash, fn) {
   await pg.route('**/loty.json',r=>r.abort());
   await pg.locator('#finder-refresh').click();
   await pg.waitForFunction(()=>document.querySelector('#finder-overview h4').textContent.includes('Nie udało'));
+  if(await pg.locator('#finder-checks').count()) fail('kontrola linii','po awarii zachowano mylący bieżący status');
   if(await pg.locator('#finder-routes article').count()!==2) fail('wyszukiwarka','awaria odczytu zablokowała ręczne szukanie');
   outage=false;
   await pg.locator('#finder-refresh').click();

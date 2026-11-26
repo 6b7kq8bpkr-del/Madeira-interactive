@@ -23,6 +23,13 @@
     const ready = results.filter(x => x.ready);
     return {available:true, ready, best:ready[0] || null, compromise:results.find(x=>x.compromise) || null, candidates:results.length};
   }
+  function latestChecks(monitor, rules) {
+    const log = monitor?.kontrolaListopada;
+    return log && log.profil === rules.profil && log.dorosli === 2 &&
+      log.buenosOd === rules.buenosOd && log.buenosDo === rules.buenosDo &&
+      Array.isArray(log.wyloty) && log.wyloty.every(d => [rules.wylot, rules.wylotAlternatywny].includes(d)) &&
+      log.wyloty.length && Number.isFinite(Date.parse(log.sprawdzono)) && Array.isArray(log.linie) && log.linie.length ? log : null;
+  }
   function searchPlan(rules) {
     return [...new Set([rules.wylot, rules.wylotAlternatywny])].filter(Boolean).map(day => {
       const legs = [{z:'WAW',do:'MDZ',data:day},{z:'MDZ',do:'BUE',data:rules.buenosOd},{z:'BUE',do:'WAW',data:rules.buenosDo}];
@@ -101,13 +108,20 @@
       const summary = overview(monitorState, rules, program.budzet, root.UcoFlights.rank);
       const b = summary.best, c = summary.compromise;
       const data = root.UcoFlights.dashboardData(monitorState, rules, program.budzet, program.badaniaLotow);
-      insights(data); shortlist(data, shortlistMode || (data.ranked.length ? 'november' : 'tests'));
+      const checks = latestChecks(monitorState, rules);
+      insights(data); shortlist(data, shortlistMode || (data.ranked.length || checks ? 'november' : 'tests'));
       box.append(el('p', 'STATUS LISTOPADA', 'eyebrow'), el('h4', !summary.available ? 'Nie udało się odczytać ofert na listopad' : b ? 'Jest kompletna oferta na listopad' : c ? 'Super okazja z kompromisem na listopad' : 'Brak potwierdzonej oferty na listopad'));
       box.append(el('p', !summary.available ? 'Stan ofert jest nieznany. Odśwież wyniki lub sprawdź formularz linii.' : b ? 'Spełnia zapisane kryteria trasy, bagażu i ochrony. Przed zakupem sprawdź ponownie dostępność.' : c ? 'Cena, trasa, bagaż i ochrona są potwierdzone. Ten wariant wymaga niewielkiego kompromisu w komforcie podróży - szczegóły poniżej.' : 'Nie mamy jeszcze aktualnej ceny całej trasy spełniającej wszystkie wymagania. To nie oznacza, że takich biletów nie ma.'));
       const stats = el('dl', null, 'finder-stats');
       const values = [['Najlepsza cena · listopad', b ? money(b.cena*2)+' zł' : c ? money(c.cena*2)+' zł' : 'Brak wyceny', b ? 'Potwierdzona · bez odstępstw' : c ? 'Super okazja z kompromisem' : 'Cała trasa na jednym bilecie'], ['Najtańszy wcześniejszy test', data.tests.length ? money(data.tests[0].cenaPara)+' zł' : 'Brak danych', data.tests.length ? data.tests[0].linia+' · '+data.tests[0].termin : 'Inne daty podróży'], ['Cel dla pary', money(data.target)+' zł', 'Podręczny · wszystkie odcinki'], ['Zmiana ceny · listopad', data.change===null ? 'Za mało danych' : (data.change>0?'+':'')+money(data.change)+' zł', data.points.length+' dni z pełną wyceną / 30 dni']];
       values.forEach(([title,value,note]) => { const group = el('div'); group.append(el('dt',title),el('dd',value),el('span',note,'finder-note')); stats.append(group); });
       box.append(stats);
+      if (checks) {
+        const last = el('p', 'Ostatnia kontrola u linii: ' + date(checks.sprawdzono) + ' · ' + checks.linie.length + ' przewoźników. ' + checks.wynik, 'finder-note');
+        const more = el('a', 'Wyniki ostatnich sprawdzeń →'); more.href = '#finder-shortlist';
+        more.addEventListener('click', () => { shortlistMode = 'november'; shortlist(data, 'november'); });
+        box.append(last, more);
+      }
       if (b) box.append(el('p', 'Sprawdzono: ' + date(b.offer.sprawdzono) + '. ' + (b.cena <= program.budzet.prog ? 'Cena mieści się w progu.' : 'Cena przekracza próg zakupu.'), 'finder-note'), link('Otwórz ofertę u linii ↗', b.offer.url));
       else if (summary.candidates && !c) box.append(el('p', 'Zapisane wyceny do sprawdzenia: ' + summary.candidates + '. Żadna nie spełnia obecnie wszystkich kryteriów.', 'finder-note'));
       const criteria = el('p', 'Wylot 4.11 po 20:00 lub 5.11 → Mendoza 6.11. Buenos 12-13.11, powrót do Warszawy najpóźniej 14.11. Standardowo maks. 2 przesiadki i 30 h w stronę; zwykłe przesiadki 2-8 h, w Buenos min. 3 h.', 'finder-note');
@@ -180,13 +194,24 @@
       box.append(group);
       if(mode==='november') {
         box.append(el('p',data.available?'Pełna trasa dla dwóch osób. Kolejność: oferty zgodne, kompromisy, pozostałe wyceny.':'Nie udało się odczytać ofert. Odśwież zapisane wyniki.','finder-note'));
-        if(!data.ranked.length) box.append(el('p','Brak zapisanej pełnej oferty na listopad. Porównaj wcześniejsze testy lub otwórz formularz linii.','finder-empty'));
+        if(data.available && !data.ranked.length) box.append(el('p','Brak zapisanej pełnej oferty na listopad. Wyniki prób u linii pokazujemy poniżej; wcześniejsze testy są w osobnej zakładce.','finder-empty'));
         data.ranked.slice(0,3).forEach(r=>{
           const a=el('article',null,'finder-offer');
           const top=el('div'); top.append(el('span',r.ready?'Zgodna z kryteriami':r.compromise?'Super okazja z kompromisem':'Do ponownej weryfikacji','finder-badge'),el('h4',r.offer.nazwa || 'Pełna trasa z Warszawy'),el('p','Odczyt: '+date(r.offer.sprawdzono),'finder-note'));
           const price=el('div',null,'finder-offer-price'); price.append(el('strong',r.cena?money(r.cena*2)+' zł':'Brak pełnej ceny'),el('span','za 2 osoby','finder-note')); a.append(top,price);
           const info=el('div',null,'finder-offer-info'); info.append(el('p',r.ready?'Jeden bilet · podręczny · Buenos '+Math.round(r.stopHours)+' h':(r.compromise?r.deviations:r.reasons).join(' '),'finder-note'),link('Sprawdź u linii ↗',r.offer.url)); a.append(info); box.append(a);
         });
+        const checks = latestChecks(monitorState, rules);
+        if(checks) {
+          const section=el('section',null,'finder-checks'); section.id='finder-checks';
+          section.append(el('h4','Ostatnie sprawdzenie u linii'),el('p',date(checks.sprawdzono)+'. '+checks.zakres,'finder-note'));
+          checks.linie.forEach(r=>{
+            const row=el('details',null,'finder-check');
+            row.append(el('summary',r.linia+' · '+r.status),el('p',r.termin+' · '+r.trasa,'finder-note'),el('p',r.wynik,'finder-note'),link('Formularz '+r.linia+' ↗',r.url));
+            section.append(row);
+          });
+          section.append(el('p','Co dalej: '+checks.nastepny,'finder-note')); box.append(section);
+        }
       } else {
         box.append(el('p','Historyczne odczyty na inne terminy. Nie potwierdzają cen na listopad ani dostępności dziś. Kwoty za 2 osoby.','finder-note'));
         const max=Math.max(data.target,...data.tests.map(x=>x.cenaPara));
@@ -359,7 +384,7 @@
     setInterval(() => { dashboard(); if (state) quotes(monitorState || {}); }, 60000);
     research(); routes(); refresh();
   }
-  const api = {mount, filterLeads, currentPlan, searchPlan, overview, reverseLead, usefulLead, fresh, safeURL};
+  const api = {mount, filterLeads, currentPlan, searchPlan, overview, latestChecks, reverseLead, usefulLead, fresh, safeURL};
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.UcoFinder = api;
 })(typeof window !== 'undefined' ? window : globalThis);

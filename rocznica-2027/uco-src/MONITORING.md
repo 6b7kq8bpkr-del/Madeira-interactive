@@ -85,6 +85,10 @@ Priorytet badań: KLM/Air France przez GRU/SCL, Iberia przez MAD, próba pełnej
 
 ### Pulpit i historia pełnych cen
 
+Ostatnie ręczne sprawdzenie listopada zapisuj w `loty.json.kontrolaListopada`: `sprawdzono` (ISO ze strefą), `profil`, `dorosli`, `wyloty`, `buenosOd`, `buenosDo`, `zakres`, `wynik`, `nastepny` i `linie[]` (`linia`, `termin`, `trasa`, `status`, `wynik`, publiczny `url`). To rejestr prób, także bez wyceny, nie lista ofert. Nie przenoś go do historycznych testów na inne daty w `badania-lotow.json`. Zachowuj czas ostatniego faktycznego sprawdzenia; odświeżenie RSS nie odświeża kontroli linii. Wskazuj osobno przyjęcie dat, brak wyniku i błąd techniczny. Zapis w tym rejestrze nie potwierdza ceny ani nie zasila trendu.
+
+Kontrola 26.11.2026 po południu: KLM (4 kombinacje), Air France, Iberia i Aerolíneas nie zwróciły pełnej wyceny dla obu dni wylotu. Lufthansa: brak oferty dla 5.11; próba 4.11 pozostała bez odpowiedzi wynikowej. Air Europa nie udostępniła MDZ po wybraniu WAW. Formularz Aerolíneas działa i rozpoznaje WAW; wcześniejszy błąd dostępu nie jest jego obecnym stanem. KLM pozwalało wybrać daty do 20.11.2027. Nie uznano braku wyników za dowód zamkniętego kalendarza ani braku biletów. Kolejne próby aktualizują ten rejestr tylko po rzeczywistym odczycie.
+
 `UcoFlights.dashboardData` liczy wskaźniki, różnicę do celu i trend. Wszystkie kwoty pulpitu dotyczą pary. Bieżąca cena pochodzi wyłącznie z `oferty` ocenionych przez wspólne reguły. Testy z `badania-lotow.json` pozostają jawnie historycznymi punktami odniesienia na inne terminy.
 
 Przed zastąpieniem lub usunięciem rzeczywistej oferty zachowaj jej pełną migawkę w `loty.json.archiwumOfert` (ten sam schemat co `oferty`, z niezmienionym `sprawdzono`). Nie twórz duplikatów tego samego id i czasu; nie archiwizuj danych prywatnych. Wykres wybiera minimum na dzień odczytu w strefie Europe/Warsaw z ostatnich 30 dni. Każdą migawkę ocenia według aktualnego profilu, ale w chwili jej odczytu. Odrzuca niepełne koszty, inne terminy, kompromisy komfortu i przyszłe daty odczytu. Dopuszczalne dwie daty wylotu tworzą wspólny koszyk najtańszych ofert; to nie cena stałego rejsu.

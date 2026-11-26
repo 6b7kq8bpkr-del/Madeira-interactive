@@ -1,6 +1,6 @@
 {
  "zaktualizowano": "2026-11-26",
- "status": "Stan na 26.11.2026: ceny prawie bez zmian – Iberia z Madrytu bez przesiadki 4 228 zł, z Warszawy od 5 657 zł (Swiss i Lufthansa), wszystko bez bagażu. Cała podróż z bagażem, dolotem i lotem krajowym to szacunkowo ok. 6 430 zł na osobę przy celu 4 500 zł, więc jeszcze nie kupujemy. Bilet z postojem w Buenos Aires nadal tylko jako składanka osobnych biletów za ok. 13 400 zł. Turkish trzeci dzień nie sprzedaje naszych dat. Z Berlina wychodzi ok. 6 370 zł. Plus Ultra oficjalnie zawiesiła wszystkie loty. Promocji na listopad 2027 nie ma; Black Friday rusza jutro.",
+ "status": "Stan na 26.11.2026: po kontroli bezpośrednich formularzy sześciu przewoźników nadal brak potwierdzonej ceny całej trasy z Warszawy na jednym bilecie. KLM, Air France, Iberia i Aerolíneas nie zwróciły wyceny dla wylotów 4 i 5.11; Lufthansa dla 5.11 również bez wyniku, a 4.11 pozostaje luką techniczną. Air Europa nie udostępniła Mendozy jako celu z Warszawy. Nie uzyskano rozkładu do oceny stopoveru, przesiadek i bagażu. Daty można już wybrać w części formularzy, lecz nie potwierdza to pełnej dostępności. Bez API; ceny z wcześniejszych terminów pozostają historycznymi testami.",
  "nastepny": "2026-12-01",
  "prog": 4800,
  "cel": 4500,
@@ -1088,86 +1088,67 @@
  },
  "raport": {
   "data": "2026-11-26",
-  "werdykt": "⚪ Jeszcze nie kupujemy – ceny prawie bez zmian, cała podróż to wciąż ok. 6 400 zł przy celu 4 500 zł",
+  "sprawdzono": "2026-11-26T16:47:58+01:00",
+  "profil": "waw-jeden-podreczny-v1",
+  "werdykt": "⚪ Jeszcze nie kupujemy - bezpośrednie próby u linii nie dały pełnej wyceny na listopad",
   "calosc": null,
-  "stan": "Kompletnej podróży do Mendozy na nasze daty nie da się jeszcze rozsądnie wycenić, ale są ceny dużych linii do Buenos Aires (Kayak, 26.11): z Madrytu bez przesiadki od 4 228 zł (Iberia), z Warszawy od 5 657 zł (Swiss i Lufthansa) – bez bagażu. Z bagażem, dolotem i lotem krajowym to szacunkowo ok. 6 430 zł na osobę, ok. 1 600 zł ponad próg. Cały bilet do Mendozy na jednej rezerwacji powinien pojawić się ok. 18.12.2026.",
+  "ofertaId": null,
+  "typCeny": null,
+  "szacunek": null,
+  "stan": "Kontrola 6 przewoźników nie przyniosła ceny całej podróży WAW-MDZ / MDZ-BUE / BUE-WAW dla 2 osób. Brak wyniku w formularzu nie dowodzi, że takich biletów nie ma; nie potwierdzono również terminu ich udostępnienia. Aktualny cel to 9000 zł za parę, super okazja do 8000 zł.",
   "punkty": [
    [
-    "Od wczoraj:",
-    "ceny prawie stoją. Iberia z Madrytu bez przesiadki 4 228 zł (+5 zł), Swiss i Lufthansa z Warszawy 5 657 zł (+4 zł), KLM i Air France 5 909 zł (+26 zł). Cała podróż to nadal szacunkowo ok. 6 430 zł przez Madryt, ok. 1 900 zł ponad cel – werdykt bez zmian. Turkish trzeci dzień nie sprzedaje naszych dat. Plus Ultra oficjalnie zawiesiła wszystkie loty od 23.11; nas to bezpośrednio nie dotyczy."
+    "Nowa kontrola u linii:",
+    "26.11 sprawdzono listopadową trasę bez API: KLM, Air France, Iberia, Aerolíneas Argentinas, Lufthansa i Air Europa. Wcześniejsze szacunki osobnych biletów nie są ceną tej podróży."
    ],
    [
     "Ceny na nasze daty:",
-    "Kayak, za osobę bez bagażu, dla dwóch osób, wylot 5.11, lotnisko Ezeiza. Z Madrytu bez przesiadki: Iberia 4 228 zł, Air Europa 4 838 zł. Z Warszawy: Swiss i Lufthansa 5 657 zł (tam dwie przesiadki, z powrotem jedna), KLM i Air France 5 909 zł. Szacunek całej podróży: ok. 6 430 zł przez Madryt, ok. 7 010 zł z Warszawy. Bilet z postojem w Buenos Aires: 13 360 zł z Warszawy, 10 283 zł z Madrytu – tylko łączenie osobnych biletów, nie polecamy."
+    "Brak pełnej wyceny. KLM, Air France, Iberia i Aerolíneas: brak wyniku dla obu dni wylotu. Lufthansa: brak oferty dla 5.11, próba 4.11 bez odpowiedzi wynikowej. Air Europa: Mendoza niedostępna w formularzu z Warszawy."
    ],
    [
-    "Sprzedaż na nasze daty:",
-    "powrót 13.11.2027 sprzedają Iberia, Air Europa, Lufthansa, Swiss, Air France, KLM i British Airways. Turkish i ITA: po zawężeniu wyników z Warszawy do każdej z tych linii Kayak odpowiada „Brak pasujących wyników”. Ethiopian, LATAM i Aerolíneas ok. 17–18.12. Wylot w czwartek 4.11 nie daje oszczędności: Lufthansa od 5 521 zł, ale ze startem o 14:40 albo 18:35, czyli przed 20:00."
+    "Daty i dostępność:",
+    "KLM pozwala wybierać daty do 20.11.2027. Iberia przyjęła daty 4/5, 12 i 13.11 bez dawnego błędu horyzontu. Aerolíneas przyjęła Warszawę i wszystkie odcinki. Nie ustalono, który odcinek blokuje pełną wycenę; połowa grudnia pozostaje wyłącznie orientacyjnym punktem kontroli."
    ],
    [
-    "Inne lotniska:",
-    "do Buenos Aires z Berlina od 4 517 zł (British Airways, jedna przesiadka w każdą stronę, powrót w niedzielę o 13:15), z Wiednia od 4 637 zł (Swiss, dwie przesiadki w każdą stronę) wobec 5 657 zł z Warszawy. Z dojazdem, bagażem i lotem krajowym cała podróż z Berlina to ok. 6 370 zł – ok. 60 zł taniej niż przez Madryt. Lufthansy z Wiednia za 4 481 zł nie liczymy: lot tam trwa 54 godziny."
+    "Przesiadki i ochrona:",
+    "Nie uzyskano pełnego listopadowego rozkładu, więc nie można jeszcze potwierdzić przesiadek, podręcznego, wspólnego biletu ani stopoveru. Nadal wymagamy MDZ 6.11, Buenos 12-13.11 co najmniej 24 h i powrotu do WAW do 14.11."
    ],
    [
-    "Rynek i promocje:",
-    "Plus Ultra ogłosiła komunikatem zawieszenie wszystkich lotów od 23.11 „do odwołania” (Infoviajera, 24.11); o upadłości nie mówi. Bez przesiadki między Madrytem a Buenos Aires zostają Iberia, Air Europa i Aerolíneas. Black Friday rusza jutro – w radarze promocji nadal tylko oferty z wylotem z Argentyny, żadnej na listopad 2027. Radar: odpowiedziało 13 z 15 kanałów, bez trafień na nasze daty."
-   ],
-   [
-    "Poprawione na stronie:",
-    "blok „Teraz” i opis fazy z dzisiejszą datą; w tabeli sprzedaży Turkish ma 351 dni zamiast 352 (trzeci dzień bez oferty). Skyscanner zażądał weryfikacji „czy jesteś robotem”, więc ceny pochodzą tylko z Kayaka; Google Flights nie sięga jeszcze naszych dat. W ankiecie par nadal nie ma odpowiedzi. Kurs NBP z 25.11: dolar 4,10 zł, euro 4,48 zł – dolar o 0,9% powyżej kursu budżetu (ok. 150 zł na parę), bez przeliczania."
+    "Zakres i luki:",
+    "Badanie dotyczyło formularzy linii. W tym odczycie nie sprawdzano portali, forów, newsletterów ani kampanii promocyjnych. KLM i Air France nie są niezależnymi rodzinami źródeł. Szczegóły prób i braki są na pulpicie."
    ]
   ],
   "teraz": [
-   "Działania uporządkowane 26.11: newslettery KLM i Air Europa aktywowane; monitoring o 9:00 i 18:00 oraz radar publicznych promocji pozostają włączone. Bez abonamentów i API cen.",
-   "Sprawdzamy pełny chroniony bilet WAW-MDZ / MDZ-BUE / BUE-WAW dla dwóch osób. Wycen częściowych ani osobnych biletów nie traktujemy jako oferty do zakupu.",
-   "Google Flights: ponowna kontrola dat w połowie grudnia. Alert na listopad nie jest aktywny; samo otwarcie linku go nie uruchamia.",
-   "Do 15.01.2027 pary potwierdzają skład i dane potrzebne do zakupu. Przed płatnością sprawdzamy końcową cenę, podręczny, ochronę i nocleg w Buenos."
+   "Ponowić pełne wyszukiwanie po zmianie dostępności, bez API. Nie zastępować trasy osobnymi biletami.",
+   "Uzupełnić próbę Lufthansy na 4.11; w Air Europa potrzebna metoda wyceny obejmująca Mendozę.",
+   "Przy pierwszej cenie potwierdzić ochronę całego biletu, bagaż i godziny wszystkich odcinków. Nie kupować na podstawie samego koszyka."
   ],
   "zrodla": [
    {
-    "label": "Kayak: Madryt–Buenos Aires 5–13.11.2027",
-    "url": "https://www.kayak.pl/flights/MAD-BUE/2027-11-05/2027-11-13/2adults?sort=price_a"
+    "label": "KLM - formularz sprawdzony 26.11.2026",
+    "url": "https://www.klm.pl/"
    },
    {
-    "label": "Kayak: Warszawa–Buenos Aires 5–13.11.2027",
-    "url": "https://www.kayak.pl/flights/WAW-BUE/2027-11-05/2027-11-13/2adults?sort=price_a"
+    "label": "Air France - formularz sprawdzony 26.11.2026",
+    "url": "https://wwws.airfrance.pl/"
    },
    {
-    "label": "Kayak: Warszawa–Buenos Aires 4–13.11.2027",
-    "url": "https://www.kayak.pl/flights/WAW-BUE/2027-11-04/2027-11-13/2adults?sort=price_a"
+    "label": "Iberia - formularz sprawdzony 26.11.2026",
+    "url": "https://www.iberia.com/es/flight-search-engine/multiple-legs/"
    },
    {
-    "label": "Kayak: Warszawa–Buenos Aires, tylko Turkish",
-    "url": "https://www.kayak.pl/flights/WAW-BUE/2027-11-05/2027-11-13/2adults?sort=price_a&fs=airlines=TK"
+    "label": "Aerolíneas Argentinas - formularz sprawdzony 26.11.2026",
+    "url": "https://www.aerolineas.com.ar/en-us"
    },
    {
-    "label": "Kayak: Berlin–Buenos Aires 5–13.11.2027",
-    "url": "https://www.kayak.pl/flights/BER-BUE/2027-11-05/2027-11-13/2adults?sort=price_a"
+    "label": "Lufthansa - formularz sprawdzony 26.11.2026",
+    "url": "https://www.lufthansa.com/pl/en/homepage"
    },
    {
-    "label": "Kayak: Wiedeń–Buenos Aires 5–13.11.2027",
-    "url": "https://www.kayak.pl/flights/VIE-BUE/2027-11-05/2027-11-13/2adults?sort=price_a"
-   },
-   {
-    "label": "Kayak: bilet z postojem w Buenos Aires z Warszawy",
-    "url": "https://www.kayak.pl/flights/WAW-MDZ/2027-11-05/MDZ-BUE/2027-11-12/BUE-WAW/2027-11-13/2adults?sort=price_a"
-   },
-   {
-    "label": "Kayak: bilet z postojem w Buenos Aires z Madrytu",
-    "url": "https://www.kayak.pl/flights/MAD-MDZ/2027-11-05/MDZ-BUE/2027-11-12/BUE-MAD/2027-11-13/2adults?sort=price_a"
-   },
-   {
-    "label": "Infoviajera: Plus Ultra zawiesza wszystkie loty (komunikat)",
-    "url": "https://www.infoviajera.com/2026/11/finamente-plus-ultra-anuncia-la-suspension-total-de-sus-operaciones-aereas/"
-   },
-   {
-    "label": "NBP: tabela kursów 229/A/NBP/2026",
-    "url": "https://api.nbp.pl/api/exchangerates/tables/A/?format=json"
+    "label": "Air Europa - formularz sprawdzony 26.11.2026",
+    "url": "https://www.aireuropa.com/ot/en/multi-city-flights"
    }
-  ],
-  "typCeny": "szacunek",
-  "szacunek": 6430,
-  "ofertaId": null
+  ]
  },
  "oferty": [],
  "pokrycie": [
@@ -1219,6 +1200,77 @@
    "status": "błąd",
    "wynik": "Strona zażądała weryfikacji „czy jesteś robotem” (CAPTCHA) – nie odczytano żadnej ceny.",
    "url": "https://www.skyscanner.pl/transport/multi-city/"
+  },
+  {
+   "id": "linie",
+   "sprawdzono": "2026-11-26T16:47:58+01:00",
+   "status": "częściowe",
+   "wynik": "Bezpośrednie formularze 6 przewoźników: brak pełnej wyceny listopada. KLM, AF, Iberia, Aerolíneas: oba dni wylotu; Lufthansa: wynik 5.11, luka 4.11; Air Europa: brak MDZ w formularzu. Nie sprawdzono wszystkich linii ani warunków biletu.",
+   "url": "https://www.klm.pl/"
   }
- ]
+ ],
+ "kontrolaListopada": {
+  "sprawdzono": "2026-11-26T16:47:58+01:00",
+  "profil": "waw-jeden-podreczny-v1",
+  "dorosli": 2,
+  "wyloty": [
+   "2027-11-05",
+   "2027-11-04"
+  ],
+  "buenosOd": "2027-11-12",
+  "buenosDo": "2027-11-13",
+  "zakres": "Bezpośrednie formularze 6 przewoźników, bez API. Szukano całej trasy z Warszawy, lotu MDZ-BUE 12.11 i powrotu 13.11. Wariant 4.11 przeszukiwano bez filtra godziny, a ewentualny wynik musiałby zaczynać się po 20:00.",
+  "wynik": "Nie uzyskano pełnej ceny. Szczegóły i ograniczenia są poniżej.",
+  "nastepny": "Ponowić pełną wycenę po zmianie dostępności; uzupełnić próbę Lufthansy na 4.11. Przy pierwszej wycenie sprawdzić przylot do MDZ 6.11, stopover min. 24 h, powrót do WAW do 14.11, przesiadki, podręczny i ochronę wszystkich odcinków. Nie ma potwierdzonej daty pojawienia się oferty.",
+  "linie": [
+   {
+    "linia": "KLM",
+    "termin": "4 lub 5.11 / 12.11 / 13.11.2027",
+    "trasa": "WAW-MDZ / MDZ-AEP lub EZE / EZE-WAW",
+    "status": "Brak pełnej wyceny",
+    "wynik": "Sprawdzono 4 kombinacje dla 2 dorosłych: oba dni wylotu i oba lotniska przylotu do Buenos Aires. Za każdym razem formularz zwrócił komunikat o braku lotów w tych terminach. Kalendarz pozwalał wybierać daty do 20.11.2027. Sama możliwość wyboru daty nie potwierdza dostępności wszystkich odcinków.",
+    "url": "https://www.klm.pl/"
+   },
+   {
+    "linia": "Air France",
+    "termin": "4 lub 5.11 / 12.11 / 13.11.2027",
+    "trasa": "WAW-MDZ / MDZ-AEP / BUE-WAW",
+    "status": "Brak pełnej wyceny",
+    "wynik": "Dla 2 dorosłych oba dni wylotu zakończyły się komunikatem o braku lotów w tych terminach. Pierwsza próba 5.11 zwróciła błąd techniczny; po ponowieniu otrzymano odpowiedź formularza. Nie uzyskano ceny ani rozkładu całej podróży. KLM i Air France należą do jednej rodziny przewoźników.",
+    "url": "https://wwws.airfrance.pl/"
+   },
+   {
+    "linia": "Iberia",
+    "termin": "4 lub 5.11 / 12.11 / 13.11.2027",
+    "trasa": "WAW-MDZ / MDZ-BUE / EZE-WAW",
+    "status": "Brak pełnej wyceny",
+    "wynik": "Formularz wieloodcinkowy przyjął listopadowe daty i 2 dorosłych. Obie próby zwróciły brak dostępności dla wybranego wyszukiwania. Nie był to wcześniejszy komunikat o przekroczeniu 359 dni. Nie potwierdzono rozkładu, ceny ani ochrony całej trasy.",
+    "url": "https://www.iberia.com/es/flight-search-engine/multiple-legs/"
+   },
+   {
+    "linia": "Aerolíneas Argentinas",
+    "termin": "4 lub 5.11 / 12.11 / 13.11.2027",
+    "trasa": "WAW-MDZ / MDZ-BUE / EZE-WAW",
+    "status": "Brak pełnej wyceny",
+    "wynik": "Formularz otworzył się, rozpoznał Warszawę i przyjął wszystkie 3 odcinki dla 2 dorosłych. Dla obu dni wylotu pokazał brak dostępnych lotów w tych terminach. Daty 12 i 13.11 były wybieralne w kalendarzu. Nie ustalono, który odcinek uniemożliwia wspólną wycenę.",
+    "url": "https://www.aerolineas.com.ar/en-us"
+   },
+   {
+    "linia": "Lufthansa",
+    "termin": "5.11 / 12.11 / 13.11.2027; 4.11: luka techniczna",
+    "trasa": "WAW-MDZ / MDZ-BUE / EZE-WAW",
+    "status": "Brak wyceny, niepełny zakres",
+    "wynik": "Pełne wyszukiwanie dla 2 dorosłych z wylotem 5.11 zwróciło brak oferty dla trasy Warszawa-Mendoza-Buenos Aires-Warszawa. Dla 4.11 formularz został uzupełniony, lecz nie udało się uzyskać odpowiedzi wynikowej. Ten wariant pozostaje niesprawdzony; nie oznaczamy go jako braku lotów.",
+    "url": "https://www.lufthansa.com/pl/en/homepage"
+   },
+   {
+    "linia": "Air Europa",
+    "termin": "Próba pełnej trasy na listopad 2027",
+    "trasa": "WAW-MDZ / MDZ-BUE / EZE-WAW",
+    "status": "Mendoza niedostępna w formularzu",
+    "wynik": "W formularzu wieloodcinkowym po wybraniu Warszawy wpisanie MDZ i nazwy Mendoza zwróciło informację, że wyszukiwany cel nie jest obsługiwany. Nie dało się wysłać pełnej trasy. To ograniczenie formularza, nie dowód braku możliwości wystawienia biletu przez obsługę linii.",
+    "url": "https://www.aireuropa.com/ot/en/multi-city-flights"
+   }
+  ]
+ }
 }

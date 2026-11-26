@@ -89,6 +89,10 @@
 .finder-price-bar span { display: block; height: 100%; background: var(--malbec); }
 .finder-price-bar i { position: absolute; top: -4px; bottom: -4px; border-left: 3px solid var(--poplar); }
 .finder-empty { padding: 20px; background: var(--chip); }
+.finder-checks { margin-top: 24px; }
+.finder-checks .finder-check { border: 0; border-top: 1px solid var(--line); border-radius: 0; padding: 0; margin: 0; }
+.finder-check summary { padding: 12px 0; font-size: .9rem; }
+.finder-check a { display: inline-flex; min-height: 44px; align-items: center; font-size: .85rem; }
 @media(max-width:760px) {
   .finder-stats { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .finder-stats > div:first-child { grid-column: auto; }
