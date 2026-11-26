@@ -94,3 +94,11 @@ Kontrola 26.11.2026 po południu: KLM (4 kombinacje), Air France, Iberia i Aerol
 Przed zastąpieniem lub usunięciem rzeczywistej oferty zachowaj jej pełną migawkę w `loty.json.archiwumOfert` (ten sam schemat co `oferty`, z niezmienionym `sprawdzono`). Nie twórz duplikatów tego samego id i czasu; nie archiwizuj danych prywatnych. Wykres wybiera minimum na dzień odczytu w strefie Europe/Warsaw z ostatnich 30 dni. Każdą migawkę ocenia według aktualnego profilu, ale w chwili jej odczytu. Odrzuca niepełne koszty, inne terminy, kompromisy komfortu i przyszłe daty odczytu. Dopuszczalne dwie daty wylotu tworzą wspólny koszyk najtańszych ofert; to nie cena stałego rejsu.
 
 Nie przepisuj dawnych `serie[].hist` ani szacunków do `archiwumOfert` bez pełnej dokumentacji oferty. Pusta historia jest poprawna. Różnica do celu i procent wymaganego spadku to działania arytmetyczne, nie prawdopodobieństwo promocji. Bez skalibrowanego modelu i odpowiednich danych panel pokazuje brak wiarygodnej prognozy.
+
+### Uzupełnienie 26.11.2026, 20:26 - Lufthansa i odcinki z Mendozą
+
+Pełna próba Lufthansy 4.11 / 12.11 / 13.11 (WAW-MDZ / MDZ-BUE / BUE-WAW, 2 dorosłych): brak oferty; luka techniczna zamknięta. Diagnostycznie WAW-MDZ 4.11 bez wyników, ale WAW-BUE 4.11 i BUE-WAW 13.11 mają propozycje. Wszystkie 8 wylotów WAW-BUE jest przed 20:00; wszystkie 15 powrotów startuje o 14:40 lub 17:45, przed wymaganym 18:00. Kontrola WAW-MDZ 4.03.2027: 9 propozycji z partnerami GOL/LATAM.
+
+Aerolíneas: EZE-MDZ 6.11 i MDZ-BUE 12.11 bez lotów; kontrola MDZ-BUE 12.10 również bez wyniku, a 12.03.2027 z konkretnymi rejsami. Kalendarz w jedną stronę pozwalał wybrać 23.10.2027, następne dni października były zablokowane. Nie przenosić tej obserwacji na wszystkie formularze (wieloodcinkowy przyjmował listopad) ani nie przypisywać wszystkich braków samemu horyzontowi. Potwierdzona przeszkoda to brak wyceny połączeń z MDZ w sprawdzonych formularzach; nieudostępniona przyszła dostępność/taryfy partnerów to hipoteza. Nie ustalono terminu otwarcia. Próby pojedynczych odcinków służą wyłącznie diagnozie, nie są ofertą do zakupu ani historią pełnych cen. Zero API.
+
+Przy częściowym odświeżeniu rejestru zachowuj `linie[].sprawdzono` dla pozostałych linii i podaj różne czasy w `zakres`. Wyniki czterech pozostałych przewoźników pozostają z 16:47.

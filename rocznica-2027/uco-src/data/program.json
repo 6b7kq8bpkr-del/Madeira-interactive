@@ -1182,9 +1182,9 @@
      "od": "2026-11-10",
      "do": "2026-11-26",
      "faza": "Otwarcie sprzedaży",
-     "co": "Sprawdzono formularze KLM, Air France, Iberii, Aerolíneas, Lufthansy i Air Europy. Nie uzyskano pełnej wyceny na listopad. Ponowić sprawdzenie po zmianie dostępności i uzupełnić lukę Lufthansy na 4.11.2027. Nie wyznaczać terminu otwarcia sprzedaży z samego braku wyniku. Kryteria jednego biletu z Warszawy, podręcznego i stopoveru pozostają bez zmian.",
+     "co": "Uzupełniono próbę Lufthansy na 4.11: brak pełnej oferty. W listopadzie wyceniają się odcinki transatlantyckie, lecz nie połączenia z Mendozą; marcowe kontrole działają. Znalezione powroty Lufthansa/SWISS 13.11 startują przed 18:00. Przy kolejnej zmianie dostępności sprawdzić połączenia z MDZ, następnie pełny bilet i właściwe godziny. Bez API.",
      "automat": "Codzienny raport lotów",
-     "decyzja": "26.11: kontrola 6 przewoźników bez API nie dała pełnej ceny WAW-MDZ / MDZ-BUE / BUE-WAW. Daty są już wybieralne w części formularzy. Szczegóły i luki na pulpicie lotów; brak wyniku nie dowodzi braku biletów.",
+     "decyzja": "26.11: Lufthansa 4.11 sprawdzona, bez pełnej oferty. Przeszkody: brak wyceny połączeń z Mendozą w listopadzie oraz powroty Lufthansa/SWISS przed 18:00. Marcowe kontrole działają. Szczegóły na pulpicie; bez API.",
      "ton": "sprawdz",
      "szansa": 0.8,
      "kr": "Start"
