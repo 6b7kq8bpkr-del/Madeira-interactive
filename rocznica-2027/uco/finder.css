@@ -31,3 +31,17 @@
 .finder-source-list li { padding: 6px 0; }
 @media(max-width:900px) { .finder-filters { grid-template-columns: 1fr 1fr; } }
 @media(max-width:540px) { .finder-head { display: block; } .finder-head button { width: 100%; } .finder-filters { grid-template-columns: 1fr; } .finder-lead-top { display: block; } .finder-lead-top strong { display: block; margin-top: 3px; } }
+.finder-overview { border-left: 4px solid var(--malbec); background: var(--chip); padding: 18px 22px; margin: 20px 0; }
+.finder-overview h4 { font-size: clamp(1.2rem, 2.4vw, 1.65rem); }
+.finder-stats { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 16px; margin: 20px 0; }
+.finder-stats dt { color: var(--ink-2); font-size: .86rem; }
+.finder-stats dd { margin: 4px 0 0; font-size: 1.25rem; font-weight: 600; }
+.finder-research { padding: 10px 0; }
+.finder [id] { scroll-margin-top: 84px; }
+.finder-overview > a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; }
+@media(max-width:540px) {
+  .finder-overview { padding: 16px; }
+  .finder-stats { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .finder-stats > div:first-child { grid-column: 1 / -1; }
+  .finder-stats dd { font-size: 1.1rem; }
+}

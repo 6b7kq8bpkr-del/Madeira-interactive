@@ -158,7 +158,7 @@ for (const [W, scheme] of CONFIGS) {
 }
 
 // linki głębokie: sekcja ma być widoczna (rozwinięta) i przewinięta pod górę ekranu
-for (const h of ['decyzje', 'plan', 'd10-11', 'budzet', 'upgrade', 'hotele', 'loty', 'radar', 'kalendarz', 'poradnik', 'zadania', 'kalk', 'rezerwacje', 'wyzwalacze', 'okna', 'wyszukiwarka', 'kombinacje', 'warianty-lotow', 'zrodla-monitoringu']) {
+for (const h of ['decyzje', 'plan', 'd10-11', 'budzet', 'upgrade', 'hotele', 'loty', 'radar', 'kalendarz', 'poradnik', 'zadania', 'kalk', 'rezerwacje', 'wyzwalacze', 'okna', 'wyszukiwarka', 'finder-research', 'finder-plan', 'finder-promos', 'kombinacje', 'warianty-lotow', 'zrodla-monitoringu']) {
   const { pg, log } = await open(1300, 'light', '#' + h);
   const r = await pg.evaluate(h => { const el = document.getElementById(h); if (!el) return null; const b = el.getBoundingClientRect(); return { shown: !!el.getClientRects().length, top: Math.round(b.top) }; }, h);
   if (!r) fail('#' + h, 'brak elementu');
@@ -454,6 +454,7 @@ async function withLoty(mutate, hash, fn) {
   if (!/sufit/.test(r.zapas)) fail('karta wyjazdu', 'brak zapasu do sufitu');
   if (r.noclegi !== 3) fail('karta wyjazdu', `${r.noclegi} noclegów zamiast 3`);
   if (r.teraz.length < 30) fail('karta wyjazdu', 'pusta sekcja „Teraz”');
+  await pg.locator('#raport').locator('..').locator(':scope > summary').click();
   if (await pg.evaluate(() => { const l = window.__lotyM; const el = document.getElementById('raport'); return l && l.raport && (!el || el.hidden || el.innerText.length < 80); })) fail('raport lotów', 'raport z loty.json nie wyświetlił się w sekcji Loty');
   const g0 = await pg.evaluate(() => [...document.querySelectorAll('.gal figure')].filter(f => f.getClientRects().length).length);
   await pg.click('[data-galall]');
@@ -486,12 +487,14 @@ async function withLoty(mutate, hash, fn) {
   let outage=false;
   await pg.route('**/okazje.json', r => outage ? r.abort() : r.fulfill({status:200,contentType:'application/json',body:JSON.stringify(base)}));
   await pg.goto(BASE+'#wyszukiwarka',{waitUntil:'load'});
+  await pg.locator('#finder-promos > summary').click();
   await pg.locator('#finder-leads li').first().waitFor();
   if(await pg.locator('#finder-leads img').count()) fail('wyszukiwarka','HTML źródła został wykonany');
   await pg.locator('#finder-query').fill('bagaz');
   if(await pg.locator('#finder-leads li').count()!==1) fail('wyszukiwarka','filtr bez polskich znaków');
   await pg.locator('#finder-leads button').first().click();
   await pg.reload({waitUntil:'load'});
+  await pg.locator('#finder-promos > summary').click();
   await pg.locator('#finder-leads li').first().waitFor();
   await pg.locator('#finder-mode').selectOption('saved');
   if(await pg.locator('#finder-leads li').count()!==1) fail('wyszukiwarka','zapisany trop zniknął po odświeżeniu');
@@ -507,6 +510,15 @@ async function withLoty(mutate, hash, fn) {
   const copied = await pg.evaluate(()=>window.__finderCopied);
   if(!copied.includes('2 osoby dorosłe') || !copied.includes('MDZ → BUE, 2027-11-12') || !copied.includes('BUE → WAW, 2027-11-13')) fail('wyszukiwarka','kopiowany plan pomija pasażerów lub stopover');
   if(await pg.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1)) fail('wyszukiwarka','przewijanie poziome na telefonie');
+  await pg.route('**/loty.json',r=>r.abort());
+  await pg.locator('#finder-refresh').click();
+  await pg.waitForFunction(()=>document.querySelector('#finder-overview h4').textContent.includes('Nie udało'));
+  if(await pg.locator('#finder-routes article').count()!==2) fail('wyszukiwarka','awaria odczytu zablokowała ręczne szukanie');
+  outage=false;
+  await pg.locator('#finder-refresh').click();
+  await pg.waitForFunction(()=>document.getElementById('finder-status').textContent.includes('Skan publikacji:'));
+  if(!(await pg.locator('#finder-overview h4').textContent()).includes('Nie udało')) fail('wyszukiwarka','świeży RSS zamaskował awarię ofert');
+  if(!(await pg.locator('#finder-research').textContent()).includes('Nie potwierdzają cen na listopad')) fail('wyszukiwarka','testy pomylone z listopadem');
   await pg.close();
 }
 

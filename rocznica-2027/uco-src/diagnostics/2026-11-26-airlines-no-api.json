@@ -1,0 +1,116 @@
+{
+  "checked_on": "2026-11-26",
+  "timezone": "Europe/Warsaw",
+  "purpose": "Ręczne testy wcześniejszych terminów; nie są to oferty na listopad 2027.",
+  "method": "Oficjalne formularze linii w przeglądarce. Bez SerpApi i innych API cenowych.",
+  "api_requests": 0,
+  "adults": 2,
+  "booking_created": false,
+  "best_complete_quote": {
+    "seller": "KLM",
+    "source_url": "https://www.klm.pl/search/multi-city/summary",
+    "reproduce_url": "https://www.klm.pl/",
+    "source_url_is_session_dependent": true,
+    "status": "Pełna wycena linii przed podaniem danych pasażerów, bez wystawienia biletu.",
+    "total_pln": 11629.28,
+    "per_adult_pln": 5814.64,
+    "cabin": "Economy Light",
+    "outbound": {
+      "duration_minutes": 1600,
+      "segments": [
+        {"flight": "AF1047", "operator": "Air France", "from": "WAW", "to": "CDG", "departure": "2027-03-09T17:25:00+01:00", "arrival": "2027-03-09T20:00:00+01:00"},
+        {"flight": "AF0454", "operator": "Air France", "from": "CDG", "to": "GRU", "departure": "2027-03-09T23:20:00+01:00", "arrival": "2027-03-10T07:20:00-03:00"},
+        {"flight": "LA8168", "operator": "LATAM Airlines", "from": "GRU", "to": "MDZ", "departure": "2027-03-10T12:15:00-03:00", "arrival": "2027-03-10T16:05:00-03:00"}
+      ],
+      "connections": [{"airport": "CDG", "minutes": 200}, {"airport": "GRU", "minutes": 295}]
+    },
+    "domestic": {
+      "flight": "AR1401", "operator": "Aerolíneas Argentinas", "from": "MDZ", "to": "AEP",
+      "departure": "2027-03-16T07:30:00-03:00", "arrival": "2027-03-16T09:10:00-03:00",
+      "duration_minutes": 100
+    },
+    "return": {
+      "duration_minutes": 1165,
+      "segments": [
+        {"flight": "AF0411", "operator": "Air France", "from": "EZE", "to": "CDG", "departure": "2027-03-17T22:40:00-03:00", "arrival": "2027-03-18T15:35:00+01:00"},
+        {"flight": "AF1246", "operator": "Air France", "from": "CDG", "to": "WAW", "departure": "2027-03-18T19:45:00+01:00", "arrival": "2027-03-18T22:05:00+01:00"}
+      ],
+      "connections": [{"airport": "CDG", "minutes": 250}]
+    },
+    "stopover": {
+      "city": "Buenos Aires", "duration_minutes": 2250,
+      "arrival_airport": "AEP", "departure_airport": "EZE",
+      "airport_change_during_stopover": true,
+      "hotel_and_ground_transfer_included": false
+    },
+    "baggage": {
+      "confirmed_in_quote_for_each_passenger_all_three_parts": "1 mała torba 40 x 30 x 15 cm oraz 1 bagaż podręczny 55 x 35 x 25 cm.",
+      "additional_domestic_allowance_shown": "Podsumowanie KLM pokazuje także 23 kg rejestrowanego na MDZ-AEP. Nie jest potrzebny do porównania.",
+      "recommended_cabin_weight_limit_kg": 8,
+      "weight_limit_note": "Konserwatywny limit dla całej trasy: 8 kg walizka i do 3 kg mała torba, zgodnie z limitem krajowym AR. KLM/AF podaje 12 kg łącznie; LATAM 12 kg walizki.",
+      "latam_policy_url": "https://www.latamairlines.com/us/en/experience/prepare-your-trip/baggage/carry-on",
+      "ar_domestic_policy_url": "https://content.services.aerolineas.com.ar/media/documents/BRANDED_FARES_19MAY26_BR.pdf"
+    },
+    "ticket_evidence": {
+      "joint_airline_quote_verified": true,
+      "fare_basis": ["RGL0SOLA", "EGL0SOLA", "EGL0SOLA"],
+      "observed": "Wszystkie trzy części w standardowym podsumowaniu multi-city KLM, jedna cena biletu dla dwóch pasażerów. Warunki taryfy wymagają wykorzystania całego biletu w kolejności i datach podróży. Nie pokazano ostrzeżenia o osobnych biletach.",
+      "carrier_transfer_policy_url": "https://www.klm.pl/information/airport/transfers",
+      "protection_evidence_scope": "Ogólna polityka KLM mówi o ochronie przesiadek z KLM i partnerami. Nie uzyskano indywidualnego potwierdzenia jednego chronionego biletu obejmującego LA8168 ani numeru e-biletu. Pełna cena jest potwierdzona, status wspólnej ochrony pozostaje do potwierdzenia przed zakupem."
+    },
+    "fare_conditions": "Bezzwrotna. Zmiana: 300 EUR oraz ewentualna różnica taryfy."
+  },
+  "comparisons": [
+    {
+      "seller": "Air France",
+      "source_url": "https://wwws.airfrance.pl/search/multi-city/summary",
+      "dates": ["2027-03-02", "2027-03-09", "2027-03-10"],
+      "arrival_waw": "2027-03-11T22:05:00+01:00",
+      "route": ["WAW-CDG-SCL-MDZ", "MDZ-AEP", "EZE-CDG-WAW"],
+      "total_pln": 13988.92,
+      "full_summary_verified": true,
+      "outbound_duration_minutes": 1545,
+      "outbound_connections_minutes": [200, 260],
+      "domestic_departure": "2027-03-09T11:00:00-03:00",
+      "domestic_arrival": "2027-03-09T12:40:00-03:00",
+      "return_departure": "2027-03-10T22:40:00-03:00",
+      "return_duration_minutes": 1165,
+      "stopover_minutes": 2040,
+      "result": "Drożej o 2359,64 PLN dla dwóch osób. Odcinek SCL-MDZ obsługuje SKY Airline; bagażu partnerskiego nie weryfikowano, ponieważ wariant przegrał ceną."
+    },
+    {
+      "seller": "KLM",
+      "dates": ["2027-04-06", "2027-04-13", "2027-04-14"],
+      "route": ["WAW-CDG-SCL-MDZ", "MDZ-AEP", "EZE-CDG-WAW"],
+      "full_summary_verified": false,
+      "selected_first_two_parts_pln": 6030.20,
+      "outbound_duration_minutes": 1640,
+      "outbound_connections_minutes": [260, 298],
+      "domestic_arrival": "2027-04-13T11:30:00-03:00",
+      "return_departure": "2027-04-14T00:20:00-03:00",
+      "return_connection_minutes": 65,
+      "stopover_minutes": 770,
+      "result": "Odrzucono: stopover 12 h 50 min i tylko 1 h 05 min przesiadki w CDG. Nie traktować sumy cen cząstkowych jako pełnej oferty.",
+      "alternative_returns": [
+        {"date": "2027-04-15", "departure_local": "15:05", "displayed_return_price_rounded_pln": 7960, "result": "Droższy, brak powrotu po 18:00 w pokazanych wynikach."},
+        {"date": "2027-04-16", "departure_local": "15:05", "displayed_return_price_rounded_pln": 7272, "result": "Droższy, brak powrotu po 18:00 w pokazanych wynikach."}
+      ]
+    },
+    {
+      "seller": "Iberia",
+      "dates": ["2027-05-10", "2027-05-17", "2027-05-18"],
+      "full_summary_verified": false,
+      "result": "Economy: pokazane połączenia mają 3 przesiadki i 31 h 45 min. Wariant z 2 przesiadkami dostępny tylko w Premium Economy: 29 h 25 min, MAD 9 h 24 min, SCL 1 h 35 min. Odrzucony za bufory, nie wyceniano całej trasy."
+    },
+    {
+      "seller": "Iberia",
+      "dates": ["2027-06-01", "2027-06-08", "2027-06-09"],
+      "full_summary_verified": false,
+      "result": "Wariant Economy WAW-MAD-SCL-MDZ: 29 h 25 min, MAD 9 h, SCL 1 h 55 min. Odrzucony za bufory, nie wyceniano całej trasy. Cena 985 EUR na karcie pierwszej części nie jest ceną pełnej podróży."
+    }
+  ],
+  "access_limits": [
+    "Aerolíneas Argentinas: strona główna nie otworzyła się w tej sesji przeglądarki. Brak wyniku nie jest brakiem połączeń z Warszawy.",
+    "Air France: wyszukiwanie 18/25/27 maja zwróciło błąd. Następnie zadziałało wyszukiwanie 2/9/10 marca."
+  ]
+}

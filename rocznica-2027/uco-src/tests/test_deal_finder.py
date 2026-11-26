@@ -69,6 +69,11 @@ class Tests(unittest.TestCase):
         self.assertEqual(x['status'], 'trop')
         self.assertLess(x['priorytet'],40)
 
+    def test_aeroparque_origin_after_price_is_reverse(self):
+        x=finder.classify({'tytul':'Vuelos a Madrid por U$D 1.150 ida y vuelta desde Aeroparque', 'data':'2026-11-26', 'url':'https://example.com/promo'},NOW)
+        self.assertTrue(x['odwrotny'])
+        self.assertLess(x['priorytet'],40)
+
     def test_duplicate_and_stale_read_keeps_original_time(self):
         article={'tytul':'Mendoza 2027', 'data':'2026-11-25', 'url':'https://example.com/a?utm_source=one'}
         one=finder.merge_leads([], [article, dict(article,url='https://example.com/a?utm_source=two')], NOW,CONFIG)

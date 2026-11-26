@@ -60,3 +60,11 @@ Historia `serie[].hist` zachowuje dawne ceny, daty i statusy. Nowy punkt: `data`
 ## Weryfikacja
 
 Po zmianie `data/`: `python3 -I build.py` i `python3 -I build.py --check`. Testy bez sieci: `python3 -I tests/test_promo_rss.py`, `node tests/flight-rules.test.cjs`, `node tests/check-offers.cjs`. Potem `node tests/smoke.mjs` według README. Codzienny `raport_fakty.py --check` nadal wymaga dzisiejszego raportu - nie zmieniaj jego daty wyłącznie po to, żeby zaliczyć test. Kalendarze sprzedaży pozostają prognozami, a ich zmianę uzasadnia dopiero dowód z formularza linii.
+
+### Czytelny status i badania bez API
+
+Pierwszy panel w Lotach bierze ofertę wyłącznie z `loty.json.oferty`, przez wspólny `UcoFlights.rank`. RSS ani wycena z wcześniejszego terminu nie podnoszą statusu listopada. Błąd odczytu ofert ma status nieznany; błąd RSS nie blokuje ofert ani formularzy ręcznych. Kwoty w skrócie są dla dwóch osób.
+
+Wyniki ręcznych testów u linii zapisujemy także w `data/badania-lotow.json`, z datą badania, terminem podróży, pełną ceną dla pary (lub null), wynikiem, brakami i następnym krokiem. Po zmianie uruchamiamy `build.py`. Dane techniczne pozostają w `diagnostics/`; publiczny rejestr nie zawiera identyfikatorów sesji, danych pasażerów ani sekretów. Testy są historyczne i nie są automatycznie odświeżanymi ofertami.
+
+Priorytet badań: KLM/Air France przez GRU/SCL, Iberia przez MAD, próba pełnej wyceny WAW w Aerolíneas. Każdorazowo cała trasa i 2 dorosłych, oba dopuszczalne wyloty; dokładne godziny, ochrona wszystkich partnerów i podręczny. Nie powtarzać odrzuconej kombinacji bez zmiany daty/rejsu albo nowej przesłanki. Próbę zablokowanego formularza zapisywać jako lukę, nie brak lotów. Nowe źródło nie jest niezależnym potwierdzeniem, jeśli pokazuje tę samą taryfę partnerów. Nie włączać API.

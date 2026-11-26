@@ -1,0 +1,56 @@
+{
+ "sprawdzono": "2026-11-26",
+ "zakres": "Testy wcześniejszych terminów, bez API. Nie potwierdzają cen na listopad 2027.",
+ "wyniki": [
+  {
+   "linia": "KLM",
+   "termin": "9-18.03.2027",
+   "trasa": "WAW-CDG-GRU-MDZ / MDZ-AEP / EZE-CDG-WAW",
+   "cenaPara": 11629.28,
+   "status": "Pełna cena, ochrona do potwierdzenia",
+   "wynik": "Podręczny w cenie. Stopover 37 h 30 min. Przesiadki 3 h 20 min, 4 h 55 min i 4 h 10 min. Brakuje potwierdzenia wspólnego chronionego biletu obejmującego LATAM.",
+   "url": "https://www.klm.pl/",
+   "nastepny": "Potwierdzić wspólny bilet i ochronę odcinka LATAM; potem sprawdzić tę konstrukcję na listopad."
+  },
+  {
+   "linia": "Air France",
+   "termin": "2-11.03.2027",
+   "trasa": "WAW-CDG-SCL-MDZ / MDZ-AEP / EZE-CDG-WAW",
+   "cenaPara": 13988.92,
+   "status": "Pełna cena, drożej",
+   "wynik": "O 2359,64 zł więcej dla pary niż marcowy test KLM. Podręczny SKY Airline pozostaje niezweryfikowany.",
+   "url": "https://wwws.airfrance.pl/",
+   "nastepny": "Sprawdzić listopadowe daty i wieczorny powrót; porównać z KLM jako jedną rodziną linii."
+  },
+  {
+   "linia": "KLM",
+   "termin": "6/13/14.04.2027; powrót także 15 i 16.04",
+   "trasa": "Przez Paryż i Santiago",
+   "cenaPara": null,
+   "status": "Odrzucony rozkład",
+   "wynik": "14.04: przesiadka w CDG 65 min, stopover tylko 12 h 50 min. Późniejsze powroty droższe. Brak końcowej ceny zgodnej trasy.",
+   "url": "https://www.klm.pl/",
+   "nastepny": "Nie powtarzać identycznej kombinacji; potrzebny inny rejs powrotny."
+  },
+  {
+   "linia": "Iberia",
+   "termin": "10/17/18.05 oraz 1/8/9.06.2027",
+   "trasa": "Przez Madryt i Santiago",
+   "cenaPara": null,
+   "status": "Odrzucone przesiadki",
+   "wynik": "Około 9 h w Madrycie, poniżej 2 h w Santiago; część wyników miała trzy przesiadki. Nie potwierdzono ceny całej podróży.",
+   "url": "https://www.iberia.com/es/flight-search-engine/multiple-legs/",
+   "nastepny": "Szukać innego połączenia WAW-MAD i dalszego lotu; nie obniżać buforów."
+  },
+  {
+   "linia": "Aerolíneas Argentinas",
+   "termin": "Próba dostępu 26.11.2026",
+   "trasa": "Cała trasa z Warszawy",
+   "cenaPara": null,
+   "status": "Luka w sprawdzeniu",
+   "wynik": "Formularz nie otworzył się. Dawne 9490 zł dotyczyło startu w Madrycie i nie jest ceną z Warszawy.",
+   "url": "https://www.aerolineas.com.ar/",
+   "nastepny": "Ponowić dostęp do formularza; sprawdzić, czy wycenia WAW na wspólnym bilecie."
+  }
+ ]
+}

@@ -161,10 +161,10 @@ def classify(item, now):
         why.append('Wzmianka o postoju lub trasie złożonej')
     normalized = ''.join(c for c in unicodedata.normalize('NFD', value.lower()) if not unicodedata.combining(c))
     normalized_title = ''.join(c for c in unicodedata.normalize('NFD', title.lower()) if not unicodedata.combining(c))
-    arg_origin = r'(?:buenos aires|argentina|argentyny|mendoza|cordoba|rosario|tucuman|ezeiza)'
+    arg_origin = r'(?:buenos aires|argentina|argentyny|mendoza|cordoba|rosario|tucuman|ezeiza|aeroparque|aep|eze)'
     europe = r'(?:europ\w*|madrid|madryt\w*|paris|roma|rome|barcelona)'
     reverse = bool(re.search(r'(?:desde|from|z)\s+' + arg_origin + r'\b.{0,70}' + europe, normalized)
-                   or re.search(r'(?:a|to)\s+' + europe + r'\b.{0,40}(?:desde|from)\s+' + arg_origin, normalized))
+                   or re.search(r'(?:a|to)\s+' + europe + r'\b.{0,120}?(?:desde|from)\s+' + arg_origin, normalized))
     if reverse:
         points -= 40
         gaps.append('prawdopodobnie podróż w przeciwną stronę; nie porównywać z naszym biletem')

@@ -14,7 +14,7 @@ Dwa plany: WAW-MDZ 5.11 lub 4.11 po 20:00 / MDZ-BUE 12.11 / BUE-WAW 13.11. KAYAK
 
 Publiczne kanały RSS są skanowane co 6 godzin. Agent o 09:00 i 18:00 uzupełnia dostępne fora, komentarze i oficjalne formularze linii. Brak kanału, CAPTCHA albo awaria nie oznacza braku promocji; pokazujemy datę i luki. Kilka kanałów jednego portalu nie jest niezależnym potwierdzeniem. Newslettery wymagają wcześniej autoryzowanego odczytu skrzynki; prywatne wiadomości nie trafiają do publicznego pliku.
 
-Kod jest na `main`, publiczny skan w gałęzi `uco-monitor-data`. Strona odczytuje zapisany skan; przy awarii pokazuje oznaczoną kopię z ostatniego wdrożenia. Przycisk odświeżania nie wywołuje dostawcy cen. Stary plan skanu jest filtrowany do jednego biletu WAW-MDZ-BUE-WAW, a informacja o wyłączeniu API pochodzi z aktualnej konfiguracji strony.
+Kod jest na `main`, publiczny skan w gałęzi `uco-monitor-data`. Strona odczytuje zapisany skan; przy awarii pokazuje oznaczoną kopię z ostatniego wdrożenia. Przycisk odświeżania nie wywołuje dostawcy cen. Plan ręcznych wyszukiwań powstaje z aktualnych reguł podróży i działa także bez skanu. Informacja o wyłączeniu API pochodzi z aktualnej konfiguracji strony. Panel oddziela potwierdzone oferty listopada, wcześniejsze testy z `data/badania-lotow.json`, tropy publikacji oraz archiwum wycen.
 
 Tropy nie są ofertami. Historyczne wyceny zachowują daty i zakres; nie zmieniaj ich na zgodne z nowym profilem. Pełny rekord `loty.json.oferty` jest oceniany przez `flight-rules.js`. Wymagane są finalna cena za dwie osoby, podręczny, wszystkie godziny ze strefami, jeden bilet, ochrona i stopover. Brak czasów przesiadek lub czasu całej części odrzuca wynik parsera. Wynik API z archiwum nie potwierdza biletu ani bagażu.
 
@@ -32,6 +32,14 @@ python3 -I build.py --check
 ```
 
 Pierwsza komenda pobiera tylko publiczne RSS. Testy używają atrap i nie mają dostępu do kont. Kalendarz sprzedaży, dostępność lotu i cena są odrębnymi obserwacjami; brak wyniku nie upoważnia do przesuwania horyzontu sprzedaży.
+
+## Ręczne porównanie linii 26.11.2026 - bez API
+
+Sprawdzono wcześniejsze terminy w oficjalnych formularzach KLM, Air France i Iberii. [Pełny zapis porównania](diagnostics/2026-11-26-airlines-no-api.json) zawiera godziny, lotniska, ceny i przyczyny odrzucenia. Zużycie API: 0. To testy na wcześniejsze daty, poza ofertami listopadowymi.
+
+Najniższa pełna wycena z tej serii: **11 629,28 PLN dla dwóch dorosłych**, KLM, 9-18.03.2027. Trasa WAW-CDG-GRU-MDZ / MDZ-AEP / EZE-CDG-WAW, przesiadki 3 h 20 min, 4 h 55 min i 4 h 10 min, stopover 37 h 30 min. Podsumowanie pokazuje podręczny na wszystkich trzech częściach. To wspólna wycena multi-city z warunkami wykorzystania całego biletu; indywidualnego potwierdzenia wspólnej ochrony obejmującej odcinek LATAM nie uzyskano. Nie oznaczać rekordu jako w pełni potwierdzonej oferty na jednym chronionym bilecie.
+
+Air France 2-11.03: pełna wycena 13 988,92 PLN. KLM 6/13/14.04: odrzucony za powrót o 00:20, stopover 12 h 50 min i przesiadkę w CDG 1 h 05 min; 15 i 16.04 powroty były droższe. Iberia 10/17/18.05 i 1/8/9.06: nieodpowiednie bufory lub trzy przesiadki. Historycznych 9490 PLN z Madrytu nie porównujemy jako kompletnej ceny z Warszawy.
 
 ## Archiwum wcześniejszych testów
 

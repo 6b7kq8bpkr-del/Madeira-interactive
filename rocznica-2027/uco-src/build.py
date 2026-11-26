@@ -21,6 +21,7 @@ def r10(v): return hup(v / 10.0) * 10
 def zl(v): return f"{int(v):,}".replace(",", " ")
 # Opisy korzystają z tych samych reguł co ocena ofert.
 R = P['loty']['monitoring']['reguly']
+P['badaniaLotow'] = json.load(open('data/badania-lotow.json', encoding='utf-8'))
 P['apiCenWlaczone'] = json.load(open('data/wyszukiwarka.json'))['serpapi'].get('enabled') is True
 P['zasady_podrozy']['przesiadki'] = f"Jeden chroniony bilet na całą trasę z Warszawy. Najwyżej {R['max_przesiadki']} przesiadki w stronę, do {R['max_podroz_h']} h podróży. Przesiadki {R['przesiadkaH']}-{R['max_przesiadka_h']} h, w Buenos Aires minimum {R['buePrzesiadkaH']} h. Zmiana AEP/EZE wyłącznie podczas stopoveru, nigdy przy krótkiej przesiadce. To nasze bufory komfortu; warunki ochrony potwierdza linia."
 P['zasady_podrozy']['bagaz'] = 'Wystarczy bagaż podręczny dla każdej osoby na każdym odcinku; potwierdzić w cenie limit, wymiary i masę. Rejestrowany jest opcjonalny, z osobną wyceną dopłaty.'
@@ -213,7 +214,7 @@ miss = [f"pas „{k}”" for k in BANDS if k not in bands] + [f"dzień {d['date'
 if not hero: miss.append("zdjęcie główne")
 if len(mosaic) < 5: miss.append(f"mozaika ({len(mosaic)} z 5)")
 if miss: sys.exit("Brak zdjęć dla: " + ", ".join(miss) + " – sprawdź podpisy w data/zdjecia.json i listy w build.py")
-DATA = {"bands": bands, "mosaic": mosaic, "built": datetime.date.today().strftime("%d.%m.%Y"), "bapics": bapics, "hotele": hotele, "alts": alts, "odrzucone": P.get("odrzucone", []), "prog": {k: P.get(k) for k in ("zasady_podrozy", "tagline", "stats", "grupa", "czas_w_hotelu", "dojazd", "pogoda", "rezerwacje", "zabrac", "uwagi", "decyzje", "platnosci", "zrodla", "etapy", "loty", "ba", "upgrade", "budzet")}, "mapa": P.get("mapa", []), "x": X,
+DATA = {"bands": bands, "mosaic": mosaic, "built": datetime.date.today().strftime("%d.%m.%Y"), "bapics": bapics, "hotele": hotele, "alts": alts, "odrzucone": P.get("odrzucone", []), "prog": {k: P.get(k) for k in ("badaniaLotow", "apiCenWlaczone", "zasady_podrozy", "tagline", "stats", "grupa", "czas_w_hotelu", "dojazd", "pogoda", "rezerwacje", "zabrac", "uwagi", "decyzje", "platnosci", "zrodla", "etapy", "loty", "ba", "upgrade", "budzet")}, "mapa": P.get("mapa", []), "x": X,
         "days": days, "hotels": hotels, "hero": hero[0] if hero else None, "gallery": gallery}
 # kalendarz .ics: jedno wydarzenie całodniowe na dzień + noclegi
 def ics_esc(s): return s.replace("\\", "\\\\").replace(";", "\\;").replace(",", "\\,").replace("\n", "\\n")

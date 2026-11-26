@@ -802,14 +802,13 @@ footer a { color: var(--ink-2); }
     var F = P.loty;
     function dpl(x) { if (!x) return ''; var p = String(x).split('-'); return p.length === 3 ? esc(p[2] + '.' + p[1] + '.' + p[0]) : esc(x); }
     var LT = [['decyzja', 'Decyzja', 'ceny, kalkulator, progi'], ['radar', 'Radar', 'sygnały, wyprzedaże, promocje'], ['plan', 'Kalendarz', 'fazy zakupu'], ['szukaj', 'Jak szukać', 'scenariusze i narzędzia'], ['zadania', 'Alerty i zadania', 'co zrobić samemu']];
-    h += band('loty') + '<section class="blk" id="loty" style="background:var(--paper)"><div class="wrap"><div class="sh"><div><p class="eyebrow">Warszawa → Mendoza → Buenos Aires · wylot 4.11 (po 20:00) lub 5.11 · lądowanie najpóźniej 14.11.2027</p><h2>Loty</h2><p class="lead2">Wyszukiwarka okazji, pełne kombinacje biletów i decyzja o zakupie. Skaner zbiera publiczne promocje co 6 godzin; agent porównuje dostępne źródła o 9:00 i 18:00. Raport dnia ma własną datę odczytu.</p></div></div>' +
-      '<nav class="lnav" aria-label="W sekcji Loty"><span>Na dziś</span><a href="#raport">Raport dnia</a><a href="#wyszukiwarka">Wyszukiwarka okazji</a><a href="#kombinacje">Bilety i stopover</a><a href="#teraz">Stan i terminy</a><a href="#skala">Skala cen</a>' +
-      '<span>Narzędzia</span><a href="#kalk" data-lgo="decyzja">Ceny linii i kalkulator</a><a href="#radar" data-lgo="radar">Radar promocji</a><a href="#kalendarz" data-lgo="plan">Kalendarz zakupu</a><a href="#wyzwalacze" data-lgo="szukaj">Jak szukać</a><a href="#zadania" data-lgo="zadania">Alerty i zadania</a></nav>' +
+    h += band('loty') + '<section class="blk" id="loty" style="background:var(--paper)"><div class="wrap"><div class="sh"><div><p class="eyebrow">Warszawa → Mendoza → Buenos Aires · wylot 4.11 (po 20:00) lub 5.11 · lądowanie najpóźniej 14.11.2027</p><h2>Loty</h2><p class="lead2">Dwie osoby. Jeden chroniony bilet z Warszawy, podręczny i noc w Buenos Aires. Tutaj widać wynik poszukiwań, daty sprawdzeń oraz to, co pozostaje do potwierdzenia.</p></div></div>' +
+      '<nav class="lnav" aria-label="W sekcji Loty"><a href="#wyszukiwarka">Status i następny krok</a><a href="#finder-research">Testy u linii</a><a href="#finder-plan">Szukaj całej trasy</a><a href="#finder-promos">Promocje i fora</a><a href="#kombinacje">Kryteria i oferty</a></nav>' +
       '<div id="wyszukiwarka"><p>Wczytywanie wyszukiwarki okazji…</p></div>' +
-      '<div class="raport" id="raport" hidden></div>' +
+      '<details class="ctx"><summary>Raport rynku i dawne szacunki</summary><div class="raport" id="raport" hidden></div></details>' +
       '<div class="por" id="kombinacje"><p class="eyebrow">Bilety i pobyt w Buenos Aires</p><h3>Jaką kombinację kupić?</h3><p>' + esc(F.monitoring.intro) + '</p><div id="oferty" aria-live="polite"><p>Wczytywanie potwierdzonych ofert…</p></div><details class="ctx"><summary>Kryteria sensownego lotu i stopoveru</summary><ul>' + F.monitoring.kryteria.map(function(x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></details><p class="note">Cała trasa z Warszawy na jednym chronionym bilecie, ze stopoverem. Podręczny wystarczy. <a href="#warianty-lotow" data-lgo="szukaj">Sprawdź wymagania trasy →</a> · <a href="#zrodla-monitoringu" data-lgo="radar">Sprawdź źródła i luki →</a></p></div>' +
-      '<div class="cockpit" id="teraz"><p class="st">Ładowanie stanu…</p></div>' +
-      skala(F.skala) +
+      '<details class="ctx"><summary>Terminy zakupu i skala cen</summary><div class="cockpit" id="teraz"><p class="st">Ładowanie stanu…</p></div>' +
+      skala(F.skala) + '</details>' +
       '<details class="ctx"><summary>Kontekst cenowy z października 2026</summary><p>' + esc(F.intro) + '</p></details>' +
       '<details class="lfull" id="pulpit"><summary>Narzędzia: ceny linii i kalkulator, radar, kalendarz, jak szukać, zadania</summary>' +
       '<div class="ltabs" role="tablist" aria-label="Widoki sekcji Loty">' + LT.map(function (t) { return '<button type="button" role="tab" data-lt="' + t[0] + '" aria-selected="false"><b>' + t[1] + '</b><small>' + t[2] + '</small></button>'; }).join('') + '</div>' +
@@ -1003,7 +1002,7 @@ footer a { color: var(--ink-2); }
           o += '<h4>Trend cen</h4>' + g;
         }
       } else {
-        o += '<div class="empty"><b>Jeszcze bez wyceny kompletnej podróży.</b> ' + (M.raport && M.raport.stan ? esc(M.raport.stan) : 'Linie sprzedają 330–361 dni naprzód: pierwsze ceny w obie strony do Buenos Aires pojawią się ok. 17–19.11.2026, cały bilet do Mendozy ok. 17–18.12.2026.') + ' <a href="#okna">Kalendarz otwarcia sprzedaży</a>. Niżej widełki orientacyjne z października 2026.</div>';
+        o += '<div class="empty"><b>Jeszcze bez wyceny kompletnej podróży.</b> ' + 'Historyczne ceny poniżej mogą dotyczyć innych dat, lotnisk lub osobnych biletów. Nie są aktualną ceną naszej podróży.' + ' <a href="#okna">Kalendarz otwarcia sprzedaży</a>. Niżej widełki orientacyjne z października 2026.</div>';
       }
       var mx = 0; priced.forEach(function (s) { H(s).forEach(function (x) { mx = Math.max(mx, x.cena); }); });
       function row(s, i) { var l = last(s), p = prev(s), h = H(s), mn = h.length ? Math.min.apply(null, h.map(function (x) { return x.cena; })) : null;
@@ -1054,7 +1053,7 @@ footer a { color: var(--ink-2); }
       var skm = document.getElementById('skm'), skn = document.getElementById('skn');
       if (skm) skm.hidden = !best;
       if (skm && best) { var cl = celNow(); skm.hidden = false; skm.style.left = SKP(best.cena).toFixed(2) + '%'; skm.title = nf(best.cena) + '\u00a0zł'; skn.innerHTML = 'Potwierdzona kombinacja z postojem: <b>' + nf(best.cena) + '\u00a0zł / os.</b> (' + esc(bestName) + ', ' + pl2(best.data) + ') – ' + (best.cena <= cl ? 'w celu' : nf(best.cena - cl) + '\u00a0zł do celu ' + nf(cl)) + '.'; }
-      else if (skn && M.raport && M.raport.stan) skn.textContent = nb(M.raport.stan);
+      else if (skn) skn.textContent = 'Brak potwierdzonej ceny całej trasy na listopad. Skala pokazuje nasz budżet, a testy wcześniejszych dat są opisane osobno powyżej.';
       var c = '<div class="ck4">';
       c += '<div class="cc cphase"><span class="cl">Faza teraz</span>' + (faza ? '<b>' + esc(faza.faza) + '</b><small>' + pl2(faza.od) + ' – ' + pl2(faza.do) + '</small><p>' + esc(faza.decyzja) + '</p>' : nextF ? '<b>Przed startem</b><small>do ' + pl2(nextF.od) + ' (za ' + days(td, nextF.od) + ' dni)</small><p>Teraz tylko przygotowania z listy zadań – powrót 13.11.2027 nie jest jeszcze w sprzedaży, więc cen podróży nie ma. Następnie: ' + esc(nextF.faza) + ' (' + pl2(nextF.od) + ').</p>' : '<b>Po zakupie</b>') + '<a href="#kalendarz" data-lgo="plan">kalendarz →</a></div>';
       c += '<div class="cc cprice ' + (best ? kl(best.cena) : 'n') + '"><span class="cl">Potwierdzona kombinacja z postojem</span>' + (best ? '<b>' + nf(best.cena) + '\u00a0zł / os.</b><small>' + esc(bestName) + ' · ' + pl2(best.data) + '</small><p>' + badge(best.cena) + ' ' + (best.cena <= prog ? nf(prog - best.cena) + '\u00a0zł poniżej progu' : nf(best.cena - prog) + '\u00a0zł ponad próg') + '</p>' : '<b>brak potwierdzonej oferty</b><small>Wymagamy kompletu odcinków, 2 miejsc i nocy 12-13.11 w Buenos Aires.</small><p>Cel ' + nf(celNow()) + '\u00a0zł, próg ' + nf(prog) + '\u00a0zł/os. Ofertę spoza monitora sprawdź w kalkulatorze.</p>') + '<a href="#kalk" data-lgo="decyzja">kalkulator i ranking →</a></div>';

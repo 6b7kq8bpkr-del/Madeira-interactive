@@ -1206,7 +1206,7 @@
      "faza": "Otwarcie sprzedaży",
      "co": "Sprawdzić wybieralne daty w formularzach linii oraz pełną trasę WAW-MDZ / MDZ-BUE / BUE-WAW dla 2 osób. Dotychczasowe ceny do Buenos Aires są tylko punktem odniesienia. Brak wyniku Turkish w Kayaku nie potwierdza zamkniętego kalendarza. Orientacyjny termin dostępności odcinków krajowych to połowa grudnia; wymaga weryfikacji. Promocję z innego lotniska wykorzystujemy wyłącznie jako trop do znalezienia jednego chronionego biletu z Warszawy.",
      "automat": "Codzienny raport lotów",
-     "decyzja": "Sprawdzamy pełną podróż dla 2 osób z nocą 12-13.11 w Buenos Aires. Odczyty z 26.11 z dodatkami to szacunki, nie oferta. Kupno rozważamy po potwierdzeniu wszystkich odcinków, bagażu i ochrony u linii: cel 4 500 zł/os., próg 4 800 zł/os.",
+     "decyzja": "Sprawdzamy pełną trasę WAW-MDZ / MDZ-BUE / BUE-WAW u linii. Kalendarz otwarcia jest orientacyjny. Brak potwierdzonej wyceny nie dowodzi braku lotów. Status listopada i wcześniejsze testy są w sekcji Loty; API pozostaje wyłączone.",
      "ton": "sprawdz",
      "szansa": 0.8,
      "kr": "Start"
@@ -2786,7 +2786,7 @@
      false
     ]
    ],
-   "rek": "Celujemy w 4 500 zł; codzienny raport lotów sam da znać. Bilety w obie strony do Buenos Aires są w sprzedaży od 19.11.2026, cały bilet do Mendozy pojawi się ok. 17–18.12.2026.",
+   "rek": "Kupno rozważamy dopiero po potwierdzeniu całej trasy z Warszawy, podręcznego i ochrony. Kalendarz sprzedaży jest prognozą; aktualne wyniki i braki pokazuje sekcja Loty.",
    "wplyw": "9 600 zł na parę przy progu, 9 000 zł przy celu",
    "sekcja": "#skala",
    "wybor": false
