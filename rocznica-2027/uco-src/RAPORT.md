@@ -6,6 +6,8 @@ Raport to blok „Raport lotów” na wierzchu sekcji [Loty](https://6b7kq8bpkr-
 Odpowiada na jedno pytanie: **czy dziś kupujemy bilety, a jeśli nie – co się zmieniło od wczoraj i co dalej.**
 **Od 26.11.2026 obowiązuje profil `waw-jeden-podreczny-v1`: cała trasa z Warszawy na jednym bilecie, podręczny dopuszczony, zakaz API cen. Starych raportów nie przepisywać na nowy profil bez nowego odczytu.**
 
+**Super okazje z kompromisem:** do 8000 zł za parę dopuszczamy ograniczone odstępstwa komfortu według MONITORING.md i `reguly.superOkazje`. Zapisuj pełną ofertę, cenę oraz konkretne odstępstwa. W raporcie wyróżnij ją jako „do rozważenia”, bez werdyktu kupna i bez wpisywania jej ceny do `calosc`. Obecność takiej oferty nie oznacza spełnienia standardowych kryteriów.
+
 Czyta go osoba, która nie śledzi rynku: ma zrozumieć werdykt po pierwszym zdaniu.
 
 Podróż: Warszawa → Mendoza → Buenos Aires → Warszawa, wylot 4.11 po 20:00 albo 5.11.2027, powrót z Buenos Aires 13.11.2027, 2–4 pary.

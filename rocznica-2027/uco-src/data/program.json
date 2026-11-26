@@ -1655,13 +1655,22 @@
     "jedenBilet": true,
     "bagazRejestrowanyKg": 0,
     "kabinowy": true,
-    "profil": "waw-jeden-podreczny-v1"
+    "profil": "waw-jeden-podreczny-v1",
+    "superOkazje": {
+     "enabled": true,
+     "przesiadkaH": 1.75,
+     "buePrzesiadkaH": 2.75,
+     "max_przesiadka_h": 9,
+     "max_podroz_h": 32,
+     "maxOdstepstwa": 2
+    }
    },
    "intro": "Dwie osoby, cała trasa z Warszawy na jednym chronionym bilecie. Stopover w Buenos Aires 12-13.11.2027. Cel 4500 zł/os., próg 4800 zł/os. {regula:bagaz} Wyszukanie ceny nie oznacza rezerwacji.",
    "kryteria": [
     "{regula:profil}",
     "{regula:przesiadki}",
     "{regula:bagaz}",
+    "{regula:super_okazje}",
     "Jedna rezerwacja w portalu nie dowodzi jednego biletu ani ochrony. Wykluczamy self-transfer, Hacker Fare i osobny bilet krajowy.",
     "Potwierdzić hotel, przechowalnię i transfery podczas stopoveru. Nie są automatycznie rezerwowane.",
     "Oferta dla dwóch osób wymaga finalnej ceny u linii i potwierdzenia wszystkich kosztów. Ważność 24 h; ponowna kontrola przed zapłatą."
@@ -2694,7 +2703,8 @@
    "zrodlo": "NBP, tabela 227/A/NBP/2026",
    "baza_kosztow": 3.7,
    "_opis": "USD to jedyne źródło kursu dla budżetu: noclegi i bus (ceny w USD) oraz koszty na miejscu. Kwoty zł w days[].cost, hotels[].budget.jedzenie/wycieczki_bilety i upgrade.opcje[].zl są zapisane po kursie baza_kosztow – build.py przelicza je na USD przy budowaniu; kwoty w opisach to znaczniki w nawiasach klamrowych (lista w build.py)."
-  }
+  },
+  "super_okazja": 4000
  },
  "decyzje": [
   {

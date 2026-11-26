@@ -14,6 +14,14 @@ Wyłącznie pełny chroniony bilet WAW-MDZ / MDZ-BUE / BUE-WAW dla dwóch doros�
 
 Podręczny na każdym odcinku wystarczy. Potwierdź rodzaj, wymiary i masę; rejestrowany jest opcjonalny i nie podnosi automatycznie ceny o ryczałt. Najwyżej 2 przesiadki i 30 h w stronę, przesiadki 2-8 h, w BUE minimum 3 h. Reguły w `loty.monitoring.reguly` są nadrzędne wobec historycznych opisów.
 
+### Super okazje z niewielkim kompromisem
+
+Od 26.11.2026 użytkownik dopuszcza niewielkie odstępstwa przy pełnej cenie **do 8000 zł za parę** (4000 zł/os., `budzet.super_okazja`). Szukaj także takich wariantów; nie odrzucaj ich przed zapisaniem kompletu danych. Nie podnoś tego progu w zwykłym raporcie.
+
+Dopuszczalne granice w `reguly.superOkazje`: przesiadka od 1 h 45 min, w BUE od 2 h 45 min, do 9 h; podróż do 32 h w stronę. Najwyżej dwa odstępstwa łącznie: każda przesiadka poza standardowym zakresem i każdy kierunek ponad 30 h liczą się osobno. Pozostałe reguły pozostają bez zmian: WAW, wszystkie odcinki na jednym chronionym bilecie, 2 dorosłych, podręczny, daty, najwyżej dwie przesiadki, stopover co najmniej 24 h i godziny pobytu BUE. Krótsza przesiadka musi należeć do potwierdzonej u linii chronionej trasy; nie składaj jej z osobnych biletów.
+
+Zapisz kandydata w `loty.json.oferty`. `UcoFlights.rank` wyznacza `compromise` oraz konkretne `deviations`; nie wpisuj tych etykiet ręcznie i nie ustawiaj `ready`. Pokazuj cenę pary, każde odstępstwo i - tylko gdy istnieje porównywalna bieżąca pełna wycena - oszczędność. Wygodniejsza oferta w tej samej lub niższej cenie wyklucza kategorię super okazji z kompromisem. Przy braku ceny porównawczej nazwij tę lukę. Nie porównuj szacunków ani historycznych testów z aktualną ceną. Oferta z kompromisem jest do rozważenia; nie trafia do `raport.calosc` ani do automatycznego werdyktu „kupować”.
+
 **Zakaz API cen od 26.11.2026:** nie wywołuj SerpApi, nie uruchamiaj rzeczywistych testów, nie podnoś limitów i nie włączaj `serpapi.enabled`. Zakaz dotyczy wszystkich dat i nie wygasa po otwarciu listopada. Dozwolone: bezpłatne formularze, portale, RSS i fora. Testy kodu wyłącznie offline z atrapami dostawców.
 
 Minimum dwie rodziny wyszukiwarek, jeśli dostępne; Kayak/Momondo liczą się jako jedna. Obiecujące wyniki potwierdzaj u linii. Brak dostępu lub wyceny zapisuj jako lukę. Na wcześniejsze daty można sprawdzać działanie formularza, lecz nie traktować ceny jako oferty na rocznicę.

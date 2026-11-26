@@ -58,3 +58,9 @@ const sale = {...data[0], kategoria:'Doloty / informacje', tytul:'Iberia Black F
 assert.deepEqual(filterLeads([unrelated,tour,hub,sale],'','','deals',[],[],now).map(x=>x.tytul),[hub.tytul,sale.tytul]);
 assert.equal(filterLeads([unrelated,tour],'','','all',[],[],now).length,2);
 console.log('Promocje: właściwe kierunki i linie, bez wycieczek ani obcych tras - OK');
+const flexOffer=fixture(4000); flexOffer.odcinki[5].wylot='2027-11-14T13:45+01:00';
+const flexBoard=overview({oferty:[flexOffer]},rules,budget,rank,Date.now());
+assert.equal(flexBoard.best,null,'Kompromis nie staje się ofertą spełniającą wszystkie kryteria');
+assert.equal(flexBoard.compromise.cena,4000);
+assert.equal(overview({oferty:[flexOffer]},rules,budget,rank,Date.now()+25*36e5).compromise,null);
+console.log('Panel rozróżnia super okazję z kompromisem - OK');

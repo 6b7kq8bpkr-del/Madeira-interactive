@@ -65,6 +65,33 @@
     return {id:o.id, offer:o, cena:total, stopHours, duration, separate, reasons:[...new Set(reasons)], warn, ready:reasons.length===0};
   }
 
+  // Only comfort limits may change. Dates, protection, baggage and stopover stay strict.
+  function flexibility(rules, budget) {
+    const f = rules.superOkazje;
+    const keys = ['przesiadkaH', 'buePrzesiadkaH', 'max_przesiadka_h', 'max_podroz_h'];
+    if (!f || f.enabled !== true || !finite(budget.super_okazja) || budget.super_okazja <= 0 ||
+        !Number.isInteger(f.maxOdstepstwa) || f.maxOdstepstwa < 1 || keys.some(k => !finite(f[k]) || f[k] <= 0)) return null;
+    const relaxed = {...rules};
+    keys.forEach(k => { relaxed[k] = f[k]; });
+    return relaxed;
+  }
+  function comfortDeviations(o, rules, result) {
+    const minutes = h => { const m = Math.round(h * 60); return Math.floor(m / 60) + ' h' + (m % 60 ? ' ' + m % 60 + ' min' : ''); };
+    const deviations = [], legs = o.odcinki;
+    const mdz = legs.findIndex(l => l.do === 'MDZ');
+    const domestic = legs.findIndex((l,i) => i > mdz && l.z === 'MDZ' && BUE(l.do));
+    result.duration.forEach((h,i) => {
+      if (h > rules.max_podroz_h) deviations.push((i ? 'Powrót' : 'Lot do Mendozy') + ': ' + minutes(h) + ' podróży (zwykle do ' + rules.max_podroz_h + ' h).');
+    });
+    for (let i=1; i<legs.length; i++) {
+      if (i === mdz + 1 || i === domestic + 1) continue;
+      const a = legs[i-1], b = legs[i], gap = hours(a.przylot,b.wylot);
+      const minimum = BUE(a.do) ? rules.buePrzesiadkaH : rules.przesiadkaH;
+      if (gap < minimum || gap > rules.max_przesiadka_h) deviations.push('Przesiadka w ' + a.do + ': ' + minutes(gap) + ' (zwykle ' + minimum + '-' + rules.max_przesiadka_h + ' h).');
+    }
+    return deviations;
+  }
+
   function rank(offers, rules, budget, now=Date.now()) {
     const results = (Array.isArray(offers)?offers:[]).map(o => assess(o, rules, now));
     const protectedOffers = results.filter(r => r.ready && !r.separate);
@@ -77,16 +104,33 @@
         r.ready=false;
       }
     });
-    return results.sort((a,b) => Number(b.ready)-Number(a.ready) || (a.cena??Infinity)-(b.cena??Infinity));
+    const relaxedRules = flexibility(rules, budget);
+    results.forEach(r => {
+      r.compromise = false; r.deviations = []; r.savingVsStandard = null;
+      if (!relaxedRules || r.ready || !(r.cena > 0 && r.cena <= budget.super_okazja)) return;
+      const relaxed = assess(r.offer, relaxedRules, now);
+      if (!relaxed.ready || relaxed.separate) return;
+      const deviations = comfortDeviations(r.offer, rules, relaxed);
+      if (!deviations.length || deviations.length > rules.superOkazje.maxOdstepstwa) return;
+      const reference = protectedOffers.length ? Math.min(...protectedOffers.map(p => p.cena)) : null;
+      // A more comfortable ticket at the same or a lower price dominates this candidate.
+      if (reference !== null && reference <= r.cena) return;
+      r.compromise = true;
+      r.deviations = deviations;
+      r.savingVsStandard = reference === null ? null : reference - r.cena;
+    });
+    const priority = r => r.ready ? 2 : r.compromise ? 1 : 0;
+    return results.sort((a,b) => priority(b)-priority(a) || (a.cena??Infinity)-(b.cena??Infinity));
   }
   function reportState(monitor, rules, budget, now=Date.now()) {
     const report = monitor.raport || {}, today = new Intl.DateTimeFormat('en-CA', {timeZone:'Europe/Warsaw', year:'numeric', month:'2-digit', day:'2-digit'}).format(new Date(now));
     const age = /^\d{4}-\d{2}-\d{2}$/.test(report.data || '') ? (Date.parse(today) - Date.parse(report.data)) / 864e5 : NaN;
     const compatible = report.profil === rules.profil;
     const current = compatible && Number.isFinite(age) && age >= 0 && age <= 1;
-    const best = rank(monitor.oferty, rules, budget, now).find(x => x.ready);
-    return {current, best, headline: best ? (best.cena <= budget.prog ? 'Jest aktualna kompletna oferta w progu. Sprawdź cenę przed zakupem.' : 'Aktualna kompletna oferta jest powyżej progu zakupu.') : current ? 'Brak aktualnej, kompletnej oferty spełniającej wymagania.' : 'Raport nieaktualny. Sprawdź aktualne oferty przed decyzją.',
-      detail: (report.data ? 'Raport z ' + report.data + '. ' : 'Brak daty raportu. ') + (!compatible ? 'Raport dotyczy wcześniejszych wymagań podróży. ' : current ? '' : 'Dane historyczne - wymagają odświeżenia. ') + (report.stan || '')};
+    const ranked = rank(monitor.oferty, rules, budget, now);
+    const best = ranked.find(x => x.ready), compromise = ranked.find(x => x.compromise);
+    return {current, best, compromise, headline: best ? (best.cena <= budget.prog ? 'Jest aktualna kompletna oferta w progu. Sprawdź cenę przed zakupem.' : 'Aktualna kompletna oferta jest powyżej progu zakupu.') : compromise ? 'Jest super okazja z kompromisem. Sprawdź odstępstwa w pełnym planie.' : current ? 'Brak aktualnej, kompletnej oferty spełniającej wymagania.' : 'Raport nieaktualny. Sprawdź aktualne oferty przed decyzją.',
+      detail: (report.data ? 'Raport z ' + report.data + '. ' : 'Brak daty raportu. ') + (!compatible ? 'Raport dotyczy wcześniejszych wymagań podróży. ' : current ? '' : 'Dane historyczne - wymagają odświeżenia. ') + (report.stan || '') + (compromise ? ' Super okazja: ' + (compromise.cena * 2).toLocaleString('pl-PL') + ' zł za parę. ' + compromise.deviations.join(' ') : '')};
   }
   const api = {assess, rank, reportState};
   if (typeof module !== 'undefined' && module.exports) module.exports=api;

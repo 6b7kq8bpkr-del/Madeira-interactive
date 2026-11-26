@@ -446,6 +446,26 @@ async function withLoty(mutate, hash, fn) {
   await pg.close();
 }
 
+// Kompromis widoczny, opisany i niewykorzystywany jako standardowa rekomendacja zakupu.
+{
+  const { pg, errs } = await withLoty(M => {
+    const flex=flightFixture(4000); flex.odcinki[5].wylot='2027-11-14T13:45+01:00'; M.oferty=[flex];
+  }, '#wyszukiwarka', async () => {});
+  await pg.getByText('Super okazja z kompromisem na listopad',{exact:true}).waitFor();
+  const board=(await pg.locator('#finder-overview').innerText()).replace(/\s+/g,' ');
+  if (!/8000 zł|8 000 zł/.test(board) || !board.includes('MAD: 1 h 45 min') || !board.includes('Brak aktualnej oferty bez odstępstw')) fail('super okazja','brak kwoty, konkretnego kompromisu lub uczciwego porównania');
+  if (!(await pg.locator('#oferty').innerText()).replace(/\s+/g,' ').includes('Jest super okazja z kompromisem') || await pg.evaluate(()=>window.__bestSingle!==null || !document.getElementById('skm').hidden)) fail('super okazja','kompromis przedstawiono jako ofertę bez odstępstw');
+  if (await pg.locator('#finder-overview details').getAttribute('open') === null) await pg.locator('#finder-overview details > summary').click();
+  if (!(await pg.locator('#finder-overview details').innerText()).replace(/\s+/g,' ').includes('2 niewielkie odstępstwa')) fail('super okazja','brak jasnej polityki');
+  await pg.locator('#finder-overview > a').click();
+  await pg.evaluate(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>{window.__flexCopied=text;}}}));
+  await pg.locator('#finder-routes button').first().click();
+  const copied=(await pg.evaluate(()=>window.__flexCopied) || '').replace(/\s+/g,' ');
+  if (!/8[ \u00a0]000/.test(copied) || !copied.includes('1 h 45 min') || !copied.includes('jeden chroniony bilet')) fail('super okazja','kopiowany plan nie zawiera kryteriów');
+  if(errs.length) fail('super okazja',errs[0]);
+  await pg.close();
+}
+
 // karta wyjazdu na górze i skrócona galeria
 {
   const { pg, log } = await open(1300, 'light');

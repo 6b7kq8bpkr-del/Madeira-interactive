@@ -18,10 +18,10 @@
       new RegExp('(?:a|to)\\s+' + europe + '\\b.{0,120}?(?:desde|from)\\s+' + origin).test(title);
   }
   function overview(monitor, rules, budget, rank, now = Date.now()) {
-    if (!monitor || !Array.isArray(monitor.oferty)) return {available:false, ready:[], best:null, candidates:0};
+    if (!monitor || !Array.isArray(monitor.oferty)) return {available:false, ready:[], best:null, compromise:null, candidates:0};
     const results = rank(monitor?.oferty, rules, budget, now);
     const ready = results.filter(x => x.ready);
-    return {available:true, ready, best:ready[0] || null, candidates:results.length};
+    return {available:true, ready, best:ready[0] || null, compromise:results.find(x=>x.compromise) || null, candidates:results.length};
   }
   function searchPlan(rules) {
     return [...new Set([rules.wylot, rules.wylotAlternatywny])].filter(Boolean).map(day => {
@@ -96,16 +96,24 @@
     function dashboard() {
       const box = $('overview'); box.replaceChildren();
       const summary = overview(monitorState, rules, program.budzet, root.UcoFlights.rank);
-      const b = summary.best;
-      box.append(el('p', 'STATUS LISTOPADA', 'eyebrow'), el('h4', !summary.available ? 'Nie udało się odczytać ofert na listopad' : b ? 'Jest kompletna oferta na listopad' : 'Brak potwierdzonej oferty na listopad'));
-      box.append(el('p', !summary.available ? 'Stan ofert jest nieznany. Odśwież wyniki lub sprawdź formularz linii.' : b ? 'Spełnia zapisane kryteria trasy, bagażu i ochrony. Przed zakupem sprawdź ponownie dostępność.' : 'Nie mamy jeszcze aktualnej ceny całej trasy spełniającej wszystkie wymagania. To nie oznacza, że takich biletów nie ma.'));
+      const b = summary.best, c = summary.compromise;
+      box.append(el('p', 'STATUS LISTOPADA', 'eyebrow'), el('h4', !summary.available ? 'Nie udało się odczytać ofert na listopad' : b ? 'Jest kompletna oferta na listopad' : c ? 'Super okazja z kompromisem na listopad' : 'Brak potwierdzonej oferty na listopad'));
+      box.append(el('p', !summary.available ? 'Stan ofert jest nieznany. Odśwież wyniki lub sprawdź formularz linii.' : b ? 'Spełnia zapisane kryteria trasy, bagażu i ochrony. Przed zakupem sprawdź ponownie dostępność.' : c ? 'Cena, trasa, bagaż i ochrona są potwierdzone. Ten wariant wymaga niewielkiego kompromisu w komforcie podróży - szczegóły poniżej.' : 'Nie mamy jeszcze aktualnej ceny całej trasy spełniającej wszystkie wymagania. To nie oznacza, że takich biletów nie ma.'));
       const stats = el('dl', null, 'finder-stats');
-      const values = [['Cena całej trasy dla pary', b ? money(b.cena * 2) + ' zł' : 'Niepotwierdzona'], ['Cel dla pary', money(program.budzet.cel * 2) + ' zł'], ['Próg zakupu dla pary', money(program.budzet.prog * 2) + ' zł']];
+      const values = [[c && !b ? 'Cena z kompromisem dla pary' : 'Cena całej trasy dla pary', b || c ? money((b || c).cena * 2) + ' zł' : 'Niepotwierdzona'], ['Cel dla pary', money(program.budzet.cel * 2) + ' zł'], ['Próg zakupu dla pary', money(program.budzet.prog * 2) + ' zł']];
       values.forEach(([title,value]) => { const group = el('div'); group.append(el('dt',title),el('dd',value)); stats.append(group); });
       box.append(stats);
       if (b) box.append(el('p', 'Sprawdzono: ' + date(b.offer.sprawdzono) + '. ' + (b.cena <= program.budzet.prog ? 'Cena mieści się w progu.' : 'Cena przekracza próg zakupu.'), 'finder-note'), link('Otwórz ofertę u linii ↗', b.offer.url));
-      else if (summary.candidates) box.append(el('p', 'Zapisane wyceny do sprawdzenia: ' + summary.candidates + '. Żadna nie spełnia obecnie wszystkich kryteriów.', 'finder-note'));
-      box.append(el('p', 'Wylot 4.11 po 20:00 lub 5.11 → Mendoza 6.11. Buenos 12-13.11, powrót do Warszawy najpóźniej 14.11. Maks. 2 przesiadki i 30 h w stronę; zwykłe przesiadki 2-8 h, w Buenos min. 3 h.', 'finder-note'));
+      else if (summary.candidates && !c) box.append(el('p', 'Zapisane wyceny do sprawdzenia: ' + summary.candidates + '. Żadna nie spełnia obecnie wszystkich kryteriów.', 'finder-note'));
+      box.append(el('p', 'Wylot 4.11 po 20:00 lub 5.11 → Mendoza 6.11. Buenos 12-13.11, powrót do Warszawy najpóźniej 14.11. Standardowo maks. 2 przesiadki i 30 h w stronę; zwykłe przesiadki 2-8 h, w Buenos min. 3 h.', 'finder-note'));
+      if (c) {
+        const option = el('div', null, 'finder-route');
+        option.append(el('h4', 'Super okazja z kompromisem: ' + money(c.cena * 2) + ' zł / 2 osoby'));
+        option.append(el('p', 'Sprawdzono: ' + date(c.offer.sprawdzono) + '. ' + (c.savingVsStandard !== null ? 'Oszczędność wobec aktualnej oferty bez odstępstw: ' + money(c.savingVsStandard * 2) + ' zł za parę.' : 'Brak aktualnej oferty bez odstępstw do porównania oszczędności.'), 'finder-note'));
+        const list = el('ul'); c.deviations.forEach(t => list.append(el('li',t))); option.append(list);
+        option.append(el('p', 'Do rozważenia po ocenie tych kompromisów i ponownej kontroli ceny.', 'finder-warning'), link('Sprawdź tę ofertę u linii ↗', c.offer.url)); box.append(option);
+      }
+      const flex = el('details'); flex.append(el('summary', 'Przy super okazji dopuszczamy mały kompromis'), el('p', program.zasady_podrozy.super_okazje, 'finder-note')); box.append(flex);
       const next = el('a', 'Sprawdź pełną trasę u linii →'); next.href = '#finder-plan'; box.append(next);
       box.append(el('p', 'Automatycznie zbieramy publikacje o promocjach. Cena i dostępność całej trasy wymagają sprawdzenia w formularzu linii. API cen pozostaje wyłączone.', 'finder-note'));
     }
@@ -146,7 +154,7 @@
         const copy = el('button', 'Skopiuj plan wyszukiwania'); copy.type = 'button';
         const copyStatus = el('span', '', 'finder-note'); copyStatus.setAttribute('role', 'status');
         copy.addEventListener('click', async () => {
-          const value = program.zasady_podrozy.profil + '\n' + program.zasady_podrozy.bagaz + '\n' + program.zasady_podrozy.przesiadki + '\n' + q.odcinki.map(l => l.z + ' → ' + l.do + ', ' + l.data).join('\n');
+          const value = program.zasady_podrozy.profil + '\n' + program.zasady_podrozy.bagaz + '\n' + program.zasady_podrozy.przesiadki + '\n' + program.zasady_podrozy.super_okazje + '\n' + q.odcinki.map(l => l.z + ' → ' + l.do + ', ' + l.data).join('\n');
           try { await navigator.clipboard.writeText(value); copyStatus.textContent = 'Plan skopiowany. Wklej odcinki w formularzu linii lub porównywarki.'; }
           catch (_) { copyStatus.textContent = 'Nie udało się skopiować. Odcinki i daty znajdziesz powyżej.'; }
         });
@@ -192,7 +200,7 @@
       const box = $('quotes'); box.replaceChildren();
       const ranked = root.UcoFlights ? root.UcoFlights.rank(monitor?.oferty, rules, program.budzet) : [];
       const ready = ranked.filter(q => q.ready);
-      box.append(el('p', ready.length ? ready.length + ' ofert spełnia pełne kryteria. Szczegóły i cena na osobę poniżej w panelu „Jaką kombinację kupić?”.' : 'Brak kompletnej, potwierdzonej u linii oferty. Niczego nie rezerwujemy.'));
+      box.append(el('p', ready.length ? ready.length + ' ofert spełnia pełne kryteria. Szczegóły i cena na osobę poniżej w panelu „Jaką kombinację kupić?”.' : ranked.some(q=>q.compromise) ? 'Jest super okazja z kompromisem - sprawdź ją w statusie listopada powyżej.' : 'Brak kompletnej, potwierdzonej u linii oferty. Niczego nie rezerwujemy.'));
       const all = (state?.wyceny || []).filter(q => q && safeURL(q.url));
       if (!all.length) box.append(el('p', (state?.ceny || {}).status === 'wymaga podłączenia'
         ? 'Automatyczne ceny są niedostępne. Otwórz pełną trasę w bezpłatnym formularzu linii.'

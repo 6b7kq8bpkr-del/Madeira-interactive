@@ -2,6 +2,8 @@
 
 Od decyzji użytkownika 26.11.2026 wyszukujemy wyłącznie pełną trasę z Warszawy na jednym chronionym bilecie, ze stopoverem w Buenos Aires. Podręczny wystarczy. Daty, bufory i pozostałe warunki: [MONITORING.md](MONITORING.md) oraz `data/program.json` -> `loty.monitoring.reguly`.
 
+Przy pełnej cenie do 8000 zł za parę uwzględniaj również „super okazje z kompromisem” zgodnie z [MONITORING.md](MONITORING.md): do dwóch niewielkich odstępstw w czasie przesiadek lub długości podróży. Warszawa, jeden chroniony bilet, podręczny, daty i pobyt w Buenos pozostają wymagane. Plan kopiowany ze strony zawiera obie warstwy kryteriów. Przed odrzuceniem taniej trasy za sam czas sprawdź reguły wyjątków; nie obchodź zakazu API.
+
 ## Ochrona limitu
 
 `data/wyszukiwarka.json` zawiera `serpapi.enabled: false`. Brak tego pola także blokuje dostawcę. Blokada obejmuje zwykłe skany i ręczne testy, nawet gdy klucz istnieje i kalendarz jest dostępny. Workflow nie przekazuje klucza, uruchamia `--no-prices` i nie udostępnia testu cen. Nie zmieniaj tych ustawień bez nowej decyzji użytkownika. Otwarcie listopadowych dat nie znosi zakazu.

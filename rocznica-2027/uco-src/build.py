@@ -26,6 +26,11 @@ P['apiCenWlaczone'] = json.load(open('data/wyszukiwarka.json'))['serpapi'].get('
 P['zasady_podrozy']['przesiadki'] = f"Jeden chroniony bilet na całą trasę z Warszawy. Najwyżej {R['max_przesiadki']} przesiadki w stronę, do {R['max_podroz_h']} h podróży. Przesiadki {R['przesiadkaH']}-{R['max_przesiadka_h']} h, w Buenos Aires minimum {R['buePrzesiadkaH']} h. Zmiana AEP/EZE wyłącznie podczas stopoveru, nigdy przy krótkiej przesiadce. To nasze bufory komfortu; warunki ochrony potwierdza linia."
 P['zasady_podrozy']['bagaz'] = 'Wystarczy bagaż podręczny dla każdej osoby na każdym odcinku; potwierdzić w cenie limit, wymiary i masę. Rejestrowany jest opcjonalny, z osobną wyceną dopłaty.'
 P['zasady_podrozy']['profil'] = f"WAW-MDZ / MDZ-BUE / BUE-WAW, 2 osoby dorosłe, klasa ekonomiczna, jeden chroniony bilet. Wylot {R['wylot']} lub {R['wylotAlternatywny']} po 20:00; przylot MDZ {R['mendoza']}. Stopover BUE {R['buenosOd']} do {R['buenosDo']}, minimum {R['stop_min_h']} h, przylot do {R['buenosPrzylotMax']}:59, wylot od {R['buenosWylotMin']}:00. Powrót WAW najpóźniej {R['powrot']}."
+FLEX = R.get('superOkazje', {})
+def hm(h):
+    m = round(h * 60)
+    return f"{m // 60} h" + (f" {m % 60} min" if m % 60 else '')
+P['zasady_podrozy']['super_okazje'] = (f"Super okazje do {zl(2 * P['budzet']['super_okazja'])} zł za parę: najwyżej {FLEX['maxOdstepstwa']} niewielkie odstępstwa łącznie. Przesiadki od {hm(FLEX['przesiadkaH'])} (w Buenos od {hm(FLEX['buePrzesiadkaH'])}) do {hm(FLEX['max_przesiadka_h'])}; podróż do {hm(FLEX['max_podroz_h'])} w stronę. Warszawa, jeden chroniony bilet, daty, podręczny i minimum {R['stop_min_h']} h w Buenos pozostają wymagane. Każdy kompromis pokazujemy osobno, do rozważenia przed zakupem." if FLEX.get('enabled') else 'Niewielkie odstępstwa od kryteriów nie są obecnie włączone.')
 for option in P['grupa']['loty_scen']['opcje']:
     price = option[2] / 2
     option[1] = zl(price) + '/os.' + (' · cel' if price == P['budzet']['cel'] else ' · próg' if price == P['budzet']['prog'] else '')
