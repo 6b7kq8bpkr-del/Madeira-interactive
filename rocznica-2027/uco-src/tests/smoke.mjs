@@ -512,6 +512,9 @@ async function withLoty(mutate, hash, fn) {
   if(await pg.locator('#finder-checks .finder-check').count()!==loty.kontrolaListopada.linie.length || await pg.locator('#finder-shortlist .finder-offer').count()) fail('kontrola linii','braki wyników pomylono z ofertami');
   await pg.locator('#finder-checks summary').first().click();
   if(!await pg.locator('#finder-checks details a').first().isVisible()) fail('kontrola linii','szczegóły odczytu nie otwierają się');
+  await pg.getByRole('button',{name:'Wcześniejsze testy',exact:true}).click();
+  await pg.locator('#finder-overview a[href="#finder-shortlist"]').click();
+  if(!await pg.locator('#finder-checks').isVisible() || await pg.getByRole('button',{name:'Listopad 2027',exact:true}).getAttribute('aria-pressed')!=='true') fail('pulpit','główny przycisk nie otwiera aktualnych wyników');
   await pg.locator('#finder-promos > summary').click();
   await pg.locator('#finder-leads li').first().waitFor();
   if(await pg.locator('#finder-leads img').count()) fail('wyszukiwarka','HTML źródła został wykonany');
