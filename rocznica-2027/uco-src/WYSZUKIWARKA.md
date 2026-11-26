@@ -38,7 +38,7 @@ Klucz został podłączony 26.11.2026. Tego dnia Google Flights jawnie odrzucał
 
 Istniejący agent o 9:00 i 18:00 sprawdza granicę w bezpłatnym formularzu Google Flights. Po rzeczywistym potwierdzeniu dostępności późniejszych dat aktualizuje wyłącznie `kalendarzPotwierdzonyDo` oraz `kalendarzSprawdzono` w konfiguracji. Nie wolno przesuwać granicy na podstawie przypuszczenia, liczby dni wyprzedzenia ani pustego wyniku API. RSS, portale i fora działają podczas blokady.
 
-Ręczny workflow z opcją `price_test` uruchamia ten sam adapter i parser dla WAW-MDZ 5.03.2027, MDZ-BUE 12.03 oraz BUE-WAW 13.03. Opcja `test_route=domestic` sprawdza tylko MDZ-BUE 12.03 jednym wywołaniem; `trip` sprawdza całą trasę maksymalnie trzema. Oba tryby mieszczą się we wspólnym limicie dziennym i miesięcznym. Buenos Aires jest przekazywane do API jako lista lotnisk `AEP,EZE`, zgodnie z dokumentowanym formatem dostawcy. Test nie uruchamia się z harmonogramu ani przy publikacji kodu. Wynik trafia wyłącznie do osobnego artefaktu `test-cen-marzec-2027` (7 dni) i logu, bez sekretów i tokenów, nigdy do `wyceny` listopadowego monitora. Nieudana próba ma końcowy status błędu. Po teście zwykły skan publikuje aktualny licznik i stan blokady.
+Ręczny workflow z opcją `price_test` uruchamia ten sam adapter i parser dla WAW-MDZ 5.03.2027, MDZ-BUE 12.03 oraz BUE-WAW 13.03. Opcja `test_route=domestic` sprawdza tylko MDZ-BUE 12.03 jednym wywołaniem; `trip` sprawdza całą trasę maksymalnie trzema. Domyślnie oba tryby mieszczą się we wspólnym limicie dziennym i miesięcznym. Ręczny parametr `test_extra_budget=2` zwiększa wyłącznie limit dzienny testu o dwa; nie zeruje licznika, nie zwiększa miesięcznego limitu ani budżetu zwykłego skanu. Buenos Aires jest przekazywane do API jako lista lotnisk `AEP,EZE`, zgodnie z dokumentowanym formatem dostawcy. Test nie uruchamia się z harmonogramu ani przy publikacji kodu. Wynik trafia wyłącznie do osobnego artefaktu `test-cen-marzec-2027` (7 dni) i logu, bez sekretów i tokenów, nigdy do `wyceny` listopadowego monitora. Nieudana próba ma końcowy status błędu. Po teście zwykły skan publikuje aktualny licznik i stan blokady.
 
 ## Utrzymanie
 
@@ -53,3 +53,5 @@ node tests/smoke.mjs
 ```
 
 Nie zapisuj prawdziwych wyników jako fikcyjnych ofert testowych. Testy używają wyłącznie syntetycznych odpowiedzi i odcinają wywołania API. Po aktywacji konta potrzebny jest osobny test jednej rzeczywistej trasy. Ceny historyczne i aktualne odczyty muszą zachować oryginalne daty.
+
+Kontrola 26.11.2026: JA3071 MDZ-AEP 12.03.2027 dla dwóch dorosłych kosztował w Google 514 PLN bez bagażu kabinowego, 725 PLN z jednym i 1023 PLN z dwoma. API przy `bags=2` zwróciło 725 PLN. Sam filtr nie dowodzi uwzględnienia bagażu; wyniki są jawnie oznaczane jako wymagające jego potwierdzenia. Wycena stopoveru wymaga wyboru wszystkich trzech części, pokazuje czas postoju w strefie Buenos Aires i odrzuca zbyt krótkie lub długie przesiadki z odpowiedzi dostawcy.

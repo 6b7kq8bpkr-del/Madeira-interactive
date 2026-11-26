@@ -119,6 +119,8 @@ class Tests(unittest.TestCase):
         self.assertEqual(result['cenaWyniku'],8500)
         self.assertEqual(calls[2]['departure_token'],'second')
         self.assertEqual(len(result['trasy']),3)
+        self.assertEqual(result['stopoverGodziny'],30)
+        self.assertFalse(result['bagazPotwierdzony'])
         self.assertFalse(result['kompletPodrozy'])
         self.assertFalse(result['potwierdzonaULinii'])
 
@@ -224,6 +226,30 @@ class Tests(unittest.TestCase):
             self.assertEqual(result['status'],'pobrano cenę')
             self.assertEqual(result['zapytaniaTestu'],1)
             self.assertEqual(result['wycena']['cenaWyniku'],550)
+
+    def test_manual_budget_preserves_monthly_cap_and_consumption(self):
+        class Fake:
+            def __init__(self,key,quota,checkpoint): self.quota,self.checkpoint=quota,checkpoint
+            def search(self,p):
+                self.quota.charge(); self.checkpoint()
+                return response('MDZ','AEP','2027-03-12',550)
+        old={'limity':dict(finder.Quota({},CONFIG['serpapi'],NOW).state,dzienZapytania=7,miesiacZapytania=209)}
+        with tempfile.TemporaryDirectory() as d:
+            result=finder.test_prices(Path(d)/'test.json',CONFIG,PROGRAM,old,'FAKE',NOW,Path(d)/'quota.json',Fake,route='domestic',extra_budget=2)
+            self.assertEqual(result['status'],'pobrano cenę')
+            self.assertEqual(result['limity']['dzienZapytania'],8)
+            self.assertEqual(result['limity']['miesiacZapytania'],210)
+            blocked=finder.test_prices(Path(d)/'test.json',CONFIG,PROGRAM,result,'FAKE',NOW,Path(d)/'quota.json',lambda *a:self.fail('Monthly limit'),route='domestic',extra_budget=2)
+            self.assertEqual(blocked['zapytaniaTestu'],0)
+            self.assertEqual(blocked['status'],'błąd')
+
+    def test_connections_must_fit_travel_rules(self):
+        rules=PROGRAM['loty']['monitoring']['reguly']
+        q=finder.build_plan(PROGRAM)[0]
+        x=response('WAW','MDZ','2027-11-05',8000)['best_flights'][0]
+        for minutes,accepted in [(70,False),(175,True),(560,False)]:
+            x['layovers']=[{'id':'GRU','duration':minutes}]
+            self.assertEqual(finder.usable(x,q['odcinki'][0],rules),accepted)
 
     def test_stop_after_search_deadline(self):
         with tempfile.TemporaryDirectory() as d:

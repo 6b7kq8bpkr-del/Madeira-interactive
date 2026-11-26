@@ -317,6 +317,13 @@ def usable(choice, expected, rules):
             return False
         if expected['do'] == 'WAW' and end.date().isoformat() > rules['powrot']:
             return False
+        for connection in choice.get('layovers', []):
+            minimum = rules['buePrzesiadkaH'] if connection.get('id') in ('AEP', 'EZE') else rules['przesiadkaH']
+            minutes = connection.get('duration')
+            if not isinstance(minutes, (int, float)) or not minimum * 60 <= minutes <= rules['max_przesiadka_h'] * 60:
+                return False
+        if any(a['arrival_airport']['id'] != b['departure_airport']['id'] for a, b in zip(legs, legs[1:])):
+            return False
         duration = choice.get('total_duration')
         if isinstance(duration, (int,float)) and duration > rules['max_podroz_h'] * 60:
             return False
@@ -342,7 +349,7 @@ def quote(query, rules, client, now):
         # jest ograniczeniem limitu API, nie dowodem najniższej ceny rynku.
         available = [c for c in available if usable(c, expected, rules)]
         if not available:
-            raise ProviderError('brak dopasowanych wyników; nie potwierdza to zamkniętej sprzedaży ani wyprzedania')
+            raise ProviderError(f'część {index + 1}/{len(query["odcinki"])}: {len(choices(response))} wyników źródła, żaden nie spełnia reguł; nie oznacza to wyprzedania')
         last = available[0]
         selected.append(route_from(last))
         if index < len(query['odcinki']) - 1:
@@ -350,11 +357,21 @@ def quote(query, rules, client, now):
             if not token:
                 raise ProviderError('brak danych do wyboru kolejnego odcinka; wycena niekompletna')
             params['departure_token'] = token
+    stopover = None
+    if query['scenariusz'] == 'stopover':
+        zone = ZoneInfo('America/Argentina/Buenos_Aires')
+        arrival = dt.datetime.fromisoformat(selected[1][-1]['przylotLokalny']).replace(tzinfo=zone)
+        departure = dt.datetime.fromisoformat(selected[2][0]['wylotLokalny']).replace(tzinfo=zone)
+        stopover = round((departure - arrival).total_seconds() / 3600, 2)
+        if stopover < rules['stop_min_h']:
+            raise ProviderError('postój w Buenos Aires jest za krótki')
     return {'id': ident(query['id'] + json.dumps(selected, sort_keys=True)), 'zapytanie': query['id'],
             'nazwa': query['nazwa'], 'scenariusz': query['scenariusz'], 'sprawdzono': now.isoformat(),
             'dorosli': 2, 'waluta': 'PLN', 'cenaWyniku': last['price'], 'zakresCeny': 'wynik wyszukiwania dla 2 dorosłych; jednostka do kontroli w formularzu',
+            'stopoverGodziny': stopover, 'bagazPotwierdzony': False,
+            'bagaz': 'Filtr dwóch bagaży kabinowych wysłany; API nie potwierdza ich uwzględnienia w cenie. Wymagana kontrola obu bagaży i 23 kg na osobę.',
             'trasy': selected, 'url': url, 'status': 'do potwierdzenia', 'braki': query['braki'] +
-            ['finalna cena u linii dla dwóch osób', 'dokładne strefy czasowe i bufory', '23 kg na osobę i warunki ochrony'],
+            ['finalna cena u linii dla dwóch osób', 'dwa bagaże kabinowe w cenie', 'dokładne strefy czasowe i bufory', '23 kg na osobę i warunki ochrony'],
             'kompletPodrozy': False, 'potwierdzonaULinii': False}
 
 
@@ -369,7 +386,7 @@ def calendar_allows(query, config):
         return False
 
 
-def test_prices(output, config, program, previous, key, now, state_path, client_factory=SerpApi, route='trip'):
+def test_prices(output, config, program, previous, key, now, state_path, client_factory=SerpApi, route='trip', extra_budget=0):
     """Ręczny test tego samego adaptera; oddzielny plik, maks. trzy wywołania.
     Wyniki nigdy nie trafiają do listopadowych wycen ani raportu zakupu.
     """
@@ -385,10 +402,13 @@ def test_prices(output, config, program, previous, key, now, state_path, client_
     query['id'] = 'test-marzec-2027-' + route
     query['nazwa'] = 'TEST połączenia - marzec 2027, nie oferta na rocznicę'
     cost = len(query['odcinki'])
-    limits = dict(config['serpapi'], limitPrzebieg=cost)
+    if extra_budget not in (0, 2):
+        raise ValueError('Dodatkowy budżet testowy: 0 lub 2.')
+    limits = dict(config['serpapi'], limitPrzebieg=cost,
+                  limitDzien=config['serpapi']['limitDzien'] + extra_budget)
     quota = Quota(previous.get('limity', {}), limits, now)
     result = {'test': True, 'sprawdzono': now.isoformat(), 'odcinki': query['odcinki'],
-              'status': 'błąd', 'limity': quota.state,
+              'status': 'błąd', 'limity': quota.state, 'dodatkowyBudzetTestu': extra_budget,
               'uwaga': 'Rzeczywista cena dla wcześniejszych dat. Nie dotyczy wyjazdu w listopadzie.'}
 
     def checkpoint():
@@ -491,6 +511,7 @@ def main():
     ap.add_argument('--no-prices', action='store_true')
     ap.add_argument('--test-prices', action='store_true', help='Ręczny test 5-13.03.2027; wynik oddzielnie od ofert listopadowych.')
     ap.add_argument('--test-route', choices=['trip', 'domestic'], default='trip')
+    ap.add_argument('--test-extra-budget', type=int, choices=[0, 2], default=0)
     args = ap.parse_args()
     config, program = read(SRC / 'data/wyszukiwarka.json'), read(SRC / 'data/program.json')
     previous = read(args.output, {})
@@ -512,7 +533,7 @@ def main():
         if not args.state or args.no_prices:
             ap.error('Test wymaga --state i nie może używać --no-prices.')
         result = test_prices(args.state.parent / 'price-test.json', config, program, previous,
-                             os.environ.get('SERPAPI_API_KEY'), dt.datetime.now(WARSAW), args.state, route=args.test_route)
+                             os.environ.get('SERPAPI_API_KEY'), dt.datetime.now(WARSAW), args.state, route=args.test_route, extra_budget=args.test_extra_budget)
         print(json.dumps(result, ensure_ascii=False))
         raise SystemExit(0 if result['status'] == 'pobrano cenę' else 1)
     result = collect(args.output, config, program, previous, read(args.rss_file) if args.rss_file else None,
