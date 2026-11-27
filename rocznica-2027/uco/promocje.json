@@ -1,7 +1,7 @@
 {
- "zaktualizowano": "2026-11-26",
- "nastepny": "2026-11-27",
- "status": "Odczyt 26.11.2026: brak promocji lotniczych z Europy do Argentyny obejmujących listopad 2027. Black Friday zaczyna się 27.11 – dotąd widać wyłącznie oferty z wylotem z Argentyny; sprawdzimy je tylko pod kątem listopada 2027. Kampania Iberia + Visit Argentina (850 EUR w obie strony) nadal nie obejmuje naszych dat – Iberia sprzedaje je od ok. 945 EUR. Plus Ultra zawiesiła wszystkie loty od 23.11, więc jej oferta 585 EUR przestała istnieć.",
+ "zaktualizowano": "2026-11-27",
+ "nastepny": "2026-11-28",
+ "status": "Odczyt 27.11.2026: nadal brak promocji lotniczej z Europy do Argentyny obejmującej listopad 2027. Black Friday ruszył i dwie najważniejsze dla nas linie mają już jawne warunki: Iberia sprzedaje do 1.12.2026 z podróżą 20.01–10.06.2027, a Air Europa w Hiszpanii do 1.12.2026 z podróżą do 17.06.2027 – żadna nie sięga naszych dat. Argentyńskie promocje Black Friday dotyczą wylotów z Buenos Aires do Europy, czyli odwrotnego kierunku.",
  "zrodla": [
   "fly4free.pl (tag argentyna, Ameryka Południowa)",
   "forum fly4free.pl",
@@ -15,6 +15,30 @@
   "hotele: Mr & Mrs Smith (Casa de Uco), Chozos, Lares de Chacras, La Morada, Legado Mítico"
  ],
  "wpisy": [
+  {
+   "data": "2026-11-27",
+   "zrodlo": "Iberia",
+   "tytul": "Black Friday 2026 – zniżki na loty Iberii",
+   "url": "https://www.iberia.com/es/ofertas/vuelos/black-friday/",
+   "cena": "–",
+   "trasa": "siatka Iberii z Europy",
+   "terminy": "zakup 23.11–1.12.2026, podróż 20.01–10.06.2027",
+   "bagaz": "według wybranej taryfy",
+   "pasuje": "nie",
+   "ocena": "Okres podróży kończy się 10.06.2027, więc listopada 2027 nie obejmuje. Sprawdzone bezpośrednio na stronie promocji 27.11. Potwierdza wzorzec z lat 2022–2025: Black Friday nie sięga listopada następnego roku."
+  },
+  {
+   "data": "2026-11-27",
+   "zrodlo": "Air Europa",
+   "tytul": "Black Friday 2026 – do 25 procent zniżki",
+   "url": "https://www.aireuropa.com/es/es/aea/ofertas/black-friday.html",
+   "cena": "–",
+   "trasa": "siatka Air Europy z Hiszpanii",
+   "terminy": "zakup do 1.12.2026, podróż do 17.06.2027",
+   "bagaz": "taryfa Flex: miejsce, pierwszeństwo wejścia i 23 kg w luku",
+   "pasuje": "nie",
+   "ocena": "Okres podróży kończy się 17.06.2027 – poza naszymi datami. Argentyńska wersja tej samej kampanii dotyczy wylotów z Buenos Aires do Europy, czyli odwrotnego kierunku, więc też nie jest naszą ofertą."
+  },
   {
    "data": "2026-11-13",
    "zrodlo": "Mr & Mrs Smith",

@@ -1,6 +1,6 @@
 {
- "zaktualizowano": "2026-11-26",
- "status": "Stan na 26.11.2026: uzupełniona próba Lufthansy na 4.11 również nie dała ceny całej trasy na jednym bilecie. W osobnych próbach listopadowe loty Warszawa-Buenos i Buenos-Warszawa są dostępne, ale nie uzyskano wyceny połączeń z Mendozą. Aerolíneas nie wycenia EZE-MDZ 6.11 ani MDZ-BUE 12.11; kontrolne wyszukiwania marcowe działają. To wskazuje na problem dostępności odcinków z Mendozą, lecz nie rozstrzyga przyczyny ani terminu otwarcia sprzedaży. Znalezione powroty Lufthansa/SWISS 13.11 startują przed 18:00 i nie spełniają planu. Bez API; ceny odcinkowe nie są ofertą całej podróży.",
+ "zaktualizowano": "2026-11-27",
+ "status": "Stan na 27.11.2026: Kayak pierwszy raz wycenił komplet trzech odcinków z Warszawy z wylotem 4.11 – 19 propozycji od 11 088 zł za osobę, czyli ponad dwa razy powyżej celu. Wszystkie są ofertami łączonymi z osobnych biletów (Air France i JetSMART), z wylotem o 06:35 zamiast po 20:00 i niecałą dobą w Buenos Aires, więc żadna nie spełnia profilu. Dla wylotu 5.11 ta sama wyszukiwarka nie znalazła niczego. Promocje Black Friday Iberii (podróż do 10.06.2027) i Air Europy (do 17.06.2027) nie obejmują listopada 2027. Skyscanner drugi dzień żąda weryfikacji antybotowej, a Google Flights nadal odmawia dat z listopada 2027 – cena całej podróży pozostaje bez potwierdzenia.",
  "nastepny": "2026-12-01",
  "prog": 4800,
  "cel": 4500,
@@ -72,6 +72,13 @@
      "status": "szacunek",
      "zrodlo": "Kayak, 2 dorosłych",
      "uwagi": "Kayak 26.11: Iberia Madryt–Buenos Aires bez przesiadki 4 228 zł + dolot i nocleg 850, bagaż 700, lot krajowy 650 zł"
+    },
+    {
+     "data": "2026-11-27",
+     "cena": 6440,
+     "status": "szacunek",
+     "zrodlo": "Kayak, 2 dorosłych",
+     "uwagi": "Kayak 27.11: Iberia Madryt–Buenos Aires bez przesiadki 4 243 zł + dolot i nocleg 850, bagaż 700, lot krajowy 650 zł"
     }
    ]
   },
@@ -139,6 +146,13 @@
      "status": "szacunek",
      "zrodlo": "Kayak, 2 dorosłych",
      "uwagi": "Kayak 26.11: Air Europa Madryt–Buenos Aires bez przesiadki 4 838 zł + dolot i nocleg 850, bagaż 700, lot krajowy 650 zł"
+    },
+    {
+     "data": "2026-11-27",
+     "cena": 7030,
+     "status": "szacunek",
+     "zrodlo": "Kayak, 2 dorosłych",
+     "uwagi": "Kayak 27.11: Air Europa Madryt–Buenos Aires bez przesiadki 4 830 zł + dolot i nocleg 850, bagaż 700, lot krajowy 650 zł"
     }
    ]
   },
@@ -183,6 +197,13 @@
      "status": "szacunek",
      "zrodlo": "Kayak, 2 dorosłych",
      "uwagi": "Kayak 26.11: KLM i Air France Warszawa–Buenos Aires 5 909 zł + bagaż 700, lot krajowy 650 zł"
+    },
+    {
+     "data": "2026-11-27",
+     "cena": 7240,
+     "status": "szacunek",
+     "zrodlo": "Kayak, 2 dorosłych",
+     "uwagi": "Kayak 27.11: KLM i Air France Warszawa–Buenos Aires 5 892 zł + bagaż 700, lot krajowy 650 zł"
     }
    ]
   },
@@ -234,6 +255,13 @@
      "status": "szacunek",
      "zrodlo": "Kayak, 2 dorosłych",
      "uwagi": "Kayak 26.11: Swiss i Lufthansa Warszawa–Buenos Aires 5 657 zł + bagaż 700, lot krajowy 650 zł"
+    },
+    {
+     "data": "2026-11-27",
+     "cena": 7020,
+     "status": "szacunek",
+     "zrodlo": "Kayak, 2 dorosłych",
+     "uwagi": "Kayak 27.11: Swiss i Lufthansa Warszawa–Buenos Aires 5 667 zł + bagaż 700, lot krajowy 650 zł"
     }
    ]
   },
@@ -315,6 +343,13 @@
      "status": "szacunek",
      "zrodlo": "Kayak, 2 dorosłych",
      "uwagi": "Kayak 26.11: British Airways Berlin–Buenos Aires 4 517 zł + dojazd 500, bagaż 700, lot krajowy 650 zł"
+    },
+    {
+     "data": "2026-11-27",
+     "cena": 6380,
+     "status": "szacunek",
+     "zrodlo": "Kayak, 2 dorosłych",
+     "uwagi": "Kayak 27.11: British Airways Berlin–Buenos Aires 4 533 zł + dojazd 500, bagaż 700, lot krajowy 650 zł"
     }
    ]
   }
@@ -418,9 +453,52 @@
     "opis": "Berlin–Buenos Aires 4 517 zł (British Airways, jedna przesiadka w każdą stronę) + dojazd 500, bagaż 700 i lot krajowy 650 zł – szacunek, plan B"
    },
    "uwaga": "W planie bazowym najtaniej Iberia przez Madryt 6 430 zł (bilet 4 228 zł, +5 zł od wczoraj) – szacunek z ryczałtami, nie oferta. Lufthansa/Swiss z Warszawy 7 010 zł (bilet 5 657 zł), Air Europa przez Madryt 7 040 zł, Air France/KLM 7 260 zł. Bilet z postojem w Buenos Aires nadal tylko jako łączenie osobnych biletów (13 360 zł z Warszawy) – bez punktu w serii."
+  },
+  {
+   "data": "2026-11-27",
+   "zrodlo": "raport dzienny",
+   "faza": "Black Friday",
+   "najtansza": {
+    "id": "vie",
+    "cena": 6380,
+    "opis": "Berlin–Buenos Aires 4 533 zł (British Airways, jedna przesiadka w każdą stronę) + dojazd 500, bagaż 700 i lot krajowy 650 zł – szacunek, plan B"
+   },
+   "uwaga": "W planie bazowym najtaniej Lufthansa/Swiss z Warszawy 7 020 zł (bilet 5 667 zł, +10 zł od wczoraj), Air France/KLM 7 240 zł; przez Madryt Iberia 6 440 zł (bilet 4 243 zł, +15 zł) i Air Europa 7 030 zł – wszystko szacunki z ryczałtami, nie oferty. Pierwszy raz pojawił się komplet trzech odcinków z Warszawy na 4.11 (od 11 088 zł za osobę), ale jako łączenie osobnych biletów – bez punktu w serii."
   }
  ],
  "sygnaly": [
+  {
+   "data": "2026-11-27",
+   "typ": "Taryfa",
+   "kierunek": "neutralnie",
+   "waga": 2,
+   "opis": "Kayak 27.11, 2 dorosłych: komplet WAW-MDZ 4.11 / MDZ-BUE 12.11 / BUE-WAW 13.11 zwrócił po raz pierwszy 19 wyników, od 11 088 zł za osobę (Air France i JetSMART), dalej 14 386 zł i 24 439–24 469 zł. Wyszukiwarka oznacza je jako łączenie osobnych biletów. Najtańszy wariant wylatuje 4.11 o 06:35 (zasada: tylko po 20:00), leci 34 h 30 min w stronę i daje w Buenos Aires około 22 godzin zamiast 24. Ten sam komplet z wylotem 5.11 odpowiada „Nie znaleziono lotów”.",
+   "url": "https://www.kayak.pl/flights/WAW-MDZ/2027-11-04/MDZ-BUE/2027-11-12/BUE-WAW/2027-11-13/2adults?sort=price_a"
+  },
+  {
+   "data": "2026-11-27",
+   "typ": "Kampania",
+   "kierunek": "neutralnie",
+   "waga": 2,
+   "opis": "Black Friday 2026 nie obejmuje naszych dat. Iberia podaje na stronie promocji: okres zakupu 23.11–1.12.2026, okres podróży 20.01–10.06.2027. Air Europa w wersji hiszpańskiej: zakup do 1.12.2026, podróż do 17.06.2027. Argentyńska odsłona Air Europy (do 25 procent zniżki) dotyczy wylotów z Buenos Aires do Europy, czyli odwrotnego kierunku niż nasz.",
+   "url": "https://www.iberia.com/es/ofertas/vuelos/black-friday/"
+  },
+  {
+   "data": "2026-11-27",
+   "typ": "Taryfa",
+   "kierunek": "neutralnie",
+   "waga": 1,
+   "opis": "Kayak 27.11, 5–13.11.2027, 2 dorosłych, bez bagażu: z Warszawy Swiss i Lufthansa 5 667 zł (26.11: 5 657 zł), KLM i Air France 5 892 zł (5 909 zł), Air Canada 4 260 zł, ale z trzema przesiadkami i 36 h 40 min – poza naszymi zasadami. Z Madrytu Iberia bez przesiadki 4 243 zł (4 228 zł), Air Europa 4 830 zł (4 838 zł). Z Berlina British Airways 4 533 zł (4 517 zł), z Wiednia Swiss 4 639 zł (4 616 zł). To odcinki, nie cała podróż – bez lotu krajowego i bez stopoveru.",
+   "url": "https://www.kayak.pl/flights/WAW-BUE/2027-11-05/2027-11-13/2adults?sort=price_a"
+  },
+  {
+   "data": "2026-11-27",
+   "typ": "Rozkład",
+   "kierunek": "neutralnie",
+   "waga": 1,
+   "opis": "Google Flights na zapytanie Warszawa–Buenos Aires 5–13.11.2027 odpowiada „Wybrana data lotu przypada w zbyt odległej przyszłości”, więc naszych dat nadal nie udostępnia i nie da się tam ustawić alertu. Skyscanner drugi dzień z rzędu przekierowuje na weryfikację „czy jesteś robotem” – drugiej rodziny wyszukiwarek znów nie udało się odczytać.",
+   "url": "https://www.google.com/travel/flights"
+  },
   {
    "data": "2026-11-26",
    "typ": "Taryfa",
@@ -877,14 +955,14 @@
  ],
  "skrzynka": [],
  "rss": {
-  "sprawdzono": "2026-11-26T11:32:21+01:00",
+  "sprawdzono": "2026-11-27T11:31:40+01:00",
   "dni": 3,
   "kanaly": [
    {
     "zrodlo": "Fly4free.pl",
     "url": "https://www.fly4free.pl/feed/",
     "grupa": "fly4free.pl",
-    "sprawdzono": "2026-11-26T11:32:21+01:00",
+    "sprawdzono": "2026-11-27T11:31:40+01:00",
     "wpisy": 20,
     "ok": true
    },
@@ -892,23 +970,25 @@
     "zrodlo": "Fly4free.pl · Argentyna",
     "url": "https://www.fly4free.pl/tag/argentyna/feed/",
     "grupa": "fly4free.pl",
-    "sprawdzono": "2026-11-26T11:32:21+01:00",
-    "wpisy": 20,
-    "ok": true
+    "sprawdzono": "2026-11-27T11:31:40+01:00",
+    "wpisy": 0,
+    "ok": false,
+    "blad": "IncompleteRead(44704 bytes read)"
    },
    {
     "zrodlo": "Fly4free.com",
     "url": "https://www.fly4free.com/feed/",
     "grupa": "fly4free.com",
-    "sprawdzono": "2026-11-26T11:31:55+01:00",
-    "wpisy": 50,
-    "ok": true
+    "sprawdzono": "2026-11-27T11:31:40+01:00",
+    "wpisy": 0,
+    "ok": false,
+    "blad": "IncompleteRead(6071 bytes read)"
    },
    {
     "zrodlo": "Fly4free.pl · Buenos Aires",
     "url": "https://www.fly4free.pl/tag/buenos-aires/feed/",
     "grupa": "fly4free.pl",
-    "sprawdzono": "2026-11-26T11:31:55+01:00",
+    "sprawdzono": "2026-11-27T11:31:40+01:00",
     "wpisy": 20,
     "ok": true
    },
@@ -916,15 +996,16 @@
     "zrodlo": "Fly4free.pl · Ameryka Płd.",
     "url": "https://www.fly4free.pl/tag/ameryka-poludniowa/feed/",
     "grupa": "fly4free.pl",
-    "sprawdzono": "2026-11-26T11:32:21+01:00",
-    "wpisy": 20,
-    "ok": true
+    "sprawdzono": "2026-11-27T11:31:40+01:00",
+    "wpisy": 0,
+    "ok": false,
+    "blad": "IncompleteRead(52896 bytes read)"
    },
    {
     "zrodlo": "Travel-dealz · Argentyna",
     "url": "https://travel-dealz.com/destination/argentina/feed/",
     "grupa": "travel-dealz.com",
-    "sprawdzono": "2026-11-26T11:32:21+01:00",
+    "sprawdzono": "2026-11-27T11:31:40+01:00",
     "wpisy": 0,
     "ok": false,
     "blad": "The read operation timed out"
@@ -933,40 +1014,41 @@
     "zrodlo": "Travel-dealz · Chile",
     "url": "https://travel-dealz.com/destination/chile/feed/",
     "grupa": "travel-dealz.com",
-    "sprawdzono": "2026-11-26T09:21:00+01:00",
-    "wpisy": 4,
-    "ok": true
+    "sprawdzono": "2026-11-27T11:31:40+01:00",
+    "wpisy": 0,
+    "ok": false,
+    "blad": "IncompleteRead(26907 bytes read)"
    },
    {
     "zrodlo": "Travel-dealz",
     "url": "https://travel-dealz.com/feed/",
     "grupa": "travel-dealz.com",
-    "sprawdzono": "2026-11-26T11:32:21+01:00",
+    "sprawdzono": "2026-11-27T11:31:40+01:00",
     "wpisy": 0,
     "ok": false,
-    "blad": "niepoprawny RSS/Atom"
+    "blad": "IncompleteRead(360447 bytes read)"
    },
    {
     "zrodlo": "Wakacyjni Piraci",
     "url": "https://www.wakacyjnipiraci.pl/feed",
     "grupa": "wakacyjnipiraci.pl",
-    "sprawdzono": "2026-11-26T11:32:21+01:00",
-    "wpisy": 30,
+    "sprawdzono": "2026-11-27T11:31:40+01:00",
+    "wpisy": 29,
     "ok": true
    },
    {
     "zrodlo": "HolidayPirates",
     "url": "https://www.holidaypirates.com/feed",
     "grupa": "holidaypirates.com",
-    "sprawdzono": "2026-11-26T11:32:21+01:00",
-    "wpisy": 62,
+    "sprawdzono": "2026-11-27T11:31:40+01:00",
+    "wpisy": 76,
     "ok": true
    },
    {
     "zrodlo": "Pepper.pl",
     "url": "https://www.pepper.pl/rss/nowe",
     "grupa": "pepper.pl",
-    "sprawdzono": "2026-11-26T11:32:21+01:00",
+    "sprawdzono": "2026-11-27T11:31:40+01:00",
     "wpisy": 30,
     "ok": true
    },
@@ -974,15 +1056,16 @@
     "zrodlo": "Infoviajera",
     "url": "https://www.infoviajera.com/feed/",
     "grupa": "infoviajera.com",
-    "sprawdzono": "2026-11-26T09:21:00+01:00",
-    "wpisy": 10,
-    "ok": true
+    "sprawdzono": "2026-11-27T11:31:40+01:00",
+    "wpisy": 0,
+    "ok": false,
+    "blad": "IncompleteRead(0 bytes read)"
    },
    {
     "zrodlo": "Promociones Aéreas",
     "url": "https://promociones-aereas.com.ar/feed/",
     "grupa": "promociones-aereas.com.ar",
-    "sprawdzono": "2026-11-26T09:21:00+01:00",
+    "sprawdzono": "2026-11-27T11:31:40+01:00",
     "wpisy": 15,
     "ok": true
    },
@@ -990,7 +1073,7 @@
     "zrodlo": "Sir Chandler",
     "url": "https://www.sirchandler.com.ar/feed/",
     "grupa": "sirchandler.com.ar",
-    "sprawdzono": "2026-11-26T11:32:21+01:00",
+    "sprawdzono": "2026-11-27T11:31:40+01:00",
     "wpisy": 20,
     "ok": true
    },
@@ -998,44 +1081,18 @@
     "zrodlo": "Aeroroutes",
     "url": "https://www.aeroroutes.com/eng?format=rss",
     "grupa": "aeroroutes.com",
-    "sprawdzono": "2026-11-26T11:32:21+01:00",
+    "sprawdzono": "2026-11-27T11:31:40+01:00",
     "wpisy": 20,
     "ok": true
    }
   ],
   "trafienia": [
    {
-    "zrodlo": "Infoviajera",
-    "tytul": "Finalmente, Plus Ultra anuncia la suspensión total de sus operaciones aéreas",
-    "url": "https://www.infoviajera.com/2026/11/finamente-plus-ultra-anuncia-la-suspension-total-de-sus-operaciones-aereas/",
-    "data": "2026-11-24",
-    "opis": " La aerolínea Plus Ultra finalmente anunció la suspensión total de sus operaciones aéreas a partir de hoy, 23 de noviembre de 2026. Los puntos salientes de su comunicado son los siguientes: Plus Ultra Líneas Aéreas suspende sus operaciones aéreas a partir de hoy, 23 de noviembre de 2026 y hasta nuevo aviso Ese final, en donde mencionan un posible «nuevo aviso», intenta apelar a la ilusión de que p",
-    "sila": "silne",
-    "tryb": "ar",
-    "status": "trop",
-    "kanaly": [
-     "Infoviajera"
-    ]
-   },
-   {
-    "zrodlo": "Sir Chandler",
-    "tytul": "Plus Ultra habría operado su último vuelo y podría cerrar definitivamente",
-    "url": "https://www.sirchandler.com.ar/2026/11/plus-ultra-habria-operado-su-ultimo-vuelo-y-podria-cerrar-definitivamente/",
-    "data": "2026-11-23",
-    "opis": " Esta mañana española habría aterrizado el último vuelo de Plus Ultra, proveniente de Caracas, el último destino que había dejado operativo la aerolínea. Si bien se informó que la aerolínea cortaba los vuelos de Lima y Ezeiza, pero que mantenía los de Caracas con Madrid y Tenerife, parece que la situación económica de la aerolínea... \n La entrada  Plus Ultra habría operado su último vuelo y podría",
-    "sila": "silne",
-    "tryb": "ar",
-    "status": "trop",
-    "kanaly": [
-     "Sir Chandler"
-    ]
-   },
-   {
     "zrodlo": "Promociones Aéreas",
-    "tytul": "Black Friday: ¡Hermoso! ✈️ Vuelos a Madrid desde Córdoba a partir de U$D 920 con Carry On 🥘 y financiamiento en Cuotas",
-    "url": "https://promociones-aereas.com.ar/2026/11/black-friday-hermoso-vuelos-a-madrid-desde-cordoba-con-carry-on-cuotas-latam-rt-p.html",
-    "data": "2026-11-25",
-    "opis": " Hay Vuelos a Madrid desde Córdoba a partir de U$D 920 finales, ida y vuelta, con Carry On incluido, ó a partir de U$D 1.043 con equipaje en Bodega de […] \n La entrada  Black Friday: ¡Hermoso! ✈️ Vuelos a Madrid desde Córdoba a partir de U$D 920 con Carry On 🥘 y financiamiento en Cuotas  se publicó primero en  Promociones Aéreas . ",
+    "tytul": "Black Friday: ¡Para Aprovechar! Vuelos a París 🥐 a partir de U$D 975 🔥 con Carry On 🧳 desde Buenos Aires",
+    "url": "https://promociones-aereas.com.ar/2026/11/black-friday-vuelos-a-paris-con-carry-on-desde-buenos-aires-avianca-rt-p.html",
+    "data": "2026-11-26",
+    "opis": " Encontramos Vuelos a París desde Buenos Aires a partir de U$D 975 con Carry On incluido en el precio final, ida y vuelta. Los viajes son operados por Avianca con […] \n La entrada  Black Friday: ¡Para Aprovechar! Vuelos a París 🥐 a partir de U$D 975 🔥 con Carry On 🧳 desde Buenos Aires  se publicó primero en  Promociones Aéreas . ",
     "sila": "slabe",
     "tryb": "ar",
     "status": "trop",
@@ -1044,42 +1101,16 @@
     ]
    },
    {
-    "zrodlo": "Fly4free.com",
-    "tytul": "Exotic combination of flights 😎 🌴 Cape Verde + Recife, Brazil in one tropical trip from Amsterdam for €526",
-    "url": "https://www.fly4free.com/flight-deals/europe/trip-from-amsterdam-to-cape-verde-and-recife-e526/",
-    "data": "2026-11-23",
-    "opis": "Why settle for one tropical destination when you can explore two? This exotic flight combination from Amsterdam lets you discover the beautiful beaches and volcanic landscapes of Cape Verde before heading to Recife, Brazil, for a taste of South American culture, sunshine and stunning coastline. Flights to both destinations are available for just €526! An unusual combination for an unforgettable tr",
-    "sila": "slabe",
-    "tryb": "eu",
-    "status": "trop",
-    "kanaly": [
-     "Fly4free.com"
-    ]
-   },
-   {
-    "zrodlo": "Fly4free.com",
-    "tytul": "BRAZILIAN SUMMER 😎 🍹 Non-stop flights from Madrid to Sao Paulo for €587",
-    "url": "https://www.fly4free.com/flight-deals/europe/flights-from-madrid-to-sao-paulo-e587/",
-    "data": "2026-11-23",
-    "opis": "Experience comfort, reliability, and direct service to one of Brazil’s most exciting destinations! LATAM is offering discounted flights to Sao Paulo starting at only €587 for a round trip.",
-    "sila": "slabe",
-    "tryb": "eu",
-    "status": "trop",
-    "kanaly": [
-     "Fly4free.com"
-    ]
-   },
-   {
-    "zrodlo": "Infoviajera",
-    "tytul": "Air France refuerza sus vuelos en América, Asia y la península ibérica para el invierno europeo 2026-2027",
-    "url": "https://www.infoviajera.com/2026/11/air-france-refuerza-sus-vuelos-en-america-asia-y-la-peninsula-iberica-para-el-invierno-europeo-2026-2027/",
-    "data": "2026-11-23",
-    "opis": " Air France ampliará su oferta de vuelos durante la temporada de invierno europea 2026-2027, que se extiende de noviembre de 2026 a abril de 2027. La compañía prevé operar hasta 725 vuelos diarios a cerca de 170 destinos, con mayor capacidad en rutas hacia América, Asia y África, además de reforzar sus conexiones europeas. Por el momento, no vimos que Air France haya anunciado cambios en sus vuelo",
+    "zrodlo": "Promociones Aéreas",
+    "tytul": "Black Friday: Tokio a partir de U$D 1.642 desde Buenos Aires 🍣🏯 con una sola escala y carry on",
+    "url": "https://promociones-aereas.com.ar/2026/11/black-friday-tokio-desde-buenos-aires-con-una-sola-escala-y-carry-on-iberia-rt-p.html",
+    "data": "2026-11-26",
+    "opis": " Hay disponibles vuelos a Tokio desde Buenos Aires a partir de U$D 1.642 finales, ida y vuelta con carry on incluido y una sola escala en Madrid. Les dejamos opciones […] \n La entrada  Black Friday: Tokio a partir de U$D 1.642 desde Buenos Aires 🍣🏯 con una sola escala y carry on  se publicó primero en  Promociones Aéreas . ",
     "sila": "slabe",
     "tryb": "ar",
     "status": "trop",
     "kanaly": [
-     "Infoviajera"
+     "Promociones Aéreas"
     ]
    }
   ],
@@ -1087,69 +1118,87 @@
   "uwaga": "RSS to tropy, nie potwierdzone oferty. Fora, komentarze, newslettery i ceny linii wymagają osobnego odczytu. Kanały jednego portalu nie są niezależnymi źródłami."
  },
  "raport": {
-  "data": "2026-11-26",
-  "sprawdzono": "2026-11-26T20:26:10+01:00",
+  "data": "2026-11-27",
+  "sprawdzono": "2026-11-27T11:50:00+01:00",
   "profil": "waw-jeden-podreczny-v1",
-  "werdykt": "⚪ Jeszcze nie kupujemy - bezpośrednie próby u linii nie dały pełnej wyceny na listopad",
+  "werdykt": "⚪ Jeszcze nie kupujemy – pełny bilet z Warszawy do Mendozy wciąż bez wyceny, a Black Friday kończy się na czerwcu 2027",
   "calosc": null,
   "ofertaId": null,
   "typCeny": null,
   "szacunek": null,
-  "stan": "Próba Lufthansy na 4.11 została zakończona: brak pełnej oferty. Diagnostyka wskazuje na brak wyceny połączeń z Mendozą w listopadzie, mimo dostępności odcinków transatlantyckich. Marcowe kontrole działają. Nie potwierdzono przyczyny ani daty odblokowania. Cel: 9000 zł za parę, super okazja do 8000 zł.",
+  "stan": "Kayak po raz pierwszy pokazał komplet trzech odcinków z Warszawy, ale tylko dla wylotu 4.11 i najtaniej za 11 088 zł od osoby – jako oferta łączona z osobnych biletów, z wylotem rano i niecałą dobą w Buenos Aires. Dla 5.11 ta sama wyszukiwarka nie znalazła nic. Żadna propozycja nie spełnia profilu, więc cena całej podróży nadal nie ma potwierdzenia. Cel 9 000 zł za parę, super okazja do 8 000 zł.",
   "punkty": [
    [
-    "Lufthansa 4.11:",
-    "Pełna trasa WAW-MDZ / MDZ-BUE 12.11 / BUE-WAW 13.11 dla 2 dorosłych zwróciła brak oferty. Dotychczasowa luka techniczna została zamknięta."
+    "Od wczoraj:",
+    "Zmiana w wyszukiwarce: Kayak pierwszy raz wycenił komplet WAW–MDZ / MDZ–BUE / BUE–WAW dla wylotu 4.11 – 19 propozycji od 11 088 zł za osobę. Wczoraj tej wyceny nie było w ogóle. Dla wylotu 5.11 odpowiedź nadal brzmi „Nie znaleziono lotów”. Doszły też twarde terminy promocji Black Friday: Iberia i Air Europa kończą okres podróży w czerwcu 2027, więc listopada 2027 nie obejmują."
    ],
    [
-    "Co blokuje listopad:",
-    "Lufthansa nie wycenia WAW-MDZ 4.11, a Aerolíneas EZE-MDZ 6.11 ani MDZ-BUE 12.11. Lufthansa pokazuje za to WAW-BUE 4.11 i BUE-WAW 13.11. Brak wyceny połączeń z Mendozą to potwierdzona przeszkoda w sprawdzonych formularzach, nie dowód braku biletów u wszystkich linii."
+    "Ceny na nasze daty:",
+    "Najtańszy komplet 4.11 / 12.11 / 13.11 to 11 088 zł za osobę (Air France i JetSMART, Kayak 27.11) – o 6 588 zł powyżej celu 4 500 zł; reszta z 19 wyników kosztuje od 14 386 do 24 469 zł. Kayak oznacza je jako łączenie osobnych biletów, więc żadna nie jest ofertą do zakupu. Dla 5.11 nie ma dziś żadnej wyceny, więc porównanie czwartku z piątkiem jest niemożliwe. Skyscannera (CAPTCHA) i Google Flights (zbyt odległa data) nie odczytano."
    ],
    [
-    "Próby kontrolne:",
-    "Lufthansa WAW-MDZ 4.03.2027: 9 propozycji. Aerolíneas MDZ-BUE 12.03.2027: dostępne rejsy bezpośrednie; 12.10 bez wyników. Możliwe nieudostępnienie przyszłej dostępności lub taryf partnerów pozostaje hipotezą. Nie potwierdzono daty otwarcia."
+    "Przesiadki i ochrona:",
+    "Rozkład najtańszego kompletu: Warszawa 06:35 z dwiema przesiadkami, Mendoza 13:05 następnego dnia (34 h 30 min w stronę, limit to 30 h), potem Mendoza 22:59 – Ezeiza 00:40 i powrót z Ezeizy 13.11 o 22:40, Warszawa 14.11 o 22:05. Pobyt w Buenos Aires wychodzi około 22 godzin zamiast 24, a przylot wypada w nocy 13.11, nie 12.11 do 15:59. Wylot o 06:35 łamie zasadę „czwartek tylko po 20:00”. Wspólnego biletu ani podręcznego nie potwierdzono."
    ],
    [
-    "Godziny i stopover:",
-    "Wszystkie 8 propozycji WAW-BUE 4.11 startują przed 20:00. Wszystkie 15 wyników BUE-WAW 13.11 ma wylot o 14:40 lub 17:45, przed wymaganym 18:00. Brak kwalifikującej się pełnej trasy, potwierdzenia wspólnego biletu, bagażu i stopoveru min. 24 h."
+    "Kampanie i promocje:",
+    "Iberia Black Friday 2026: zakup 23.11–1.12.2026, podróż 20.01–10.06.2027. Air Europa w Hiszpanii: zakup do 1.12.2026, podróż do 17.06.2027. Żadna nie sięga listopada 2027 – zgodnie z oczekiwaniem tej fazy. Argentyńska odsłona Air Europy dotyczy wylotów z Buenos Aires do Europy, czyli odwrotnego kierunku. Radar RSS odczytał 8 z 15 kanałów i znalazł dwa tropy, oba z Buenos Aires (Paryż, Tokio) – nie nasze."
    ],
    [
-    "Zakres kontroli:",
-    "Uzupełnienie dotyczy Lufthansy i Aerolíneas do 20:26. Wyniki KLM, Air France, Iberii i Air Europy pozostają z 16:47. Nie ponawiano portali, forów ani newsletterów. Zero zapytań API."
+    "Kursy:",
+    "Kurs NBP z 26.11.2026 (tabela 230/A): dolar 4,0835 zł, euro 4,4802 zł. Budżet liczymy po 4,06 zł za dolara i 4,46 zł za euro z 23.11 – dolar jest wyżej o 0,6 procent, czyli o około 100 zł na parę w wariancie polecanym. To mniej niż próg 3 procent, więc kursu w budżecie dziś nie zmieniamy."
    ],
    [
     "Poprawione na stronie:",
-    "Zamknięto lukę Lufthansy na 4.11, zapisano wyniki prób odcinkowych, marcowych kontroli i przeszkody godzinowe. Ceny pojedynczych odcinków nie trafiają do najlepszych ofert ani trendu."
+    "W opisie i decyzji fazy Black Friday wpisano sprawdzone okresy promocji Iberii i Air Europy oraz pierwszą wycenę kompletu z Mendozą na 4.11. Zapisano wynik radaru promocji, cztery nowe sygnały, dzisiejsze punkty cen i odczyty źródeł (Kayak, Google Flights, Skyscanner, portale). W ankiecie par nadal nie ma żadnej odpowiedzi, więc pól z wynikiem nie dodano."
    ]
   ],
   "teraz": [
-   "Przy kolejnym odczycie najpierw sprawdzić dostępność połączeń z Mendozą, a po jej zmianie ponowić pełną trasę na jednym bilecie. Powrót musi startować 13.11 od 18:00, z lądowaniem w WAW do 14.11. Nie powtarzać tych samych pustych prób bez nowej przesłanki. Brak potwierdzonej daty udostępnienia oferty.",
-   "Po uzyskaniu pełnej ceny potwierdzić wspólny chroniony bilet, podręczny, przesiadki i pobyt Buenos min. 24 h. Nie sumować osobnych biletów jako rozwiązania."
+   "Dziś do 30.11: sprawdzać wyłącznie, czy którakolwiek linia wyjątkowo przedłuży Black Friday na listopad 2027. Iberia i Air Europa już odpadły; zostają LATAM, ITA, TAP, Turkish i Aerolíneas.",
+   "Od 1.12: faza pełnego rozkładu – wycenić całą trasę ze stopoverem w formularzach linii, gdy tylko pojawią się połączenia z Mendozą na listopad. Nie powtarzać pustych prób bez nowej przesłanki.",
+   "W połowie grudnia: ponowna kontrola kalendarza Google Flights, który dziś nadal odmawia dat z listopada 2027.",
+   "Do 15.01.2027: pary potwierdzają skład i dane z paszportów oraz wybór wariantu hoteli – w ankiecie na stronie skrótu nie ma jeszcze żadnej odpowiedzi."
   ],
   "zrodla": [
    {
-    "label": "KLM - formularz sprawdzony 26.11.2026",
-    "url": "https://www.klm.pl/"
+    "label": "Kayak – komplet WAW-MDZ-BUE-WAW, wylot 4.11, 2 dorosłych (27.11)",
+    "url": "https://www.kayak.pl/flights/WAW-MDZ/2027-11-04/MDZ-BUE/2027-11-12/BUE-WAW/2027-11-13/2adults?sort=price_a"
    },
    {
-    "label": "Air France - formularz sprawdzony 26.11.2026",
-    "url": "https://wwws.airfrance.pl/"
+    "label": "Kayak – ten sam komplet z wylotem 5.11: brak lotów (27.11)",
+    "url": "https://www.kayak.pl/flights/WAW-MDZ/2027-11-05/MDZ-BUE/2027-11-12/BUE-WAW/2027-11-13/2adults?sort=price_a"
    },
    {
-    "label": "Iberia - formularz sprawdzony 26.11.2026",
-    "url": "https://www.iberia.com/es/flight-search-engine/multiple-legs/"
+    "label": "Kayak – Warszawa–Buenos Aires 5–13.11.2027 (27.11)",
+    "url": "https://www.kayak.pl/flights/WAW-BUE/2027-11-05/2027-11-13/2adults?sort=price_a"
    },
    {
-    "label": "Aerolíneas Argentinas - formularz sprawdzony 26.11.2026",
-    "url": "https://www.aerolineas.com.ar/en-us"
+    "label": "Kayak – Madryt–Buenos Aires 5–13.11.2027 (27.11)",
+    "url": "https://www.kayak.pl/flights/MAD-BUE/2027-11-05/2027-11-13/2adults?sort=price_a"
    },
    {
-    "label": "Lufthansa - formularz sprawdzony 26.11.2026",
-    "url": "https://www.lufthansa.com/pl/en/homepage"
+    "label": "Kayak – Berlin–Buenos Aires 5–13.11.2027, plan B (27.11)",
+    "url": "https://www.kayak.pl/flights/BER-BUE/2027-11-05/2027-11-13/2adults?sort=price_a"
    },
    {
-    "label": "Air Europa - formularz sprawdzony 26.11.2026",
-    "url": "https://www.aireuropa.com/ot/en/multi-city-flights"
+    "label": "Iberia – warunki Black Friday 2026 (odczyt 27.11)",
+    "url": "https://www.iberia.com/es/ofertas/vuelos/black-friday/"
+   },
+   {
+    "label": "Air Europa – warunki Black Friday 2026 w Hiszpanii (odczyt 27.11)",
+    "url": "https://www.aireuropa.com/es/es/aea/ofertas/black-friday.html"
+   },
+   {
+    "label": "Google Flights – „zbyt odległa data” dla listopada 2027 (27.11)",
+    "url": "https://www.google.com/travel/flights"
+   },
+   {
+    "label": "NBP – tabela A, kursy z 26.11.2026",
+    "url": "https://api.nbp.pl/api/exchangerates/tables/A/?format=json"
+   },
+   {
+    "label": "Fly4free – wpisy pod tagiem „argentyna” (odczyt 27.11)",
+    "url": "https://www.fly4free.pl/tag/argentyna/"
    }
   ]
  },
@@ -1164,44 +1213,44 @@
   },
   {
    "id": "fly4free",
-   "sprawdzono": "2026-11-26T11:50:00+01:00",
+   "sprawdzono": "2026-11-27T11:50:00+01:00",
    "status": "częściowe",
-   "wynik": "RSS: 5/5 kanałów (łącznie z odczytem z 09:21) oraz lista wpisów pod tagiem „argentyna” w przeglądarce – bez oferty na listopad 2027. Komentarzy i forum nie czytano.",
+   "wynik": "RSS: 2/5 kanałów (główny i tag „buenos aires”; tagi „argentyna” i „ameryka południowa” oraz wersja angielska przerwały połączenie). Lista wpisów pod tagiem „argentyna” odczytana w przeglądarce – bez oferty na listopad 2027. Komentarzy i forum nie czytano.",
    "url": "https://www.fly4free.pl/tag/argentyna/"
   },
   {
    "id": "traveldealz",
-   "sprawdzono": "2026-11-26T09:21:00+01:00",
-   "status": "częściowe",
-   "wynik": "RSS: 1/3 kanałów. Artykuły sprawdzone automatycznie; komentarze, fora i ceny u linii nie były w tym odczycie weryfikowane.",
+   "sprawdzono": "2026-11-27T11:50:00+01:00",
+   "status": "błąd",
+   "wynik": "RSS: 0/3 kanałów – przekroczony czas odczytu i przerwane połączenia. Strony nie czytano dziś ręcznie, więc promocje Travel-Dealz pozostają luką.",
    "url": "https://travel-dealz.com/destination/argentina/feed/"
   },
   {
    "id": "pepper",
-   "sprawdzono": "2026-11-26T11:32:21+01:00",
+   "sprawdzono": "2026-11-27T11:50:00+01:00",
    "status": "częściowe",
-   "wynik": "RSS: 1/1 kanałów, bez trafień. Komentarzy nie czytano.",
+   "wynik": "RSS: 1/1 kanałów, bez trafień dla naszych kierunków. Komentarzy nie czytano.",
    "url": "https://www.pepper.pl/rss/nowe"
   },
   {
    "id": "argentina",
-   "sprawdzono": "2026-11-26T11:50:00+01:00",
+   "sprawdzono": "2026-11-27T11:50:00+01:00",
    "status": "częściowe",
-   "wynik": "Infoviajera: strona główna i komunikat Plus Ultra odczytane w przeglądarce (RSS z tego odczytu nie odpowiedział); Sir Chandler: RSS. Bez promocji z Europy na listopad 2027.",
-   "url": "https://www.infoviajera.com/"
+   "wynik": "Sir Chandler i Promociones Aéreas: RSS odczytany – dwa tropy Black Friday, oba z Buenos Aires (Paryż, Tokio), czyli odwrotny kierunek. Infoviajera przerwała połączenie i nie została dziś odczytana.",
+   "url": "https://www.sirchandler.com.ar/"
   },
   {
    "id": "kayak",
-   "sprawdzono": "2026-11-26T11:50:00+01:00",
+   "sprawdzono": "2026-11-27T11:50:00+01:00",
    "status": "sprawdzone",
-   "wynik": "Dla 2 dorosłych: WAW, MAD, VIE i BER do Buenos Aires 5–13.11.2027, WAW 4–13.11, bilety trzyodcinkowe z postojem z WAW i MAD, filtry Turkish, ITA i Air Europa. Wszystkie wyszukiwania doszły do „Gotowe”. Ceny bez bagażu, niepotwierdzone u linii.",
+   "wynik": "Dla 2 dorosłych: komplet WAW-MDZ/MDZ-BUE/BUE-WAW na 4.11 (19 wyników od 11 088 zł) i na 5.11 („Nie znaleziono lotów”), WAW-BUE, MAD-BUE, BER-BUE i VIE-BUE 5–13.11. Wszystkie wyszukiwania doszły do „Gotowe”. Ceny bez bagażu, niepotwierdzone u linii.",
    "url": "https://www.kayak.pl/flights"
   },
   {
    "id": "skyscanner",
-   "sprawdzono": "2026-11-26T11:50:00+01:00",
+   "sprawdzono": "2026-11-27T11:50:00+01:00",
    "status": "błąd",
-   "wynik": "Strona zażądała weryfikacji „czy jesteś robotem” (CAPTCHA) – nie odczytano żadnej ceny.",
+   "wynik": "Strona przekierowała na weryfikację „czy jesteś robotem” (CAPTCHA) – drugi dzień z rzędu, nie odczytano żadnej ceny.",
    "url": "https://www.skyscanner.pl/transport/multi-city/"
   },
   {
@@ -1210,6 +1259,13 @@
    "status": "częściowe",
    "wynik": "6 przewoźników sprawdzono do 16:47; uzupełniono Lufthansę i Aerolíneas do 20:26. Lufthansa 4.11: brak pełnej oferty. Próby odcinkowe wskazują na brak wyceny połączeń z Mendozą i niezgodne godziny powrotów Lufthansa/SWISS. Marcowe kontrole działają. Nie sprawdzono wszystkich linii ani warunków biletu.",
    "url": "https://www.klm.pl/"
+  },
+  {
+   "id": "google",
+   "sprawdzono": "2026-11-27T11:50:00+01:00",
+   "status": "poza kalendarzem",
+   "wynik": "Na zapytanie Warszawa–Buenos Aires 5–13.11.2027 odpowiada „Wybrana data lotu przypada w zbyt odległej przyszłości”. Alertu na nasze daty nadal nie da się ustawić.",
+   "url": "https://www.google.com/travel/flights"
   }
  ],
  "kontrolaListopada": {
