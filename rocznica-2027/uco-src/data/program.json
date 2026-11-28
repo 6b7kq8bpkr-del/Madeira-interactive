@@ -1193,9 +1193,9 @@
      "od": "2026-11-27",
      "do": "2026-11-30",
      "faza": "Black Friday",
-     "co": "Tylko sprawdzić, czy którakolwiek linia wyjątkowo rozszerzyła okres podróży na listopad 2027. Sprawdzone 27.11: Iberia (zakup 23.11–1.12.2026, podróż 20.01–10.06.2027) i Air Europa (podróż do 17.06.2027) – obie odpadają. Zostają LATAM, ITA, TAP, Turkish i Aerolíneas. W latach 2022–2025 żadna linia nie objęła listopada następnego roku.",
+     "co": "Tylko sprawdzić, czy którakolwiek linia wyjątkowo rozszerzyła okres podróży na listopad 2027. Sprawdzone 27.11: Iberia (podróż do 10.06.2027) i Air Europa (do 17.06.2027) odpadają; 28.11 nie znaleziono kampanii LATAM, ITA, Turkish ani Aerolíneas na listopad 2027. W latach 2022–2025 żadna linia nie objęła listopada następnego roku.",
      "automat": "Codzienny raport lotów",
-     "decyzja": "27.11: Black Friday ruszył, ale Iberia pozwala lecieć tylko do 10.06.2027, a Air Europa do 17.06.2027 – listopada 2027 nie obejmuje żadna. Kayak pierwszy raz wycenił komplet z Mendozą na wylot 4.11: od 11 088 zł za osobę, osobne bilety, wylot rano – odpada. Nie kupować niczego „bo promocja”.",
+     "decyzja": "28.11: Black Friday nie obejmuje listopada 2027 w żadnej sprawdzonej linii. Kayak wycenia już komplet z Mendozą dla obu dni wylotu (5.11: 14 112 zł, 4.11: od 13 273 zł za osobę), ale tylko z osobnych biletów i z przesiadkami poza zasadami – odpada. Nie kupować niczego „bo promocja”.",
      "ton": "sprawdz",
      "szansa": 0.5,
      "kr": "BF"
